@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A061869A12D2268D0019A71A /* Wrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = A061869712D2268D0019A71A /* Wrapper.h */; };
+		A061869B12D2268D0019A71A /* Wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A061869812D2268D0019A71A /* Wrapper.m */; };
+		A061869C12D2268D0019A71A /* WrapperDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A061869912D2268D0019A71A /* WrapperDelegate.h */; };
+		A0CA21C712D72E0F0083F5A0 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A0CA21BA12D72E0F0083F5A0 /* JSON.h */; };
+		A0CA21C812D72E0F0083F5A0 /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A0CA21BB12D72E0F0083F5A0 /* NSObject+SBJSON.h */; };
+		A0CA21C912D72E0F0083F5A0 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA21BC12D72E0F0083F5A0 /* NSObject+SBJSON.m */; };
+		A0CA21CA12D72E0F0083F5A0 /* NSString+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A0CA21BD12D72E0F0083F5A0 /* NSString+SBJSON.h */; };
+		A0CA21CB12D72E0F0083F5A0 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA21BE12D72E0F0083F5A0 /* NSString+SBJSON.m */; };
+		A0CA21CC12D72E0F0083F5A0 /* SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A0CA21BF12D72E0F0083F5A0 /* SBJSON.h */; };
+		A0CA21CD12D72E0F0083F5A0 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA21C012D72E0F0083F5A0 /* SBJSON.m */; };
+		A0CA21CE12D72E0F0083F5A0 /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = A0CA21C112D72E0F0083F5A0 /* SBJsonBase.h */; };
+		A0CA21CF12D72E0F0083F5A0 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA21C212D72E0F0083F5A0 /* SBJsonBase.m */; };
+		A0CA21D012D72E0F0083F5A0 /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A0CA21C312D72E0F0083F5A0 /* SBJsonParser.h */; };
+		A0CA21D112D72E0F0083F5A0 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA21C412D72E0F0083F5A0 /* SBJsonParser.m */; };
+		A0CA21D212D72E0F0083F5A0 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = A0CA21C512D72E0F0083F5A0 /* SBJsonWriter.h */; };
+		A0CA21D312D72E0F0083F5A0 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA21C612D72E0F0083F5A0 /* SBJsonWriter.m */; };
+		AA747D9F0F9514B9006C5449 /* HttpClient_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* HttpClient_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A061869712D2268D0019A71A /* Wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wrapper.h; sourceTree = "<group>"; };
+		A061869812D2268D0019A71A /* Wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wrapper.m; sourceTree = "<group>"; };
+		A061869912D2268D0019A71A /* WrapperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WrapperDelegate.h; sourceTree = "<group>"; };
+		A0CA21BA12D72E0F0083F5A0 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		A0CA21BB12D72E0F0083F5A0 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		A0CA21BC12D72E0F0083F5A0 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		A0CA21BD12D72E0F0083F5A0 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		A0CA21BE12D72E0F0083F5A0 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		A0CA21BF12D72E0F0083F5A0 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		A0CA21C012D72E0F0083F5A0 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		A0CA21C112D72E0F0083F5A0 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		A0CA21C212D72E0F0083F5A0 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		A0CA21C312D72E0F0083F5A0 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		A0CA21C412D72E0F0083F5A0 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		A0CA21C512D72E0F0083F5A0 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		A0CA21C612D72E0F0083F5A0 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* HttpClient_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libHttpClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHttpClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libHttpClient.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* HttpClient */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = HttpClient;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A0CA21B912D72E0F0083F5A0 /* JSON */,
+				A0CA216312D72DF30083F5A0 /* HTTP */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* HttpClient_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		A0CA216312D72DF30083F5A0 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				A061869712D2268D0019A71A /* Wrapper.h */,
+				A061869812D2268D0019A71A /* Wrapper.m */,
+				A061869912D2268D0019A71A /* WrapperDelegate.h */,
+			);
+			name = HTTP;
+			sourceTree = "<group>";
+		};
+		A0CA21B912D72E0F0083F5A0 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				A0CA21BA12D72E0F0083F5A0 /* JSON.h */,
+				A0CA21BB12D72E0F0083F5A0 /* NSObject+SBJSON.h */,
+				A0CA21BC12D72E0F0083F5A0 /* NSObject+SBJSON.m */,
+				A0CA21BD12D72E0F0083F5A0 /* NSString+SBJSON.h */,
+				A0CA21BE12D72E0F0083F5A0 /* NSString+SBJSON.m */,
+				A0CA21BF12D72E0F0083F5A0 /* SBJSON.h */,
+				A0CA21C012D72E0F0083F5A0 /* SBJSON.m */,
+				A0CA21C112D72E0F0083F5A0 /* SBJsonBase.h */,
+				A0CA21C212D72E0F0083F5A0 /* SBJsonBase.m */,
+				A0CA21C312D72E0F0083F5A0 /* SBJsonParser.h */,
+				A0CA21C412D72E0F0083F5A0 /* SBJsonParser.m */,
+				A0CA21C512D72E0F0083F5A0 /* SBJsonWriter.h */,
+				A0CA21C612D72E0F0083F5A0 /* SBJsonWriter.m */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* HttpClient_Prefix.pch in Headers */,
+				A061869A12D2268D0019A71A /* Wrapper.h in Headers */,
+				A061869C12D2268D0019A71A /* WrapperDelegate.h in Headers */,
+				A0CA21C712D72E0F0083F5A0 /* JSON.h in Headers */,
+				A0CA21C812D72E0F0083F5A0 /* NSObject+SBJSON.h in Headers */,
+				A0CA21CA12D72E0F0083F5A0 /* NSString+SBJSON.h in Headers */,
+				A0CA21CC12D72E0F0083F5A0 /* SBJSON.h in Headers */,
+				A0CA21CE12D72E0F0083F5A0 /* SBJsonBase.h in Headers */,
+				A0CA21D012D72E0F0083F5A0 /* SBJsonParser.h in Headers */,
+				A0CA21D212D72E0F0083F5A0 /* SBJsonWriter.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* HttpClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "HttpClient" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HttpClient;
+			productName = HttpClient;
+			productReference = D2AAC07E0554694100DB518D /* libHttpClient.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "HttpClient" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* HttpClient */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* HttpClient */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A061869B12D2268D0019A71A /* Wrapper.m in Sources */,
+				A0CA21C912D72E0F0083F5A0 /* NSObject+SBJSON.m in Sources */,
+				A0CA21CB12D72E0F0083F5A0 /* NSString+SBJSON.m in Sources */,
+				A0CA21CD12D72E0F0083F5A0 /* SBJSON.m in Sources */,
+				A0CA21CF12D72E0F0083F5A0 /* SBJsonBase.m in Sources */,
+				A0CA21D112D72E0F0083F5A0 /* SBJsonParser.m in Sources */,
+				A0CA21D312D72E0F0083F5A0 /* SBJsonWriter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/HttpClient.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = HttpClient_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = HttpClient;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/HttpClient.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = HttpClient_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = HttpClient;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "HttpClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "HttpClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
