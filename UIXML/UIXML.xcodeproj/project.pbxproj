@@ -1,0 +1,377 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F30ABCD1297F96700540544 /* SwitchDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F30ABCB1297F96700540544 /* SwitchDataEntryCell.h */; };
+		5F30ABCE1297F96700540544 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F30ABCC1297F96700540544 /* SwitchDataEntryCell.m */; };
+		5FA7E23E1296F264000F493B /* BaseDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA7E23A1296F264000F493B /* BaseDataEntryCell.h */; };
+		5FA7E23F1296F264000F493B /* BaseDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA7E23B1296F264000F493B /* BaseDataEntryCell.m */; };
+		5FA7E2401296F264000F493B /* TextDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA7E23C1296F264000F493B /* TextDataEntryCell.h */; };
+		5FA7E2411296F264000F493B /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA7E23D1296F264000F493B /* TextDataEntryCell.m */; };
+		5FA7E2441296F2AE000F493B /* UIXMLFormViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA7E2421296F2AD000F493B /* UIXMLFormViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FA7E2451296F2AE000F493B /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA7E2431296F2AE000F493B /* UIXMLFormViewController.m */; };
+		A01671DB12AE80920056F855 /* PushControllerDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A01671D912AE80920056F855 /* PushControllerDataEntryCell.h */; };
+		A01671DC12AE80920056F855 /* PushControllerDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A01671DA12AE80920056F855 /* PushControllerDataEntryCell.m */; };
+		A01671E012AE80A90056F855 /* PushFormDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A01671DD12AE80A90056F855 /* PushFormDataEntryCell.h */; };
+		A01671E112AE80A90056F855 /* PushFormDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A01671DE12AE80A90056F855 /* PushFormDataEntryCell.m */; };
+		A01671E212AE80A90056F855 /* UIXMLFormViewControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A01671DF12AE80A90056F855 /* UIXMLFormViewControllerDelegate.h */; };
+		A065363F12D3A52F0001D660 /* PushDateEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A065363D12D3A52F0001D660 /* PushDateEntryCell.h */; };
+		A065364012D3A52F0001D660 /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A065363E12D3A52F0001D660 /* PushDateEntryCell.m */; };
+		A0BB5C8912D5E87600F7E563 /* SegmentedDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A0BB5C8712D5E87600F7E563 /* SegmentedDataEntryCell.h */; };
+		A0BB5C8A12D5E87600F7E563 /* SegmentedDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BB5C8812D5E87600F7E563 /* SegmentedDataEntryCell.m */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5F30ABB01297F64900540544 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SwitchDataEntryCell.xib; sourceTree = "<group>"; };
+		5F30ABB21297F64900540544 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TextDataEntryCell.xib; sourceTree = "<group>"; };
+		5F30ABCB1297F96700540544 /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchDataEntryCell.h; sourceTree = "<group>"; };
+		5F30ABCC1297F96700540544 /* SwitchDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchDataEntryCell.m; sourceTree = "<group>"; };
+		5F494C8112D8B0C2002B3631 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DefaultHeaderInSection.xib; sourceTree = "<group>"; };
+		5FA7E23A1296F264000F493B /* BaseDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDataEntryCell.h; sourceTree = "<group>"; };
+		5FA7E23B1296F264000F493B /* BaseDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDataEntryCell.m; sourceTree = "<group>"; };
+		5FA7E23C1296F264000F493B /* TextDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDataEntryCell.h; sourceTree = "<group>"; };
+		5FA7E23D1296F264000F493B /* TextDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDataEntryCell.m; sourceTree = "<group>"; };
+		5FA7E2421296F2AD000F493B /* UIXMLFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewController.h; sourceTree = "<group>"; };
+		5FA7E2431296F2AE000F493B /* UIXMLFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIXMLFormViewController.m; sourceTree = "<group>"; };
+		A01671D912AE80920056F855 /* PushControllerDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushControllerDataEntryCell.h; sourceTree = "<group>"; };
+		A01671DA12AE80920056F855 /* PushControllerDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushControllerDataEntryCell.m; sourceTree = "<group>"; };
+		A01671DD12AE80A90056F855 /* PushFormDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushFormDataEntryCell.h; sourceTree = "<group>"; };
+		A01671DE12AE80A90056F855 /* PushFormDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushFormDataEntryCell.m; sourceTree = "<group>"; };
+		A01671DF12AE80A90056F855 /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewControllerDelegate.h; sourceTree = "<group>"; };
+		A018C0C512AEA3E2004FF0AE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushFormDataEntryCell.xib; sourceTree = "<group>"; };
+		A03A17D812AD2D2500DF2F05 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MailDataEntryCell.xib; sourceTree = "<group>"; };
+		A065363912D3A32B0001D660 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushDateEntryCell.xib; sourceTree = "<group>"; };
+		A065363D12D3A52F0001D660 /* PushDateEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushDateEntryCell.h; sourceTree = "<group>"; };
+		A065363E12D3A52F0001D660 /* PushDateEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushDateEntryCell.m; sourceTree = "<group>"; };
+		A0BB5C8712D5E87600F7E563 /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedDataEntryCell.h; sourceTree = "<group>"; };
+		A0BB5C8812D5E87600F7E563 /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedDataEntryCell.m; sourceTree = "<group>"; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libUIXML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUIXML.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libUIXML.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* UIXML */ = {
+			isa = PBXGroup;
+			children = (
+				5F30ABAE1297F61500540544 /* Resources */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = UIXML;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A01671DF12AE80A90056F855 /* UIXMLFormViewControllerDelegate.h */,
+				5FA7E2421296F2AD000F493B /* UIXMLFormViewController.h */,
+				5FA7E2431296F2AE000F493B /* UIXMLFormViewController.m */,
+				5FA7E2391296F228000F493B /* CustomCells */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		5F30ABAE1297F61500540544 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5F494C8012D8B0C2002B3631 /* DefaultHeaderInSection.xib */,
+				A065363812D3A32B0001D660 /* PushDateEntryCell.xib */,
+				A018C0C412AEA3E2004FF0AE /* PushFormDataEntryCell.xib */,
+				A03A17D712AD2D2500DF2F05 /* MailDataEntryCell.xib */,
+				5F30ABAF1297F64900540544 /* SwitchDataEntryCell.xib */,
+				5F30ABB11297F64900540544 /* TextDataEntryCell.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5FA7E2391296F228000F493B /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				A01671DD12AE80A90056F855 /* PushFormDataEntryCell.h */,
+				A01671DE12AE80A90056F855 /* PushFormDataEntryCell.m */,
+				5F30ABCB1297F96700540544 /* SwitchDataEntryCell.h */,
+				5F30ABCC1297F96700540544 /* SwitchDataEntryCell.m */,
+				5FA7E23A1296F264000F493B /* BaseDataEntryCell.h */,
+				5FA7E23B1296F264000F493B /* BaseDataEntryCell.m */,
+				5FA7E23C1296F264000F493B /* TextDataEntryCell.h */,
+				5FA7E23D1296F264000F493B /* TextDataEntryCell.m */,
+				A01671D912AE80920056F855 /* PushControllerDataEntryCell.h */,
+				A01671DA12AE80920056F855 /* PushControllerDataEntryCell.m */,
+				A065363D12D3A52F0001D660 /* PushDateEntryCell.h */,
+				A065363E12D3A52F0001D660 /* PushDateEntryCell.m */,
+				A0BB5C8712D5E87600F7E563 /* SegmentedDataEntryCell.h */,
+				A0BB5C8812D5E87600F7E563 /* SegmentedDataEntryCell.m */,
+			);
+			name = CustomCells;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FA7E23E1296F264000F493B /* BaseDataEntryCell.h in Headers */,
+				5FA7E2401296F264000F493B /* TextDataEntryCell.h in Headers */,
+				5FA7E2441296F2AE000F493B /* UIXMLFormViewController.h in Headers */,
+				5F30ABCD1297F96700540544 /* SwitchDataEntryCell.h in Headers */,
+				A01671DB12AE80920056F855 /* PushControllerDataEntryCell.h in Headers */,
+				A01671E012AE80A90056F855 /* PushFormDataEntryCell.h in Headers */,
+				A01671E212AE80A90056F855 /* UIXMLFormViewControllerDelegate.h in Headers */,
+				A065363F12D3A52F0001D660 /* PushDateEntryCell.h in Headers */,
+				A0BB5C8912D5E87600F7E563 /* SegmentedDataEntryCell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* UIXML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "UIXML" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UIXML;
+			productName = UIXML;
+			productReference = D2AAC07E0554694100DB518D /* libUIXML.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = SOUL;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "UIXML" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* UIXML */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* UIXML */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FA7E23F1296F264000F493B /* BaseDataEntryCell.m in Sources */,
+				5FA7E2411296F264000F493B /* TextDataEntryCell.m in Sources */,
+				5FA7E2451296F2AE000F493B /* UIXMLFormViewController.m in Sources */,
+				5F30ABCE1297F96700540544 /* SwitchDataEntryCell.m in Sources */,
+				A01671DC12AE80920056F855 /* PushControllerDataEntryCell.m in Sources */,
+				A01671E112AE80A90056F855 /* PushFormDataEntryCell.m in Sources */,
+				A065364012D3A52F0001D660 /* PushDateEntryCell.m in Sources */,
+				A0BB5C8A12D5E87600F7E563 /* SegmentedDataEntryCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5F30ABAF1297F64900540544 /* SwitchDataEntryCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F30ABB01297F64900540544 /* en */,
+			);
+			name = SwitchDataEntryCell.xib;
+			sourceTree = "<group>";
+		};
+		5F30ABB11297F64900540544 /* TextDataEntryCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F30ABB21297F64900540544 /* en */,
+			);
+			name = TextDataEntryCell.xib;
+			sourceTree = "<group>";
+		};
+		5F494C8012D8B0C2002B3631 /* DefaultHeaderInSection.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F494C8112D8B0C2002B3631 /* en */,
+			);
+			name = DefaultHeaderInSection.xib;
+			sourceTree = "<group>";
+		};
+		A018C0C412AEA3E2004FF0AE /* PushFormDataEntryCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A018C0C512AEA3E2004FF0AE /* en */,
+			);
+			name = PushFormDataEntryCell.xib;
+			sourceTree = "<group>";
+		};
+		A03A17D712AD2D2500DF2F05 /* MailDataEntryCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A03A17D812AD2D2500DF2F05 /* en */,
+			);
+			name = MailDataEntryCell.xib;
+			sourceTree = "<group>";
+		};
+		A065363812D3A32B0001D660 /* PushDateEntryCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A065363912D3A32B0001D660 /* en */,
+			);
+			name = PushDateEntryCell.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/UIXML.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = UIXML_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = UIXML;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/UIXML.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = UIXML_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = UIXML;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_VERSION = 4.2;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				SDKROOT = iphonesimulator4.1;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_VERSION = 4.2;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				SDKROOT = iphonesimulator4.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "UIXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "UIXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

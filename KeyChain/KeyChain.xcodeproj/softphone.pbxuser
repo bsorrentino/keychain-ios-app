@@ -231,28 +231,30 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 316269073;
-			PBXWorkspaceStateSaveDate = 316269073;
+			PBXPerProjectTemplateStateSaveDate = 316275385;
+			PBXWorkspaceStateSaveDate = 316275385;
 		};
 		perUserProjectItems = {
-			5F191DBB12D9E225001188F3 /* PBXTextBookmark */ = 5F191DBB12D9E225001188F3 /* PBXTextBookmark */;
+			5F191DBF12D9E499001188F3 = 5F191DBF12D9E499001188F3 /* PBXTextBookmark */;
 			5F5C036712D9DEF2005548EB = 5F5C036712D9DEF2005548EB /* PBXTextBookmark */;
 			5F5C036812D9DEF2005548EB = 5F5C036812D9DEF2005548EB /* PBXTextBookmark */;
 			5F87863412D9E0CC0012E8E7 = 5F87863412D9E0CC0012E8E7 /* PBXTextBookmark */;
 			5F87863612D9E0CC0012E8E7 = 5F87863612D9E0CC0012E8E7 /* PBXTextBookmark */;
 			5F87863D12D9E1F90012E8E7 = 5F87863D12D9E1F90012E8E7 /* PBXTextBookmark */;
-			5F87863F12D9E1F90012E8E7 = 5F87863F12D9E1F90012E8E7 /* PBXTextBookmark */;
 			5FAC423F12D6431E00033989 = 5FAC423F12D6431E00033989 /* PBXTextBookmark */;
 			5FAC425112D68B7C00033989 = 5FAC425112D68B7C00033989 /* PBXTextBookmark */;
+			5FCF753712D9FAFA00A9E0D8 /* PBXTextBookmark */ = 5FCF753712D9FAFA00A9E0D8 /* PBXTextBookmark */;
 			5FDF98B712D9E20B00172262 = 5FDF98B712D9E20B00172262 /* PBXTextBookmark */;
 			5FEF62F112D4E38200B49C21 = 5FEF62F112D4E38200B49C21 /* PBXTextBookmark */;
 			5FEF62F412D4E38200B49C21 = 5FEF62F412D4E38200B49C21 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5F487E9112B82EB500F6FFBC /* Source Control */;
 		userBuildSettings = {
+			OBJROOT = /Users/softphone/WORKSPACES/APPLE/build;
+			SYMROOT = /Users/softphone/WORKSPACES/APPLE/build;
 		};
 	};
-	5F191DBB12D9E225001188F3 /* PBXTextBookmark */ = {
+	5F191DBF12D9E499001188F3 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 5FAC422F12D63EF400033989 /* PersistentAppDelegate.m */;
 		name = "PersistentAppDelegate.m: 129";
@@ -365,16 +367,6 @@
 		vrLen = 837;
 		vrLoc = 3;
 	};
-	5F87863F12D9E1F90012E8E7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5FAC422F12D63EF400033989 /* PersistentAppDelegate.m */;
-		name = "PersistentAppDelegate.m: 129";
-		rLen = 0;
-		rLoc = 5361;
-		rType = 0;
-		vrLen = 821;
-		vrLoc = 4717;
-	};
 	5FAC422E12D63EF400033989 /* PersistentAppDelegate.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1342, 576}}";
@@ -415,6 +407,16 @@
 		rType = 0;
 		vrLen = 522;
 		vrLoc = 0;
+	};
+	5FCF753712D9FAFA00A9E0D8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FAC422F12D63EF400033989 /* PersistentAppDelegate.m */;
+		name = "PersistentAppDelegate.m: 129";
+		rLen = 0;
+		rLoc = 5361;
+		rType = 0;
+		vrLen = 816;
+		vrLoc = 4717;
 	};
 	5FDF98B712D9E20B00172262 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
