@@ -325,7 +325,7 @@
 										<key>_historyCapacity</key>
 										<integer>10</integer>
 										<key>bookmark</key>
-										<string>5FCF75BD12DA3C6D00A9E0D8</string>
+										<string>5FA3A55A12DC9E6A009BE36C</string>
 										<key>history</key>
 										<array>
 											<string>5F05C9A612D7D36C00C10EAC</string>
@@ -334,7 +334,7 @@
 											<string>5F494D8B12D8C446002B3631</string>
 											<string>5F494D8C12D8C446002B3631</string>
 											<string>5F494D8E12D8C446002B3631</string>
-											<string>5FCF759B12D9FEFE00A9E0D8</string>
+											<string>5FCF75BD12DA3C6D00A9E0D8</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -348,18 +348,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1051, 685}}</string>
+								<string>{{0, 0}, {1051, 679}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 159 1415 1019 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>685pt</string>
+							<string>679pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>288pt</string>
+							<string>294pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -430,7 +430,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1051, 261}}</string>
+										<string>{{10, 27}, {1051, 267}}</string>
 										<key>RubberWindowFrame</key>
 										<string>0 159 1415 1019 0 0 1920 1178 </string>
 									</dict>
@@ -480,11 +480,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>5FCF75BF12DA3C6D00A9E0D8</string>
+				<string>5FA3A55C12DC9E6A009BE36C</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>5FCF75C012DA3C6D00A9E0D8</string>
+				<string>5FA3A55D12DC9E6A009BE36C</string>
 				<string>5FC467F81295176900A5EF75</string>
-				<string>5FCF75C112DA3C6D00A9E0D8</string>
+				<string>5FA3A55E12DC9E6A009BE36C</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>

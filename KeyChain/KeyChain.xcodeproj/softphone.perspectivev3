@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>10</integer>
 						<key>bookmark</key>
-						<string>5FA3A54912DC8264009BE36C</string>
+						<string>5FA3A57412DC9F74009BE36C</string>
 						<key>history</key>
 						<array>
 							<string>5F69433B12DBB6EA00E03871</string>
@@ -316,8 +316,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>9</integer>
-									<integer>1</integer>
+									<integer>19</integer>
+									<integer>16</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -369,19 +369,19 @@
 										<key>_historyCapacity</key>
 										<integer>10</integer>
 										<key>bookmark</key>
-										<string>5FA3A54812DC8264009BE36C</string>
+										<string>5FA3A57312DC9F74009BE36C</string>
 										<key>history</key>
 										<array>
-											<string>5FA3A51112DC7D0F009BE36C</string>
-											<string>5FA3A51A12DC7E1D009BE36C</string>
 											<string>5FA3A51B12DC7E1D009BE36C</string>
 											<string>5FA3A53712DC800B009BE36C</string>
 											<string>5FA3A54012DC8264009BE36C</string>
 											<string>5FA3A54112DC8264009BE36C</string>
 											<string>5FA3A54312DC8264009BE36C</string>
-											<string>5FA3A54512DC8264009BE36C</string>
 											<string>5FA3A54612DC8264009BE36C</string>
-											<string>5FA3A54712DC8264009BE36C</string>
+											<string>5FA3A56112DC9ED5009BE36C</string>
+											<string>5FA3A56212DC9ED5009BE36C</string>
+											<string>5FA3A56312DC9ED5009BE36C</string>
+											<string>5FA3A56E12DC9F30009BE36C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -700,7 +700,6 @@
 	<array>
 		<string>5FA3A51512DC7D0F009BE36C</string>
 		<string>5FA3A51612DC7D0F009BE36C</string>
-		<string>5F69431612DBB64700E03871</string>
 		<string>/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/KeyChain.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
