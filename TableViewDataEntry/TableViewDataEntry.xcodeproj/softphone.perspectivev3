@@ -267,14 +267,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
-								<string>A06187AD12D22D430019A71A</string>
-								<string>5F494C9D12D8B442002B3631</string>
-								<string>A065364712D3A6010001D660</string>
-								<string>080E96DDFE201D6D7F000001</string>
-								<string>29B97315FDCFA39411CA2CEA</string>
-								<string>29B97317FDCFA39411CA2CEA</string>
-								<string>29B97323FDCFA39411CA2CEA</string>
-								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
@@ -283,7 +275,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>21</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -334,7 +325,7 @@
 										<key>_historyCapacity</key>
 										<integer>10</integer>
 										<key>bookmark</key>
-										<string>5FCF759B12D9FEFE00A9E0D8</string>
+										<string>5FCF75BD12DA3C6D00A9E0D8</string>
 										<key>history</key>
 										<array>
 											<string>5F05C9A612D7D36C00C10EAC</string>
@@ -343,7 +334,7 @@
 											<string>5F494D8B12D8C446002B3631</string>
 											<string>5F494D8C12D8C446002B3631</string>
 											<string>5F494D8E12D8C446002B3631</string>
-											<string>5F494D9212D8C446002B3631</string>
+											<string>5FCF759B12D9FEFE00A9E0D8</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -357,18 +348,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1051, 691}}</string>
+								<string>{{0, 0}, {1051, 685}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 159 1415 1019 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>691pt</string>
+							<string>685pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>282pt</string>
+							<string>288pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -439,7 +430,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1051, 255}}</string>
+										<string>{{10, 27}, {1051, 261}}</string>
 										<key>RubberWindowFrame</key>
 										<string>0 159 1415 1019 0 0 1920 1178 </string>
 									</dict>
@@ -489,11 +480,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>5FCF759D12D9FEFE00A9E0D8</string>
+				<string>5FCF75BF12DA3C6D00A9E0D8</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>5FCF759E12D9FEFE00A9E0D8</string>
+				<string>5FCF75C012DA3C6D00A9E0D8</string>
 				<string>5FC467F81295176900A5EF75</string>
-				<string>5FCF759F12D9FEFE00A9E0D8</string>
+				<string>5FCF75C112DA3C6D00A9E0D8</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -683,7 +674,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>/Users/softphone/WORKSPACES/APPLE/TableViewDataEntry/TableViewDataEntry.xcodeproj</string>
+		<string>/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/TableViewDataEntry/TableViewDataEntry.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 159 1415 1019 0 0 1920 1178 </string>

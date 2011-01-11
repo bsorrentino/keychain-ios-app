@@ -231,6 +231,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -267,9 +269,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>0867D691FE84028FC02AAC07</string>
-								<string>5F30ABAE1297F61500540544</string>
-								<string>08FB77AEFE84172EC02AAC07</string>
-								<string>1C37FBAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
@@ -295,7 +294,7 @@
 							<real>276</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>268 182 1479 996 0 0 1920 1178 </string>
+						<string>473 159 1479 996 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -323,13 +322,9 @@
 										<key>_historyCapacity</key>
 										<integer>10</integer>
 										<key>bookmark</key>
-										<string>5FCF74EE12D9FAB500A9E0D8</string>
+										<string>5FCF75B412DA3C6400A9E0D8</string>
 										<key>history</key>
 										<array>
-											<string>5FBAE18E12D60A460085E128</string>
-											<string>5FBAE1A612D60BD80085E128</string>
-											<string>5FBAE22312D6177B0085E128</string>
-											<string>5F494D9E12D8C446002B3631</string>
 											<string>5F494DA012D8C446002B3631</string>
 										</array>
 									</dict>
@@ -346,7 +341,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1181, 582}}</string>
 								<key>RubberWindowFrame</key>
-								<string>268 182 1479 996 0 0 1920 1178 </string>
+								<string>473 159 1479 996 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -391,8 +386,6 @@
 									<string>PBXProjectFindModule</string>
 								</dict>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXCVSModuleFilterTypeKey</key>
@@ -428,7 +421,7 @@
 										<key>Frame</key>
 										<string>{{10, 27}, {1181, 341}}</string>
 										<key>RubberWindowFrame</key>
-										<string>268 182 1479 996 0 0 1920 1178 </string>
+										<string>473 159 1479 996 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXCVSModule</string>
@@ -653,7 +646,7 @@
 		<string>/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/UIXML/UIXML.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>268 182 1479 996 0 0 1920 1178 </string>
+	<string>473 159 1479 996 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

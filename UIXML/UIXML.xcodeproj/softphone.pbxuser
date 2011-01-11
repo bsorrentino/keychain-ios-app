@@ -60,36 +60,14 @@
 			PBXWorkspaceStateSaveDate = 316275362;
 		};
 		perUserProjectItems = {
-			5F05C9A312D7D36C00C10EAC = 5F05C9A312D7D36C00C10EAC /* PBXTextBookmark */;
-			5F494D9E12D8C446002B3631 = 5F494D9E12D8C446002B3631 /* PBXTextBookmark */;
-			5F494DA012D8C446002B3631 = 5F494DA012D8C446002B3631 /* PBXTextBookmark */;
-			5FBAE18E12D60A460085E128 = 5FBAE18E12D60A460085E128 /* PBXTextBookmark */;
-			5FBAE1A612D60BD80085E128 = 5FBAE1A612D60BD80085E128 /* PBXTextBookmark */;
-			5FBAE22312D6177B0085E128 = 5FBAE22312D6177B0085E128 /* PBXTextBookmark */;
-			5FCF74EE12D9FAB500A9E0D8 /* PBXTextBookmark */ = 5FCF74EE12D9FAB500A9E0D8 /* PBXTextBookmark */;
+			5F494DA012D8C446002B3631 /* PBXTextBookmark */ = 5F494DA012D8C446002B3631 /* PBXTextBookmark */;
+			5FCF75B412DA3C6400A9E0D8 /* PBXTextBookmark */ = 5FCF75B412DA3C6400A9E0D8 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5FA7E2361296F1C3000F493B /* Source Control */;
 		userBuildSettings = {
 			OBJROOT = /Users/softphone/WORKSPACES/APPLE/build;
 			SYMROOT = /Users/softphone/WORKSPACES/APPLE/build;
 		};
-	};
-	5F05C9A312D7D36C00C10EAC /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5F05C9A412D7D36C00C10EAC /* UIView.h */;
-		name = "UIView.h: 202";
-		rLen = 119;
-		rLoc = 9251;
-		rType = 0;
-		vrLen = 1098;
-		vrLoc = 8347;
-	};
-	5F05C9A412D7D36C00C10EAC /* UIView.h */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		name = UIView.h;
-		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIView.h;
-		sourceTree = "<absolute>";
 	};
 	5F30ABCB1297F96700540544 /* SwitchDataEntryCell.h */ = {
 		uiCtxt = {
@@ -104,23 +82,6 @@
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{635, 641}";
 		};
-	};
-	5F494D9E12D8C446002B3631 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5F494D9F12D8C446002B3631 /* UITableView.h */;
-		name = "UITableView.h: 63";
-		rLen = 174;
-		rLoc = 2409;
-		rType = 0;
-		vrLen = 2320;
-		vrLoc = 1995;
-	};
-	5F494D9F12D8C446002B3631 /* UITableView.h */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		name = UITableView.h;
-		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableView.h;
-		sourceTree = "<absolute>";
 	};
 	5F494DA012D8C446002B3631 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -201,23 +162,6 @@
 			sepNavVisRange = "{8170, 921}";
 		};
 	};
-	5FBAE18E12D60A460085E128 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5FBAE18F12D60A460085E128 /* NSValue.h */;
-		name = "NSValue.h: 36";
-		rLen = 30;
-		rLoc = 778;
-		rType = 0;
-		vrLen = 859;
-		vrLoc = 442;
-	};
-	5FBAE18F12D60A460085E128 /* NSValue.h */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		name = NSValue.h;
-		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSValue.h;
-		sourceTree = "<absolute>";
-	};
 	5FBAE1A012D60BD20085E128 /* SwitchDataEntryCell.m:47 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
@@ -254,35 +198,21 @@
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	5FBAE1A612D60BD80085E128 /* PBXTextBookmark */ = {
+	5FCF75B412DA3C6400A9E0D8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = A0BB5C8812D5E87600F7E563 /* SegmentedDataEntryCell.m */;
-		name = "SegmentedDataEntryCell.m: 44";
-		rLen = 0;
-		rLoc = 878;
-		rType = 0;
-		vrLen = 664;
-		vrLoc = 192;
-	};
-	5FBAE22312D6177B0085E128 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5FA7E23C1296F264000F493B /* TextDataEntryCell.h */;
-		name = "TextDataEntryCell.h: 12";
-		rLen = 0;
-		rLoc = 296;
-		rType = 0;
-		vrLen = 453;
-		vrLoc = 0;
-	};
-	5FCF74EE12D9FAB500A9E0D8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5F494DA112D8C446002B3631 /* UIView.h */;
+		fRef = 5FCF75B512DA3C6400A9E0D8 /* UIView.h */;
 		name = "UIView.h: 202";
 		rLen = 119;
 		rLoc = 9251;
 		rType = 0;
 		vrLen = 1097;
 		vrLoc = 8347;
+	};
+	5FCF75B512DA3C6400A9E0D8 /* UIView.h */ = {
+		isa = PBXFileReference;
+		name = UIView.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIView.h;
+		sourceTree = "<absolute>";
 	};
 	A0BB5C8712D5E87600F7E563 /* SegmentedDataEntryCell.h */ = {
 		uiCtxt = {

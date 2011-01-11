@@ -462,11 +462,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>5F05C9A012D7D36C00C10EAC</string>
+				<string>5FCF75B112DA3C6000A9E0D8</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>5F05C9A112D7D36C00C10EAC</string>
+				<string>5FCF75B212DA3C6000A9E0D8</string>
 				<string>5F25A75E12D72FC3004BBD46</string>
-				<string>5F05C9A212D7D36C00C10EAC</string>
+				<string>5FCF75B312DA3C6000A9E0D8</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -635,7 +635,9 @@
 	<key>WindowJustification</key>
 	<integer>5</integer>
 	<key>WindowOrderList</key>
-	<array/>
+	<array>
+		<string>/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/HttpClient/HttpClient.xcodeproj</string>
+	</array>
 	<key>WindowString</key>
 	<string>251 387 1090 621 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
