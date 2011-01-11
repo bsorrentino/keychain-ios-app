@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "KeyEntityFormController.h"
+#import "BaseDataEntryCell.h"
 
 @interface RootViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -18,6 +19,8 @@
 
 @synthesize fetchedResultsController=fetchedResultsController_, managedObjectContext=managedObjectContext_;
 @synthesize keyEntityFormController=keyEntityFormController_;
+
+#pragma mark -
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -80,7 +83,7 @@
 - (void)insertNewObject {
 
 	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
-		
+	
 }
 
 - (void)insertNewObject2 {

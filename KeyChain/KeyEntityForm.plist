@@ -15,27 +15,27 @@
 			
 			<dict>
 				<key>DataKey</key>
-				<string>firstName</string>
+				<string>mnemonic</string>
 				<key>Label</key>
 				<string>Name</string>
 				<key>CellType</key>
 				<string>TextDataEntryCell</string>
 				<key>placeholder</key>
-				<string>&lt;input name&gt;</string>				
+				<string>&lt;mnemonic name&gt;</string>				
 			</dict>
 			<dict>
 				<key>DataKey</key>
-				<string>lastName</string>
+				<string>url</string>
 				<key>Label</key>
-				<string>Cognome</string>
+				<string>Site</string>
 				<key>CellType</key>
 				<string>TextDataEntryCell</string>
 				<key>placeholder</key>
-				<string>&lt;input surname&gt;</string>
+				<string>&lt;input site url&gt;</string>
 			</dict>
 			<dict>
 				<key>DataKey</key>
-				<string>email</string>
+				<string>mail</string>
 				<key>Label</key>
 				<string>Email</string>
 				<key>CellType</key>
@@ -49,19 +49,39 @@
 	<array>	
 		<dict>
 			<key>label</key>
-			<string>contact</string>
+			<string>Key</string>
 		</dict>
 	
 		<array>
 			<dict>
 				<key>DataKey</key>
-				<string>id</string>
+				<string>username</string>
 				<key>Label</key>
 				<string>Contract</string>
 				<key>CellType</key>
 				<string>TextDataEntryCell</string>
 				<key>placeholder</key>
-				<string>&lt;contract id&gt;</string>
+				<string>&lt;input username&gt;</string>
+			</dict>
+			<dict>
+				<key>DataKey</key>
+				<string>password</string>
+				<key>Label</key>
+				<string>Password</string>
+				<key>CellType</key>
+				<string>TextDataEntryCell</string>
+				<key>placeholder</key>
+				<string>&lt;input password&gt;</string>
+			</dict>
+			<dict>
+				<key>DataKey</key>
+				<string>expire</string>
+				<key>Label</key>
+				<string>Expire</string>
+				<key>CellType</key>
+				<string>PushDateEntryCell</string>
+				<key>placeholder</key>
+				<string>&lt;expiration date&gt;</string>
 			</dict>
 		</array>
 		

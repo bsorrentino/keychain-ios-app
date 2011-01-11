@@ -7,9 +7,41 @@
 //
 
 #import "KeyEntityFormController.h"
+#import "KeyEntity.h"
 
 
 @implementation KeyEntityFormController
+
+#pragma mark Custom
+
+- (void)initWithEntity:(KeyEntity*)entity {
+
+}
+
+- (IBAction)save:(id)sender {
+
+}
+
+#pragma mark UIXMLFormViewControllerDelegate
+
+-(void)cellControlDidEndEditing:(BaseDataEntryCell *)cell {
+}
+
+-(void)cellControlDidInit:(BaseDataEntryCell *)cell {
+	
+}
+
+
+#pragma mark UINavigationBarDelegate
+
+- (void)navigationBar:(UINavigationBar *)navigationBar didPopItem:(UINavigationItem *)item {
+
+	NSLog(@"didPopItem");
+
+}
+
+
+#pragma mark UIViewController
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -31,6 +63,10 @@
 	
 }
 
+- (void)viewDidDisappear:(BOOL)animated { // Called after the view was dismissed, covered or otherwise hidden. Default does nothing
+
+	NSLog(@"viewDidDisappear");
+}
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -55,6 +91,7 @@
 
 
 - (void)dealloc {
+	[entity_ release];
     [super dealloc];
 }
 

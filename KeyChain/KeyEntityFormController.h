@@ -9,8 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "UIXMLFormViewController.h"
 
-@interface KeyEntityFormController : UIXMLFormViewController {
+@class KeyEntity;
 
+@interface KeyEntityFormController : UIXMLFormViewController<UINavigationBarDelegate> {
+
+@private 
+	KeyEntity *entity_;
 }
+
+- (void)initWithEntity:(KeyEntity*)entity;
+
+- (IBAction)save:(id)sender;
 
 @end

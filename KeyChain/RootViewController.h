@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "UIXMLFormViewControllerDelegate.h"
+#import "KeyEntity.h"
 
 @class KeyEntityFormController;
 
-@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
+@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate,UIXMLFormViewControllerDelegate> {
 
 @private
     NSFetchedResultsController *fetchedResultsController_;
