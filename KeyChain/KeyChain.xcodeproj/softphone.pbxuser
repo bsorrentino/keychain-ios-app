@@ -675,6 +675,20 @@
 			);
 		};
 	};
+	5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1265, 508}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 522}";
+		};
+	};
+	5FA3A4BE12DC7730009BE36C /* RootViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1265, 508}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 582}";
+		};
+	};
 	5FAC422E12D63EF400033989 /* PersistentAppDelegate.h */ = {
 		isa = PBXFileReference;
 		fileEncoding = 4;
