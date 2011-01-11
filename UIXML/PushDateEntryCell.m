@@ -42,6 +42,12 @@
 	
     if ((self = [super init:controller datakey:key label:label cellData:cellData])) {
         // Initialization code
+		NSString *placeholder = [cellData objectForKey:@"placeholder"];
+		
+		if( ![self isStringEmpty:placeholder] ) {
+			
+			[txtValue setPlaceholder:placeholder];
+		}
 		_dateFormatter = [[NSDateFormatter alloc] init];
 
 		NSString *format = [cellData objectForKey:@"format"];

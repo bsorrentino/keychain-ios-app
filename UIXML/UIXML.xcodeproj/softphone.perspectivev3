@@ -231,8 +231,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -294,7 +292,7 @@
 							<real>276</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>473 159 1479 996 0 0 1920 1178 </string>
+						<string>251 182 1479 996 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -322,10 +320,10 @@
 										<key>_historyCapacity</key>
 										<integer>10</integer>
 										<key>bookmark</key>
-										<string>5FCF75B412DA3C6400A9E0D8</string>
+										<string>5F52D54712DD03A70067D0B9</string>
 										<key>history</key>
 										<array>
-											<string>5F494DA012D8C446002B3631</string>
+											<string>5F52D53312DD037D0067D0B9</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -339,21 +337,23 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1181, 582}}</string>
+								<string>{{0, 0}, {1181, 558}}</string>
 								<key>RubberWindowFrame</key>
-								<string>473 159 1479 996 0 0 1920 1178 </string>
+								<string>251 182 1479 996 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>582pt</string>
+							<string>558pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>368pt</string>
+							<string>392pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
+									<key>BecomeActive</key>
+									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
@@ -364,7 +364,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {0, -27}}</string>
+										<string>{{10, 27}, {1181, 365}}</string>
+										<key>RubberWindowFrame</key>
+										<string>251 182 1479 996 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -420,8 +422,6 @@
 									<dict>
 										<key>Frame</key>
 										<string>{{10, 27}, {1181, 341}}</string>
-										<key>RubberWindowFrame</key>
-										<string>473 159 1479 996 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXCVSModule</string>
@@ -469,11 +469,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>5FCF74EF12D9FAB500A9E0D8</string>
+				<string>5F52D54412DD03900067D0B9</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>5FCF74F012D9FAB500A9E0D8</string>
+				<string>5F52D54512DD03900067D0B9</string>
 				<string>5FA7E2301296F1C3000F493B</string>
-				<string>5FCF74F112D9FAB500A9E0D8</string>
+				<string>5F52D54612DD03900067D0B9</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -646,7 +646,7 @@
 		<string>/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/UIXML/UIXML.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>473 159 1479 996 0 0 1920 1178 </string>
+	<string>251 182 1479 996 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
