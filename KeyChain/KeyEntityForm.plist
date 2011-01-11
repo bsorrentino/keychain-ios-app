@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+
+	<array>
+	
+		<dict>
+			<key>label</key>
+			<string>Personal</string>
+		</dict>
+	
+		<array>
+			
+			
+			<dict>
+				<key>DataKey</key>
+				<string>firstName</string>
+				<key>Label</key>
+				<string>Name</string>
+				<key>CellType</key>
+				<string>TextDataEntryCell</string>
+				<key>placeholder</key>
+				<string>&lt;input name&gt;</string>				
+			</dict>
+			<dict>
+				<key>DataKey</key>
+				<string>lastName</string>
+				<key>Label</key>
+				<string>Cognome</string>
+				<key>CellType</key>
+				<string>TextDataEntryCell</string>
+				<key>placeholder</key>
+				<string>&lt;input surname&gt;</string>
+			</dict>
+			<dict>
+				<key>DataKey</key>
+				<string>email</string>
+				<key>Label</key>
+				<string>Email</string>
+				<key>CellType</key>
+				<string>MailDataEntryCell</string>
+				<key>placeholder</key>
+				<string>&lt;input mail&gt;</string>
+			</dict>
+		</array>
+	</array>
+
+	<array>	
+		<dict>
+			<key>label</key>
+			<string>contact</string>
+		</dict>
+	
+		<array>
+			<dict>
+				<key>DataKey</key>
+				<string>id</string>
+				<key>Label</key>
+				<string>Contract</string>
+				<key>CellType</key>
+				<string>TextDataEntryCell</string>
+				<key>placeholder</key>
+				<string>&lt;contract id&gt;</string>
+			</dict>
+		</array>
+		
+	</array>
+	
+
+</array>
+</plist>
