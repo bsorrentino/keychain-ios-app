@@ -689,6 +689,20 @@
 			sepNavVisRange = "{0, 582}";
 		};
 	};
+	5FA3A4CC12DC780B009BE36C /* KeyEntityFormController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1265, 508}}";
+			sepNavSelRange = "{258, 0}";
+			sepNavVisRange = "{0, 270}";
+		};
+	};
+	5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1470, 1062}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 755}";
+		};
+	};
 	5FAC422E12D63EF400033989 /* PersistentAppDelegate.h */ = {
 		isa = PBXFileReference;
 		fileEncoding = 4;
