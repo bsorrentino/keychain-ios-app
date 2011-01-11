@@ -81,7 +81,13 @@
 #pragma mark Add a new object
 
 - (void)insertNewObject {
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
 
+	KeyEntity *e = [[KeyEntity alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+	
+	[self.keyEntityFormController initWithEntity:e];
+	
 	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
 	
 }

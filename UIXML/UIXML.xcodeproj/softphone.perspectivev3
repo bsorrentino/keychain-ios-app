@@ -320,7 +320,7 @@
 										<key>_historyCapacity</key>
 										<integer>10</integer>
 										<key>bookmark</key>
-										<string>5F52D54712DD03A70067D0B9</string>
+										<string>5F52D58112DD214D0067D0B9</string>
 										<key>history</key>
 										<array>
 											<string>5F52D53312DD037D0067D0B9</string>
@@ -642,9 +642,7 @@
 	<key>WindowJustification</key>
 	<integer>5</integer>
 	<key>WindowOrderList</key>
-	<array>
-		<string>/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/UIXML/UIXML.xcodeproj</string>
-	</array>
+	<array/>
 	<key>WindowString</key>
 	<string>251 182 1479 996 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>

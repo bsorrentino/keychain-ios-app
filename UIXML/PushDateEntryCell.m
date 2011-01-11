@@ -66,7 +66,10 @@
 }
 
 -(void) setControlValue:(id)value {
-
+	
+	if (value==nil) {
+		return;
+	}
 	NSString * result =  [_dateFormatter stringFromDate:value ];
 
 	NSLog(@"PushDateEntryCell.setControlValue([%@]) asString [%@]", value, result );

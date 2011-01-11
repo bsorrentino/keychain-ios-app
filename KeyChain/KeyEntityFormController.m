@@ -8,14 +8,14 @@
 
 #import "KeyEntityFormController.h"
 #import "KeyEntity.h"
-
+#import "BaseDataEntryCell.h"
 
 @implementation KeyEntityFormController
 
 #pragma mark Custom
 
 - (void)initWithEntity:(KeyEntity*)entity {
-
+	entity_ = entity;
 }
 
 - (IBAction)save:(id)sender {
@@ -25,10 +25,12 @@
 #pragma mark UIXMLFormViewControllerDelegate
 
 -(void)cellControlDidEndEditing:(BaseDataEntryCell *)cell {
+
+	[entity_ setValue:[cell getControlValue] forKey:cell.dataKey];
 }
 
 -(void)cellControlDidInit:(BaseDataEntryCell *)cell {
-	
+	[cell setControlValue:[entity_ valueForKey:cell.dataKey]];	
 }
 
 
