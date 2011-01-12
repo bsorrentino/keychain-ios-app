@@ -232,10 +232,11 @@
 	
 		[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
 		
-		[self cellControlDidInit:cell];
-		
 		//cell = [[[NSClassFromString(cellType) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellType] autorelease];
 		
+	}
+	else {
+		[self cellControlDidInit:cell];
 	}
 
 	/*

@@ -57,21 +57,21 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 316514376;
-			PBXWorkspaceStateSaveDate = 316514376;
+			PBXPerProjectTemplateStateSaveDate = 316542524;
+			PBXWorkspaceStateSaveDate = 316542524;
 		};
 		perUserProjectItems = {
 			5F52D53312DD037D0067D0B9 = 5F52D53312DD037D0067D0B9 /* PBXTextBookmark */;
 			5F52D58112DD214D0067D0B9 = 5F52D58112DD214D0067D0B9 /* PBXTextBookmark */;
-			5FDF939212DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939212DDBFD40019C683 /* PBXTextBookmark */;
-			5FDF939312DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939312DDBFD40019C683 /* PBXTextBookmark */;
-			5FDF939412DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939412DDBFD40019C683 /* PBXTextBookmark */;
-			5FDF939612DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939612DDBFD40019C683 /* PBXTextBookmark */;
-			5FDF939812DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939812DDBFD40019C683 /* PBXTextBookmark */;
-			5FDF939A12DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939A12DDBFD40019C683 /* PBXTextBookmark */;
-			5FDF939B12DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939B12DDBFD40019C683 /* PBXTextBookmark */;
-			5FDF939C12DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939C12DDBFD40019C683 /* PBXTextBookmark */;
-			5FDF939D12DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939D12DDBFD40019C683 /* PBXTextBookmark */;
+			5FDF939212DDBFD40019C683 = 5FDF939212DDBFD40019C683 /* PBXTextBookmark */;
+			5FDF939312DDBFD40019C683 = 5FDF939312DDBFD40019C683 /* PBXTextBookmark */;
+			5FDF939412DDBFD40019C683 = 5FDF939412DDBFD40019C683 /* PBXTextBookmark */;
+			5FDF939612DDBFD40019C683 = 5FDF939612DDBFD40019C683 /* PBXTextBookmark */;
+			5FDF939812DDBFD40019C683 = 5FDF939812DDBFD40019C683 /* PBXTextBookmark */;
+			5FDF939A12DDBFD40019C683 = 5FDF939A12DDBFD40019C683 /* PBXTextBookmark */;
+			5FDF939B12DDBFD40019C683 = 5FDF939B12DDBFD40019C683 /* PBXTextBookmark */;
+			5FDF939C12DDBFD40019C683 = 5FDF939C12DDBFD40019C683 /* PBXTextBookmark */;
+			5FDF939D12DDBFD40019C683 = 5FDF939D12DDBFD40019C683 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5FA7E2361296F1C3000F493B /* Source Control */;
 		userBuildSettings = {
@@ -109,11 +109,6 @@
 		name = UIView.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIView.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1695, 4986}}";
-			sepNavSelRange = "{9347, 0}";
-			sepNavVisRange = "{8284, 1093}";
-		};
 	};
 	5F52D58112DD214D0067D0B9 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -170,9 +165,9 @@
 	};
 	5FA7E23D1296F264000F493B /* TextDataEntryCell.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1524, 1836}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1524, 1764}}";
 			sepNavSelRange = "{1278, 0}";
-			sepNavVisRange = "{758, 727}";
+			sepNavVisRange = "{757, 779}";
 			sepNavWindowFrame = "{{38, 90}, {1367, 1062}}";
 		};
 	};
@@ -204,7 +199,7 @@
 		ignoreCount = 0;
 		lineNumber = 47;
 		location = KeyChain;
-		modificationTime = 316521069.448398;
+		modificationTime = 316541495.774681;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
@@ -222,7 +217,7 @@
 		ignoreCount = 0;
 		lineNumber = 53;
 		location = KeyChain;
-		modificationTime = 316521069.449096;
+		modificationTime = 316541495.774958;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
@@ -258,6 +253,7 @@
 	};
 	5FDF939512DDBFD40019C683 /* UITextField.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = UITextField.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextField.h;
 		sourceTree = "<absolute>";
@@ -274,6 +270,7 @@
 	};
 	5FDF939712DDBFD40019C683 /* UILabel.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = UILabel.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UILabel.h;
 		sourceTree = "<absolute>";
@@ -290,6 +287,7 @@
 	};
 	5FDF939912DDBFD40019C683 /* NSString.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = NSString.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h;
 		sourceTree = "<absolute>";
