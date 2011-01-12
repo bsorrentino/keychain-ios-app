@@ -11,4 +11,24 @@
 
 @implementation KeyEntity
 
+- (void)awakeFromFetch {
+
+    [self setPrimitiveValue:NO forKey:@"isNew"];
+	
+}
+
+- (void)didSave {
+
+    [self setPrimitiveValue:NO forKey:@"isNew"];
+}
+
+-(BOOL)isNew {
+	
+	BOOL value = [[self primitiveValueForKey:@"isNew"] boolValue];
+	NSLog( @"isNew [%d]", value );
+	
+	return value;
+	
+
+}
 @end

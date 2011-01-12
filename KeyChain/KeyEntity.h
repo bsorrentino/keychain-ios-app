@@ -13,4 +13,5 @@
 
 }
 
+@property (nonatomic,readonly) BOOL isNew;
 @end

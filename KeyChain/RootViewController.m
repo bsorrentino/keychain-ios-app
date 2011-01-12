@@ -42,6 +42,7 @@
 // Implement viewWillAppear: to do additional setup before the view is presented.
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+	[super.tableView reloadData];
 }
 
 
@@ -78,7 +79,17 @@
 
 
 #pragma mark -
-#pragma mark Add a new object
+#pragma mark Add/Update a new object
+
+- (void)updateObject:(NSIndexPath *)indexPath {
+	
+	KeyEntity *e = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
+	[self.keyEntityFormController initWithEntity:e];
+	
+	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
+	
+}
 
 - (void)insertNewObject {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
@@ -232,6 +243,9 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	[self updateObject:indexPath];
+	
     // Navigation logic may go here -- for example, create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

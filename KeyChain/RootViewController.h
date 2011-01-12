@@ -13,7 +13,7 @@
 
 @class KeyEntityFormController;
 
-@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate,UIXMLFormViewControllerDelegate> {
+@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
 
 @private
     NSFetchedResultsController *fetchedResultsController_;

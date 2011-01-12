@@ -11,7 +11,7 @@
 			"Xdesign Model Editor Bookmark Key" = {
 				UIContextForDetailArea = {
 					_indexOfSelectedPane = 0;
-					_indexOfSelectedView = 0;
+					_indexOfSelectedView = 1;
 				};
 				UIContextForEntityArea = {
 					_indexOfSelectedView = 0;
@@ -42,8 +42,8 @@
 						_percentageOfCollapsedView = 0;
 						isCollapsed = yes;
 						sizes = (
-							"{{0, 0}, {893, 220}}",
-							"{{898, 0}, {469, 220}}",
+							"{{0, 0}, {893, 218}}",
+							"{{898, 0}, {469, 218}}",
 						);
 					};
 					diagramSplitGeometry = {
@@ -162,19 +162,22 @@
 				"xdesign model browser state key - shown/hidden" = 1;
 				"xdesign model diagram view visible rect key" = "{{-327, -147}, {1352, 709}}";
 			};
-			sepNavWindowFrame = "{{553, 88}, {1367, 1062}}";
+			sepNavWindowFrame = "{{399, 106}, {1367, 1062}}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
-		activeBuildConfigurationName = Debug;
+		activeBuildConfigurationName = Release;
 		activeExecutable = 5F487E7612B82EB000F6FFBC /* KeyChain */;
+		activeSDKPreference = iphoneos4.1;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* KeyChain */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* KeyChain */,
 		);
 		breakpoints = (
-			5FA3A50312DC7CE4009BE36C /* KeyEntityFormController.m:62 */,
-			5F152D6512DCEB3D0082D14F /* RootViewController.m:93 */,
+			5FDF93C412DDC6360019C683 /* KeyEntityFormController.m:123 */,
+			5FDF93C612DDC63C0019C683 /* KeyEntityFormController.m:123 */,
+			5FDF93F212DE04320019C683 /* KeyEntity.m:30 */,
+			5F922A2012DE08A300B11D0B /* KeyEntityFormController.m:27 */,
 		);
 		codeSenseManager = 5F487E9212B82EB500F6FFBC /* Code sense */;
 		executables = (
@@ -225,23 +228,28 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 316474483;
-			PBXWorkspaceStateSaveDate = 316474483;
+			PBXPerProjectTemplateStateSaveDate = 316545281;
+			PBXWorkspaceStateSaveDate = 316545281;
 		};
 		perUserProjectItems = {
-			5F152D7512DCF00A0082D14F /* PBXTextBookmark */ = 5F152D7512DCF00A0082D14F /* PBXTextBookmark */;
-			5F152D8F12DCF41B0082D14F /* PBXTextBookmark */ = 5F152D8F12DCF41B0082D14F /* PBXTextBookmark */;
-			5F152D9312DCF41B0082D14F /* PBXTextBookmark */ = 5F152D9312DCF41B0082D14F /* PBXTextBookmark */;
-			5F152D9512DCF41B0082D14F /* PBXTextBookmark */ = 5F152D9512DCF41B0082D14F /* PBXTextBookmark */;
-			5F152D9812DCF41B0082D14F /* PBXTextBookmark */ = 5F152D9812DCF41B0082D14F /* PBXTextBookmark */;
-			5F152D9B12DCF41B0082D14F /* XDModelBookmark */ = 5F152D9B12DCF41B0082D14F /* XDModelBookmark */;
-			5F52D56512DD20330067D0B9 /* PBXTextBookmark */ = 5F52D56512DD20330067D0B9 /* PBXTextBookmark */;
-			5F52D56612DD20330067D0B9 /* PBXTextBookmark */ = 5F52D56612DD20330067D0B9 /* PBXTextBookmark */;
-			5F52D56712DD20330067D0B9 /* PBXTextBookmark */ = 5F52D56712DD20330067D0B9 /* PBXTextBookmark */;
-			5F52D57A12DD20AD0067D0B9 /* PBXTextBookmark */ = 5F52D57A12DD20AD0067D0B9 /* PBXTextBookmark */;
-			5F52D57B12DD20AD0067D0B9 /* PBXTextBookmark */ = 5F52D57B12DD20AD0067D0B9 /* PBXTextBookmark */;
-			5F52D57F12DD21460067D0B9 /* PBXTextBookmark */ = 5F52D57F12DD21460067D0B9 /* PBXTextBookmark */;
-			5F52D58012DD21460067D0B9 /* XDModelBookmark */ = 5F52D58012DD21460067D0B9 /* XDModelBookmark */;
+			5F240C9512DE07B000F6D430 = 5F240C9512DE07B000F6D430 /* PBXTextBookmark */;
+			5F922A2512DE08AE00B11D0B = 5F922A2512DE08AE00B11D0B /* XDModelBookmark */;
+			5F922A3D12DE0A3600B11D0B = 5F922A3D12DE0A3600B11D0B /* PBXTextBookmark */;
+			5F922A7B12DE0EC700B11D0B = 5F922A7B12DE0EC700B11D0B /* PBXTextBookmark */;
+			5F922A7C12DE0EC700B11D0B = 5F922A7C12DE0EC700B11D0B /* PBXTextBookmark */;
+			5F922A7D12DE0EC700B11D0B = 5F922A7D12DE0EC700B11D0B /* PBXTextBookmark */;
+			5F922A9112DE10DD00B11D0B = 5F922A9112DE10DD00B11D0B /* PBXTextBookmark */;
+			5F922ABF12DE14C400B11D0B = 5F922ABF12DE14C400B11D0B /* PBXTextBookmark */;
+			5F922AD412DE153A00B11D0B = 5F922AD412DE153A00B11D0B /* PBXTextBookmark */;
+			5FD2FF0612DE190500854269 /* PBXTextBookmark */ = 5FD2FF0612DE190500854269 /* PBXTextBookmark */;
+			5FD2FF1112DE191500854269 /* PBXTextBookmark */ = 5FD2FF1112DE191500854269 /* PBXTextBookmark */;
+			5FD2FF1212DE191F00854269 /* PBXTextBookmark */ = 5FD2FF1212DE191F00854269 /* PBXTextBookmark */;
+			5FD2FF1312DE197100854269 /* PBXTextBookmark */ = 5FD2FF1312DE197100854269 /* PBXTextBookmark */;
+			5FD2FF1B12DE19A600854269 /* PBXTextBookmark */ = 5FD2FF1B12DE19A600854269 /* PBXTextBookmark */;
+			5FD2FF1C12DE19A600854269 /* PBXTextBookmark */ = 5FD2FF1C12DE19A600854269 /* PBXTextBookmark */;
+			5FD2FF1D12DE19A600854269 /* PBXTextBookmark */ = 5FD2FF1D12DE19A600854269 /* PBXTextBookmark */;
+			5FDF93BE12DDC5B70019C683 = 5FDF93BE12DDC5B70019C683 /* PBXTextBookmark */;
+			5FDF941B12DE05020019C683 = 5FDF941B12DE05020019C683 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5F487E9112B82EB500F6FFBC /* Source Control */;
 		userBuildSettings = {
@@ -249,111 +257,22 @@
 			SYMROOT = /Users/softphone/WORKSPACES/APPLE/build;
 		};
 	};
-	5F152D6512DCEB3D0082D14F /* RootViewController.m:93 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 5FA3A4BF12DC7730009BE36C /* RootViewController.m */;
-		functionName = "-insertNewObject";
-		hitCount = 1;
-		ignoreCount = 0;
-		lineNumber = 93;
-		location = KeyChain;
-		modificationTime = 316468040.192594;
-		originalNumberOfMultipleMatches = 1;
-		state = 1;
-	};
-	5F152D7512DCF00A0082D14F /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5F152D7612DCF00A0082D14F /* NSEntityDescription.h */;
-		name = "NSEntityDescription.h: 24";
-		rLen = 85;
-		rLoc = 534;
-		rType = 0;
-		vrLen = 1278;
-		vrLoc = 29;
-	};
-	5F152D7612DCF00A0082D14F /* NSEntityDescription.h */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		name = NSEntityDescription.h;
-		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSEntityDescription.h;
-		sourceTree = "<absolute>";
-	};
-	5F152D8F12DCF41B0082D14F /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5F152D9012DCF41B0082D14F /* NSManagedObjectContext.h */;
-		name = "NSManagedObjectContext.h: 151";
-		rLen = 15;
-		rLoc = 8366;
-		rType = 0;
-		vrLen = 3127;
-		vrLoc = 7166;
-	};
-	5F152D9012DCF41B0082D14F /* NSManagedObjectContext.h */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		name = NSManagedObjectContext.h;
-		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSManagedObjectContext.h;
-		sourceTree = "<absolute>";
-	};
 	5F152D9212DCF41B0082D14F /* NSManagedObject.h */ = {
 		isa = PBXFileReference;
 		lastKnownFileType = sourcecode.c.h;
 		name = NSManagedObject.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSManagedObject.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {2910, 2502}}";
-			sepNavSelRange = "{5687, 55}";
-			sepNavVisRange = "{4614, 2270}";
-		};
 	};
-	5F152D9312DCF41B0082D14F /* PBXTextBookmark */ = {
+	5F240C9512DE07B000F6D430 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 5F152D9412DCF41B0082D14F /* UINavigationBar.h */;
-		name = "UINavigationBar.h: 79";
-		rLen = 92;
-		rLoc = 3130;
+		fRef = 5FDF93FC12DE04370019C683 /* NSValue.h */;
+		name = "NSValue.h: 36";
+		rLen = 30;
+		rLoc = 778;
 		rType = 0;
-		vrLen = 1962;
-		vrLoc = 1931;
-	};
-	5F152D9412DCF41B0082D14F /* UINavigationBar.h */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		name = UINavigationBar.h;
-		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UINavigationBar.h;
-		sourceTree = "<absolute>";
-	};
-	5F152D9512DCF41B0082D14F /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5FA3A54412DC8264009BE36C /* UIViewController.h */;
-		name = "UIViewController.h: 116";
-		rLen = 201;
-		rLoc = 4669;
-		rType = 0;
-		vrLen = 3955;
-		vrLoc = 3457;
-	};
-	5F152D9812DCF41B0082D14F /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5FA3A4CC12DC780B009BE36C /* KeyEntityFormController.h */;
-		name = "KeyEntityFormController.h: 22";
-		rLen = 0;
-		rLoc = 401;
-		rType = 0;
-		vrLen = 419;
+		vrLen = 940;
 		vrLoc = 0;
-	};
-	5F152D9B12DCF41B0082D14F /* XDModelBookmark */ = {
-		isa = XDModelBookmark;
-		fRef = 28860B760F44E54D00985440 /* KeyChain.xcdatamodel */;
-		fallbackIsa = PBXBookmark;
 	};
 	5F487E7612B82EB000F6FFBC /* KeyChain */ = {
 		isa = PBXExecutable;
@@ -401,288 +320,7 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	5F52D56512DD20330067D0B9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5FA3A4BE12DC7730009BE36C /* RootViewController.h */;
-		name = "RootViewController.h: 24";
-		rLen = 0;
-		rLoc = 603;
-		rType = 0;
-		vrLen = 861;
-		vrLoc = 0;
-	};
-	5F52D56612DD20330067D0B9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5F152D9212DCF41B0082D14F /* NSManagedObject.h */;
-		name = "NSManagedObject.h: 117";
-		rLen = 55;
-		rLoc = 5687;
-		rType = 0;
-		vrLen = 2270;
-		vrLoc = 4614;
-	};
-	5F52D56712DD20330067D0B9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
-		name = "KeyEntityFormController.m: 33";
-		rLen = 0;
-		rLoc = 660;
-		rType = 0;
-		vrLen = 837;
-		vrLoc = 0;
-	};
-	5F52D57A12DD20AD0067D0B9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5FA3A4BF12DC7730009BE36C /* RootViewController.m */;
-		name = "RootViewController.m: 89";
-		rLen = 0;
-		rLoc = 2466;
-		rType = 0;
-		vrLen = 1527;
-		vrLoc = 1486;
-	};
-	5F52D57B12DD20AD0067D0B9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5FCF751612D9FACD00A9E0D8 /* PushDateEntryCell.m */;
-		name = "PushDateEntryCell.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 913;
-		vrLoc = 0;
-	};
-	5F52D57F12DD21460067D0B9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5FCF751612D9FACD00A9E0D8 /* PushDateEntryCell.m */;
-		name = "PushDateEntryCell.m: 71";
-		rLen = 0;
-		rLoc = 1562;
-		rType = 0;
-		vrLen = 780;
-		vrLoc = 1189;
-	};
-	5F52D58012DD21460067D0B9 /* XDModelBookmark */ = {
-		isa = XDModelBookmark;
-		fRef = 28860B760F44E54D00985440 /* KeyChain.xcdatamodel */;
-		fallbackIsa = PBXBookmark;
-		uiCtxt = {
-			UIContextForDetailArea = {
-				_indexOfSelectedPane = 0;
-				_indexOfSelectedView = 0;
-			};
-			UIContextForEntityArea = {
-				_indexOfSelectedView = 0;
-				chosenTableColumnns = (
-					"ET Entity",
-					"ET Abstract",
-					"ET Class",
-				);
-				chosenTableColumnns_sortDirections = (
-					YES,
-				);
-				chosenTableColumnns_sortKeys = (
-					name,
-				);
-				chosenTableColumnns_sortSelectors = (
-					"_xdcaseInsensitiveNumericCompare:",
-				);
-				chosenTableWidths = (
-					103.000000,
-					22.000000,
-					144.080078,
-				);
-			};
-			UIContextForLayoutManager = {
-				detailSplitGeometry = {
-					_collapsingFrameDimension = 0;
-					_indexOfCollapsedView = 0;
-					_percentageOfCollapsedView = 0;
-					isCollapsed = yes;
-					sizes = (
-						"{{0, 0}, {893, 220}}",
-						"{{898, 0}, {469, 220}}",
-					);
-				};
-				diagramSplitGeometry = {
-					_collapsingFrameDimension = 0;
-					_indexOfCollapsedView = 0;
-					_percentageOfCollapsedView = 0;
-					isCollapsed = yes;
-					sizes = (
-						"{{0, 0}, {1367, 220}}",
-						"{{0, 225}, {1367, 724}}",
-					);
-				};
-				tableSplitGeometry = {
-					_collapsingFrameDimension = 0;
-					_indexOfCollapsedView = 0;
-					_percentageOfCollapsedView = 0;
-					isCollapsed = yes;
-					sizes = (
-						"{{0, 0}, {294, 218}}",
-						"{{299, 0}, {592, 218}}",
-					);
-				};
-			};
-			UIContextForPropertyArea = {
-				_indexOfSelectedView = 0;
-				chosenTableColumnnFRTs = (
-					"FT Fetch Request",
-					"FT Predicate",
-				);
-				chosenTableColumnnFRTs_sortDirections = (
-					YES,
-				);
-				chosenTableColumnnFRTs_sortKeys = (
-					name,
-				);
-				chosenTableColumnnFRTs_sortSelectors = (
-					"_xdcaseInsensitiveNumericCompare:",
-				);
-				chosenTableColumnnsAT = (
-					"AT Attribute",
-					"AT Type",
-				);
-				chosenTableColumnnsAT_sortDirections = (
-					YES,
-				);
-				chosenTableColumnnsAT_sortKeys = (
-					name,
-				);
-				chosenTableColumnnsAT_sortSelectors = (
-					"_xdcaseInsensitiveNumericCompare:",
-				);
-				chosenTableColumnnsFPT = (
-					"FP FetchedProperty",
-					"FP Destination",
-					"FP Predicate",
-				);
-				chosenTableColumnnsFPT_sortDirections = (
-					YES,
-				);
-				chosenTableColumnnsFPT_sortKeys = (
-					name,
-				);
-				chosenTableColumnnsFPT_sortSelectors = (
-					"_xdcaseInsensitiveNumericCompare:",
-				);
-				chosenTableColumnnsPT = (
-					"PT Property",
-					"PT Kind",
-					"PT SharedKeyOne",
-				);
-				chosenTableColumnnsPT_sortDirections = (
-					YES,
-				);
-				chosenTableColumnnsPT_sortKeys = (
-					name,
-				);
-				chosenTableColumnnsPT_sortSelectors = (
-					"_xdcaseInsensitiveNumericCompare:",
-				);
-				chosenTableColumnnsRT = (
-					"RT Relationship",
-					"RT Destination",
-				);
-				chosenTableColumnnsRT_sortDirections = (
-					YES,
-				);
-				chosenTableColumnnsRT_sortKeys = (
-					name,
-				);
-				chosenTableColumnnsRT_sortSelectors = (
-					"_xdcaseInsensitiveNumericCompare:",
-				);
-				chosenTableWidthsAT = (
-					128.000000,
-					64.000000,
-				);
-				chosenTableWidthsFPT = (
-					128.000000,
-					64.000000,
-					144.764160,
-				);
-				chosenTableWidthsFRT = (
-					128.000000,
-					249.764160,
-				);
-				chosenTableWidthsPT = (
-					128.000000,
-					108.110840,
-					329.570801,
-				);
-				chosenTableWidthsRT = (
-					128.000000,
-					64.000000,
-				);
-			};
-			"xdesign model browser state key - shown/hidden" = 1;
-			"xdesign model diagram view visible rect key" = "{{-327, -147}, {1352, 709}}";
-			"xdesign model selected entities key" = (
-			);
-			"xdesign model selected properties key" = (
-			);
-		};
-	};
-	5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1265, 754}}";
-			sepNavSelRange = "{323, 22}";
-			sepNavVisRange = "{0, 522}";
-		};
-	};
-	5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {2523, 1908}}";
-			sepNavSelRange = "{832, 0}";
-			sepNavVisRange = "{0, 936}";
-		};
-	};
-	5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {3045, 2772}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1380}";
-		};
-	};
-	5FA3A4BE12DC7730009BE36C /* RootViewController.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1265, 751}}";
-			sepNavSelRange = "{603, 0}";
-			sepNavVisRange = "{0, 861}";
-		};
-	};
-	5FA3A4BF12DC7730009BE36C /* RootViewController.m */ = {
-		uiCtxt = {
-			sepNavFolds = "{\n    c =     (\n                {\n            l = DetailViewController;\n            r = \"{7360, 24}\";\n            s = 1;\n        },\n                {\n            l = DetailViewController;\n            r = \"{7411, 24}\";\n            s = 1;\n        },\n                {\n            l = \"Nib name\";\n            r = \"{7461, 12}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 13354}\";\n    s = 0;\n}";
-			sepNavIntBoundsRect = "{{0, 0}, {3009, 7128}}";
-			sepNavSelRange = "{2466, 0}";
-			sepNavVisRange = "{1495, 922}";
-			sepNavWindowFrame = "{{491, 116}, {1367, 1062}}";
-		};
-	};
-	5FA3A4CC12DC780B009BE36C /* KeyEntityFormController.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1265, 754}}";
-			sepNavSelRange = "{401, 0}";
-			sepNavVisRange = "{0, 419}";
-		};
-	};
-	5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1470, 1926}}";
-			sepNavSelRange = "{660, 0}";
-			sepNavVisRange = "{0, 837}";
-		};
-	};
-	5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1265, 1674}}";
-			sepNavSelRange = "{1816, 0}";
-			sepNavVisRange = "{1089, 865}";
-		};
-	};
-	5FA3A50312DC7CE4009BE36C /* KeyEntityFormController.m:62 */ = {
+	5F922A2012DE08A300B11D0B /* KeyEntityFormController.m:27 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -691,21 +329,177 @@
 		countType = 0;
 		delayBeforeContinue = 0;
 		fileReference = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
-		functionName = "-viewDidLoad";
-		hitCount = 1;
+		functionName = "-save:";
+		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 62;
+		lineNumber = 27;
 		location = KeyChain;
-		modificationTime = 316468036.648157;
+		modificationTime = 316541495.775849;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	5FA3A54412DC8264009BE36C /* UIViewController.h */ = {
+	5F922A2512DE08AE00B11D0B /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28860B760F44E54D00985440 /* KeyChain.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+	};
+	5F922A3D12DE0A3600B11D0B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4BA12DC7730009BE36C /* KeyEntity.h */;
+		name = "KeyEntity.h: 16";
+		rLen = 0;
+		rLoc = 254;
+		rType = 0;
+		vrLen = 281;
+		vrLoc = 0;
+	};
+	5F922A7B12DE0EC700B11D0B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4BB12DC7730009BE36C /* KeyEntity.m */;
+		name = "KeyEntity.m: 24";
+		rLen = 0;
+		rLoc = 324;
+		rType = 0;
+		vrLen = 465;
+		vrLoc = 0;
+	};
+	5F922A7C12DE0EC700B11D0B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4BF12DC7730009BE36C /* RootViewController.m */;
+		name = "RootViewController.m: 84";
+		rLen = 45;
+		rLoc = 2149;
+		rType = 0;
+		vrLen = 1100;
+		vrLoc = 242;
+	};
+	5F922A7D12DE0EC700B11D0B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CC12DC780B009BE36C /* KeyEntityFormController.h */;
+		name = "KeyEntityFormController.h: 26";
+		rLen = 0;
+		rLoc = 493;
+		rType = 0;
+		vrLen = 499;
+		vrLoc = 0;
+	};
+	5F922A9112DE10DD00B11D0B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5F922A9212DE10DD00B11D0B /* UIViewController.h */;
+		name = "UIViewController.h: 124";
+		rLen = 132;
+		rLoc = 5523;
+		rType = 0;
+		vrLen = 3330;
+		vrLoc = 4335;
+	};
+	5F922A9212DE10DD00B11D0B /* UIViewController.h */ = {
 		isa = PBXFileReference;
 		lastKnownFileType = sourcecode.c.h;
 		name = UIViewController.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIViewController.h;
 		sourceTree = "<absolute>";
+	};
+	5F922ABF12DE14C400B11D0B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 130";
+		rLen = 0;
+		rLoc = 3490;
+		rType = 0;
+		vrLen = 955;
+		vrLoc = 2862;
+	};
+	5F922AD412DE153A00B11D0B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 130";
+		rLen = 0;
+		rLoc = 3488;
+		rType = 0;
+		vrLen = 1393;
+		vrLoc = 2730;
+	};
+	5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1265, 748}}";
+			sepNavSelRange = "{323, 22}";
+			sepNavVisRange = "{0, 522}";
+		};
+	};
+	5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {2523, 1890}}";
+			sepNavSelRange = "{832, 0}";
+			sepNavVisRange = "{1899, 1109}";
+		};
+	};
+	5FA3A4BA12DC7730009BE36C /* KeyEntity.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1265, 742}}";
+			sepNavSelRange = "{254, 0}";
+			sepNavVisRange = "{0, 281}";
+		};
+	};
+	5FA3A4BB12DC7730009BE36C /* KeyEntity.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1368, 667}}";
+			sepNavSelRange = "{373, 0}";
+			sepNavVisRange = "{0, 465}";
+			sepNavWindowFrame = "{{553, 110}, {1367, 1062}}";
+		};
+	};
+	5FA3A4BC12DC7730009BE36C /* PersistentAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1265, 748}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 840}";
+		};
+	};
+	5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {3045, 2772}}";
+			sepNavSelRange = "{309, 20}";
+			sepNavVisRange = "{0, 1380}";
+		};
+	};
+	5FA3A4BE12DC7730009BE36C /* RootViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1265, 748}}";
+			sepNavSelRange = "{389, 0}";
+			sepNavVisRange = "{0, 829}";
+		};
+	};
+	5FA3A4BF12DC7730009BE36C /* RootViewController.m */ = {
+		uiCtxt = {
+			sepNavFolds = "{\n    c =     (\n                {\n            l = DetailViewController;\n            r = \"{7710, 24}\";\n            s = 1;\n        },\n                {\n            l = DetailViewController;\n            r = \"{7761, 24}\";\n            s = 1;\n        },\n                {\n            l = \"Nib name\";\n            r = \"{7811, 12}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 13704}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {1434, 7506}}";
+			sepNavSelRange = "{2149, 45}";
+			sepNavVisRange = "{242, 1100}";
+			sepNavWindowFrame = "{{491, 116}, {1367, 1062}}";
+		};
+	};
+	5FA3A4CC12DC780B009BE36C /* KeyEntityFormController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1265, 742}}";
+			sepNavSelRange = "{493, 0}";
+			sepNavVisRange = "{0, 499}";
+		};
+	};
+	5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {3045, 2862}}";
+			sepNavSelRange = "{3488, 0}";
+			sepNavVisRange = "{2730, 1393}";
+			sepNavWindowFrame = "{{15, 111}, {1367, 1062}}";
+		};
+	};
+	5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1265, 1674}}";
+			sepNavSelRange = "{1816, 0}";
+			sepNavVisRange = "{0, 887}";
+		};
 	};
 	5FCF750512D9FACD00A9E0D8 /* BaseDataEntryCell.h */ = {
 		uiCtxt = {
@@ -730,9 +524,9 @@
 	};
 	5FCF751612D9FACD00A9E0D8 /* PushDateEntryCell.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1265, 3204}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1368, 3258}}";
 			sepNavSelRange = "{1562, 0}";
-			sepNavVisRange = "{1189, 780}";
+			sepNavVisRange = "{1189, 677}";
 		};
 	};
 	5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */ = {
@@ -748,5 +542,153 @@
 			sepNavSelRange = "{275, 123}";
 			sepNavVisRange = "{0, 405}";
 		};
+	};
+	5FD2FF0612DE190500854269 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 130";
+		rLen = 0;
+		rLoc = 3488;
+		rType = 0;
+		vrLen = 1338;
+		vrLoc = 2730;
+	};
+	5FD2FF1112DE191500854269 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 130";
+		rLen = 0;
+		rLoc = 3488;
+		rType = 0;
+		vrLen = 1338;
+		vrLoc = 2730;
+	};
+	5FD2FF1212DE191F00854269 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 130";
+		rLen = 0;
+		rLoc = 3488;
+		rType = 0;
+		vrLen = 1338;
+		vrLoc = 2730;
+	};
+	5FD2FF1312DE197100854269 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 130";
+		rLen = 0;
+		rLoc = 3488;
+		rType = 0;
+		vrLen = 810;
+		vrLoc = 3231;
+	};
+	5FD2FF1B12DE19A600854269 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 130";
+		rLen = 0;
+		rLoc = 3488;
+		rType = 0;
+		vrLen = 1393;
+		vrLoc = 2730;
+	};
+	5FD2FF1C12DE19A600854269 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */;
+		rLen = 0;
+		rLoc = 9223372036854775807;
+		rType = 0;
+	};
+	5FD2FF1D12DE19A600854269 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */;
+		name = "KeyEntityForm.plist: 82";
+		rLen = 0;
+		rLoc = 1816;
+		rType = 0;
+		vrLen = 887;
+		vrLoc = 0;
+	};
+	5FDF93BE12DDC5B70019C683 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */;
+		name = "KeyChainAppDelegate.m: 35";
+		rLen = 0;
+		rLoc = 832;
+		rType = 0;
+		vrLen = 1109;
+		vrLoc = 1899;
+	};
+	5FDF93C412DDC6360019C683 /* KeyEntityFormController.m:123 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		functionName = "-viewDidDisappear:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 123;
+		location = KeyChain;
+		modificationTime = 316541495.775421;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	5FDF93C612DDC63C0019C683 /* KeyEntityFormController.m:123 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		functionName = "-viewDidDisappear:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 123;
+		location = KeyChain;
+		modificationTime = 316541495.775501;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	5FDF93F212DE04320019C683 /* KeyEntity.m:30 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 5FA3A4BB12DC7730009BE36C /* KeyEntity.m */;
+		functionName = "-isNew";
+		hitCount = 2;
+		ignoreCount = 0;
+		lineNumber = 30;
+		location = KeyChain;
+		modificationTime = 316541513.149759;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	5FDF93FC12DE04370019C683 /* NSValue.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = NSValue.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSValue.h;
+		sourceTree = "<absolute>";
+	};
+	5FDF941B12DE05020019C683 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5F152D9212DCF41B0082D14F /* NSManagedObject.h */;
+		name = "NSManagedObject.h: 120";
+		rLen = 20;
+		rLoc = 5915;
+		rType = 0;
+		vrLen = 2270;
+		vrLoc = 4614;
 	};
 }
