@@ -48,7 +48,12 @@
 
 -(void) setControlValue:(id)value
 {
-	self.textField.text = value;
+	if (value==nil) {
+		self.textField.text = @"";
+	}
+	else {
+		self.textField.text = value;
+	}
 }
 
 -(id) getControlValue

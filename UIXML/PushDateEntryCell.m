@@ -68,6 +68,7 @@
 -(void) setControlValue:(id)value {
 	
 	if (value==nil) {
+		self.txtValue.text = @"";
 		return;
 	}
 	NSString * result =  [_dateFormatter stringFromDate:value ];
