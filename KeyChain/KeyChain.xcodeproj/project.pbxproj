@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D3623260D0F684500981E51 /* KeyChainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* KeyChainAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -15,9 +14,14 @@
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* RootViewController.xib */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
-		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 		28D3F202112F7DC200FD0661 /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */; };
-		5FAC423012D63EF400033989 /* PersistentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC422F12D63EF400033989 /* PersistentAppDelegate.m */; };
+		5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */; };
+		5FA3A4C112DC7730009BE36C /* KeyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BB12DC7730009BE36C /* KeyEntity.m */; };
+		5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */; };
+		5FA3A4C312DC7730009BE36C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BF12DC7730009BE36C /* RootViewController.m */; };
+		5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */; };
+		5FA3A4D012DC780B009BE36C /* KeyEntityFormController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */; };
+		5FA3A50012DC7C8A009BE36C /* KeyEntityForm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */; };
 		5FCF752612D9FACD00A9E0D8 /* BaseDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF750612D9FACD00A9E0D8 /* BaseDataEntryCell.m */; };
 		5FCF752712D9FACD00A9E0D8 /* DefaultHeaderInSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FCF750712D9FACD00A9E0D8 /* DefaultHeaderInSection.xib */; };
 		5FCF752812D9FACD00A9E0D8 /* MailDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FCF750912D9FACD00A9E0D8 /* MailDataEntryCell.xib */; };
@@ -47,8 +51,6 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* KeyChainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* KeyChainAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* KeyChain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28860B760F44E54D00985440 /* KeyChain.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = KeyChain.xcdatamodel; sourceTree = "<group>"; };
@@ -57,11 +59,19 @@
 		2899E55F0DE3E45000AC0155 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		28A0AAE50D9B0CCF005BE974 /* KeyChain_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChain_Prefix.pch; sourceTree = "<group>"; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5FAC422E12D63EF400033989 /* PersistentAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentAppDelegate.h; sourceTree = "<group>"; };
-		5FAC422F12D63EF400033989 /* PersistentAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentAppDelegate.m; sourceTree = "<group>"; };
+		5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainAppDelegate.h; sourceTree = "<group>"; };
+		5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainAppDelegate.m; sourceTree = "<group>"; };
+		5FA3A4BA12DC7730009BE36C /* KeyEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyEntity.h; sourceTree = "<group>"; };
+		5FA3A4BB12DC7730009BE36C /* KeyEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyEntity.m; sourceTree = "<group>"; };
+		5FA3A4BC12DC7730009BE36C /* PersistentAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentAppDelegate.h; sourceTree = "<group>"; };
+		5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentAppDelegate.m; sourceTree = "<group>"; };
+		5FA3A4BE12DC7730009BE36C /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		5FA3A4BF12DC7730009BE36C /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		5FA3A4CC12DC780B009BE36C /* KeyEntityFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyEntityFormController.h; sourceTree = "<group>"; };
+		5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyEntityFormController.m; sourceTree = "<group>"; };
+		5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyEntityFormController.xib; sourceTree = "<group>"; };
+		5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = KeyEntityForm.plist; sourceTree = "<group>"; };
 		5FCF750512D9FACD00A9E0D8 /* BaseDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDataEntryCell.h; sourceTree = "<group>"; };
 		5FCF750612D9FACD00A9E0D8 /* BaseDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDataEntryCell.m; sourceTree = "<group>"; };
 		5FCF750812D9FACD00A9E0D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DefaultHeaderInSection.xib; sourceTree = "<group>"; };
@@ -107,19 +117,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
-				28C286E00D94DF7D0034E888 /* RootViewController.m */,
-				1D3623240D0F684500981E51 /* KeyChainAppDelegate.h */,
-				1D3623250D0F684500981E51 /* KeyChainAppDelegate.m */,
-				5FAC422E12D63EF400033989 /* PersistentAppDelegate.h */,
-				5FAC422F12D63EF400033989 /* PersistentAppDelegate.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,8 +128,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5FA3A4B712DC7703009BE36C /* Classes */,
 				5FCF750412D9FACD00A9E0D8 /* UIXML */,
-				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -153,10 +150,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */,
 				28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* KeyChain-Info.plist */,
+				5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -171,6 +170,23 @@
 				28860BE40F44EE6400985440 /* CoreData.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5FA3A4B712DC7703009BE36C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */,
+				5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */,
+				5FA3A4BA12DC7730009BE36C /* KeyEntity.h */,
+				5FA3A4BB12DC7730009BE36C /* KeyEntity.m */,
+				5FA3A4BC12DC7730009BE36C /* PersistentAppDelegate.h */,
+				5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */,
+				5FA3A4BE12DC7730009BE36C /* RootViewController.h */,
+				5FA3A4BF12DC7730009BE36C /* RootViewController.m */,
+				5FA3A4CC12DC780B009BE36C /* KeyEntityFormController.h */,
+				5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		5FCF750412D9FACD00A9E0D8 /* UIXML */ = {
@@ -291,6 +307,8 @@
 				5FCF752A12D9FACD00A9E0D8 /* PushFormDataEntryCell.xib in Resources */,
 				5FCF752B12D9FACD00A9E0D8 /* SwitchDataEntryCell.xib in Resources */,
 				5FCF752C12D9FACD00A9E0D8 /* TextDataEntryCell.xib in Resources */,
+				5FA3A4D012DC780B009BE36C /* KeyEntityFormController.xib in Resources */,
+				5FA3A50012DC7C8A009BE36C /* KeyEntityForm.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,10 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1D3623260D0F684500981E51 /* KeyChainAppDelegate.m in Sources */,
-				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
 				28D3F202112F7DC200FD0661 /* KeyChain.xcdatamodeld in Sources */,
-				5FAC423012D63EF400033989 /* PersistentAppDelegate.m in Sources */,
 				5FCF752612D9FACD00A9E0D8 /* BaseDataEntryCell.m in Sources */,
 				5FCF752D12D9FACD00A9E0D8 /* PushControllerDataEntryCell.m in Sources */,
 				5FCF752E12D9FACD00A9E0D8 /* PushDateEntryCell.m in Sources */,
@@ -314,6 +329,11 @@
 				5FCF753112D9FACD00A9E0D8 /* SwitchDataEntryCell.m in Sources */,
 				5FCF753212D9FACD00A9E0D8 /* TextDataEntryCell.m in Sources */,
 				5FCF753312D9FACD00A9E0D8 /* UIXMLFormViewController.m in Sources */,
+				5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */,
+				5FA3A4C112DC7730009BE36C /* KeyEntity.m in Sources */,
+				5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */,
+				5FA3A4C312DC7730009BE36C /* RootViewController.m in Sources */,
+				5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +455,7 @@
 				1D6058950D05DD3E006BFB54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "KeyChain" */ = {
 			isa = XCConfigurationList;
@@ -444,7 +464,7 @@
 				C01FCF5008A954540054247B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 

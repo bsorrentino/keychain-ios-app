@@ -7,7 +7,8 @@
 //
 
 #import "RootViewController.h"
-
+#import "KeyEntityFormController.h"
+#import "BaseDataEntryCell.h"
 
 @interface RootViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -17,7 +18,9 @@
 @implementation RootViewController
 
 @synthesize fetchedResultsController=fetchedResultsController_, managedObjectContext=managedObjectContext_;
+@synthesize keyEntityFormController=keyEntityFormController_;
 
+#pragma mark -
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -25,6 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+	self.title = @"Key List";
+	
     // Set up the edit and add buttons.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
@@ -37,6 +42,7 @@
 // Implement viewWillAppear: to do additional setup before the view is presented.
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+	[super.tableView reloadData];
 }
 
 
@@ -68,15 +74,38 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"timeStamp"] description];
+    cell.textLabel.text = [[managedObject valueForKey:@"mnemonic"] description];
 }
 
 
 #pragma mark -
-#pragma mark Add a new object
+#pragma mark Add/Update a new object
+
+- (void)updateObject:(NSIndexPath *)indexPath {
+	
+	KeyEntity *e = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
+	[self.keyEntityFormController initWithEntity:e];
+	
+	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
+	
+}
 
 - (void)insertNewObject {
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+
+	KeyEntity *e = [[KeyEntity alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+	
+	[self.keyEntityFormController initWithEntity:e];
+	
+	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
+	
+}
+
+- (void)insertNewObject2 {
     
+	
     // Create a new instance of the entity managed by the fetched results controller.
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
@@ -207,12 +236,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
 	  // tell table which section corresponds to section title/index (e.g. "B",1))
+	return 0; 	
 }
 
 #pragma mark -
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	[self updateObject:indexPath];
+	
     // Navigation logic may go here -- for example, create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -240,14 +273,14 @@
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"KeyInfo" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"mnemonic" ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
