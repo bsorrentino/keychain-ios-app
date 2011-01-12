@@ -233,6 +233,8 @@
 		[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
 		
 		//cell = [[[NSClassFromString(cellType) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellType] autorelease];
+
+		[self cellControlDidInit:cell];
 		
 	}
 	else {
