@@ -40,7 +40,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5FCF751F12D9FACD00A9E0D8 /* UIXML.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libUIXML.a */;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = UIXML;
 		};
 /* End PBXContainerItemProxy section */
