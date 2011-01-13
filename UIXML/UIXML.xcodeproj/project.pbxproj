@@ -330,7 +330,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
-				SDKROOT = iphonesimulator4.1;
+				SDKROOT = iphoneos4.2;
 			};
 			name = Debug;
 		};
@@ -346,7 +346,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
-				SDKROOT = iphonesimulator4.1;
+				SDKROOT = iphoneos4.2;
 			};
 			name = Release;
 		};

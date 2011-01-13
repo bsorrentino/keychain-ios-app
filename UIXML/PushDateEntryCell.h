@@ -17,13 +17,18 @@
 
 @private
 	UIDatePicker *datePicker;
+	UIBarButtonItem *btnSave;
+	UITextField  * txtValue;
 	
 	PushDateEntryCell *_cell;
 }
 @property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *btnSave;
+@property (nonatomic, retain) IBOutlet UITextField  * txtValue;
 
 
 - (IBAction) selectValue: (id)sender;
+- (IBAction) saveValue: (id)sender;
 
 - (void) initWithCell:(PushDateEntryCell*)cell;
 
@@ -38,6 +43,8 @@
 	
 	NSDateFormatter *_dateFormatter;
 }
+
+- (NSString *) stringFromDate:(NSDate *)value;
 
 @property (nonatomic, retain) IBOutlet UILabel *textLabel;
 @property (nonatomic, retain) IBOutlet UITextField  * txtValue;

@@ -52,6 +52,8 @@
 	[data.model setValue: @"Simone" forKey:@"firstName" ];
 	[data.model setValue: @"Sorrentino" forKey:@"lastName" ];
 	
+	[fmt release];
+	
 }
 
 
@@ -64,7 +66,7 @@
 */
 
 - (void) viewWillAppear:(BOOL)animated {
-	[self.tableView reloadData]; // initialize data
+	//[self.tableView reloadData]; // initialize data
 }
 
 - (void)didReceiveMemoryWarning {

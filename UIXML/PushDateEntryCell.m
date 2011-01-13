@@ -65,13 +65,23 @@
 	return self;
 }
 
+- (NSString *) stringFromDate:(NSDate *)value {
+	if (value==nil) {
+		return @"";
+	}
+
+	NSString * result =  [_dateFormatter stringFromDate:value ];
+	
+	return result;
+}
+
 -(void) setControlValue:(id)value {
 	
 	if (value==nil) {
 		self.txtValue.text = @"";
 		return;
 	}
-	NSString * result =  [_dateFormatter stringFromDate:value ];
+	NSString * result =  [self stringFromDate:value ];
 
 	NSLog(@"PushDateEntryCell.setControlValue([%@]) asString [%@]", value, result );
 	
@@ -106,7 +116,7 @@
 
 @implementation PushDateViewController;
 
-@synthesize datePicker;
+@synthesize datePicker, btnSave, txtValue;
 
 
 - (void) initWithCell:(PushDateEntryCell*)cell {
@@ -115,19 +125,26 @@
 	
 	[self setTitle:cell.textLabel.text];
 	
-	
-	
 }
 
 - (IBAction) selectValue: (id)sender {
 	
-	UIDatePicker *control = sender;
+	NSLog( @"selectValue [%@]", self.datePicker );
 	
-	NSLog( @"selectValue [%@]", control );
+	NSString * value = [_cell stringFromDate:self.datePicker.date];
+	
+	txtValue.text = value;
+	
+ }
+
+- (IBAction) saveValue: (id)sender {
+	
+	NSLog( @"saveValue [%@]", self.datePicker );
 	
 	[_cell postEndEditingNotification];
 	
- }
+	[self.navigationController popViewControllerAnimated:YES];
+}
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -145,12 +162,17 @@
  }
  */
 
-/*
+
  // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
  - (void)viewDidLoad {
- [super viewDidLoad];
+	 [super viewDidLoad];
+	 
+	 [btnSave setTarget:self];
+	 self.navigationItem.rightBarButtonItem = self.btnSave;
+
+
  }
- */
+
 
 /*
  // Override to allow orientations other than the default portrait orientation.
@@ -175,6 +197,8 @@
 
 
 - (void)dealloc {
+	[datePicker release];
+	[btnSave release];
     [super dealloc];
 }
 

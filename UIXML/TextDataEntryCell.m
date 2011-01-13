@@ -72,7 +72,7 @@
 	
 	[tv scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 	
-	[indexPath release];
+	//[indexPath release];
 	
 	return YES;
 	

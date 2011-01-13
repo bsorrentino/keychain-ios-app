@@ -339,7 +339,8 @@
 		UIViewController *detailViewController = [pushCell viewController:cellData];
 		
 		[self.navigationController pushViewController:detailViewController animated:YES];
-		[detailViewController release];
+		
+		//[detailViewController release];
 		
 	}
 }
