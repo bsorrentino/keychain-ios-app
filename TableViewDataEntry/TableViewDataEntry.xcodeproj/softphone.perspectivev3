@@ -231,6 +231,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -277,8 +279,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>7</integer>
-									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -311,14 +311,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>5FC467F81295176900A5EF75</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PushDateEntryCell.m</string>
+								<string>FormViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,23 +324,18 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>5FC467F91295176900A5EF75</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PushDateEntryCell.m</string>
+										<string>FormViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>10</integer>
 										<key>bookmark</key>
-										<string>5F455DC512DFBADE00B04CAD</string>
+										<string>5F455DD012DFBC6A00B04CAD</string>
 										<key>history</key>
 										<array>
 											<string>5FD2FECE12DE182C00854269</string>
 											<string>5FD2FECF12DE182C00854269</string>
 											<string>5FD2FED012DE182C00854269</string>
 											<string>5FD2FF0212DE190500854269</string>
-											<string>5F455CFE12DFB1C000B04CAD</string>
-											<string>5F455CFF12DFB1C000B04CAD</string>
-											<string>5F455D7E12DFB83900B04CAD</string>
-											<string>5F455D7F12DFB83900B04CAD</string>
-											<string>5F455DBA12DFBA8400B04CAD</string>
-											<string>5F455DBB12DFBA8400B04CAD</string>
+											<string>5F455DCF12DFBC6A00B04CAD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -680,7 +673,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>5F455DC612DFBADE00B04CAD</string>
 		<string>5F455D7B12DFB80F00B04CAD</string>
 		<string>5F455D7C12DFB80F00B04CAD</string>
 		<string>/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/TableViewDataEntry/TableViewDataEntry.xcodeproj</string>
