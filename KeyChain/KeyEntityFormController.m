@@ -15,9 +15,10 @@
 
 #pragma mark Custom
 
-- (void)initWithEntity:(KeyEntity*)entity {
+- (void)initWithEntity:(KeyEntity*)entity delegate:(id<KeyEntityFormControllerDelegate>)delegate {
 	entity_ = entity;
 	saved_ = NO;
+	formDelegate_ = delegate;
 }
 
 - (IBAction)save:(id)sender {
@@ -37,24 +38,19 @@
 	
 	if (!valid) {
 		NSLog(@"entity not valid for insert/update error %@, %@", error, [error userInfo]);
-	}
-	else {
-		NSManagedObjectContext *context = entity_.managedObjectContext ;
-
-		// Save the context.
-		if (![context save:&error]) {
-			/*
-			 Replace this implementation with code to handle the error appropriately.
-			 
-			 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-			 */
-			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-			//abort();
-		}
+		return;
 	}
 	
-	saved_ = YES;
+	if (formDelegate_!=nil) {
+		saved_ = [formDelegate_ doSaveObject:entity_];
+	}
+	
 	[self.navigationController popViewControllerAnimated:true];
+}
+
+-(IBAction) cancel:(id)sender {
+
+	NSLog(@"cancel");
 }
 
 #pragma mark UIXMLFormViewControllerDelegate
@@ -105,27 +101,18 @@
 	
 	[btnSave setTarget:self];
 	self.navigationItem.rightBarButtonItem = self.btnSave;
+	
 
-	[self.navigationItem.backBarButtonItem setTarget:self];
-	[self.navigationItem.backBarButtonItem setAction:@selector(cancel:)];
 	
 	
 }
 
+/*
 - (void)viewDidDisappear:(BOOL)animated { // Called after the view was dismissed, covered or otherwise hidden. Default does nothing
 
-	NSLog(@"viewDidDisappear entity IUDF [%d%d%d%d] isNew [%d]", [entity_ isInserted], [entity_ isUpdated], [entity_ isDeleted], [entity_ isFault], [entity_ isNew]);
-	
-	NSManagedObjectContext *context = entity_.managedObjectContext ;
-	
-	if (!saved_ ) {
-		if( entity_.isNew ) 
-			[context deleteObject:entity_ ];
-		return;
-	}
-	
-
 }
+*/
+
 - (void)viewWillAppear:(BOOL)animated { // Called after the view was dismissed, covered or otherwise hidden. Default does nothing
 	[super viewWillAppear:animated];
 	[self.tableView reloadData];

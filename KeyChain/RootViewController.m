@@ -20,9 +20,34 @@
 @synthesize fetchedResultsController=fetchedResultsController_, managedObjectContext=managedObjectContext_;
 @synthesize keyEntityFormController=keyEntityFormController_;
 
-#pragma mark -
+#pragma mark KeyEntityFormControllerDelegate
 
-#pragma mark -
+-(BOOL)doSaveObject:(KeyEntity*)entity {
+	NSError *error = nil;
+	
+	NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];	
+
+	if (entity.isNew) {
+		[context insertObject:entity];
+	}
+	
+	
+	// Save the context.
+	if (![context save:&error]) {
+		/*
+		 Replace this implementation with code to handle the error appropriately.
+		 
+		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+		 */
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		//abort();
+		
+		return NO;
+	}
+	
+	return YES;
+}
+
 #pragma mark View lifecycle
 
 - (void)viewDidLoad {
@@ -85,24 +110,25 @@
 	
 	KeyEntity *e = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-	[self.keyEntityFormController initWithEntity:e];
+	[self.keyEntityFormController initWithEntity:e delegate:self];
 	
 	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
 	
 }
 
 - (void)insertNewObject {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    //NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
 
-	KeyEntity *e = [[KeyEntity alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+	KeyEntity *e = [[KeyEntity alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
 	
-	[self.keyEntityFormController initWithEntity:e];
+	[self.keyEntityFormController initWithEntity:e delegate:self];
 	
 	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
 	
 }
 
+// Deprecated
 - (void)insertNewObject2 {
     
 	
@@ -197,15 +223,11 @@
     return NO;
 }
 
+- (NSArray *)sectionTitlesArray {
 
-// Index
-
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-	// return list of section titles to display in section index view (e.g. "ABCD...Z#")
-
-	NSLog(@"sectionIndexTitlesForTableView");
-	
-	return [NSMutableArray arrayWithObjects: 
+	if (sectionIndexTitles_==nil) {
+		
+		sectionIndexTitles_ = [NSMutableArray arrayWithObjects: 
 			@"A", 
 			@"B", 
 			@"C", 
@@ -232,12 +254,32 @@
 			@"Y",
 			@"Z",
 			nil ];
+	}
+	return [sectionIndexTitles_ retain];
+}
+// Index
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+	// return list of section titles to display in section index view (e.g. "ABCD...Z#")
+
+	NSLog(@"sectionIndexTitlesForTableView");
+	
+	return self.sectionTitlesArray;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
 	  // tell table which section corresponds to section title/index (e.g. "B",1))
-	return 0; 	
+	NSLog(@"sectionForSectionIndexTitle title:[%@] index:[%d]", title, index );
+	
+	return index;
 }
+
+/*
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	
+	return [self.sectionTitlesArray objectAtIndex:section];
+}
+*/
 
 #pragma mark -
 #pragma mark Table view delegate

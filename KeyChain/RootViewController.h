@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "UIXMLFormViewControllerDelegate.h"
+#import "KeyEntityFormController.h"
 #import "KeyEntity.h"
 
 @class KeyEntityFormController;
 
-@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
+@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate,KeyEntityFormControllerDelegate> {
 
 @private
     NSFetchedResultsController *fetchedResultsController_;
@@ -21,7 +22,10 @@
 	
     KeyEntityFormController *keyEntityFormController_;
 	
+	NSArray *sectionIndexTitles_;
 }
+
+@property (nonatomic, retain, readonly) NSArray *sectionTitlesArray;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;

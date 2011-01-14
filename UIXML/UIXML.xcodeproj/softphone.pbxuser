@@ -55,21 +55,21 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 316649177;
-			PBXWorkspaceStateSaveDate = 316649177;
+			PBXPerProjectTemplateStateSaveDate = 316696631;
+			PBXWorkspaceStateSaveDate = 316696631;
 		};
 		perUserProjectItems = {
-			5F455CC512DFAF6600B04CAD /* PBXTextBookmark */ = 5F455CC512DFAF6600B04CAD /* PBXTextBookmark */;
-			5F455CE612DFB16400B04CAD /* PBXTextBookmark */ = 5F455CE612DFB16400B04CAD /* PBXTextBookmark */;
-			5F455D5712DFB72500B04CAD /* PBXTextBookmark */ = 5F455D5712DFB72500B04CAD /* PBXTextBookmark */;
-			5F455D5812DFB72500B04CAD /* PBXTextBookmark */ = 5F455D5812DFB72500B04CAD /* PBXTextBookmark */;
-			5F455D5912DFB72500B04CAD /* PBXTextBookmark */ = 5F455D5912DFB72500B04CAD /* PBXTextBookmark */;
-			5F455D5A12DFB72500B04CAD /* XCBuildMessageTextBookmark */ = 5F455D5A12DFB72500B04CAD /* XCBuildMessageTextBookmark */;
-			5F455DCB12DFBC4600B04CAD /* PBXTextBookmark */ = 5F455DCB12DFBC4600B04CAD /* PBXTextBookmark */;
-			5F922ACB12DE151F00B11D0B /* PBXTextBookmark */ = 5F922ACB12DE151F00B11D0B /* PBXTextBookmark */;
-			5FDF939612DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939612DDBFD40019C683 /* PBXTextBookmark */;
-			5FDF939812DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939812DDBFD40019C683 /* PBXTextBookmark */;
-			5FDF939A12DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939A12DDBFD40019C683 /* PBXTextBookmark */;
+			5F455CC512DFAF6600B04CAD = 5F455CC512DFAF6600B04CAD /* PBXTextBookmark */;
+			5F455CE612DFB16400B04CAD = 5F455CE612DFB16400B04CAD /* PBXTextBookmark */;
+			5F455D5712DFB72500B04CAD = 5F455D5712DFB72500B04CAD /* PBXTextBookmark */;
+			5F455D5812DFB72500B04CAD = 5F455D5812DFB72500B04CAD /* PBXTextBookmark */;
+			5F455D5912DFB72500B04CAD = 5F455D5912DFB72500B04CAD /* PBXTextBookmark */;
+			5F455D5A12DFB72500B04CAD = 5F455D5A12DFB72500B04CAD /* PBXTextBookmark */;
+			5F455DCB12DFBC4600B04CAD = 5F455DCB12DFBC4600B04CAD /* PBXTextBookmark */;
+			5F922ACB12DE151F00B11D0B = 5F922ACB12DE151F00B11D0B /* PBXTextBookmark */;
+			5FDF939612DDBFD40019C683 = 5FDF939612DDBFD40019C683 /* PBXTextBookmark */;
+			5FDF939812DDBFD40019C683 = 5FDF939812DDBFD40019C683 /* PBXTextBookmark */;
+			5FDF939A12DDBFD40019C683 = 5FDF939A12DDBFD40019C683 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5FA7E2361296F1C3000F493B /* Source Control */;
 		userBuildSettings = {
@@ -141,11 +141,10 @@
 		vrLen = 1168;
 		vrLoc = 7877;
 	};
-	5F455D5A12DFB72500B04CAD /* XCBuildMessageTextBookmark */ = {
+	5F455D5A12DFB72500B04CAD /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		comments = "Potential leak of an object allocated on line 32 and stored into 'detailViewController'";
 		fRef = A01671DE12AE80A90056F855 /* PushFormDataEntryCell.m */;
-		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
 		rLoc = 35;
 		rType = 1;
@@ -183,11 +182,6 @@
 		name = UITableViewController.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewController.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1623, 657}}";
-			sepNavSelRange = "{1040, 11}";
-			sepNavVisRange = "{0, 1250}";
-		};
 	};
 	5FA7E2361296F1C3000F493B /* Source Control */ = {
 		isa = PBXSourceControlManager;
