@@ -328,14 +328,14 @@
 										<key>_historyCapacity</key>
 										<integer>10</integer>
 										<key>bookmark</key>
-										<string>5F455DD012DFBC6A00B04CAD</string>
+										<string>5F6D7F9212E0688A0012C622</string>
 										<key>history</key>
 										<array>
 											<string>5FD2FECE12DE182C00854269</string>
 											<string>5FD2FECF12DE182C00854269</string>
 											<string>5FD2FED012DE182C00854269</string>
 											<string>5FD2FF0212DE190500854269</string>
-											<string>5F455DCF12DFBC6A00B04CAD</string>
+											<string>5F455DD012DFBC6A00B04CAD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -349,18 +349,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1051, 667}}</string>
+								<string>{{0, 0}, {1051, 660}}</string>
 								<key>RubberWindowFrame</key>
 								<string>150 159 1415 1019 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>667pt</string>
+							<string>660pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>306pt</string>
+							<string>313pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -374,7 +374,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1051, 279}}</string>
+										<string>{{10, 27}, {1051, 286}}</string>
+										<key>RubberWindowFrame</key>
+										<string>150 159 1415 1019 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -450,8 +452,6 @@
 									<dict>
 										<key>Frame</key>
 										<string>{{10, 27}, {1051, 279}}</string>
-										<key>RubberWindowFrame</key>
-										<string>150 159 1415 1019 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXBuildResultsModule</string>
@@ -479,11 +479,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>5F455CEA12DFB16400B04CAD</string>
+				<string>5F6D7F9312E0688A0012C622</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>5F455CEB12DFB16400B04CAD</string>
+				<string>5F6D7F9412E0688A0012C622</string>
 				<string>5FC467F81295176900A5EF75</string>
-				<string>5F455CEC12DFB16400B04CAD</string>
+				<string>5F6D7F9512E0688A0012C622</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -673,8 +673,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>5F455D7B12DFB80F00B04CAD</string>
-		<string>5F455D7C12DFB80F00B04CAD</string>
 		<string>/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/TableViewDataEntry/TableViewDataEntry.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
