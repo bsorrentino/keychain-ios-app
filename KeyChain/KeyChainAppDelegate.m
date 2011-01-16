@@ -8,7 +8,7 @@
 
 #import "KeyChainAppDelegate.h"
 #import "RootViewController.h"
-
+#import "KeyChainLogin.h"
 
 @implementation KeyChainAppDelegate
 
@@ -30,7 +30,6 @@
     
 
     // Override point for customization after application launch.
-
     // Add the navigation controller's view to the window and display.
     [window addSubview:navigationController.view];
     [window makeKeyAndVisible];
@@ -67,6 +66,12 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+	KeyChainLogin *login = [[KeyChainLogin alloc] initWithNibName:@"KeyChainLogin" bundle:nil] ;
+	[login	doModal:navigationController];
+	
+	[login release];
+	
+	
 }
 
 

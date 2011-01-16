@@ -126,6 +126,7 @@
 	
 	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
 	
+	[e release];
 }
 
 // Deprecated

@@ -16,7 +16,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					942,
+					668,
 					20,
 					48,
 					43,
@@ -55,17 +55,16 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 316696631;
-			PBXWorkspaceStateSaveDate = 316696631;
+			PBXPerProjectTemplateStateSaveDate = 316893290;
+			PBXWorkspaceStateSaveDate = 316893290;
 		};
 		perUserProjectItems = {
+			5F04E78912E374A300370F50 /* PBXTextBookmark */ = 5F04E78912E374A300370F50 /* PBXTextBookmark */;
 			5F455CC512DFAF6600B04CAD /* PBXTextBookmark */ = 5F455CC512DFAF6600B04CAD /* PBXTextBookmark */;
 			5F455CE612DFB16400B04CAD /* PBXTextBookmark */ = 5F455CE612DFB16400B04CAD /* PBXTextBookmark */;
 			5F455D5712DFB72500B04CAD /* PBXTextBookmark */ = 5F455D5712DFB72500B04CAD /* PBXTextBookmark */;
 			5F455D5812DFB72500B04CAD /* PBXTextBookmark */ = 5F455D5812DFB72500B04CAD /* PBXTextBookmark */;
 			5F455D5912DFB72500B04CAD /* PBXTextBookmark */ = 5F455D5912DFB72500B04CAD /* PBXTextBookmark */;
-			5F455DCB12DFBC4600B04CAD /* PBXTextBookmark */ = 5F455DCB12DFBC4600B04CAD /* PBXTextBookmark */;
-			5F6D7F8E12E0687C0012C622 /* PBXTextBookmark */ = 5F6D7F8E12E0687C0012C622 /* PBXTextBookmark */;
 			5F922ACB12DE151F00B11D0B /* PBXTextBookmark */ = 5F922ACB12DE151F00B11D0B /* PBXTextBookmark */;
 			5FDF939612DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939612DDBFD40019C683 /* PBXTextBookmark */;
 			5FDF939812DDBFD40019C683 /* PBXTextBookmark */ = 5FDF939812DDBFD40019C683 /* PBXTextBookmark */;
@@ -76,6 +75,16 @@
 			OBJROOT = /Users/softphone/WORKSPACES/APPLE/build;
 			SYMROOT = /Users/softphone/WORKSPACES/APPLE/build;
 		};
+	};
+	5F04E78912E374A300370F50 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA7E2431296F2AE000F493B /* UIXMLFormViewController.m */;
+		name = "UIXMLFormViewController.m: 343";
+		rLen = 0;
+		rLoc = 8549;
+		rType = 0;
+		vrLen = 795;
+		vrLoc = 8215;
 	};
 	5F30ABCB1297F96700540544 /* SwitchDataEntryCell.h */ = {
 		uiCtxt = {
@@ -140,26 +149,6 @@
 		rType = 0;
 		vrLen = 1168;
 		vrLoc = 7877;
-	};
-	5F455DCB12DFBC4600B04CAD /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = A01671DE12AE80A90056F855 /* PushFormDataEntryCell.m */;
-		name = "PushFormDataEntryCell.m: 32";
-		rLen = 0;
-		rLoc = 846;
-		rType = 0;
-		vrLen = 965;
-		vrLoc = 361;
-	};
-	5F6D7F8E12E0687C0012C622 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = A01671DE12AE80A90056F855 /* PushFormDataEntryCell.m */;
-		name = "PushFormDataEntryCell.m: 32";
-		rLen = 0;
-		rLoc = 846;
-		rType = 0;
-		vrLen = 964;
-		vrLoc = 361;
 	};
 	5F922ACB12DE151F00B11D0B /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -238,9 +227,9 @@
 	};
 	5FA7E2431296F2AE000F493B /* UIXMLFormViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1344, 6984}}";
+			sepNavIntBoundsRect = "{{0, 0}, {867, 7290}}";
 			sepNavSelRange = "{8549, 0}";
-			sepNavVisRange = "{7877, 1168}";
+			sepNavVisRange = "{8215, 795}";
 		};
 	};
 	5FDF939612DDBFD40019C683 /* PBXTextBookmark */ = {
@@ -291,7 +280,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1389, 1350}}";
 			sepNavSelRange = "{846, 0}";
-			sepNavVisRange = "{361, 964}";
+			sepNavVisRange = "{361, 720}";
 		};
 	};
 	A065363D12D3A52F0001D660 /* PushDateEntryCell.h */ = {
