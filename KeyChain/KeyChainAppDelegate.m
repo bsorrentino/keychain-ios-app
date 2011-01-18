@@ -63,7 +63,13 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+
     /*
+	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Title" message:@"Message" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+	 */
+	/*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
 	KeyChainLogin *login = [[KeyChainLogin alloc] initWithNibName:@"KeyChainLogin" bundle:nil] ;
