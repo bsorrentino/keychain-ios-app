@@ -56,7 +56,7 @@
 				<key>DataKey</key>
 				<string>birthDay</string>
 				<key>Label</key>
-				<string>Data di nascita</string>
+				<string>Data Nascita</string>
 				<key>CellType</key>
 				<string>PushDateEntryCell</string>
 				<key>_format</key>
@@ -112,11 +112,11 @@
 			</dict>
 			<dict>
 				<key>DataKey</key>
-				<string>field5</string>
+				<string>note</string>
 				<key>Label</key>
-				<string>Field5</string>
+				<string>Note</string>
 				<key>CellType</key>
-				<string>TextDataEntryCell</string>
+				<string>PushTextEntryCell</string>
 			</dict>
 		</array>
 		

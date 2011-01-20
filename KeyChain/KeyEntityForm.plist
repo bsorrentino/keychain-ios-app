@@ -75,6 +75,14 @@
 			</dict>
 			<dict>
 				<key>DataKey</key>
+				<string>note</string>
+				<key>Label</key>
+				<string>Note</string>
+				<key>CellType</key>
+				<string>PushTextEntryCell</string>
+			</dict>
+			<dict>
+				<key>DataKey</key>
 				<string>expire</string>
 				<key>Label</key>
 				<string>Expire</string>

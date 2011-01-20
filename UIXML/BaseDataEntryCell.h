@@ -17,6 +17,8 @@
 // Nome della notifica di fine editing
 #define CELL_ENDEDIT_NOTIFICATION_NAME @"CellEndEdit"
 
+
+
 @class UIXMLFormViewController;
 
 @interface BaseDataEntryCell : UITableViewCell {
@@ -39,5 +41,6 @@
 // helper for check string
 -(BOOL)isStringEmpty:(NSString*)value;
 
+-(CGRect) getRectRelativeToLabel: (CGRect)controlFrame padding:(NSInteger)padding rpadding:(NSInteger)rpadding;
 
 @end

@@ -73,8 +73,10 @@
 
 -(void)cellControlDidInit:(BaseDataEntryCell *)cell {
 	
-	NSLog(@"cellControlDidInit");
-	[cell setControlValue:[entity_ valueForKey:cell.dataKey]];	
+	NSLog(@"cellControlDidInit [%@]", cell.dataKey );
+	id value = [entity_ valueForKey:cell.dataKey];
+	
+	[cell setControlValue:value];	
 }
 
 

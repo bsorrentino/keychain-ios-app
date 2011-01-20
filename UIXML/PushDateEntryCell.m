@@ -17,6 +17,12 @@
 #pragma mark -
 #pragma mark inherit from PushControllerDataEntryCell 
 
+- (void)layoutSubviews {
+	[super layoutSubviews];
+	
+	CGRect rect = [super getRectRelativeToLabel:txtValue.frame padding:LABEL_CONTROL_PADDING rpadding:RIGHT_PADDING];
+	[self.txtValue setFrame:rect];
+}
 
 
 -(void)postEndEditingNotification {
@@ -107,7 +113,7 @@
 
 
 - (void) dealloc {
-	
+	[viewController release];
 	[_dateFormatter release];
 	[super dealloc];
 }

@@ -40,6 +40,9 @@
 		5FCF753312D9FACD00A9E0D8 /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */; };
 		5FEA98E512B981950034ADC1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */; };
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
+		5FF7900512E7AC9F008EA886 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900212E7AC9F008EA886 /* chevron.png */; };
+		5FF7900612E7AC9F008EA886 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7900412E7AC9F008EA886 /* PushTextEntryCell.m */; };
+		5FF7900912E7ACAA008EA886 /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900712E7ACAA008EA886 /* PushTextEntryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,10 @@
 		5FCF752512D9FACD00A9E0D8 /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewControllerDelegate.h; sourceTree = "<group>"; };
 		5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		5FF78F2E12E5A481008EA886 /* logo-64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-64x64.png"; sourceTree = "<group>"; };
+		5FF7900212E7AC9F008EA886 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
+		5FF7900312E7AC9F008EA886 /* PushTextEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTextEntryCell.h; sourceTree = "<group>"; };
+		5FF7900412E7AC9F008EA886 /* PushTextEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTextEntryCell.m; sourceTree = "<group>"; };
+		5FF7900812E7ACAA008EA886 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushTextEntryCell.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* KeyChain-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KeyChain-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +210,10 @@
 		5FCF750412D9FACD00A9E0D8 /* UIXML */ = {
 			isa = PBXGroup;
 			children = (
+				5FF7900712E7ACAA008EA886 /* PushTextEntryCell.xib */,
+				5FF7900212E7AC9F008EA886 /* chevron.png */,
+				5FF7900312E7AC9F008EA886 /* PushTextEntryCell.h */,
+				5FF7900412E7AC9F008EA886 /* PushTextEntryCell.m */,
 				5FCF750512D9FACD00A9E0D8 /* BaseDataEntryCell.h */,
 				5FCF750612D9FACD00A9E0D8 /* BaseDataEntryCell.m */,
 				5FCF750712D9FACD00A9E0D8 /* DefaultHeaderInSection.xib */,
@@ -322,6 +333,8 @@
 				5FA3A50012DC7C8A009BE36C /* KeyEntityForm.plist in Resources */,
 				5F04E6E512E368C800370F50 /* KeyChainLogin.xib in Resources */,
 				5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */,
+				5FF7900512E7AC9F008EA886 /* chevron.png in Resources */,
+				5FF7900912E7ACAA008EA886 /* PushTextEntryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +361,7 @@
 				5FA3A4C312DC7730009BE36C /* RootViewController.m in Sources */,
 				5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */,
 				5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */,
+				5FF7900612E7AC9F008EA886 /* PushTextEntryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +414,14 @@
 				5FCF751212D9FACD00A9E0D8 /* en */,
 			);
 			name = TextDataEntryCell.xib;
+			sourceTree = "<group>";
+		};
+		5FF7900712E7ACAA008EA886 /* PushTextEntryCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FF7900812E7ACAA008EA886 /* en */,
+			);
+			name = PushTextEntryCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

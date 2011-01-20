@@ -71,6 +71,14 @@
 	
 }
 
+-(CGRect) getRectRelativeToLabel:(CGRect)controlFrame padding:(NSInteger)padding rpadding:(NSInteger)rpadding {
+
+	return CGRectMake(self.textLabel.frame.origin.x + self.textLabel.frame.size.width  + padding, 
+						controlFrame.origin.y, 
+						self.contentView.frame.size.width-(self.textLabel.frame.size.width + padding + self.textLabel.frame.origin.x)-rpadding, 
+						controlFrame.size.height);
+}
+
 -(BOOL)isStringEmpty:(NSString*)value {
 	return ( value==nil || [[value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0 );
 }
