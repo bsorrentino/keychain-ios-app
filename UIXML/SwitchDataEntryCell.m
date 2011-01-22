@@ -25,7 +25,6 @@
 	
     if ((self = [super init:controller datakey:key label:label cellData:cellData])) {
         // Initialization code
-		
 		[switchField addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
 
     }

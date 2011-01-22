@@ -14,6 +14,17 @@
 @synthesize btnSave;
 
 #pragma mark Custom
+- (void)showError:(NSString *)title msg:(NSString*)msg {
+	
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title 
+													message:msg
+												   delegate:nil 
+										  cancelButtonTitle:@"OK" 
+										  otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+	
+}
 
 - (void)initWithEntity:(KeyEntity*)entity delegate:(id<KeyEntityFormControllerDelegate>)delegate {
 	entity_ = entity;
@@ -37,7 +48,13 @@
 	}
 	
 	if (!valid) {
+		
+		NSString *msg = [NSString stringWithFormat:@"Data not valid !\n error %@", [error description]];
+		
 		NSLog(@"entity not valid for insert/update error %@, %@", error, [error userInfo]);
+		
+		[self showError:@"Error" msg:msg ];
+		
 		return;
 	}
 	
@@ -64,8 +81,14 @@
 	BOOL valid = [entity_ validateValue:&value forKey:cell.dataKey error:&error]; 
 
 	if (!valid) {
-		// SHOW ERROR POPUP
+		
+		NSString *msg = [NSString stringWithFormat:@"value for field [%@] is not valid!", cell.dataKey];
+
 		NSLog(@"value [%@] is not valid! error %@, %@", error, [error userInfo]);
+		
+		// SHOW ERROR POPUP
+		[self showError:@"Error" msg:msg ];
+
 		return;
 	}
 	[entity_ setValue:[cell getControlValue] forKey:cell.dataKey];

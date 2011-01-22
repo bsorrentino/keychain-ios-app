@@ -230,16 +230,15 @@
 		cell = dataEntryCell;
 		self.dataEntryCell = nil;
 	
-		[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
+		//[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
 		
 		//cell = [[[NSClassFromString(cellType) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellType] autorelease];
 
-		[self cellControlDidInit:cell];
+		//[self cellControlDidInit:cell];
 		
 	}
-	else {
-		[self cellControlDidInit:cell];
-	}
+	[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
+	[self cellControlDidInit:cell];
 
 	/*
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;

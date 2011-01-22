@@ -7,7 +7,7 @@
 	
 		<dict>
 			<key>label</key>
-			<string>Personal</string>
+			<string>Main Info</string>
 		</dict>
 	
 		<array>
@@ -25,39 +25,9 @@
 			</dict>
 			<dict>
 				<key>DataKey</key>
-				<string>url</string>
-				<key>Label</key>
-				<string>Site</string>
-				<key>CellType</key>
-				<string>TextDataEntryCell</string>
-				<key>placeholder</key>
-				<string>&lt;input site url&gt;</string>
-			</dict>
-			<dict>
-				<key>DataKey</key>
-				<string>mail</string>
-				<key>Label</key>
-				<string>Email</string>
-				<key>CellType</key>
-				<string>MailDataEntryCell</string>
-				<key>placeholder</key>
-				<string>&lt;input mail&gt;</string>
-			</dict>
-		</array>
-	</array>
-
-	<array>	
-		<dict>
-			<key>label</key>
-			<string>Key</string>
-		</dict>
-	
-		<array>
-			<dict>
-				<key>DataKey</key>
 				<string>username</string>
 				<key>Label</key>
-				<string>Contract</string>
+				<string>UserName</string>
 				<key>CellType</key>
 				<string>TextDataEntryCell</string>
 				<key>placeholder</key>
@@ -72,6 +42,37 @@
 				<string>TextDataEntryCell</string>
 				<key>placeholder</key>
 				<string>&lt;input password&gt;</string>
+			</dict>
+			
+		</array>
+	</array>
+
+	<array>	
+		<dict>
+			<key>label</key>
+			<string>Extra Info</string>
+		</dict>
+	
+		<array>
+			<dict>
+				<key>DataKey</key>
+				<string>mail</string>
+				<key>Label</key>
+				<string>Email</string>
+				<key>CellType</key>
+				<string>MailDataEntryCell</string>
+				<key>placeholder</key>
+				<string>&lt;input mail&gt;</string>
+			</dict>
+			<dict>
+				<key>DataKey</key>
+				<string>url</string>
+				<key>Label</key>
+				<string>Site</string>
+				<key>CellType</key>
+				<string>TextDataEntryCell</string>
+				<key>placeholder</key>
+				<string>&lt;input site url&gt;</string>
 			</dict>
 			<dict>
 				<key>DataKey</key>

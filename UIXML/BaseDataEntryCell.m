@@ -29,6 +29,12 @@
 	return self;
 }
 
+-(BOOL)isStringEmpty:(NSString*)value {
+	return ( value==nil || [[value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0 );
+}
+
+
+
 -(void) setControlValue:(id)value
 {
 	NSLog( @"setControlValue [%@] = [%@]", dataKey, value ) ;
@@ -54,8 +60,17 @@
 #pragma mark inherit from NSObject
 
 - (void)dealloc {
+	[dataKey release];
     [super dealloc];
 }
+
+#pragma mark inherit from UITableViewCell
+
+/*
+// if the cell is reusable (has a reuse identifier), this is called just before the cell is returned from the table view method dequeueReusableCellWithIdentifier:.  If you override, you MUST call super.
+- (void)prepareForReuse {
+ }
+*/
 
 #pragma mark inherit from UIView
 
@@ -77,10 +92,6 @@
 						controlFrame.origin.y, 
 						self.contentView.frame.size.width-(self.textLabel.frame.size.width + padding + self.textLabel.frame.origin.x)-rpadding, 
 						controlFrame.size.height);
-}
-
--(BOOL)isStringEmpty:(NSString*)value {
-	return ( value==nil || [[value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0 );
 }
 
 

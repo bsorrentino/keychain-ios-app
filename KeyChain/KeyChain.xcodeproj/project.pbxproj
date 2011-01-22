@@ -17,6 +17,7 @@
 		28D3F202112F7DC200FD0661 /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */; };
 		5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F04E6E212E368C800370F50 /* KeyChainLogin.m */; };
 		5F04E6E512E368C800370F50 /* KeyChainLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F04E6E312E368C800370F50 /* KeyChainLogin.xib */; };
+		5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F129E0912EB607300BF9EF9 /* login32x32.png */; };
 		5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */; };
 		5FA3A4C112DC7730009BE36C /* KeyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BB12DC7730009BE36C /* KeyEntity.m */; };
 		5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */; };
@@ -69,6 +70,7 @@
 		5F04E6E112E368C800370F50 /* KeyChainLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainLogin.h; sourceTree = "<group>"; };
 		5F04E6E212E368C800370F50 /* KeyChainLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainLogin.m; sourceTree = "<group>"; };
 		5F04E6E312E368C800370F50 /* KeyChainLogin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyChainLogin.xib; sourceTree = "<group>"; };
+		5F129E0912EB607300BF9EF9 /* login32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login32x32.png; sourceTree = "<group>"; };
 		5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainAppDelegate.h; sourceTree = "<group>"; };
 		5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainAppDelegate.m; sourceTree = "<group>"; };
 		5FA3A4BA12DC7730009BE36C /* KeyEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyEntity.h; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F129E0912EB607300BF9EF9 /* login32x32.png */,
 				5F04E6E312E368C800370F50 /* KeyChainLogin.xib */,
 				5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */,
 				28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */,
@@ -335,6 +338,7 @@
 				5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */,
 				5FF7900512E7AC9F008EA886 /* chevron.png in Resources */,
 				5FF7900912E7ACAA008EA886 /* PushTextEntryCell.xib in Resources */,
+				5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

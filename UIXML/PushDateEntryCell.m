@@ -10,7 +10,7 @@
 
 @implementation PushDateEntryCell
 
-@synthesize viewController, textLabel,txtValue;
+@synthesize viewController, textLabel,txtValue, dateFormatter=dateFormatter_;
 
 
 
@@ -27,7 +27,7 @@
 
 -(void)postEndEditingNotification {
 	
-	NSString * result =  [_dateFormatter stringFromDate:viewController.datePicker.date ];
+	NSString * result =  [dateFormatter_ stringFromDate:viewController.datePicker.date ];
 
 	NSLog(@"date to String [%@]", result );
 	
@@ -54,16 +54,15 @@
 			
 			[txtValue setPlaceholder:placeholder];
 		}
-		_dateFormatter = [[NSDateFormatter alloc] init];
 
 		NSString *format = [cellData objectForKey:@"format"];
 		
 		if( ![self isStringEmpty:format] ) {
 			
-			[_dateFormatter setDateFormat:format];
+			[self.dateFormatter setDateFormat:format];
 		}
 		else {
-			[_dateFormatter setDateStyle:kCFDateFormatterMediumStyle];
+			[self.dateFormatter setDateStyle:kCFDateFormatterMediumStyle];
 		}
 		
     }
@@ -71,12 +70,20 @@
 	return self;
 }
 
+// Getter
+-(NSDateFormatter *)dateFormatter {
+	if (dateFormatter_ == nil ) {
+		dateFormatter_ = [[NSDateFormatter alloc] init];
+	}
+	return dateFormatter_;
+}
+
 - (NSString *) stringFromDate:(NSDate *)value {
 	if (value==nil) {
 		return @"";
 	}
 
-	NSString * result =  [_dateFormatter stringFromDate:value ];
+	NSString * result =  [self.dateFormatter stringFromDate:value ];
 	
 	return result;
 }
@@ -107,14 +114,14 @@
 
 -(NSLocale *)locale {
 	
-	return _dateFormatter.locale;
+	return self.dateFormatter.locale;
 	
 }
 
 
 - (void) dealloc {
 	[viewController release];
-	[_dateFormatter release];
+	[dateFormatter_ release];
 	[super dealloc];
 }
 @end
