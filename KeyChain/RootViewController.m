@@ -20,6 +20,42 @@
 @synthesize fetchedResultsController=fetchedResultsController_, managedObjectContext=managedObjectContext_;
 @synthesize keyEntityFormController=keyEntityFormController_;
 
+
+- (NSArray *)sectionTitlesArray {
+	
+	if (sectionIndexTitles_==nil) {
+		
+		sectionIndexTitles_ = [NSMutableArray arrayWithObjects: 
+							   @"A", 
+							   @"B", 
+							   @"C", 
+							   @"D", 
+							   @"E", 
+							   @"F",
+							   @"G",
+							   @"H",
+							   @"I",
+							   @"J",
+							   @"K",
+							   @"L",
+							   @"M",
+							   @"N",
+							   @"O",
+							   @"P",
+							   @"Q",
+							   @"R",
+							   @"S",
+							   @"T",
+							   @"U",
+							   @"Y",
+							   @"X",
+							   @"Y",
+							   @"Z",
+							   nil ];
+	}
+	return [sectionIndexTitles_ retain];
+}
+
 #pragma mark KeyEntityFormControllerDelegate
 
 -(BOOL)doSaveObject:(KeyEntity*)entity {
@@ -224,41 +260,20 @@
     return NO;
 }
 
-- (NSArray *)sectionTitlesArray {
-
-	if (sectionIndexTitles_==nil) {
-		
-		sectionIndexTitles_ = [NSMutableArray arrayWithObjects: 
-			@"A", 
-			@"B", 
-			@"C", 
-			@"D", 
-			@"E", 
-			@"F",
-			@"G",
-			@"H",
-			@"I",
-			@"J",
-			@"K",
-			@"L",
-			@"M",
-			@"N",
-			@"O",
-			@"P",
-			@"Q",
-			@"R",
-			@"S",
-			@"T",
-			@"U",
-			@"Y",
-			@"X",
-			@"Y",
-			@"Z",
-			nil ];
-	}
-	return [sectionIndexTitles_ retain];
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];	
+	
+	NSLog(@"titleForHeaderInSection section:[%d] [%@]", section, sectionInfo.name );
+	
+	//return [self.sectionTitlesArray objectAtIndex:section];
+	
+	return sectionInfo.name;
+	
 }
-// Index
+
+
+#pragma -
+#pragma mark UITableView Index
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
 	// return list of section titles to display in section index view (e.g. "ABCD...Z#")
@@ -270,16 +285,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
 	  // tell table which section corresponds to section title/index (e.g. "B",1))
+	index = [self.fetchedResultsController.sectionIndexTitles indexOfObject:title];
+	
 	NSLog(@"sectionForSectionIndexTitle title:[%@] index:[%d]", title, index );
 	
 	return index;
 }
 
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	
-	return [self.sectionTitlesArray objectAtIndex:section];
-}
 
 
 #pragma mark -
@@ -414,6 +426,16 @@
     [self.tableView endUpdates];
 }
 
+/*	 
+- (NSString *)controller:(NSFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName  {
+
+	
+	NSLog(@"sectionIndexTitleForSectionName sectionName:[%@]", sectionName );
+	
+	return sectionName;
+
+}
+*/
 
 /*
 // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
