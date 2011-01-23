@@ -12,6 +12,8 @@
 
 @synthesize viewController, textLabel;
 
+#pragma mark BaseDataEntryCell
+
 - (id) init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData{
 	
     if ((self = [super init:controller datakey:key label:label cellData:cellData])) {
@@ -20,6 +22,32 @@
 	
 	return self;
 }
+-(void) setControlValue:(id)value {
+	
+	NSString * result = nil;
+	
+	if (value==nil) {
+		result = @"";
+	}
+	else {
+		result = value;
+	}
+	
+	NSLog(@"PushTextEntryCell.setControlValue([%@]) asString [%@]", value, result );
+
+	self.viewController.txtValue.text = result;
+}
+
+-(id) getControlValue {
+	
+	NSString * result = self.viewController.txtValue.text;
+	
+	NSLog(@"PushTextEntryCell.getControlValue [%@]", result );
+	
+	return result; 
+}
+
+#pragma mark PushControllerDataEntryCell
 
 -(UIViewController *)viewController:(NSDictionary*)cellData {
 	
@@ -29,6 +57,7 @@
 	return [viewController retain];
 }
 
+#pragma mark UITableViewCell
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
