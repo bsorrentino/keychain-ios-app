@@ -9,9 +9,10 @@
 #import "KeyEntityFormController.h"
 #import "KeyEntity.h"
 #import "BaseDataEntryCell.h"
+#import "TextDataEntryCell.h"
 
 @implementation KeyEntityFormController
-@synthesize btnSave;
+@synthesize toolbar=toolbar_, btnSave=btnSave_, segShowHidePassword=segShowHidePassword_;
 
 #pragma mark Custom
 - (void)showError:(NSString *)title msg:(NSString*)msg {
@@ -30,6 +31,26 @@
 	entity_ = entity;
 	saved_ = NO;
 	formDelegate_ = delegate;
+	
+	[self.tableView reloadData];
+	[self.segShowHidePassword sendActionsForControlEvents:UIControlEventValueChanged];
+	
+}
+
+- (IBAction)showHidePassword:(id)sender {
+
+	NSInteger index = [(UISegmentedControl*)sender selectedSegmentIndex];
+	
+	NSIndexPath *ip = [NSIndexPath indexPathForRow:2 inSection:0]; 
+	
+	TextDataEntryCell *cell = (TextDataEntryCell*)[self.tableView cellForRowAtIndexPath:ip];
+		
+	NSLog(@"showHidePassword selectedSegmentIndex=[%d] [%@]", index, cell );
+	
+	cell.textField.secureTextEntry = (index==0);
+	
+	[ip release]; 
+	
 }
 
 - (IBAction)save:(id)sender {
@@ -124,11 +145,14 @@
 	
 	[super viewDidLoad];
 	
-	[btnSave setTarget:self];
-	self.navigationItem.rightBarButtonItem = self.btnSave;
+	[self.btnSave setTarget:self];
+	[self.segShowHidePassword addTarget:self action:@selector(showHidePassword:) forControlEvents:UIControlEventValueChanged];
 	
-
+	UIBarButtonItem * rightButton = [[UIBarButtonItem alloc] initWithCustomView:self.toolbar];
 	
+	self.navigationItem.rightBarButtonItem = rightButton;
+	
+	[rightButton release];
 	
 }
 
@@ -140,7 +164,7 @@
 
 - (void)viewWillAppear:(BOOL)animated { // Called after the view was dismissed, covered or otherwise hidden. Default does nothing
 	[super viewWillAppear:animated];
-	[self.tableView reloadData];
+	//[self.tableView reloadData];
 }
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -166,7 +190,9 @@
 
 - (void)dealloc {
 	[entity_ release];
-	[btnSave release];
+	[toolbar_ release];
+	[btnSave_ release];
+	[segShowHidePassword_ release];
     [super dealloc];
 }
 

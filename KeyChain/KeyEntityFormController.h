@@ -22,14 +22,20 @@
 @private 
 	id<KeyEntityFormControllerDelegate> formDelegate_;
 	KeyEntity *entity_;
-	UIBarButtonItem *btnSave;
+	UIView *toolbar_;
+	UIBarButtonItem *btnSave_;
+	UISegmentedControl *segShowHidePassword_;
 	BOOL saved_;
 }
 
+@property (nonatomic,retain) IBOutlet UIView *toolbar;
 @property (nonatomic,retain) IBOutlet UIBarButtonItem *btnSave;
+@property (nonatomic,retain) IBOutlet UISegmentedControl *segShowHidePassword;
+
 - (void)initWithEntity:(KeyEntity*)entity delegate:(id<KeyEntityFormControllerDelegate>)delegate;
 
-- (IBAction)save:(id)sender;
+-(IBAction)save:(id)sender;
 -(IBAction) cancel:(id)sender;
+-(IBAction)showHidePassword:(id)sender;
 
 @end
