@@ -95,7 +95,13 @@
 
 -(void)cellControlDidEndEditing:(BaseDataEntryCell *)cell {
 
+//	if (!saved_) {
+//		return;
+//	}
+
 	id value = [cell getControlValue];
+
+	NSLog(@"[%@].cellControlDidEndEditing [%@]", cell.dataKey, value);
 
 	NSError *error = nil;
 	
@@ -112,13 +118,13 @@
 
 		return;
 	}
-	[entity_ setValue:[cell getControlValue] forKey:cell.dataKey];
+	[entity_ setValue:value forKey:cell.dataKey];
 }
 
 -(void)cellControlDidInit:(BaseDataEntryCell *)cell {
 	
-	NSLog(@"cellControlDidInit [%@]", cell.dataKey );
 	id value = [entity_ valueForKey:cell.dataKey];
+	NSLog(@"[%@].cellControlDidInit [%@]", cell.dataKey, value  );
 	
 	[cell setControlValue:value];	
 }

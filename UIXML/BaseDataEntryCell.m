@@ -37,18 +37,18 @@
 
 -(void) setControlValue:(id)value
 {
-	NSLog( @"setControlValue [%@] = [%@]", dataKey, value ) ;
+	NSLog( @"[%@].setControlValue[%@]", dataKey, value ) ;
 }
 
 -(id) getControlValue
 {
-	NSLog( @"getControlValue [%@]", dataKey );
+	NSLog( @"[%@].getControlValue", dataKey );
 	return nil;
 }
 
 -(void)postEndEditingNotification
 {
-	NSLog(@"postEndEditingNotification");
+	NSLog(@"[%@].postEndEditingNotification", dataKey);
 	
 	[[NSNotificationCenter defaultCenter] 
 	 postNotificationName:CELL_ENDEDIT_NOTIFICATION_NAME
@@ -71,6 +71,13 @@
 - (void)prepareForReuse {
  }
 */
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+	
+	NSLog(@"[%@].setSelected [%d]", dataKey, selected);
+    [super setSelected:selected animated:animated];
+	
+}
 
 #pragma mark inherit from UIView
 
