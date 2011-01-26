@@ -65,6 +65,14 @@
 	return self.textField.text;
 }
 
+-(void)setEnabled:(BOOL)value {
+	self.textField.enabled = value;
+}
+
+-(BOOL)enabled {
+	return self.textField.enabled ;
+}
+
 
 #pragma mark UITextFieldDelegate
 

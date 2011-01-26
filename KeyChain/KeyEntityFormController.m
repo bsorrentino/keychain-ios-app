@@ -36,15 +36,17 @@
 	[self.tableView reloadData];
 	[self.segShowHidePassword sendActionsForControlEvents:UIControlEventValueChanged];
 	
+	BaseDataEntryCell *cell  = [super cellForIndexPath:0 section:0];
+		
+	cell.enabled = entity_.isNew;
+	
 }
 
 - (IBAction)showHidePassword:(id)sender {
 
 	NSInteger index = [(UISegmentedControl*)sender selectedSegmentIndex];
 	
-	NSIndexPath *ip = [NSIndexPath indexPathForRow:2 inSection:0]; 
-	
-	TextDataEntryCell *cell = (TextDataEntryCell*)[self.tableView cellForRowAtIndexPath:ip];
+	TextDataEntryCell *cell = (TextDataEntryCell*)[self cellForIndexPath:2 section:0];
 		
 	NSLog(@"showHidePassword selectedSegmentIndex=[%d] [%@]", index, cell );
 	
@@ -166,18 +168,20 @@
 	[self.segShowHidePassword addTarget:self action:@selector(showHidePassword:) forControlEvents:UIControlEventValueChanged];
 	
 	//
-	 self.navigationItem.leftBarButtonItem =
-	[[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+
+	UIBarButtonItem *leftButton = 
+		[[UIBarButtonItem alloc] initWithTitle:@"Cancel"
 									 style:UIBarButtonItemStyleBordered
 									target:self
 									action:@selector(cancel:)];
+	self.navigationItem.leftBarButtonItem = leftButton;
 	
 	UIBarButtonItem * rightButton = [[UIBarButtonItem alloc] initWithCustomView:self.toolbar];
 	
 	self.navigationItem.rightBarButtonItem = rightButton;
 	
 	[rightButton release];
-	
+	[leftButton release];
 }
 
 /*
@@ -185,10 +189,14 @@
 }
 */
 
+/*
 - (void)viewWillAppear:(BOOL)animated { // Called after the view was dismissed, covered or otherwise hidden. Default does nothing
 	[super viewWillAppear:animated];
 	//[self.tableView reloadData];
+
 }
+*/
+
 /*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

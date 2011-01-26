@@ -40,6 +40,8 @@
 -(void)cellControlDidEndEditingNotify:(NSNotification *)notification;
 
 -(NSString*)getStringInSection:(NSInteger)section;
+
+-(BaseDataEntryCell*)cellForIndexPath:(NSUInteger)row section:(NSUInteger)section;
 @end
 
 @interface UIXMLFormViewControllerEx : UIXMLFormViewController {

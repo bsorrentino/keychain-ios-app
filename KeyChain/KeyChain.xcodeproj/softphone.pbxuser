@@ -32,7 +32,7 @@
 					chosenTableWidths = (
 						103.000000,
 						22.000000,
-						144.080078,
+						122.080078,
 					);
 				};
 				UIContextForLayoutManager = {
@@ -42,8 +42,8 @@
 						_percentageOfCollapsedView = 0;
 						isCollapsed = yes;
 						sizes = (
-							"{{0, 0}, {893, 220}}",
-							"{{898, 0}, {469, 220}}",
+							"{{0, 0}, {828, 218}}",
+							"{{833, 0}, {435, 218}}",
 						);
 					};
 					diagramSplitGeometry = {
@@ -52,8 +52,8 @@
 						_percentageOfCollapsedView = 0;
 						isCollapsed = yes;
 						sizes = (
-							"{{0, 0}, {1367, 220}}",
-							"{{0, 225}, {1367, 724}}",
+							"{{0, 0}, {1268, 220}}",
+							"{{0, 225}, {1268, 479}}",
 						);
 					};
 					tableSplitGeometry = {
@@ -62,8 +62,8 @@
 						_percentageOfCollapsedView = 0;
 						isCollapsed = yes;
 						sizes = (
-							"{{0, 0}, {294, 218}}",
-							"{{299, 0}, {592, 218}}",
+							"{{0, 0}, {272, 218}}",
+							"{{277, 0}, {549, 218}}",
 						);
 					};
 				};
@@ -152,7 +152,7 @@
 					chosenTableWidthsPT = (
 						128.000000,
 						108.110840,
-						329.570801,
+						286.570801,
 					);
 					chosenTableWidthsRT = (
 						128.000000,
@@ -160,7 +160,7 @@
 					);
 				};
 				"xdesign model browser state key - shown/hidden" = 1;
-				"xdesign model diagram view visible rect key" = "{{-327, -147}, {1352, 709}}";
+				"xdesign model diagram view visible rect key" = "{{-278, -25}, {1253, 464}}";
 			};
 			sepNavWindowFrame = "{{399, 106}, {1367, 1062}}";
 		};
@@ -176,7 +176,7 @@
 		activeArchitecturePreference = armv6;
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 5F487E7612B82EB000F6FFBC /* KeyChain */;
-		activeSDKPreference = iphonesimulator4.2;
+		activeSDKPreference = iphoneos4.2;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* KeyChain */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* KeyChain */,
@@ -184,12 +184,12 @@
 		breakpoints = (
 			5F6D7F4312E0643B0012C622 /* RootViewController.m:245 */,
 			5F129DAE12EB4DEB00BF9EF9 /* RootViewController.m:386 */,
-			5FC1C1B512EF98E7001F9BDD /* KeyEntityFormController.m:59 */,
-			5FC1C1B712EF98F2001F9BDD /* TextDataEntryCell.m:86 */,
-			5FC1C1B912EF98F3001F9BDD /* TextDataEntryCell.m:94 */,
-			5FC1C1BB12EF98F5001F9BDD /* TextDataEntryCell.m:103 */,
-			5FC1C1C412EF9937001F9BDD /* KeyEntityFormController.m:111 */,
-			5FC1C1CB12EF9947001F9BDD /* KeyEntityFormController.m:75 */,
+			5FC1C1B512EF98E7001F9BDD /* KeyEntityFormController.m:61 */,
+			5FC1C1B712EF98F2001F9BDD /* TextDataEntryCell.m:94 */,
+			5FC1C1B912EF98F3001F9BDD /* TextDataEntryCell.m:102 */,
+			5FC1C1BB12EF98F5001F9BDD /* TextDataEntryCell.m:111 */,
+			5FC1C1C412EF9937001F9BDD /* KeyEntityFormController.m:113 */,
+			5FC1C1CB12EF9947001F9BDD /* KeyEntityFormController.m:77 */,
 		);
 		codeSenseManager = 5F487E9212B82EB500F6FFBC /* Code sense */;
 		executables = (
@@ -264,21 +264,28 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 317685622;
-			PBXWorkspaceStateSaveDate = 317685622;
+			PBXPerProjectTemplateStateSaveDate = 317724744;
+			PBXWorkspaceStateSaveDate = 317724744;
 		};
 		perUserProjectItems = {
-			5FC1C18712EF95EA001F9BDD /* PBXTextBookmark */ = 5FC1C18712EF95EA001F9BDD /* PBXTextBookmark */;
-			5FC1C18812EF95EA001F9BDD /* PBXTextBookmark */ = 5FC1C18812EF95EA001F9BDD /* PBXTextBookmark */;
-			5FC1C18912EF95EA001F9BDD /* PBXTextBookmark */ = 5FC1C18912EF95EA001F9BDD /* PBXTextBookmark */;
-			5FC1C18C12EF95EA001F9BDD /* PBXTextBookmark */ = 5FC1C18C12EF95EA001F9BDD /* PBXTextBookmark */;
-			5FC1C1BF12EF98FF001F9BDD /* PBXTextBookmark */ = 5FC1C1BF12EF98FF001F9BDD /* PBXTextBookmark */;
-			5FC1C1D812EF9A8E001F9BDD /* PBXTextBookmark */ = 5FC1C1D812EF9A8E001F9BDD /* PBXTextBookmark */;
-			5FC1C1E712EF9C8D001F9BDD /* PBXTextBookmark */ = 5FC1C1E712EF9C8D001F9BDD /* PBXTextBookmark */;
-			5FC1C20512EF9E2D001F9BDD /* PBXTextBookmark */ = 5FC1C20512EF9E2D001F9BDD /* PBXTextBookmark */;
-			5FC1C20612EF9E2D001F9BDD /* PBXTextBookmark */ = 5FC1C20612EF9E2D001F9BDD /* PBXTextBookmark */;
-			5FC1C20712EF9E2D001F9BDD /* XCBuildMessageTextBookmark */ = 5FC1C20712EF9E2D001F9BDD /* XCBuildMessageTextBookmark */;
-			5FC1C20812EF9E2D001F9BDD /* PBXTextBookmark */ = 5FC1C20812EF9E2D001F9BDD /* PBXTextBookmark */;
+			5F12BDBA12EF9F29005CE149 = 5F12BDBA12EF9F29005CE149 /* XDModelBookmark */;
+			5F12BDBB12EF9F29005CE149 = 5F12BDBB12EF9F29005CE149 /* PBXTextBookmark */;
+			5F12BDD012EFA0E7005CE149 = 5F12BDD012EFA0E7005CE149 /* PBXTextBookmark */;
+			5FC1C18812EF95EA001F9BDD = 5FC1C18812EF95EA001F9BDD /* PBXTextBookmark */;
+			5FC1C18912EF95EA001F9BDD = 5FC1C18912EF95EA001F9BDD /* PBXTextBookmark */;
+			5FC1C18C12EF95EA001F9BDD = 5FC1C18C12EF95EA001F9BDD /* PBXTextBookmark */;
+			5FC1C1BF12EF98FF001F9BDD = 5FC1C1BF12EF98FF001F9BDD /* PBXTextBookmark */;
+			5FC1C1D812EF9A8E001F9BDD = 5FC1C1D812EF9A8E001F9BDD /* PBXTextBookmark */;
+			5FC1C1E712EF9C8D001F9BDD = 5FC1C1E712EF9C8D001F9BDD /* PBXTextBookmark */;
+			5FC1C20512EF9E2D001F9BDD = 5FC1C20512EF9E2D001F9BDD /* PBXTextBookmark */;
+			5FC1C20612EF9E2D001F9BDD = 5FC1C20612EF9E2D001F9BDD /* PBXTextBookmark */;
+			5FF95F8412F019500049FB4B /* PBXTextBookmark */ = 5FF95F8412F019500049FB4B /* PBXTextBookmark */;
+			5FF95F8512F019500049FB4B /* PBXTextBookmark */ = 5FF95F8512F019500049FB4B /* PBXTextBookmark */;
+			5FF95F9012F01B690049FB4B /* PBXTextBookmark */ = 5FF95F9012F01B690049FB4B /* PBXTextBookmark */;
+			5FF95F9212F01B690049FB4B /* PBXTextBookmark */ = 5FF95F9212F01B690049FB4B /* PBXTextBookmark */;
+			5FF95F9312F01B690049FB4B /* PBXTextBookmark */ = 5FF95F9312F01B690049FB4B /* PBXTextBookmark */;
+			5FF95F9412F01B690049FB4B /* PBXTextBookmark */ = 5FF95F9412F01B690049FB4B /* PBXTextBookmark */;
+			5FF95F9512F01B690049FB4B /* PBXTextBookmark */ = 5FF95F9512F01B690049FB4B /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5F487E9112B82EB500F6FFBC /* Source Control */;
 		userBuildSettings = {
@@ -317,6 +324,31 @@
 		modificationTime = 317692231.404112;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
+	};
+	5F12BDBA12EF9F29005CE149 /* XDModelBookmark */ = {
+		isa = XDModelBookmark;
+		fRef = 28860B760F44E54D00985440 /* KeyChain.xcdatamodel */;
+		fallbackIsa = PBXBookmark;
+	};
+	5F12BDBB12EF9F29005CE149 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 53";
+		rLen = 0;
+		rLoc = 1408;
+		rType = 0;
+		vrLen = 834;
+		vrLoc = 859;
+	};
+	5F12BDD012EFA0E7005CE149 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 193";
+		rLen = 0;
+		rLoc = 4837;
+		rType = 0;
+		vrLen = 1105;
+		vrLoc = 4025;
 	};
 	5F487E7612B82EB000F6FFBC /* KeyChain */ = {
 		isa = PBXExecutable;
@@ -450,9 +482,9 @@
 	};
 	5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1470, 4266}}";
-			sepNavSelRange = "{2335, 0}";
-			sepNavVisRange = "{2472, 888}";
+			sepNavIntBoundsRect = "{{0, 0}, {1209, 4176}}";
+			sepNavSelRange = "{976, 17}";
+			sepNavVisRange = "{296, 1109}";
 			sepNavWindowFrame = "{{15, 111}, {1367, 1062}}";
 		};
 	};
@@ -462,16 +494,6 @@
 			sepNavSelRange = "{1135, 0}";
 			sepNavVisRange = "{184, 890}";
 		};
-	};
-	5FC1C18712EF95EA001F9BDD /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5FA3A4BE12DC7730009BE36C /* RootViewController.h */;
-		name = "RootViewController.h: 31";
-		rLen = 26;
-		rLoc = 849;
-		rType = 0;
-		vrLen = 954;
-		vrLoc = 44;
 	};
 	5FC1C18812EF95EA001F9BDD /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -495,6 +517,7 @@
 	};
 	5FC1C18A12EF95EA001F9BDD /* UINavigationController.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = UINavigationController.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UINavigationController.h;
 		sourceTree = "<absolute>";
@@ -511,11 +534,12 @@
 	};
 	5FC1C18D12EF95EA001F9BDD /* UINavigationBar.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = UINavigationBar.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UINavigationBar.h;
 		sourceTree = "<absolute>";
 	};
-	5FC1C1B512EF98E7001F9BDD /* KeyEntityFormController.m:59 */ = {
+	5FC1C1B512EF98E7001F9BDD /* KeyEntityFormController.m:61 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -527,13 +551,13 @@
 		functionName = "-save:";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 59;
+		lineNumber = 61;
 		location = KeyChain;
 		modificationTime = 317692241.863605;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	5FC1C1B712EF98F2001F9BDD /* TextDataEntryCell.m:86 */ = {
+	5FC1C1B712EF98F2001F9BDD /* TextDataEntryCell.m:94 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -545,13 +569,13 @@
 		functionName = "-textFieldShouldEndEditing:";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 86;
+		lineNumber = 94;
 		location = KeyChain;
 		modificationTime = 317692245.136263;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	5FC1C1B912EF98F3001F9BDD /* TextDataEntryCell.m:94 */ = {
+	5FC1C1B912EF98F3001F9BDD /* TextDataEntryCell.m:102 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -563,13 +587,13 @@
 		functionName = "-textFieldShouldReturn:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 94;
+		lineNumber = 102;
 		location = KeyChain;
 		modificationTime = 317692231.405053;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	5FC1C1BB12EF98F5001F9BDD /* TextDataEntryCell.m:103 */ = {
+	5FC1C1BB12EF98F5001F9BDD /* TextDataEntryCell.m:111 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -581,7 +605,7 @@
 		functionName = "-textFieldDidEndEditing:";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 103;
+		lineNumber = 111;
 		location = KeyChain;
 		modificationTime = 317692246.470551;
 		originalNumberOfMultipleMatches = 1;
@@ -597,7 +621,7 @@
 		vrLen = 751;
 		vrLoc = 0;
 	};
-	5FC1C1C412EF9937001F9BDD /* KeyEntityFormController.m:111 */ = {
+	5FC1C1C412EF9937001F9BDD /* KeyEntityFormController.m:113 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -609,13 +633,13 @@
 		functionName = "-cellControlDidEndEditing:";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 111;
+		lineNumber = 113;
 		location = KeyChain;
 		modificationTime = 317692247.907589;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	5FC1C1CB12EF9947001F9BDD /* KeyEntityFormController.m:75 */ = {
+	5FC1C1CB12EF9947001F9BDD /* KeyEntityFormController.m:77 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -627,7 +651,7 @@
 		functionName = "-save:";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 75;
+		lineNumber = 77;
 		location = KeyChain;
 		modificationTime = 317692262.76092;
 		originalNumberOfMultipleMatches = 1;
@@ -638,7 +662,7 @@
 		fRef = 5FCF751E12D9FACD00A9E0D8 /* TextDataEntryCell.m */;
 		name = "TextDataEntryCell.m: 86";
 		rLen = 0;
-		rLoc = 1930;
+		rLoc = 2051;
 		rType = 0;
 		vrLen = 407;
 		vrLoc = 1867;
@@ -658,7 +682,7 @@
 		fRef = 5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */;
 		name = "UIXMLFormViewController.m: 240";
 		rLen = 0;
-		rLoc = 5606;
+		rLoc = 5876;
 		rType = 0;
 		vrLen = 1090;
 		vrLoc = 5014;
@@ -673,37 +697,18 @@
 		vrLen = 1491;
 		vrLoc = 3615;
 	};
-	5FC1C20712EF9E2D001F9BDD /* XCBuildMessageTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "Incorrect decrement of the reference count of an object that is not owned at this point by the caller";
-		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
-		fallbackIsa = XCBuildMessageTextBookmark;
-		rLen = 1;
-		rLoc = 52;
-		rType = 1;
-	};
-	5FC1C20812EF9E2D001F9BDD /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
-		name = "KeyEntityFormController.m: 53";
-		rLen = 0;
-		rLoc = 1379;
-		rType = 0;
-		vrLen = 788;
-		vrLoc = 889;
-	};
 	5FCF750512D9FACD00A9E0D8 /* BaseDataEntryCell.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1209, 828}}";
-			sepNavSelRange = "{501, 49}";
-			sepNavVisRange = "{158, 947}";
+			sepNavIntBoundsRect = "{{0, 0}, {1209, 864}}";
+			sepNavSelRange = "{580, 0}";
+			sepNavVisRange = "{183, 950}";
 		};
 	};
 	5FCF750612D9FACD00A9E0D8 /* BaseDataEntryCell.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1209, 1980}}";
-			sepNavSelRange = "{262, 0}";
-			sepNavVisRange = "{0, 751}";
+			sepNavIntBoundsRect = "{{0, 0}, {1830, 2196}}";
+			sepNavSelRange = "{227, 34}";
+			sepNavVisRange = "{155, 942}";
 		};
 	};
 	5FCF751512D9FACD00A9E0D8 /* PushDateEntryCell.h */ = {
@@ -743,24 +748,31 @@
 	};
 	5FCF751D12D9FACD00A9E0D8 /* TextDataEntryCell.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1209, 504}}";
-			sepNavSelRange = "{423, 11}";
+			sepNavIntBoundsRect = "{{0, 0}, {1209, 684}}";
+			sepNavSelRange = "{255, 17}";
 			sepNavVisRange = "{0, 453}";
 		};
 	};
 	5FCF751E12D9FACD00A9E0D8 /* TextDataEntryCell.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1524, 1962}}";
-			sepNavSelRange = "{1930, 0}";
-			sepNavVisRange = "{1867, 407}";
+			sepNavSelRange = "{1631, 0}";
+			sepNavVisRange = "{1299, 646}";
 			sepNavWindowFrame = "{{232, 106}, {1367, 1062}}";
+		};
+	};
+	5FCF752312D9FACD00A9E0D8 /* UIXMLFormViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1209, 1008}}";
+			sepNavSelRange = "{1146, 0}";
+			sepNavVisRange = "{185, 1033}";
 		};
 	};
 	5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1587, 7056}}";
-			sepNavSelRange = "{5606, 0}";
-			sepNavVisRange = "{5014, 1090}";
+			sepNavIntBoundsRect = "{{0, 0}, {1209, 7884}}";
+			sepNavSelRange = "{1328, 84}";
+			sepNavVisRange = "{799, 920}";
 		};
 	};
 	5FCF752512D9FACD00A9E0D8 /* UIXMLFormViewControllerDelegate.h */ = {
@@ -769,5 +781,81 @@
 			sepNavSelRange = "{275, 123}";
 			sepNavVisRange = "{0, 405}";
 		};
+	};
+	5FF95F8412F019500049FB4B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 193";
+		rLen = 0;
+		rLoc = 4837;
+		rType = 0;
+		vrLen = 1112;
+		vrLoc = 4025;
+	};
+	5FF95F8512F019500049FB4B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 182";
+		rLen = 0;
+		rLoc = 4493;
+		rType = 0;
+		vrLen = 1144;
+		vrLoc = 3670;
+	};
+	5FF95F9012F01B690049FB4B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FF95F9112F01B690049FB4B /* NSIndexPath.h */;
+		name = "NSIndexPath.h: 9";
+		rLen = 58;
+		rLoc = 226;
+		rType = 0;
+		vrLen = 1096;
+		vrLoc = 0;
+	};
+	5FF95F9112F01B690049FB4B /* NSIndexPath.h */ = {
+		isa = PBXFileReference;
+		name = NSIndexPath.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSIndexPath.h;
+		sourceTree = "<absolute>";
+	};
+	5FF95F9212F01B690049FB4B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */;
+		name = "UIXMLFormViewController.m: 62";
+		rLen = 84;
+		rLoc = 1328;
+		rType = 0;
+		vrLen = 920;
+		vrLoc = 799;
+	};
+	5FF95F9312F01B690049FB4B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FCF752312D9FACD00A9E0D8 /* UIXMLFormViewController.h */;
+		name = "UIXMLFormViewController.h: 44";
+		rLen = 0;
+		rLoc = 1146;
+		rType = 0;
+		vrLen = 1033;
+		vrLoc = 185;
+	};
+	5FF95F9412F01B690049FB4B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 43";
+		rLen = 284;
+		rLoc = 1123;
+		rType = 0;
+		vrLen = 826;
+		vrLoc = 690;
+	};
+	5FF95F9512F01B690049FB4B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */;
+		name = "KeyEntityFormController.m: 45";
+		rLen = 0;
+		rLoc = 1243;
+		rType = 0;
+		vrLen = 769;
+		vrLoc = 690;
 	};
 }

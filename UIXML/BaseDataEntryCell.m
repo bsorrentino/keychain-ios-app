@@ -57,6 +57,14 @@
 	
 }
 
+-(void)setEnabled:(BOOL)value {
+
+}
+
+-(BOOL)enabled {
+	return YES;
+}
+
 #pragma mark inherit from NSObject
 
 - (void)dealloc {

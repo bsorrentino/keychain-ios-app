@@ -26,6 +26,7 @@
 }
 
 @property (nonatomic, retain) NSString *dataKey;
+@property (nonatomic) BOOL enabled;
 
 -(id)init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData;
 
@@ -42,5 +43,6 @@
 -(BOOL)isStringEmpty:(NSString*)value;
 
 -(CGRect) getRectRelativeToLabel: (CGRect)controlFrame padding:(NSInteger)padding rpadding:(NSInteger)rpadding;
+
 
 @end

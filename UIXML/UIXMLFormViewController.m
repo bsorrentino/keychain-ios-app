@@ -59,6 +59,15 @@
 	
 }
 
+-(BaseDataEntryCell*)cellForIndexPath:(NSUInteger)row section:(NSUInteger)section {
+	
+	NSIndexPath *ip = [NSIndexPath indexPathForRow:row inSection:section]; 
+	
+	BaseDataEntryCell *cell = (BaseDataEntryCell*)[self.tableView cellForRowAtIndexPath:ip];
+	
+	return cell;
+}
+
 #pragma mark -
 #pragma mark UIXMLFormViewControllerDelegate
 
