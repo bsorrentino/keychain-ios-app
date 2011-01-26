@@ -89,7 +89,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	self.title = @"Key List";
 	
     // Set up the edit and add buttons.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -97,6 +96,8 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
     [addButton release];
+
+	self.title = @"Key List";
 }
 
 

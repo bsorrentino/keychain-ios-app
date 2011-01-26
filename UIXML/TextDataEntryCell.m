@@ -35,8 +35,9 @@
 
 - (id) init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData{
 	
-    if ((self = [super init:controller datakey:key label:label cellData:cellData])) {
+    if ((self = [super init:controller datakey:key label:label cellData:cellData])) {		
         // Initialization code
+		
 		NSString *placeholder = [cellData objectForKey:@"placeholder"];
 		
 		if( ![self isStringEmpty:placeholder] ) {

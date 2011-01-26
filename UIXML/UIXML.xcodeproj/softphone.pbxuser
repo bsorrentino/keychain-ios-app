@@ -59,32 +59,15 @@
 			PBXWorkspaceStateSaveDate = 317685632;
 		};
 		perUserProjectItems = {
-			5F129E9212EB7B9800BF9EF9 = 5F129E9212EB7B9800BF9EF9 /* PBXTextBookmark */;
-			5FCF160E12ECEB64005A2182 = 5FCF160E12ECEB64005A2182 /* PBXTextBookmark */;
-			5FCF161012ECEB64005A2182 = 5FCF161012ECEB64005A2182 /* PBXTextBookmark */;
+			5FC1C20912EF9E2D001F9BDD /* PBXTextBookmark */ = 5FC1C20912EF9E2D001F9BDD /* PBXTextBookmark */;
+			5FCF160E12ECEB64005A2182 /* PBXTextBookmark */ = 5FCF160E12ECEB64005A2182 /* PBXTextBookmark */;
+			5FCF161012ECEB64005A2182 /* PBXTextBookmark */ = 5FCF161012ECEB64005A2182 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5FA7E2361296F1C3000F493B /* Source Control */;
 		userBuildSettings = {
 			OBJROOT = /Users/softphone/WORKSPACES/APPLE/build;
 			SYMROOT = /Users/softphone/WORKSPACES/APPLE/build;
 		};
-	};
-	5F129E9212EB7B9800BF9EF9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 5F129E9312EB7B9800BF9EF9 /* UITableViewCell.h */;
-		name = "UITableViewCell.h: 153";
-		rLen = 283;
-		rLoc = 7150;
-		rType = 0;
-		vrLen = 3849;
-		vrLoc = 6376;
-	};
-	5F129E9312EB7B9800BF9EF9 /* UITableViewCell.h */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		name = UITableViewCell.h;
-		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h;
-		sourceTree = "<absolute>";
 	};
 	5F30ABCB1297F96700540544 /* SwitchDataEntryCell.h */ = {
 		uiCtxt = {
@@ -158,6 +141,22 @@
 			sepNavVisRange = "{7288, 943}";
 		};
 	};
+	5FC1C20912EF9E2D001F9BDD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5FC1C20A12EF9E2D001F9BDD /* UITableViewCell.h */;
+		name = "UITableViewCell.h: 153";
+		rLen = 283;
+		rLoc = 7150;
+		rType = 0;
+		vrLen = 3849;
+		vrLoc = 6376;
+	};
+	5FC1C20A12EF9E2D001F9BDD /* UITableViewCell.h */ = {
+		isa = PBXFileReference;
+		name = UITableViewCell.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h;
+		sourceTree = "<absolute>";
+	};
 	5FCF160E12ECEB64005A2182 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 5FCF160F12ECEB64005A2182 /* NSIndexPath.h */;
@@ -191,6 +190,11 @@
 		name = UITableViewCell.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h;
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {3549, 3654}}";
+			sepNavSelRange = "{7150, 283}";
+			sepNavVisRange = "{6376, 3849}";
+		};
 	};
 	5FF78F3812E795A8008EA886 /* PushTextEntryCell.h */ = {
 		uiCtxt = {

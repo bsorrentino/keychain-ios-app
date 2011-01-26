@@ -25,7 +25,9 @@
 	UIView *toolbar_;
 	UIBarButtonItem *btnSave_;
 	UISegmentedControl *segShowHidePassword_;
-	BOOL saved_;
+	
+	BOOL valid_;
+
 }
 
 @property (nonatomic,retain) IBOutlet UIView *toolbar;

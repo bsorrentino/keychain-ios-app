@@ -28,8 +28,9 @@
 }
 
 - (void)initWithEntity:(KeyEntity*)entity delegate:(id<KeyEntityFormControllerDelegate>)delegate {
+	
 	entity_ = entity;
-	saved_ = NO;
+	valid_ = YES;
 	formDelegate_ = delegate;
 	
 	[self.tableView reloadData];
@@ -49,26 +50,29 @@
 	
 	cell.textField.secureTextEntry = (index==0);
 	
-	[ip release]; 
+	//[ip release]; 
 	
 }
 
 - (IBAction)save:(id)sender {
 
 	NSLog( @"save" );
+
+	[self.view.window endEditing: YES];
 	
 	NSError *error = nil;
 	
-	BOOL valid;
-	
+	if (!valid_) {
+		return;
+	}
 	if (entity_.isNew) {
-		valid = [entity_ validateForInsert:&error];
+		valid_ = [entity_ validateForInsert:&error];
 	}
 	else {
-		valid = [entity_ validateForUpdate:&error];
+		valid_ = [entity_ validateForUpdate:&error];
 	}
 	
-	if (!valid) {
+	if (!valid_) {
 		
 		NSString *msg = [NSString stringWithFormat:@"Data not valid !\n error %@", [error description]];
 		
@@ -80,7 +84,7 @@
 	}
 	
 	if (formDelegate_!=nil) {
-		saved_ = [formDelegate_ doSaveObject:entity_];
+		valid_ = [formDelegate_ doSaveObject:entity_];
 	}
 	
 	[self.navigationController popViewControllerAnimated:true];
@@ -89,15 +93,20 @@
 -(IBAction) cancel:(id)sender {
 
 	NSLog(@"cancel");
+	
+	[super unregisterControEditingNotification];
+	
+	[self.view.window endEditing: YES];
+	
+	[self.navigationController popViewControllerAnimated:true];
+
+	[super registerControEditingNotification];
 }
+
 
 #pragma mark UIXMLFormViewControllerDelegate
 
 -(void)cellControlDidEndEditing:(BaseDataEntryCell *)cell {
-
-//	if (!saved_) {
-//		return;
-//	}
 
 	id value = [cell getControlValue];
 
@@ -105,9 +114,9 @@
 
 	NSError *error = nil;
 	
-	BOOL valid = [entity_ validateValue:&value forKey:cell.dataKey error:&error]; 
+	valid_ = [entity_ validateValue:&value forKey:cell.dataKey error:&error]; 
 
-	if (!valid) {
+	if (!valid_) {
 		
 		NSString *msg = [NSString stringWithFormat:@"value for field [%@] is not valid!", cell.dataKey];
 
@@ -116,9 +125,11 @@
 		// SHOW ERROR POPUP
 		[self showError:@"Error" msg:msg ];
 
-		return;
+		[cell setControlValue:[entity_ valueForKey:cell.dataKey]];
 	}
-	[entity_ setValue:value forKey:cell.dataKey];
+	else {	 
+		[entity_ setValue:value forKey:cell.dataKey];
+	}
 }
 
 -(void)cellControlDidInit:(BaseDataEntryCell *)cell {
@@ -154,6 +165,13 @@
 	[self.btnSave setTarget:self];
 	[self.segShowHidePassword addTarget:self action:@selector(showHidePassword:) forControlEvents:UIControlEventValueChanged];
 	
+	//
+	 self.navigationItem.leftBarButtonItem =
+	[[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+									 style:UIBarButtonItemStyleBordered
+									target:self
+									action:@selector(cancel:)];
+	
 	UIBarButtonItem * rightButton = [[UIBarButtonItem alloc] initWithCustomView:self.toolbar];
 	
 	self.navigationItem.rightBarButtonItem = rightButton;
@@ -164,7 +182,6 @@
 
 /*
 - (void)viewDidDisappear:(BOOL)animated { // Called after the view was dismissed, covered or otherwise hidden. Default does nothing
-
 }
 */
 
