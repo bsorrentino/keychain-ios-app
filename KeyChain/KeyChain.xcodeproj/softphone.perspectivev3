@@ -285,7 +285,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {324, 924}}</string>
+							<string>{{0, 0}, {324, 915}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -295,14 +295,14 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {341, 942}}</string>
+						<string>{{0, 0}, {341, 933}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
 							<real>324</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>152 188 1616 983 0 0 1920 1178 </string>
+						<string>13 204 1375 974 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -332,7 +332,7 @@
 										<key>_historyCapacity</key>
 										<integer>10</integer>
 										<key>bookmark</key>
-										<string>5FF99D1A12F165D600B977D5</string>
+										<string>5FF99D9712F2279600B977D5</string>
 										<key>history</key>
 										<array>
 											<string>5FF95FB812F0AE0E0049FB4B</string>
@@ -358,14 +358,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1270, 711}}</string>
+								<string>{{0, 0}, {1029, 702}}</string>
 								<key>RubberWindowFrame</key>
-								<string>152 188 1616 983 0 0 1920 1178 </string>
+								<string>13 204 1375 974 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>711pt</string>
+							<string>702pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
@@ -383,9 +383,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1270, 199}}</string>
+										<string>{{10, 27}, {1029, 199}}</string>
 										<key>RubberWindowFrame</key>
-										<string>152 188 1616 983 0 0 1920 1178 </string>
+										<string>13 204 1375 974 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -448,7 +448,7 @@
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>1270pt</string>
+					<string>1029pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -661,12 +661,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>5FF99D2412F165D600B977D5</string>
 		<string>5FF99D2512F165D600B977D5</string>
 		<string>/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/KeyChain.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>152 188 1616 983 0 0 1920 1178 </string>
+	<string>13 204 1375 974 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

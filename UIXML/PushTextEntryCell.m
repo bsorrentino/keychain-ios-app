@@ -7,6 +7,7 @@
 //
 
 #import "PushTextEntryCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation PushTextEntryCell
 
@@ -92,6 +93,7 @@
 	
 	NSLog( @"saveValue ");
 	
+	
 	[_cell postEndEditingNotification];
 	
 	[self.navigationController popViewControllerAnimated:YES];
@@ -102,10 +104,16 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
+	[self.txtValue.layer setCornerRadius:20.0f];
+	[self.txtValue.layer setMasksToBounds:YES];
 	[btnSave setTarget:self];
 	self.navigationItem.rightBarButtonItem = self.btnSave;
-	
-	
+
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+	[self.view.window endEditing: YES];
+
 }
 
 @end
