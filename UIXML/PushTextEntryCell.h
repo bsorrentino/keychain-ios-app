@@ -11,17 +11,25 @@
 
 @class PushTextEntryCell;
 
-@interface PushTextViewController : UIViewController {
+@interface UINoteView : UITextView
+{
+}
+
+
+@end
+
+
+@interface PushTextViewController : UIViewController<UIScrollViewDelegate,UITextViewDelegate> {
 	
 	
 @private
 	UIBarButtonItem *btnSave;
-	UITextView  * txtValue;
+	UINoteView  * txtValue;
 	
 	PushTextEntryCell *_cell;
 }
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *btnSave;
-@property (nonatomic, retain) IBOutlet UITextView  * txtValue;
+@property (nonatomic, retain) IBOutlet UINoteView  * txtValue;
 
 - (IBAction) saveValue: (id)sender;
 

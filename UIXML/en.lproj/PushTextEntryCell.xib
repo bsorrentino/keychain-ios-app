@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="37"/>
+			<integer value="23"/>
 			<integer value="2"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -123,7 +123,7 @@
 						<object class="IBUITextView" id="413764853">
 							<reference key="NSNextResponder" ref="803928991"/>
 							<int key="NSvFlags">319</int>
-							<string key="NSFrame">{{5, 6}, {310, 447}}</string>
+							<string key="NSFrame">{{5, 6}, {310, 218}}</string>
 							<reference key="NSSuperview" ref="803928991"/>
 							<reference key="IBUIBackgroundColor" ref="89931177"/>
 							<bool key="IBUIClipsSubviews">YES</bool>
@@ -297,6 +297,7 @@
 					<string>23.IBPluginDependency</string>
 					<string>3.IBPluginDependency</string>
 					<string>32.IBPluginDependency</string>
+					<string>37.CustomClassName</string>
 					<string>37.IBPluginDependency</string>
 					<string>37.IBViewBoundsToFrameTransform</string>
 					<string>41.IBPluginDependency</string>
@@ -315,6 +316,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>UINoteView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAABBIAAAw96AAA</bytes>
@@ -426,7 +428,7 @@
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIBarButtonItem</string>
-							<string>UITextView</string>
+							<string>UINoteView</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -444,10 +446,15 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">txtValue</string>
-								<string key="candidateClassName">UITextView</string>
+								<string key="candidateClassName">UINoteView</string>
 							</object>
 						</object>
 					</object>
+					<reference key="sourceIdentifier" ref="880107829"/>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UINoteView</string>
+					<string key="superclassName">UITextView</string>
 					<reference key="sourceIdentifier" ref="880107829"/>
 				</object>
 				<object class="IBPartialClassDescription">
