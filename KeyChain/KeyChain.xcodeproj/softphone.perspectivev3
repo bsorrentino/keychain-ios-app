@@ -333,7 +333,7 @@
 										<key>_historyCapacity</key>
 										<integer>10</integer>
 										<key>bookmark</key>
-										<string>5F0F622612F96AA70030C93C</string>
+										<string>5FCD157E12FF3E890075C630</string>
 										<key>history</key>
 										<array>
 											<string>5FEBBCEC12F7706000700758</string>
@@ -345,7 +345,7 @@
 											<string>5FEBBCF212F7706000700758</string>
 											<string>5F0F620712F964D60030C93C</string>
 											<string>5F0F621112F965C60030C93C</string>
-											<string>5F0F621312F965C60030C93C</string>
+											<string>5F0F622A12F96D640030C93C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -359,18 +359,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1029, 692}}</string>
+								<string>{{0, 0}, {1029, 687}}</string>
 								<key>RubberWindowFrame</key>
 								<string>209 204 1375 974 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>692pt</string>
+							<string>687pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>236pt</string>
+							<string>241pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -384,7 +384,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1029, 209}}</string>
+										<string>{{10, 27}, {1029, 214}}</string>
 										<key>RubberWindowFrame</key>
 										<string>209 204 1375 974 0 0 1920 1178 </string>
 									</dict>
@@ -468,11 +468,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>5F0F61C212F960460030C93C</string>
+				<string>5FCD157F12FF3E890075C630</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>5F0F61C312F960460030C93C</string>
+				<string>5FCD158012FF3E890075C630</string>
 				<string>5F487E8512B82EB500F6FFBC</string>
-				<string>5F0F61C412F960460030C93C</string>
+				<string>5FCD158112FF3E890075C630</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -662,8 +662,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>5F0F61DA12F961AC0030C93C</string>
-		<string>5F0F61CC12F960460030C93C</string>
 		<string>/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/KeyChain.xcodeproj</string>
 	</array>
 	<key>WindowString</key>

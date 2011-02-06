@@ -14,26 +14,33 @@
 @synthesize txtPassword;
 
 #pragma mark KeyChainLogin 
-- (IBAction)login:(id)sender {
 
+- (BOOL)login_ {
+	
 	NSString *p = self.password;
 	if ( p==nil ) {
 		self.password = txtPassword.text;
 		self.txtPassword.text = @"";
 		self.txtPassword.placeholder = @"confirm password";
-		return;
+		return NO;
 	}
 	
 	if ([p compare: txtPassword.text] != 0 ) {
 		UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Password doesn't match!" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
 		[alert show];
 		[alert release];
-		return;
+		return NO;
 		
 	}
 	
 	[self.parentViewController.view setHidden:NO];
 	[[self.parentViewController modalViewController] dismissModalViewControllerAnimated:YES];
+	return YES;
+}
+
+- (IBAction)login:(id)sender {
+
+	[self login_];
 }
 
 - (void)doModal:(UIViewController *)root {
@@ -56,6 +63,12 @@
 	[prefs synchronize];
 }
 
+#pragma mark inherit from UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	return [self login_];
+}
+
 #pragma mark inherit from UIViewController
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -69,12 +82,14 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	txtPassword.delegate = self;
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.

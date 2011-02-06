@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface KeyChainLogin : UIViewController {
+@interface KeyChainLogin : UIViewController<UITextFieldDelegate> {
 
 @private	
 	UITextField *txtPassword;
