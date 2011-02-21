@@ -1,0 +1,28 @@
+IPHONE Common Utilities
+============================
+
+
+HttpClient
+===========
+
+Library that join http[s] access plus JSON marshall & unmarshall
+
+UIXML
+=======
+
+Library to generate a UITableView based input form .. from a .plist file
+support custom control implementation (through TableViweCell)
+
+TableViewDataEntry
+===================
+
+Test application that show "HOW TO" use UIXML
+
+KeyChain
+=========
+
+Simple application that allow to store Login/password implementing a simple Agenda
+It uses:
+- UIXML
+- Code Data
+
