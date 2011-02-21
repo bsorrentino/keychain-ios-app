@@ -10,7 +10,7 @@ Library that join http[s] access plus JSON marshall & unmarshall
 UIXML
 =======
 
-Library to generate a UITableView based input form .. from a .plist file
+Library to generate form(s), UITableView based, from .plist file(s)
 support custom control implementation (through TableViweCell)
 
 TableViewDataEntry
@@ -24,5 +24,5 @@ KeyChain
 Simple application that allow to store Login/password implementing a simple Agenda
 It uses:
 - UIXML
-- Code Data
+- Core Data
 
