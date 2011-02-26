@@ -9,53 +9,102 @@
 #import "KeyEntityFormController.h"
 #import "KeyEntity.h"
 #import "BaseDataEntryCell.h"
+#import "TextDataEntryCell.h"
 
 @implementation KeyEntityFormController
-@synthesize btnSave;
+@synthesize toolbar=toolbar_, btnSave=btnSave_, segShowHidePassword=segShowHidePassword_;
 
 #pragma mark Custom
+- (void)showError:(NSString *)title msg:(NSString*)msg {
+	
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title 
+													message:msg
+												   delegate:nil 
+										  cancelButtonTitle:@"OK" 
+										  otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+	
+}
 
-- (void)initWithEntity:(KeyEntity*)entity {
+- (void)initWithEntity:(KeyEntity*)entity delegate:(id<KeyEntityFormControllerDelegate>)delegate {
+	
 	entity_ = entity;
-	saved_ = NO;
+	valid_ = YES;
+	formDelegate_ = delegate;
+	
+	[self.tableView reloadData];
+	[self.segShowHidePassword sendActionsForControlEvents:UIControlEventValueChanged];
+	
+	BaseDataEntryCell *cell  = [super cellForIndexPath:0 section:0];
+		
+	cell.enabled = entity_.isNew;
+	
+}
+
+- (IBAction)showHidePassword:(id)sender {
+
+	NSInteger index = [(UISegmentedControl*)sender selectedSegmentIndex];
+	
+	TextDataEntryCell *cell = (TextDataEntryCell*)[self cellForIndexPath:2 section:0];
+		
+	NSLog(@"showHidePassword selectedSegmentIndex=[%d] [%@]", index, cell );
+	
+	cell.textField.secureTextEntry = (index==0);
+	
+	//[ip release]; 
+	
 }
 
 - (IBAction)save:(id)sender {
 
 	NSLog( @"save" );
+
+	[self.view.window endEditing: YES];
 	
 	NSError *error = nil;
 	
-	BOOL valid;
-	
+	if (!valid_) {
+		return;
+	}
 	if (entity_.isNew) {
-		valid = [entity_ validateForInsert:&error];
+		valid_ = [entity_ validateForInsert:&error];
 	}
 	else {
-		valid = [entity_ validateForUpdate:&error];
+		valid_ = [entity_ validateForUpdate:&error];
 	}
 	
-	if (!valid) {
+	if (!valid_) {
+		
+		NSString *msg = [NSString stringWithFormat:@"Data not valid !\n error %@", [error description]];
+		
 		NSLog(@"entity not valid for insert/update error %@, %@", error, [error userInfo]);
-	}
-	else {
-		NSManagedObjectContext *context = entity_.managedObjectContext ;
-
-		// Save the context.
-		if (![context save:&error]) {
-			/*
-			 Replace this implementation with code to handle the error appropriately.
-			 
-			 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-			 */
-			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-			//abort();
-		}
+		
+		[self showError:@"Error" msg:msg ];
+		
+		return;
 	}
 	
-	saved_ = YES;
+	if (formDelegate_!=nil) {
+		valid_ = [formDelegate_ doSaveObject:entity_];
+	}
+	
 	[self.navigationController popViewControllerAnimated:true];
 }
+
+-(IBAction) cancel:(id)sender {
+
+	NSLog(@"cancel");
+	
+	[super unregisterControEditingNotification];
+	
+	[self.view.window endEditing: YES];
+	
+	[self.navigationController popViewControllerAnimated:true];
+
+	[super registerControEditingNotification];
+}
+
 
 #pragma mark UIXMLFormViewControllerDelegate
 
@@ -63,22 +112,34 @@
 
 	id value = [cell getControlValue];
 
+	NSLog(@"[%@].cellControlDidEndEditing [%@]", cell.dataKey, value);
+
 	NSError *error = nil;
 	
-	BOOL valid = [entity_ validateValue:&value forKey:cell.dataKey error:&error]; 
+	valid_ = [entity_ validateValue:&value forKey:cell.dataKey error:&error]; 
 
-	if (!valid) {
-		// SHOW ERROR POPUP
+	if (!valid_) {
+		
+		NSString *msg = [NSString stringWithFormat:@"value for field [%@] is not valid!", cell.dataKey];
+
 		NSLog(@"value [%@] is not valid! error %@, %@", error, [error userInfo]);
-		return;
+		
+		// SHOW ERROR POPUP
+		[self showError:@"Error" msg:msg ];
+
+		[cell setControlValue:[entity_ valueForKey:cell.dataKey]];
 	}
-	[entity_ setValue:[cell getControlValue] forKey:cell.dataKey];
+	else {	 
+		[entity_ setValue:value forKey:cell.dataKey];
+	}
 }
 
 -(void)cellControlDidInit:(BaseDataEntryCell *)cell {
 	
-	NSLog(@"cellControlDidInit");
-	[cell setControlValue:[entity_ valueForKey:cell.dataKey]];	
+	id value = [entity_ valueForKey:cell.dataKey];
+	NSLog(@"[%@].cellControlDidInit [%@]", cell.dataKey, value  );
+	
+	[cell setControlValue:value];	
 }
 
 
@@ -103,33 +164,39 @@
 	
 	[super viewDidLoad];
 	
-	[btnSave setTarget:self];
-	self.navigationItem.rightBarButtonItem = self.btnSave;
+	[self.btnSave setTarget:self];
+	[self.segShowHidePassword addTarget:self action:@selector(showHidePassword:) forControlEvents:UIControlEventValueChanged];
+	
+	//
 
-	[self.navigationItem.backBarButtonItem setTarget:self];
-	[self.navigationItem.backBarButtonItem setAction:@selector(cancel:)];
+	UIBarButtonItem *leftButton = 
+		[[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+									 style:UIBarButtonItemStyleBordered
+									target:self
+									action:@selector(cancel:)];
+	self.navigationItem.leftBarButtonItem = leftButton;
 	
+	UIBarButtonItem * rightButton = [[UIBarButtonItem alloc] initWithCustomView:self.toolbar];
 	
+	self.navigationItem.rightBarButtonItem = rightButton;
+	
+	[rightButton release];
+	[leftButton release];
 }
 
+/*
 - (void)viewDidDisappear:(BOOL)animated { // Called after the view was dismissed, covered or otherwise hidden. Default does nothing
-
-	NSLog(@"viewDidDisappear entity IUDF [%d%d%d%d] isNew [%d]", [entity_ isInserted], [entity_ isUpdated], [entity_ isDeleted], [entity_ isFault], [entity_ isNew]);
-	
-	NSManagedObjectContext *context = entity_.managedObjectContext ;
-	
-	if (!saved_ ) {
-		if( entity_.isNew ) 
-			[context deleteObject:entity_ ];
-		return;
-	}
-	
-
 }
+*/
+
+/*
 - (void)viewWillAppear:(BOOL)animated { // Called after the view was dismissed, covered or otherwise hidden. Default does nothing
 	[super viewWillAppear:animated];
-	[self.tableView reloadData];
+	//[self.tableView reloadData];
+
 }
+*/
+
 /*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -154,7 +221,9 @@
 
 - (void)dealloc {
 	[entity_ release];
-	[btnSave release];
+	[toolbar_ release];
+	[btnSave_ release];
+	[segShowHidePassword_ release];
     [super dealloc];
 }
 

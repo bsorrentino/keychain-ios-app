@@ -59,6 +59,15 @@
 	
 }
 
+-(BaseDataEntryCell*)cellForIndexPath:(NSUInteger)row section:(NSUInteger)section {
+	
+	NSIndexPath *ip = [NSIndexPath indexPathForRow:row inSection:section]; 
+	
+	BaseDataEntryCell *cell = (BaseDataEntryCell*)[self.tableView cellForRowAtIndexPath:ip];
+	
+	return cell;
+}
+
 #pragma mark -
 #pragma mark UIXMLFormViewControllerDelegate
 
@@ -230,16 +239,15 @@
 		cell = dataEntryCell;
 		self.dataEntryCell = nil;
 	
-		[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
+		//[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
 		
 		//cell = [[[NSClassFromString(cellType) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellType] autorelease];
 
-		[self cellControlDidInit:cell];
+		//[self cellControlDidInit:cell];
 		
 	}
-	else {
-		[self cellControlDidInit:cell];
-	}
+	[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
+	[self cellControlDidInit:cell];
 
 	/*
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -339,7 +347,8 @@
 		UIViewController *detailViewController = [pushCell viewController:cellData];
 		
 		[self.navigationController pushViewController:detailViewController animated:YES];
-		[detailViewController release];
+		
+		//[detailViewController release];
 		
 	}
 }

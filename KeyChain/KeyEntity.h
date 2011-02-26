@@ -14,4 +14,6 @@
 }
 
 @property (nonatomic,readonly) BOOL isNew;
+@property (nonatomic,readonly) NSString * sectionId;
+
 @end

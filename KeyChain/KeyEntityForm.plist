@@ -57,7 +57,7 @@
 				<key>DataKey</key>
 				<string>username</string>
 				<key>Label</key>
-				<string>Username</string>
+				<string>Contract</string>
 				<key>CellType</key>
 				<string>TextDataEntryCell</string>
 				<key>placeholder</key>
@@ -81,7 +81,7 @@
 				<key>CellType</key>
 				<string>PushDateEntryCell</string>
 				<key>placeholder</key>
-				<string>&lt;password expiration&gt;</string>
+				<string>&lt;expiration date&gt;</string>
 			</dict>
 		</array>
 		

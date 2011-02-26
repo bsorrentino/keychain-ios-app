@@ -8,8 +8,9 @@
 
 #import "KeyEntity.h"
 
-
 @implementation KeyEntity
+
+@synthesize sectionId;
 
 - (void)awakeFromFetch {
 
@@ -31,4 +32,12 @@
 	
 
 }
+
+- (NSString *)sectionId {
+
+	NSString *k = [self valueForKey:@"mnemonic"];
+	
+	return [k substringWithRange:NSMakeRange( 0, 1)];
+}
+
 @end

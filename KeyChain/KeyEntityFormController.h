@@ -11,17 +11,33 @@
 
 @class KeyEntity;
 
+@protocol KeyEntityFormControllerDelegate
+
+-(BOOL)doSaveObject:(KeyEntity*)entity;
+
+@end
+
 @interface KeyEntityFormController : UIXMLFormViewController {
 
 @private 
+	id<KeyEntityFormControllerDelegate> formDelegate_;
 	KeyEntity *entity_;
-	UIBarButtonItem *btnSave;
-	BOOL saved_;
+	UIView *toolbar_;
+	UIBarButtonItem *btnSave_;
+	UISegmentedControl *segShowHidePassword_;
+	
+	BOOL valid_;
+
 }
 
+@property (nonatomic,retain) IBOutlet UIView *toolbar;
 @property (nonatomic,retain) IBOutlet UIBarButtonItem *btnSave;
-- (void)initWithEntity:(KeyEntity*)entity;
+@property (nonatomic,retain) IBOutlet UISegmentedControl *segShowHidePassword;
 
-- (IBAction)save:(id)sender;
+- (void)initWithEntity:(KeyEntity*)entity delegate:(id<KeyEntityFormControllerDelegate>)delegate;
+
+-(IBAction)save:(id)sender;
+-(IBAction) cancel:(id)sender;
+-(IBAction)showHidePassword:(id)sender;
 
 @end

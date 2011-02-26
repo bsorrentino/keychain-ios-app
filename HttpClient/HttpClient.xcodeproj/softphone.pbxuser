@@ -3,6 +3,9 @@
 	0867D690FE84028FC02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeTarget = D2AAC07D0554694100DB518D /* HttpClient */;
+		addToTargets = (
+			D2AAC07D0554694100DB518D /* HttpClient */,
+		);
 		codeSenseManager = 5F25A72112D72D31004BBD46 /* Code sense */;
 		perUserDictionary = {
 			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
@@ -27,8 +30,8 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 316276185;
-			PBXWorkspaceStateSaveDate = 316276185;
+			PBXPerProjectTemplateStateSaveDate = 320359625;
+			PBXWorkspaceStateSaveDate = 320359625;
 		};
 		sourceControlManager = 5F25A72012D72D31004BBD46 /* Source Control */;
 		userBuildSettings = {

@@ -17,6 +17,8 @@
 // Nome della notifica di fine editing
 #define CELL_ENDEDIT_NOTIFICATION_NAME @"CellEndEdit"
 
+
+
 @class UIXMLFormViewController;
 
 @interface BaseDataEntryCell : UITableViewCell {
@@ -24,6 +26,7 @@
 }
 
 @property (nonatomic, retain) NSString *dataKey;
+@property (nonatomic) BOOL enabled;
 
 -(id)init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData;
 
@@ -38,6 +41,8 @@
 
 // helper for check string
 -(BOOL)isStringEmpty:(NSString*)value;
+
+-(CGRect) getRectRelativeToLabel: (CGRect)controlFrame padding:(NSInteger)padding rpadding:(NSInteger)rpadding;
 
 
 @end
