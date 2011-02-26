@@ -16,7 +16,7 @@
 - (void)httpClient:(HttpClient *)httpClient didRetrieveData:(NSData *)data;
 
 @optional
-- (void)httpClientHasBadCredentials:(HttpClient *)wrapper;
+- (void)httpClientHasBadCredentials:(HttpClient *)httpClient;
 - (void)httpClient:(HttpClient *)httpClient didCreateResourceAtURL:(NSString *)url;
 - (void)httpClient:(HttpClient *)httpClient didFailWithError:(NSError *)error;
 - (void)httpClient:(HttpClient *)httpClient didReceiveStatusCode:(int)statusCode;

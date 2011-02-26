@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h> 
 #import "WrapperDelegate.h"
 
+/*!
+ 
+@deprecated
+*/ 
+__attribute__ ((deprecated))
 @interface Wrapper : NSObject 
 {
 @private

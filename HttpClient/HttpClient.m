@@ -202,14 +202,14 @@
         
         if (!conn)
         {
-            if ([delegate respondsToSelector:@selector(wrapper:didFailWithError:)])
+            if ([delegate respondsToSelector:@selector(httpClient:didFailWithError:)])
             {
                 
 				//NSMutableDictionary* info = [NSMutableDictionary dictionaryWithObject:[request URL] forKey:NSErrorFailingURLStringKey];
 				NSMutableDictionary* info = [NSMutableDictionary dictionaryWithObject:[request URL] forKey:NSURLErrorFailingURLStringErrorKey];
                
 				[info setObject:@"Could not open connection" forKey:NSLocalizedDescriptionKey];
-                NSError* error = [NSError errorWithDomain:@"Wrapper" code:1 userInfo:info];
+                NSError* error = [NSError errorWithDomain:@"HttpClient" code:1 userInfo:info];
                 [delegate httpClient:self didFailWithError:error];
             }
         }
@@ -252,7 +252,7 @@
     else
     {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
-        if ([delegate respondsToSelector:@selector(wrapperHasBadCredentials:)])
+        if ([delegate respondsToSelector:@selector(httpClientHasBadCredentials:)])
         {
             [delegate httpClientHasBadCredentials:self];
         }
@@ -271,7 +271,7 @@
         case 201:
         {
             NSString* url = [[httpResponse allHeaderFields] objectForKey:@"Location"];
-            if ([delegate respondsToSelector:@selector(wrapper:didCreateResourceAtURL:)])
+            if ([delegate respondsToSelector:@selector(httpClient:didCreateResourceAtURL:)])
             {
                 [delegate httpClient:self didCreateResourceAtURL:url];
             }
@@ -284,7 +284,7 @@
         
         default:
         {
-            if ([delegate respondsToSelector:@selector(wrapper:didReceiveStatusCode:)])
+            if ([delegate respondsToSelector:@selector(httpClient:didReceiveStatusCode:)])
             {
                 [delegate httpClient:self didReceiveStatusCode:statusCode];
             }
@@ -302,7 +302,7 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     [self cancelConnection];
-    if ([delegate respondsToSelector:@selector(wrapper:didFailWithError:)])
+    if ([delegate respondsToSelector:@selector(httpClient:didFailWithError:)])
     {
         [delegate httpClient:self didFailWithError:error];
     }
@@ -311,7 +311,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     [self cancelConnection];
-    if ([delegate respondsToSelector:@selector(wrapper:didRetrieveData:)])
+    if ([delegate respondsToSelector:@selector(httpClient:didRetrieveData:)])
     {
         [delegate httpClient:self didRetrieveData:receivedData];
     }
