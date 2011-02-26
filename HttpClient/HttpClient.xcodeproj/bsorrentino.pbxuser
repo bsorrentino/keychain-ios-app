@@ -52,15 +52,14 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 320358934;
-			PBXWorkspaceStateSaveDate = 320358934;
+			PBXPerProjectTemplateStateSaveDate = 320411837;
+			PBXWorkspaceStateSaveDate = 320411837;
 		};
 		perUserProjectItems = {
 			A0AFC2DB13184A4B00497545 /* PBXTextBookmark */ = A0AFC2DB13184A4B00497545 /* PBXTextBookmark */;
 			A0AFC2DC13184A4B00497545 /* PBXTextBookmark */ = A0AFC2DC13184A4B00497545 /* PBXTextBookmark */;
 			A0AFC2DD13184A4B00497545 /* PBXTextBookmark */ = A0AFC2DD13184A4B00497545 /* PBXTextBookmark */;
 			A0AFC2DE13184A4B00497545 /* PBXBookmark */ = A0AFC2DE13184A4B00497545 /* PBXBookmark */;
-			A0AFC2DF13184A4B00497545 /* PBXTextBookmark */ = A0AFC2DF13184A4B00497545 /* PBXTextBookmark */;
 			A0E7084E12D72AEB005FBAF3 /* PBXTextBookmark */ = A0E7084E12D72AEB005FBAF3 /* PBXTextBookmark */;
 		};
 		sourceControlManager = A061866F12D225440019A71A /* Source Control */;
@@ -105,27 +104,6 @@
 			sepNavVisRange = "{0, 589}";
 		};
 	};
-	A0AFC2D513184A3A00497545 /* HttpClient.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {838, 546}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1182}";
-		};
-	};
-	A0AFC2D613184A3A00497545 /* HttpClient.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {838, 4524}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{857, 1145}";
-		};
-	};
-	A0AFC2D713184A3A00497545 /* HttpClientDelegate.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {838, 535}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 637}";
-		};
-	};
 	A0AFC2DB13184A4B00497545 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = AA747D9E0F9514B9006C5449 /* HttpClient_Prefix.pch */;
@@ -138,7 +116,6 @@
 	};
 	A0AFC2DC13184A4B00497545 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = A0AFC2D513184A3A00497545 /* HttpClient.h */;
 		name = "HttpClient.h: 1";
 		rLen = 0;
 		rLoc = 0;
@@ -148,7 +125,6 @@
 	};
 	A0AFC2DD13184A4B00497545 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = A0AFC2D613184A3A00497545 /* HttpClient.m */;
 		name = "HttpClient.m: 1";
 		rLen = 0;
 		rLoc = 0;
@@ -158,17 +134,6 @@
 	};
 	A0AFC2DE13184A4B00497545 /* PBXBookmark */ = {
 		isa = PBXBookmark;
-		fRef = A0AFC2D713184A3A00497545 /* HttpClientDelegate.h */;
-	};
-	A0AFC2DF13184A4B00497545 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = A0AFC2D713184A3A00497545 /* HttpClientDelegate.h */;
-		name = "HttpClientDelegate.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 637;
-		vrLoc = 0;
 	};
 	A0CA21BA12D72E0F0083F5A0 /* JSON.h */ = {
 		uiCtxt = {

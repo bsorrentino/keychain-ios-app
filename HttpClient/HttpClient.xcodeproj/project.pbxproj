@@ -23,6 +23,9 @@
 		A0CA21D112D72E0F0083F5A0 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA21C412D72E0F0083F5A0 /* SBJsonParser.m */; };
 		A0CA21D212D72E0F0083F5A0 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = A0CA21C512D72E0F0083F5A0 /* SBJsonWriter.h */; };
 		A0CA21D312D72E0F0083F5A0 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CA21C612D72E0F0083F5A0 /* SBJsonWriter.m */; };
+		A0DFE4B5131918CE00DC81EF /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A0DFE4B2131918CE00DC81EF /* HttpClient.h */; };
+		A0DFE4B6131918CE00DC81EF /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE4B3131918CE00DC81EF /* HttpClient.m */; };
+		A0DFE4B7131918CE00DC81EF /* HttpClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A0DFE4B4131918CE00DC81EF /* HttpClientDelegate.h */; };
 		AA747D9F0F9514B9006C5449 /* HttpClient_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* HttpClient_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +47,9 @@
 		A0CA21C412D72E0F0083F5A0 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		A0CA21C512D72E0F0083F5A0 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		A0CA21C612D72E0F0083F5A0 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		A0DFE4B2131918CE00DC81EF /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
+		A0DFE4B3131918CE00DC81EF /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
+		A0DFE4B4131918CE00DC81EF /* HttpClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClientDelegate.h; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* HttpClient_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libHttpClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHttpClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +97,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A0DFE4A4131914A600DC81EF /* HTTP2 */,
 				A0CA21B912D72E0F0083F5A0 /* JSON */,
 				A0CA216312D72DF30083F5A0 /* HTTP */,
 			);
@@ -135,6 +142,16 @@
 			name = JSON;
 			sourceTree = "<group>";
 		};
+		A0DFE4A4131914A600DC81EF /* HTTP2 */ = {
+			isa = PBXGroup;
+			children = (
+				A0DFE4B2131918CE00DC81EF /* HttpClient.h */,
+				A0DFE4B3131918CE00DC81EF /* HttpClient.m */,
+				A0DFE4B4131918CE00DC81EF /* HttpClientDelegate.h */,
+			);
+			name = HTTP2;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -152,6 +169,8 @@
 				A0CA21CE12D72E0F0083F5A0 /* SBJsonBase.h in Headers */,
 				A0CA21D012D72E0F0083F5A0 /* SBJsonParser.h in Headers */,
 				A0CA21D212D72E0F0083F5A0 /* SBJsonWriter.h in Headers */,
+				A0DFE4B5131918CE00DC81EF /* HttpClient.h in Headers */,
+				A0DFE4B7131918CE00DC81EF /* HttpClientDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +234,7 @@
 				A0CA21CF12D72E0F0083F5A0 /* SBJsonBase.m in Sources */,
 				A0CA21D112D72E0F0083F5A0 /* SBJsonParser.m in Sources */,
 				A0CA21D312D72E0F0083F5A0 /* SBJsonWriter.m in Sources */,
+				A0DFE4B6131918CE00DC81EF /* HttpClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
