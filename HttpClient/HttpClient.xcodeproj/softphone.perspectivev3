@@ -231,6 +231,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -355,7 +357,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {377, -27}}</string>
+										<string>{{10, 27}, {883, 548}}</string>
+										<key>RubberWindowFrame</key>
+										<string>251 387 1090 621 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -377,8 +381,6 @@
 									<string>PBXProjectFindModule</string>
 								</dict>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXCVSModuleFilterTypeKey</key>
@@ -413,8 +415,6 @@
 									<dict>
 										<key>Frame</key>
 										<string>{{10, 27}, {883, 548}}</string>
-										<key>RubberWindowFrame</key>
-										<string>251 387 1090 621 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXCVSModule</string>
@@ -462,11 +462,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>5FCF75B112DA3C6000A9E0D8</string>
+				<string>5FDF73B51319112E00EC147F</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>5FCF75B212DA3C6000A9E0D8</string>
+				<string>5FDF73B61319112E00EC147F</string>
 				<string>5F25A75E12D72FC3004BBD46</string>
-				<string>5FCF75B312DA3C6000A9E0D8</string>
+				<string>5FDF73B71319112E00EC147F</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
