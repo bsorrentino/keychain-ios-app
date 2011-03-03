@@ -327,7 +327,7 @@ UIAlertView *waitView_;
         case 201:
         {
             NSString* url = [[httpResponse allHeaderFields] objectForKey:@"Location"];
-            if ([delegate respondsToSelector:@selector(wrapper:didCreateResourceAtURL:)])
+            if ([delegate respondsToSelector:@selector(httpClient:didCreateResourceAtURL:)])
             {
                 [delegate httpClient:self didCreateResourceAtURL:url];
             }

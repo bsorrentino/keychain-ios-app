@@ -10,6 +10,7 @@
 
 @class Wrapper;
 
+__attribute__ ((deprecated))
 @protocol WrapperDelegate
 
 @required
