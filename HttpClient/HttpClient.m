@@ -9,7 +9,13 @@
 #import "HttpClient.h"
 
 @interface HttpClient (Private)
+
+UIAlertView *waitView_;
+
+
 - (void)startConnection:(NSURLRequest *)request;
+- (void)mask:(NSString*)title;
+- (void)unmask;
 @end
 
 @implementation HttpClient
@@ -62,7 +68,9 @@
 
 - (void)dealloc
 {
-    [receivedData release];
+	[waitView_ release]; waitView_ = nil;
+    
+	[receivedData release];
     receivedData = nil;
     self.mimeType = nil;
     self.username = nil;
@@ -71,7 +79,47 @@
 }
 
 #pragma mark -
+#pragma mark Wait View (private)
+
+- (void)mask:(NSString*)title {
+
+	if (waitView_==nil) {
+		waitView_ = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+		[waitView_ show];
+
+		UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+		
+		// Adjust the indicator so it is up a few pixels from the bottom of the alert
+		indicator.center = CGPointMake(waitView_.bounds.size.width / 2, waitView_.bounds.size.height - 50);
+		[indicator startAnimating];
+		[waitView_ addSubview:indicator];
+		[indicator release];
+	}
+	else {
+		waitView_.title = title;
+		if( !waitView_.visible )
+			[waitView_ show];
+		
+	}
+	
+	
+}
+
+- (void)unmask {
+	
+	if( waitView_!=nil ) {
+		[waitView_ dismissWithClickedButtonIndex:0 animated:YES];
+
+	}
+}
+
+#pragma mark -
 #pragma mark Public methods
+- (void)sendMaskedRequestTo:(NSString *)message url:(NSURL *)url usingVerb:(NSString *)verb withParameters:(NSDictionary *)parameters {
+
+	[self mask:message];
+	[self sendRequestTo:url usingVerb:verb withParameters:parameters];
+}
 
 - (void)sendRequestTo:(NSURL *)url usingVerb:(NSString *)verb withParameters:(NSDictionary *)parameters
 {
@@ -202,6 +250,7 @@
         
         if (!conn)
         {
+			[self unmask];
             if ([delegate respondsToSelector:@selector(wrapper:didFailWithError:)])
             {
                 
@@ -224,6 +273,8 @@
         response = nil;
         [error release];
         error = nil;
+		
+		[self unmask];
     }
 }
 
@@ -232,6 +283,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
+
     NSInteger count = [challenge previousFailureCount];
     if (count == 0)
     {
@@ -251,6 +303,8 @@
     }
     else
     {
+		[self unmask];
+		
         [[challenge sender] cancelAuthenticationChallenge:challenge];
         if ([delegate respondsToSelector:@selector(wrapperHasBadCredentials:)])
         {
@@ -261,6 +315,8 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
+	//[self unmask];
+
     NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
     int statusCode = [httpResponse statusCode];
     switch (statusCode)
@@ -301,6 +357,8 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+	[self unmask];
+
     [self cancelConnection];
     if ([delegate respondsToSelector:@selector(wrapper:didFailWithError:)])
     {
@@ -310,6 +368,8 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+	[self unmask];
+
     [self cancelConnection];
     if ([delegate respondsToSelector:@selector(wrapper:didRetrieveData:)])
     {

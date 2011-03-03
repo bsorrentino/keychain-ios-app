@@ -20,6 +20,7 @@
     NSString *username;
     NSString *password;
 	NSInteger tag;
+
 }
 
 @property (nonatomic, readonly) NSData *receivedData;
@@ -32,6 +33,7 @@
 
 - (id) initWithTag:(NSInteger) tag;
 - (void)sendRequestTo:(NSURL *)url usingVerb:(NSString *)verb withParameters:(NSDictionary *)parameters;
+- (void)sendMaskedRequestTo:(NSString *)message url:(NSURL *)url usingVerb:(NSString *)verb withParameters:(NSDictionary *)parameters;
 - (void)uploadData:(NSData *)data toURL:(NSURL *)url;
 - (void)cancelConnection;
 - (NSDictionary *)responseAsPropertyList;
