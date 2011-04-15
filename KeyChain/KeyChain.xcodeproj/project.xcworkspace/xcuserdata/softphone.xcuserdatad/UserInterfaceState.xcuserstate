@@ -4392,8 +4392,8 @@
 		<string>PrimaryDocumentSelectedCharacterRange</string>
 		<string>PrimaryDocumentTimestamp</string>
 		<string>PrimaryDocumentVisibleCharacterRange</string>
-		<real>324549304.96472502</real>
-		<string>{0, 1359}</string>
+		<real>324570971.37681401</real>
+		<string>{82692, 1268}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4701,7 +4701,7 @@
 			</dict>
 		</dict>
 		<string>file://localhost/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/KeyChain.xcodeproj/</string>
-		<real>324549304.96443897</real>
+		<real>324570971.37656701</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5843,7 +5843,7 @@
 				<integer>512</integer>
 			</dict>
 		</dict>
-		<real>324549304.96869999</real>
+		<real>324570971.37727702</real>
 		<dict>
 			<key>$class</key>
 			<dict>
