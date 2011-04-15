@@ -21,7 +21,9 @@
 				<key>CellType</key>
 				<string>TextDataEntryCell</string>
 				<key>placeholder</key>
-				<string>&lt;mnemonic name&gt;</string>				
+				<string>&lt;mnemonic name&gt;</string>
+                <key>autocapitalizationType</key>
+                <string>AllCharacters</string>
 			</dict>
 			<dict>
 				<key>DataKey</key>
@@ -72,6 +74,8 @@
 				<string>TextDataEntryCell</string>
 				<key>placeholder</key>
 				<string>&lt;input password&gt;</string>
+                <key>autocorrectionType</key>
+                <false/>
 			</dict>
 			<dict>
 				<key>DataKey</key>

@@ -44,6 +44,42 @@
 			
 			[textField setPlaceholder:placeholder];
 		}
+
+		NSNumber * autocorrectionType = (NSNumber *)[cellData objectForKey:@"autocorrectionType"];
+		
+		if( autocorrectionType!=nil ) {
+			
+            textField.autocorrectionType = ( [autocorrectionType boolValue] ) ? UITextAutocorrectionTypeYes : UITextAutocorrectionTypeNo;
+                
+		}
+
+		NSString *autocapitalizationType = (NSString*)[cellData objectForKey:@"autocapitalizationType"];
+		
+		if( ![self isStringEmpty:autocapitalizationType] ) {
+            /*
+            UITextAutocapitalizationTypeNone,
+            UITextAutocapitalizationTypeWords,
+            UITextAutocapitalizationTypeSentences,
+            UITextAutocapitalizationTypeAllCharacters,
+			*/
+            if( [autocapitalizationType compare:"None" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
+
+                textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+                
+            } else if ( [autocapitalizationType compare:"Words" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
+ 
+                textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+ 
+            } else if ( [autocapitalizationType compare:"Sentences" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
+
+                textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+                
+            } else if ( [autocapitalizationType compare:"AllCharacters" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
+            
+                textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+                
+            }
+		}
 		
     }
 	
