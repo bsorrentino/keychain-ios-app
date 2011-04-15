@@ -278,6 +278,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>4</integer>
 									<integer>2</integer>
 									<integer>1</integer>
 									<integer>0</integer>
@@ -301,7 +302,7 @@
 							<real>403</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>970 503 1324 878 0 0 2560 1418 </string>
+						<string>334 379 1324 878 0 0 2560 1418 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -317,7 +318,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>A061866912D225440019A71A</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>HttpClientDelegate.h</string>
+								<string>HttpClient.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -325,7 +326,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>A061866A12D225440019A71A</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>HttpClientDelegate.h</string>
+										<string>HttpClient.m</string>
+										<key>_historyCapacity</key>
+										<integer>20</integer>
+										<key>bookmark</key>
+										<string>A082F388132036260071E502</string>
 										<key>history</key>
 										<array>
 											<string>A0E7084E12D72AEB005FBAF3</string>
@@ -333,6 +338,7 @@
 											<string>A0AFC2DC13184A4B00497545</string>
 											<string>A0AFC2DD13184A4B00497545</string>
 											<string>A0AFC2DE13184A4B00497545</string>
+											<string>A082F356132031E90071E502</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -346,18 +352,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {899, 553}}</string>
+								<string>{{0, 0}, {899, 739}}</string>
 								<key>RubberWindowFrame</key>
-								<string>970 503 1324 878 0 0 2560 1418 </string>
+								<string>334 379 1324 878 0 0 2560 1418 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>553pt</string>
+							<string>739pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>279pt</string>
+							<string>93pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -371,9 +377,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {899, 252}}</string>
+										<string>{{10, 27}, {899, 66}}</string>
 										<key>RubberWindowFrame</key>
-										<string>970 503 1324 878 0 0 2560 1418 </string>
+										<string>334 379 1324 878 0 0 2560 1418 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -476,11 +482,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>A0DFE4BA131928A900DC81EF</string>
+				<string>A082F364132033E90071E502</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>A0DFE4BB131928A900DC81EF</string>
+				<string>A082F365132033E90071E502</string>
 				<string>A061866912D225440019A71A</string>
-				<string>A0DFE4BC131928A900DC81EF</string>
+				<string>A082F366132033E90071E502</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -653,7 +659,7 @@
 		<string>/Users/bsorrentino/WORKSPACES/GITHUB/iphone-commons-utilities/HttpClient/HttpClient.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>970 503 1324 878 0 0 2560 1418 </string>
+	<string>334 379 1324 878 0 0 2560 1418 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
