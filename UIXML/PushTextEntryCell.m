@@ -42,26 +42,79 @@
 
 @end
 
+@interface PushTextEntryCell (private)
+
+- (void)updateEditIcon:(NSString*)value;
+
+@end
+
 
 @implementation PushTextEntryCell
 
-@synthesize viewController, textLabel;
+@synthesize viewController, textLabel, editIcon=editIcon_, imgWrite, imgEdit;
+
+- (void)updateEditIcon:(NSString*)value {
+
+	if ([self isStringEmpty:value]) {
+        self.editIcon.image = self.imgWrite;
+	}
+	else {
+        self.editIcon.image = self.imgEdit;
+	}
+    
+}
+
 
 #pragma mark BaseDataEntryCell
+
+-(UIImage*) imgWrite {
+    if( imgWrite_==nil ) {
+    
+        NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"write32x32" ofType:@"png"];
+    
+        imgWrite_ = [UIImage imageWithContentsOfFile:resourcePath];
+    }
+    
+    return [imgWrite_ retain];
+    
+}
+-(UIImage*) imgEdit {
+    if( imgEdit_==nil ) {
+        
+        NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"edit32x32" ofType:@"png"];
+        
+        imgEdit_ = [UIImage imageWithContentsOfFile:resourcePath];
+    }
+    
+    return [imgEdit_ retain];
+    
+}
 
 - (id) init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData{
 	
     if ((self = [super init:controller datakey:key label:label cellData:cellData])) {
-        // Initialization code		
+
+        // initialization
     }
 	
-	return self;
+
+    return self;
 }
+
+- (void) postEndEditingNotification {
+    
+    [self updateEditIcon:[self getControlValue]];
+    
+    [super postEndEditingNotification];
+}
+
 -(void) setControlValue:(id)value {
 	
 	NSString * result = nil;
 	
-	if (value==nil) {
+    [self updateEditIcon:value];
+    
+	if ([self isStringEmpty:value]) {
 		result = @"";
 	}
 	else {
@@ -103,6 +156,10 @@
 
 
 - (void)dealloc {
+    [editIcon_ release];
+    [imgEdit_ release];
+    [imgWrite_ release];
+    
 	[textLabel release];
 	[viewController release];
     [super dealloc];

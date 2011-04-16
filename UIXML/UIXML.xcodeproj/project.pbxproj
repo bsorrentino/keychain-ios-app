@@ -35,6 +35,8 @@
 		5F30ABCB1297F96700540544 /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchDataEntryCell.h; sourceTree = "<group>"; };
 		5F30ABCC1297F96700540544 /* SwitchDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchDataEntryCell.m; sourceTree = "<group>"; };
 		5F494C8112D8B0C2002B3631 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DefaultHeaderInSection.xib; sourceTree = "<group>"; };
+		5F777C2E1359DC1D003AFC9E /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
+		5F777C2F1359DC1D003AFC9E /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
 		5FA7E23A1296F264000F493B /* BaseDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDataEntryCell.h; sourceTree = "<group>"; };
 		5FA7E23B1296F264000F493B /* BaseDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDataEntryCell.m; sourceTree = "<group>"; };
 		5FA7E23C1296F264000F493B /* TextDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDataEntryCell.h; sourceTree = "<group>"; };
@@ -122,6 +124,8 @@
 		5F30ABAE1297F61500540544 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F777C2E1359DC1D003AFC9E /* edit32x32.png */,
+				5F777C2F1359DC1D003AFC9E /* write32x32.png */,
 				5FF78F7A12E7A005008EA886 /* chevron.png */,
 				5FF78F4012E7962D008EA886 /* PushTextEntryCell.xib */,
 				5F494C8012D8B0C2002B3631 /* DefaultHeaderInSection.xib */,

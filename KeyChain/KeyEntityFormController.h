@@ -20,7 +20,7 @@
 @interface KeyEntityFormController : UIXMLFormViewController {
 
 @private 
-	id<KeyEntityFormControllerDelegate> formDelegate_;
+	NSObject<KeyEntityFormControllerDelegate> *formDelegate_;
 	KeyEntity *entity_;
 	UIView *toolbar_;
 	UIBarButtonItem *btnSave_;
@@ -34,7 +34,7 @@
 @property (nonatomic,retain) IBOutlet UIBarButtonItem *btnSave;
 @property (nonatomic,retain) IBOutlet UISegmentedControl *segShowHidePassword;
 
-- (void)initWithEntity:(KeyEntity*)entity delegate:(id<KeyEntityFormControllerDelegate>)delegate;
+- (void)initWithEntity:(KeyEntity*)entity delegate:(NSObject<KeyEntityFormControllerDelegate> *)delegate;
 
 -(IBAction)save:(id)sender;
 -(IBAction) cancel:(id)sender;

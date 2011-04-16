@@ -85,7 +85,7 @@
 	
 	KeyEntity *e = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-	[self.keyEntityFormController initWithEntity:e];
+	[self.keyEntityFormController initWithEntity:e delegate:self];
 	
 	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
 	
@@ -97,7 +97,7 @@
 
 	KeyEntity *e = [[KeyEntity alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
 	
-	[self.keyEntityFormController initWithEntity:e];
+	[self.keyEntityFormController initWithEntity:e delegate:self];
 	
 	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
 	

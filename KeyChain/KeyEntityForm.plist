@@ -2,95 +2,97 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-
 	<array>
-	
 		<dict>
 			<key>label</key>
-			<string>Personal</string>
+			<string>Main Info</string>
 		</dict>
-	
 		<array>
-			
-			
 			<dict>
+				<key>CellType</key>
+				<string>TextDataEntryCell</string>
 				<key>DataKey</key>
 				<string>mnemonic</string>
 				<key>Label</key>
 				<string>Name</string>
-				<key>CellType</key>
-				<string>TextDataEntryCell</string>
 				<key>placeholder</key>
 				<string>&lt;mnemonic name&gt;</string>
-                <key>autocapitalizationType</key>
-                <string>AllCharacters</string>
+				<key>autocorrectionType</key>
+				<true/>
+				<key>autocapitalizationType</key>
+				<string>AllCharacters</string>
 			</dict>
 			<dict>
-				<key>DataKey</key>
-				<string>url</string>
-				<key>Label</key>
-				<string>Site</string>
 				<key>CellType</key>
 				<string>TextDataEntryCell</string>
-				<key>placeholder</key>
-				<string>&lt;input site url&gt;</string>
-			</dict>
-			<dict>
-				<key>DataKey</key>
-				<string>mail</string>
-				<key>Label</key>
-				<string>Email</string>
-				<key>CellType</key>
-				<string>MailDataEntryCell</string>
-				<key>placeholder</key>
-				<string>&lt;input mail&gt;</string>
-			</dict>
-		</array>
-	</array>
-
-	<array>	
-		<dict>
-			<key>label</key>
-			<string>Key</string>
-		</dict>
-	
-		<array>
-			<dict>
 				<key>DataKey</key>
 				<string>username</string>
 				<key>Label</key>
-				<string>Contract</string>
-				<key>CellType</key>
-				<string>TextDataEntryCell</string>
+				<string>UserName</string>
 				<key>placeholder</key>
 				<string>&lt;input username&gt;</string>
 			</dict>
 			<dict>
+				<key>CellType</key>
+				<string>TextDataEntryCell</string>
 				<key>DataKey</key>
 				<string>password</string>
 				<key>Label</key>
 				<string>Password</string>
-				<key>CellType</key>
-				<string>TextDataEntryCell</string>
 				<key>placeholder</key>
 				<string>&lt;input password&gt;</string>
-                <key>autocorrectionType</key>
-                <false/>
+				<key>autocorrectionType</key>
+				<false/>
+			</dict>
+		</array>
+	</array>
+	<array>
+		<dict>
+			<key>label</key>
+			<string>Extra Info</string>
+		</dict>
+		<array>
+			<dict>
+				<key>CellType</key>
+				<string>MailDataEntryCell</string>
+				<key>DataKey</key>
+				<string>mail</string>
+				<key>Label</key>
+				<string>Email</string>
+				<key>placeholder</key>
+				<string>&lt;input mail&gt;</string>
 			</dict>
 			<dict>
+				<key>CellType</key>
+				<string>TextDataEntryCell</string>
+				<key>DataKey</key>
+				<string>url</string>
+				<key>Label</key>
+				<string>Site</string>
+				<key>placeholder</key>
+				<string>&lt;input site url&gt;</string>
+			</dict>
+			<dict>
+				<key>CellType</key>
+				<string>PushTextEntryCell</string>
+				<key>DataKey</key>
+				<string>note</string>
+				<key>Label</key>
+				<string>Note</string>
+			</dict>
+            <!--
+			<dict>
+				<key>CellType</key>
+				<string>PushDateEntryCell</string>
 				<key>DataKey</key>
 				<string>expire</string>
 				<key>Label</key>
 				<string>Expire</string>
-				<key>CellType</key>
-				<string>PushDateEntryCell</string>
 				<key>placeholder</key>
 				<string>&lt;expiration date&gt;</string>
 			</dict>
+             -->
 		</array>
-		
 	</array>
-	
-
 </array>
 </plist>

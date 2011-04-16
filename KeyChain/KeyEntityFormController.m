@@ -27,7 +27,7 @@
 	
 }
 
-- (void)initWithEntity:(KeyEntity*)entity delegate:(id<KeyEntityFormControllerDelegate>)delegate {
+- (void)initWithEntity:(KeyEntity*)entity delegate:(NSObject<KeyEntityFormControllerDelegate>*) delegate {
 	
 	entity_ = entity;
 	valid_ = YES;
@@ -85,7 +85,7 @@
 		return;
 	}
 	
-	if (formDelegate_!=nil) {
+	if (formDelegate_!=nil && [formDelegate_ respondToSelector:@selector(doSaveObject:)]) {
 		valid_ = [formDelegate_ doSaveObject:entity_];
 	}
 	

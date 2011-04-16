@@ -62,19 +62,19 @@
             UITextAutocapitalizationTypeSentences,
             UITextAutocapitalizationTypeAllCharacters,
 			*/
-            if( [autocapitalizationType compare:"None" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
+            if( [autocapitalizationType compare:@"None" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
 
                 textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
                 
-            } else if ( [autocapitalizationType compare:"Words" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
+            } else if ( [autocapitalizationType compare:@"Words" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
  
                 textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
  
-            } else if ( [autocapitalizationType compare:"Sentences" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
+            } else if ( [autocapitalizationType compare:@"Sentences" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
 
                 textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
                 
-            } else if ( [autocapitalizationType compare:"AllCharacters" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
+            } else if ( [autocapitalizationType compare:@"AllCharacters" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
             
                 textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
                 
