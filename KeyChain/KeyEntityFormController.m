@@ -84,8 +84,11 @@
 		
 		return;
 	}
+    
+    ;
+    
 	
-	if (formDelegate_!=nil && [formDelegate_ respondToSelector:@selector(doSaveObject:)]) {
+	if (formDelegate_!=nil && [formDelegate_ respondsToSelector:@selector(doSaveObject:)]) {
 		valid_ = [formDelegate_ doSaveObject:entity_];
 	}
 	

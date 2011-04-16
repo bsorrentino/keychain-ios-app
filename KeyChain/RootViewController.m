@@ -20,15 +20,76 @@
 @synthesize fetchedResultsController=fetchedResultsController_, managedObjectContext=managedObjectContext_;
 @synthesize keyEntityFormController=keyEntityFormController_;
 
-#pragma mark -
 
-#pragma mark -
+- (NSArray *)sectionTitlesArray {
+	
+	if (sectionIndexTitles_==nil) {
+		
+		sectionIndexTitles_ = [NSMutableArray arrayWithObjects: 
+							   @"A", 
+							   @"B", 
+							   @"C", 
+							   @"D", 
+							   @"E", 
+							   @"F",
+							   @"G",
+							   @"H",
+							   @"I",
+							   @"J",
+							   @"K",
+							   @"L",
+							   @"M",
+							   @"N",
+							   @"O",
+							   @"P",
+							   @"Q",
+							   @"R",
+							   @"S",
+							   @"T",
+							   @"U",
+							   @"W",
+							   @"V",
+							   @"X",
+							   @"Y",
+							   @"Z",
+							   nil ];
+	}
+	return [sectionIndexTitles_ retain];
+}
+
+#pragma mark KeyEntityFormControllerDelegate
+
+-(BOOL)doSaveObject:(KeyEntity*)entity {
+	NSError *error = nil;
+	
+	NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];	
+
+	if (entity.isNew) {
+		[context insertObject:entity];
+	}
+	
+	
+	// Save the context.
+	if (![context save:&error]) {
+		/*
+		 Replace this implementation with code to handle the error appropriately.
+		 
+		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+		 */
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		//abort();
+		
+		return NO;
+	}
+	
+	return YES;
+}
+
 #pragma mark View lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	self.title = @"Key List";
 	
     // Set up the edit and add buttons.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -36,6 +97,8 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
     [addButton release];
+
+	self.title = @"Key List";
 }
 
 
@@ -92,17 +155,19 @@
 }
 
 - (void)insertNewObject {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    //NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
 
-	KeyEntity *e = [[KeyEntity alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+	KeyEntity *e = [[KeyEntity alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
 	
 	[self.keyEntityFormController initWithEntity:e delegate:self];
 	
 	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
 	
+	//[e release];
 }
 
+// Deprecated
 - (void)insertNewObject2 {
     
 	
@@ -197,47 +262,39 @@
     return NO;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];	
+	
+	NSLog(@"titleForHeaderInSection section:[%d] [%@]", section, sectionInfo.name );
+	
+	//return [self.sectionTitlesArray objectAtIndex:section];
+	
+	return sectionInfo.name;
+	
+}
 
-// Index
+
+#pragma -
+#pragma mark UITableView Index
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
 	// return list of section titles to display in section index view (e.g. "ABCD...Z#")
 
 	NSLog(@"sectionIndexTitlesForTableView");
 	
-	return [NSMutableArray arrayWithObjects: 
-			@"A", 
-			@"B", 
-			@"C", 
-			@"D", 
-			@"E", 
-			@"F",
-			@"G",
-			@"H",
-			@"I",
-			@"J",
-			@"K",
-			@"L",
-			@"M",
-			@"N",
-			@"O",
-			@"P",
-			@"Q",
-			@"R",
-			@"S",
-			@"T",
-			@"U",
-			@"Y",
-			@"X",
-			@"Y",
-			@"Z",
-			nil ];
+	return self.sectionTitlesArray;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
 	  // tell table which section corresponds to section title/index (e.g. "B",1))
-	return 0; 	
+	index = [self.fetchedResultsController.sectionIndexTitles indexOfObject:title];
+	
+	NSLog(@"sectionForSectionIndexTitle title:[%@] index:[%d]", title, index );
+	
+	return index;
 }
+
+
 
 #pragma mark -
 #pragma mark Table view delegate
@@ -280,14 +337,18 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"mnemonic" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"mnemonic" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] 
+															 initWithFetchRequest:fetchRequest 
+															 managedObjectContext:self.managedObjectContext 
+															 sectionNameKeyPath:@"sectionId" 
+															 cacheName:nil];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -304,7 +365,7 @@
          abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        //abort();
     }
     
     return fetchedResultsController_;
@@ -367,6 +428,16 @@
     [self.tableView endUpdates];
 }
 
+/*	 
+- (NSString *)controller:(NSFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName  {
+
+	
+	NSLog(@"sectionIndexTitleForSectionName sectionName:[%@]", sectionName );
+	
+	return sectionName;
+
+}
+*/
 
 /*
 // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
