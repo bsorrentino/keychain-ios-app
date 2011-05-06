@@ -13141,7 +13141,7 @@
 			</dict>
 		</dict>
 		<string>file://localhost/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/KeyChain.xcodeproj/</string>
-		<real>324667850.486736</real>
+		<real>324667909.26123101</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -13983,8 +13983,8 @@
 		</dict>
 		<string>IDEDeviceLocation</string>
 		<string>IDEDeviceArchitecture</string>
-		<string>dvtdevice-iphone:3128cc848547f3f181f98aeae80e2f70d115d3ce</string>
-		<string>armv7</string>
+		<string>dvtdevice-iphonesimulator:/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk-iPhone</string>
+		<string>i386</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -20871,7 +20871,7 @@
 				<integer>1416</integer>
 			</dict>
 		</dict>
-		<real>324667850.48762298</real>
+		<real>324667909.26206702</real>
 		<dict>
 			<key>$class</key>
 			<dict>

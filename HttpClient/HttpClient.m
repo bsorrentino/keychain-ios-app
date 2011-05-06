@@ -1,16 +1,11 @@
 //
-//  Wrapper.m
-//  WrapperTest
-//
-//  Created by Adrian on 10/18/08.
-//  Copyright 2008 Adrian Kosmaczewski. All rights reserved.
+//  HttpClient.m
+//  
 //
 
 #import "HttpClient.h"
 
 @interface HttpClient (Private)
-
-UIAlertView *waitView_;
 
 
 - (void)startConnection:(NSURLRequest *)request;
@@ -33,7 +28,7 @@ UIAlertView *waitView_;
 
 - (id)initWithTag:(NSInteger) theTag 
 {
-    if(self = [super init])
+    if((self = [super init]))
     {
         receivedData = [[NSMutableData alloc] init];
         conn = nil;
@@ -51,7 +46,7 @@ UIAlertView *waitView_;
 
 - (id)init
 {
-    if(self = [super init])
+    if((self = [super init]))
     {
         receivedData = [[NSMutableData alloc] init];
         conn = nil;
@@ -251,14 +246,14 @@ UIAlertView *waitView_;
         if (!conn)
         {
 			[self unmask];
-            if ([delegate respondsToSelector:@selector(wrapper:didFailWithError:)])
+            if ([delegate respondsToSelector:@selector(httpClient:didFailWithError:)])
             {
                 
 				//NSMutableDictionary* info = [NSMutableDictionary dictionaryWithObject:[request URL] forKey:NSErrorFailingURLStringKey];
 				NSMutableDictionary* info = [NSMutableDictionary dictionaryWithObject:[request URL] forKey:NSURLErrorFailingURLStringErrorKey];
                
 				[info setObject:@"Could not open connection" forKey:NSLocalizedDescriptionKey];
-                NSError* error = [NSError errorWithDomain:@"Wrapper" code:1 userInfo:info];
+                NSError* error = [NSError errorWithDomain:@"httpClient" code:1 userInfo:info];
                 [delegate httpClient:self didFailWithError:error];
             }
         }
@@ -306,7 +301,7 @@ UIAlertView *waitView_;
 		[self unmask];
 		
         [[challenge sender] cancelAuthenticationChallenge:challenge];
-        if ([delegate respondsToSelector:@selector(wrapperHasBadCredentials:)])
+        if ([delegate respondsToSelector:@selector(httpClientHasBadCredentials:)])
         {
             [delegate httpClientHasBadCredentials:self];
         }
@@ -340,7 +335,7 @@ UIAlertView *waitView_;
         
         default:
         {
-            if ([delegate respondsToSelector:@selector(wrapper:didReceiveStatusCode:)])
+            if ([delegate respondsToSelector:@selector(httpClient:didReceiveStatusCode:)])
             {
                 [delegate httpClient:self didReceiveStatusCode:statusCode];
             }
@@ -360,7 +355,7 @@ UIAlertView *waitView_;
 	[self unmask];
 
     [self cancelConnection];
-    if ([delegate respondsToSelector:@selector(wrapper:didFailWithError:)])
+    if ([delegate respondsToSelector:@selector(httpClient:didFailWithError:)])
     {
         [delegate httpClient:self didFailWithError:error];
     }
@@ -371,7 +366,7 @@ UIAlertView *waitView_;
 	[self unmask];
 
     [self cancelConnection];
-    if ([delegate respondsToSelector:@selector(wrapper:didRetrieveData:)])
+    if ([delegate respondsToSelector:@selector(httpClient:didRetrieveData:)])
     {
         [delegate httpClient:self didRetrieveData:receivedData];
     }

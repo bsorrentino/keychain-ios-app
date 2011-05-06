@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h> 
 #import "HttpClientDelegate.h"
 
+@class UIAlertView;
+
 @interface HttpClient : NSObject 
 {
 @private
@@ -20,7 +22,9 @@
     NSString *username;
     NSString *password;
 	NSInteger tag;
-
+    
+    UIAlertView *waitView_;
+    
 }
 
 @property (nonatomic, readonly) NSData *receivedData;
