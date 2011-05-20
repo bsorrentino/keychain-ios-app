@@ -15,7 +15,9 @@
 -(void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
 	
-	NSURL *link = [NSURL URLWithString:url];
+    NSLog( @"show url [%@]", self.url );
+                              
+	NSURL *link = [NSURL URLWithString:self.url];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:link 
 												cachePolicy:NSURLRequestReloadIgnoringCacheData
 											timeoutInterval:60.0];
@@ -46,10 +48,29 @@
 
 @implementation PushWebViewEntryCell
 
-@synthesize viewController, textLabel;
+@synthesize viewController, textLabel,textField;
 
 #pragma mark BaseDataEntryCell
 
+
+#pragma mark Inherit from UIView
+
+- (void)layoutSubviews {
+	[super layoutSubviews];
+	
+	// Rect area del textbox
+	/*
+     CGRect rect = CGRectMake(self.textLabel.frame.origin.x + self.textLabel.frame.size.width  + LABEL_CONTROL_PADDING, 
+     12.0, 
+     self.contentView.frame.size.width-(self.textLabel.frame.size.width + LABEL_CONTROL_PADDING + self.textLabel.frame.origin.x)-RIGHT_PADDING, 
+     25.0);
+     */
+	
+	CGRect rect = [super getRectRelativeToLabel:textField.frame padding:LABEL_CONTROL_PADDING rpadding:RIGHT_PADDING];
+	[textField setFrame:rect];
+}
+
+#pragma mark Inherit from BaseDataEntryCell
 
 - (id) init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData{
 	
@@ -71,19 +92,18 @@
 
 -(void) setControlValue:(id)value {
 	
-	NSString * result = nil;
-
 	if (![self isStringEmpty:value]) {
 	
-        NSLog(@"PushWebViewEntryCell.setControlValue([%@]) asString [%@]", value, result );
+        NSLog(@"PushWebViewEntryCell.setControlValue([%@])", value );
     
-        self.viewController.url = result;
+        self.textField.text = value;
+
     }
 }
 
 -(id) getControlValue {
 	
-	NSString * result = self.viewController.url;
+	NSString * result = self.textField.text;
 	
 	NSLog(@"PushWebViewEntryCell.getControlValue [%@]", result );
 	
@@ -97,6 +117,9 @@
 	//detailViewController.delegate = super.owner.delegate;
 	
 	//[viewController initWithCell:self];
+    
+    viewController.url = [self getControlValue];
+
 	return [viewController retain];
 }
 
@@ -115,6 +138,45 @@
 	[viewController release];
     [super dealloc];
 }
+
+#pragma mark UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)txtField {
+	
+	UITableView * tv = (UITableView *)self.superview;
+	
+	NSIndexPath * indexPath = [tv indexPathForCell: self];
+	
+	[tv scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+	
+	//[indexPath release];
+	
+	return YES;
+	
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)txtField {
+	if( [txtField isFirstResponder] ) {
+		[txtField resignFirstResponder];
+	}
+	return YES;
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)txtField {
+	if( [txtField isFirstResponder] ) {
+		[txtField resignFirstResponder];
+	}
+	return YES;
+	
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)txtField
+{
+	[self postEndEditingNotification];
+}
+
+
 
 @end
 

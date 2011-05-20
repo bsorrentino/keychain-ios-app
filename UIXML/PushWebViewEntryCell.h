@@ -19,14 +19,16 @@
 @end
 
 
-@interface PushWebViewEntryCell : PushControllerDataEntryCell {
+@interface PushWebViewEntryCell : PushControllerDataEntryCell<UITextFieldDelegate> {
 	
 @private
+	UITextField *textField;
 	WebViewController *viewController;
     
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *textLabel;
 @property (nonatomic, retain) IBOutlet WebViewController *viewController;
+@property (nonatomic, retain) IBOutlet UITextField *textField;
 
 @end

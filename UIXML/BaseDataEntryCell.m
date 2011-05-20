@@ -92,10 +92,13 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	// La label occupaupa il 35% del container
-	CGRect labelRect = CGRectMake(self.textLabel.frame.origin.x, 
+    CGFloat size_percentage = .25;
+    CGFloat x = 10.0; // self.textLabel.frame.origin.x ;
+    
+	// The label size is the 35% of container
+	CGRect labelRect = CGRectMake(x, 
 								  self.textLabel.frame.origin.y, 
-								  self.contentView.frame.size.width * .35, 
+								  self.contentView.frame.size.width * size_percentage, 
 								  self.textLabel.frame.size.height);
 	[self.textLabel setFrame:labelRect];
 	

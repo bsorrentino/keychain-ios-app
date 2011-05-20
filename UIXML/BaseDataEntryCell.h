@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-// Padding tra i controlli nella cella
+// cell controls padding
 #define LABEL_CONTROL_PADDING 5
-// Padding del controllo rispetto al 
+// Control padding  
 #define RIGHT_PADDING 5
 
 // Nome della notifica di fine editing

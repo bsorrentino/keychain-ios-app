@@ -18,6 +18,8 @@
 		5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F04E6E212E368C800370F50 /* KeyChainLogin.m */; };
 		5F04E6E512E368C800370F50 /* KeyChainLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F04E6E312E368C800370F50 /* KeyChainLogin.xib */; };
 		5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F129E0912EB607300BF9EF9 /* login32x32.png */; };
+		5F15021B13851B5B001C52BD /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15021913851B5B001C52BD /* PushWebViewEntryCell.m */; };
+		5F15021C13851B5B001C52BD /* PushWebViewEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F15021A13851B5B001C52BD /* PushWebViewEntryCell.xib */; };
 		5F777C341359E367003AFC9E /* edit32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F777C321359E367003AFC9E /* edit32x32.png */; };
 		5F777C351359E367003AFC9E /* write32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F777C331359E367003AFC9E /* write32x32.png */; };
 		5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */; };
@@ -73,6 +75,9 @@
 		5F04E6E212E368C800370F50 /* KeyChainLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainLogin.m; sourceTree = "<group>"; };
 		5F04E6E312E368C800370F50 /* KeyChainLogin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyChainLogin.xib; sourceTree = "<group>"; };
 		5F129E0912EB607300BF9EF9 /* login32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login32x32.png; sourceTree = "<group>"; };
+		5F15021813851B5B001C52BD /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushWebViewEntryCell.h; sourceTree = "<group>"; };
+		5F15021913851B5B001C52BD /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushWebViewEntryCell.m; sourceTree = "<group>"; };
+		5F15021A13851B5B001C52BD /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushWebViewEntryCell.xib; sourceTree = "<group>"; };
 		5F777C321359E367003AFC9E /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
 		5F777C331359E367003AFC9E /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
 		5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainAppDelegate.h; sourceTree = "<group>"; };
@@ -217,9 +222,11 @@
 		5FCF750412D9FACD00A9E0D8 /* UIXML */ = {
 			isa = PBXGroup;
 			children = (
+				5F15021813851B5B001C52BD /* PushWebViewEntryCell.h */,
+				5F15021913851B5B001C52BD /* PushWebViewEntryCell.m */,
+				5F15021A13851B5B001C52BD /* PushWebViewEntryCell.xib */,
 				5F777C321359E367003AFC9E /* edit32x32.png */,
 				5F777C331359E367003AFC9E /* write32x32.png */,
-				5FF7900712E7ACAA008EA886 /* PushTextEntryCell.xib */,
 				5FF7900212E7AC9F008EA886 /* chevron.png */,
 				5FF7900312E7AC9F008EA886 /* PushTextEntryCell.h */,
 				5FF7900412E7AC9F008EA886 /* PushTextEntryCell.m */,
@@ -231,6 +238,7 @@
 				5FCF750D12D9FACD00A9E0D8 /* PushFormDataEntryCell.xib */,
 				5FCF750F12D9FACD00A9E0D8 /* SwitchDataEntryCell.xib */,
 				5FCF751112D9FACD00A9E0D8 /* TextDataEntryCell.xib */,
+				5FF7900712E7ACAA008EA886 /* PushTextEntryCell.xib */,
 				5FCF751312D9FACD00A9E0D8 /* PushControllerDataEntryCell.h */,
 				5FCF751412D9FACD00A9E0D8 /* PushControllerDataEntryCell.m */,
 				5FCF751512D9FACD00A9E0D8 /* PushDateEntryCell.h */,
@@ -238,8 +246,8 @@
 				5FCF751712D9FACD00A9E0D8 /* PushFormDataEntryCell.h */,
 				5FCF751812D9FACD00A9E0D8 /* PushFormDataEntryCell.m */,
 				5FCF751912D9FACD00A9E0D8 /* SegmentedDataEntryCell.h */,
-				5FCF751A12D9FACD00A9E0D8 /* SegmentedDataEntryCell.m */,
 				5FCF751B12D9FACD00A9E0D8 /* SwitchDataEntryCell.h */,
+				5FCF751A12D9FACD00A9E0D8 /* SegmentedDataEntryCell.m */,
 				5FCF751C12D9FACD00A9E0D8 /* SwitchDataEntryCell.m */,
 				5FCF751D12D9FACD00A9E0D8 /* TextDataEntryCell.h */,
 				5FCF751E12D9FACD00A9E0D8 /* TextDataEntryCell.m */,
@@ -347,6 +355,7 @@
 				5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */,
 				5F777C341359E367003AFC9E /* edit32x32.png in Resources */,
 				5F777C351359E367003AFC9E /* write32x32.png in Resources */,
+				5F15021C13851B5B001C52BD /* PushWebViewEntryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +383,7 @@
 				5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */,
 				5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */,
 				5FF7900612E7AC9F008EA886 /* PushTextEntryCell.m in Sources */,
+				5F15021B13851B5B001C52BD /* PushWebViewEntryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

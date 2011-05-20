@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F062F6B13774CBE00FAC388 /* WebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F062F6913774CBE00FAC388 /* WebViewController.h */; };
-		5F062F6C13774CBE00FAC388 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F062F6A13774CBE00FAC388 /* WebViewController.m */; };
+		5F062F6B13774CBE00FAC388 /* PushWebViewEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F062F6913774CBE00FAC388 /* PushWebViewEntryCell.h */; };
+		5F062F6C13774CBE00FAC388 /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F062F6A13774CBE00FAC388 /* PushWebViewEntryCell.m */; };
 		5F30ABCD1297F96700540544 /* SwitchDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F30ABCB1297F96700540544 /* SwitchDataEntryCell.h */; };
 		5F30ABCE1297F96700540544 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F30ABCC1297F96700540544 /* SwitchDataEntryCell.m */; };
 		5FA7E23E1296F264000F493B /* BaseDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA7E23A1296F264000F493B /* BaseDataEntryCell.h */; };
@@ -32,9 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5F062F6913774CBE00FAC388 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		5F062F6A13774CBE00FAC388 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		5F062F6D13774CC700FAC388 /* WebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebView.xib; sourceTree = "<group>"; };
+		5F062F6913774CBE00FAC388 /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushWebViewEntryCell.h; sourceTree = "<group>"; };
+		5F062F6A13774CBE00FAC388 /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushWebViewEntryCell.m; sourceTree = "<group>"; };
+		5F062F6D13774CC700FAC388 /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; path = PushWebViewEntryCell.xib; sourceTree = "<group>"; };
 		5F30ABB01297F64900540544 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SwitchDataEntryCell.xib; sourceTree = "<group>"; };
 		5F30ABB21297F64900540544 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TextDataEntryCell.xib; sourceTree = "<group>"; };
 		5F30ABCB1297F96700540544 /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchDataEntryCell.h; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		5F30ABAE1297F61500540544 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5F062F6D13774CC700FAC388 /* WebView.xib */,
+				5F062F6D13774CC700FAC388 /* PushWebViewEntryCell.xib */,
 				5F777C2E1359DC1D003AFC9E /* edit32x32.png */,
 				5F777C2F1359DC1D003AFC9E /* write32x32.png */,
 				5FF78F7A12E7A005008EA886 /* chevron.png */,
@@ -147,8 +147,8 @@
 		5FA7E2391296F228000F493B /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				5F062F6913774CBE00FAC388 /* WebViewController.h */,
-				5F062F6A13774CBE00FAC388 /* WebViewController.m */,
+				5F062F6913774CBE00FAC388 /* PushWebViewEntryCell.h */,
+				5F062F6A13774CBE00FAC388 /* PushWebViewEntryCell.m */,
 				5F30ABCB1297F96700540544 /* SwitchDataEntryCell.h */,
 				5F30ABCC1297F96700540544 /* SwitchDataEntryCell.m */,
 				5FA7E23A1296F264000F493B /* BaseDataEntryCell.h */,
@@ -186,7 +186,7 @@
 				A065363F12D3A52F0001D660 /* PushDateEntryCell.h in Headers */,
 				A0BB5C8912D5E87600F7E563 /* SegmentedDataEntryCell.h in Headers */,
 				5FF78F3A12E795A8008EA886 /* PushTextEntryCell.h in Headers */,
-				5F062F6B13774CBE00FAC388 /* WebViewController.h in Headers */,
+				5F062F6B13774CBE00FAC388 /* PushWebViewEntryCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +253,7 @@
 				A065364012D3A52F0001D660 /* PushDateEntryCell.m in Sources */,
 				A0BB5C8A12D5E87600F7E563 /* SegmentedDataEntryCell.m in Sources */,
 				5FF78F3B12E795A8008EA886 /* PushTextEntryCell.m in Sources */,
-				5F062F6C13774CBE00FAC388 /* WebViewController.m in Sources */,
+				5F062F6C13774CBE00FAC388 /* PushWebViewEntryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

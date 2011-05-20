@@ -13,6 +13,9 @@
 
 @class BaseDataEntryCell;
 
+//
+// UIXMLFormViewController
+//
 @interface UIXMLFormViewController : UITableViewController<UIXMLFormViewControllerDelegate> {
 
 @protected 
@@ -44,6 +47,13 @@
 -(BaseDataEntryCell*)cellForIndexPath:(NSUInteger)row section:(NSUInteger)section;
 @end
 
+
+
+//
+//  UIXMLFormViewControllerEx
+// 
+//  add a delegate 
+// 
 @interface UIXMLFormViewControllerEx : UIXMLFormViewController {
 	
 	
