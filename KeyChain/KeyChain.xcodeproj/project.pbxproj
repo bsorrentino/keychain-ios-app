@@ -20,6 +20,7 @@
 		5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F129E0912EB607300BF9EF9 /* login32x32.png */; };
 		5F15021B13851B5B001C52BD /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15021913851B5B001C52BD /* PushWebViewEntryCell.m */; };
 		5F15021C13851B5B001C52BD /* PushWebViewEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F15021A13851B5B001C52BD /* PushWebViewEntryCell.xib */; };
+		5F465BF113AE1F6300EA3C53 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F465BF013AE1F6300EA3C53 /* WaitMaskController.m */; };
 		5F777C341359E367003AFC9E /* edit32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F777C321359E367003AFC9E /* edit32x32.png */; };
 		5F777C351359E367003AFC9E /* write32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F777C331359E367003AFC9E /* write32x32.png */; };
 		5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */; };
@@ -78,6 +79,8 @@
 		5F15021813851B5B001C52BD /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushWebViewEntryCell.h; sourceTree = "<group>"; };
 		5F15021913851B5B001C52BD /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushWebViewEntryCell.m; sourceTree = "<group>"; };
 		5F15021A13851B5B001C52BD /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushWebViewEntryCell.xib; sourceTree = "<group>"; };
+		5F465BEF13AE1F6300EA3C53 /* WaitMaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitMaskController.h; sourceTree = "<group>"; };
+		5F465BF013AE1F6300EA3C53 /* WaitMaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitMaskController.m; sourceTree = "<group>"; };
 		5F777C321359E367003AFC9E /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
 		5F777C331359E367003AFC9E /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
 		5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainAppDelegate.h; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 				5FCF752312D9FACD00A9E0D8 /* UIXMLFormViewController.h */,
 				5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */,
 				5FCF752512D9FACD00A9E0D8 /* UIXMLFormViewControllerDelegate.h */,
+				5F465BEF13AE1F6300EA3C53 /* WaitMaskController.h */,
+				5F465BF013AE1F6300EA3C53 /* WaitMaskController.m */,
 			);
 			name = UIXML;
 			path = ../UIXML;
@@ -384,6 +389,7 @@
 				5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */,
 				5FF7900612E7AC9F008EA886 /* PushTextEntryCell.m in Sources */,
 				5F15021B13851B5B001C52BD /* PushWebViewEntryCell.m in Sources */,
+				5F465BF113AE1F6300EA3C53 /* WaitMaskController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

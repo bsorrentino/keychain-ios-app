@@ -21,7 +21,16 @@
 
 @class UIXMLFormViewController;
 
-@interface BaseDataEntryCell : UITableViewCell {
+@protocol BaseDataEntryCellDelegate
+
+
+// Helper per l'invio della notifica di fine editing
+-(void)postEndEditingNotification;
+
+
+@end
+
+@interface BaseDataEntryCell : UITableViewCell<BaseDataEntryCellDelegate> {
 
 }
 
@@ -36,9 +45,6 @@
 // Legge il valore dal controllo
 -(id) getControlValue;
 
-// Helper per l'invio della notifica di fine editing
--(void)postEndEditingNotification;
-
 // helper for check string
 -(BOOL)isStringEmpty:(NSString*)value;
 
@@ -46,3 +52,4 @@
 
 
 @end
+
