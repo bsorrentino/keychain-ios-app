@@ -49,6 +49,7 @@
 		5FF7900512E7AC9F008EA886 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900212E7AC9F008EA886 /* chevron.png */; };
 		5FF7900612E7AC9F008EA886 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7900412E7AC9F008EA886 /* PushTextEntryCell.m */; };
 		5FF7900912E7ACAA008EA886 /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900712E7ACAA008EA886 /* PushTextEntryCell.xib */; };
+		5FF7AC4A13B229C900BB8CBB /* back24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7AC4913B229C900BB8CBB /* back24x24.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		5FF7900312E7AC9F008EA886 /* PushTextEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTextEntryCell.h; sourceTree = "<group>"; };
 		5FF7900412E7AC9F008EA886 /* PushTextEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTextEntryCell.m; sourceTree = "<group>"; };
 		5FF7900812E7ACAA008EA886 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushTextEntryCell.xib; sourceTree = "<group>"; };
+		5FF7AC4913B229C900BB8CBB /* back24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back24x24.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* KeyChain-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KeyChain-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -225,6 +227,7 @@
 		5FCF750412D9FACD00A9E0D8 /* UIXML */ = {
 			isa = PBXGroup;
 			children = (
+				5FF7AC4913B229C900BB8CBB /* back24x24.png */,
 				5F15021813851B5B001C52BD /* PushWebViewEntryCell.h */,
 				5F15021913851B5B001C52BD /* PushWebViewEntryCell.m */,
 				5F15021A13851B5B001C52BD /* PushWebViewEntryCell.xib */,
@@ -361,6 +364,7 @@
 				5F777C341359E367003AFC9E /* edit32x32.png in Resources */,
 				5F777C351359E367003AFC9E /* write32x32.png in Resources */,
 				5F15021C13851B5B001C52BD /* PushWebViewEntryCell.xib in Resources */,
+				5FF7AC4A13B229C900BB8CBB /* back24x24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

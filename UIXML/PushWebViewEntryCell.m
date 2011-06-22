@@ -7,6 +7,7 @@
 #import "PushWebViewEntryCell.h"
 #import "UIXMLFormViewController.h"
 
+
 @interface WebViewController(Private) 
 
 -(void)startEdit;
@@ -14,12 +15,14 @@
 -(void)editURL;
 -(void)saveURL;
 -(void)showURL;
+-(void)back:(id)sender;
+-(void)clearContent;
 
 @end
-    
+
 @implementation WebViewController
 
-@synthesize webView, url, addressView,txtURL=txtURL_, delegate;
+@synthesize webView, addressView,txtURL=txtURL_, delegate;
 
 #pragma mark Custom
 
@@ -50,6 +53,7 @@
     [UIView commitAnimations];
     
 }
+
 -(void)endEdit:(UIBarButtonItem *)button hideTextURL:(BOOL)hideTextURL {
     
     isPossibleSave = NO;
@@ -111,31 +115,63 @@
     
 }
 
-- (NSString *)url {
+-(void)back:(id)sender {
     
-    NSString *result =  self.txtURL.text;
-
-    NSLog( @"url [%@]", result );
-
-    return result;
+    [self endEdit:editButton_ hideTextURL:YES];
+    [self.navigationController popViewControllerAnimated:true];
 }
 
-- (void)setUrl:(NSString*)value {
-    
-    [self.txtURL setText:value];
-}
 
 -(void)showURL {
     
-    NSLog( @"show url [%@]", self.url );
+    NSLog( @"show url [%@]", self.txtURL.text );
     
-	NSURL *link = [NSURL URLWithString:self.url];
+	NSURL *link = [NSURL URLWithString: self.txtURL.text];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:link 
 												cachePolicy:NSURLRequestReloadIgnoringCacheData
 											timeoutInterval:60.0];
 	[[self webView] loadRequest:requestObj];
     
 }
+
+-(void)clearContent {
+
+[self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"about:blank"]]];
+
+}
+
+- (NSString*)url {
+ 
+    return self.txtURL.text;
+}
+
+- (void)setUrl:(NSString *)url {
+    
+    NSString * value = self.txtURL.text;
+    
+    if (url==nil ) {
+        forceReload_ = YES;
+        self.txtURL.text = @"about:blank";
+        return;
+    }
+    else if( value==nil ) {
+        forceReload_ = YES;
+    }
+    else {
+        
+        forceReload_ = ([value compare:url options:NSCaseInsensitiveSearch]) ? YES : NO;
+    }
+    
+    NSLog(@"WebViewController.setUrl new[%@] old[%@] compare[%d]", url, value, forceReload_  );
+    
+    self.txtURL.text = url;
+
+    
+}
+
+
+#pragma mark WebView GestureRecognizer
+
 
 #pragma mark UIViewController
 
@@ -144,12 +180,16 @@
     
 	[super viewDidAppear:animated];
 	
-    [self showURL];
+    if (forceReload_) {
+        [self showURL];
+        //[self.webView reload];
+    }
     
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
     [self endEdit:editButton_ hideTextURL:YES];
+    
 }
 
 
@@ -162,6 +202,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    forceReload_ = FALSE;
 
     CGRect addressViewRC = self.addressView.frame;
     addressViewRC.size.height = 0;
@@ -169,7 +211,7 @@
     
     
     saveButton_ = 
-    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave 
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
                                                   target:self 
                                                   action:@selector(saveURL)];
     editButton_ = 
@@ -178,6 +220,18 @@
                                                       action:@selector(editURL)];
     
     self.navigationItem.rightBarButtonItem = editButton_; //[editButton_ release];
+    
+    
+    // ADD RIGHT BUTTON
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setFrame:CGRectMake(0,0,24,24)];
+    [button setImage:[UIImage imageNamed:@"back24x24.png"] forState:UIControlStateNormal];
+    button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    [button addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    self.txtURL.rightView = button;
+    self.txtURL.rightViewMode = UITextFieldViewModeAlways;
+    
+    
 }
 
 - (void)viewDidUnload {
@@ -302,6 +356,13 @@
     if ((self = [super init:controller datakey:key label:label cellData:cellData])) {
         
         // initialization
+        NSString *placeholder = [cellData objectForKey:@"placeholder"];
+		
+		if( ![self isStringEmpty:placeholder] ) {
+			
+			[self.textValue setPlaceholder:placeholder];
+		}
+
     }
 	
     
@@ -319,19 +380,23 @@
 
 -(void) setControlValue:(id)value {
 	
+    NSLog(@"PushWebViewEntryCell.setControlValue([%@])", value );
+    self.textValue.text = value;
+
+/*    
 	if (![self isStringEmpty:value]) {
 	
         NSLog(@"PushWebViewEntryCell.setControlValue([%@])", value );
     
-        viewController.url = value;
         self.textValue.text = value;
 
     }
+*/ 
 }
 
 -(id) getControlValue {
 	
-	NSString * result = viewController.url;
+	NSString * result = self.textValue.text;
 	
 	NSLog(@"PushWebViewEntryCell.getControlValue [%@]", result );
 	
@@ -342,24 +407,25 @@
 
 -(UIViewController *)viewController:(NSDictionary*)cellData {
 	
-	//detailViewController.delegate = super.owner.delegate;
-	
-	//[viewController initWithCell:self];
+
+    self.viewController.delegate = self;
     
-    viewController.delegate = self;
+    self.viewController.url = [self getControlValue];
 
 	return [viewController retain];
 }
 
 #pragma mark UITableViewCell
 
+/*
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
     [super setSelected:selected animated:animated];
     
     // Configure the view for the selected state.
+    
 }
-
+*/
 
 - (void)dealloc {    
 	[textLabel release];
@@ -410,8 +476,25 @@
  
 */
 
+@end
 
+@implementation UIWebViewEx
 
+// called on start of dragging (may require some time and or distance to move)
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    
+    NSLog(@"scrollViewWillBeginDragging");
+    
+    [super scrollViewWillBeginDragging:scrollView];
+}
+
+// called on finger up if user dragged. decelerate is true if it will continue moving afterwards
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+
+    NSLog(@"scrollViewDidEndDragging [%d]", decelerate);
+
+    [super scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+}
 @end
 
 
