@@ -53,7 +53,7 @@
 	
 @private
 	WebViewController *viewController;
-    UITextField *txtValue;
+    UITextField *textValue;
     
 }
 
