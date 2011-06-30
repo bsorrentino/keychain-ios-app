@@ -17,7 +17,7 @@
 }
 
 - (void)mask:(NSString*)title;
-- (void)maskWithCancelBlock:(NSString*)title cancelButton:(NSString*)cancelButton cancelBlock:(void (^)(void))cancelBlock;
+- (void)maskWithCancelBlock:(NSString*)title cancelBlock:(void (^)(void))cancelBlock;
 - (void)unmask;
 
 @end
