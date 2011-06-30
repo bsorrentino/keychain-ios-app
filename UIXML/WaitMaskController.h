@@ -13,9 +13,11 @@
     
 @private
     UIAlertView *waitView_;
+    void (^cancelBlock_)(void);
 }
 
 - (void)mask:(NSString*)title;
+- (void)maskWithCancelBlock:(NSString*)title cancelButton:(NSString*)cancelButton cancelBlock:(void (^)(void))cancelBlock;
 - (void)unmask;
 
 @end

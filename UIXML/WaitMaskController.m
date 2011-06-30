@@ -14,6 +14,8 @@
 
 - (void)mask:(NSString*)title {
     
+    cancelBlock_ = nil;
+    
 	if (waitView_==nil) {
 		waitView_ = 
             [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
@@ -38,6 +40,34 @@
 	
 }
 
+- (void)maskWithCancelBlock:(NSString*)title cancelBlock:(void (^)(void))cancelBlock {
+    cancelBlock_ = cancelBlock;
+    
+	if (waitView_==nil) {
+		waitView_ = 
+        [[UIAlertView alloc] initWithTitle:title message:@"\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+		[waitView_ show];
+        
+        
+		UIActivityIndicatorView *indicator = 
+        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+		
+		// Adjust the indicator so it is up a few pixels from the bottom of the alert
+		indicator.center = CGPointMake(waitView_.bounds.size.width / 2, waitView_.bounds.size.height - (50*2));
+		[indicator startAnimating];
+		[waitView_ addSubview:indicator];
+		[indicator release];
+	}
+	else {
+		waitView_.title = title;
+		if( !waitView_.visible )
+			[waitView_ show];
+		
+	}
+    
+}
+
+
 - (void)unmask {
 	
 	if( waitView_!=nil ) {
@@ -57,7 +87,9 @@
 // Called when we cancel a view (eg. the user clicks the Home button). This is not called when the user clicks the cancel button.
 // If not defined in the delegate, we simulate a click in the cancel button
 - (void)alertViewCancel:(UIAlertView *)alertView {
-    
+    if (cancelBlock_!=nil) {
+        cancelBlock_();
+    }
 }
 
 // before animation and showing view

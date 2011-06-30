@@ -303,7 +303,11 @@
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    [self.waitController mask: @"Loading ..."];
+    //[self.waitController mask: @"Loading ..."];
+    [self.waitController maskWithCancelBlock:@"Loading ..." cancelBlock:^{
+            
+        [[self webView] stopLoading]; 
+    }];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
