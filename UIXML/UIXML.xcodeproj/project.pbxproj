@@ -67,6 +67,8 @@
 		A065363912D3A32B0001D660 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushDateEntryCell.xib; sourceTree = "<group>"; };
 		A065363D12D3A52F0001D660 /* PushDateEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushDateEntryCell.h; sourceTree = "<group>"; };
 		A065363E12D3A52F0001D660 /* PushDateEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushDateEntryCell.m; sourceTree = "<group>"; };
+		A08CD09B13BB86CF00B04711 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A08CD09E13BB86CF00B04711 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A0BB5C8712D5E87600F7E563 /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedDataEntryCell.h; sourceTree = "<group>"; };
 		A0BB5C8812D5E87600F7E563 /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedDataEntryCell.m; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -109,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+				A08CD09B13BB86CF00B04711 /* UIKit.framework */,
+				A08CD09E13BB86CF00B04711 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,6 +120,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5F8BD84E13B2569400A33B0A /* WaitMaskController.h */,
+				5F8BD84F13B2569400A33B0A /* WaitMaskController.m */,
 				A01671DF12AE80A90056F855 /* UIXMLFormViewControllerDelegate.h */,
 				5FA7E2421296F2AD000F493B /* UIXMLFormViewController.h */,
 				5FA7E2431296F2AE000F493B /* UIXMLFormViewController.m */,
@@ -135,8 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				5F8BD84D13B2569400A33B0A /* back24x24.png */,
-				5F8BD84E13B2569400A33B0A /* WaitMaskController.h */,
-				5F8BD84F13B2569400A33B0A /* WaitMaskController.m */,
 				5F062F6D13774CC700FAC388 /* PushWebViewEntryCell.xib */,
 				5F777C2E1359DC1D003AFC9E /* edit32x32.png */,
 				5F777C2F1359DC1D003AFC9E /* write32x32.png */,
@@ -344,6 +348,7 @@
 				GCC_PREFIX_HEADER = UIXML_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = UIXML;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
 		};
@@ -358,6 +363,7 @@
 				GCC_PREFIX_HEADER = UIXML_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = UIXML;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
 		};
