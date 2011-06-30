@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>UIXMLTest.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>A08CD09913BB86CF00B04711</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D2AAC07D0554694100DB518D</key>
 		<dict>
 			<key>primary</key>
