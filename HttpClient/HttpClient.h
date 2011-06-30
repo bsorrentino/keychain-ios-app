@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h> 
+#import <UIKit/UIKit.h>
 #import "HttpClientDelegate.h"
 
-@class UIAlertView;
 
 @interface HttpClient : NSObject 
 {

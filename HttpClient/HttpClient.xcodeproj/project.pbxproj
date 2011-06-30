@@ -256,6 +256,7 @@
 				GCC_PREFIX_HEADER = HttpClient_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = HttpClient;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
 		};
@@ -270,6 +271,7 @@
 				GCC_PREFIX_HEADER = HttpClient_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = HttpClient;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
 		};
