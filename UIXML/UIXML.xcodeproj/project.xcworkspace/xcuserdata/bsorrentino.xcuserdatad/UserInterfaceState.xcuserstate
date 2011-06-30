@@ -1192,7 +1192,7 @@
 			</array>
 		</dict>
 		<string>HideAllIssues</string>
-		<real>331144619.47683799</real>
+		<real>331144664.897645</real>
 		<string>{0, 482}</string>
 		<string>{139, 23}</string>
 		<dict>
@@ -2386,7 +2386,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{580, 444}, {1400, 974}}</string>
+		<string>{{883, -63}, {1400, 974}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -3102,7 +3102,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>331144619.47728598</real>
+		<real>331144664.898049</real>
 		<string>{0, 482}</string>
 		<string>{139, 23}</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>

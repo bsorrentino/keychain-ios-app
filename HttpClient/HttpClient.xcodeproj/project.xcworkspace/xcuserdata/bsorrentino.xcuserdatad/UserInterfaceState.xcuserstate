@@ -486,7 +486,7 @@
 			</dict>
 		</dict>
 		<string>file://localhost/Users/bsorrentino/WORKSPACES/GITHUB/iphone-commons-utilities/HttpClient/HttpClient.xcodeproj/</string>
-		<real>331144679.80905598</real>
+		<real>331144704.58952701</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4105,7 +4105,7 @@
 		<string>IDEActiveWorkspaceTabController</string>
 		<string>IDEWorkspaceWindowControllerUniqueIdentifier</string>
 		<string>IDEWorkspaceTabController_A4E2A241-1258-4523-9073-ED68E03FB8B9</string>
-		<string>{{580, 444}, {1400, 974}}</string>
+		<string>{{589, 235}, {1400, 974}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4916,7 +4916,7 @@
 				<integer>425</integer>
 			</dict>
 		</dict>
-		<real>331144679.81216699</real>
+		<real>331144704.59201002</real>
 		<dict>
 			<key>$class</key>
 			<dict>

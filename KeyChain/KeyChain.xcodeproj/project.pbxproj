@@ -52,16 +52,6 @@
 		5FF7AC4A13B229C900BB8CBB /* back24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7AC4913B229C900BB8CBB /* back24x24.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		5FCF753512D9FACD00A9E0D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5FCF751F12D9FACD00A9E0D8 /* UIXML.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = UIXML;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* KeyChain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChain.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +106,6 @@
 		5FCF751C12D9FACD00A9E0D8 /* SwitchDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchDataEntryCell.m; sourceTree = "<group>"; };
 		5FCF751D12D9FACD00A9E0D8 /* TextDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDataEntryCell.h; sourceTree = "<group>"; };
 		5FCF751E12D9FACD00A9E0D8 /* TextDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDataEntryCell.m; sourceTree = "<group>"; };
-		5FCF751F12D9FACD00A9E0D8 /* UIXML.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = UIXML.xcodeproj; sourceTree = "<group>"; };
 		5FCF752212D9FACD00A9E0D8 /* UIXML_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXML_Prefix.pch; sourceTree = "<group>"; };
 		5FCF752312D9FACD00A9E0D8 /* UIXMLFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewController.h; sourceTree = "<group>"; };
 		5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIXMLFormViewController.m; sourceTree = "<group>"; };
@@ -257,7 +246,6 @@
 				5FCF751C12D9FACD00A9E0D8 /* SwitchDataEntryCell.m */,
 				5FCF751D12D9FACD00A9E0D8 /* TextDataEntryCell.h */,
 				5FCF751E12D9FACD00A9E0D8 /* TextDataEntryCell.m */,
-				5FCF751F12D9FACD00A9E0D8 /* UIXML.xcodeproj */,
 				5FCF752212D9FACD00A9E0D8 /* UIXML_Prefix.pch */,
 				5FCF752312D9FACD00A9E0D8 /* UIXMLFormViewController.h */,
 				5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */,
@@ -268,14 +256,6 @@
 			name = UIXML;
 			path = ../UIXML;
 			sourceTree = SOURCE_ROOT;
-		};
-		5FCF752012D9FACD00A9E0D8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5FCF753612D9FACD00A9E0D8 /* libUIXML.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -318,28 +298,12 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 5FCF752012D9FACD00A9E0D8 /* Products */;
-					ProjectRef = 5FCF751F12D9FACD00A9E0D8 /* UIXML.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* KeyChain */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		5FCF753612D9FACD00A9E0D8 /* libUIXML.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libUIXML.a;
-			remoteRef = 5FCF753512D9FACD00A9E0D8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
