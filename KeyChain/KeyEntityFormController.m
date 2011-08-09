@@ -125,7 +125,7 @@
 		
 		NSString *msg = [NSString stringWithFormat:@"value for field [%@] is not valid!", cell.dataKey];
 
-		NSLog(@"value [%@] is not valid! error %@, %@", error, [error userInfo]);
+		NSLog(@"value [%@] is not valid! error %@", error, [error userInfo]);
 		
 		// SHOW ERROR POPUP
 		[self showError:@"Error" msg:msg ];
@@ -173,7 +173,7 @@
 	//
 
 	UIBarButtonItem *leftButton = 
-		[[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+		[[UIBarButtonItem alloc] initWithTitle:@"Back"
 									 style:UIBarButtonItemStyleBordered
 									target:self
 									action:@selector(cancel:)];
