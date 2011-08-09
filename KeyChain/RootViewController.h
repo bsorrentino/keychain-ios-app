@@ -14,7 +14,7 @@
 
 @class KeyEntityFormController;
 
-@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate,KeyEntityFormControllerDelegate> {
+@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate,KeyEntityFormControllerDelegate,UISearchDisplayDelegate> {
 
 @private
     NSFetchedResultsController *fetchedResultsController_;
@@ -23,12 +23,14 @@
     KeyEntityFormController *keyEntityFormController_;
 	
 	NSArray *sectionIndexTitles_;
+    
 }
 
 @property (nonatomic, retain, readonly) NSArray *sectionTitlesArray;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
 @property (nonatomic, retain) IBOutlet KeyEntityFormController *keyEntityFormController;
 
 @end
