@@ -14,7 +14,7 @@
 
 @class KeyEntityFormController;
 
-@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate,KeyEntityFormControllerDelegate,UISearchDisplayDelegate> {
+@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate,KeyEntityFormControllerDelegate,UISearchDisplayDelegate,UISearchBarDelegate> {
 
 @private
     NSFetchedResultsController *fetchedResultsController_;

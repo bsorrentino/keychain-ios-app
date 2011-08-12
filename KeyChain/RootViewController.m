@@ -113,6 +113,8 @@
     [addButton release];
 
 	self.title = @"Key List";
+    
+    self.searchDisplayController.searchBar.delegate = self;
 }
 
 
@@ -279,13 +281,20 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];	
+    
+    NSArray * sectionArray = [self.fetchedResultsController sections];
+    
+    if (sectionArray.count > section ) {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [sectionArray objectAtIndex:section];	
+
+        NSLog(@"titleForHeaderInSection section:[%d] [%@]", section, sectionInfo.name );
+
+        return sectionInfo.name;
+    }
 	
-	NSLog(@"titleForHeaderInSection section:[%d] [%@]", section, sectionInfo.name );
 	
-	//return [self.sectionTitlesArray objectAtIndex:section];
+	return @"";
 	
-	return sectionInfo.name;
 	
 }
 
@@ -345,6 +354,17 @@
     return fetchedResultsController_;
 }    
 
+#pragma mark -
+#pragma mark UISearchBarDelegate implementation
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {                    // called when cancel button pressed
+
+    NSLog( @"searchBarCancelButtonClicked " );
+    
+    [self filterReset];
+    [self.tableView reloadData];
+}
 
 #pragma mark -
 #pragma mark Fetched results controller delegate
@@ -442,8 +462,8 @@
     [fetchRequest setEntity:entity];
     
     // set predicate if a searchText has been set
-    if( searchText !=nil )  {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(mnemonic like %@)", searchText]; // autorelease    
+    if( searchText !=nil && searchText.length>0 )  {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"mnemonic BEGINSWITH %@", [searchText uppercaseString] ]; // autorelease    
         [fetchRequest setPredicate:predicate];
     }
     
@@ -483,10 +503,6 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         //abort();
     }
-    else {
-
-    
-    }
 
 }
 
@@ -496,6 +512,7 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
+    NSLog(@"shouldReloadTableForSearchString searchString=[%@]", searchString);
     
     //[self filterContentForSearchText:searchString scope:
     //    [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
