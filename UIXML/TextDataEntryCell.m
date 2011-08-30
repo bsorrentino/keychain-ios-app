@@ -12,7 +12,7 @@
 @implementation TextDataEntryCell
 
 @synthesize textField;
-@synthesize textLabel;
+//@synthesize textLabel;
 
 #pragma mark Inherit from UIView
 

@@ -10,7 +10,8 @@
 
 @implementation PushDateEntryCell
 
-@synthesize viewController, textLabel,txtValue, dateFormatter=dateFormatter_;
+@synthesize viewController,txtValue, dateFormatter=dateFormatter_;
+//@synthesize textLabel;
 
 
 

@@ -11,7 +11,7 @@
 
 @implementation PushFormDataEntryCell
 
-@synthesize textLabel;
+//@synthesize textLabel;
 
 #pragma mark -
 #pragma mark UIXMLFormViewControllerDelegate 

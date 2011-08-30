@@ -47,7 +47,7 @@
 - (NSString *) stringFromDate:(NSDate *)value;
 
 @property (nonatomic, readonly)NSDateFormatter *dateFormatter;
-@property (nonatomic, retain) IBOutlet UILabel *textLabel;
+//@property (nonatomic, retain) IBOutlet UILabel *textLabel;
 @property (nonatomic, retain) IBOutlet UITextField  * txtValue;
 @property (nonatomic, retain) IBOutlet PushDateViewController *viewController;
 

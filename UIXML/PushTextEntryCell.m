@@ -51,7 +51,8 @@
 
 @implementation PushTextEntryCell
 
-@synthesize viewController, textLabel, editIcon=editIcon_, imgWrite, imgEdit;
+@synthesize viewController, editIcon=editIcon_, imgWrite, imgEdit;
+//@synthesize textLabel;
 
 - (void)updateEditIcon:(NSString*)value {
 
@@ -160,7 +161,7 @@
     [imgEdit_ release];
     [imgWrite_ release];
     
-	[textLabel release];
+	//[textLabel release];
 	[viewController release];
     [super dealloc];
 }

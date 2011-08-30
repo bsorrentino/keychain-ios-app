@@ -331,7 +331,8 @@
 
 @implementation PushWebViewEntryCell
 
-@synthesize viewController, textLabel, textValue;
+@synthesize viewController, textValue;
+//@synthesize textLabel;
 
 #pragma mark BaseDataEntryCell
 
@@ -432,7 +433,7 @@
 */
 
 - (void)dealloc {    
-	[textLabel release];
+	//[textLabel release];
 	[viewController release];
     [super dealloc];
 }

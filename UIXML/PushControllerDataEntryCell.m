@@ -28,7 +28,14 @@
 }
 
 -(UIViewController *)viewController:(NSDictionary*)cellData {
-	return nil;
+
+    /*
+     
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
+                                    userInfo:nil];	
+    */ 
+    return nil;
 }
 
 - (void)dealloc {

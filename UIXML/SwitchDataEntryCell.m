@@ -12,7 +12,7 @@
 @implementation SwitchDataEntryCell
 
 @synthesize switchField;
-@synthesize textLabel;
+//@synthesize textLabel;
 
 
 -(void)valueChanged:(id)sender {

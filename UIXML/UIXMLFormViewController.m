@@ -12,6 +12,12 @@
 #import "TextDataEntryCell.h"
 #import "PushControllerDataEntryCell.h"
 
+@interface UIXMLFormViewController(Private) 
+
+- (BaseDataEntryCell *)tableView:(UITableView *)tableView cellFromType:(NSString *)cellType;
+
+@end
+
 @implementation UIXMLFormViewController
 
 @synthesize resource;
@@ -66,6 +72,29 @@
 	BaseDataEntryCell *cell = (BaseDataEntryCell*)[self.tableView cellForRowAtIndexPath:ip];
 	
 	return cell;
+}
+
+
+- (BaseDataEntryCell *)tableView:(UITableView *)tableView cellFromType:(NSString *)cellType {
+    
+    BaseDataEntryCell *cell = (BaseDataEntryCell *)[tableView dequeueReusableCellWithIdentifier:cellType];
+	if (cell == nil) {
+		
+		[[NSBundle mainBundle] loadNibNamed:cellType owner:self options:nil];
+		
+		cell = dataEntryCell;
+		self.dataEntryCell = nil;
+        
+		//[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
+		
+		//cell = [[[NSClassFromString(cellType) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellType] autorelease];
+        
+		//[self cellControlDidInit:cell];
+		
+	}
+    
+    return cell;
+    
 }
 
 #pragma mark -
@@ -231,21 +260,8 @@
 	
 	NSLog( @"DataKey[%@] CellType [%@]", dataKey, cellType );
 	
-	BaseDataEntryCell *cell = (BaseDataEntryCell *)[tableView dequeueReusableCellWithIdentifier:cellType];
-	if (cell == nil) {
-		
-		[[NSBundle mainBundle] loadNibNamed:cellType owner:self options:nil];
-		
-		cell = dataEntryCell;
-		self.dataEntryCell = nil;
-	
-		//[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
-		
-		//cell = [[[NSClassFromString(cellType) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellType] autorelease];
-
-		//[self cellControlDidInit:cell];
-		
-	}
+	BaseDataEntryCell *cell = [self tableView:tableView cellFromType:cellType];
+    
 	[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
 	[self cellControlDidInit:cell];
 
@@ -307,6 +323,24 @@
 
 #pragma mark -
 #pragma mark Table view delegate
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSArray *sectionInfo = [tableStructure objectAtIndex:indexPath.section];
+ 
+    NSArray *sectionData = [sectionInfo objectAtIndex:1];
+ 
+    NSDictionary *cellData = [sectionData objectAtIndex:indexPath.row];
+ 
+    NSString *cellType = [cellData objectForKey:@"CellType"];
+ 
+    BaseDataEntryCell *cell = [self tableView:tableView cellFromType:cellType];
+    
+    return cell.frame.size.height;
+
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	

@@ -49,7 +49,7 @@
     
 }
 
-@property (nonatomic, retain) IBOutlet UILabel *textLabel;
+//@property (nonatomic, retain) IBOutlet UILabel *textLabel;
 @property (nonatomic, retain) IBOutlet PushTextViewController *viewController;
 @property (nonatomic, retain) IBOutlet UIImageView * editIcon;
 

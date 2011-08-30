@@ -24,7 +24,12 @@
 - (id) init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData {
 	self.selectionStyle = UITableViewCellSelectionStyleNone;
 	self.dataKey = key;
-	self.textLabel.text = label;
+    
+    if (![self isStringEmpty:label] ) {
+        self.textLabel.text = label;
+        self.textLabel.font = [UIFont fontWithName:@"Helvetica" size:13.0];
+
+    }
 	
 	return self;
 }

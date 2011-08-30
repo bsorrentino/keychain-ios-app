@@ -57,7 +57,7 @@
     
 }
 
-@property (nonatomic, retain) IBOutlet UILabel *textLabel;
+//@property (nonatomic, retain) IBOutlet UILabel *textLabel;
 @property (nonatomic, retain) IBOutlet UITextField *textValue;
 @property (nonatomic, retain) IBOutlet WebViewController *viewController;
 
