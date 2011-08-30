@@ -51,6 +51,8 @@
 	[data.model setValue: [NSNumber numberWithBool:NO] forKey:@"enabled" ];
 	[data.model setValue: @"Simone" forKey:@"firstName" ];
 	[data.model setValue: @"Sorrentino" forKey:@"lastName" ];
+	[data.model setValue: @"list" forKey:@"list" ];
+	[data.model setValue: @"about:blank" forKey:@"url" ];
 	
 	[fmt release];
 	

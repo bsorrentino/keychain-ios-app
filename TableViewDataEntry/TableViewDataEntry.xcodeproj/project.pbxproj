@@ -36,6 +36,14 @@
 		A065364C12D3A6010001D660 /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A065364A12D3A6010001D660 /* PushDateEntryCell.m */; };
 		A0BB5CBF12D5EA7B00F7E563 /* SegmentedDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BB5CBD12D5EA7B00F7E563 /* SegmentedDataEntryCell.m */; };
 		A0BB5D2412D5F1CA00F7E563 /* GenderDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0BB5D2312D5F1CA00F7E563 /* GenderDataEntryCell.xib */; };
+		A0DBDDE0140D340D00D5881D /* ListDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DBDDDE140D340C00D5881D /* ListDataEntryCell.m */; };
+		A0DBDDE1140D340D00D5881D /* ListDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DBDDDF140D340C00D5881D /* ListDataEntryCell.xib */; };
+		A0DBDDEA140D344500D5881D /* back24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = A0DBDDE2140D344500D5881D /* back24x24.png */; };
+		A0DBDDEB140D344500D5881D /* edit32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = A0DBDDE3140D344500D5881D /* edit32x32.png */; };
+		A0DBDDEC140D344500D5881D /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DBDDE5140D344500D5881D /* PushWebViewEntryCell.m */; };
+		A0DBDDED140D344500D5881D /* PushWebViewEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DBDDE6140D344500D5881D /* PushWebViewEntryCell.xib */; };
+		A0DBDDEE140D344500D5881D /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DBDDE8140D344500D5881D /* WaitMaskController.m */; };
+		A0DBDDEF140D344500D5881D /* write32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = A0DBDDE9140D344500D5881D /* write32x32.png */; };
 		A0DDC4FA12D4C7C4002E78B6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0DDC4F912D4C7C4002E78B6 /* CoreData.framework */; };
 		A0DDC52412D4CF43002E78B6 /* FormData.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DDC52312D4CF43002E78B6 /* FormData.m */; };
 /* End PBXBuildFile section */
@@ -85,6 +93,17 @@
 		A0BB5CBC12D5EA7B00F7E563 /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedDataEntryCell.h; sourceTree = "<group>"; };
 		A0BB5CBD12D5EA7B00F7E563 /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedDataEntryCell.m; sourceTree = "<group>"; };
 		A0BB5D2312D5F1CA00F7E563 /* GenderDataEntryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenderDataEntryCell.xib; sourceTree = "<group>"; };
+		A0DBDDDD140D340C00D5881D /* ListDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDataEntryCell.h; sourceTree = "<group>"; };
+		A0DBDDDE140D340C00D5881D /* ListDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDataEntryCell.m; sourceTree = "<group>"; };
+		A0DBDDDF140D340C00D5881D /* ListDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListDataEntryCell.xib; path = Classes/ListDataEntryCell.xib; sourceTree = "<group>"; };
+		A0DBDDE2140D344500D5881D /* back24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back24x24.png; sourceTree = "<group>"; };
+		A0DBDDE3140D344500D5881D /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
+		A0DBDDE4140D344500D5881D /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushWebViewEntryCell.h; sourceTree = "<group>"; };
+		A0DBDDE5140D344500D5881D /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushWebViewEntryCell.m; sourceTree = "<group>"; };
+		A0DBDDE6140D344500D5881D /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushWebViewEntryCell.xib; sourceTree = "<group>"; };
+		A0DBDDE7140D344500D5881D /* WaitMaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitMaskController.h; sourceTree = "<group>"; };
+		A0DBDDE8140D344500D5881D /* WaitMaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitMaskController.m; sourceTree = "<group>"; };
+		A0DBDDE9140D344500D5881D /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
 		A0DDC4F912D4C7C4002E78B6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A0DDC52212D4CF43002E78B6 /* FormData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormData.h; sourceTree = "<group>"; };
 		A0DDC52312D4CF43002E78B6 /* FormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormData.m; sourceTree = "<group>"; };
@@ -108,6 +127,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A0DBDDDD140D340C00D5881D /* ListDataEntryCell.h */,
+				A0DBDDDE140D340C00D5881D /* ListDataEntryCell.m */,
 				1D3623240D0F684500981E51 /* TableViewDataEntryAppDelegate.h */,
 				1D3623250D0F684500981E51 /* TableViewDataEntryAppDelegate.m */,
 				5FC0393E12975E6500EDC2F6 /* FormViewController.h */,
@@ -151,6 +172,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A0DBDDDF140D340C00D5881D /* ListDataEntryCell.xib */,
 				A0BB5D2312D5F1CA00F7E563 /* GenderDataEntryCell.xib */,
 				A03A185E12AD32FC00DF2F05 /* form1-structure.plist */,
 				490877C5123A68BE00F83A95 /* TableViewController.xib */,
@@ -176,6 +198,14 @@
 		A06187AD12D22D430019A71A /* UIXML */ = {
 			isa = PBXGroup;
 			children = (
+				A0DBDDE2140D344500D5881D /* back24x24.png */,
+				A0DBDDE3140D344500D5881D /* edit32x32.png */,
+				A0DBDDE4140D344500D5881D /* PushWebViewEntryCell.h */,
+				A0DBDDE5140D344500D5881D /* PushWebViewEntryCell.m */,
+				A0DBDDE6140D344500D5881D /* PushWebViewEntryCell.xib */,
+				A0DBDDE7140D344500D5881D /* WaitMaskController.h */,
+				A0DBDDE8140D344500D5881D /* WaitMaskController.m */,
+				A0DBDDE9140D344500D5881D /* write32x32.png */,
 				5FF78F7D12E7A054008EA886 /* chevron.png */,
 				5FF78F6212E79B99008EA886 /* PushTextEntryCell.h */,
 				5FF78F6312E79B99008EA886 /* PushTextEntryCell.m */,
@@ -272,6 +302,11 @@
 				5F494C9F12D8B442002B3631 /* DefaultHeaderInSection.xib in Resources */,
 				5FF78F6712E79BA6008EA886 /* PushTextEntryCell.xib in Resources */,
 				5FF78F7E12E7A054008EA886 /* chevron.png in Resources */,
+				A0DBDDE1140D340D00D5881D /* ListDataEntryCell.xib in Resources */,
+				A0DBDDEA140D344500D5881D /* back24x24.png in Resources */,
+				A0DBDDEB140D344500D5881D /* edit32x32.png in Resources */,
+				A0DBDDED140D344500D5881D /* PushWebViewEntryCell.xib in Resources */,
+				A0DBDDEF140D344500D5881D /* write32x32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +330,9 @@
 				A0DDC52412D4CF43002E78B6 /* FormData.m in Sources */,
 				A0BB5CBF12D5EA7B00F7E563 /* SegmentedDataEntryCell.m in Sources */,
 				5FF78F6412E79B99008EA886 /* PushTextEntryCell.m in Sources */,
+				A0DBDDE0140D340D00D5881D /* ListDataEntryCell.m in Sources */,
+				A0DBDDEC140D344500D5881D /* PushWebViewEntryCell.m in Sources */,
+				A0DBDDEE140D344500D5881D /* WaitMaskController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

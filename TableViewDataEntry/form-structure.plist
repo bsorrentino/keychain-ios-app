@@ -51,7 +51,7 @@
 				<key>DataKey</key>
 				<string>birthDay</string>
 				<key>Label</key>
-				<string>Data Nascita</string>
+				<string>Nato il</string>
 				<key>CellType</key>
 				<string>PushDateEntryCell</string>
 				<key>_format</key>
@@ -65,6 +65,22 @@
 			<string>Form2</string>
 		</dict>
 		<array>
+			<dict>
+				<key>DataKey</key>
+				<string>list</string>
+				<key>Label</key>
+				<string>list</string>
+				<key>CellType</key>
+				<string>ListDataEntryCell</string>
+			</dict>
+			<dict>
+				<key>DataKey</key>
+				<string>url</string>
+				<key>Label</key>
+				<string>url</string>
+				<key>CellType</key>
+				<string>PushWebViewEntryCell</string>
+			</dict>
 			<dict>
 				<key>DataKey</key>
 				<string>enabled</string>
