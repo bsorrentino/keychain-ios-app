@@ -10,16 +10,21 @@
 #import "PushControllerDataEntryCell.h"
 
 
-@interface ListDataViewController : UITableViewController {
-    
+@interface ListDataViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate> {
+
+@private
+    NSMutableArray *data_;
 }
 
 @end
 
 @interface ListDataEntryCell : PushControllerDataEntryCell {
     
+@private 
+    ListDataViewController *listViewController_;
 }
 
+@property (nonatomic,retain) IBOutlet ListDataViewController *listViewController;
 @end
 
 
