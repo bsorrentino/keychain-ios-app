@@ -21,6 +21,7 @@
 		5FF78F6412E79B99008EA886 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF78F6312E79B99008EA886 /* PushTextEntryCell.m */; };
 		5FF78F6712E79BA6008EA886 /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F6512E79BA6008EA886 /* PushTextEntryCell.xib */; };
 		5FF78F7E12E7A054008EA886 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F7D12E7A054008EA886 /* chevron.png */; };
+		A0163AEC141634630074E469 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0163AEA141634630074E469 /* Localizable.strings */; };
 		A03A185F12AD32FC00DF2F05 /* form1-structure.plist in Resources */ = {isa = PBXBuildFile; fileRef = A03A185E12AD32FC00DF2F05 /* form1-structure.plist */; };
 		A06187C612D22D430019A71A /* BaseDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A06187AF12D22D430019A71A /* BaseDataEntryCell.m */; };
 		A06187C712D22D430019A71A /* MailDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06187B012D22D430019A71A /* MailDataEntryCell.xib */; };
@@ -69,6 +70,7 @@
 		5FF78F6612E79BA6008EA886 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushTextEntryCell.xib; sourceTree = "<group>"; };
 		5FF78F7D12E7A054008EA886 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* TableViewDataEntry-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TableViewDataEntry-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A0163AEB141634630074E469 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A03A185E12AD32FC00DF2F05 /* form1-structure.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "form1-structure.plist"; sourceTree = "<group>"; };
 		A06187AE12D22D430019A71A /* BaseDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseDataEntryCell.h; path = ../UIXML/BaseDataEntryCell.h; sourceTree = SOURCE_ROOT; };
 		A06187AF12D22D430019A71A /* BaseDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseDataEntryCell.m; path = ../UIXML/BaseDataEntryCell.m; sourceTree = SOURCE_ROOT; };
@@ -150,6 +152,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				A0163AED141634AD0074E469 /* en */,
 				A06187AD12D22D430019A71A /* UIXML */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -193,6 +196,14 @@
 				A0DDC4F912D4C7C4002E78B6 /* CoreData.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0163AED141634AD0074E469 /* en */ = {
+			isa = PBXGroup;
+			children = (
+				A0163AEA141634630074E469 /* Localizable.strings */,
+			);
+			name = en;
 			sourceTree = "<group>";
 		};
 		A06187AD12D22D430019A71A /* UIXML */ = {
@@ -307,6 +318,7 @@
 				A0DBDDEB140D344500D5881D /* edit32x32.png in Resources */,
 				A0DBDDED140D344500D5881D /* PushWebViewEntryCell.xib in Resources */,
 				A0DBDDEF140D344500D5881D /* write32x32.png in Resources */,
+				A0163AEC141634630074E469 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +365,14 @@
 				5FF78F6612E79BA6008EA886 /* en */,
 			);
 			name = PushTextEntryCell.xib;
+			sourceTree = "<group>";
+		};
+		A0163AEA141634630074E469 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0163AEB141634630074E469 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		A06187B012D22D430019A71A /* MailDataEntryCell.xib */ = {

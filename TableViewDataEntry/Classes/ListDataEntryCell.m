@@ -43,15 +43,17 @@
 
 @implementation ListDataViewController
 
+@synthesize cell=cell_;
 
 #pragma mark - private method
 
 
 - (void) insertNewObject
 {
+    ;
 	UIAlertView *alert = [[UIAlertView alloc] 
-						  initWithTitle: @"Enter New Item" 
-						  message:@"Specify the Item Name"
+						  initWithTitle: NSLocalizedString(@"ListDataEntryCell.alertTitle", @"add new Item") 
+						  message:NSLocalizedString(@"ListDataEntryCell.alertMessage", @"add item message") 
 						  delegate:self
 						  cancelButtonTitle:@"Cancel"
 						  otherButtonTitles:@"OK", nil];
@@ -59,7 +61,7 @@
 	// Name field
     UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)]; 
     tf.tag = 100;
-    tf.placeholder = @"name";
+    tf.placeholder = NSLocalizedString(@"ListDataEntryCell.alertPlaceholder", @"add item placeholder");
     [tf setBackgroundColor:[UIColor whiteColor]]; 
 	tf.clearButtonMode = UITextFieldViewModeWhileEditing;
 	tf.keyboardType = UIKeyboardTypeAlphabet;
@@ -136,12 +138,14 @@
     // Do any additional setup after loading the view from its nib.
     
     // Add Edit Button
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    /*
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
     [addButton release];
-   
+    */
+    
     data_ = [[NSMutableArray alloc] initWithObjects:@"Item1", @"Item2", nil];
 }
 
@@ -158,11 +162,24 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    
+    if( editing==NO ) {
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[data_ count] inSection:0];            
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        cell.detailTextLabel.text = @"";
+        [indexPath release];
+
+    }
+    [super setEditing:editing animated:animated];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [data_ count];
+    return [data_ count] + 1;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -179,11 +196,12 @@
         
     }
     
-    NSString *value = [data_ objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = value;
-    cell.detailTextLabel.text = value;
-    
+    if ( indexPath.row < [data_ count] ) {
+        NSString *value = [data_ objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = value;
+        cell.detailTextLabel.text = value;
+    }
     
     return cell;
 }
@@ -198,11 +216,16 @@
             [data_ removeObjectAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:indexs withRowAnimation:YES];     
             [indexs release];
-            break;
+
         }
         break;
         case UITableViewCellEditingStyleInsert:
-            break;
+        {
+            NSLog( @"commitEditingStyle: UITableViewCellEditingStyleInsert");
+            [self insertNewObject];
+ 
+        }   
+        break;
         case UITableViewCellEditingStyleNone: 
             break;
         default:
@@ -217,6 +240,25 @@
         //[_cell postEndEditingNotification];
         
         [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if( indexPath.row == [data_ count]  ) {
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[data_ count] inSection:0];
+        
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        cell.detailTextLabel.text = NSLocalizedString(@"ListDataEntryCell.addItemMessage", @"add new item message");
+
+        [indexPath release];
+        
+        return UITableViewCellEditingStyleInsert;
+    }
+    
+    return UITableViewCellEditingStyleDelete;
+    
 }
 
 

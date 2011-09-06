@@ -14,8 +14,11 @@
 
 @private
     NSMutableArray *data_;
+    BaseDataEntryCell *cell_;
+    
 }
 
+@property (nonatomic,assign) BaseDataEntryCell *cell;
 @end
 
 @interface ListDataEntryCell : PushControllerDataEntryCell {
