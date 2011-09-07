@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 
 #define _PERSISTENT_APP_NAME "KeyChain"
+#define _PERSISTENT_APP_MODEL "KeyChain-1.1"
 
 
 @interface PersistentAppDelegate : NSObject <UIApplicationDelegate> {
@@ -27,5 +28,6 @@
 
 - (NSString *)applicationDocumentsDirectory;
 - (void)saveContext;
+- (void) checkEntities;
 
 @end

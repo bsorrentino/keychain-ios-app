@@ -54,7 +54,7 @@
 		<array>
 			<dict>
 				<key>CellType</key>
-				<string>MailDataEntryCell</string>
+				<string>MailListDataEntryCell</string>
 				<key>DataKey</key>
 				<string>mail</string>
 				<key>Label</key>

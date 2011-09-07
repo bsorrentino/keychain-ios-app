@@ -20,6 +20,8 @@
 		5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F129E0912EB607300BF9EF9 /* login32x32.png */; };
 		5F15021B13851B5B001C52BD /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15021913851B5B001C52BD /* PushWebViewEntryCell.m */; };
 		5F15021C13851B5B001C52BD /* PushWebViewEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F15021A13851B5B001C52BD /* PushWebViewEntryCell.xib */; };
+		5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */; };
+		5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F17FB961416E9E4007D88F9 /* Localizable.strings */; };
 		5F465BF113AE1F6300EA3C53 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F465BF013AE1F6300EA3C53 /* WaitMaskController.m */; };
 		5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F544F7313F82E350001A8B5 /* logo-57x57.png */; };
 		5F777C341359E367003AFC9E /* edit32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F777C321359E367003AFC9E /* edit32x32.png */; };
@@ -51,6 +53,9 @@
 		5FF7900612E7AC9F008EA886 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7900412E7AC9F008EA886 /* PushTextEntryCell.m */; };
 		5FF7900912E7ACAA008EA886 /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900712E7ACAA008EA886 /* PushTextEntryCell.xib */; };
 		5FF7AC4A13B229C900BB8CBB /* back24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7AC4913B229C900BB8CBB /* back24x24.png */; };
+		A0FD0E4614165D8E009C7257 /* AttributeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD0E4514165D8E009C7257 /* AttributeInfo.m */; };
+		A0FD0E4D14166C32009C7257 /* MailListDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD0E4C14166C32009C7257 /* MailListDataEntryCell.m */; };
+		A0FD0E4F14168462009C7257 /* MailListDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FD0E4E14168462009C7257 /* MailListDataEntryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +76,8 @@
 		5F15021813851B5B001C52BD /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushWebViewEntryCell.h; sourceTree = "<group>"; };
 		5F15021913851B5B001C52BD /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushWebViewEntryCell.m; sourceTree = "<group>"; };
 		5F15021A13851B5B001C52BD /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushWebViewEntryCell.xib; sourceTree = "<group>"; };
+		5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.1.xcmappingmodel"; sourceTree = "<group>"; };
+		5F17FB971416E9E4007D88F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F465BEF13AE1F6300EA3C53 /* WaitMaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitMaskController.h; sourceTree = "<group>"; };
 		5F465BF013AE1F6300EA3C53 /* WaitMaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitMaskController.m; sourceTree = "<group>"; };
 		5F544F7313F82E350001A8B5 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-57x57.png"; sourceTree = "<group>"; };
@@ -120,6 +127,12 @@
 		5FF7900812E7ACAA008EA886 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushTextEntryCell.xib; sourceTree = "<group>"; };
 		5FF7AC4913B229C900BB8CBB /* back24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back24x24.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* KeyChain-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KeyChain-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A0FD0E4014165BAC009C7257 /* KeyChain-1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain-1.0.xcdatamodel"; sourceTree = "<group>"; };
+		A0FD0E4414165D8E009C7257 /* AttributeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeInfo.h; sourceTree = "<group>"; };
+		A0FD0E4514165D8E009C7257 /* AttributeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttributeInfo.m; sourceTree = "<group>"; };
+		A0FD0E4B14166C32009C7257 /* MailListDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailListDataEntryCell.h; sourceTree = "<group>"; };
+		A0FD0E4C14166C32009C7257 /* MailListDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailListDataEntryCell.m; sourceTree = "<group>"; };
+		A0FD0E4E14168462009C7257 /* MailListDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailListDataEntryCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +186,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F17FB961416E9E4007D88F9 /* Localizable.strings */,
+				A0FD0E4E14168462009C7257 /* MailListDataEntryCell.xib */,
 				5F129E0912EB607300BF9EF9 /* login32x32.png */,
 				5F04E6E312E368C800370F50 /* KeyChainLogin.xib */,
 				5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */,
@@ -181,6 +196,7 @@
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* KeyChain-Info.plist */,
 				5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */,
+				5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -200,6 +216,10 @@
 		5FA3A4B712DC7703009BE36C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A0FD0E4B14166C32009C7257 /* MailListDataEntryCell.h */,
+				A0FD0E4C14166C32009C7257 /* MailListDataEntryCell.m */,
+				A0FD0E4414165D8E009C7257 /* AttributeInfo.h */,
+				A0FD0E4514165D8E009C7257 /* AttributeInfo.m */,
 				5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */,
 				5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */,
 				5FA3A4BA12DC7730009BE36C /* KeyEntity.h */,
@@ -333,6 +353,8 @@
 				5F15021C13851B5B001C52BD /* PushWebViewEntryCell.xib in Resources */,
 				5FF7AC4A13B229C900BB8CBB /* back24x24.png in Resources */,
 				5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */,
+				A0FD0E4F14168462009C7257 /* MailListDataEntryCell.xib in Resources */,
+				5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,12 +384,23 @@
 				5FF7900612E7AC9F008EA886 /* PushTextEntryCell.m in Sources */,
 				5F15021B13851B5B001C52BD /* PushWebViewEntryCell.m in Sources */,
 				5F465BF113AE1F6300EA3C53 /* WaitMaskController.m in Sources */,
+				A0FD0E4614165D8E009C7257 /* AttributeInfo.m in Sources */,
+				A0FD0E4D14166C32009C7257 /* MailListDataEntryCell.m in Sources */,
+				5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5F17FB961416E9E4007D88F9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F17FB971416E9E4007D88F9 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		5FCF750712D9FACD00A9E0D8 /* DefaultHeaderInSection.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -519,6 +552,7 @@
 		28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				A0FD0E4014165BAC009C7257 /* KeyChain-1.0.xcdatamodel */,
 				28860B760F44E54D00985440 /* KeyChain.xcdatamodel */,
 			);
 			currentVersion = 28860B760F44E54D00985440 /* KeyChain.xcdatamodel */;

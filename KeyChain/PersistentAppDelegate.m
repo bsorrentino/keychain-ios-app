@@ -12,9 +12,59 @@
 #define _PERSISTENT_APP_NAME "MyApp"
 #endif
 
+
+@interface PersistentAppDelegate(Private)
+
+- (BOOL) isSchemaCompatible:(NSPersistentStoreCoordinator *)psc;
+
+@end
+
 @implementation PersistentAppDelegate
 
 @synthesize managedObjectContext, managedObjectModel, persistentStoreCoordinator;
+
+#pragma - Private implementation
+
+- (BOOL) isSchemaCompatible:(NSPersistentStoreCoordinator *)psc {
+    
+    NSString *sourceStoreType = NSSQLiteStoreType ;
+    
+    NSURL *sourceStoreURL =  
+    [NSURL fileURLWithPath: 
+     [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @_PERSISTENT_APP_NAME".sqlite"]];
+    
+    NSError *error = nil;
+    
+    NSDictionary *sourceMetadata =
+    [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:sourceStoreType
+                                                               URL:sourceStoreURL
+                                                             error:&error];
+    
+    if (sourceMetadata == nil) {
+        // deal with error
+    }
+    
+    NSString *configuration = nil;
+    NSManagedObjectModel *destinationModel = [psc managedObjectModel];
+    BOOL pscCompatibile = [destinationModel
+                           isConfiguration:configuration
+                           compatibleWithStoreMetadata:sourceMetadata];
+    
+    return (pscCompatibile);
+}
+
+#pragma - Custom implementation
+
+
+- (void) checkEntities {
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"AttributeInfo" inManagedObjectContext:self.managedObjectContext];
+    
+    NSLog(@"AttributeInfo entity name [%@] abstract [%d] count[%d]", entity.name, [entity isAbstract], [[entity properties] count]  );
+    
+    [entity release];
+
+}
 
 
 - (void)saveContext {
@@ -85,7 +135,29 @@
     
     NSError *error = nil;
     persistentStoreCoordinator_ = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![persistentStoreCoordinator_ addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+
+    NSDictionary *options = nil;
+    
+    if (![self isSchemaCompatible:persistentStoreCoordinator_]) {
+        NSLog(@"schema is not compatible. try lightweight migration");        
+        //
+        // DATA MIGRATION
+        //
+        options = 
+                [NSDictionary dictionaryWithObjectsAndKeys:
+                [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil]
+                ;
+    }
+    else {
+        NSLog(@"schema is compatible.");        
+    }
+
+    
+    if (![persistentStoreCoordinator_ 
+          addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) 
+    {
+        
         /*
          Replace this implementation with code to handle the error appropriately.
          
@@ -126,8 +198,7 @@
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
-#pragma mark -
-#pragma mark Memory management
+#pragma mark - Memory management
 
 
 - (void)dealloc {

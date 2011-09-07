@@ -54,11 +54,13 @@
 @private
 	WebViewController *viewController;
     UITextField *textValue;
+    UILabel *textLabel_;
     
 }
 
 //@property (nonatomic, retain) IBOutlet UILabel *textLabel;
 @property (nonatomic, retain) IBOutlet UITextField *textValue;
 @property (nonatomic, retain) IBOutlet WebViewController *viewController;
+@property (nonatomic,retain) IBOutlet UILabel *textLabel;
 
 @end

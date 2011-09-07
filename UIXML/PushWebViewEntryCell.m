@@ -231,7 +231,7 @@
     self.txtURL.rightView = button;
     self.txtURL.rightViewMode = UITextFieldViewModeAlways;
     
-    
+    self.title = NSLocalizedString(@"WebEntryCell.title", @"title of Web View Controller");
 }
 
 - (void)viewDidUnload {
@@ -332,7 +332,7 @@
 @implementation PushWebViewEntryCell
 
 @synthesize viewController, textValue;
-//@synthesize textLabel;
+@synthesize textLabel=textLabel_;
 
 #pragma mark BaseDataEntryCell
 
@@ -350,8 +350,8 @@
      25.0);
      */
 	
-	CGRect rect = [super getRectRelativeToLabel:self.textValue.frame padding:LABEL_CONTROL_PADDING rpadding:RIGHT_PADDING];
-	[self.textValue setFrame:rect];
+	//CGRect rect = [super getRectRelativeToLabel:self.textValue.frame padding:LABEL_CONTROL_PADDING rpadding:RIGHT_PADDING];
+	//[self.textValue setFrame:rect];
 }
 
 #pragma mark Inherit from BaseDataEntryCell

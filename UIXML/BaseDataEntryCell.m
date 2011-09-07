@@ -27,7 +27,7 @@
     
     if (![self isStringEmpty:label] ) {
         self.textLabel.text = label;
-        self.textLabel.font = [UIFont fontWithName:@"Helvetica" size:13.0];
+        self.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15.0];
 
     }
 	
