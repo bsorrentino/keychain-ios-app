@@ -486,6 +486,8 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         
+        if( indexPath.row >= [self numberOfObjectsInSection:indexPath.section] ) return; // Fix Issue 3
+    
         AttributeInfo *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
         [cell_ setControlValue:managedObject.value];
