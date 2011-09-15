@@ -53,6 +53,7 @@
 		5FF7900612E7AC9F008EA886 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7900412E7AC9F008EA886 /* PushTextEntryCell.m */; };
 		5FF7900912E7ACAA008EA886 /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900712E7ACAA008EA886 /* PushTextEntryCell.xib */; };
 		5FF7AC4A13B229C900BB8CBB /* back24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7AC4913B229C900BB8CBB /* back24x24.png */; };
+		A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0121169142269B2000AA884 /* AVFoundation.framework */; };
 		A0FD0E4614165D8E009C7257 /* AttributeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD0E4514165D8E009C7257 /* AttributeInfo.m */; };
 		A0FD0E4D14166C32009C7257 /* MailListDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD0E4C14166C32009C7257 /* MailListDataEntryCell.m */; };
 		A0FD0E4F14168462009C7257 /* MailListDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FD0E4E14168462009C7257 /* MailListDataEntryCell.xib */; };
@@ -127,6 +128,7 @@
 		5FF7900812E7ACAA008EA886 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushTextEntryCell.xib; sourceTree = "<group>"; };
 		5FF7AC4913B229C900BB8CBB /* back24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back24x24.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* KeyChain-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KeyChain-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A0121169142269B2000AA884 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A0FD0E4014165BAC009C7257 /* KeyChain-1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain-1.0.xcdatamodel"; sourceTree = "<group>"; };
 		A0FD0E4414165D8E009C7257 /* AttributeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeInfo.h; sourceTree = "<group>"; };
 		A0FD0E4514165D8E009C7257 /* AttributeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttributeInfo.m; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
@@ -162,6 +165,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				A0121169142269B2000AA884 /* AVFoundation.framework */,
 				5FA3A4B712DC7703009BE36C /* Classes */,
 				5FCF750412D9FACD00A9E0D8 /* UIXML */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,

@@ -9,8 +9,17 @@
 #import "MailListDataEntryCell.h"
 #import "PersistentAppDelegate.h"
 #import "AttributeInfo.h"
+#import <AVFoundation/AVAudioPlayer.h>
 
 NSString * const regularExpression = @"(.*)@(.*)";
+
+@interface MailListDataEntryCell(Private) 
+
+- (void)copyToClipboard;
+- (void)startCopyToClipboard;
+- (void)playClick;
+@end
+
 
 @implementation MailListDataEntryCell
 
@@ -18,12 +27,40 @@ NSString * const regularExpression = @"(.*)@(.*)";
 @synthesize textValue=textValue_;
 @synthesize textLabel=textLabel_;
 
+#pragma - private implementation
+
+- (void)playClick {
+    NSURL* musicFile = [[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] URLForResource:@"Tock" withExtension:@"aiff"];
+    AVAudioPlayer *click = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile error:nil];
+    [click setVolume:0.15f];
+    [click play];
+}
+- (void)startCopyToClipboard {
+    textValue_.borderStyle = UITextBorderStyleBezel;
+    //self.backgroundColor = [UIColor grayColor];
+    
+}
+
+- (void)copyToClipboard {
+    [[UIPasteboard generalPasteboard] setValue:textValue_.text forPasteboardType:@"public.utf8-plain-text"];    
+    textValue_.borderStyle = UITextBorderStyleNone;
+    [self playClick];
+}
+
+#pragma - DataEntryCell 
 -(id)init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData
 {
     if( [super init:controller datakey:key label:label cellData:cellData]!=nil ) {
          //self.detailTextLabel.text = @"test1";
     }
     
+    [self setupLongGesture:self 
+                
+                beganBlock:@selector(startCopyToClipboard)     
+                endBlock:@selector(copyToClipboard)    
+                    
+     ];
+
     return self;
     
 }
