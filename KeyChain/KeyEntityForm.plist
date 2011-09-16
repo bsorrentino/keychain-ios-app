@@ -43,6 +43,7 @@
 				<string>Password</string>
 				<key>placeholder</key>
 				<string>&lt;input password&gt;</string>
+                <key>allowLongGesture</key><true/>
 			</dict>
 		</array>
 	</array>
@@ -61,6 +62,7 @@
 				<string>Email</string>
 				<key>placeholder</key>
 				<string>&lt;input mail&gt;</string>
+                <key>allowLongGesture</key><true/>
 			</dict>
 			<dict>
 				<key>CellType</key>
@@ -71,6 +73,7 @@
 				<string>Site</string>
 				<key>placeholder</key>
 				<string>&lt;input site url&gt;</string>
+                <key>allowLongGesture</key><true/>
 			</dict>
 			<dict>
 				<key>CellType</key>
@@ -79,6 +82,7 @@
 				<string>note</string>
 				<key>Label</key>
 				<string>Note</string>
+                <key>allowLongGesture</key><true/>
 			</dict>
 		</array>
 	</array>

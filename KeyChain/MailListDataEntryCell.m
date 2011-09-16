@@ -11,15 +11,10 @@
 #import "AttributeInfo.h"
 #import <AVFoundation/AVAudioPlayer.h>
 
-#import "iToast.h"
-
 NSString * const regularExpression = @"(.*)@(.*)";
 
 @interface MailListDataEntryCell(Private) 
 
--(void) handleLongPress:(UILongPressGestureRecognizer *)gesture;
-- (void)copyToClipboard;
-- (void)playClick;
 @end
 
 
@@ -31,52 +26,6 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 #pragma - private implementation
 
-- (void)playClick {
-
-    [(KeyChainAppDelegate*)[UIApplication sharedApplication].delegate playClick];
-}
-
-- (void)copyToClipboard {
-    [[UIPasteboard generalPasteboard] setValue:textValue_.text forPasteboardType:@"public.utf8-plain-text"];    
-    
-    
-}
-
--(void) handleLongPress:(UILongPressGestureRecognizer *)gesture {
-    if(UIGestureRecognizerStateBegan == gesture.state) {
-        // Do initial work here
-        NSLog(@"UIGestureRecognizerStateBegan");
-    }
-    
-    if(UIGestureRecognizerStateChanged == gesture.state) {
-        NSLog(@"UIGestureRecognizerStateChanged");
-    }
-    
-    if(UIGestureRecognizerStateEnded == gesture.state) {
-        NSLog(@"UIGestureRecognizerStateEnded");
-        [self copyToClipboard];
-        [self playClick];
-        iToast *msg = [[iToast alloc] initWithText:NSLocalizedString(@"ListDataEntryCell.toaster", @"")];
-        [msg show:self origin:[gesture locationInView:self]];
-        
-        [msg release];
-        
-    }
-    
-}
-
-
-
-- (void) setupLongGesture {
-    
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]
-                                               initWithTarget:self 
-                                               action:@selector(handleLongPress:)];
-    longPress.minimumPressDuration = 1.5;
-    [self addGestureRecognizer:longPress];
-    [longPress release];
-    
-}
 
 #pragma - DataEntryCell 
 
@@ -87,8 +36,6 @@ NSString * const regularExpression = @"(.*)@(.*)";
          //self.detailTextLabel.text = @"test1";
     }
     
-    [self setupLongGesture]; 
-
     return self;
     
 }
