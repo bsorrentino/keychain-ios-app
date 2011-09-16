@@ -45,6 +45,12 @@
 			[textField setPlaceholder:placeholder];
 		}
 
+        NSNumber * isSecure = [cellData objectForKey:@"secure"];
+        if( isSecure != nil ) {
+            textField.secureTextEntry = [isSecure boolValue];
+            
+        }
+        
 		NSNumber * autocorrectionType = (NSNumber *)[cellData objectForKey:@"autocorrectionType"];
 		
 		if( autocorrectionType!=nil ) {

@@ -10,11 +10,73 @@
 #import "KeyEntity.h"
 #import "BaseDataEntryCell.h"
 #import "TextDataEntryCell.h"
+#import "KeyChainAppDelegate.h"
+#import "iToast.h"
+
+@interface KeyEntityFormController(Private)
+
+-(void) handleLongPress:(UILongPressGestureRecognizer *)gesture;
+- (void)copyToClipboard:(BaseDataEntryCell*)cell;
+- (void)playClick;
+- (void) setupLongGesture:(BaseDataEntryCell *)cell;
+
+@end
 
 @implementation KeyEntityFormController
+
 @synthesize toolbar=toolbar_, btnSave=btnSave_, segShowHidePassword=segShowHidePassword_;
 
-#pragma mark Custom
+#pragma mark - private implementation
+
+- (void)playClick {
+    
+    [(KeyChainAppDelegate*)[UIApplication sharedApplication].delegate playClick];
+}
+
+- (void)copyToClipboard:(BaseDataEntryCell*)cell {
+    [[UIPasteboard generalPasteboard] setValue:[cell getControlValue] forPasteboardType:@"public.utf8-plain-text"];    
+    
+}
+
+-(void) handleLongPress:(UILongPressGestureRecognizer *)gesture {
+    BaseDataEntryCell *cell = (BaseDataEntryCell*)gesture.view;
+    
+    if(UIGestureRecognizerStateBegan == gesture.state) {
+        NSLog(@"UIGestureRecognizerStateBegan");
+        [self copyToClipboard:cell];
+        iToast *msg = [[iToast alloc] initWithText:NSLocalizedString(@"Toaster.copyToClipboard", @"")];
+        [msg show:cell origin:[gesture locationInView:cell]];
+        
+        [msg release];
+        return;
+    }
+    
+    if(UIGestureRecognizerStateChanged == gesture.state) {
+        NSLog(@"UIGestureRecognizerStateChanged");
+        return;
+    }
+    
+    if(UIGestureRecognizerStateEnded == gesture.state) {
+        NSLog(@"UIGestureRecognizerStateEnded");
+        [self playClick];
+        
+    }
+    
+}
+
+- (void) setupLongGesture:(BaseDataEntryCell *)cell {
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]
+                                               initWithTarget:self 
+                                               action:@selector(handleLongPress:)];
+    longPress.minimumPressDuration = 1.2;
+    [cell addGestureRecognizer:longPress];
+    [longPress release];
+    
+}
+
+#pragma mark - public implementation
+
 - (void)showError:(NSString *)title msg:(NSString*)msg {
 	
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title 
@@ -137,7 +199,7 @@
 	}
 }
 
--(void)cellControlDidInit:(BaseDataEntryCell *)cell {
+-(void)cellControlDidInit:(BaseDataEntryCell *)cell cellData:(NSDictionary *)cellData {
 	
 	id value = [entity_ valueForKey:cell.dataKey];
 	NSLog(@"[%@].cellControlDidInit [%@]", cell.dataKey, value  );
@@ -145,6 +207,17 @@
 	[cell setControlValue:value];	
 }
 
+-(void)cellControlDidLoad:(BaseDataEntryCell *)cell cellData:(NSDictionary *)cellData {
+	
+	NSLog(@"[%@].cellControlDidLoad", [cellData objectForKey:@"DataKey"]  );
+	
+    NSNumber *allowLongGesture = [cellData objectForKey:@"allowLongGesture"];
+    
+    if ( allowLongGesture!=nil && [allowLongGesture boolValue]) {
+        
+        [self setupLongGesture:cell];
+    }
+}
 
 
 #pragma mark UIViewController

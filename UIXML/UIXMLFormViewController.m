@@ -14,7 +14,7 @@
 
 @interface UIXMLFormViewController(Private) 
 
-- (BaseDataEntryCell *)tableView:(UITableView *)tableView cellFromType:(NSString *)cellType;
+- (BaseDataEntryCell *)tableView:(UITableView *)tableView cellFromType:(NSString *)cellType cellData:(NSDictionary*)cellData;
 
 @end
 
@@ -75,7 +75,7 @@
 }
 
 
-- (BaseDataEntryCell *)tableView:(UITableView *)tableView cellFromType:(NSString *)cellType {
+- (BaseDataEntryCell *)tableView:(UITableView *)tableView cellFromType:(NSString *)cellType cellData:(NSDictionary *)cellData {
     
     BaseDataEntryCell *cell = (BaseDataEntryCell *)[tableView dequeueReusableCellWithIdentifier:cellType];
 	if (cell == nil) {
@@ -85,6 +85,9 @@
 		cell = dataEntryCell;
 		self.dataEntryCell = nil;
         
+        if ( [self respondsToSelector:@selector(cellControlDidLoad:cellData:)]) {
+            [self cellControlDidLoad:cell cellData:cellData];
+        }
 		//[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
 		
 		//cell = [[[NSClassFromString(cellType) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellType] autorelease];
@@ -103,12 +106,6 @@
 -(void)cellControlDidEndEditing:(BaseDataEntryCell *)cell {
 
 }
-
-
--(void)cellControlDidInit:(BaseDataEntryCell *)cell {
-	
-}
-
 
 #pragma mark -
 #pragma mark Editing control
@@ -260,10 +257,13 @@
 	
 	NSLog( @"DataKey[%@] CellType [%@]", dataKey, cellType );
 	
-	BaseDataEntryCell *cell = [self tableView:tableView cellFromType:cellType];
+	BaseDataEntryCell *cell = [self tableView:tableView cellFromType:cellType  cellData:cellData];
     
 	[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
-	[self cellControlDidInit:cell];
+	
+    if ([self respondsToSelector:@selector(cellControlDidInit:cellData:)]) {
+        [self cellControlDidInit:cell cellData:cellData];
+    }
 
 	/*
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -335,7 +335,7 @@
  
     NSString *cellType = [cellData objectForKey:@"CellType"];
  
-    BaseDataEntryCell *cell = [self tableView:tableView cellFromType:cellType];
+    BaseDataEntryCell *cell = [self tableView:tableView cellFromType:cellType cellData:cellData];
     
     return cell.frame.size.height;
 
@@ -440,14 +440,21 @@
 	
 }
 
-
--(void)cellControlDidInit:(BaseDataEntryCell *)cell {
+-(void)cellControlDidInit:(BaseDataEntryCell *)cell cellData:(NSDictionary *)cellData{
 	
 	if( delegate!=nil ) {
-		[delegate cellControlDidInit:cell];
+		[delegate cellControlDidInit:cell cellData:cellData];
 	}
 	
 }
+
+-(void)cellControlDidLoad:(BaseDataEntryCell *)cell cellData:(NSDictionary *)cellData {
+    
+	if( delegate!=nil ) {
+		[delegate cellControlDidLoad:cell cellData:cellData];
+	}
+}
+
 
 @end
 

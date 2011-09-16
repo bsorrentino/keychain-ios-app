@@ -23,6 +23,7 @@
 				<string>Cognome</string>
 				<key>CellType</key>
 				<string>TextDataEntryCell</string>
+                <key>secure</key><false/>
 				<key>placeholder</key>
 				<string>&lt;input cognome &gt;</string>
 			</dict>

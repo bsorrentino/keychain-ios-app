@@ -7,16 +7,28 @@
 //
 
 #import "MailListDataEntryCell.h"
-#import "PersistentAppDelegate.h"
+#import "KeyChainAppDelegate.h"
 #import "AttributeInfo.h"
+#import <AVFoundation/AVAudioPlayer.h>
 
 NSString * const regularExpression = @"(.*)@(.*)";
+
+@interface MailListDataEntryCell(Private) 
+
+@end
+
 
 @implementation MailListDataEntryCell
 
 @synthesize listViewController=listViewController_;
 @synthesize textValue=textValue_;
 @synthesize textLabel=textLabel_;
+
+#pragma - private implementation
+
+
+#pragma - DataEntryCell 
+
 
 -(id)init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData
 {

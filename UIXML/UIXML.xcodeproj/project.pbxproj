@@ -30,6 +30,8 @@
 		A065364012D3A52F0001D660 /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A065363E12D3A52F0001D660 /* PushDateEntryCell.m */; };
 		A0BB5C8912D5E87600F7E563 /* SegmentedDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A0BB5C8712D5E87600F7E563 /* SegmentedDataEntryCell.h */; };
 		A0BB5C8A12D5E87600F7E563 /* SegmentedDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BB5C8812D5E87600F7E563 /* SegmentedDataEntryCell.m */; };
+		A0D7A2DC1423330B004C7F68 /* iToast.h in Headers */ = {isa = PBXBuildFile; fileRef = A0D7A2DA1423330B004C7F68 /* iToast.h */; };
+		A0D7A2DD1423330B004C7F68 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D7A2DB1423330B004C7F68 /* iToast.m */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,8 @@
 		A08CD09E13BB86CF00B04711 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A0BB5C8712D5E87600F7E563 /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedDataEntryCell.h; sourceTree = "<group>"; };
 		A0BB5C8812D5E87600F7E563 /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedDataEntryCell.m; sourceTree = "<group>"; };
+		A0D7A2DA1423330B004C7F68 /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
+		A0D7A2DB1423330B004C7F68 /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libUIXML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUIXML.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,6 +124,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A0D7A2DA1423330B004C7F68 /* iToast.h */,
+				A0D7A2DB1423330B004C7F68 /* iToast.m */,
 				5F8BD84E13B2569400A33B0A /* WaitMaskController.h */,
 				5F8BD84F13B2569400A33B0A /* WaitMaskController.m */,
 				A01671DF12AE80A90056F855 /* UIXMLFormViewControllerDelegate.h */,
@@ -200,6 +206,7 @@
 				5FF78F3A12E795A8008EA886 /* PushTextEntryCell.h in Headers */,
 				5F062F6B13774CBE00FAC388 /* PushWebViewEntryCell.h in Headers */,
 				5F8BD85013B2569400A33B0A /* WaitMaskController.h in Headers */,
+				A0D7A2DC1423330B004C7F68 /* iToast.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +275,7 @@
 				5FF78F3B12E795A8008EA886 /* PushTextEntryCell.m in Sources */,
 				5F062F6C13774CBE00FAC388 /* PushWebViewEntryCell.m in Sources */,
 				5F8BD85113B2569400A33B0A /* WaitMaskController.m in Sources */,
+				A0D7A2DD1423330B004C7F68 /* iToast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

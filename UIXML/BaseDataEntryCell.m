@@ -9,9 +9,17 @@
 #import "BaseDataEntryCell.h"
 #import "UIXMLFormViewController.h"	
 
+@interface BaseDataEntryCell(Private)
+
+@end
+
 @implementation BaseDataEntryCell
 
 @synthesize dataKey;
+
+#pragma - private implementation
+
+#pragma - public implementation
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
@@ -33,6 +41,7 @@
 	
 	return self;
 }
+
 
 -(BOOL)isStringEmpty:(NSString*)value {
 	return ( value==nil || [[value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0 );

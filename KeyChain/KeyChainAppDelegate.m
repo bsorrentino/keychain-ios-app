@@ -16,8 +16,14 @@
 @synthesize navigationController;
 
 
-#pragma mark -
-#pragma mark Application lifecycle
+#pragma mark - Application custom implementation
+
+- (void)playClick {
+    
+    if (click!=nil) [click play];
+}
+
+#pragma mark - Application lifecycle
 
 - (void)awakeFromNib {    
     
@@ -28,6 +34,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
+    NSURL* musicFile = [[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] URLForResource:@"Tock" withExtension:@"aiff"];
+    if (musicFile!=nil ) {
+        click = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile error:nil];
+        [click setVolume:0.15f];
+
+    }
 
     [self checkEntities];
     
@@ -105,7 +117,7 @@
 
 - (void)dealloc {
     
-    
+    [click release];
     [navigationController release];
     [window release];
 
