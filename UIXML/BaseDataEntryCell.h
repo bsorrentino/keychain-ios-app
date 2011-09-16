@@ -32,10 +32,6 @@
 
 @interface BaseDataEntryCell : UITableViewCell<BaseDataEntryCellDelegate> {
 
-@private
-    SEL longGestureBeganBlock_;
-    SEL longGestureEndBlock_;
-    
 }
 
 @property (nonatomic, retain) NSString *dataKey;
@@ -53,8 +49,6 @@
 -(BOOL)isStringEmpty:(NSString*)value;
 
 -(CGRect) getRectRelativeToLabel: (CGRect)controlFrame padding:(NSInteger)padding rpadding:(NSInteger)rpadding;
-
-- (void) setupLongGesture:(UIView*)recognizer  beganBlock:(SEL)beganBlock endBlock:(SEL)endBlock;
 
 
 @end

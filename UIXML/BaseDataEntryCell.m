@@ -11,9 +11,6 @@
 
 @interface BaseDataEntryCell(Private)
 
--(void) handleLongPress:(UILongPressGestureRecognizer *)gesture;
--(void) execLongGestureBeganBlock;
--(void) execLongGestureEndBlock;
 @end
 
 @implementation BaseDataEntryCell
@@ -21,37 +18,6 @@
 @synthesize dataKey;
 
 #pragma - private implementation
-
--(void) execLongGestureBeganBlock {
-    if (longGestureBeganBlock_!=nil && [self respondsToSelector:longGestureBeganBlock_] ) {
-        [self performSelector:longGestureBeganBlock_];
-    }
-}
--(void) execLongGestureEndBlock {
-    if (longGestureEndBlock_!=nil && [self respondsToSelector:longGestureEndBlock_]) {
-        [self performSelector:longGestureEndBlock_];
-    }
-}
-
--(void) handleLongPress:(UILongPressGestureRecognizer *)gesture {
-    if(UIGestureRecognizerStateBegan == gesture.state) {
-        // Do initial work here
-        NSLog(@"UIGestureRecognizerStateBegan");
-        //[self performSelectorOnMainThread:@selector(execLongGestureBeganBlock) withObject:nil waitUntilDone:NO];   
-        [self execLongGestureBeganBlock];
-    }
-    
-    if(UIGestureRecognizerStateChanged == gesture.state) {
-        NSLog(@"UIGestureRecognizerStateChanged");
-    }
-    
-    if(UIGestureRecognizerStateEnded == gesture.state) {
-        NSLog(@"UIGestureRecognizerStateEnded");
-        
-        [self execLongGestureEndBlock];
-    }
-    
-}
 
 #pragma - public implementation
 
@@ -76,19 +42,6 @@
 	return self;
 }
 
-- (void) setupLongGesture:(UIView*)recognizer  beganBlock:(SEL)beganBlock endBlock:(SEL)endBlock {
-    
-    longGestureBeganBlock_ = beganBlock;
-    longGestureEndBlock_ = endBlock;
-    
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]
-                                               initWithTarget:self 
-                                               action:@selector(handleLongPress:)];
-    longPress.minimumPressDuration = 2.0;
-    [recognizer addGestureRecognizer:longPress];
-    [longPress release];
-    
-}
 
 -(BOOL)isStringEmpty:(NSString*)value {
 	return ( value==nil || [[value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0 );
