@@ -7,16 +7,18 @@
 //
 
 #import "MailListDataEntryCell.h"
-#import "PersistentAppDelegate.h"
+#import "KeyChainAppDelegate.h"
 #import "AttributeInfo.h"
 #import <AVFoundation/AVAudioPlayer.h>
+
+#import "iToast.h"
 
 NSString * const regularExpression = @"(.*)@(.*)";
 
 @interface MailListDataEntryCell(Private) 
 
+-(void) handleLongPress:(UILongPressGestureRecognizer *)gesture;
 - (void)copyToClipboard;
-- (void)startCopyToClipboard;
 - (void)playClick;
 @end
 
@@ -30,36 +32,62 @@ NSString * const regularExpression = @"(.*)@(.*)";
 #pragma - private implementation
 
 - (void)playClick {
-    NSURL* musicFile = [[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] URLForResource:@"Tock" withExtension:@"aiff"];
-    AVAudioPlayer *click = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile error:nil];
-    [click setVolume:0.15f];
-    [click play];
-}
-- (void)startCopyToClipboard {
-    textValue_.borderStyle = UITextBorderStyleBezel;
-    //self.backgroundColor = [UIColor grayColor];
-    
+
+    [(KeyChainAppDelegate*)[UIApplication sharedApplication].delegate playClick];
 }
 
 - (void)copyToClipboard {
     [[UIPasteboard generalPasteboard] setValue:textValue_.text forPasteboardType:@"public.utf8-plain-text"];    
-    textValue_.borderStyle = UITextBorderStyleNone;
-    [self playClick];
+    
+    
+}
+
+-(void) handleLongPress:(UILongPressGestureRecognizer *)gesture {
+    if(UIGestureRecognizerStateBegan == gesture.state) {
+        // Do initial work here
+        NSLog(@"UIGestureRecognizerStateBegan");
+    }
+    
+    if(UIGestureRecognizerStateChanged == gesture.state) {
+        NSLog(@"UIGestureRecognizerStateChanged");
+    }
+    
+    if(UIGestureRecognizerStateEnded == gesture.state) {
+        NSLog(@"UIGestureRecognizerStateEnded");
+        [self copyToClipboard];
+        [self playClick];
+        iToast *msg = [[iToast alloc] initWithText:NSLocalizedString(@"ListDataEntryCell.toaster", @"")];
+        [msg show:self origin:[gesture locationInView:self]];
+        
+        [msg release];
+        
+    }
+    
+}
+
+
+
+- (void) setupLongGesture {
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]
+                                               initWithTarget:self 
+                                               action:@selector(handleLongPress:)];
+    longPress.minimumPressDuration = 1.5;
+    [self addGestureRecognizer:longPress];
+    [longPress release];
+    
 }
 
 #pragma - DataEntryCell 
+
+
 -(id)init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData
 {
     if( [super init:controller datakey:key label:label cellData:cellData]!=nil ) {
          //self.detailTextLabel.text = @"test1";
     }
     
-    [self setupLongGesture:self 
-                
-                beganBlock:@selector(startCopyToClipboard)     
-                endBlock:@selector(copyToClipboard)    
-                    
-     ];
+    [self setupLongGesture]; 
 
     return self;
     
