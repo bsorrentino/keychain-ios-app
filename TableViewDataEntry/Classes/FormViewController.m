@@ -8,7 +8,7 @@
 
 #import "FormViewController.h"
 #import "BaseDataEntryCell.h"
-#import "FormData.h";
+#import "FormData.h"
 
 @implementation FormViewController
 
@@ -109,7 +109,7 @@
 	
 }
 
--(void)cellControlDidInit:(BaseDataEntryCell *)cell {
+-(void)cellControlDidInit:(BaseDataEntryCell *)cell cellData:(NSDictionary *)cellData {
 	
 	
 	id value = [data.model valueForKey:cell.dataKey];  
