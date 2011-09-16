@@ -15,7 +15,8 @@
 -(void)cellControlDidEndEditing:(BaseDataEntryCell *)cell;
 
 @optional
--(void)cellControlDidInit:(BaseDataEntryCell *)cell;
+-(void)cellControlDidInit:(BaseDataEntryCell *)cell cellData:(NSDictionary *)cellData;
+-(void)cellControlDidLoad:(BaseDataEntryCell *)cell cellData:(NSDictionary *)cellData;
 
 
 @end
