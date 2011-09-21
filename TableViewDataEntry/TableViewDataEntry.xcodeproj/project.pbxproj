@@ -18,6 +18,13 @@
 		5F494C9F12D8B442002B3631 /* DefaultHeaderInSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F494C9D12D8B442002B3631 /* DefaultHeaderInSection.xib */; };
 		5FC03895129747FB00EDC2F6 /* form-structure.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FC03894129747FB00EDC2F6 /* form-structure.plist */; };
 		5FC0394012975E6500EDC2F6 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC0393F12975E6500EDC2F6 /* FormViewController.m */; };
+		5FEA8E79142A878600C29208 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		5FEA8E7A142A878600C29208 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		5FEA8E7B142A878600C29208 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		5FEA8E81142A878600C29208 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FEA8E7F142A878600C29208 /* InfoPlist.strings */; };
+		5FEA8E84142A878600C29208 /* TableViewDataEntryTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 5FEA8E83142A878600C29208 /* TableViewDataEntryTests.h */; };
+		5FEA8E86142A878600C29208 /* TableViewDataEntryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA8E85142A878600C29208 /* TableViewDataEntryTests.m */; };
+		5FEA8E8C142A891A00C29208 /* FormData.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DDC52312D4CF43002E78B6 /* FormData.m */; };
 		5FF78F6412E79B99008EA886 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF78F6312E79B99008EA886 /* PushTextEntryCell.m */; };
 		5FF78F6712E79BA6008EA886 /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F6512E79BA6008EA886 /* PushTextEntryCell.xib */; };
 		5FF78F7E12E7A054008EA886 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F7D12E7A054008EA886 /* chevron.png */; };
@@ -49,6 +56,16 @@
 		A0DDC52412D4CF43002E78B6 /* FormData.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DDC52312D4CF43002E78B6 /* FormData.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5FEA8E8A142A882100C29208 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = TableViewDataEntry;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* TableViewDataEntryAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewDataEntryAppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +82,12 @@
 		5FC03894129747FB00EDC2F6 /* form-structure.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "form-structure.plist"; sourceTree = "<group>"; };
 		5FC0393E12975E6500EDC2F6 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewController.h; sourceTree = "<group>"; };
 		5FC0393F12975E6500EDC2F6 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewController.m; sourceTree = "<group>"; };
+		5FEA8E78142A878600C29208 /* TableViewDataEntryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewDataEntryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FEA8E7E142A878600C29208 /* TableViewDataEntryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TableViewDataEntryTests-Info.plist"; sourceTree = "<group>"; };
+		5FEA8E80142A878600C29208 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5FEA8E82142A878600C29208 /* TableViewDataEntryTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TableViewDataEntryTests-Prefix.pch"; sourceTree = "<group>"; };
+		5FEA8E83142A878600C29208 /* TableViewDataEntryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewDataEntryTests.h; sourceTree = "<group>"; };
+		5FEA8E85142A878600C29208 /* TableViewDataEntryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewDataEntryTests.m; sourceTree = "<group>"; };
 		5FF78F6212E79B99008EA886 /* PushTextEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTextEntryCell.h; sourceTree = "<group>"; };
 		5FF78F6312E79B99008EA886 /* PushTextEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTextEntryCell.m; sourceTree = "<group>"; };
 		5FF78F6612E79BA6008EA886 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushTextEntryCell.xib; sourceTree = "<group>"; };
@@ -123,6 +146,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5FEA8E74142A878600C29208 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FEA8E79142A878600C29208 /* UIKit.framework in Frameworks */,
+				5FEA8E7A142A878600C29208 /* Foundation.framework in Frameworks */,
+				5FEA8E7B142A878600C29208 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -145,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* TableViewDataEntry.app */,
+				5FEA8E78142A878600C29208 /* TableViewDataEntryTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,6 +191,7 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				5FEA8E7C142A878600C29208 /* TableViewDataEntryTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -196,6 +231,26 @@
 				A0DDC4F912D4C7C4002E78B6 /* CoreData.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5FEA8E7C142A878600C29208 /* TableViewDataEntryTests */ = {
+			isa = PBXGroup;
+			children = (
+				5FEA8E83142A878600C29208 /* TableViewDataEntryTests.h */,
+				5FEA8E85142A878600C29208 /* TableViewDataEntryTests.m */,
+				5FEA8E7D142A878600C29208 /* Supporting Files */,
+			);
+			path = TableViewDataEntryTests;
+			sourceTree = "<group>";
+		};
+		5FEA8E7D142A878600C29208 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FEA8E7E142A878600C29208 /* TableViewDataEntryTests-Info.plist */,
+				5FEA8E7F142A878600C29208 /* InfoPlist.strings */,
+				5FEA8E82142A878600C29208 /* TableViewDataEntryTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A0163AED141634AD0074E469 /* en */ = {
@@ -269,6 +324,25 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* TableViewDataEntry.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5FEA8E77142A878600C29208 /* TableViewDataEntryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FEA8E89142A878600C29208 /* Build configuration list for PBXNativeTarget "TableViewDataEntryTests" */;
+			buildPhases = (
+				5FEA8E73142A878600C29208 /* Sources */,
+				5FEA8E74142A878600C29208 /* Frameworks */,
+				5FEA8E75142A878600C29208 /* Resources */,
+				5FEA8E76142A878600C29208 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5FEA8E8B142A882100C29208 /* PBXTargetDependency */,
+			);
+			name = TableViewDataEntryTests;
+			productName = TableViewDataEntryTests;
+			productReference = 5FEA8E78142A878600C29208 /* TableViewDataEntryTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -290,6 +364,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* TableViewDataEntry */,
+				5FEA8E77142A878600C29208 /* TableViewDataEntryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -322,7 +397,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5FEA8E75142A878600C29208 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FEA8E81142A878600C29208 /* InfoPlist.strings in Resources */,
+				5FEA8E84142A878600C29208 /* TableViewDataEntryTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5FEA8E76142A878600C29208 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
@@ -348,7 +448,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5FEA8E73142A878600C29208 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FEA8E8C142A891A00C29208 /* FormData.m in Sources */,
+				5FEA8E86142A878600C29208 /* TableViewDataEntryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5FEA8E8B142A882100C29208 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* TableViewDataEntry */;
+			targetProxy = 5FEA8E8A142A882100C29208 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5F494C9D12D8B442002B3631 /* DefaultHeaderInSection.xib */ = {
@@ -357,6 +474,14 @@
 				5F494C9E12D8B442002B3631 /* en */,
 			);
 			name = DefaultHeaderInSection.xib;
+			sourceTree = "<group>";
+		};
+		5FEA8E7F142A878600C29208 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FEA8E80142A878600C29208 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		5FF78F6512E79BA6008EA886 /* PushTextEntryCell.xib */ = {
@@ -457,6 +582,57 @@
 			};
 			name = Release;
 		};
+		5FEA8E87142A878600C29208 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TableViewDataEntryTests/TableViewDataEntryTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INFOPLIST_FILE = "TableViewDataEntryTests/TableViewDataEntryTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5FEA8E88142A878600C29208 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TableViewDataEntryTests/TableViewDataEntryTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INFOPLIST_FILE = "TableViewDataEntryTests/TableViewDataEntryTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -495,6 +671,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		5FEA8E89142A878600C29208 /* Build configuration list for PBXNativeTarget "TableViewDataEntryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FEA8E87142A878600C29208 /* Debug */,
+				5FEA8E88142A878600C29208 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TableViewDataEntry" */ = {
 			isa = XCConfigurationList;

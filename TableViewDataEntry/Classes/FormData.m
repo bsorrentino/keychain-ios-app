@@ -24,4 +24,23 @@
 	
 	return _model;
 }
+
+#pragma - NSCoding implementation
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+        
+    [aCoder encodeObject:_model forKey:@"model"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    
+    [self init];
+    
+    NSDictionary *d =  [aDecoder decodeObjectForKey:@"model"];
+    
+    [_model setDictionary:d];
+    
+    return self;
+}
+
 @end

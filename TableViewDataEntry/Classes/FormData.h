@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface FormData : NSObject {
+@interface FormData : NSObject<NSCoding> {
 
 @private
 	NSMutableDictionary *_model;
