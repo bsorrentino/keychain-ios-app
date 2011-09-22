@@ -27,6 +27,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5FEA8E77142A878600C29208"
+               BuildableName = "TableViewDataEntryTests.octest"
+               BlueprintName = "TableViewDataEntryTests"
+               ReferencedContainer = "container:TableViewDataEntry.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
