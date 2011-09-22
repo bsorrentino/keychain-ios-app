@@ -44,12 +44,36 @@
     
     STAssertNotNil(data, @"dataFromPropertyList returned nil. error [%@[", errorDescription);
  
+    
+    BOOL expandTilde = YES;
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, expandTilde);
+    
+    STAssertNotNil(paths, @"paths is null");
+    
+    STAssertTrue([paths count] > 0 , @"paths is empty" );
+    
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    
+    NSLog(@"Dcoument paths[0]=[%@]", documentDirectory);
+    
+    NSString *outputPath = [documentDirectory stringByAppendingPathComponent:@"export.plist"];
+    
+    //BOOL writeResult = [data writeToFile:outputPath atomically:YES];
+    NSError *error;
+    BOOL writeResult = [data writeToFile:outputPath options:NSDataWritingAtomic error:&error];
+    
+    
+    STAssertTrue(writeResult, @"write file [%@] failed! [%@]", outputPath, [error userInfo] );
+    
+/*    
     NSString *dataAsString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
     
     NSLog(@"%@", dataAsString);
     
     [dataAsString release];
-}
+*/
+ }
 
 
 - (void)testArchiver
