@@ -10,7 +10,7 @@
 #import "KeyEntityFormController.h"
 #import "BaseDataEntryCell.h"
 
-@interface RootViewController ()
+@interface RootViewController (Private)
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope;
 - (void)filterReset;
@@ -23,10 +23,41 @@
 
 @synthesize fetchedResultsController=fetchedResultsController_, managedObjectContext=managedObjectContext_;
 @synthesize keyEntityFormController=keyEntityFormController_;
+@synthesize toolbar=toolbar_;
 
-#pragma -
-#pragma mark custom implementation
+#pragma - actions
 
+-(IBAction)settings:(id)sender {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration: 1];
+    
+    //setting animation for the current view
+    //[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:YES];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:YES];
+    
+    //Push the next viewcontroller to NavigationController
+    [self.navigationController pushViewController:self.keyEntityFormController animated:NO];
+    //[detailViewController release];
+    
+    //Start the Animation
+    [UIView commitAnimations];
+    
+}
+
+- (IBAction)insertNewObject:(id)sender {
+    //NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    
+	KeyEntity *e = [[KeyEntity alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
+	
+	[self.keyEntityFormController initWithEntity:e delegate:self];
+	
+	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
+	
+	//[e release];
+}
+
+#pragma - custom implementation
 
 - (void)hideSearchBar {
     //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];    
@@ -108,9 +139,28 @@
     // Set up the edit and add buttons.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    [addButton release];
+    //UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
+    //self.navigationItem.rightBarButtonItem = addButton;
+    //[addButton release];
+
+    CGRect frame = self.toolbar.frame;
+    
+    UIView * v = [[UIView alloc ] initWithFrame:frame];
+    
+    for( UIBarButtonItem *b in self.toolbar.items ) {
+        [b setTarget:self];
+    }
+    
+    frame.origin.y = -1; self.toolbar.frame = frame;
+    
+    [v addSubview:self.toolbar];
+    
+	UIBarButtonItem * rightButton = [[UIBarButtonItem alloc] initWithCustomView:v];
+	
+	self.navigationItem.rightBarButtonItem = rightButton;
+	
+    [v release];
+	[rightButton release];
 
 	self.title = @"Key List";
     
@@ -172,18 +222,6 @@
 	
 }
 
-- (void)insertNewObject {
-    //NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-
-	KeyEntity *e = [[KeyEntity alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
-	
-	[self.keyEntityFormController initWithEntity:e delegate:self];
-	
-	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
-	
-	//[e release];
-}
 
 // Deprecated
 - (void)insertNewObject2 {

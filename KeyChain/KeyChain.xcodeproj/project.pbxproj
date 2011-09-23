@@ -47,6 +47,7 @@
 		5FCF753112D9FACD00A9E0D8 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF751C12D9FACD00A9E0D8 /* SwitchDataEntryCell.m */; };
 		5FCF753212D9FACD00A9E0D8 /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF751E12D9FACD00A9E0D8 /* TextDataEntryCell.m */; };
 		5FCF753312D9FACD00A9E0D8 /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */; };
+		5FD6165F142D3F8C00BE5636 /* settings20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD6165E142D3F8C00BE5636 /* settings20x20.png */; };
 		5FEA98E512B981950034ADC1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */; };
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
 		5FF7900512E7AC9F008EA886 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900212E7AC9F008EA886 /* chevron.png */; };
@@ -121,6 +122,7 @@
 		5FCF752312D9FACD00A9E0D8 /* UIXMLFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewController.h; sourceTree = "<group>"; };
 		5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIXMLFormViewController.m; sourceTree = "<group>"; };
 		5FCF752512D9FACD00A9E0D8 /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewControllerDelegate.h; sourceTree = "<group>"; };
+		5FD6165E142D3F8C00BE5636 /* settings20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings20x20.png; path = "../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/settings20x20.png"; sourceTree = "<group>"; };
 		5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		5FF78F2E12E5A481008EA886 /* logo-64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-64x64.png"; sourceTree = "<group>"; };
 		5FF7900212E7AC9F008EA886 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5FD6165E142D3F8C00BE5636 /* settings20x20.png */,
 				5F17FB961416E9E4007D88F9 /* Localizable.strings */,
 				A0FD0E4E14168462009C7257 /* MailListDataEntryCell.xib */,
 				5F129E0912EB607300BF9EF9 /* login32x32.png */,
@@ -364,6 +367,7 @@
 				5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */,
 				A0FD0E4F14168462009C7257 /* MailListDataEntryCell.xib in Resources */,
 				5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */,
+				5FD6165F142D3F8C00BE5636 /* settings20x20.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
