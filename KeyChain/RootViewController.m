@@ -139,10 +139,14 @@
     // Set up the edit and add buttons.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    //UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
-    //self.navigationItem.rightBarButtonItem = addButton;
-    //[addButton release];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] 
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                  target:self 
+                                  action:@selector(insertNewObject)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    [addButton release];
 
+/*    
     CGRect frame = self.toolbar.frame;
     
     UIView * v = [[UIView alloc ] initWithFrame:frame];
@@ -161,7 +165,7 @@
 	
     [v release];
 	[rightButton release];
-
+*/
 	self.title = @"Key List";
     
     self.searchDisplayController.searchBar.delegate = self;
