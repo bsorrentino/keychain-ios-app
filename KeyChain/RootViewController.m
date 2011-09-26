@@ -9,23 +9,29 @@
 #import "RootViewController.h"
 #import "KeyEntityFormController.h"
 #import "BaseDataEntryCell.h"
+#import "PersistentAppDelegate.h"
+
 
 @interface RootViewController (Private)
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope;
 - (void)filterReset;
 - (void)hideSearchBar;
+- (PersistentAppDelegate *) appDelegate;
+
 
 @end
 
 
 @implementation RootViewController
 
-@synthesize fetchedResultsController=fetchedResultsController_, managedObjectContext=managedObjectContext_;
+//@synthesize managedObjectContext=managedObjectContext_;
+@synthesize fetchedResultsController=fetchedResultsController_;
 @synthesize keyEntityFormController=keyEntityFormController_;
 @synthesize toolbar=toolbar_;
 
-#pragma - actions
+
+#pragma mark - actions
 
 -(IBAction)settings:(id)sender {
     [UIView beginAnimations:nil context:NULL];
@@ -58,6 +64,15 @@
 }
 
 #pragma - custom implementation
+
+- (PersistentAppDelegate *)appDelegate {
+    
+    return (PersistentAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+-(NSManagedObjectContext *)managedObjectContext {
+    return [[self appDelegate] managedObjectContext];
+}
 
 - (void)hideSearchBar {
     //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];    
@@ -595,7 +610,7 @@
 
 - (void)dealloc {
     [fetchedResultsController_ release];
-    [managedObjectContext_ release];
+//    [managedObjectContext_ release];
     [super dealloc];
 }
 
