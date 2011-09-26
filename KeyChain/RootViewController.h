@@ -18,7 +18,6 @@
 
 @private
     NSFetchedResultsController *fetchedResultsController_;
-    NSManagedObjectContext *managedObjectContext_;
 	
     KeyEntityFormController *keyEntityFormController_;
 	
@@ -29,7 +28,6 @@
 
 @property (nonatomic, retain, readonly) NSArray *sectionTitlesArray;
 
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @property (nonatomic, retain) IBOutlet KeyEntityFormController *keyEntityFormController;
