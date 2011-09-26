@@ -47,7 +47,6 @@
 		5FCF753112D9FACD00A9E0D8 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF751C12D9FACD00A9E0D8 /* SwitchDataEntryCell.m */; };
 		5FCF753212D9FACD00A9E0D8 /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF751E12D9FACD00A9E0D8 /* TextDataEntryCell.m */; };
 		5FCF753312D9FACD00A9E0D8 /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */; };
-		5FD6165F142D3F8C00BE5636 /* settings20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD6165E142D3F8C00BE5636 /* settings20x20.png */; };
 		5FEA98E512B981950034ADC1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */; };
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
 		5FF7900512E7AC9F008EA886 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900212E7AC9F008EA886 /* chevron.png */; };
@@ -55,6 +54,8 @@
 		5FF7900912E7ACAA008EA886 /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900712E7ACAA008EA886 /* PushTextEntryCell.xib */; };
 		5FF7AC4A13B229C900BB8CBB /* back24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7AC4913B229C900BB8CBB /* back24x24.png */; };
 		A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0121169142269B2000AA884 /* AVFoundation.framework */; };
+		A0759F2114305DBE000701EF /* settings20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A0759F2014305DBE000701EF /* settings20x20.png */; };
+		A0CD69661430C24A00EDE45F /* export20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CD69651430C24A00EDE45F /* export20x20.png */; };
 		A0D7A2E6142333CB004C7F68 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D7A2E5142333CB004C7F68 /* iToast.m */; };
 		A0FD0E4614165D8E009C7257 /* AttributeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD0E4514165D8E009C7257 /* AttributeInfo.m */; };
 		A0FD0E4D14166C32009C7257 /* MailListDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD0E4C14166C32009C7257 /* MailListDataEntryCell.m */; };
@@ -122,7 +123,6 @@
 		5FCF752312D9FACD00A9E0D8 /* UIXMLFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewController.h; sourceTree = "<group>"; };
 		5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIXMLFormViewController.m; sourceTree = "<group>"; };
 		5FCF752512D9FACD00A9E0D8 /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewControllerDelegate.h; sourceTree = "<group>"; };
-		5FD6165E142D3F8C00BE5636 /* settings20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings20x20.png; path = "../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/settings20x20.png"; sourceTree = "<group>"; };
 		5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		5FF78F2E12E5A481008EA886 /* logo-64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-64x64.png"; sourceTree = "<group>"; };
 		5FF7900212E7AC9F008EA886 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
@@ -132,6 +132,8 @@
 		5FF7AC4913B229C900BB8CBB /* back24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back24x24.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* KeyChain-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KeyChain-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A0121169142269B2000AA884 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A0759F2014305DBE000701EF /* settings20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings20x20.png; sourceTree = "<group>"; };
+		A0CD69651430C24A00EDE45F /* export20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = export20x20.png; sourceTree = "<group>"; };
 		A0D7A2E4142333CB004C7F68 /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
 		A0D7A2E5142333CB004C7F68 /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
 		A0FD0E4014165BAC009C7257 /* KeyChain-1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain-1.0.xcdatamodel"; sourceTree = "<group>"; };
@@ -195,7 +197,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5FD6165E142D3F8C00BE5636 /* settings20x20.png */,
+				A0CD69651430C24A00EDE45F /* export20x20.png */,
+				A0759F2014305DBE000701EF /* settings20x20.png */,
 				5F17FB961416E9E4007D88F9 /* Localizable.strings */,
 				A0FD0E4E14168462009C7257 /* MailListDataEntryCell.xib */,
 				5F129E0912EB607300BF9EF9 /* login32x32.png */,
@@ -367,7 +370,8 @@
 				5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */,
 				A0FD0E4F14168462009C7257 /* MailListDataEntryCell.xib in Resources */,
 				5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */,
-				5FD6165F142D3F8C00BE5636 /* settings20x20.png in Resources */,
+				A0759F2114305DBE000701EF /* settings20x20.png in Resources */,
+				A0CD69661430C24A00EDE45F /* export20x20.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

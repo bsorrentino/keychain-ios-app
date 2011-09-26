@@ -13,25 +13,19 @@
 
 
 @interface RootViewController (Private)
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope;
-- (void)filterReset;
-- (void)hideSearchBar;
-- (PersistentAppDelegate *) appDelegate;
-
-
+-(void)insertNewObject;
 @end
 
 
 @implementation RootViewController
 
-//@synthesize managedObjectContext=managedObjectContext_;
-@synthesize fetchedResultsController=fetchedResultsController_;
-@synthesize keyEntityFormController=keyEntityFormController_;
-@synthesize toolbar=toolbar_;
+@synthesize keyListViewController=keyListViewController_;
 
 
 #pragma mark - actions
+- (void)insertNewObject {
+    [self.keyListViewController insertNewObject:self];
+}
 
 -(IBAction)settings:(id)sender {
     [UIView beginAnimations:nil context:NULL];
@@ -42,15 +36,81 @@
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:YES];
     
     //Push the next viewcontroller to NavigationController
-    [self.navigationController pushViewController:self.keyEntityFormController animated:NO];
+    
+    [self.navigationController pushViewController:self.keyListViewController.keyEntityFormController animated:NO];
     //[detailViewController release];
     
     //Start the Animation
     [UIView commitAnimations];
+
+}
+
+#pragma mark - ViewController lifecycle
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
     
 }
 
-- (IBAction)insertNewObject:(id)sender {
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+	
+    // Set up the edit and add buttons.
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] 
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                  target:self 
+                                  action:@selector(insertNewObject)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    [addButton release];
+    
+	self.title = @"Key List";
+    
+    [self.keyListViewController initWithNavigationController:self.navigationController];
+
+    
+}
+
+@end
+
+
+
+
+
+@interface KeyListViewController (Private)
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope;
+- (void)filterReset;
+- (void)hideSearchBar;
+- (PersistentAppDelegate *) appDelegate;
+
+@end
+
+
+@implementation KeyListViewController
+
+//@synthesize managedObjectContext=managedObjectContext_;
+@synthesize fetchedResultsController=fetchedResultsController_;
+@synthesize keyEntityFormController=keyEntityFormController_;
+@synthesize navigationController;
+
+#pragma mark - properties
+
+-(UINavigationController *)navigationController {
+ 
+    if( navigationController_!=nil ) {
+        return navigationController_;
+    }
+    
+    return super.navigationController;
+}
+
+#pragma mark - actions
+
+- (void)insertNewObject:(id)sender {
+    
     //NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     
@@ -58,12 +118,17 @@
 	
 	[self.keyEntityFormController initWithEntity:e delegate:self];
 	
-	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
-	
+    [self.navigationController pushViewController:self.keyEntityFormController animated:YES];
+    	
 	//[e release];
 }
 
 #pragma - custom implementation
+
+-(void)initWithNavigationController:(UINavigationController *)controller {
+
+    navigationController_ = controller;
+}
 
 - (PersistentAppDelegate *)appDelegate {
     
