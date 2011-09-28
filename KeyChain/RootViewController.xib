@@ -66,7 +66,7 @@
 				<object class="NSMutableArray" key="IBUIItems">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIBarButtonItem" id="633117365">
-						<object class="NSCustomResource" key="IBUIImage" id="746659086">
+						<object class="NSCustomResource" key="IBUIImage" id="1022125710">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">settings20x20.png</string>
 						</object>
@@ -137,7 +137,7 @@
 								<reference key="IBUIToolbar" ref="894008321"/>
 								<int key="IBUISystemItemIdentifier">5</int>
 							</object>
-							<object class="IBUIBarButtonItem" id="1023238219">
+							<object class="IBUIBarButtonItem" id="255910096">
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">export20x20.png</string>
@@ -148,7 +148,7 @@
 							</object>
 							<object class="IBUIBarButtonItem" id="646522977">
 								<int key="IBUITag">1</int>
-								<reference key="IBUIImage" ref="746659086"/>
+								<reference key="IBUIImage" ref="1022125710"/>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="894008321"/>
@@ -355,7 +355,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="654376310"/>
 							<reference ref="646522977"/>
-							<reference ref="1023238219"/>
+							<reference ref="255910096"/>
 						</object>
 						<reference key="parent" ref="242671117"/>
 					</object>
@@ -371,7 +371,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">46</int>
-						<reference key="object" ref="1023238219"/>
+						<reference key="object" ref="255910096"/>
 						<reference key="parent" ref="894008321"/>
 					</object>
 				</object>

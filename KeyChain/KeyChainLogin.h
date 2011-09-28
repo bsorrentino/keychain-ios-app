@@ -13,11 +13,15 @@
 
 @private	
 	UITextField *txtPassword;
+    NSUInteger changePasswordStep_;
 }
 
 @property (nonatomic,retain) IBOutlet UITextField *txtPassword;
 @property (nonatomic,retain) NSString *password;
 
+-(id)initForChangePassword;
 - (IBAction)login:(id)sender;
-- (void)doModal:(UIViewController *)root ;
+
++ (void)doModal:(UIViewController *)root ;
+
 @end

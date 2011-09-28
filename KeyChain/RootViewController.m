@@ -10,7 +10,7 @@
 #import "KeyEntityFormController.h"
 #import "BaseDataEntryCell.h"
 #import "PersistentAppDelegate.h"
-
+#import "KeyChainLogin.h"
 
 @interface RootViewController (Private)
 -(void)insertNewObject;
@@ -28,6 +28,9 @@
 }
 
 -(IBAction)settings:(id)sender {
+    
+    KeyChainLogin *login = [[KeyChainLogin alloc] initForChangePassword];
+    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration: 1];
     
@@ -37,12 +40,13 @@
     
     //Push the next viewcontroller to NavigationController
     
-    [self.navigationController pushViewController:self.keyListViewController.keyEntityFormController animated:NO];
+    [self.navigationController pushViewController:login animated:NO];
     //[detailViewController release];
     
     //Start the Animation
     [UIView commitAnimations];
 
+    [login release];
 }
 
 #pragma mark - ViewController lifecycle
