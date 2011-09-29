@@ -15,6 +15,8 @@
 - (BOOL)loginToSystem;
 - (BOOL)changePassword;
 - (void)doModal:(UIViewController *)root;
+- (void)getNewPassword;
+
 
 @end
 
@@ -47,36 +49,29 @@
 	return YES;
 }
 
+
+- (void) getNewPassword {
+
+    self.txtPassword.text = @"";
+    self.txtPassword.placeholder = NSLocalizedString(@"login.newPassword", @"");
+    changePasswordStep_ = GETNEWPASSWORD;
+    
+}
+
 - (BOOL)changePassword {
 
-	NSString *p = self.password;
-
-    switch (changePasswordStep_) {
-        case 1:
-        {
-            NSString *p = self.password;
-
-            if ([p compare: txtPassword.text] != 0 ) {
-                UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Password doesn't match!" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-                [alert show];
-                [alert release];
-                return NO;
-                
-            }
-            
-        }
-            
-        default:
-            break;
-    }
+    static NSString *tmpPassword_;
+    
+    BOOL result = NO;
+    
     //
     // STEP 1 - CHECK PASSWORD 
     //
-
+    
     //
     // STEP 2 - GET NEW PASSWORD 
     //
-
+    
     //
     // STEP 3 - RETYPE NEW PASSWORD 
     //
@@ -84,16 +79,62 @@
     //
     // STEP 4 - CHECK NEW PASSWORD 
     //
-	if ( p==nil ) {
-		self.password = txtPassword.text;
-		self.txtPassword.text = @"";
-		self.txtPassword.placeholder = NSLocalizedString(@"login.confirmPassword", @"");
-		return NO;
-	}
-	
-	[self.parentViewController.view setHidden:NO];
-	[[self.parentViewController modalViewController] dismissModalViewControllerAnimated:YES];
-	return YES;
+    
+    switch (changePasswordStep_) {
+        case CHECKPASSWORD:
+        {
+            NSString *p = self.password;
+
+            if ([p compare: txtPassword.text] != 0 ) {
+                UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Password doesn't match!" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+                [alert show];
+                [alert release];
+                
+                
+            }
+            else {
+                
+                [self getNewPassword];
+            }
+            
+        }
+            break;
+        case GETNEWPASSWORD:
+        {
+            tmpPassword_ = [self.txtPassword.text copy];
+            
+            self.txtPassword.text = @"";
+            self.txtPassword.placeholder = NSLocalizedString(@"login.confirmNewPassword", @"");
+            changePasswordStep_ = CHECKNEWPASSWORD;
+        }
+            break;
+        case CHECKNEWPASSWORD:
+        {
+            
+            if ([tmpPassword_ compare: self.txtPassword.text] != 0 ) {
+                UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Password doesn't match!" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+                [alert show];
+                [alert release];
+
+                [self getNewPassword];
+                
+            }
+            else {
+                
+                self.password = tmpPassword_;
+                result = YES;
+                [self.navigationController popViewControllerAnimated:YES]; 
+            }
+
+            [tmpPassword_ release];
+        }
+            break;
+        default:
+            result = YES;
+            break;
+    }
+    
+	return result;
     
 }
 
@@ -101,7 +142,7 @@
     
     self.title = @"";
     
-    changePasswordStep_ = 0;
+    changePasswordStep_ = NONE;
     
 	[root.view setHidden:YES];
     
@@ -125,7 +166,7 @@
 - (id)initForChangePassword  {
     
     if( [super initWithNibName:@"KeyChainLogin" bundle:nil] !=nil ) {
-        changePasswordStep_ = 1;
+        changePasswordStep_ = CHECKPASSWORD;
         self.title = @"Change Password";
         return self;
     }
@@ -153,7 +194,11 @@
 #pragma mark inherit from UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	return [self loginToSystem];
+    
+    if (changePasswordStep_ != NONE ) {
+        return [self changePassword];
+    }
+    return [self loginToSystem];
 }
 
 #pragma mark inherit from UIViewController

@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    NONE = 0, CHECKPASSWORD, GETNEWPASSWORD, CHECKNEWPASSWORD 
+} ChangePasswordStep;
 
 @interface KeyChainLogin : UIViewController<UITextFieldDelegate> {
 
 @private	
+    
 	UITextField *txtPassword;
-    NSUInteger changePasswordStep_;
+    ChangePasswordStep changePasswordStep_;
 }
 
 @property (nonatomic,retain) IBOutlet UITextField *txtPassword;
