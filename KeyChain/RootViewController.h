@@ -25,7 +25,9 @@
 
 @property (nonatomic, retain) IBOutlet KeyListViewController *keyListViewController;
 
--(IBAction)settings:(id)sender;
+-(IBAction)changePassword:(id)sender;
+-(IBAction)export:(id)sender;
+
 
 @end
 

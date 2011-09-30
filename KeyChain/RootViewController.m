@@ -27,7 +27,54 @@
     [self.keyListViewController insertNewObject:self];
 }
 
--(IBAction)settings:(id)sender {
+-(IBAction)export:(id)sender {
+    
+    NSMutableArray *root = [[NSMutableArray alloc] init];
+ 
+    NSMutableDictionary * header = [[NSMutableDictionary alloc] init ];//initWithObjects:<#(id *)#> forKeys:<#(id *)#> count:<#(NSUInteger)#>
+    
+    [root addObject:header];
+    
+    
+    
+    NSString *errorDescription;
+    
+    NSData *data = [NSPropertyListSerialization dataFromPropertyList:root format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorDescription ];
+
+    if (data== nil ) {
+        NSLog(@"error creating NSPropertyListSerialization [%@]", errorDescription);
+        return;
+    }
+    
+    BOOL expandTilde = YES;
+    
+    NSSearchPathDirectory destination = NSLibraryDirectory;
+    //NSSearchPathDirectory destination = NSDocumentDirectory;
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
+    
+    //STAssertNotNil(paths, @"paths is null");
+    
+    //STAssertTrue([paths count] > 0 , @"paths is empty" );
+    
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    
+    NSLog(@"Dcoument paths[0]=[%@]", documentDirectory);
+    
+    NSString *outputPath = [documentDirectory stringByAppendingPathComponent:@"keylist.plist"];
+    
+    //BOOL writeResult = [data writeToFile:outputPath atomically:YES];
+    NSError *error;
+    
+    BOOL writeResult = [data writeToFile:outputPath options:NSDataWritingAtomic error:&error];
+    
+    
+    //STAssertTrue(writeResult, @"write file [%@] failed! [%@]", outputPath, [error userInfo] );
+    
+
+}
+
+-(IBAction)changePassword:(id)sender {
     
     KeyChainLogin *login = [[KeyChainLogin alloc] initForChangePassword];
     
