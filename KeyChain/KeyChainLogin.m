@@ -8,6 +8,7 @@
 
 #import "KeyChainLogin.h"
 
+#define TAG_FOR_LOGIN_BUTTON 5
 
 @interface KeyChainLogin(Private)
 
@@ -168,6 +169,11 @@
     if( [super initWithNibName:@"KeyChainLogin" bundle:nil] !=nil ) {
         changePasswordStep_ = CHECKPASSWORD;
         self.title = @"Change Password";
+        
+        UIView *button = [self.view viewWithTag:TAG_FOR_LOGIN_BUTTON];
+        if( button!=nil ) {
+            [button setHidden:YES];
+        }
         return self;
     }
     return nil;

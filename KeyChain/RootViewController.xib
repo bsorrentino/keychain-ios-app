@@ -66,7 +66,7 @@
 				<object class="NSMutableArray" key="IBUIItems">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIBarButtonItem" id="633117365">
-						<object class="NSCustomResource" key="IBUIImage" id="1022125710">
+						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">settings20x20.png</string>
 						</object>
@@ -148,7 +148,10 @@
 							</object>
 							<object class="IBUIBarButtonItem" id="646522977">
 								<int key="IBUITag">1</int>
-								<reference key="IBUIImage" ref="1022125710"/>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">changePwd24x24.png</string>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="894008321"/>
@@ -368,11 +371,13 @@
 						<int key="objectID">33</int>
 						<reference key="object" ref="646522977"/>
 						<reference key="parent" ref="894008321"/>
+						<string key="objectName">change password</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">46</int>
 						<reference key="object" ref="255910096"/>
 						<reference key="parent" ref="894008321"/>
+						<string key="objectName">export</string>
 					</object>
 				</object>
 			</object>
@@ -646,11 +651,13 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>changePwd24x24.png</string>
 				<string>export20x20.png</string>
 				<string>settings20x20.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{24, 24}</string>
 				<string>{20, 20}</string>
 				<string>{20, 20}</string>
 			</object>
