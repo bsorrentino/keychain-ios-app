@@ -13,6 +13,9 @@
 
 }
 
+- (void)toDictionary:(NSMutableDictionary*)target;
+- (void)fromDictionary:(NSDictionary *)source;
+
 @property (nonatomic,readonly) BOOL isNew;
 @property (nonatomic,readonly) NSString * sectionId;
 
