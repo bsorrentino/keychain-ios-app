@@ -22,8 +22,11 @@
 		5F15021C13851B5B001C52BD /* PushWebViewEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F15021A13851B5B001C52BD /* PushWebViewEntryCell.xib */; };
 		5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */; };
 		5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F17FB961416E9E4007D88F9 /* Localizable.strings */; };
+		5F3BD073143B352F00001F01 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3BD072143B352E00001F01 /* CoreData.framework */; };
 		5F465BF113AE1F6300EA3C53 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F465BF013AE1F6300EA3C53 /* WaitMaskController.m */; };
 		5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F544F7313F82E350001A8B5 /* logo-57x57.png */; };
+		5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F3439143F315500D9C428 /* ExportViewController.m */; };
+		5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6F343B143F49EC00D9C428 /* usb48x48.png */; };
 		5F777C341359E367003AFC9E /* edit32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F777C321359E367003AFC9E /* edit32x32.png */; };
 		5F777C351359E367003AFC9E /* write32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F777C331359E367003AFC9E /* write32x32.png */; };
 		5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */; };
@@ -70,6 +73,16 @@
 		A0FD0E4F14168462009C7257 /* MailListDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FD0E4E14168462009C7257 /* MailListDataEntryCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5F3BD070143B352200001F01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = KeyChain;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* KeyChain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChain.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,9 +103,13 @@
 		5F15021A13851B5B001C52BD /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushWebViewEntryCell.xib; sourceTree = "<group>"; };
 		5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.1.xcmappingmodel"; sourceTree = "<group>"; };
 		5F17FB971416E9E4007D88F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5F3BD072143B352E00001F01 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5F465BEF13AE1F6300EA3C53 /* WaitMaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitMaskController.h; sourceTree = "<group>"; };
 		5F465BF013AE1F6300EA3C53 /* WaitMaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitMaskController.m; sourceTree = "<group>"; };
 		5F544F7313F82E350001A8B5 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-57x57.png"; sourceTree = "<group>"; };
+		5F6F3438143F315500D9C428 /* ExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportViewController.h; sourceTree = "<group>"; };
+		5F6F3439143F315500D9C428 /* ExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportViewController.m; sourceTree = "<group>"; };
+		5F6F343B143F49EC00D9C428 /* usb48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usb48x48.png; sourceTree = "<group>"; };
 		5F777C321359E367003AFC9E /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
 		5F777C331359E367003AFC9E /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
 		5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainAppDelegate.h; sourceTree = "<group>"; };
@@ -177,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F3BD073143B352F00001F01 /* CoreData.framework in Frameworks */,
 				A083A19114362F020032B285 /* UIKit.framework in Frameworks */,
 				A083A19214362F020032B285 /* Foundation.framework in Frameworks */,
 				A083A19314362F020032B285 /* CoreGraphics.framework in Frameworks */,
@@ -198,6 +216,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5F3BD072143B352E00001F01 /* CoreData.framework */,
 				A0121169142269B2000AA884 /* AVFoundation.framework */,
 				5FA3A4B712DC7703009BE36C /* Classes */,
 				5FCF750412D9FACD00A9E0D8 /* UIXML */,
@@ -224,6 +243,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F6F343B143F49EC00D9C428 /* usb48x48.png */,
 				A083A1791435CB9B0032B285 /* changePwd24x24.png */,
 				A0CD69651430C24A00EDE45F /* export20x20.png */,
 				A0759F2014305DBE000701EF /* settings20x20.png */,
@@ -273,6 +293,8 @@
 				5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */,
 				5F04E6E112E368C800370F50 /* KeyChainLogin.h */,
 				5F04E6E212E368C800370F50 /* KeyChainLogin.m */,
+				5F6F3438143F315500D9C428 /* ExportViewController.h */,
+				5F6F3439143F315500D9C428 /* ExportViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -375,6 +397,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5F3BD071143B352200001F01 /* PBXTargetDependency */,
 			);
 			name = KeyChainTests;
 			productName = KeyChainTests;
@@ -440,6 +463,7 @@
 				A0759F2114305DBE000701EF /* settings20x20.png in Resources */,
 				A0CD69661430C24A00EDE45F /* export20x20.png in Resources */,
 				A083A17A1435CB9B0032B285 /* changePwd24x24.png in Resources */,
+				5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +522,7 @@
 				A0FD0E4D14166C32009C7257 /* MailListDataEntryCell.m in Sources */,
 				5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */,
 				A0D7A2E6142333CB004C7F68 /* iToast.m in Sources */,
+				5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +536,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5F3BD071143B352200001F01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* KeyChain */;
+			targetProxy = 5F3BD070143B352200001F01 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5F17FB961416E9E4007D88F9 /* Localizable.strings */ = {
@@ -726,6 +759,7 @@
 				A083A1A114362F020032B285 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "KeyChain" */ = {
 			isa = XCConfigurationList;

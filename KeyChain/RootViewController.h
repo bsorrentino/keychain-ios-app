@@ -14,16 +14,18 @@
 
 @class KeyEntityFormController;
 @class KeyListViewController;
-
+@class ExportViewController;
 
 @interface RootViewController : UIViewController  {
     
 @private
     KeyListViewController *keyListViewController_;
+    ExportViewController *exportViewController_;
 	
 }
 
 @property (nonatomic, retain) IBOutlet KeyListViewController *keyListViewController;
+@property (nonatomic, retain) IBOutlet ExportViewController *exportViewController;
 
 -(IBAction)changePassword:(id)sender;
 -(IBAction)export:(id)sender;

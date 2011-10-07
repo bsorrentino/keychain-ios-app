@@ -9,67 +9,122 @@
 #import "RootViewController.h"
 #import "KeyEntityFormController.h"
 #import "BaseDataEntryCell.h"
-#import "PersistentAppDelegate.h"
+#import "KeyChainAppDelegate.h"
 #import "KeyChainLogin.h"
+#import "ExportViewController.h"
 
 @interface RootViewController (Private)
 -(void)insertNewObject;
+-(void)exportToITunes;
+@end
+
+
+
+@interface KeyListViewController (Private)
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope;
+- (void)filterReset;
+- (void)hideSearchBar;
+- (PersistentAppDelegate *) appDelegate;
+- (NSArray *)fetchedObjects;
 @end
 
 
 @implementation RootViewController
 
 @synthesize keyListViewController=keyListViewController_;
+@synthesize exportViewController=exportViewController_;
 
 
-#pragma mark - actions
+#pragma mark - RootViewController actions
 - (void)insertNewObject {
     [self.keyListViewController insertNewObject:self];
 }
 
--(IBAction)export:(id)sender {
+-(void)exportToITunes {
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
-    NSMutableArray *root = [[NSMutableArray alloc] init];
- 
-    NSMutableDictionary * header = [[NSMutableDictionary alloc] init ];//initWithObjects:<#(id *)#> forKeys:<#(id *)#> count:<#(NSUInteger)#>
-    
-    [root addObject:header];
-    
-    
-    
-    NSString *errorDescription;
-    
-    NSData *data = [NSPropertyListSerialization dataFromPropertyList:root format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorDescription ];
-
-    if (data== nil ) {
-        NSLog(@"error creating NSPropertyListSerialization [%@]", errorDescription);
-        return;
+    @try {
+        
+        NSMutableArray *root = [[[NSMutableArray alloc ]init] autorelease];
+        
+        NSArray * keys = [NSArray  arrayWithObjects:@"version",nil];
+        NSArray * values = [NSArray arrayWithObjects:@"1.2",nil];
+        
+        NSMutableDictionary * header = [NSMutableDictionary dictionaryWithObjects:values forKeys:keys];
+        
+        [root addObject:header];
+        
+        
+        NSArray *items = [self.keyListViewController fetchedObjects];
+        
+        for (KeyEntity *entity in items) {
+            
+            NSMutableDictionary * d = [[NSMutableDictionary new] autorelease];
+            [root addObject:[entity toDictionary:d]];
+        }
+        
+        
+        NSString *errorDescription;
+        
+        NSData *data = [NSPropertyListSerialization dataFromPropertyList:root format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorDescription ];
+        
+        if (data== nil ) {
+            NSString *msg = [NSString stringWithFormat:@"error creating NSPropertyListSerialization [%@]", errorDescription ];
+            
+            [KeyChainAppDelegate showMessagePopup:msg title:@"error"];
+            return;
+        }
+        
+        BOOL expandTilde = YES;
+        
+        //NSSearchPathDirectory destination = NSLibraryDirectory;
+        NSSearchPathDirectory destination = NSDocumentDirectory;
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
+        
+        NSString *documentDirectory = [paths objectAtIndex:0];
+        NSLog(@"Document paths[0]=[%@]", documentDirectory);
+        
+        NSDateFormatter *dateFormat = [[[NSDateFormatter alloc] init] autorelease];
+        [dateFormat setDateFormat:@"yyyyMMdd"];
+        
+        
+        NSString *fileName = [NSString stringWithFormat:@"keylist-%@.plist", [dateFormat stringFromDate:[NSDate date]]  ];
+        
+        NSString *outputPath = [documentDirectory stringByAppendingPathComponent:fileName];
+        
+        //BOOL writeResult = [data writeToFile:outputPath atomically:YES];
+        NSError *error = nil;
+        BOOL writeResult = [data writeToFile:outputPath options:NSDataWritingAtomic error:&error];
+        if( !writeResult ) {
+            [KeyChainAppDelegate showErrorPopup:error];
+        }
+        
+    }
+    @finally {
+        
+        [pool drain];
+        
     }
     
-    BOOL expandTilde = YES;
+}
+
+-(IBAction)export:(id)sender {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration: 1];
     
-    NSSearchPathDirectory destination = NSLibraryDirectory;
-    //NSSearchPathDirectory destination = NSDocumentDirectory;
+    //setting animation for the current view
+    //[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:YES];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:YES];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
+    //Push the next viewcontroller to NavigationController
     
-    //STAssertNotNil(paths, @"paths is null");
+    [self.navigationController pushViewController:self.exportViewController animated:NO];
+    //[detailViewController release];
     
-    //STAssertTrue([paths count] > 0 , @"paths is empty" );
-    
-    NSString *documentDirectory = [paths objectAtIndex:0];
-    
-    NSLog(@"Dcoument paths[0]=[%@]", documentDirectory);
-    
-    NSString *outputPath = [documentDirectory stringByAppendingPathComponent:@"keylist.plist"];
-    
-    //BOOL writeResult = [data writeToFile:outputPath atomically:YES];
-    NSError *error;
-    
-    BOOL writeResult = [data writeToFile:outputPath options:NSDataWritingAtomic error:&error];
-    
-    
-    //STAssertTrue(writeResult, @"write file [%@] failed! [%@]", outputPath, [error userInfo] );
+    //Start the Animation
+    [UIView commitAnimations];
     
 
 }
@@ -96,7 +151,7 @@
     [login release];
 }
 
-#pragma mark - ViewController lifecycle
+#pragma mark - RootViewController lifecycle
 
 -(void)awakeFromNib {
     [super awakeFromNib];
@@ -121,6 +176,7 @@
     
     [self.keyListViewController initWithNavigationController:self.navigationController];
 
+    [self.exportViewController.exportToITunesButton addTarget:self action:@selector(exportToITunes) forControlEvents:UIControlEventTouchDown];
     
 }
 
@@ -128,16 +184,6 @@
 
 
 
-
-
-@interface KeyListViewController (Private)
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope;
-- (void)filterReset;
-- (void)hideSearchBar;
-- (PersistentAppDelegate *) appDelegate;
-
-@end
 
 
 @implementation KeyListViewController
@@ -176,6 +222,20 @@
 
 #pragma - custom implementation
 
+- (NSArray *)fetchedObjects {
+    
+    NSError *error;
+    BOOL result = [self.fetchedResultsController performFetch:&error ];
+    
+    if( !result ) {
+        [KeyChainAppDelegate showErrorPopup:error];
+        return nil;
+    }
+    
+    return [self.fetchedResultsController fetchedObjects];
+    
+    
+}
 -(void)initWithNavigationController:(UINavigationController *)controller {
 
     navigationController_ = controller;

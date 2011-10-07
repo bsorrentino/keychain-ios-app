@@ -25,9 +25,22 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testFormatDate
 {
-    STFail(@"Unit tests are not implemented yet in KeyChainTests");
+    
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+    NSDateFormatter *dateFormat = [[[NSDateFormatter alloc] init] autorelease];
+    [dateFormat setDateFormat:@"yyyyMMdd"];
+    
+    
+    NSString *fileName = [NSString stringWithFormat:@"keylist-%@.plist", [dateFormat stringFromDate:[NSDate date]]  ];
+    
+    NSLog(@"filename [%@]", fileName);
+    
+    
+    [pool drain];
+
 }
 
 @end

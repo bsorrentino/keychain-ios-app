@@ -13,7 +13,7 @@
 
 }
 
-- (void)toDictionary:(NSMutableDictionary*)target;
+- (NSDictionary *)toDictionary:(NSMutableDictionary*)target;
 - (void)fromDictionary:(NSDictionary *)source;
 
 @property (nonatomic,readonly) BOOL isNew;

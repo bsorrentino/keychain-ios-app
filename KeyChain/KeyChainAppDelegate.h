@@ -25,6 +25,7 @@
 
 
 - (void)playClick;
-
++ (void)showMessagePopup:(NSString *)message title:(NSString*)title;
++ (void)showErrorPopup:(NSError *)error;
 @end
 

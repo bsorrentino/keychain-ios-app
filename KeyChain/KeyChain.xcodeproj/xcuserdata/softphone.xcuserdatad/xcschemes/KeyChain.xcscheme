@@ -19,6 +19,20 @@
                ReferencedContainer = "container:KeyChain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A083A18F14362F020032B285"
+               BuildableName = "KeyChainTests.octest"
+               BlueprintName = "KeyChainTests"
+               ReferencedContainer = "container:KeyChain.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -27,6 +41,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A083A18F14362F020032B285"
+               BuildableName = "KeyChainTests.octest"
+               BlueprintName = "KeyChainTests"
+               ReferencedContainer = "container:KeyChain.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

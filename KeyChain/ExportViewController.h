@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ExportViewController : ExportViewController {
-    
+@interface ExportViewController : UIViewController {
+
+@private
+    UIButton *exportToITunesButton;
 }
+
+@property (retain,nonatomic ) IBOutlet UIButton *exportToITunesButton;
 
 @end

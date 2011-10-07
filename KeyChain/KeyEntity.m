@@ -42,10 +42,10 @@
 
 #pragma mark - Serialization
 
-- (void)toDictionary:(NSMutableDictionary*)target {
+- (NSDictionary *)toDictionary:(NSMutableDictionary*)target {
     
     if (target == nil ) {
-        return;
+        return target;
     }
     
     NSArray* attributes = [[[self entity] attributesByName] allKeys];
@@ -61,6 +61,7 @@
         }
         
     }
+    return target;
 }
 
 - (void)fromDictionary:(NSDictionary *)source {

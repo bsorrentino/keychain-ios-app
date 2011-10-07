@@ -23,6 +23,33 @@
     if (click!=nil) [click play];
 }
 
++ (void)showMessagePopup:(NSString *)message title:(NSString*)title {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title 
+                                                        message:message
+                                                       delegate:nil 
+                                              cancelButtonTitle:@"OK" 
+                                              otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        
+}
+
++ (void)showErrorPopup:(NSError *)error {
+    
+    //NSLog(@"error [%@]", [error userInfo]);
+    NSLog(@"error [%@]", error );
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                                    message:error.localizedDescription
+                                                   delegate:nil 
+                                          cancelButtonTitle:@"OK" 
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
+
+
 #pragma mark - Application lifecycle
 
 - (void)awakeFromNib {    
