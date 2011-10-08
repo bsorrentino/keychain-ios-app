@@ -12,6 +12,7 @@
 #import "KeyChainAppDelegate.h"
 #import "KeyChainLogin.h"
 #import "ExportViewController.h"
+#import "WaitMaskController.h"
 
 @interface RootViewController (Private)
 -(void)insertNewObject;
@@ -42,9 +43,15 @@
 }
 
 -(void)exportToITunes {
+    
+    
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
+    WaitMaskController *wait = [[WaitMaskController alloc] init ];
+
     @try {
+
+        [wait mask:@"Export to ITunes...."];
         
         NSMutableArray *root = [[[NSMutableArray alloc ]init] autorelease];
         
@@ -103,6 +110,8 @@
         
     }
     @finally {
+        
+        [wait unmask];
         
         [pool drain];
         
