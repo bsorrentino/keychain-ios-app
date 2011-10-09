@@ -50,6 +50,9 @@
 		5FCF753112D9FACD00A9E0D8 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF751C12D9FACD00A9E0D8 /* SwitchDataEntryCell.m */; };
 		5FCF753212D9FACD00A9E0D8 /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF751E12D9FACD00A9E0D8 /* TextDataEntryCell.m */; };
 		5FCF753312D9FACD00A9E0D8 /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */; };
+		5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD466ED1441A5C600A39BEE /* ImportViewController.m */; };
+		5FD466F01441A5C600A39BEE /* ImportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FD466EE1441A5C600A39BEE /* ImportViewController.xib */; };
+		5FD466F21441A81100A39BEE /* import20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD466F11441A81100A39BEE /* import20x20.png */; };
 		5FEA98E512B981950034ADC1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */; };
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
 		5FF7900512E7AC9F008EA886 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900212E7AC9F008EA886 /* chevron.png */; };
@@ -148,6 +151,10 @@
 		5FCF752312D9FACD00A9E0D8 /* UIXMLFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewController.h; sourceTree = "<group>"; };
 		5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIXMLFormViewController.m; sourceTree = "<group>"; };
 		5FCF752512D9FACD00A9E0D8 /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewControllerDelegate.h; sourceTree = "<group>"; };
+		5FD466EC1441A5C600A39BEE /* ImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportViewController.h; sourceTree = "<group>"; };
+		5FD466ED1441A5C600A39BEE /* ImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportViewController.m; sourceTree = "<group>"; };
+		5FD466EE1441A5C600A39BEE /* ImportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImportViewController.xib; sourceTree = "<group>"; };
+		5FD466F11441A81100A39BEE /* import20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = import20x20.png; sourceTree = "<group>"; };
 		5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		5FF78F2E12E5A481008EA886 /* logo-64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-64x64.png"; sourceTree = "<group>"; };
 		5FF7900212E7AC9F008EA886 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
@@ -243,6 +250,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5FD466F11441A81100A39BEE /* import20x20.png */,
+				5FD466EE1441A5C600A39BEE /* ImportViewController.xib */,
 				5F6F343B143F49EC00D9C428 /* usb48x48.png */,
 				A083A1791435CB9B0032B285 /* changePwd24x24.png */,
 				A0CD69651430C24A00EDE45F /* export20x20.png */,
@@ -295,6 +304,8 @@
 				5F04E6E212E368C800370F50 /* KeyChainLogin.m */,
 				5F6F3438143F315500D9C428 /* ExportViewController.h */,
 				5F6F3439143F315500D9C428 /* ExportViewController.m */,
+				5FD466EC1441A5C600A39BEE /* ImportViewController.h */,
+				5FD466ED1441A5C600A39BEE /* ImportViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -464,6 +475,8 @@
 				A0CD69661430C24A00EDE45F /* export20x20.png in Resources */,
 				A083A17A1435CB9B0032B285 /* changePwd24x24.png in Resources */,
 				5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */,
+				5FD466F01441A5C600A39BEE /* ImportViewController.xib in Resources */,
+				5FD466F21441A81100A39BEE /* import20x20.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +536,7 @@
 				5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */,
 				A0D7A2E6142333CB004C7F68 /* iToast.m in Sources */,
 				5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */,
+				5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
