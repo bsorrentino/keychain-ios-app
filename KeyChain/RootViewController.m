@@ -189,6 +189,17 @@
     
 }
 
+/*
+ override to forward requesto to keyListViewController 
+ 
+ Updates the appearance of the Edit|Done button item as necessary. Clients who override it must call super 
+*/
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    
+    [self.keyListViewController setEditing:editing animated:animated];
+}
+
 @end
 
 
