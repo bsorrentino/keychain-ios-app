@@ -12,6 +12,8 @@
 #import "KeyChainAppDelegate.h"
 #import "KeyChainLogin.h"
 #import "ExportViewController.h"
+#import "ImportViewController.h"
+
 #import "WaitMaskController.h"
 
 @interface RootViewController (Private)
@@ -35,9 +37,23 @@
 
 @synthesize keyListViewController=keyListViewController_;
 @synthesize exportViewController=exportViewController_;
+@synthesize importViewController=importViewController_;
+
+#pragma mark - RootViewController KeyListDataSource implementation
+
+- (NSArray *)fetchedObjects {
+    
+    return [self.keyListViewController fetchedObjects];
+}
+
+- (NSEntityDescription *)entityDescriptor {
+ 
+    return [[self.keyListViewController.fetchedResultsController fetchRequest] entity];
+}
 
 
-#pragma mark - RootViewController actions
+#pragma mark - RootViewController private methods
+
 - (void)insertNewObject {
     [self.keyListViewController insertNewObject:self];
 }
@@ -119,6 +135,25 @@
     
 }
 
+#pragma mark - RootViewController private methods
+
+-(IBAction)import:(id)sender {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration: 1];
+    
+    //setting animation for the current view
+    //[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:YES];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:YES];
+    
+    //Push the next viewcontroller to NavigationController
+    
+    [self.navigationController pushViewController:self.importViewController animated:NO];
+    //[detailViewController release];
+    
+    //Start the Animation
+    [UIView commitAnimations];
+}
+
 -(IBAction)export:(id)sender {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration: 1];
@@ -187,6 +222,7 @@
 
     [self.exportViewController.exportToITunesButton addTarget:self action:@selector(exportToITunes) forControlEvents:UIControlEventTouchDown];
     
+    self.importViewController.delegate = self;
 }
 
 /*

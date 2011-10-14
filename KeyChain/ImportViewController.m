@@ -6,10 +6,190 @@
 //  Copyright 2011 SOFTPHONE. All rights reserved.
 //
 
+#define AUTO_RELEASE_POOL_START \
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; { 
+
+#define AUTO_RELEASE_POOL_END \
+    } [pool drain];
+
+
+
 #import "ImportViewController.h"
+#import "PersistentAppDelegate.h"
+#import "KeyChainAppDelegate.h"
+#import "KeyEntity.h"
+
+@interface ImportViewController(Private)
+
+- (KeyChainAppDelegate *) appDelegate;
+- (void)listFiles;
+- (void)showPopup;
+- (void)importReplacingAll:(NSString *)fileName;
+@end
 
 
 @implementation ImportViewController
+
+@synthesize delegate;
+
+#pragma - ImportViewController private methds 
+
+- (KeyChainAppDelegate *)appDelegate {
+    
+    return (KeyChainAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (void)importReplacingAll:(NSString *)fileName {
+    
+    if( self.delegate == nil ) return;
+
+    BOOL expandTilde = YES;
+    
+    
+    AUTO_RELEASE_POOL_START {
+        
+        //NSSearchPathDirectory destination = NSLibraryDirectory;
+        NSSearchPathDirectory destination = NSDocumentDirectory;
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
+        
+        NSString *documentDirectory = [paths objectAtIndex:0];
+        
+        NSString *inputPath = [documentDirectory stringByAppendingPathComponent:fileName];
+        NSLog(@"Document paths[0]=[%@]", inputPath);
+        
+        //NSInputStream *is = [NSInputStream inputStreamWithFileAtPath:inputPath];
+        //id result = [NSPropertyListSerialization propertyListWithStream:is options:NSPropertyListImmutable format:nil error:&error ];
+        
+
+        NSError *errorReadingFile;
+        NSData *data = [NSData dataWithContentsOfFile:inputPath options:NSDataReadingUncached error:&errorReadingFile];
+
+        if (data== nil ) {
+            
+            [KeyChainAppDelegate showErrorPopup:errorReadingFile];
+            return;
+        }
+        
+        NSError *error;
+        NSArray *result = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListImmutable format:nil error:&error ];
+        
+        
+        
+        if (result== nil ) {
+            
+            [KeyChainAppDelegate showErrorPopup:error];
+            return;
+        }
+        
+        NSManagedObjectContext *context = [[self appDelegate] managedObjectContext];
+        
+        NSArray *keyList = [self.delegate fetchedObjects];
+        
+        for (KeyEntity *e in keyList ) {
+            
+            NSLog(@"deleting [%@]", e.mnemonic);
+            [context deleteObject:e];
+        }
+        
+        
+         
+        for( NSInteger i = 1; i < [result count]; ++i ) {
+            
+            KeyEntity * entity = [[[KeyEntity alloc] initWithEntity:[delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
+            
+            NSDictionary *d = [result objectAtIndex:i];
+            [entity fromDictionary:d];
+            
+            NSLog(@"mnemonic = [%@]", entity.mnemonic);
+        }
+        
+        [[self appDelegate] saveContext];
+        
+    
+    } AUTO_RELEASE_POOL_END    
+}
+
+-(void)listFiles {
+    
+    AUTO_RELEASE_POOL_START {
+
+    BOOL expandTilde = YES;
+    NSSearchPathDirectory destination = NSDocumentDirectory;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
+    
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    
+    NSError *error;
+    
+    //NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
+    NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentDirectory error:&error];
+   
+    NSArray * filteredArray = [dirContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.plist'"]];    
+
+    
+    fileArray_ = [[filteredArray sortedArrayUsingComparator: ^(id obj1, id obj2) {
+        
+        return [obj2 localizedCaseInsensitiveCompare:obj1 ];
+    }] retain];
+    
+
+    } 
+    AUTO_RELEASE_POOL_END
+    
+}
+
+- (void)showPopup {
+   
+    UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:@"Import Options" 
+                                                    delegate:self 
+                                                    cancelButtonTitle:@"Cancel" 
+                                                    destructiveButtonTitle:@"Replace All" 
+                                                    otherButtonTitles:@"Only Add New", @"Add and Update", nil];
+    [sheet showInView:self.tableView];
+}
+
+#pragma - ImportViewController UIActionSheetDelegate
+
+// Called when a button is clicked. The view will be automatically dismissed after this call returns
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    ;
+    
+    NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
+    
+    if (indexPath==nil )  {
+        return;
+    }
+    
+    NSString *fileName = [fileArray_ objectAtIndex:indexPath.row];
+
+    NSLog(@"clickedButtonAtIndex [%d] [%@]", buttonIndex, fileName );
+    
+    switch (buttonIndex) {
+        case 0:
+            [self importReplacingAll:fileName];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+/*
+
+// Called when we cancel a view (eg. the user clicks the Home button). This is not called when the user clicks the cancel button.
+// If not defined in the delegate, we simulate a click in the cancel button
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet;
+
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet;  // before animation and showing view
+- (void)didPresentActionSheet:(UIActionSheet *)actionSheet;  // after animation
+
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex; // before animation and hiding view
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex;  // after animation
+*/
+
+#pragma - ImportViewController initialization 
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -22,6 +202,7 @@
 
 - (void)dealloc
 {
+    [fileArray_ release];
     [super dealloc];
 }
 
@@ -39,6 +220,8 @@
 {
     [super viewDidLoad];
 
+    self.title = @"Import Key List";
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -55,6 +238,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self listFiles];
     [super viewWillAppear:animated];
 }
 
@@ -83,21 +267,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return (fileArray_ ==nil ) ? 0 : [fileArray_ count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ImportCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -105,6 +289,9 @@
     }
     
     // Configure the cell...
+    NSString * fileName = [fileArray_ objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = fileName;
     
     return cell;
 }
@@ -160,6 +347,8 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+    
+    [self showPopup];
 }
 
 @end

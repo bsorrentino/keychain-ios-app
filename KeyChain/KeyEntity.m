@@ -11,6 +11,7 @@
 @implementation KeyEntity
 
 @synthesize sectionId;
+@dynamic mnemonic;
 
 - (void)awakeFromFetch {
 
@@ -22,6 +23,10 @@
 
     [self setPrimitiveValue:NO forKey:@"isNew"];
 }
+
+//- (NSString *)mnemonic { return [self valueForKey:@"mnemonic"]; }
+//- (void)setMnemonic:(NSString*)value { [self setValue:value forKey:@"mnemonic"]; }
+
 
 -(BOOL)isNew {
 	

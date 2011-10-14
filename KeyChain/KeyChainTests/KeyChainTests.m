@@ -16,6 +16,9 @@
     [super setUp];
     
     // Set-up code here.
+    
+    //id appDelegate    = [[UIApplication sharedApplication] delegate];
+    //STAssertNotNil(appDelegate, @"Cannot find the application delegate");
 }
 
 - (void)tearDown
@@ -23,6 +26,29 @@
     // Tear-down code here.
     
     [super tearDown];
+}
+
+- (void)testDirectoryList {
+    
+    BOOL expandTilde = YES;
+    NSSearchPathDirectory destination = NSDocumentDirectory;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
+    
+    NSString *documentDirectory = [paths objectAtIndex:0];
+
+    NSError *error;
+    
+    //NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
+    NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentDirectory error:&error];
+    NSArray *onlyPLISTs = [dirContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.plist'"]];    
+    
+    [dirContents release];
+    
+    NSLog(@"list of folder [%@]", documentDirectory );
+    for( id f in onlyPLISTs ) {
+        
+        NSLog(@"file [%@]", f );
+    }
 }
 
 - (void)testFormatDate

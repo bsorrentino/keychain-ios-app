@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "KeyListDataSource.h"
 
-@interface ImportViewController : UITableViewController {
+@interface ImportViewController : UITableViewController<UIActionSheetDelegate> {
+
+@private
+    id<KeyListDataSource> delegate_;
     
+    NSArray/*(NSString*)*/ *fileArray_;
 }
+
+@property (assign,nonatomic) id<KeyListDataSource> delegate;
 
 @end
