@@ -78,7 +78,8 @@
 #pragma mark - public implementation
 
 - (void)showError:(NSString *)title msg:(NSString*)msg {
-	
+
+
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title 
 													message:msg
 												   delegate:nil 
@@ -86,7 +87,7 @@
 										  otherButtonTitles:nil];
 	[alert show];
 	[alert release];
-	
+
 }
 
 - (void)initWithEntity:(KeyEntity*)entity delegate:(NSObject<KeyEntityFormControllerDelegate>*) delegate {
@@ -138,18 +139,16 @@
 	
 	if (!valid_) {
 		
-		NSString *msg = [NSString stringWithFormat:@"Data not valid !\n error %@", [error description]];
-		
 		NSLog(@"entity not valid for insert/update error %@, %@", error, [error userInfo]);
-		
-		[self showError:@"Error" msg:msg ];
-		
+
+		//[self showError:@"Error" msg:[NSString stringWithFormat:@"Data not valid !\n error %@", [error description]] ];
+        
+        [KeyChainAppDelegate showMessagePopup:@"Input Data are not valid!" title:@"Error"];
+        
 		return;
 	}
     
-    ;
     
-	
 	if (formDelegate_!=nil && [formDelegate_ respondsToSelector:@selector(doSaveObject:)]) {
 		valid_ = [formDelegate_ doSaveObject:entity_];
 	}
@@ -185,13 +184,13 @@
 
 	if (!valid_) {
 		
-		NSString *msg = [NSString stringWithFormat:@"value for field [%@] is not valid!", cell.dataKey];
-
 		NSLog(@"value [%@] is not valid! error %@", error, [error userInfo]);
 		
 		// SHOW ERROR POPUP
-		[self showError:@"Error" msg:msg ];
-
+		//[self showError:@"Error" msg:[NSString stringWithFormat:@"value for field [%@] is not valid!", cell.dataKey] ];
+        [KeyChainAppDelegate showMessagePopup:[NSString stringWithFormat:@"value for field [%@] is not valid!", cell.dataKey] title:@"error"];
+        
+        
 		[cell setControlValue:[entity_ valueForKey:cell.dataKey]];
 	}
 	else {	 
