@@ -6,18 +6,11 @@
 //  Copyright 2011 SOFTPHONE. All rights reserved.
 //
 
-#define AUTO_RELEASE_POOL_START \
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; { 
-
-#define AUTO_RELEASE_POOL_END \
-    } [pool drain];
-
-
-
 #import "ImportViewController.h"
 #import "PersistentAppDelegate.h"
 #import "KeyChainAppDelegate.h"
 #import "KeyEntity.h"
+#import "WaitMaskController.h"
 
 @interface ImportViewController(Private)
 
@@ -31,6 +24,26 @@
 @implementation ImportViewController
 
 @synthesize delegate;
+
+#pragma - ImportViewController UIAlertViewDelegate implementation 
+
+/*
+// Called when a button is clicked. The view will be automatically dismissed after this call returns
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+
+// Called when we cancel a view (eg. the user clicks the Home button). This is not called when the user clicks the cancel button.
+// If not defined in the delegate, we simulate a click in the cancel button
+- (void)alertViewCancel:(UIAlertView *)alertView;
+
+- (void)willPresentAlertView:(UIAlertView *)alertView;  // before animation and showing view
+- (void)didPresentAlertView:(UIAlertView *)alertView;  // after animation
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex; // before animation and hiding view
+*/
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {  // after animation
+    [self.navigationController popViewControllerAnimated:YES];    
+}
 
 #pragma - ImportViewController private methds 
 
@@ -46,7 +59,13 @@
     BOOL expandTilde = YES;
     
     
-    AUTO_RELEASE_POOL_START {
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; 
+    
+    WaitMaskController *wait = [[WaitMaskController alloc] init ] ;
+
+    @try { 
+
+        [wait mask:@"Import file ...."];
         
         //NSSearchPathDirectory destination = NSLibraryDirectory;
         NSSearchPathDirectory destination = NSDocumentDirectory;
@@ -61,7 +80,8 @@
         //NSInputStream *is = [NSInputStream inputStreamWithFileAtPath:inputPath];
         //id result = [NSPropertyListSerialization propertyListWithStream:is options:NSPropertyListImmutable format:nil error:&error ];
         
-
+        wait.message = @"reading .....";
+        
         NSError *errorReadingFile;
         NSData *data = [NSData dataWithContentsOfFile:inputPath options:NSDataReadingUncached error:&errorReadingFile];
 
@@ -74,8 +94,6 @@
         NSError *error;
         NSArray *result = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListImmutable format:nil error:&error ];
         
-        
-        
         if (result== nil ) {
             
             [KeyChainAppDelegate showErrorPopup:error];
@@ -84,6 +102,8 @@
         
         NSManagedObjectContext *context = [[self appDelegate] managedObjectContext];
         
+        wait.message = @"deleting keys .....";
+
         NSArray *keyList = [self.delegate fetchedObjects];
         
         for (KeyEntity *e in keyList ) {
@@ -93,6 +113,7 @@
         }
         
         
+        wait.message = @"adding keys .....";
          
         for( NSInteger i = 1; i < [result count]; ++i ) {
             
@@ -106,36 +127,50 @@
         
         [[self appDelegate] saveContext];
         
+        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Import" 
+                                                        message:@"Completed!"
+                                                       delegate:self 
+                                              cancelButtonTitle:@"OK" 
+                                              otherButtonTitles:nil] autorelease];
+        [alert show];
     
-    } AUTO_RELEASE_POOL_END    
+    }
+    @finally {
+        
+        [wait unmask];
+        
+        [pool drain];   
+        
+    }
 }
 
 -(void)listFiles {
     
-    AUTO_RELEASE_POOL_START {
-
-    BOOL expandTilde = YES;
-    NSSearchPathDirectory destination = NSDocumentDirectory;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
-    NSString *documentDirectory = [paths objectAtIndex:0];
-    
-    NSError *error;
-    
-    //NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
-    NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentDirectory error:&error];
-   
-    NSArray * filteredArray = [dirContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.plist'"]];    
-
-    
-    fileArray_ = [[filteredArray sortedArrayUsingComparator: ^(id obj1, id obj2) {
+    @try {
+        BOOL expandTilde = YES;
+        NSSearchPathDirectory destination = NSDocumentDirectory;
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
         
-        return [obj2 localizedCaseInsensitiveCompare:obj1 ];
-    }] retain];
-    
-
-    } 
-    AUTO_RELEASE_POOL_END
+        NSString *documentDirectory = [paths objectAtIndex:0];
+        
+        NSError *error;
+        
+        //NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
+        NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentDirectory error:&error];
+        
+        NSArray * filteredArray = [dirContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.plist'"]];    
+        
+        
+        fileArray_ = [[filteredArray sortedArrayUsingComparator: ^(id obj1, id obj2) {
+            
+            return [obj2 localizedCaseInsensitiveCompare:obj1 ];
+        }] retain];
+    }
+    @finally {
+        [pool drain];
+    }
     
 }
 

@@ -14,10 +14,12 @@
 @private
     UIAlertView *waitView_;
     void (^cancelBlock_)(void);
+    
 }
 
 - (void)mask:(NSString*)title;
 - (void)maskWithCancelBlock:(NSString*)title cancelBlock:(void (^)(void))cancelBlock;
 - (void)unmask;
 
+@property (nonatomic,retain) NSString *message;
 @end

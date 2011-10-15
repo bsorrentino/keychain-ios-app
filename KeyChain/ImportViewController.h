@@ -10,7 +10,7 @@
 
 #import "KeyListDataSource.h"
 
-@interface ImportViewController : UITableViewController<UIActionSheetDelegate> {
+@interface ImportViewController : UITableViewController<UIActionSheetDelegate, UIAlertViewDelegate> {
 
 @private
     id<KeyListDataSource> delegate_;

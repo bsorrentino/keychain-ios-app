@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KeyListDataSource.h"
 
-
-@interface ExportViewController : UIViewController {
+@interface ExportViewController : UIViewController<UIAlertViewDelegate> {
 
 @private
+    id<KeyListDataSource> delegate_;
+
     UIButton *exportToITunesButton;
 }
 
+@property (assign,nonatomic) id<KeyListDataSource> delegate;
 @property (retain,nonatomic ) IBOutlet UIButton *exportToITunesButton;
 
 @end

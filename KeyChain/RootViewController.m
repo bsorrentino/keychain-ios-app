@@ -18,7 +18,6 @@
 
 @interface RootViewController (Private)
 -(void)insertNewObject;
--(void)exportToITunes;
 @end
 
 
@@ -58,82 +57,6 @@
     [self.keyListViewController insertNewObject:self];
 }
 
--(void)exportToITunes {
-    
-    
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
-    WaitMaskController *wait = [[WaitMaskController alloc] init ];
-
-    @try {
-
-        [wait mask:@"Export to ITunes...."];
-        
-        NSMutableArray *root = [[[NSMutableArray alloc ]init] autorelease];
-        
-        NSArray * keys = [NSArray  arrayWithObjects:@"version",nil];
-        NSArray * values = [NSArray arrayWithObjects:@"1.2",nil];
-        
-        NSMutableDictionary * header = [NSMutableDictionary dictionaryWithObjects:values forKeys:keys];
-        
-        [root addObject:header];
-        
-        
-        NSArray *items = [self.keyListViewController fetchedObjects];
-        
-        for (KeyEntity *entity in items) {
-            
-            NSMutableDictionary * d = [[NSMutableDictionary new] autorelease];
-            [root addObject:[entity toDictionary:d]];
-        }
-        
-        
-        NSString *errorDescription;
-        
-        NSData *data = [NSPropertyListSerialization dataFromPropertyList:root format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorDescription ];
-        
-        if (data== nil ) {
-            NSString *msg = [NSString stringWithFormat:@"error creating NSPropertyListSerialization [%@]", errorDescription ];
-            
-            [KeyChainAppDelegate showMessagePopup:msg title:@"error"];
-            return;
-        }
-        
-        BOOL expandTilde = YES;
-        
-        //NSSearchPathDirectory destination = NSLibraryDirectory;
-        NSSearchPathDirectory destination = NSDocumentDirectory;
-        
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
-        
-        NSString *documentDirectory = [paths objectAtIndex:0];
-        NSLog(@"Document paths[0]=[%@]", documentDirectory);
-        
-        NSDateFormatter *dateFormat = [[[NSDateFormatter alloc] init] autorelease];
-        [dateFormat setDateFormat:@"yyyyMMdd"];
-        
-        
-        NSString *fileName = [NSString stringWithFormat:@"keylist-%@.plist", [dateFormat stringFromDate:[NSDate date]]  ];
-        
-        NSString *outputPath = [documentDirectory stringByAppendingPathComponent:fileName];
-        
-        //BOOL writeResult = [data writeToFile:outputPath atomically:YES];
-        NSError *error = nil;
-        BOOL writeResult = [data writeToFile:outputPath options:NSDataWritingAtomic error:&error];
-        if( !writeResult ) {
-            [KeyChainAppDelegate showErrorPopup:error];
-        }
-        
-    }
-    @finally {
-        
-        [wait unmask];
-        
-        [pool drain];
-        
-    }
-    
-}
 
 #pragma mark - RootViewController private methods
 
@@ -219,9 +142,8 @@
 	self.title = @"Key List";
     
     [self.keyListViewController initWithNavigationController:self.navigationController];
-
-    [self.exportViewController.exportToITunesButton addTarget:self action:@selector(exportToITunes) forControlEvents:UIControlEventTouchDown];
     
+    self.exportViewController.delegate = self;
     self.importViewController.delegate = self;
 }
 

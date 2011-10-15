@@ -10,6 +10,17 @@
 
 
 @implementation WaitMaskController
+@synthesize message;
+
+-(void)setMessage:(NSString*)value {
+
+    waitView_.title = value;
+}
+
+-(NSString *)message {
+    
+    return waitView_.title;
+}
 
 
 - (void)mask:(NSString*)title {
