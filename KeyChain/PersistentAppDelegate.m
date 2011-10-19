@@ -16,6 +16,7 @@
 @interface PersistentAppDelegate(Private)
 
 - (BOOL) isSchemaCompatible:(NSPersistentStoreCoordinator *)psc;
+- (BOOL)copyDataFile;
 
 @end
 
@@ -25,13 +26,56 @@
 
 #pragma - Private implementation
 
+- (BOOL)copyDataFile {
+    
+    BOOL success = NO;
+
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc ]init];
+    
+    @try {
+        
+        NSError *error;
+        
+        //NSArray *sourcePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        //NSString *sourceDirectory = [sourcePaths objectAtIndex:0];
+        NSString *sourceDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+
+        NSString *sourcePath = [sourceDirectory stringByAppendingPathComponent:@_PERSISTENT_APP_NAME".sqlite"];
+        
+        if( [fileManager fileExistsAtPath:sourcePath] ) {
+            
+            //NSArray *targetPaths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+            //NSString *targetPath = [targetPaths objectAtIndex:0];
+            NSString *targetDirectory = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+            NSString *targetPath = [targetDirectory stringByAppendingPathComponent:@_PERSISTENT_APP_NAME".sqlite"];
+
+            NSLog(@"file [%@] exists.\n Try moving to [%@]", sourcePath, targetPath);
+            
+            success = [fileManager moveItemAtPath:sourcePath toPath:targetPath error:&error];
+
+            if( !success ) {
+                NSLog(@"error moving file [%@] ", [error description]);
+                
+            }
+        }
+        
+        return success;
+        
+    }
+    @finally {
+        [pool drain];
+    }
+}
+
 - (BOOL) isSchemaCompatible:(NSPersistentStoreCoordinator *)psc {
     
     NSString *sourceStoreType = NSSQLiteStoreType ;
     
     NSURL *sourceStoreURL =  
     [NSURL fileURLWithPath: 
-     [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @_PERSISTENT_APP_NAME".sqlite"]];
+     [[self applicationDataDirectory] stringByAppendingPathComponent: @_PERSISTENT_APP_NAME".sqlite"]];
     
     NSError *error = nil;
     
@@ -131,7 +175,9 @@
         return persistentStoreCoordinator_;
     }
     
-    NSURL *storeURL = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @_PERSISTENT_APP_NAME".sqlite"]];
+    [self copyDataFile];
+    
+    NSURL *storeURL = [NSURL fileURLWithPath: [[self applicationDataDirectory] stringByAppendingPathComponent: @_PERSISTENT_APP_NAME".sqlite"]];
     
     NSError *error = nil;
     persistentStoreCoordinator_ = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -194,8 +240,9 @@
 /**
  Returns the path to the application's Documents directory.
  */
-- (NSString *)applicationDocumentsDirectory {
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+- (NSString *)applicationDataDirectory {
+    return [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+    //return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
 #pragma mark - Memory management

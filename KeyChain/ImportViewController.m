@@ -25,7 +25,7 @@
 
 @synthesize delegate;
 
-#pragma - ImportViewController UIAlertViewDelegate implementation 
+#pragma mark - ImportViewController UIAlertViewDelegate implementation 
 
 /*
 // Called when a button is clicked. The view will be automatically dismissed after this call returns
@@ -41,11 +41,42 @@
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex; // before animation and hiding view
 */
 
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {  // after animation
+    
+    if( buttonIndex == 1 ) { // Delete File  
+
+        NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
+        
+        if (indexPath==nil )  {
+            return;
+        }
+        
+        NSString *fileName = [fileArray_ objectAtIndex:indexPath.row];
+       
+        
+        BOOL expandTilde = YES;
+        NSSearchPathDirectory destination = NSDocumentDirectory;
+        
+        NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde) lastObject];
+        
+        NSString *targetPath = [documentDirectory stringByAppendingPathComponent:fileName];
+        
+        NSError * error;
+        
+        BOOL result = [[NSFileManager defaultManager] removeItemAtPath:targetPath error:&error ];
+        
+        if( !result )
+            [KeyChainAppDelegate  showErrorPopup:error];
+        
+    }
+    
+    
+
     [self.navigationController popViewControllerAnimated:YES];    
 }
 
-#pragma - ImportViewController private methds 
+#pragma mark - ImportViewController private methods 
 
 - (KeyChainAppDelegate *)appDelegate {
     
@@ -131,7 +162,7 @@
                                                         message:@"Completed!"
                                                        delegate:self 
                                               cancelButtonTitle:@"OK" 
-                                              otherButtonTitles:nil] autorelease];
+                                              otherButtonTitles:@"Delete File", nil] autorelease];
         [alert show];
     
     }
@@ -151,9 +182,9 @@
     @try {
         BOOL expandTilde = YES;
         NSSearchPathDirectory destination = NSDocumentDirectory;
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
+        //NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
         
-        NSString *documentDirectory = [paths objectAtIndex:0];
+        NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde) lastObject];
         
         NSError *error;
         
@@ -184,12 +215,12 @@
     [sheet showInView:self.tableView];
 }
 
-#pragma - ImportViewController UIActionSheetDelegate
+#pragma mark - ImportViewController UIActionSheetDelegate implementation
+
 
 // Called when a button is clicked. The view will be automatically dismissed after this call returns
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    ;
     
     NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
     
@@ -198,7 +229,7 @@
     }
     
     NSString *fileName = [fileArray_ objectAtIndex:indexPath.row];
-
+    
     NSLog(@"clickedButtonAtIndex [%d] [%@]", buttonIndex, fileName );
     
     switch (buttonIndex) {
@@ -211,20 +242,46 @@
     }
 }
 
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet { // before animation and showing view
+    
+    for (UIView* view in [actionSheet subviews])
+    {
+        NSLog(@"class [%@] tag [%d]", [[view class] description], view.tag );
+        
+        if( view.tag ==2 || view.tag == 3 ) {
+            
+                [view performSelector:@selector(setEnabled:) withObject:NO];        
+        }
+/*        
+        if ([[[view class] description] isEqualToString:@"UIThreePartButton"])
+        {
+            if ([view respondsToSelector:@selector(title)])
+            {
+                NSString* title = [view performSelector:@selector(title)];
+                if ([title isEqualToString:@"Button 1"] && [view respondsToSelector:@selector(setEnabled:)])
+                {
+                    [view performSelector:@selector(setEnabled:) withObject:NO];
+                }
+            }
+        }
+ */
+    }
+        
+}
+
 /*
 
 // Called when we cancel a view (eg. the user clicks the Home button). This is not called when the user clicks the cancel button.
 // If not defined in the delegate, we simulate a click in the cancel button
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet;
 
-- (void)willPresentActionSheet:(UIActionSheet *)actionSheet;  // before animation and showing view
 - (void)didPresentActionSheet:(UIActionSheet *)actionSheet;  // after animation
 
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex; // before animation and hiding view
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex;  // after animation
 */
 
-#pragma - ImportViewController initialization 
+#pragma mark - ImportViewController initialization 
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -274,6 +331,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self listFiles];
+    [self.tableView reloadData];
+    
     [super viewWillAppear:animated];
 }
 
