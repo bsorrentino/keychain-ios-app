@@ -24,6 +24,7 @@
 @implementation KeyChainLogin
 
 @synthesize txtPassword;
+@synthesize parent;
 
 #pragma mark - private implementation
 
@@ -44,9 +45,12 @@
 		return NO;
 		
 	}
+
+	[self.parent.view setHidden:NO];
+	[self.parent dismissModalViewControllerAnimated:YES];
 	
-	[self.parentViewController.view setHidden:NO];
-	[[self.parentViewController modalViewController] dismissModalViewControllerAnimated:YES];
+	//[self.parentViewController.view setHidden:NO];
+	//[[self.parentViewController modalViewController] dismissModalViewControllerAnimated:YES];
 	return YES;
 }
 
@@ -149,7 +153,10 @@
     
 	//self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-	[root presentModalViewController:self animated:YES];
+	
+    [root presentModalViewController:self animated:YES];
+    
+    self.parent = root;
 }
 
 
@@ -226,6 +233,8 @@
     [super viewDidLoad];
 	
 	txtPassword.delegate = self;
+    
+
 }
 
 

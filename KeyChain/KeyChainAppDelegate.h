@@ -11,6 +11,13 @@
 #import "PersistentAppDelegate.h"
 #import <AVFoundation/AVAudioPlayer.h>
 
+
+//
+// DEFINE IN THE PREPROCESSOR MACRO (DOESN'T WORK WITH XCODE 4.2)
+//
+//#define __IPHONE_OS_VERSION_MAX_ALLOWED=40200
+//
+//
 @interface KeyChainAppDelegate : PersistentAppDelegate {
     
     UIWindow *window;
