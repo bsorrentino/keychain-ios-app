@@ -51,14 +51,22 @@
             NSString *targetDirectory = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
             NSString *targetPath = [targetDirectory stringByAppendingPathComponent:@_PERSISTENT_APP_NAME".sqlite"];
 
+#ifdef REPLACE_DB
+            if([fileManager fileExistsAtPath:targetPath] ) {
+               
+                NSError *removeError; 
+                [fileManager removeItemAtPath:targetPath error:&removeError];
+            }    
+#endif            
             NSLog(@"file [%@] exists.\n Try moving to [%@]", sourcePath, targetPath);
             
             success = [fileManager moveItemAtPath:sourcePath toPath:targetPath error:&error];
-
+            
             if( !success ) {
                 NSLog(@"error moving file [%@] ", [error description]);
                 
             }
+            
         }
         
         return success;
