@@ -124,7 +124,6 @@
         
         NSError *error;
         NSArray *result = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListImmutable format:nil error:&error ];
-        
         if (result== nil ) {
             
             [KeyChainAppDelegate showErrorPopup:error];

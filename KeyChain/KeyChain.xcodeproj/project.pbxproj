@@ -29,6 +29,7 @@
 		5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6F343B143F49EC00D9C428 /* usb48x48.png */; };
 		5F777C341359E367003AFC9E /* edit32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F777C321359E367003AFC9E /* edit32x32.png */; };
 		5F777C351359E367003AFC9E /* write32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F777C331359E367003AFC9E /* write32x32.png */; };
+		5F9A3E911450808B004300C9 /* OptionPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A3E901450808B004300C9 /* OptionPane.m */; };
 		5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */; };
 		5FA3A4C112DC7730009BE36C /* KeyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BB12DC7730009BE36C /* KeyEntity.m */; };
 		5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */; };
@@ -115,6 +116,8 @@
 		5F777C321359E367003AFC9E /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
 		5F777C331359E367003AFC9E /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
 		5F8B67EA14471B7E00A767AE /* KeyListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListDataSource.h; sourceTree = "<group>"; };
+		5F9A3E8F1450808B004300C9 /* OptionPane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionPane.h; sourceTree = "<group>"; };
+		5F9A3E901450808B004300C9 /* OptionPane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionPane.m; sourceTree = "<group>"; };
 		5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainAppDelegate.h; sourceTree = "<group>"; };
 		5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainAppDelegate.m; sourceTree = "<group>"; };
 		5FA3A4BA12DC7730009BE36C /* KeyEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyEntity.h; sourceTree = "<group>"; };
@@ -350,6 +353,8 @@
 				5FCF752512D9FACD00A9E0D8 /* UIXMLFormViewControllerDelegate.h */,
 				5F465BEF13AE1F6300EA3C53 /* WaitMaskController.h */,
 				5F465BF013AE1F6300EA3C53 /* WaitMaskController.m */,
+				5F9A3E8F1450808B004300C9 /* OptionPane.h */,
+				5F9A3E901450808B004300C9 /* OptionPane.m */,
 			);
 			name = UIXML;
 			path = ../UIXML;
@@ -535,6 +540,7 @@
 				A0D7A2E6142333CB004C7F68 /* iToast.m in Sources */,
 				5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */,
 				5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */,
+				5F9A3E911450808B004300C9 /* OptionPane.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

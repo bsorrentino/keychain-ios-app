@@ -7,16 +7,20 @@
 //
 
 #import "PersistentAppDelegate.h"
+#import "OptionPane.h"
 
 #ifndef _PERSISTENT_APP_NAME 
 #define _PERSISTENT_APP_NAME "MyApp"
 #endif
 
+#define REPLACE_DB
 
 @interface PersistentAppDelegate(Private)
 
 - (BOOL) isSchemaCompatible:(NSPersistentStoreCoordinator *)psc;
-- (BOOL)copyDataFile;
+- (void)checkSearchPathDirectoryForDataFile;
+- (void)moveDataFileSafe:(NSFileManager *)fileManager sourcePath:(NSString *)sourcePath targetPath:(NSString *)targetPath removeTarget:(BOOL)removeTarget;
+
 
 @end
 
@@ -26,17 +30,56 @@
 
 #pragma - Private implementation
 
-- (BOOL)copyDataFile {
-    
-    BOOL success = NO;
+- (void)moveDataFileSafe:(NSFileManager *)fileManager sourcePath:(NSString *)sourcePath targetPath:(NSString *)targetPath removeTarget:(BOOL)removeTarget {
 
+    NSLog(@"file [%@] exists.\n Try moving to [%@]", sourcePath, targetPath);
+    
+    if( removeTarget ){
+        
+        NSError *error;
+        BOOL success = [fileManager removeItemAtPath:targetPath error:&error];
+        
+        if( !success ) {
+            NSLog(@"error removing target  [%@] ", [error description]);
+            
+            return ; 
+        }
+    }
+    
+    {
+        
+        NSError *error;
+        BOOL success = [fileManager copyItemAtPath:sourcePath toPath:targetPath error:&error];
+        
+        if( !success ) {
+            NSLog(@"error moving file [%@] ", [error description]);
+         
+            applicationSearchPathDirectory_ = NSDocumentDirectory;
+
+            return;
+        }
+    }
+    
+    {
+        NSError *error;
+        BOOL success = [fileManager removeItemAtPath:sourcePath error:&error];
+        
+        if( !success ) {
+            NSLog(@"error removing file [%@] ", [error description]);
+            return ;
+        }
+    }
+    
+}
+
+- (void)checkSearchPathDirectoryForDataFile {
+    
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc ]init];
     
     @try {
         
-        NSError *error;
         
         //NSArray *sourcePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         //NSString *sourceDirectory = [sourcePaths objectAtIndex:0];
@@ -44,7 +87,11 @@
 
         NSString *sourcePath = [sourceDirectory stringByAppendingPathComponent:@_PERSISTENT_APP_NAME".sqlite"];
         
+
+        
+        
         if( [fileManager fileExistsAtPath:sourcePath] ) {
+
             
             //NSArray *targetPaths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
             //NSString *targetPath = [targetPaths objectAtIndex:0];
@@ -52,24 +99,27 @@
             NSString *targetPath = [targetDirectory stringByAppendingPathComponent:@_PERSISTENT_APP_NAME".sqlite"];
 
 #ifdef REPLACE_DB
+            
             if([fileManager fileExistsAtPath:targetPath] ) {
-               
-                NSError *removeError; 
-                [fileManager removeItemAtPath:targetPath error:&removeError];
+
+                [OptionPane showOKCancelAlert:@"Warning" message:@"Data file already exist\nDo you want owerwrite it?"  
+                                      OKTitle:@"Yes" OKBlock:[^{
+                                            
+                    
+                                            [self moveDataFileSafe:fileManager sourcePath:sourcePath targetPath:targetPath removeTarget:YES] ;
+                                            
+                                        } copy]
+                                  CancelTitle:@"No" CancelBlock:nil ] ;
+
+                return;
             }    
 #endif            
-            NSLog(@"file [%@] exists.\n Try moving to [%@]", sourcePath, targetPath);
+            [self moveDataFileSafe:fileManager sourcePath:sourcePath targetPath:targetPath removeTarget:NO];
             
-            success = [fileManager moveItemAtPath:sourcePath toPath:targetPath error:&error];
-            
-            if( !success ) {
-                NSLog(@"error moving file [%@] ", [error description]);
-                
-            }
-            
+            return;
         }
         
-        return success;
+        return;
         
     }
     @finally {
@@ -183,7 +233,9 @@
         return persistentStoreCoordinator_;
     }
     
-    [self copyDataFile];
+    applicationSearchPathDirectory_ = NSLibraryDirectory;
+   
+    [self checkSearchPathDirectoryForDataFile];
     
     NSURL *storeURL = [NSURL fileURLWithPath: [[self applicationDataDirectory] stringByAppendingPathComponent: @_PERSISTENT_APP_NAME".sqlite"]];
     
@@ -249,7 +301,7 @@
  Returns the path to the application's Documents directory.
  */
 - (NSString *)applicationDataDirectory {
-    return [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+    return [NSSearchPathForDirectoriesInDomains(applicationSearchPathDirectory_, NSUserDomainMask, YES) lastObject];
     //return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 

@@ -20,6 +20,7 @@
     NSManagedObjectModel *managedObjectModel_;
     NSPersistentStoreCoordinator *persistentStoreCoordinator_;
 	
+    NSSearchPathDirectory applicationSearchPathDirectory_;
 }
 
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
