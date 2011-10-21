@@ -60,7 +60,11 @@ typedef enum iToastType {
 
 @end
 
+@interface iToast(Extension)
 
+- (id) initWithText:(NSString *)text;
+
+@end
 
 @interface iToastSettings : NSObject<NSCopying>{
 	NSInteger duration;
