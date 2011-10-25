@@ -147,6 +147,12 @@
     self.importViewController.delegate = self;
 }
 
+// Implement viewWillAppear: to do additional setup before the view is presented.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.keyListViewController viewWillAppear:animated];
+}
+
 /*
  override to forward requesto to keyListViewController 
  
@@ -157,6 +163,8 @@
     
     [self.keyListViewController setEditing:editing animated:animated];
 }
+
+
 
 @end
 
@@ -339,7 +347,6 @@
     
     self.searchDisplayController.searchBar.delegate = self;
 }
-
 
 // Implement viewWillAppear: to do additional setup before the view is presented.
 - (void)viewWillAppear:(BOOL)animated {

@@ -18,7 +18,7 @@
 @class ExportViewController;
 @class ImportViewController;
 
-@interface RootViewController : UIViewController<KeyListDataSource>  {
+@interface RootViewController : UIViewController<KeyListDataSource, UINavigationControllerDelegate>  {
     
 @private
     KeyListViewController *keyListViewController_;
