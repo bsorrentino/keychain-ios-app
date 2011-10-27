@@ -11,6 +11,8 @@
 #import "AttributeInfo.h"
 #import <AVFoundation/AVAudioPlayer.h>
 
+#define TRACE_ENTER( m ) NSLog( @"enter in [%@]", @#m )
+
 NSString * const regularExpression = @"(.*)@(.*)";
 
 @interface MailListDataEntryCell(Private) 
@@ -417,6 +419,8 @@ NSString * const regularExpression = @"(.*)@(.*)";
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+
+    TRACE_ENTER(setEditing);
     
     if( editing==NO ) {
         NSInteger count = [self numberOfObjectsInSection:0];
@@ -424,7 +428,8 @@ NSString * const regularExpression = @"(.*)@(.*)";
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:count inSection:0];            
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
         cell.detailTextLabel.text = @"";
-        [indexPath release];
+        
+        //[indexPath release]; BUG FIX Issue #6
 
     }
     [super setEditing:editing animated:animated];
@@ -433,6 +438,8 @@ NSString * const regularExpression = @"(.*)@(.*)";
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    TRACE_ENTER(numberOfRowsInSection);
     
     return [self numberOfObjectsInSection:section] + 1;
     
@@ -442,6 +449,8 @@ NSString * const regularExpression = @"(.*)@(.*)";
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    TRACE_ENTER(cellForRowAtIndexPath);
     
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ListDataEntryCell"];
 
@@ -468,6 +477,8 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    TRACE_ENTER(commitEditingStyle);
     
     switch (editingStyle) {
         case UITableViewCellEditingStyleDelete:
@@ -510,6 +521,8 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    TRACE_ENTER(editingStyleForRowAtIndexPath);
+
     NSInteger count = [self numberOfObjectsInSection:0];
     
     if( indexPath.row == count  ) {
@@ -520,7 +533,7 @@ NSString * const regularExpression = @"(.*)@(.*)";
         
         cell.detailTextLabel.text = NSLocalizedString(@"ListDataEntryCell.addItemMessage", @"add new item message");
 
-        [indexPath release];
+        //[indexPath release]; // BUG FIX Issue #6
         
         return UITableViewCellEditingStyleInsert;
     }
@@ -535,6 +548,9 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    
+    TRACE_ENTER(controllerWillChangeContent);
+
     [self.tableView beginUpdates];
 }
 
@@ -589,10 +605,9 @@ NSString * const regularExpression = @"(.*)@(.*)";
 	 
  - (NSString *)controller:(NSFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName  {
  
+     NSLog(@"sectionIndexTitleForSectionName sectionName:[%@]", sectionName );
  
- NSLog(@"sectionIndexTitleForSectionName sectionName:[%@]", sectionName );
- 
- return sectionName;
+     return sectionName;
  
  }
 
