@@ -13,6 +13,38 @@
 @synthesize sectionId;
 @dynamic mnemonic;
 
+- (BOOL)isEqualForImport:(id)object {
+
+    if( object!=nil ) {
+        
+        NSString *k1 = nil;
+    
+        if ( [object isKindOfClass:[KeyEntity class]] ) {
+        
+            k1 = ((KeyEntity *)object).mnemonic;
+        
+        }
+        else if( [object isKindOfClass:[NSDictionary class]] ) {
+            
+            k1 = [object valueForKey:@"mnemonic"];
+            
+        }
+        else if( [object isKindOfClass:[NSString class]] ) {
+            
+            k1 = object ;
+            
+        }
+    
+        NSString *k = self.mnemonic;
+        
+        return (k!=nil) ? [k isEqualToString:k1] : NO;
+
+    }
+    
+    return NO;
+    
+}
+
 - (void)awakeFromFetch {
 
     [self setPrimitiveValue:NO forKey:@"isNew"];

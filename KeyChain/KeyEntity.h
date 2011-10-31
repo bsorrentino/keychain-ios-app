@@ -15,6 +15,7 @@
 
 - (NSDictionary *)toDictionary:(NSMutableDictionary*)target;
 - (void)fromDictionary:(NSDictionary *)source;
+- (BOOL)isEqualForImport:(id)object;
 
 @property (nonatomic,readonly) BOOL isNew;
 @property (nonatomic,readonly) NSString * sectionId;

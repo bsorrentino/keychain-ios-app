@@ -18,6 +18,9 @@
 - (void)listFiles;
 - (void)showPopup;
 - (void)importReplacingAll:(NSString *)fileName;
+- (void)importOnlyAddNew:(NSString *)fileName;
+- (BOOL)containsKey:(NSArray *)keyList object:(id)object entityRef:(KeyEntity **)entity;
+- (NSArray *)loadDataFromPropertyList:(NSString *)fileName;
 @end
 
 
@@ -83,12 +86,57 @@
     return (KeyChainAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
+- (BOOL)containsKey:(NSArray *)keyList object:(id)object entityRef:(KeyEntity **)entity {
+    
+    for (KeyEntity *e in keyList) {
+        if ([e isEqualForImport:object]) {
+            if( entity!=nil) *entity = e;
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
+- (NSArray *)loadDataFromPropertyList:(NSString *)fileName {
+    
+    BOOL expandTilde = YES;
+    
+    //NSSearchPathDirectory destination = NSLibraryDirectory;
+    NSSearchPathDirectory destination = NSDocumentDirectory;
+    
+    NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde) lastObject];
+    
+    NSString *inputPath = [documentDirectory stringByAppendingPathComponent:fileName];
+    NSLog(@"Document paths[0]=[%@]", inputPath);
+    
+    //NSInputStream *is = [NSInputStream inputStreamWithFileAtPath:inputPath];
+    //id result = [NSPropertyListSerialization propertyListWithStream:is options:NSPropertyListImmutable format:nil error:&error ];
+    
+    NSError *errorReadingFile;
+    NSData *data = [NSData dataWithContentsOfFile:inputPath options:NSDataReadingUncached error:&errorReadingFile];
+    
+    if (data== nil ) {
+        
+        [KeyChainAppDelegate showErrorPopup:errorReadingFile];
+        return nil;
+    }
+    
+    NSError *error;
+    NSArray *result = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListImmutable format:nil error:&error ];
+    if (result== nil ) {
+        
+        [KeyChainAppDelegate showErrorPopup:error];
+        return nil;
+    }
+    
+    return result;
+    
+}
+
 - (void)importReplacingAll:(NSString *)fileName {
     
     if( self.delegate == nil ) return;
-
-    BOOL expandTilde = YES;
-    
     
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; 
     
@@ -98,35 +146,8 @@
 
         [wait mask:@"Import file ...."];
         
-        //NSSearchPathDirectory destination = NSLibraryDirectory;
-        NSSearchPathDirectory destination = NSDocumentDirectory;
-        
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
-        
-        NSString *documentDirectory = [paths objectAtIndex:0];
-        
-        NSString *inputPath = [documentDirectory stringByAppendingPathComponent:fileName];
-        NSLog(@"Document paths[0]=[%@]", inputPath);
-        
-        //NSInputStream *is = [NSInputStream inputStreamWithFileAtPath:inputPath];
-        //id result = [NSPropertyListSerialization propertyListWithStream:is options:NSPropertyListImmutable format:nil error:&error ];
-        
-        wait.message = @"reading .....";
-        
-        NSError *errorReadingFile;
-        NSData *data = [NSData dataWithContentsOfFile:inputPath options:NSDataReadingUncached error:&errorReadingFile];
-
-        if (data== nil ) {
-            
-            [KeyChainAppDelegate showErrorPopup:errorReadingFile];
-            return;
-        }
-        
-        NSError *error;
-        NSArray *result = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListImmutable format:nil error:&error ];
+        NSArray *result = [self loadDataFromPropertyList:fileName];
         if (result== nil ) {
-            
-            [KeyChainAppDelegate showErrorPopup:error];
             return;
         }
         
@@ -158,10 +179,10 @@
         [[self appDelegate] saveContext];
         
         UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Import" 
-                                                        message:@"Completed!"
-                                                       delegate:self 
-                                              cancelButtonTitle:@"OK" 
-                                              otherButtonTitles:@"Delete File", nil] autorelease];
+                                message:[NSString stringWithFormat:@"Completed\n deleted [%d]\n added [%d]!", [keyList count], [result count]-1 ]
+                                delegate:self 
+                                cancelButtonTitle:@"OK" 
+                                otherButtonTitles:@"Delete File", nil] autorelease];
         [alert show];
     
     }
@@ -172,6 +193,127 @@
         [pool drain];   
         
     }
+}
+
+- (void)importOnlyAddNew:(NSString *)fileName {
+    
+    if( self.delegate == nil ) return;
+    
+    WaitMaskController *wait = [[WaitMaskController alloc] init ] ;
+    
+    NSInteger addedKeys = 0;
+    
+    @autoreleasepool {
+
+        [wait mask:@"Import file ...."];
+    
+        NSArray *result = [self loadDataFromPropertyList:fileName];
+        if (result== nil ) {
+            return;
+        }
+        
+        NSManagedObjectContext *context = [[self appDelegate] managedObjectContext];
+        
+        NSArray *keyList = [self.delegate fetchedObjects];
+                
+        wait.message = @"adding keys .....";
+        
+        for( NSInteger i = 1; i < [result count]; ++i ) {
+            
+            NSDictionary *d = [result objectAtIndex:i];
+
+            if ( ![self containsKey:keyList object:d entityRef:nil] ) {
+
+                ++addedKeys;
+                
+                KeyEntity * entity = [[[KeyEntity alloc] initWithEntity:[delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
+                
+                [entity fromDictionary:d];
+                
+                NSLog(@"mnemonic = [%@]", entity.mnemonic);
+                
+            }
+            
+        }
+        
+        if(addedKeys > 0 ) [[self appDelegate] saveContext];
+        
+        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Import" 
+                                                         message:[NSString stringWithFormat:@"Completed\n added [%d]!", addedKeys ]
+                                                        delegate:self 
+                                               cancelButtonTitle:@"OK" 
+                                               otherButtonTitles:@"Delete File", nil] autorelease];
+        [alert show];
+        
+    }
+    
+    [wait unmask];
+        
+}
+
+- (void)importAddAndUpdate:(NSString *)fileName {
+    
+    if( self.delegate == nil ) return;
+    
+    WaitMaskController *wait = [[WaitMaskController alloc] init ] ;
+    
+    NSInteger addedKeys = 0;
+    NSInteger updatedKeys = 0;
+    
+    @autoreleasepool {
+        
+        [wait mask:@"Import file ...."];
+        
+        NSArray *result = [self loadDataFromPropertyList:fileName];
+        if (result== nil ) {
+            return;
+        }
+        
+        NSManagedObjectContext *context = [[self appDelegate] managedObjectContext];
+        
+        NSArray *keyList = [self.delegate fetchedObjects];
+        
+        wait.message = @"adding & updating keys .....";
+        
+        for( NSInteger i = 1; i < [result count]; ++i ) {
+            
+            NSDictionary *d = [result objectAtIndex:i];
+            
+            KeyEntity *entity = nil; 
+            if ( ![self containsKey:keyList object:d entityRef:&entity] ) {
+                
+                ++addedKeys;
+                
+                KeyEntity * newEntity = [[[KeyEntity alloc] initWithEntity:[delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
+                
+                [newEntity fromDictionary:d];
+                
+                NSLog(@"added object [%@]", newEntity.mnemonic);
+                
+            }
+            else {
+                ++updatedKeys;
+                
+                [entity fromDictionary:d];
+
+                NSLog(@"updated object [%@]", entity.mnemonic);
+            }
+            
+        }
+        
+        if( addedKeys > 0 || updatedKeys > 0 ) [[self appDelegate] saveContext];
+        
+        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Import" 
+                                                         message:[NSString stringWithFormat:@"Completed\n added [%d]\n updated [%d]!", addedKeys, updatedKeys]
+                                                        delegate:self 
+                                               cancelButtonTitle:@"OK" 
+                                               otherButtonTitles:@"Delete File", nil] autorelease];
+        [alert show];
+        
+    }
+    
+    [wait unmask];
+    
 }
 
 -(void)listFiles {
@@ -204,6 +346,11 @@
     
 }
 
+#define IMPORT_REPLACEALL 0
+#define IMPORT_ONLYADDNEW 1
+#define IMPORT_ADD_UPDATE 2
+
+
 - (void)showPopup {
    
     UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:@"Import Options" 
@@ -232,10 +379,15 @@
     NSLog(@"clickedButtonAtIndex [%d] [%@]", buttonIndex, fileName );
     
     switch (buttonIndex) {
-        case 0:
+        case IMPORT_REPLACEALL:
             [self importReplacingAll:fileName];
             break;
-            
+        case IMPORT_ONLYADDNEW:
+            [self importOnlyAddNew:fileName];
+            break;            
+        case IMPORT_ADD_UPDATE:
+            [self importAddAndUpdate:fileName];
+            break;            
         default:
             break;
     }
@@ -243,17 +395,24 @@
 
 - (void)willPresentActionSheet:(UIActionSheet *)actionSheet { // before animation and showing view
     
+    /*
     for (UIView* view in [actionSheet subviews])
     {
         NSLog(@"class [%@] tag [%d]", [[view class] description], view.tag );
         
-        if( view.tag ==2 || view.tag == 3 ) {
+        if( view.tag == 2 || view.tag == 3 ) {
             
                 [view performSelector:@selector(setEnabled:) withObject:NO];        
         }
-/*        
-        if ([[[view class] description] isEqualToString:@"UIThreePartButton"])
-        {
+    }
+    */
+    
+    
+    /*        
+     for (UIView* view in [actionSheet subviews])
+     {
+         if ([[[view class] description] isEqualToString:@"UIThreePartButton"])
+         {
             if ([view respondsToSelector:@selector(title)])
             {
                 NSString* title = [view performSelector:@selector(title)];
@@ -262,10 +421,9 @@
                     [view performSelector:@selector(setEnabled:) withObject:NO];
                 }
             }
-        }
- */
-    }
-        
+         }
+     }
+     */
 }
 
 /*
