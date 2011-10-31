@@ -278,8 +278,7 @@
 	return [sectionIndexTitles_ retain];
 }
 
-#pragma -
-#pragma mark KeyEntityFormControllerDelegate
+#pragma mark KeyListViewController - KeyEntityFormControllerDelegate
 
 -(BOOL)doSaveObject:(KeyEntity*)entity {
 	NSError *error = nil;
@@ -288,6 +287,7 @@
 
 	if (entity.isNew) {
 		[context insertObject:entity];
+        reloadData_ = YES;
 	}
 	
 	
@@ -307,11 +307,12 @@
 	return YES;
 }
 
-#pragma mark View lifecycle
+#pragma mark - KeyListViewControllerView lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    reloadData_ = NO;
 	
     // Set up the edit and add buttons.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -346,14 +347,20 @@
 	self.title = @"Key List";
     
     self.searchDisplayController.searchBar.delegate = self;
+    
+    [self hideSearchBar];
 }
 
 // Implement viewWillAppear: to do additional setup before the view is presented.
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-	[super.tableView reloadData];
-
-    [self hideSearchBar];
+    
+	if( reloadData_ ) {    
+        [super.tableView reloadData];
+        reloadData_ = NO;
+    }
+    
+    //[self hideSearchBar];
 }
 
 
@@ -582,6 +589,7 @@
     
     [self filterReset];
     [self.tableView reloadData];
+    
 }
 
 #pragma mark -

@@ -60,6 +60,7 @@
 				<int key="NSvFlags">290</int>
 				<string key="NSFrameSize">{91, 44}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView"/>
 				<bool key="IBUIOpaque">NO</bool>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -117,7 +118,7 @@
 								</object>
 							</object>
 						</object>
-						<string key="NSFrameSize">{320, 460}</string>
+						<string key="NSFrameSize">{320, 416}</string>
 						<reference key="NSSuperview" ref="242671117"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="356536951"/>
@@ -210,6 +211,7 @@
 							<int key="NSvFlags">303</int>
 							<string key="NSFrame">{{111, 41}, {133, 30}}</string>
 							<reference key="NSSuperview" ref="170709225"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="680043718"/>
 							<bool key="IBUIOpaque">NO</bool>
 							<bool key="IBUIClipsSubviews">YES</bool>
@@ -303,6 +305,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{9, 21}, {77, 68}}</string>
 							<reference key="NSSuperview" ref="170709225"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="214247132"/>
 							<bool key="IBUIUserInteractionEnabled">NO</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -316,6 +319,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{58, 214}, {205, 64}}</string>
 							<reference key="NSSuperview" ref="170709225"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<bool key="IBUIOpaque">NO</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -351,6 +355,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 					</object>
 					<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="414378451"/>
 					<object class="NSColor" key="IBUIBackgroundColor">
 						<int key="NSColorSpace">1</int>

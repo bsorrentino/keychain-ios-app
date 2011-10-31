@@ -50,6 +50,8 @@
 	NSArray *sectionIndexTitles_;
     
     UINavigationController *navigationController_;
+    
+    BOOL reloadData_;
 }
 
 -(void)initWithNavigationController:(UINavigationController *)controller;
