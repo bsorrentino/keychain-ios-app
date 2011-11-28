@@ -122,7 +122,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
     [self.navigationController popViewControllerAnimated:true];
 }
 
-
 -(void)showURL {
     
     NSLog( @"show url [%@]", self.txtURL.text );
@@ -190,7 +189,7 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
         [button setFrame:CGRectMake(25,0,24,24)];
         [button setImage:[UIImage imageNamed:@"confirm24x24.png"] forState:UIControlStateNormal];
         button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-        [button addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(saveURL) forControlEvents:UIControlEventTouchUpInside];
 
         [inlineView addSubview:button];    
     }
