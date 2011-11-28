@@ -7,6 +7,7 @@
 #import "PushWebViewEntryCell.h"
 #import "UIXMLFormViewController.h"
 
+static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 
 @interface WebViewController(Private) 
 
@@ -17,7 +18,7 @@
 -(void)showURL;
 -(void)back:(id)sender;
 -(void)clearContent;
-
+-(UIView *)initInlineEditControls;
 @end
 
 @implementation WebViewController
@@ -136,7 +137,7 @@
 
 -(void)clearContent {
 
-[self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"about:blank"]]];
+[self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:DEFAULT_URL]]];
 
 }
 
@@ -151,7 +152,7 @@
     
     if (url==nil ) {
         forceReload_ = YES;
-        self.txtURL.text = @"about:blank";
+        self.txtURL.text = DEFAULT_URL;
         return;
     }
     else if( value==nil ) {
@@ -169,11 +170,39 @@
     
 }
 
+-(UIView *)initInlineEditControls {
+    UIView *inlineView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 24*2+2, 24)] autorelease];
+    
+    // ADD BACK BUTTON
+    {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setFrame:CGRectMake(0,0,24,24)];
+        [button setImage:[UIImage imageNamed:@"back24x24.png"] forState:UIControlStateNormal];
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+        [button addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    
+        [inlineView addSubview:button];    
+    }
+    
+    // ADD CONFIRM BUTTON
+    {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setFrame:CGRectMake(25,0,24,24)];
+        [button setImage:[UIImage imageNamed:@"confirm24x24.png"] forState:UIControlStateNormal];
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+        [button addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+
+        [inlineView addSubview:button];    
+    }
+    
+    return inlineView;
+}
+
 
 #pragma mark WebView GestureRecognizer
 
 
-#pragma mark UIViewController
+#pragma mark - UIViewController
 
 -(void)viewDidAppear:(BOOL)animated {
     isPossibleSave = NO;
@@ -222,13 +251,7 @@
     self.navigationItem.rightBarButtonItem = editButton_; //[editButton_ release];
     
     
-    // ADD RIGHT BUTTON
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setFrame:CGRectMake(0,0,24,24)];
-    [button setImage:[UIImage imageNamed:@"back24x24.png"] forState:UIControlStateNormal];
-    button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-    [button addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-    self.txtURL.rightView = button;
+    self.txtURL.rightView = [self initInlineEditControls];
     self.txtURL.rightViewMode = UITextFieldViewModeAlways;
     
     self.title = NSLocalizedString(@"WebEntryCell.title", @"title of Web View Controller");
@@ -283,6 +306,10 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
 
     [self startEdit];
+    
+    if ([textField.text compare:DEFAULT_URL]==0) {
+        [textField selectAll:self];
+    }
 }
 
 /*
@@ -307,6 +334,7 @@
     [self.waitController maskWithCancelBlock:@"Loading ..." cancelBlock:^{
             
         [[self webView] stopLoading]; 
+        
     }];
 }
 
