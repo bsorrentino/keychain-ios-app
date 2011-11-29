@@ -17,7 +17,6 @@
 
 @interface WebViewController : UIViewController<UIWebViewDelegate,UITextFieldDelegate> {
 	IBOutlet UIWebViewEx *webView;
-	//NSString *url;
     
     UIView *addressView;
     id<BaseDataEntryCellDelegate> delegate;
@@ -26,9 +25,7 @@
     WaitMaskController *waitController_;
     UITextField *txtURL_;
     UIBarButtonItem *editButton_;
-    UIBarButtonItem *saveButton_;
     
-    BOOL isPossibleSave;
     BOOL forceReload_;
     
 

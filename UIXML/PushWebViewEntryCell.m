@@ -30,8 +30,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 
 -(void)startEdit {
     
-    isPossibleSave = YES;
-    
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [UIView beginAnimations:@"startEdit" context:nil];
     [UIView setAnimationDuration:0.2];
@@ -58,8 +56,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 
 -(void)endEdit:(UIBarButtonItem *)button hideTextURL:(BOOL)hideTextURL {
     
-    isPossibleSave = NO;
-
     if (hideTextURL) {
         [UIView beginAnimations:@"endEdit" context:nil];
         [UIView setAnimationDuration:0.2];
@@ -118,8 +114,12 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 }
 
 -(void)save:(id)sender {
+    if( [self.txtURL isFirstResponder] ) {
+		[self.txtURL resignFirstResponder];
+	}
     
     [self endEdit:editButton_ hideTextURL:TRUE];
+    
     [self saveURL];
 
 }
@@ -212,7 +212,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 #pragma mark - UIViewController
 
 -(void)viewDidAppear:(BOOL)animated {
-    isPossibleSave = NO;
     
 	[super viewDidAppear:animated];
 	
@@ -246,10 +245,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
     [self.addressView setFrame: addressViewRC];
     
     
-    saveButton_ = 
-    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
-                                                  target:self 
-                                                  action:@selector(saveURL)];
     editButton_ = 
         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit 
                                                       target:self 
@@ -276,7 +271,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 
 
 - (void)dealloc {
-    [saveButton_ release];
     [editButton_ release];
 
     [waitController_ release];
@@ -352,10 +346,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self.waitController unmask];    
-    
-    if (isPossibleSave) {
-        [self endEdit:saveButton_ hideTextURL:FALSE];
-    }
     
 }
 
