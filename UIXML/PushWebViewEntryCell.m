@@ -17,6 +17,7 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 -(void)saveURL;
 -(void)showURL;
 -(void)back:(id)sender;
+-(void)save:(id)sender;
 -(void)clearContent;
 -(UIView *)initInlineEditControls;
 @end
@@ -116,6 +117,13 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
     
 }
 
+-(void)save:(id)sender {
+    
+    [self endEdit:editButton_ hideTextURL:TRUE];
+    [self saveURL];
+
+}
+
 -(void)back:(id)sender {
     
     [self endEdit:editButton_ hideTextURL:YES];
@@ -172,6 +180,17 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 -(UIView *)initInlineEditControls {
     UIView *inlineView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 24*2+2, 24)] autorelease];
     
+    // ADD CONFIRM BUTTON
+    {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setFrame:CGRectMake(25,0,24,24)];
+        [button setImage:[UIImage imageNamed:@"confirm24x24.png"] forState:UIControlStateNormal];
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+        [button addTarget:self action:@selector(save:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [inlineView addSubview:button];    
+    }
+    
     // ADD BACK BUTTON
     {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -180,17 +199,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
         button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         [button addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     
-        [inlineView addSubview:button];    
-    }
-    
-    // ADD CONFIRM BUTTON
-    {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setFrame:CGRectMake(25,0,24,24)];
-        [button setImage:[UIImage imageNamed:@"confirm24x24.png"] forState:UIControlStateNormal];
-        button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-        [button addTarget:self action:@selector(saveURL) forControlEvents:UIControlEventTouchUpInside];
-
         [inlineView addSubview:button];    
     }
     
@@ -252,8 +260,12 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
     
     self.txtURL.rightView = [self initInlineEditControls];
     self.txtURL.rightViewMode = UITextFieldViewModeAlways;
+    //self.txtURL.clearButtonMode = UITextFieldViewModeAlways; // Doesn't Work - Probably depends the previous line
+
     
     self.title = NSLocalizedString(@"WebEntryCell.title", @"title of Web View Controller");
+    
+    
 }
 
 - (void)viewDidUnload {
@@ -294,9 +306,9 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
     
 }
 
-- (BOOL)textFieldShouldEndEditing:(UITextField *)txtField {
-	if( [txtField isFirstResponder] ) {
-		[txtField resignFirstResponder];
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+	if( [textField isFirstResponder] ) {
+		[textField resignFirstResponder];
 	}
 	return YES;
 }
@@ -309,6 +321,7 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
     if ([textField.text compare:DEFAULT_URL]==0) {
         [textField selectAll:self];
     }
+    
 }
 
 /*
