@@ -19,10 +19,12 @@ typedef enum {
 	UITextField *txtPassword;
     ChangePasswordStep changePasswordStep_;
     UIViewController *parent_;
+    UIBarButtonItem *version_;
 }
 
 @property (nonatomic,assign) UIViewController *parent;
 @property (nonatomic,retain) IBOutlet UITextField *txtPassword;
+@property (nonatomic,retain) IBOutlet UIBarButtonItem *version;
 @property (nonatomic,retain) NSString *password;
 
 -(id)initForChangePassword;

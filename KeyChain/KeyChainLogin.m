@@ -25,6 +25,7 @@
 
 @synthesize txtPassword;
 @synthesize parent;
+@synthesize version;
 
 #pragma mark - private implementation
 
@@ -233,6 +234,14 @@
     [super viewDidLoad];
 	
 	txtPassword.delegate = self;
+    
+    NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey]; 
+    
+    NSLog(@"bundle version [%@]", bundleVersion);
+    
+    NSString *versioneTitle = [NSString stringWithFormat:version.title, bundleVersion];
+    
+    version.title = versioneTitle;
     
 
 }

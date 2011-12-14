@@ -15,6 +15,7 @@
 		2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* RootViewController.xib */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28D3F202112F7DC200FD0661 /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */; };
+		5F04CE2114862209000E4E1E /* confirm24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F04CE2014862209000E4E1E /* confirm24x24.png */; };
 		5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F04E6E212E368C800370F50 /* KeyChainLogin.m */; };
 		5F04E6E512E368C800370F50 /* KeyChainLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F04E6E312E368C800370F50 /* KeyChainLogin.xib */; };
 		5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F129E0912EB607300BF9EF9 /* login32x32.png */; };
@@ -97,6 +98,7 @@
 		28A0AAE50D9B0CCF005BE974 /* KeyChain_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChain_Prefix.pch; sourceTree = "<group>"; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5F04CE2014862209000E4E1E /* confirm24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirm24x24.png; sourceTree = "<group>"; };
 		5F04E6E112E368C800370F50 /* KeyChainLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainLogin.h; sourceTree = "<group>"; };
 		5F04E6E212E368C800370F50 /* KeyChainLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainLogin.m; sourceTree = "<group>"; };
 		5F04E6E312E368C800370F50 /* KeyChainLogin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyChainLogin.xib; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 		5FCF750412D9FACD00A9E0D8 /* UIXML */ = {
 			isa = PBXGroup;
 			children = (
+				5F04CE2014862209000E4E1E /* confirm24x24.png */,
 				A0D7A2E4142333CB004C7F68 /* iToast.h */,
 				A0D7A2E5142333CB004C7F68 /* iToast.m */,
 				5FF7AC4913B229C900BB8CBB /* back24x24.png */,
@@ -480,6 +483,7 @@
 				A083A17A1435CB9B0032B285 /* changePwd24x24.png in Resources */,
 				5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */,
 				5FD466F21441A81100A39BEE /* import20x20.png in Resources */,
+				5F04CE2114862209000E4E1E /* confirm24x24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
