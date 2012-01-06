@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 #define _PERSISTENT_APP_NAME "KeyChain"
-#define _PERSISTENT_APP_MODEL "KeyChain-1.1"
+#define _PERSISTENT_APP_MODEL "KeyChain-1.2"
 
 
 @interface PersistentAppDelegate : NSObject <UIApplicationDelegate> {
