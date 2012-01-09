@@ -171,6 +171,12 @@
 
 
 
+/**
+* 
+* 
+* KEY LIST VIEW CONTROLLER
+*
+*/
 
 @implementation KeyListViewController
 
@@ -391,8 +397,15 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"mnemonic"] description];
+    //NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    //cell.textLabel.text = [[managedObject valueForKey:@"mnemonic"] description];
+
+    KeyEntity *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [managedObject.mnemonic description];
+    
+    if ([managedObject.group boolValue]) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
 }
 
 
@@ -457,7 +470,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] 
+                 initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] 
+                autorelease];
     }
     
     // Configure the cell.

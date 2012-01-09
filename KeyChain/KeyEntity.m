@@ -12,6 +12,8 @@
 
 @synthesize sectionId;
 @dynamic mnemonic;
+@dynamic group;
+
 
 - (BOOL)isEqualForImport:(id)object {
 
@@ -52,7 +54,7 @@
 }
 
 - (void)didSave {
-
+    
     [self setPrimitiveValue:NO forKey:@"isNew"];
 }
 

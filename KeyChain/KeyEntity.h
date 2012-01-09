@@ -20,5 +20,6 @@
 @property (nonatomic,readonly) BOOL isNew;
 @property (nonatomic,readonly) NSString * sectionId;
 @property (nonatomic,retain) NSString *mnemonic; 
+@property (nonatomic,retain) NSNumber *group;
 
 @end

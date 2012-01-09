@@ -73,4 +73,33 @@
 
 }
 
+- (void)testRegularExpression
+{
+    
+    NSError *error = nil;
+    
+    NSRegularExpression *pattern = [[NSRegularExpression alloc] 
+                                    initWithPattern:@"(\\w+)[-@/](\\w+)" 
+                                    options:NSRegularExpressionCaseInsensitive 
+                                    error:&error ];
+    NSString *s = @"SOFTPHONE-LinkedIn";
+    
+    NSTextCheckingResult *match = [pattern firstMatchInString:s options:0 range:NSMakeRange(0, [s length])];
+
+    STAssertNotNil(match, @"match is nil");
+    
+    NSRange r1 = [match rangeAtIndex:1];
+    
+    STAssertTrue(r1.length == 9, @"match #1 size doesn't match [%d]", r1.length);
+    NSLog(@"r1.location [%d] r1.length [%d]", r1.location, r1.length);
+    
+    r1 = [match rangeAtIndex:2];
+    
+    STAssertTrue(r1.length == 8, @"match #2 size doesn't match [%d]", r1.length);
+    NSLog(@"r1.location [%d] r1.length [%d]", r1.location, r1.length);
+    
+    
+    [pattern release];
+}
+
 @end
