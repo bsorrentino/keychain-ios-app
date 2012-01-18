@@ -692,46 +692,59 @@
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
-    /*
-     Set up the fetched results controller.
-     */
+    // Set up the fetched results controller.
     // Create the fetch request for the entity.
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"KeyInfo" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // set predicate if a searchText has been set
-    if( searchText !=nil && searchText.length>0 )  {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"mnemonic BEGINSWITH %@", [searchText uppercaseString] ]; // autorelease    
+    @autoreleasepool {
+        
+        NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+        
+        // Edit the entity name as appropriate.
+        NSEntityDescription *entity = 
+            [NSEntityDescription entityForName:@"KeyInfo" inManagedObjectContext:self.managedObjectContext];
+        
+        [fetchRequest setEntity:entity];
+        
+        NSPredicate *predicate;
+        
+        // set predicate if a searchText has been set
+        if( searchText !=nil && searchText.length>0 )  {
+            predicate = 
+                [NSPredicate 
+                    predicateWithFormat:@"mnemonic BEGINSWITH %@ AND group == NO or group == nil", 
+                        [searchText uppercaseString], 
+                            NO ]; // autorelease    
+        }
+        else {
+            
+            predicate = [NSPredicate predicateWithFormat:@"group == NO or group == nil" ]; // autorelease    
+        }
+        
         [fetchRequest setPredicate:predicate];
-    }
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"mnemonic" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] 
-															 initWithFetchRequest:fetchRequest 
-															 managedObjectContext:self.managedObjectContext 
-															 sectionNameKeyPath:@"sectionId" 
-															 cacheName:nil];
-    aFetchedResultsController.delegate = self;
-    
-    self.fetchedResultsController = aFetchedResultsController;
 
-    [aFetchedResultsController release];
-    [fetchRequest release];
-    [sortDescriptor release];
-    [sortDescriptors release];
+        // Set the batch size to a suitable number.
+        [fetchRequest setFetchBatchSize:20];
+        
+        // Edit the sort key as appropriate.
+        
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"mnemonic" ascending:YES];
+        
+        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+        
+        [fetchRequest setSortDescriptors:sortDescriptors];
+        
+        // Edit the section name key path and cache name if appropriate.
+        // nil for section name key path means "no sections".
+        NSFetchedResultsController *aFetchedResultsController = 
+            [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+                                                managedObjectContext:self.managedObjectContext 
+                                                sectionNameKeyPath:@"sectionId" 
+                                                           cacheName:nil] autorelease]; 
+        
+        aFetchedResultsController.delegate = self;
+        
+        self.fetchedResultsController = aFetchedResultsController;
+        
+    }
     
         
     NSError *error = nil;

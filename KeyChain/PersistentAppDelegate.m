@@ -162,10 +162,21 @@
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"AttributeInfo" inManagedObjectContext:self.managedObjectContext];
     
-    NSLog(@"AttributeInfo entity name [%@] abstract [%d] count[%d]", entity.name, [entity isAbstract], [[entity properties] count]  );
+    NSLog(@"AttributeInfo entity name [%@] abstract [%d] count[%d]", 
+          entity.name, 
+          [entity isAbstract], 
+          [[entity properties] count]  );
     
     [entity release];
+        
+    entity = [NSEntityDescription entityForName:@"KeyInfo" inManagedObjectContext:self.managedObjectContext];
+    
+    NSLog(@"KeyInfo entity name [%@] abstract [%d] count[%d]", 
+          entity.name, 
+          [entity isAbstract], 
+          [[entity properties] count]  );
 
+    [entity release];
 }
 
 

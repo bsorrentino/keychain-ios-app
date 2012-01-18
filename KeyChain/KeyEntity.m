@@ -12,8 +12,7 @@
 
 @synthesize sectionId;
 @dynamic mnemonic;
-@dynamic group;
-
+@dynamic group, groupPrefix;
 
 - (BOOL)isEqualForImport:(id)object {
 
