@@ -12,6 +12,7 @@
 #define _PERSISTENT_APP_NAME "KeyChain"
 #define _PERSISTENT_APP_MODEL "KeyChain-1.2"
 
+@class KeyEntity;
 
 @interface PersistentAppDelegate : NSObject <UIApplicationDelegate> {
 
@@ -30,5 +31,9 @@
 - (NSString *)applicationDataDirectory;
 - (void)saveContext;
 - (void) checkEntities;
+
+- (KeyEntity *)findKeyEntityByName:(NSString *)mnemonic;
+
++ (NSManagedObject *) clone:(NSManagedObject *)source inContext:(NSManagedObjectContext *)context;
 
 @end

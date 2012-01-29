@@ -24,6 +24,10 @@
 
 @interface KeyListViewController (Private)
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)configureCell:(UITableViewCell *)cell entity:(KeyEntity *)managedObject;
+
+- (void)insertNewObject2 __attribute__ ((deprecated));
+
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope;
 - (void)filterReset;
 - (void)hideSearchBar;
@@ -395,32 +399,25 @@
  */
 
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(UITableViewCell *)cell entity:(KeyEntity *)managedObject {
     
-    //NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    //cell.textLabel.text = [[managedObject valueForKey:@"mnemonic"] description];
-
-    KeyEntity *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [managedObject.mnemonic description];
     
     if ([managedObject.group boolValue]) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    
 }
 
-
-#pragma mark -
-#pragma mark Add/Update a new object
-
-- (void)updateObject:(NSIndexPath *)indexPath {
-	
-	KeyEntity *e = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
-	[self.keyEntityFormController initWithEntity:e delegate:self];
-	
-	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
-	
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    KeyEntity *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    [self configureCell:cell entity:managedObject];
 }
+
+#pragma mark - Deprecated
+
 
 
 // Deprecated
@@ -449,6 +446,20 @@
 }
 
 
+#pragma mark Add/Update a new object
+
+- (void)updateObject:(NSIndexPath *)indexPath {
+	
+	KeyEntity *e = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
+	[self.keyEntityFormController initWithEntity:e delegate:self];
+	
+	[self.navigationController pushViewController:self.keyEntityFormController animated:YES];
+	
+}
+
+
+
 #pragma mark -
 #pragma mark Table view data source
 
@@ -467,16 +478,36 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
+    static NSString *CellGroupIdentifier = @"CellGroup";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] 
-                 initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] 
-                autorelease];
+    KeyEntity *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    UITableViewCell *cell = nil;
+    
+    if (managedObject.groupPrefix != nil ) {
+ 
+        cell = [tableView dequeueReusableCellWithIdentifier:CellGroupIdentifier];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] 
+                     initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellGroupIdentifier] 
+                    autorelease];
+        }        
+        //cell.detailTextLabel.text = NSLocalizedString(@"CellGroup.detailTextLabel", nil);
+        cell.detailTextLabel.text = managedObject.groupPrefix;
+        
     }
+    else  {
     
-    // Configure the cell.
-    [self configureCell:cell atIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] 
+                     initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] 
+                    autorelease];
+        }
+        cell.textLabel.text = [managedObject.mnemonic description];
+    }    
+  
+    [self configureCell:cell entity:managedObject];
     
     return cell;
 }
@@ -559,9 +590,6 @@
 	return index;
 }
 
-
-
-#pragma mark -
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -20,9 +20,8 @@
 - (BOOL) isSchemaCompatible:(NSPersistentStoreCoordinator *)psc;
 - (void)checkSearchPathDirectoryForDataFile;
 - (void)moveDataFileSafe:(NSFileManager *)fileManager sourcePath:(NSString *)sourcePath targetPath:(NSString *)targetPath removeTarget:(BOOL)removeTarget;
-
-
 @end
+
 
 @implementation PersistentAppDelegate
 
@@ -156,7 +155,6 @@
 }
 
 #pragma - Custom implementation
-
 
 - (void) checkEntities {
     
@@ -305,7 +303,108 @@
     return persistentStoreCoordinator_;
 }
 
-#pragma mark -
+#pragma mark query methods
+
+- (KeyEntity *)findKeyEntityByName:(NSString *)mnemonic {
+    
+    @autoreleasepool {
+        
+        NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+        
+        // Edit the entity name as appropriate.
+        NSEntityDescription *entity = 
+            [NSEntityDescription entityForName:@"KeyInfo" inManagedObjectContext:self.managedObjectContext];
+        
+        [fetchRequest setEntity:entity];
+        
+        NSPredicate *predicate = 
+            [NSPredicate predicateWithFormat:@"(group == NO or group == nil) and mnemonic == %@", mnemonic];
+        
+        [fetchRequest setPredicate:predicate];
+        
+        [fetchRequest setFetchBatchSize:1];
+
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"mnemonic" ascending:YES];
+        
+        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+        
+        [fetchRequest setSortDescriptors:sortDescriptors];
+        
+        // Edit the section name key path and cache name if appropriate.
+        // nil for section name key path means "no sections".
+        NSFetchedResultsController *aFetchedResultsController = 
+            [[[NSFetchedResultsController alloc]    initWithFetchRequest:fetchRequest 
+                                                    managedObjectContext:self.managedObjectContext 
+                                                    sectionNameKeyPath:nil 
+                                                    cacheName:nil] autorelease]; 
+        
+        {
+            NSError *error = nil;
+            if (![aFetchedResultsController performFetch:&error]) {
+                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                return nil;
+            }
+        }
+        
+        NSArray *result = [aFetchedResultsController fetchedObjects];
+
+        NSLog(@"findKeyEntityByName fetchedObjects #[%d]", [result count]);
+
+        return ( [result count] > 0 ) ? [result lastObject] : nil;
+
+    } // autoreleasepool
+    
+}
+
+#pragma mark clone methods
+
+
+//
++(NSManagedObject *) clone:(NSManagedObject *)source inContext:(NSManagedObjectContext *)context{
+    NSString *entityName = [[source entity] name];
+    
+    //create new object in data store
+    NSManagedObject *cloned = [NSEntityDescription
+                               insertNewObjectForEntityForName:entityName
+                               inManagedObjectContext:context];
+    
+    //loop through all attributes and assign then to the clone
+    NSDictionary *attributes = [[NSEntityDescription
+                                 entityForName:entityName
+                                 inManagedObjectContext:context] attributesByName];
+    
+    for (NSString *attr in attributes) {
+        [cloned setValue:[source valueForKey:attr] forKey:attr];
+    }
+    
+    //Loop through all relationships, and clone them.
+    NSDictionary *relationships = [[NSEntityDescription
+                                    entityForName:entityName
+                                    inManagedObjectContext:context] relationshipsByName];
+    
+    for (NSString *relName in [relationships allKeys]) { 
+        
+        NSRelationshipDescription *rel = [relationships objectForKey:relName];
+        
+        NSString *keyName = [NSString stringWithFormat:@"%@",rel];
+        //get a set of all objects in the relationship
+        NSMutableSet *sourceSet = [source mutableSetValueForKey:keyName];
+        NSMutableSet *clonedSet = [cloned mutableSetValueForKey:keyName];
+        NSEnumerator *e = [sourceSet objectEnumerator];
+        NSManagedObject *relatedObject;
+
+        while ( relatedObject = [e nextObject]){
+            //Clone it, and add clone to set
+            NSManagedObject *clonedRelatedObject = [PersistentAppDelegate clone:relatedObject 
+                                                                    inContext:context];
+            [clonedSet addObject:clonedRelatedObject];
+        }
+        
+    }
+    
+    return cloned;
+}
+
 #pragma mark Application's Documents directory
 
 /**

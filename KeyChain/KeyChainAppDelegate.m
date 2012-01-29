@@ -15,6 +15,122 @@
 @synthesize window;
 @synthesize navigationController;
 
+#pragma mark class methods
+
+static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
+//
+// Process keys to identify candidate sections
+//
++ (void)processKeysToIdentifySections {
+
+    KeyChainAppDelegate *delegate = (KeyChainAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    @autoreleasepool {
+        
+        NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+        
+        // Edit the entity name as appropriate.
+        NSEntityDescription *entity = 
+        [NSEntityDescription entityForName:@"KeyInfo" inManagedObjectContext:delegate.managedObjectContext];
+        
+        [fetchRequest setEntity:entity];
+        
+        NSPredicate *predicate = 
+            [NSPredicate predicateWithFormat:@"(group == NO or group == nil) and mnemonic MATCHES %@",  _REGEXP];
+        
+        [fetchRequest setPredicate:predicate];
+                
+        // Set the batch size to a suitable number.
+        [fetchRequest setFetchBatchSize:20];
+        
+        // Edit the sort key as appropriate.
+        
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"mnemonic" ascending:YES];
+        
+        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+        
+        [fetchRequest setSortDescriptors:sortDescriptors];
+        
+        
+        // Edit the section name key path and cache name if appropriate.
+        // nil for section name key path means "no sections".
+        NSFetchedResultsController *aFetchedResultsController = 
+        [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+                                             managedObjectContext:delegate.managedObjectContext 
+                                               sectionNameKeyPath:@"sectionId" 
+                                                        cacheName:nil] autorelease]; 
+        
+        {
+        NSError *error = nil;
+        if (![aFetchedResultsController performFetch:&error]) {
+            /*
+             Replace this implementation with code to handle the error appropriately.
+             
+             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+             */
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            return;
+        }}
+            
+        
+        NSArray *sections = [aFetchedResultsController fetchedObjects];
+        
+        NSLog(@"number of sections [%d]", [sections count]);
+        
+        
+        if ([sections count]>0) {
+            
+            NSError *error = nil;
+            
+            NSRegularExpression *pattern = [[[NSRegularExpression alloc] 
+                                            initWithPattern:_REGEXP 
+                                            options:NSRegularExpressionCaseInsensitive 
+                                            error:&error ] autorelease];
+            if (pattern!=nil) {
+                
+                for (KeyEntity *ki in sections) {
+                    NSTextCheckingResult *match = 
+                        [pattern firstMatchInString:ki.mnemonic 
+                                                    options:0 
+                                                    range:NSMakeRange(0, [ki.mnemonic length])];
+                    
+                    NSRange r1 = [match rangeAtIndex:1];
+                    NSRange r2 = [match rangeAtIndex:2];
+                    
+                    NSString *groupKey = [ki.mnemonic substringWithRange:r1];
+                    
+                    NSLog(@"r1.location [%d] r1.length [%d] [%@]", r1.location, r1.length, groupKey);
+                    NSLog(@"r2.location [%d] r2.length [%d] [%@]", r2.location, r2.length, [ki.mnemonic substringWithRange:r2]);
+                    
+                    KeyEntity * kk = [delegate findKeyEntityByName:groupKey];
+                    
+                    if( kk == nil ) {
+                        
+                        
+                        kk = [KeyEntity cloneAsSection:groupKey 
+                                           groupPrefix:[groupKey stringByAppendingFormat:@"-"] 
+                                                source:ki 
+                                             inContext:delegate.managedObjectContext];
+                    }
+                    
+                    ki.group = [NSNumber numberWithBool:YES];
+                    
+                }
+                
+                [delegate saveContext];
+            } 
+            else {
+                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                return;
+                
+            }
+        }
+        
+    } // autoreleasepool
+    
+    
+}
+
 
 #pragma mark - Application custom implementation
 
@@ -69,6 +185,8 @@
     }
 
     [self checkEntities];
+    
+    [KeyChainAppDelegate processKeysToIdentifySections];
     
     // Override point for customization after application launch.
     // Add the navigation controller's view to the window and display.

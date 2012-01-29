@@ -8,11 +8,16 @@
 
 #import "KeyEntity.h"
 
+
+static NSString * _MNEMONIC = @"mnemonic";
+static NSString * _IS_NEW = @"isNew";
+
 @implementation KeyEntity
 
 @synthesize sectionId;
 @dynamic mnemonic;
 @dynamic group, groupPrefix;
+
 
 - (BOOL)isEqualForImport:(id)object {
 
@@ -27,7 +32,7 @@
         }
         else if( [object isKindOfClass:[NSDictionary class]] ) {
             
-            k1 = [object valueForKey:@"mnemonic"];
+            k1 = [object valueForKey:_MNEMONIC];
             
         }
         else if( [object isKindOfClass:[NSString class]] ) {
@@ -48,13 +53,13 @@
 
 - (void)awakeFromFetch {
 
-    [self setPrimitiveValue:NO forKey:@"isNew"];
+    [self setPrimitiveValue:NO forKey:_IS_NEW];
 	
 }
 
 - (void)didSave {
     
-    [self setPrimitiveValue:NO forKey:@"isNew"];
+    [self setPrimitiveValue:NO forKey:_IS_NEW];
 }
 
 //- (NSString *)mnemonic { return [self valueForKey:@"mnemonic"]; }
@@ -63,7 +68,7 @@
 
 -(BOOL)isNew {
 	
-	BOOL value = [[self primitiveValueForKey:@"isNew"] boolValue];
+	BOOL value = [[self primitiveValueForKey:_IS_NEW] boolValue];
 	NSLog( @"isNew [%d]", value );
 	
 	return value;
@@ -73,7 +78,7 @@
 
 - (NSString *)sectionId {
 
-	NSString *k = [self valueForKey:@"mnemonic"];
+	NSString *k = [self valueForKey:_MNEMONIC];
 	
 	return [k substringWithRange:NSMakeRange( 0, 1)];
 }
@@ -90,7 +95,7 @@
     
     for (NSString *key in attributes) {
         
-        if ([key compare:@"isNew"]==0 ) continue;
+        if ([key compare:_IS_NEW]==0 ) continue;
         
         NSObject* value = [self valueForKey:key];
         
@@ -112,7 +117,7 @@
     
     for (NSString *key in attributes) {
         
-        if ([key compare:@"isNew"]==0 ) continue;
+        if ([key compare:_IS_NEW]==0 ) continue;
         
         NSObject* value = [source valueForKey:key];
         
@@ -121,6 +126,37 @@
         }
         
     }
+}
+
++ (KeyEntity *)cloneAsSection:  (NSString *)groupKey 
+                  groupPrefix:(NSString *)groupPrefix
+                       source:(KeyEntity *)source 
+                    inContext:(NSManagedObjectContext *)context {
+    
+    NSString *entityName = [[source entity] name];
+    
+    //create new object in data store
+    KeyEntity *cloned = [NSEntityDescription
+                               insertNewObjectForEntityForName:entityName
+                               inManagedObjectContext:context];
+    
+    //loop through all attributes and assign then to the clone
+    NSDictionary *attributes = [[NSEntityDescription
+                                 entityForName:entityName
+                                 inManagedObjectContext:context] attributesByName];
+    
+    for (NSString *attr in attributes) {
+        if ([attr compare:_MNEMONIC]==0 ) continue;
+        if ([attr compare:_IS_NEW]==0 ) continue;
+    
+        [cloned setValue:[source valueForKey:attr] forKey:attr];
+
+    }
+    
+    cloned.mnemonic = groupKey;
+    cloned.groupPrefix = groupPrefix;
+    
+    return cloned;    
 }
 
 @end
