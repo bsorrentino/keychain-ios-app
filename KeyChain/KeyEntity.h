@@ -16,11 +16,21 @@
 - (NSDictionary *)toDictionary:(NSMutableDictionary*)target;
 - (void)fromDictionary:(NSDictionary *)source;
 - (BOOL)isEqualForImport:(id)object;
+- (BOOL)isSection;
 
-+ (KeyEntity *)cloneAsSection:  (NSString *)groupKey 
++ (KeyEntity *)createSection:  (NSString *)groupKey 
                                 groupPrefix:(NSString *)groupPrefix
-                                source:(KeyEntity *)source 
                                 inContext:(NSManagedObjectContext *)context;
+
++ (BOOL)isSectionAware:(KeyEntity *)key;
++ (NSRange)getSectionPrefix:(KeyEntity*)key checkIfIsSectionAware:(BOOL)check;
+
++ (void)groupByAppendingPrefix:(KeyEntity *)key prefix:(NSString*)prefix;
++ (void)groupByReplacingName:(KeyEntity *)key mnemonic:(NSString*)name;
++ (void)groupByReplacingPrefix:(KeyEntity *)key groupKey:(NSString*)groupKey prefix:(NSString*)prefix;
+
++ (NSString *)sectionNameFromPrefix:(NSString *)prefix trim:(BOOL)trim;
+
 
 @property (nonatomic,readonly) BOOL isNew;
 @property (nonatomic,readonly) NSString * sectionId;

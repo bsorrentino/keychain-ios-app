@@ -103,4 +103,29 @@
 }
 
 
+- (void)testPredicate {
+
+    static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
+ 
+    NSPredicate *predicate = 
+        [NSPredicate predicateWithFormat:@"SELF MATCHES %@",  _REGEXP];
+
+    {
+    NSString *key = @"A-B";
+    
+    BOOL result = [predicate evaluateWithObject:key];
+    
+    STAssertTrue(result, @"string [%@] doesn't match [%@]", key, _REGEXP);
+    }
+
+    {
+        NSString *key = @"A";
+        
+        BOOL result = [predicate evaluateWithObject:key];
+        
+        STAssertFalse(result, @"string [%@] match [%@]", key, _REGEXP);
+    }
+    
+}
+
 @end

@@ -174,7 +174,7 @@
 
 - (id)initForChangePassword  {
     
-    if( [super initWithNibName:@"KeyChainLogin" bundle:nil] !=nil ) {
+    if( self = [super initWithNibName:@"KeyChainLogin" bundle:nil]  ) {
         changePasswordStep_ = CHECKPASSWORD;
         self.title = @"Change Password";
         

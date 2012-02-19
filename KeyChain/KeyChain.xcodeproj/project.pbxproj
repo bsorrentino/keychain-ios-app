@@ -18,6 +18,7 @@
 		5F04CE2114862209000E4E1E /* confirm24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F04CE2014862209000E4E1E /* confirm24x24.png */; };
 		5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F04E6E212E368C800370F50 /* KeyChainLogin.m */; };
 		5F04E6E512E368C800370F50 /* KeyChainLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F04E6E312E368C800370F50 /* KeyChainLogin.xib */; };
+		5F0F6C2D14F0320B00D8B8FC /* back32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6C2C14F0320B00D8B8FC /* back32x32.png */; };
 		5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F129E0912EB607300BF9EF9 /* login32x32.png */; };
 		5F15021B13851B5B001C52BD /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15021913851B5B001C52BD /* PushWebViewEntryCell.m */; };
 		5F15021C13851B5B001C52BD /* PushWebViewEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F15021A13851B5B001C52BD /* PushWebViewEntryCell.xib */; };
@@ -26,6 +27,7 @@
 		5F3BD073143B352F00001F01 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3BD072143B352E00001F01 /* CoreData.framework */; };
 		5F465BF113AE1F6300EA3C53 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F465BF013AE1F6300EA3C53 /* WaitMaskController.m */; };
 		5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F544F7313F82E350001A8B5 /* logo-57x57.png */; };
+		5F6168F314E9D412004BE24A /* UIAlertViewInputSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6168F214E9D412004BE24A /* UIAlertViewInputSection.m */; };
 		5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F3439143F315500D9C428 /* ExportViewController.m */; };
 		5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6F343B143F49EC00D9C428 /* usb48x48.png */; };
 		5F777C341359E367003AFC9E /* edit32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F777C321359E367003AFC9E /* edit32x32.png */; };
@@ -55,12 +57,15 @@
 		5FCF753312D9FACD00A9E0D8 /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF752412D9FACD00A9E0D8 /* UIXMLFormViewController.m */; };
 		5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD466ED1441A5C600A39BEE /* ImportViewController.m */; };
 		5FD466F21441A81100A39BEE /* import20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD466F11441A81100A39BEE /* import20x20.png */; };
+		5FD68C9414E40E2200B57E0C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD68C9314E40E2200B57E0C /* QuartzCore.framework */; };
 		5FEA98E512B981950034ADC1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */; };
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
 		5FF7900512E7AC9F008EA886 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900212E7AC9F008EA886 /* chevron.png */; };
 		5FF7900612E7AC9F008EA886 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7900412E7AC9F008EA886 /* PushTextEntryCell.m */; };
 		5FF7900912E7ACAA008EA886 /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900712E7ACAA008EA886 /* PushTextEntryCell.xib */; };
 		5FF7AC4A13B229C900BB8CBB /* back24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7AC4913B229C900BB8CBB /* back24x24.png */; };
+		5FFC754514E5A82200E3E162 /* DDTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754414E5A82200E3E162 /* DDTableViewManager.m */; };
+		5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754F14E5B06800E3E162 /* KeyListViewController.m */; };
 		A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0121169142269B2000AA884 /* AVFoundation.framework */; };
 		A0759F2114305DBE000701EF /* settings20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A0759F2014305DBE000701EF /* settings20x20.png */; };
 		A083A17A1435CB9B0032B285 /* changePwd24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = A083A1791435CB9B0032B285 /* changePwd24x24.png */; };
@@ -103,6 +108,7 @@
 		5F04E6E112E368C800370F50 /* KeyChainLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainLogin.h; sourceTree = "<group>"; };
 		5F04E6E212E368C800370F50 /* KeyChainLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainLogin.m; sourceTree = "<group>"; };
 		5F04E6E312E368C800370F50 /* KeyChainLogin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyChainLogin.xib; sourceTree = "<group>"; };
+		5F0F6C2C14F0320B00D8B8FC /* back32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back32x32.png; path = "../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/back32x32.png"; sourceTree = "<group>"; };
 		5F129E0912EB607300BF9EF9 /* login32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login32x32.png; sourceTree = "<group>"; };
 		5F15021813851B5B001C52BD /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushWebViewEntryCell.h; sourceTree = "<group>"; };
 		5F15021913851B5B001C52BD /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushWebViewEntryCell.m; sourceTree = "<group>"; };
@@ -113,6 +119,8 @@
 		5F465BEF13AE1F6300EA3C53 /* WaitMaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitMaskController.h; sourceTree = "<group>"; };
 		5F465BF013AE1F6300EA3C53 /* WaitMaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitMaskController.m; sourceTree = "<group>"; };
 		5F544F7313F82E350001A8B5 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-57x57.png"; sourceTree = "<group>"; };
+		5F6168F114E9D412004BE24A /* UIAlertViewInputSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIAlertViewInputSection.h; path = "../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/UIAlertViewInputSection.h"; sourceTree = "<group>"; };
+		5F6168F214E9D412004BE24A /* UIAlertViewInputSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIAlertViewInputSection.m; path = "../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/UIAlertViewInputSection.m"; sourceTree = "<group>"; };
 		5F6F3438143F315500D9C428 /* ExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportViewController.h; sourceTree = "<group>"; };
 		5F6F3439143F315500D9C428 /* ExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportViewController.m; sourceTree = "<group>"; };
 		5F6F343B143F49EC00D9C428 /* usb48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usb48x48.png; sourceTree = "<group>"; };
@@ -162,6 +170,7 @@
 		5FD466EC1441A5C600A39BEE /* ImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportViewController.h; sourceTree = "<group>"; };
 		5FD466ED1441A5C600A39BEE /* ImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportViewController.m; sourceTree = "<group>"; };
 		5FD466F11441A81100A39BEE /* import20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = import20x20.png; sourceTree = "<group>"; };
+		5FD68C9314E40E2200B57E0C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		5FF78F2E12E5A481008EA886 /* logo-64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-64x64.png"; sourceTree = "<group>"; };
 		5FF7900212E7AC9F008EA886 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
@@ -169,6 +178,10 @@
 		5FF7900412E7AC9F008EA886 /* PushTextEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTextEntryCell.m; sourceTree = "<group>"; };
 		5FF7900812E7ACAA008EA886 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushTextEntryCell.xib; sourceTree = "<group>"; };
 		5FF7AC4913B229C900BB8CBB /* back24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back24x24.png; sourceTree = "<group>"; };
+		5FFC754314E5A82200E3E162 /* DDTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTableViewManager.h; sourceTree = "<group>"; };
+		5FFC754414E5A82200E3E162 /* DDTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTableViewManager.m; sourceTree = "<group>"; };
+		5FFC754E14E5B06800E3E162 /* KeyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListViewController.h; sourceTree = "<group>"; };
+		5FFC754F14E5B06800E3E162 /* KeyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyListViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* KeyChain-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KeyChain-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A0121169142269B2000AA884 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A0759F2014305DBE000701EF /* settings20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings20x20.png; sourceTree = "<group>"; };
@@ -195,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FD68C9414E40E2200B57E0C /* QuartzCore.framework in Frameworks */,
 				A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -230,6 +244,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5FD68C9314E40E2200B57E0C /* QuartzCore.framework */,
 				5F3BD072143B352E00001F01 /* CoreData.framework */,
 				A0121169142269B2000AA884 /* AVFoundation.framework */,
 				5FA3A4B712DC7703009BE36C /* Classes */,
@@ -257,6 +272,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F0F6C2C14F0320B00D8B8FC /* back32x32.png */,
 				5FD466F11441A81100A39BEE /* import20x20.png */,
 				5F6F343B143F49EC00D9C428 /* usb48x48.png */,
 				A083A1791435CB9B0032B285 /* changePwd24x24.png */,
@@ -293,6 +309,8 @@
 		5FA3A4B712DC7703009BE36C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5FFC754314E5A82200E3E162 /* DDTableViewManager.h */,
+				5FFC754414E5A82200E3E162 /* DDTableViewManager.m */,
 				A0FD0E4B14166C32009C7257 /* MailListDataEntryCell.h */,
 				A0FD0E4C14166C32009C7257 /* MailListDataEntryCell.m */,
 				A0FD0E4414165D8E009C7257 /* AttributeInfo.h */,
@@ -314,6 +332,10 @@
 				5FD466EC1441A5C600A39BEE /* ImportViewController.h */,
 				5FD466ED1441A5C600A39BEE /* ImportViewController.m */,
 				5F8B67EA14471B7E00A767AE /* KeyListDataSource.h */,
+				5FFC754E14E5B06800E3E162 /* KeyListViewController.h */,
+				5FFC754F14E5B06800E3E162 /* KeyListViewController.m */,
+				5F6168F114E9D412004BE24A /* UIAlertViewInputSection.h */,
+				5F6168F214E9D412004BE24A /* UIAlertViewInputSection.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -489,6 +511,7 @@
 				5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */,
 				5FD466F21441A81100A39BEE /* import20x20.png in Resources */,
 				5F04CE2114862209000E4E1E /* confirm24x24.png in Resources */,
+				5F0F6C2D14F0320B00D8B8FC /* back32x32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +574,9 @@
 				5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */,
 				5F9A3E911450808B004300C9 /* OptionPane.m in Sources */,
 				5FBB755D14B78C0100A48690 /* model-1.2.xcmappingmodel in Sources */,
+				5FFC754514E5A82200E3E162 /* DDTableViewManager.m in Sources */,
+				5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */,
+				5F6168F314E9D412004BE24A /* UIAlertViewInputSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +695,7 @@
 				PRODUCT_NAME = KeyChain;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -692,6 +719,7 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

@@ -39,31 +39,3 @@
 @end
 
 
-
-@interface KeyListViewController : UITableViewController <NSFetchedResultsControllerDelegate,KeyEntityFormControllerDelegate,UISearchDisplayDelegate,UISearchBarDelegate> {
-
-@private
-    NSFetchedResultsController *fetchedResultsController_;
-	
-    KeyEntityFormController *keyEntityFormController_;
-	
-	NSArray *sectionIndexTitles_;
-    
-    UINavigationController *navigationController_;
-    
-    BOOL reloadData_;
-}
-
--(void)initWithNavigationController:(UINavigationController *)controller;
-
--(IBAction)insertNewObject:(id)sender;
-
-@property (nonatomic, retain, readonly) NSArray *sectionTitlesArray;
-
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-
-@property (nonatomic, retain) IBOutlet KeyEntityFormController *keyEntityFormController;
-
-@property(nonatomic,readonly,retain) UINavigationController *navigationController; // If this view controller has been pushed onto a navigation controller, return it.
-
-@end

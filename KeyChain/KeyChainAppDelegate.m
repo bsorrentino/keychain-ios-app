@@ -107,9 +107,8 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
                     if( kk == nil ) {
                         
                         
-                        kk = [KeyEntity cloneAsSection:groupKey 
+                        /*kk = */[KeyEntity createSection:groupKey 
                                            groupPrefix:[groupKey stringByAppendingFormat:@"-"] 
-                                                source:ki 
                                              inContext:delegate.managedObjectContext];
                     }
                     
@@ -186,7 +185,7 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
 
     [self checkEntities];
     
-    [KeyChainAppDelegate processKeysToIdentifySections];
+    //[KeyChainAppDelegate processKeysToIdentifySections];
     
     // Override point for customization after application launch.
     // Add the navigation controller's view to the window and display.

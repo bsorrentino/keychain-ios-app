@@ -1,4 +1,4 @@
-//
+    //
 //  KeyEntity.m
 //  KeyChain
 //
@@ -18,6 +18,148 @@ static NSString * _IS_NEW = @"isNew";
 @dynamic mnemonic;
 @dynamic group, groupPrefix;
 
+
+#pragma mark static implementation
+
+static  NSString * _REGEXP = @"(\\w+[-@/])(\\w+)";
+
+
++ (BOOL)isSectionAware:(KeyEntity *)key {
+    
+    NSPredicate *predicate = 
+        [NSPredicate predicateWithFormat:@"SELF.mnemonic MATCHES %@",  _REGEXP];
+    
+    BOOL result = [predicate evaluateWithObject:key];
+    
+    return result;
+}
+
++ (NSRange)getSectionPrefix:(KeyEntity*)key checkIfIsSectionAware:(BOOL)check {
+    
+    //@autoreleasepool {
+        
+        NSError *error = nil;
+    
+        NSRange result = NSMakeRange(NSNotFound, 0);
+
+        if( !check || [KeyEntity isSectionAware:key] ) {
+            
+            NSRegularExpression *pattern = [[NSRegularExpression alloc] 
+                                             initWithPattern:_REGEXP 
+                                             options:NSRegularExpressionCaseInsensitive 
+                                             error:&error ] ;
+            if (pattern!=nil) {
+                NSTextCheckingResult *match = 
+                    [pattern firstMatchInString:key.mnemonic 
+                                    options:0 
+                                      range:NSMakeRange(0, [key.mnemonic length])];
+                
+                
+                
+                result = [match rangeAtIndex:1];
+                
+            }
+            
+            [pattern release];
+        }
+
+        return result;
+    //}
+    
+}
+
++ (NSString *)sectionNameFromPrefix:(NSString *)prefix trim:(BOOL)trim {
+
+    if( prefix == nil ) return nil;
+    
+    if( trim ) {
+        prefix = [prefix stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    }
+    
+    if( [prefix length] == 0 ) {
+        return nil;
+    }
+
+    NSString *result = [prefix substringToIndex:[prefix length] -1];
+    
+    return result;
+}
+
+
++ (KeyEntity *)createSection:  (NSString *)groupKey 
+                  groupPrefix:(NSString *)groupPrefix
+                    inContext:(NSManagedObjectContext *)context {
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"KeyInfo" inManagedObjectContext:context];
+
+   // NSString *entityName = [[source entity] name];
+    NSString *entityName = [entity name];
+    
+    //create new object in data store
+    KeyEntity *cloned = [NSEntityDescription
+                         insertNewObjectForEntityForName:entityName
+                         inManagedObjectContext:context];
+
+/*    
+    //loop through all attributes and assign then to the clone
+    NSDictionary *attributes = [[NSEntityDescription
+                                 entityForName:entityName
+                                 inManagedObjectContext:context] attributesByName];
+    
+    for (NSString *attr in attributes) {
+        if ([attr compare:_MNEMONIC]==0 ) continue;
+        if ([attr compare:_IS_NEW]==0 ) continue;
+        
+        [cloned setValue:[source valueForKey:attr] forKey:attr];
+        
+    }
+*/   
+    [cloned setValue:@"nil" forKey:@"password"];
+    [cloned setValue:@"nil" forKey:@"username"];
+    
+    cloned.mnemonic = groupKey;
+    cloned.groupPrefix = groupPrefix;
+    
+    return cloned;     
+}
+
++ (void)groupByAppendingPrefix:(KeyEntity *)key prefix:(NSString*)prefix;
+{
+    
+    if (prefix==nil || key==nil) {
+        return;
+    }
+    
+    key.mnemonic = [prefix stringByAppendingString:key.mnemonic];
+    key.group = [NSNumber numberWithBool:YES];
+}
+
++ (void)groupByReplacingName:(KeyEntity *)key mnemonic:(NSString*)name {
+    if (name==nil || key==nil) {
+        return;
+    }
+    
+    key.mnemonic = name;
+    key.group = [NSNumber numberWithBool:YES];
+    
+}
+
++ (void)groupByReplacingPrefix:(KeyEntity *)key groupKey:(NSString*)groupKey prefix:(NSString*)prefix {
+
+    NSString *newMnemonic = [key.mnemonic 
+                         stringByReplacingOccurrencesOfString:groupKey 
+                         withString:prefix 
+                         options:NSCaseInsensitiveSearch 
+                         range:NSMakeRange(0, [groupKey length])];
+    key.mnemonic = newMnemonic;
+    key.group = [NSNumber numberWithBool:YES];
+
+}
+
+#pragma mark implementation
+
+- (BOOL)isSection {
+    return self.groupPrefix != nil;
+}
 
 - (BOOL)isEqualForImport:(id)object {
 
@@ -83,6 +225,7 @@ static NSString * _IS_NEW = @"isNew";
 	return [k substringWithRange:NSMakeRange( 0, 1)];
 }
 
+
 #pragma mark - Serialization
 
 - (NSDictionary *)toDictionary:(NSMutableDictionary*)target {
@@ -126,37 +269,6 @@ static NSString * _IS_NEW = @"isNew";
         }
         
     }
-}
-
-+ (KeyEntity *)cloneAsSection:  (NSString *)groupKey 
-                  groupPrefix:(NSString *)groupPrefix
-                       source:(KeyEntity *)source 
-                    inContext:(NSManagedObjectContext *)context {
-    
-    NSString *entityName = [[source entity] name];
-    
-    //create new object in data store
-    KeyEntity *cloned = [NSEntityDescription
-                               insertNewObjectForEntityForName:entityName
-                               inManagedObjectContext:context];
-    
-    //loop through all attributes and assign then to the clone
-    NSDictionary *attributes = [[NSEntityDescription
-                                 entityForName:entityName
-                                 inManagedObjectContext:context] attributesByName];
-    
-    for (NSString *attr in attributes) {
-        if ([attr compare:_MNEMONIC]==0 ) continue;
-        if ([attr compare:_IS_NEW]==0 ) continue;
-    
-        [cloned setValue:[source valueForKey:attr] forKey:attr];
-
-    }
-    
-    cloned.mnemonic = groupKey;
-    cloned.groupPrefix = groupPrefix;
-    
-    return cloned;    
 }
 
 @end
