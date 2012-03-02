@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define _USE_ARC  0
+#define _USE_ARC  1
+
 
 #if _USE_ARC == 1 
 
@@ -46,6 +47,9 @@
     UITableView *tableView_;
     
     WEAK id<DDTableViewManagerDelegate> delegate;
+    
+    dispatch_queue_t scrolling_queue;
+    
 }
 
 @property (nonatomic,readonly,retain) NSIndexPath *source;
