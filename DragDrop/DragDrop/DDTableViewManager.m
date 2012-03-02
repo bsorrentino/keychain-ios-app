@@ -21,10 +21,13 @@
 -(void)endDrag:recognizer:(UIGestureRecognizer *)recognizer;
 - (void)endDrop:(NSIndexPath *)i;
 
+- (BOOL)isLastRow:(NSIndexPath *)index;
+- (BOOL)isTopRow:(NSIndexPath *)index;
 
 -(UIView *)dragViewFromCell:(UITableViewCell *)cell recognizer:(UIGestureRecognizer *)recognizer;
 -(UIView *)getDragView;
 -(UIView *)removeDragView;
+
 
 - (IBAction)handlePan:(id)sender;
 - (IBAction)handleLongPress:(id)sender;
@@ -70,6 +73,8 @@
         [tableView_ addGestureRecognizer:longPressRecognizer_];
         [tableView_ addGestureRecognizer:panRecognizer_];
         
+        scrolling_queue = dispatch_queue_create("DDTableViewManager.scrolling_queue", NULL);
+
         
     }
     
@@ -132,6 +137,21 @@
 #endif    
 }
 
+- (BOOL)isLastRow:(NSIndexPath *)index {
+    
+    NSInteger sectionsAmount = [self.tableView numberOfSections];
+    NSInteger rowsAmount = [self.tableView numberOfRowsInSection:[index section]];
+    return ([index section] == sectionsAmount - 1 && [index row] == rowsAmount - 1);
+    
+}
+
+- (BOOL)isTopRow:(NSIndexPath *)index {
+
+    return ([index section] == 0 && [index row] == 0);
+
+}
+
+
 -(UIView *)dragViewFromCell:(UITableViewCell *)cell recognizer:(UIGestureRecognizer *)recognizer
 {
     if (cell == nil ) {
@@ -151,6 +171,8 @@
     newView.tag = 99;
 
     [self.tableView addSubview:newView];
+    //[self.tableView insertSubview:newView atIndex:1];
+    [self.tableView bringSubviewToFront:newView];
     
 #if !_USE_ARC        
     [newView release]; 
@@ -260,6 +282,86 @@
     [self dragViewFromCell:cell recognizer:recognizer];
 }
 
+- (BOOL)checkForScrolling:(NSIndexPath *)i 
+{
+    if( [self isTopRow:i] || [self isLastRow:i] ) return NO;
+    
+    
+    NSComparisonResult result = [source_ compare:i];
+    
+    if (result == NSOrderedAscending) {
+        UIView *dragView = [self getDragView];
+        
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:i];
+        
+        CGRect frame = cell.frame;
+        
+        frame.origin.y += frame.size.height;
+        
+        [self.tableView scrollRectToVisible:frame animated:NO];
+        [self.tableView bringSubviewToFront:dragView];
+        
+        return YES;
+    }
+    else if( result == NSOrderedDescending) {
+        UIView *dragView = [self getDragView];
+        
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:i];
+        
+        CGRect frame = cell.frame;
+        
+        frame.origin.y -= (frame.size.height + 5);
+        
+        [self.tableView scrollRectToVisible:frame animated:NO];
+        [self.tableView bringSubviewToFront:dragView];
+        
+        return YES;
+    }
+    
+    return NO;
+}
+
+
+- (BOOL)checkForScrollingUsingVisibleRows:(NSIndexPath *)i 
+{
+    
+    if( [self isTopRow:i] || [self isLastRow:i] ) return NO;
+    
+    NSArray *visibleRow = [self.tableView indexPathsForVisibleRows];
+   
+    if ([i compare:[visibleRow objectAtIndex:0]] == NSOrderedSame ) {
+
+        UIView *dragView = [self getDragView];
+        
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:i];
+        
+        CGRect frame = cell.frame;
+        frame.origin.y -= (frame.size.height + 5);
+        
+        [self.tableView scrollRectToVisible:frame animated:NO];
+        [self.tableView bringSubviewToFront:dragView];
+        
+        return YES;
+    }
+    else if ([i compare:[visibleRow objectAtIndex:[visibleRow count]-1]] == NSOrderedSame ) {
+        UIView *dragView = [self getDragView];
+        
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:i];
+        
+        CGRect frame = cell.frame;
+
+        frame.origin.y += frame.size.height;
+        
+        [self.tableView scrollRectToVisible:frame animated:NO];
+        [self.tableView bringSubviewToFront:dragView];
+        
+        return YES;
+    }
+
+    return NO;
+}
+
+
 -(void)moveDrag:(UIGestureRecognizer *)recognizer 
 {
     
@@ -268,48 +370,32 @@
     
     if (dragView == nil ) return;
     
-
     CGPoint tPoint = [recognizer locationInView:self.tableView]; 
-
-    NSLog(@"point (%f,%f)", tPoint.x, tPoint.y);
     
-    dragView.center = tPoint;
+    //NSLog(@"point (%f,%f)", tPoint.x, tPoint.y);
+    
  
     NSIndexPath * i = [self.tableView indexPathForRowAtPoint:tPoint];
 
     if (i != nil ) {
         
-        if( [self isPossibleDropTo:i] ) {
-            [self.tableView selectRowAtIndexPath:i animated:TRUE scrollPosition:UITableViewScrollPositionNone];
-        }
-        //NSArray *indexPathArray = [self.tableView indexPathsForVisibleRows];
+        //[self checkForScrolling:i];
+        [self checkForScrollingUsingVisibleRows:i];
         
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:i];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
 
-        CGRect frame = cell.frame;
-
-        NSComparisonResult result = [source_ compare:i];
-        
-        if (result == NSOrderedAscending ) {
-            //[self.tableView scrollToRowAtIndexPath:i atScrollPosition:UITableViewScrollPositionBottom animated:YES];  
+            if( [self isPossibleDropTo:i] ) {
+                [self.tableView selectRowAtIndexPath:i animated:TRUE scrollPosition:UITableViewScrollPositionNone];
+            }
             
-            frame.origin.y += frame.size.height;
-            //frame.size.height *= 2;            
-            
-            [self.tableView scrollRectToVisible:frame animated:YES];
-        }
-        else if( result == NSOrderedDescending ) {
-            //[self.tableView scrollToRowAtIndexPath:i atScrollPosition:UITableViewScrollPositionTop animated:YES];            
-            
-            frame.origin.y -= frame.size.height;
-            //frame.size.height *= 2;
-            
-            [self.tableView scrollRectToVisible:frame animated:YES];
-        }
+        });
         
     }
 
-    
+    tPoint = [recognizer locationInView:self.tableView]; 
+
+    dragView.center = tPoint;
+
 }
 
 -(void)endDrag:(UIGestureRecognizer *)recognizer {
@@ -474,6 +560,8 @@
 
 - (void)dealloc {
 #if !_USE_ARC    
+    dispatch_release(scrolling_queue);
+    
     [source_ release];
     [super dealloc];
 #endif
