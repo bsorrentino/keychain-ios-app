@@ -62,7 +62,6 @@
 				<string key="NSFrameSize">{91, 44}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<bool key="IBUIOpaque">NO</bool>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -137,7 +136,7 @@
 								<int key="IBUITag">1</int>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">back.png</string>
+									<string key="NSResourceName">back32x32.png</string>
 								</object>
 								<double key="IBUIImageInsets.top">5</double>
 								<double key="IBUIImageInsets.bottom">0.0</double>
@@ -204,7 +203,6 @@
 						<string key="NSFrame">{{0, 416}, {320, 44}}</string>
 						<reference key="NSSuperview" ref="242671117"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<int key="IBUITag">20</int>
@@ -262,7 +260,7 @@
 			</object>
 			<object class="IBUIViewController" id="331102919">
 				<object class="IBUIView" key="IBUIView" id="170709225">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">274</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -271,6 +269,7 @@
 							<int key="NSvFlags">303</int>
 							<string key="NSFrame">{{111, 41}, {133, 30}}</string>
 							<reference key="NSSuperview" ref="170709225"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="680043718"/>
 							<bool key="IBUIOpaque">NO</bool>
 							<bool key="IBUIClipsSubviews">YES</bool>
@@ -364,6 +363,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{9, 21}, {77, 68}}</string>
 							<reference key="NSSuperview" ref="170709225"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="214247132"/>
 							<bool key="IBUIUserInteractionEnabled">NO</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -377,6 +377,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{58, 214}, {205, 64}}</string>
 							<reference key="NSSuperview" ref="170709225"/>
+							<reference key="NSWindow"/>
 							<bool key="IBUIOpaque">NO</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<int key="IBUIContentHorizontalAlignment">0</int>
@@ -410,6 +411,8 @@ AAgACAAIAAEAAQABAAE</bytes>
 						</object>
 					</object>
 					<string key="NSFrame">{{0, 20}, {320, 460}}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="414378451"/>
 					<object class="NSColor" key="IBUIBackgroundColor">
 						<int key="NSColorSpace">1</int>
@@ -428,9 +431,11 @@ AAgACAAIAAEAAQABAAE</bytes>
 			</object>
 			<object class="IBUITableViewController" id="375429805">
 				<object class="IBUITableView" key="IBUIView" id="263245797">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">274</int>
 					<string key="NSFrame">{{0, 20}, {320, 460}}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="IBUIBackgroundColor" ref="1043117820"/>
 					<bool key="IBUIOpaque">NO</bool>
 					<bool key="IBUIClipsSubviews">YES</bool>
@@ -1245,7 +1250,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>back.png</string>
+				<string>back32x32.png</string>
 				<string>changePwd24x24.png</string>
 				<string>export20x20.png</string>
 				<string>import20x20.png</string>
@@ -1255,7 +1260,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{48, 48}</string>
+				<string>{32, 32}</string>
 				<string>{24, 24}</string>
 				<string>{20, 20}</string>
 				<string>{20, 20}</string>
