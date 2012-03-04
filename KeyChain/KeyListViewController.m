@@ -98,6 +98,7 @@
     [self filterContentByPredicate:
      [NSPredicate predicateWithFormat:@"group == NO or group == nil" ] 
                              scope:nil];
+    reloadData_ = YES;
 }
 
 
@@ -239,24 +240,23 @@
                 
                 [KeyEntity createSection:alert.groupName groupPrefix:alert.groupPrefix inContext:[self managedObjectContext] ];
                 
-                
+                /*
                 if (replaceSource) {
-                    //[KeyEntity groupByReplacingPrefix:source groupKey:alert.groupName prefix:alert.groupPrefix];
-                    [source groupByRemovingPrefix:alert.groupName prefix:alert.groupPrefix];
+                    [KeyEntity groupByReplacingPrefix:source groupKey:alert.groupName prefix:alert.groupPrefix];
                 }
                 else {
-                    //[KeyEntity groupByAppendingPrefix:source prefix:alert.groupPrefix];                    
-                    [source groupByPrefix:alert.groupPrefix];
+                    [KeyEntity groupByAppendingPrefix:source prefix:alert.groupPrefix];                    
                     
                 }                
                 if( replaceTarget ) {
-                    [target groupByRemovingPrefix:alert.groupName prefix:alert.groupPrefix];
-                    //[KeyEntity groupByReplacingName:target mnemonic:[alert.groupPrefix stringByAppendingString:target.mnemonic]];
+                    [KeyEntity groupByReplacingName:target mnemonic:[alert.groupPrefix stringByAppendingString:target.mnemonic]];
                 }
                 else {
-                    //[KeyEntity groupByAppendingPrefix:target prefix:alert.groupPrefix];                    
-                    [target groupByPrefix:alert.groupPrefix];
+                    [KeyEntity groupByAppendingPrefix:target prefix:alert.groupPrefix];                    
                 }
+                */
+                [source groupByPrefix:alert.groupPrefix];
+                [target groupByPrefix:alert.groupPrefix];
                
                 
             }
@@ -402,7 +402,7 @@
                       switch (i) {
                           case 0: // REMOVE PREFIX
                           {
-                              [eSource groupByRemovingPrefix:groupKey prefix:eTarget.groupPrefix];
+                              [eSource groupByPrefix:eTarget.groupPrefix];
                               
                               //[KeyEntity groupByReplacingPrefix:eSource groupKey:groupKey prefix:eTarget.groupPrefix];
                               //[[self appDelegate] saveContext];
@@ -414,7 +414,6 @@
                               //[KeyEntity groupByReplacingName:eSource mnemonic:newMnemonic];                              
                               //[[self appDelegate] saveContext];
 
-                              [eSource groupByPrefix:eTarget.groupPrefix];
                           }
                               break;
                       }
@@ -424,8 +423,8 @@
                 UIActionSheet * sheet = 
                 [[[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
                                     cancelButtonTitle:@"Cancel" 
-                               destructiveButtonTitle:[NSString stringWithFormat:@"Remove prefix [%@]", groupKey ] 
-                                    otherButtonTitles:@"Confirm", nil] 
+                               destructiveButtonTitle:@"Confirm" 
+                                    otherButtonTitles: nil] 
                                         autorelease];
                 
                 
@@ -532,7 +531,7 @@
                          //[KeyEntity groupByReplacingPrefix:eSource groupKey:groupKey prefix:sTargetPrefix];
                          
                          [eTarget groupByPrefix:sTargetPrefix];
-                         [eSource groupByRemovingPrefix:groupKey prefix:sTargetPrefix];
+                         [eSource groupByPrefix:sTargetPrefix];
  
                      }
                          break;
@@ -548,7 +547,7 @@
                          //[KeyEntity groupByReplacingPrefix:eTarget groupKey:groupName prefix:sFromPrefix];
                          
                          [eSource groupByPrefix:sSourcePrefix];
-                         [eTarget groupByRemovingPrefix:groupName prefix:sSourcePrefix];
+                         [eTarget groupByPrefix:sSourcePrefix];
                      }
                          break;
                  }

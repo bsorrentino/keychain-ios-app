@@ -33,16 +33,6 @@ static NSString * _IS_NEW = @"isNew";
     
 }
 
-//
-- (void)groupByRemovingPrefix:(NSString*)prefixToRemove prefix:(NSString*)prefix {
-    
-    if( prefix == nil ) return;
-
-    [self groupByPrefix:prefix];
-    
-    self.mnemonic = [self.mnemonic substringToIndex:[prefixToRemove length]];
-}
-
 /*
 //
 + (void)groupByAppendingPrefix:(KeyEntity *)key prefix:(NSString*)prefix;

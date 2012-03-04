@@ -185,7 +185,6 @@
                                     otherButtonTitles:@"Delete File", nil] autorelease];
             [alert show];
         
-            [self.delegate filterReset];
         }
         @finally {
             
@@ -245,7 +244,6 @@
                                                otherButtonTitles:@"Delete File", nil] autorelease];
         [alert show];
         
-        [self.delegate filterReset];
     }
     
     [wait unmask];
@@ -311,7 +309,6 @@
                                                otherButtonTitles:@"Delete File", nil] autorelease];
         [alert show];
         
-        [self.delegate filterReset];
     }
     
     [wait unmask];
@@ -501,6 +498,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [self.delegate filterReset];
+    
     [super viewWillDisappear:animated];
 }
 

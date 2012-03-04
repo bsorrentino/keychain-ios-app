@@ -21,7 +21,6 @@
 - (BOOL)isSection;
 
 - (void)groupByPrefix:(NSString*)prefix;
-- (void)groupByRemovingPrefix:(NSString*)prefixToRemove prefix:(NSString*)prefix;
 
 + (KeyEntity *)createSection:  (NSString *)groupKey 
                                 groupPrefix:(NSString *)groupPrefix
