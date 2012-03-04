@@ -19,6 +19,68 @@ static NSString * _IS_NEW = @"isNew";
 @dynamic group, groupPrefix;
 
 
+#pragma mark -
+#pragma mark Grouping section
+#pragma mark -
+
+//
+- (void)groupByPrefix:(NSString*)prefix {
+    
+    if( prefix == nil ) return;
+
+    self.groupPrefix = prefix;
+    self.group = [NSNumber numberWithBool:YES];
+    
+}
+
+//
+- (void)groupByRemovingPrefix:(NSString*)prefixToRemove prefix:(NSString*)prefix {
+    
+    if( prefix == nil ) return;
+
+    [self groupByPrefix:prefix];
+    
+    self.mnemonic = [self.mnemonic substringToIndex:[prefixToRemove length]];
+}
+
+/*
+//
++ (void)groupByAppendingPrefix:(KeyEntity *)key prefix:(NSString*)prefix;
+{
+    
+    if (prefix==nil || key==nil) {
+        return;
+    }
+    
+    key.mnemonic = [prefix stringByAppendingString:key.mnemonic];
+    key.group = [NSNumber numberWithBool:YES];
+}
+
+//
++ (void)groupByReplacingName:(KeyEntity *)key mnemonic:(NSString*)name {
+    if (name==nil || key==nil) {
+        return;
+    }
+    
+    key.mnemonic = name;
+    key.group = [NSNumber numberWithBool:YES];
+    
+}
+
+//
++ (void)groupByReplacingPrefix:(KeyEntity *)key groupKey:(NSString*)groupKey prefix:(NSString*)prefix {
+    
+    NSString *newMnemonic = [key.mnemonic 
+                             stringByReplacingOccurrencesOfString:groupKey 
+                             withString:prefix 
+                             options:NSCaseInsensitiveSearch 
+                             range:NSMakeRange(0, [groupKey length])];
+    key.mnemonic = newMnemonic;
+    key.group = [NSNumber numberWithBool:YES];
+    
+}
+*/
+
 #pragma mark static implementation
 
 static  NSString * _REGEXP = @"(\\w+[-@/])(\\w+)";
@@ -116,49 +178,18 @@ static  NSString * _REGEXP = @"(\\w+[-@/])(\\w+)";
     [cloned setValue:@"nil" forKey:@"password"];
     [cloned setValue:@"nil" forKey:@"username"];
     
+    cloned.group = NO;
     cloned.mnemonic = groupKey;
     cloned.groupPrefix = groupPrefix;
     
     return cloned;     
 }
 
-+ (void)groupByAppendingPrefix:(KeyEntity *)key prefix:(NSString*)prefix;
-{
-    
-    if (prefix==nil || key==nil) {
-        return;
-    }
-    
-    key.mnemonic = [prefix stringByAppendingString:key.mnemonic];
-    key.group = [NSNumber numberWithBool:YES];
-}
-
-+ (void)groupByReplacingName:(KeyEntity *)key mnemonic:(NSString*)name {
-    if (name==nil || key==nil) {
-        return;
-    }
-    
-    key.mnemonic = name;
-    key.group = [NSNumber numberWithBool:YES];
-    
-}
-
-+ (void)groupByReplacingPrefix:(KeyEntity *)key groupKey:(NSString*)groupKey prefix:(NSString*)prefix {
-
-    NSString *newMnemonic = [key.mnemonic 
-                         stringByReplacingOccurrencesOfString:groupKey 
-                         withString:prefix 
-                         options:NSCaseInsensitiveSearch 
-                         range:NSMakeRange(0, [groupKey length])];
-    key.mnemonic = newMnemonic;
-    key.group = [NSNumber numberWithBool:YES];
-
-}
 
 #pragma mark implementation
 
 - (BOOL)isSection {
-    return self.groupPrefix != nil;
+    return self.groupPrefix != nil && (self.group == nil || self.group == NO);
 }
 
 - (BOOL)isEqualForImport:(id)object {

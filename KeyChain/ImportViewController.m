@@ -138,60 +138,60 @@
     
     if( self.delegate == nil ) return;
     
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; 
-    
-    WaitMaskController *wait = [[WaitMaskController alloc] init ] ;
+    @autoreleasepool {
+        
+        WaitMaskController *wait = [[WaitMaskController alloc] init ] ;
 
-    @try { 
+        @try { 
 
-        [wait mask:@"Import file ...."];
-        
-        NSArray *result = [self loadDataFromPropertyList:fileName];
-        if (result== nil ) {
-            return;
-        }
-        
-        NSManagedObjectContext *context = [[self appDelegate] managedObjectContext];
-        
-        wait.message = @"deleting keys .....";
+            [wait mask:@"Import file ...."];
+            
+            NSArray *result = [self loadDataFromPropertyList:fileName];
+            if (result== nil ) {
+                return;
+            }
+            
+            NSManagedObjectContext *context = [[self appDelegate] managedObjectContext];
+            
+            wait.message = @"deleting keys .....";
 
-        NSArray *keyList = [self.delegate fetchedObjects];
-        
-        for (KeyEntity *e in keyList ) {
+            NSArray *keyList = [self.delegate fetchedObjects];
             
-            NSLog(@"deleting [%@]", e.mnemonic);
-            [context deleteObject:e];
+            for (KeyEntity *e in keyList ) {
+                
+                NSLog(@"deleting [%@]", e.mnemonic);
+                [context deleteObject:e];
+            }
+            
+            
+            wait.message = @"adding keys .....";
+             
+            for( NSInteger i = 1; i < [result count]; ++i ) {
+                
+                KeyEntity * entity = [[[KeyEntity alloc] initWithEntity:[delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
+                
+                NSDictionary *d = [result objectAtIndex:i];
+                [entity fromDictionary:d];
+                
+                NSLog(@"mnemonic = [%@]", entity.mnemonic);
+            }
+            
+            [[self appDelegate] saveContext];
+            
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Import" 
+                                    message:[NSString stringWithFormat:@"Completed\n deleted [%d]\n added [%d]!", [keyList count], [result count]-1 ]
+                                    delegate:self 
+                                    cancelButtonTitle:@"OK" 
+                                    otherButtonTitles:@"Delete File", nil] autorelease];
+            [alert show];
+        
+            [self.delegate filterReset];
         }
-        
-        
-        wait.message = @"adding keys .....";
-         
-        for( NSInteger i = 1; i < [result count]; ++i ) {
+        @finally {
             
-            KeyEntity * entity = [[[KeyEntity alloc] initWithEntity:[delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
+            [wait unmask];
             
-            NSDictionary *d = [result objectAtIndex:i];
-            [entity fromDictionary:d];
-            
-            NSLog(@"mnemonic = [%@]", entity.mnemonic);
         }
-        
-        [[self appDelegate] saveContext];
-        
-        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Import" 
-                                message:[NSString stringWithFormat:@"Completed\n deleted [%d]\n added [%d]!", [keyList count], [result count]-1 ]
-                                delegate:self 
-                                cancelButtonTitle:@"OK" 
-                                otherButtonTitles:@"Delete File", nil] autorelease];
-        [alert show];
-    
-    }
-    @finally {
-        
-        [wait unmask];
-        
-        [pool drain];   
-        
     }
 }
 
@@ -245,6 +245,7 @@
                                                otherButtonTitles:@"Delete File", nil] autorelease];
         [alert show];
         
+        [self.delegate filterReset];
     }
     
     [wait unmask];
@@ -310,6 +311,7 @@
                                                otherButtonTitles:@"Delete File", nil] autorelease];
         [alert show];
         
+        [self.delegate filterReset];
     }
     
     [wait unmask];
@@ -318,30 +320,29 @@
 
 -(void)listFiles {
     
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
-    @try {
-        BOOL expandTilde = YES;
-        NSSearchPathDirectory destination = NSDocumentDirectory;
-        //NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
-        
-        NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde) lastObject];
-        
-        NSError *error;
-        
-        //NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
-        NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentDirectory error:&error];
-        
-        NSArray * filteredArray = [dirContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.plist'"]];    
-        
-        
-        fileArray_ = [[filteredArray sortedArrayUsingComparator: ^(id obj1, id obj2) {
+    @autoreleasepool {
+        @try {
+            BOOL expandTilde = YES;
+            NSSearchPathDirectory destination = NSDocumentDirectory;
+            //NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
             
-            return [obj2 localizedCaseInsensitiveCompare:obj1 ];
-        }] retain];
-    }
-    @finally {
-        [pool drain];
+            NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde) lastObject];
+            
+            NSError *error;
+            
+            //NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
+            NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentDirectory error:&error];
+            
+            NSArray * filteredArray = [dirContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.plist'"]];    
+            
+            
+            fileArray_ = [[filteredArray sortedArrayUsingComparator: ^(id obj1, id obj2) {
+                
+                return [obj2 localizedCaseInsensitiveCompare:obj1 ];
+            }] retain];
+        }
+        @finally {
+        }
     }
     
 }

@@ -32,18 +32,29 @@
 @synthesize exportViewController=exportViewController_;
 @synthesize importViewController=importViewController_;
 
-#pragma mark - RootViewController KeyListDataSource implementation
 
-- (NSArray *)fetchedObjects {
+#pragma mark - 
+#pragma mark KeyListDataSource implementation
+#pragma mark - 
+
+- (NSArray *)fetchedObjects 
+{
     
+    [self.keyListViewController filterContentByPredicate:nil scope:nil];
     return [self.keyListViewController fetchedObjects];
 }
 
-- (NSEntityDescription *)entityDescriptor {
+- (NSEntityDescription *)entityDescriptor 
+{
  
-    return [[self.keyListViewController.fetchedResultsController fetchRequest] entity];
+    return [self.keyListViewController entityDescriptor];
 }
 
+- (void)filterReset 
+{
+    [self.keyListViewController filterReset];
+    
+}
 
 #pragma mark - RootViewController private methods
 

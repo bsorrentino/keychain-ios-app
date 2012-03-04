@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+
+
 @interface KeyEntity : NSManagedObject {
 
 }
@@ -18,6 +20,9 @@
 - (BOOL)isEqualForImport:(id)object;
 - (BOOL)isSection;
 
+- (void)groupByPrefix:(NSString*)prefix;
+- (void)groupByRemovingPrefix:(NSString*)prefixToRemove prefix:(NSString*)prefix;
+
 + (KeyEntity *)createSection:  (NSString *)groupKey 
                                 groupPrefix:(NSString *)groupPrefix
                                 inContext:(NSManagedObjectContext *)context;
@@ -25,9 +30,9 @@
 + (BOOL)isSectionAware:(KeyEntity *)key;
 + (NSRange)getSectionPrefix:(KeyEntity*)key checkIfIsSectionAware:(BOOL)check;
 
-+ (void)groupByAppendingPrefix:(KeyEntity *)key prefix:(NSString*)prefix;
-+ (void)groupByReplacingName:(KeyEntity *)key mnemonic:(NSString*)name;
-+ (void)groupByReplacingPrefix:(KeyEntity *)key groupKey:(NSString*)groupKey prefix:(NSString*)prefix;
+//+ (void)groupByReplacingPrefix:(KeyEntity *)key groupKey:(NSString*)groupKey prefix:(NSString*)prefix;
+//+ (void)groupByAppendingPrefix:(KeyEntity *)key prefix:(NSString*)prefix;
+//+ (void)groupByReplacingName:(KeyEntity *)key mnemonic:(NSString*)name;
 
 + (NSString *)sectionNameFromPrefix:(NSString *)prefix trim:(BOOL)trim;
 

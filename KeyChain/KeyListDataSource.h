@@ -16,4 +16,7 @@
 - (NSArray *)fetchedObjects;
 
 - (NSEntityDescription *)entityDescriptor;
+
+- (void)filterReset;
+
 @end

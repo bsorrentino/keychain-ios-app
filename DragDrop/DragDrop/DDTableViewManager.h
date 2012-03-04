@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define _USE_ARC  1
+#define _USE_ARC  0
 
 
 #if _USE_ARC == 1 

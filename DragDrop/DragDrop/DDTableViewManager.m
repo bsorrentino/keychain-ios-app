@@ -23,6 +23,8 @@
 
 - (BOOL)isLastRow:(NSIndexPath *)index;
 - (BOOL)isTopRow:(NSIndexPath *)index;
+- (BOOL)checkForScrolling:(NSIndexPath *)i  __attribute__((deprecated)); 
+- (BOOL)checkForScrollingUsingVisibleRows:(NSIndexPath *)i;
 
 -(UIView *)dragViewFromCell:(UITableViewCell *)cell recognizer:(UIGestureRecognizer *)recognizer;
 -(UIView *)getDragView;

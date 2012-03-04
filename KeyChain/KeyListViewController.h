@@ -21,6 +21,7 @@
 @interface KeyListViewController : UITableViewController 
     <
         NSFetchedResultsControllerDelegate,
+        KeyListDataSource,
         KeyEntityFormControllerDelegate,
         UISearchDisplayDelegate,
         UISearchBarDelegate,
@@ -54,6 +55,7 @@
 
 -(IBAction)insertNewObject:(id)sender;
 - (NSArray *)fetchedObjects;
+- (void)filterContentByPredicate:(NSPredicate *)predicate scope:(NSString *)scope;
 
 //@property (nonatomic, copy) void (^clickedButtonAtIndexAlert)( UIAlertViewInputSection *alertView, NSInteger buttonIndex) ;
 @property (nonatomic, copy) void (^clickedButtonAtIndex)( UIActionSheet *actionSheet, NSInteger index );

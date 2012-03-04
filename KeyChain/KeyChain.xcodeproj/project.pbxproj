@@ -30,6 +30,7 @@
 		5F6168F314E9D412004BE24A /* UIAlertViewInputSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6168F214E9D412004BE24A /* UIAlertViewInputSection.m */; };
 		5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F3439143F315500D9C428 /* ExportViewController.m */; };
 		5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6F343B143F49EC00D9C428 /* usb48x48.png */; };
+		5F6F634A14FE4521004C1337 /* DDTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F634914FE4521004C1337 /* DDTableViewManager.m */; };
 		5F777C341359E367003AFC9E /* edit32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F777C321359E367003AFC9E /* edit32x32.png */; };
 		5F777C351359E367003AFC9E /* write32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F777C331359E367003AFC9E /* write32x32.png */; };
 		5F9A3E911450808B004300C9 /* OptionPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A3E901450808B004300C9 /* OptionPane.m */; };
@@ -64,7 +65,6 @@
 		5FF7900612E7AC9F008EA886 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7900412E7AC9F008EA886 /* PushTextEntryCell.m */; };
 		5FF7900912E7ACAA008EA886 /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7900712E7ACAA008EA886 /* PushTextEntryCell.xib */; };
 		5FF7AC4A13B229C900BB8CBB /* back24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF7AC4913B229C900BB8CBB /* back24x24.png */; };
-		5FFC754514E5A82200E3E162 /* DDTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754414E5A82200E3E162 /* DDTableViewManager.m */; };
 		5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754F14E5B06800E3E162 /* KeyListViewController.m */; };
 		A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0121169142269B2000AA884 /* AVFoundation.framework */; };
 		A0759F2114305DBE000701EF /* settings20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A0759F2014305DBE000701EF /* settings20x20.png */; };
@@ -124,6 +124,8 @@
 		5F6F3438143F315500D9C428 /* ExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportViewController.h; sourceTree = "<group>"; };
 		5F6F3439143F315500D9C428 /* ExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportViewController.m; sourceTree = "<group>"; };
 		5F6F343B143F49EC00D9C428 /* usb48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usb48x48.png; sourceTree = "<group>"; };
+		5F6F634814FE4521004C1337 /* DDTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDTableViewManager.h; path = ../DragDrop/DragDrop/DDTableViewManager.h; sourceTree = "<group>"; };
+		5F6F634914FE4521004C1337 /* DDTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDTableViewManager.m; path = ../DragDrop/DragDrop/DDTableViewManager.m; sourceTree = "<group>"; };
 		5F777C321359E367003AFC9E /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
 		5F777C331359E367003AFC9E /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
 		5F8B67EA14471B7E00A767AE /* KeyListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListDataSource.h; sourceTree = "<group>"; };
@@ -178,8 +180,6 @@
 		5FF7900412E7AC9F008EA886 /* PushTextEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTextEntryCell.m; sourceTree = "<group>"; };
 		5FF7900812E7ACAA008EA886 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushTextEntryCell.xib; sourceTree = "<group>"; };
 		5FF7AC4913B229C900BB8CBB /* back24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back24x24.png; sourceTree = "<group>"; };
-		5FFC754314E5A82200E3E162 /* DDTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTableViewManager.h; sourceTree = "<group>"; };
-		5FFC754414E5A82200E3E162 /* DDTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTableViewManager.m; sourceTree = "<group>"; };
 		5FFC754E14E5B06800E3E162 /* KeyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListViewController.h; sourceTree = "<group>"; };
 		5FFC754F14E5B06800E3E162 /* KeyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyListViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* KeyChain-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KeyChain-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -244,6 +244,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5F6F634714FE4504004C1337 /* DragDrop */,
 				5FD68C9314E40E2200B57E0C /* QuartzCore.framework */,
 				5F3BD072143B352E00001F01 /* CoreData.framework */,
 				A0121169142269B2000AA884 /* AVFoundation.framework */,
@@ -306,11 +307,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5F6F634714FE4504004C1337 /* DragDrop */ = {
+			isa = PBXGroup;
+			children = (
+				5F6F634814FE4521004C1337 /* DDTableViewManager.h */,
+				5F6F634914FE4521004C1337 /* DDTableViewManager.m */,
+			);
+			name = DragDrop;
+			sourceTree = "<group>";
+		};
 		5FA3A4B712DC7703009BE36C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5FFC754314E5A82200E3E162 /* DDTableViewManager.h */,
-				5FFC754414E5A82200E3E162 /* DDTableViewManager.m */,
 				A0FD0E4B14166C32009C7257 /* MailListDataEntryCell.h */,
 				A0FD0E4C14166C32009C7257 /* MailListDataEntryCell.m */,
 				A0FD0E4414165D8E009C7257 /* AttributeInfo.h */,
@@ -574,9 +582,9 @@
 				5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */,
 				5F9A3E911450808B004300C9 /* OptionPane.m in Sources */,
 				5FBB755D14B78C0100A48690 /* model-1.2.xcmappingmodel in Sources */,
-				5FFC754514E5A82200E3E162 /* DDTableViewManager.m in Sources */,
 				5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */,
 				5F6168F314E9D412004BE24A /* UIAlertViewInputSection.m in Sources */,
+				5F6F634A14FE4521004C1337 /* DDTableViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
