@@ -340,7 +340,7 @@
         CGRect frame = cell.frame;
         frame.origin.y -= (frame.size.height + 5);
         
-        [self.tableView scrollRectToVisible:frame animated:NO];
+        [self.tableView scrollRectToVisible:frame animated:YES];
         [self.tableView bringSubviewToFront:dragView];
         
         return YES;
@@ -354,7 +354,7 @@
 
         frame.origin.y += frame.size.height;
         
-        [self.tableView scrollRectToVisible:frame animated:NO];
+        [self.tableView scrollRectToVisible:frame animated:YES];
         [self.tableView bringSubviewToFront:dragView];
         
         return YES;
@@ -382,16 +382,16 @@
     if (i != nil ) {
         
         //[self checkForScrolling:i];
-        [self checkForScrollingUsingVisibleRows:i];
+        if( ![self checkForScrollingUsingVisibleRows:i] ) {
         
-        dispatch_async(dispatch_get_main_queue(), ^(void){
+            dispatch_async(dispatch_get_main_queue(), ^(void){
 
-            if( [self isPossibleDropTo:i] ) {
-                [self.tableView selectRowAtIndexPath:i animated:TRUE scrollPosition:UITableViewScrollPositionNone];
-            }
-            
-        });
-        
+                if( [self isPossibleDropTo:i] ) {
+                    [self.tableView selectRowAtIndexPath:i animated:TRUE scrollPosition:UITableViewScrollPositionNone];
+                }
+                
+            });
+        }
     }
 
     tPoint = [recognizer locationInView:self.tableView]; 

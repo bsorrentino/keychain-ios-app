@@ -50,86 +50,88 @@
     
     if( self.delegate == nil ) return;
     
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    @autoreleasepool {
     
-    WaitMaskController *wait = [[WaitMaskController alloc] init ];
-    
-    @try {
+        WaitMaskController *wait = [[WaitMaskController alloc] init ];
         
-        [wait mask:@"Export to ITunes...."];
-        
-        NSMutableArray *root = [[[NSMutableArray alloc ]init] autorelease];
-        
-        NSArray * keys = [NSArray  arrayWithObjects:@"version",nil];
-        NSArray * values = [NSArray arrayWithObjects:@"1.2",nil];
-        
-        NSMutableDictionary * header = [NSMutableDictionary dictionaryWithObjects:values forKeys:keys];
-        
-        [root addObject:header];
-        
-        
-        NSArray *items = [self.delegate fetchedObjects];
-        
-        for (KeyEntity *entity in items) {
+        @try {
             
-            NSMutableDictionary * d = [[NSMutableDictionary new] autorelease];
-            [root addObject:[entity toDictionary:d]];
-        }
-        
-        
-        NSString *errorDescription;
-        
-        NSData *data = [NSPropertyListSerialization dataFromPropertyList:root format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorDescription ];
-        
-        if (data== nil ) {
-            NSString *msg = [NSString stringWithFormat:@"error creating NSPropertyListSerialization [%@]", errorDescription ];
+            [wait mask:@"Export to ITunes...."];
             
-            [KeyChainAppDelegate showMessagePopup:msg title:@"error"];
-            return;
-        }
-        
-        BOOL expandTilde = YES;
-        
-        //NSSearchPathDirectory destination = NSLibraryDirectory;
-        NSSearchPathDirectory destination = NSDocumentDirectory;
-        
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
-        
-        NSString *documentDirectory = [paths objectAtIndex:0];
-        NSLog(@"Document paths[0]=[%@]", documentDirectory);
-        
-        NSDateFormatter *dateFormat = [[[NSDateFormatter alloc] init] autorelease];
-        [dateFormat setDateFormat:@"yyyyMMdd"];
-        
-        
-        NSString *fileName = [NSString stringWithFormat:@"keylist-%@.plist", [dateFormat stringFromDate:[NSDate date]]  ];
-        
-        NSString *outputPath = [documentDirectory stringByAppendingPathComponent:fileName];
-        
-        //BOOL writeResult = [data writeToFile:outputPath atomically:YES];
-        NSError *error = nil;
-        BOOL writeResult = [data writeToFile:outputPath options:NSDataWritingAtomic error:&error];
-        if( !writeResult ) {
-            [KeyChainAppDelegate showErrorPopup:error];
-            return;
-        }
-        
-        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Export" 
-                                                         message:@"Completed!"
-                                                        delegate:self 
-                                               cancelButtonTitle:@"OK" 
-                                               otherButtonTitles:nil] autorelease];
-        [alert show];
+            NSMutableArray *root = [[[NSMutableArray alloc ]init] autorelease];
+            
+            NSArray * keys = [NSArray  arrayWithObjects:@"version",nil];
+            
+            NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey]; 
 
-        
-        
-    }
-    @finally {
-        
-        [wait unmask];
-        
-        [pool drain];
-        
+            NSArray * values = [NSArray arrayWithObjects:bundleVersion,nil];
+            
+            NSMutableDictionary * header = [NSMutableDictionary dictionaryWithObjects:values forKeys:keys];
+            
+            [root addObject:header];
+            
+            
+            NSArray *items = [self.delegate fetchedObjects];
+            
+            for (KeyEntity *entity in items) {
+                
+                NSMutableDictionary * d = [[NSMutableDictionary new] autorelease];
+                [root addObject:[entity toDictionary:d]];
+            }
+            
+            
+            NSString *errorDescription;
+            
+            NSData *data = [NSPropertyListSerialization dataFromPropertyList:root format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorDescription ];
+            
+            if (data== nil ) {
+                NSString *msg = [NSString stringWithFormat:@"error creating NSPropertyListSerialization [%@]", errorDescription ];
+                
+                [KeyChainAppDelegate showMessagePopup:msg title:@"error"];
+                return;
+            }
+            
+            BOOL expandTilde = YES;
+            
+            //NSSearchPathDirectory destination = NSLibraryDirectory;
+            NSSearchPathDirectory destination = NSDocumentDirectory;
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(destination, NSUserDomainMask, expandTilde);
+            
+            NSString *documentDirectory = [paths objectAtIndex:0];
+            NSLog(@"Document paths[0]=[%@]", documentDirectory);
+            
+            NSDateFormatter *dateFormat = [[[NSDateFormatter alloc] init] autorelease];
+            [dateFormat setDateFormat:@"yyyyMMdd"];
+            
+            
+            NSString *fileName = [NSString stringWithFormat:@"keylist-%@.plist", [dateFormat stringFromDate:[NSDate date]]  ];
+            
+            NSString *outputPath = [documentDirectory stringByAppendingPathComponent:fileName];
+            
+            //BOOL writeResult = [data writeToFile:outputPath atomically:YES];
+            NSError *error = nil;
+            BOOL writeResult = [data writeToFile:outputPath options:NSDataWritingAtomic error:&error];
+            if( !writeResult ) {
+                [KeyChainAppDelegate showErrorPopup:error];
+                return;
+            }
+            
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Export" 
+                                                             message:@"Completed!"
+                                                            delegate:self 
+                                                   cancelButtonTitle:@"OK" 
+                                                   otherButtonTitles:nil] autorelease];
+            [alert show];
+
+            
+            
+        }
+        @finally {
+            
+            [wait unmask];
+            
+        }
     }
 }
 
