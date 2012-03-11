@@ -48,7 +48,7 @@
 
     UIBarButtonItem *addButton_;
     
-    UIView *customEditView;
+    NSIndexPath *selectedSection;
     
 }
 
@@ -67,7 +67,7 @@
 @property (nonatomic, retain) IBOutlet KeyEntityFormController *keyEntityFormController;
 @property(nonatomic,readonly,retain) UINavigationController *navigationController; // If this view controller has been pushed onto a navigation controller, return it.
 
-@property(nonatomic,retain) IBOutlet UIView *customEditView;
+@property(nonatomic,copy) NSIndexPath *selectedSection;
 
 @end
 

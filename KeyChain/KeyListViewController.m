@@ -56,7 +56,7 @@
 - (void)createSectionChoosingCustomSectionPrefix:(KeyEntity *)source target:(KeyEntity*)target replaceSource:(BOOL)replaceSource replaceTarget:(BOOL)replaceTarget;
 - (void)setNavigationTitle:(NSString*)title;
 
-- (IBAction)detach:(id)sender;
+- (IBAction)detachFromSection:(id)sender;
 
 @end
 
@@ -70,7 +70,7 @@
 
 //@synthesize clickedButtonAtIndexAlert=clickedButtonAtIndexAlert_;
 @synthesize clickedButtonAtIndex=clickedButtonAtIndex_;
-@synthesize customEditView;
+@synthesize selectedSection;
 
 #pragma mark -
 #pragma mark KeyListDataSource implementation
@@ -105,7 +105,9 @@
 }
 
 
-#pragma mark - Section implementation
+#pragma mark - 
+#pragma mark Section implementation
+#pragma mark -
 
 - (void)setNavigationTitle:(NSString*)title {
 
@@ -185,6 +187,7 @@
         
     });
     
+    
 }
 
 
@@ -225,6 +228,10 @@
         
         [self.tableView reloadData];
         
+        if (self.selectedSection != nil ) {
+            //[self.tableView scrollToRowAtIndexPath:self.selectedSection atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            [self.tableView selectRowAtIndexPath:self.selectedSection animated:NO scrollPosition:UITableViewScrollPositionMiddle];        
+        }
     });
 }
 
@@ -272,7 +279,7 @@
  
 }
 
-- (IBAction)detach:(id)sender {
+- (IBAction)detachFromSection:(id)sender {
     
     UIDetachButton *detachView = sender;
     
@@ -281,6 +288,7 @@
     
     [managedObject detachFromGroup];
     
+    //[self.tableView setEditing:NO animated:YES];
     //[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:detachView.index] withRowAnimation:YES];
     
 }
@@ -953,7 +961,7 @@
             
             detachView.index = indexPath;
             
-            [detachView addTarget:self action:@selector(detach:) forControlEvents:UIControlEventTouchDown];
+            [detachView addTarget:self action:@selector(detachFromSection:) forControlEvents:UIControlEventTouchDown];
             
             cell.editingAccessoryView = detachView;
             
@@ -977,22 +985,29 @@
 
 
 
-/*
+
  // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    KeyEntity *entity = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
+    // Return NO if you do not want the specified item to be editable.
+    return ![entity isSection];
+}
+
 
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        KeyEntity *entity = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
         // Delete the managed object for the given index path
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        
+        [context deleteObject:entity];
         
         // Save the context.
         NSError *error = nil;
@@ -1096,6 +1111,7 @@
     
     if ([e isSection] ) {
         
+        self.selectedSection = indexPath;
         [self pushViewSection:e];
     }
     else {
@@ -1414,8 +1430,9 @@
 
         
         [self setTitle:@"Detach" forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         self.titleLabel.font = [UIFont systemFontOfSize:14];
+        self.backgroundColor = [UIColor lightGrayColor];
         
     }
     
