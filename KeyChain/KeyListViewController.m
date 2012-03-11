@@ -56,6 +56,8 @@
 - (void)createSectionChoosingCustomSectionPrefix:(KeyEntity *)source target:(KeyEntity*)target replaceSource:(BOOL)replaceSource replaceTarget:(BOOL)replaceTarget;
 - (void)setNavigationTitle:(NSString*)title;
 
+- (IBAction)detach:(id)sender;
+
 @end
 
 
@@ -68,6 +70,7 @@
 
 //@synthesize clickedButtonAtIndexAlert=clickedButtonAtIndexAlert_;
 @synthesize clickedButtonAtIndex=clickedButtonAtIndex_;
+@synthesize customEditView;
 
 #pragma mark -
 #pragma mark KeyListDataSource implementation
@@ -267,6 +270,19 @@
     
     [inputView show];
  
+}
+
+- (IBAction)detach:(id)sender {
+    
+    UIDetachButton *detachView = sender;
+    
+    KeyEntity *managedObject = [self.fetchedResultsController objectAtIndexPath: detachView.index];
+    NSLog(@"detach [%@]", managedObject.mnemonic);
+    
+    [managedObject detachFromGroup];
+    
+    //[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:detachView.index] withRowAnimation:YES];
+    
 }
 
 #pragma mark UIActionSheetDelegate implementation 
@@ -900,8 +916,9 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
-    static NSString *CellGroupIdentifier = @"CellGroup";
+    static NSString *CellIdentifier         = @"Cell";
+    static NSString *CellGroupIdentifier    = @"CellGroup";
+    static NSString *CellSectionIdentifier  = @"CellSection";
     
     KeyEntity *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
@@ -911,16 +928,40 @@
     
     if ( [managedObject isSection] ) {
         
+        cell = [tableView dequeueReusableCellWithIdentifier:CellSectionIdentifier];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] 
+                     initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellSectionIdentifier] 
+                    autorelease];
+        }        
+        
+    }
+    else if( [managedObject isGrouped] ) {
+        
         cell = [tableView dequeueReusableCellWithIdentifier:CellGroupIdentifier];
         if (cell == nil) {
             cell = [[[UITableViewCell alloc] 
                      initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellGroupIdentifier] 
                     autorelease];
+
+            //[[NSBundle mainBundle] loadNibNamed:@"keygrouped" owner:self options:nil];
+            //cell.editingAccessoryView = self.customEditView;
+            //self.customEditView = nil;
+
+            // CREATE CUSTOM CLASS TO KEEP TRACK OF SELECTED INDEX
+            UIDetachButton *detachView = [[UIDetachButton alloc] initFromCell:cell];
+            
+            detachView.index = indexPath;
+            
+            [detachView addTarget:self action:@selector(detach:) forControlEvents:UIControlEventTouchDown];
+            
+            cell.editingAccessoryView = detachView;
+            
         }        
+
         
     }
-    else  {
-        
+    else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[[UITableViewCell alloc] 
@@ -1351,4 +1392,34 @@
 
 @end
 
+#pragma mark -
+#pragma mark 
+#pragma mark UIDetachButton implementation
+#pragma mark 
+#pragma mark -
 
+@implementation UIDetachButton;
+
+@synthesize index;
+
+- (id)initFromCell:(UITableViewCell *)cell 
+{
+    CGRect rc = CGRectMake(0, 0, 65, cell.frame.size.height-10 );
+    
+    if( self = [super initWithFrame:rc] ) {
+
+        self.layer.cornerRadius = 5.0f;
+        self.layer.masksToBounds = YES;
+        self.layer.borderWidth = 1.0f; 
+
+        
+        [self setTitle:@"Detach" forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        self.titleLabel.font = [UIFont systemFontOfSize:14];
+        
+    }
+    
+    return self;
+}
+
+@end

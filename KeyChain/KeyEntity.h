@@ -18,9 +18,13 @@
 - (NSDictionary *)toDictionary:(NSMutableDictionary*)target;
 - (void)fromDictionary:(NSDictionary *)source;
 - (BOOL)isEqualForImport:(id)object;
+
 - (BOOL)isSection;
+- (BOOL)isGrouped;
 
 - (void)groupByPrefix:(NSString*)prefix;
+- (void)detachFromGroup;
+
 
 + (KeyEntity *)createSection:  (NSString *)groupKey 
                                 groupPrefix:(NSString *)groupPrefix

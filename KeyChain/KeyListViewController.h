@@ -48,6 +48,8 @@
 
     UIBarButtonItem *addButton_;
     
+    UIView *customEditView;
+    
 }
 
 
@@ -64,4 +66,24 @@
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) IBOutlet KeyEntityFormController *keyEntityFormController;
 @property(nonatomic,readonly,retain) UINavigationController *navigationController; // If this view controller has been pushed onto a navigation controller, return it.
+
+@property(nonatomic,retain) IBOutlet UIView *customEditView;
+
 @end
+
+
+@interface UIDetachButton : UIButton {
+
+@private
+
+    NSIndexPath *index;
+}
+
+@property(nonatomic,copy) NSIndexPath *index;
+
+- (id)initFromCell:(UITableViewCell *)cell;
+
+@end
+
+
+

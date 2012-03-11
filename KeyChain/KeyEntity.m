@@ -33,6 +33,15 @@ static NSString * _IS_NEW = @"isNew";
     
 }
 
+//
+- (void)detachFromGroup {
+
+    self.groupPrefix = nil;
+    self.group = [NSNumber numberWithBool:NO];
+    
+}
+
+
 /*
 //
 + (void)groupByAppendingPrefix:(KeyEntity *)key prefix:(NSString*)prefix;
@@ -176,10 +185,16 @@ static  NSString * _REGEXP = @"(\\w+[-@/])(\\w+)";
 }
 
 
+#pragma mark -
 #pragma mark implementation
+#pragma mark -
 
 - (BOOL)isSection {
-    return self.groupPrefix != nil && (self.group == nil || self.group == NO);
+    return self.groupPrefix != nil && (self.group == nil || [self.group boolValue] == NO);
+}
+
+- (BOOL)isGrouped {
+    return (self.groupPrefix != nil && self.group != nil && [self.group boolValue] == YES);
 }
 
 - (BOOL)isEqualForImport:(id)object {
