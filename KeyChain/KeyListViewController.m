@@ -34,7 +34,7 @@
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope;
 
-- (void)hideSearchBar;
+- (void)hideSearchBar:(BOOL)animated;
 - (PersistentAppDelegate *) appDelegate;
 //- (NSArray *)fetchedObjects;
 
@@ -50,7 +50,7 @@
     
 }
 
-- (void)dismissViewSection:(id)sender;
+- (IBAction)dismissViewSection:(id)sender;
 - (void)pushViewSection:(KeyEntity *)keyEntity;
 - (NSRange)getSectionPrefix:(NSString*)key;
 - (void)createSectionChoosingCustomSectionPrefix:(KeyEntity *)source target:(KeyEntity*)target replaceSource:(BOOL)replaceSource replaceTarget:(BOOL)replaceTarget;
@@ -152,7 +152,7 @@
         //[self.tableView setFrame:frame];
  
         [self setNavigationTitle:keyEntity.mnemonic];
-        
+                
         // HIDE ADD BUTTON ITEM
         [self hideNavigationRightButton:YES];
             
@@ -160,7 +160,8 @@
         toolbar.hidden = YES;
         
         // HIDE SEARCH BAR
-        [self hideSearchBar];
+        [self hideSearchBar:NO]; self.searchDisplayController.searchBar.hidden = YES;
+        
 
         // SHOW SECTION TOOLBAR (AT BOTTOM)
         [sectionToolbar setFrame:toolbar.frame];
@@ -223,8 +224,9 @@
         swipe_.enabled = NO;
         
         dd_.enabled = YES;
-
+        
         [self filterReset];
+
         
         [self.tableView reloadData];
         
@@ -232,6 +234,15 @@
             //[self.tableView scrollToRowAtIndexPath:self.selectedSection atScrollPosition:UITableViewScrollPositionTop animated:NO];
             [self.tableView selectRowAtIndexPath:self.selectedSection animated:NO scrollPosition:UITableViewScrollPositionMiddle];        
         }
+        
+    });
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+
+        self.searchDisplayController.searchBar.hidden = NO;
+        
+        [self hideSearchBar:YES];
+        
     });
 }
 
@@ -763,9 +774,10 @@
     return [[self appDelegate] managedObjectContext];
 }
 
-- (void)hideSearchBar {
+- (void)hideSearchBar:(BOOL)animated {
     //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];    
-    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+    //self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+    [self.tableView setContentOffset:CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height) animated:animated];
     
 }
 
@@ -811,7 +823,7 @@
         
     self.searchDisplayController.searchBar.delegate = self;
     
-    [self hideSearchBar];
+    [self hideSearchBar:NO];
     
     [self initGestureRecognizer];
     
