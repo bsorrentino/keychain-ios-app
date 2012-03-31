@@ -55,6 +55,7 @@
 - (NSRange)getSectionPrefix:(NSString*)key;
 - (void)createSectionChoosingCustomSectionPrefix:(KeyEntity *)source target:(KeyEntity*)target replaceSource:(BOOL)replaceSource replaceTarget:(BOOL)replaceTarget;
 - (void)setNavigationTitle:(NSString*)title;
+- (BOOL)touchUpInsideEditButton;
 
 - (IBAction)detachFromSection:(id)sender;
 
@@ -133,6 +134,7 @@
     
     if (![keyEntity isSection] ) return;
     
+    
 	CATransition *animation = [CATransition animation];
 	[animation setDuration:0.5];
 	[animation setType:kCATransitionPush];
@@ -140,7 +142,6 @@
 	[animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
     
     [self.navigationController.view.layer addAnimation:animation forKey:@"pushViewSection"];
-    
     dispatch_async(dispatch_get_main_queue(), ^{
 
         UIView *toolbar     = [self.navigationController.view viewWithTag:TOOLBAR_TAG];
@@ -159,9 +160,12 @@
         // HIDE ADD BUTTON
         toolbar.hidden = YES;
         
-        // HIDE SEARCH BAR
-        [self hideSearchBar:NO]; self.searchDisplayController.searchBar.hidden = YES;
-        
+        // SEARCH BAR
+        //[self searchBarCancelButtonClicked:self.searchDisplayController.searchBar];
+        [self.searchDisplayController setActive:NO];
+        [self hideSearchBar:NO]; //self.searchDisplayController.searchBar.hidden = YES;
+        [self.searchDisplayController.searchBar setUserInteractionEnabled:NO];
+
 
         // SHOW SECTION TOOLBAR (AT BOTTOM)
         [sectionToolbar setFrame:toolbar.frame];
@@ -225,10 +229,7 @@
         
         dd_.enabled = YES;
         
-        [self filterReset];
-
-        
-        [self.tableView reloadData];
+        [self filterReset]; [self.tableView reloadData];
         
         if (self.selectedSection != nil ) {
             //[self.tableView scrollToRowAtIndexPath:self.selectedSection atScrollPosition:UITableViewScrollPositionTop animated:NO];
@@ -239,8 +240,9 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
 
-        self.searchDisplayController.searchBar.hidden = NO;
-        
+        //self.searchDisplayController.searchBar.hidden = NO;
+        [self.searchDisplayController.searchBar setUserInteractionEnabled:YES];        
+
         [self hideSearchBar:YES];
         
     });
@@ -290,6 +292,32 @@
  
 }
 
+//
+// fireEvent UIControlEventTouchUpInside to edit button
+//
+- (BOOL)touchUpInsideEditButton {
+    
+    for (UIView *subview in self.navigationController.navigationBar.subviews) 
+    {
+        NSLog(@"class [%@]", [subview class].description );
+        
+        if ([[subview class].description isEqualToString:@"UINavigationButton"])
+        {
+            
+            UIButton * button = (UIButton *)subview;
+            
+            NSLog(@"button.text [%@]", button.titleLabel.text);
+            
+            [button sendActionsForControlEvents:UIControlEventTouchUpInside];
+            
+            return YES;
+            
+        }
+        
+    }   
+    return NO;
+}
+
 - (IBAction)detachFromSection:(id)sender {
     
     UIDetachButton *detachView = sender;
@@ -299,8 +327,12 @@
     
     [managedObject detachFromGroup];
     
-    //[self.tableView setEditing:NO animated:YES];
-    //[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:detachView.index] withRowAnimation:YES];
+   
+    if( ![self touchUpInsideEditButton] ) {
+        [self.tableView setEditing:NO animated:YES];    
+        //[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:detachView.index] withRowAnimation:YES];
+    }
+
     
 }
 
@@ -1160,18 +1192,6 @@
     return fetchedResultsController_;
 }    
 
-#pragma mark -
-#pragma mark UISearchBarDelegate implementation
-
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {                    // called when cancel button pressed
-    
-    NSLog( @"searchBarCancelButtonClicked " );
-    
-    [self filterReset];
-    [self.tableView reloadData];
-    
-}
 
 #pragma mark -
 #pragma mark Fetched results controller delegate
@@ -1262,9 +1282,8 @@
     // set predicate if a searchText has been set
     if( searchText !=nil && searchText.length>0 )  {
         predicate = [NSPredicate 
-                     predicateWithFormat:@"mnemonic BEGINSWITH %@ AND group == NO or group == nil", 
-                     [searchText uppercaseString], 
-                     NO ]; // autorelease    
+                     predicateWithFormat:@"(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@) AND (group == NO OR group == nil)", 
+                     searchText, [searchText uppercaseString] ]; // autorelease    
     }
     
     
@@ -1334,9 +1353,25 @@
 }
 
 
+#pragma mark -
+#pragma mark UISearchBarDelegate implementation
+#pragma mark -
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {                    // called when cancel button pressed
+    
+    NSLog( @"searchBarCancelButtonClicked " );
+    
+    [self filterReset];
+    [self.tableView reloadData];
+    [searchBar resignFirstResponder];
+    
+    dd_.enabled = YES; // WORKAROUND DD BUG 
+}
 
 #pragma mark -
 #pragma mark UISearchDisplayController Delegate Methods
+#pragma mark -
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
@@ -1347,6 +1382,7 @@
     
     [self filterContentForSearchText:searchString scope:nil];
     
+    dd_.enabled = NO; // WORKAROUND DD BUG  
     
     return YES; // Return YES to cause the search result table view to be reloaded.
 }

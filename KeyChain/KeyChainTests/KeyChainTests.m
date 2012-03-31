@@ -42,7 +42,7 @@
     NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentDirectory error:&error];
     NSArray *onlyPLISTs = [dirContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.plist'"]];    
     
-    [dirContents release];
+    //[dirContents release];
     
     NSLog(@"list of folder [%@]", documentDirectory );
     for( id f in onlyPLISTs ) {

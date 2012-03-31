@@ -7,6 +7,8 @@
 //
 
 #import "KeyChainLogin.h"
+#import "WEPopoverController.h"
+#import "InfoViewController.h"
 
 #define TAG_FOR_LOGIN_BUTTON 5
 
@@ -24,8 +26,13 @@
 @implementation KeyChainLogin
 
 @synthesize txtPassword;
-@synthesize parent;
-@synthesize version;
+@synthesize parent=parent_;
+
+@synthesize btnVersion=btnVersion_;
+@synthesize btnInfo=btnInfo_;
+
+@synthesize popoverController;
+@synthesize toolBar;
 
 #pragma mark - private implementation
 
@@ -187,11 +194,56 @@
     return nil;
 }
 
+
+- (IBAction)info:(id)sender  {
+    
+
+    
+	if (!self.popoverController) {
+		
+        InfoViewController *contentViewController = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
+		
+        contentViewController.contentSizeForViewInPopover = CGSizeMake(270, 300);
+        
+        self.popoverController = [[[WEPopoverController alloc] initWithContentViewController:contentViewController] autorelease];
+		
+        //self.popoverController.delegate = self;
+
+        /*
+		self.popoverController.passthroughViews = 
+            [NSArray arrayWithObject:self.navigationController.navigationBar];
+		
+         [self.popoverController presentPopoverFromBarButtonItem:sender 
+									   permittedArrowDirections:UIPopoverArrowDirectionDown 
+													   animated:YES];
+         */
+        
+        [self.popoverController 
+            presentPopoverFromBarButtonItem:sender 
+            toolBar:self.toolBar
+            permittedArrowDirections:UIPopoverArrowDirectionDown 
+            animated:YES];
+		
+        [contentViewController release];
+    } 
+    else {
+
+        [self.popoverController 
+            presentPopoverFromBarButtonItem:sender 
+                            toolBar:self.toolBar
+                            permittedArrowDirections:UIPopoverArrowDirectionDown 
+                            animated:YES];
+    }
+}
+
 - (IBAction)login:(id)sender {
 
 	[self loginToSystem];
 }
 
+#pragma mark -
+#pragma mark User Preferences
+#pragma mark -
 
 -(NSString*) password {
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -205,7 +257,21 @@
 	[prefs synchronize];
 }
 
+-(NSString*) version {
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	NSString *result = [prefs objectForKey:@"ver"];
+	return result;
+}
+
+-(void) setVersion:(NSString *)value {
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	[prefs setObject:value forKey:@"ver"];
+	[prefs synchronize];
+}
+
+#pragma mark -
 #pragma mark inherit from UITextFieldDelegate
+#pragma mark -
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
@@ -239,13 +305,34 @@
     
     NSLog(@"bundle version [%@]", bundleVersion);
     
-    NSString *versioneTitle = [NSString stringWithFormat:version.title, bundleVersion];
+    NSString *versionTitle = [NSString stringWithFormat:self.btnVersion.title, bundleVersion];
     
-    version.title = versioneTitle;
+    self.btnVersion.title = versionTitle;
     
 
 }
 
+//
+-(void)viewDidAppear:(BOOL)animated {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+       
+        NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey]; 
+        
+        NSString *currentVersion = self.version;
+        
+        if( currentVersion == nil || [currentVersion compare:bundleVersion options:NSCaseInsensitiveSearch] ) {
+            
+            NSLog(@"detect different version current [%@] deployed [%@]", currentVersion, bundleVersion);
+
+            self.version = bundleVersion;
+            
+            [self info:self.btnInfo];
+            
+        }
+    });
+    
+}
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -270,6 +357,10 @@
 
 
 - (void)dealloc {
+    
+    
+    [popoverController release];
+    
     [super dealloc];
 }
 

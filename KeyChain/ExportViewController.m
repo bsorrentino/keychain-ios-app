@@ -21,7 +21,7 @@
 @implementation ExportViewController
 
 @synthesize exportToITunesButton;
-@synthesize delegate;
+@synthesize delegate=delegate_;
 
 #pragma - ExportViewController UIAlertViewDelegate implementation 
 

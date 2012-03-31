@@ -50,7 +50,7 @@
         tf.clearButtonMode = UITextFieldViewModeWhileEditing;
         tf.keyboardType = UIKeyboardTypeAlphabet;
         tf.keyboardAppearance = UIKeyboardAppearanceAlert;
-        tf.autocapitalizationType = UITextAutocapitalizationTypeWords;
+        tf.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters; //UITextAutocapitalizationTypeWords;
         tf.autocorrectionType = UITextAutocorrectionTypeNo;
         [tf becomeFirstResponder];
         [alert_ addSubview:tf];	

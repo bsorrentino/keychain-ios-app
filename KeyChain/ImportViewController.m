@@ -26,7 +26,7 @@
 
 @implementation ImportViewController
 
-@synthesize delegate;
+@synthesize delegate=delegate_;
 
 #pragma mark - ImportViewController UIAlertViewDelegate implementation 
 
@@ -168,7 +168,7 @@
              
             for( NSInteger i = 1; i < [result count]; ++i ) {
                 
-                KeyEntity * entity = [[[KeyEntity alloc] initWithEntity:[delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
+                KeyEntity * entity = [[[KeyEntity alloc] initWithEntity:[self.delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
                 
                 NSDictionary *d = [result objectAtIndex:i];
                 [entity fromDictionary:d];
@@ -198,7 +198,7 @@
     
     if( self.delegate == nil ) return;
     
-    WaitMaskController *wait = [[WaitMaskController alloc] init ] ;
+    WaitMaskController *wait = [[[WaitMaskController alloc] init ] autorelease] ;
     
     NSInteger addedKeys = 0;
     
@@ -225,7 +225,7 @@
 
                 ++addedKeys;
                 
-                KeyEntity * entity = [[[KeyEntity alloc] initWithEntity:[delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
+                KeyEntity * entity = [[[KeyEntity alloc] initWithEntity:[self.delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
                 
                 [entity fromDictionary:d];
                 
@@ -254,7 +254,7 @@
     
     if( self.delegate == nil ) return;
     
-    WaitMaskController *wait = [[WaitMaskController alloc] init ] ;
+    WaitMaskController *wait = [[[WaitMaskController alloc] init ] autorelease];
     
     NSInteger addedKeys = 0;
     NSInteger updatedKeys = 0;
@@ -283,7 +283,7 @@
                 
                 ++addedKeys;
                 
-                KeyEntity * newEntity = [[[KeyEntity alloc] initWithEntity:[delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
+                KeyEntity * newEntity = [[[KeyEntity alloc] initWithEntity:[self.delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
                 
                 [newEntity fromDictionary:d];
                 
