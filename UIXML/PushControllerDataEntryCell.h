@@ -17,7 +17,7 @@
 	UIXMLFormViewController *_owner;
 }
 
-@property (readonly) UIXMLFormViewController *owner;
+@property (unsafe_unretained, readonly) UIXMLFormViewController *owner;
 
 -(UIViewController *)viewController:(NSDictionary*)cellData;
 	

@@ -19,7 +19,7 @@
 	IBOutlet UIWebViewEx *webView;
     
     UIView *addressView;
-    id<BaseDataEntryCellDelegate> delegate;
+    id<BaseDataEntryCellDelegate> __unsafe_unretained delegate;
     
 @private    
     WaitMaskController *waitController_;
@@ -31,16 +31,16 @@
 
 }
 
-@property (nonatomic, retain) NSString *url;
+@property (nonatomic) NSString *url;
 
-@property (nonatomic, retain) IBOutlet UIWebView *webView;
-@property (nonatomic, retain) IBOutlet UIView *addressView;
-@property (nonatomic, retain) IBOutlet UITextField *txtURL;
+@property (nonatomic) IBOutlet UIWebView *webView;
+@property (nonatomic) IBOutlet UIView *addressView;
+@property (nonatomic) IBOutlet UITextField *txtURL;
 
 
-@property (nonatomic, readonly) WaitMaskController *waitController;
+@property (unsafe_unretained, nonatomic, readonly) WaitMaskController *waitController;
 
-@property (nonatomic, assign) id<BaseDataEntryCellDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id<BaseDataEntryCellDelegate> delegate;
 
 
 @end
@@ -56,8 +56,8 @@
 }
 
 //@property (nonatomic, retain) IBOutlet UILabel *textLabel;
-@property (nonatomic, retain) IBOutlet UITextField *textValue;
-@property (nonatomic, retain) IBOutlet WebViewController *viewController;
-@property (nonatomic,retain) IBOutlet UILabel *textLabel;
+@property (nonatomic) IBOutlet UITextField *textValue;
+@property (nonatomic) IBOutlet WebViewController *viewController;
+@property (nonatomic) IBOutlet UILabel *textLabel;
 
 @end

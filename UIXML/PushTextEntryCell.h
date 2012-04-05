@@ -29,8 +29,8 @@
 	PushTextEntryCell *_cell;
 
 }
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *btnSave;
-@property (nonatomic, retain) IBOutlet UINoteView  * txtValue;
+@property (nonatomic) IBOutlet UIBarButtonItem *btnSave;
+@property (nonatomic) IBOutlet UINoteView  * txtValue;
 
 - (IBAction) saveValue: (id)sender;
 
@@ -50,11 +50,11 @@
 }
 
 //@property (nonatomic, retain) IBOutlet UILabel *textLabel;
-@property (nonatomic, retain) IBOutlet PushTextViewController *viewController;
-@property (nonatomic, retain) IBOutlet UIImageView * editIcon;
+@property (nonatomic) IBOutlet PushTextViewController *viewController;
+@property (nonatomic) IBOutlet UIImageView * editIcon;
 
-@property (nonatomic, retain,readonly) UIImage * imgWrite;
-@property (nonatomic, retain, readonly) UIImage * imgEdit;
+@property (nonatomic,readonly) UIImage * imgWrite;
+@property (nonatomic, readonly) UIImage * imgEdit;
 
 @end
 

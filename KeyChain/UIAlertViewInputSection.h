@@ -26,8 +26,8 @@
 - (void)show;
 
 //@property (nonatomic,assign) NSObject<UIAlertViewDelegate> *delegate;
-@property (nonatomic,retain,readonly) NSString *groupName;
-@property (nonatomic,retain,readonly) NSString *groupPrefix;
+@property (nonatomic,readonly) NSString *groupName;
+@property (nonatomic,readonly) NSString *groupPrefix;
 @property (nonatomic,copy) void (^clickedButtonAtIndexBlock)( UIAlertViewInputSection *alertView, NSInteger buttonIndex) ;
 
 @end

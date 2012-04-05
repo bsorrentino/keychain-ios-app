@@ -16,5 +16,5 @@
 }
 
 //@property (nonatomic, retain) IBOutlet UILabel *textLabel;
-@property (nonatomic,retain) IBOutlet UISwitch *switchField;
+@property (nonatomic) IBOutlet UISwitch *switchField;
 @end

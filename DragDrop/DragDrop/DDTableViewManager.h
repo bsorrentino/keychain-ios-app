@@ -11,7 +11,7 @@
 #define _USE_ARC  0
 
 
-#if _USE_ARC == 1 
+#if _USE_ARC == 1
 
 #   define WEAK __weak
 
@@ -46,19 +46,19 @@
 
     UITableView *tableView_;
     
-    WEAK id<DDTableViewManagerDelegate> delegate;
+    WEAK id<DDTableViewManagerDelegate> __unsafe_unretained delegate;
     
     dispatch_queue_t scrolling_queue;
     
 }
 
-@property (nonatomic,readonly,retain) NSIndexPath *source;
-@property (nonatomic,readonly,retain) UITableView *tableView;
+@property (nonatomic,readonly) NSIndexPath *source;
+@property (nonatomic,readonly) UITableView *tableView;
 
 #if _USE_ARC == 1 
 @property (nonatomic,weak) id<DDTableViewManagerDelegate> delegate;
 #else
-@property (nonatomic,assign) id<DDTableViewManagerDelegate> delegate;
+@property (nonatomic,unsafe_unretained) id<DDTableViewManagerDelegate> delegate;
 #endif
 @property (nonatomic,assign) BOOL enabled;
 

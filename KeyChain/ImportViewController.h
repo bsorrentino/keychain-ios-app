@@ -13,11 +13,11 @@
 @interface ImportViewController : UITableViewController<UIActionSheetDelegate, UIAlertViewDelegate> {
 
 @private
-    id<KeyListDataSource> delegate_;
+    id<KeyListDataSource> __unsafe_unretained delegate_;
     
     NSArray/*(NSString*)*/ *fileArray_;
 }
 
-@property (assign,nonatomic) id<KeyListDataSource> delegate;
+@property (unsafe_unretained,nonatomic) id<KeyListDataSource> delegate;
 
 @end

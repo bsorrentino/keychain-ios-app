@@ -23,7 +23,7 @@ typedef enum {
     
 	UITextField *txtPassword;
     ChangePasswordStep changePasswordStep_;
-    UIViewController *parent_;
+    UIViewController *__unsafe_unretained parent_;
     
     UIBarButtonItem *btnVersion_;
     UIBarButtonItem *btnInfo_;
@@ -35,15 +35,15 @@ typedef enum {
     
 }
 
-@property (nonatomic,assign) UIViewController *parent;
-@property (nonatomic,retain) IBOutlet UITextField *txtPassword;
-@property (nonatomic,retain) IBOutlet UIBarButtonItem *btnVersion;
-@property (nonatomic,retain) IBOutlet UIBarButtonItem *btnInfo;
-@property (nonatomic, retain) WEPopoverController *popoverController;
-@property (nonatomic,retain) IBOutlet UIToolbar *toolBar;
+@property (nonatomic,unsafe_unretained) UIViewController *parent;
+@property (nonatomic) IBOutlet UITextField *txtPassword;
+@property (nonatomic) IBOutlet UIBarButtonItem *btnVersion;
+@property (nonatomic) IBOutlet UIBarButtonItem *btnInfo;
+@property (nonatomic) WEPopoverController *popoverController;
+@property (nonatomic) IBOutlet UIToolbar *toolBar;
 
-@property (nonatomic,retain) NSString *password;
-@property (nonatomic,retain) NSString *version;
+@property (nonatomic) NSString *password;
+@property (nonatomic) NSString *version;
 
 
 -(id)initForChangePassword;

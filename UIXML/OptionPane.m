@@ -54,11 +54,11 @@
     OptionPane *pane = [[OptionPane alloc] initWithOKBlock:OKBlock CancelBlock:CancelBlock];
     
     
-    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:title 
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title 
                                                      message:message
                                                     delegate:pane 
                                            cancelButtonTitle:OKtitle
-                                           otherButtonTitles:CancelTitle, nil] autorelease];
+                                           otherButtonTitles:CancelTitle, nil];
     [alert show];
     
     

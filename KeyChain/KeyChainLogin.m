@@ -49,7 +49,6 @@
 	if ([p compare: txtPassword.text] != 0 ) {
 		UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Password doesn't match!" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
 		[alert show];
-		[alert release];
 		return NO;
 		
 	}
@@ -101,7 +100,6 @@
             if ([p compare: txtPassword.text] != 0 ) {
                 UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Password doesn't match!" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
                 [alert show];
-                [alert release];
                 
                 
             }
@@ -127,7 +125,6 @@
             if ([tmpPassword_ compare: self.txtPassword.text] != 0 ) {
                 UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Password doesn't match!" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
                 [alert show];
-                [alert release];
 
                 [self getNewPassword];
                 
@@ -139,7 +136,6 @@
                 [self.navigationController popViewControllerAnimated:YES]; 
             }
 
-            [tmpPassword_ release];
         }
             break;
         default:
@@ -176,7 +172,6 @@
     KeyChainLogin *login = [[KeyChainLogin alloc] initWithNibName:@"KeyChainLogin" bundle:nil] ;
     [login	doModal:root];
     
-    [login release];
 }
 
 - (id)initForChangePassword  {
@@ -205,7 +200,7 @@
 		
         contentViewController.contentSizeForViewInPopover = CGSizeMake(270, 300);
         
-        self.popoverController = [[[WEPopoverController alloc] initWithContentViewController:contentViewController] autorelease];
+        self.popoverController = [[WEPopoverController alloc] initWithContentViewController:contentViewController];
 		
         //self.popoverController.delegate = self;
 
@@ -224,7 +219,6 @@
             permittedArrowDirections:UIPopoverArrowDirectionDown 
             animated:YES];
 		
-        [contentViewController release];
     } 
     else {
 
@@ -356,13 +350,6 @@
 }
 
 
-- (void)dealloc {
-    
-    
-    [popoverController release];
-    
-    [super dealloc];
-}
 
 
 @end

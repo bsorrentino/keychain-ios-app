@@ -41,10 +41,10 @@
 
 
 @property (nonatomic,readonly) BOOL isNew;
-@property (nonatomic,readonly) NSString * sectionId;
-@property (nonatomic,retain) NSString *mnemonic; 
+@property (unsafe_unretained, nonatomic,readonly) NSString * sectionId;
+@property (nonatomic) NSString *mnemonic; 
 
-@property (nonatomic,retain) NSString *groupPrefix;
-@property (nonatomic,retain) NSNumber *group;
+@property (nonatomic) NSString *groupPrefix;
+@property (nonatomic) NSNumber *group;
 
 @end

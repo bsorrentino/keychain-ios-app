@@ -120,12 +120,11 @@
 - (void)hideNavigationRightButton:(BOOL)value {
     
     if (value) {
-        addButton_ = [self.navigationController.navigationBar.topItem.rightBarButtonItem retain];
+        addButton_ = self.navigationController.navigationBar.topItem.rightBarButtonItem;
         [self.navigationController.navigationBar.topItem setRightBarButtonItem:nil];
     }
     else {
         [self.navigationController.navigationBar.topItem setRightBarButtonItem:addButton_];   
-        [addButton_ release];
     }
     
 }
@@ -285,7 +284,6 @@
             }
         }
         
-        [alert release];
     };
     
     [inputView show];
@@ -444,11 +442,10 @@
                 };
                 
                 UIActionSheet * sheet = 
-                [[[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
+                [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
                                     cancelButtonTitle:@"Cancel" 
                                destructiveButtonTitle:@"Confirm" 
-                                    otherButtonTitles: nil] 
-                 autorelease];
+                                    otherButtonTitles: nil];
                 
                 [sheet showInView:self.navigationController.view];
                
@@ -488,11 +485,10 @@
                   };
                 
                 UIActionSheet * sheet = 
-                [[[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
+                [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
                                     cancelButtonTitle:@"Cancel" 
                                destructiveButtonTitle:@"Confirm" 
-                                    otherButtonTitles: nil] 
-                                        autorelease];
+                                    otherButtonTitles: nil];
                 
                 
                 
@@ -527,11 +523,10 @@
                   };
             
             UIActionSheet * sheet = 
-            [[[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
+            [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
                                 cancelButtonTitle:@"Cancel" 
                                 destructiveButtonTitle:@"Confirm"
-                                otherButtonTitles:  nil] 
-                                autorelease];
+                                otherButtonTitles:  nil];
             
             
             
@@ -622,13 +617,12 @@
              };
             
             UIActionSheet * sheet = 
-            [[[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
+            [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
                                 cancelButtonTitle:@"Cancel" 
                            destructiveButtonTitle:@"Use custom prefix"
                                 otherButtonTitles: 
                                     [NSString stringWithFormat:@"Use prefix [%@]", sTargetPrefix ], 
-                                    [NSString stringWithFormat:@"Use prefix [%@]", sSourcePrefix ], nil] 
-                            autorelease];
+                                    [NSString stringWithFormat:@"Use prefix [%@]", sSourcePrefix ], nil];
             
             
             
@@ -679,12 +673,11 @@
               };
             
             UIActionSheet * sheet = 
-            [[[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
+            [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
                                 cancelButtonTitle:@"Cancel" 
                            destructiveButtonTitle:@"Use custom prefix"
                                 otherButtonTitles:
-                                        [NSString stringWithFormat:@"Use prefix [%@]", sSourcePrefix ], nil] 
-             autorelease];
+                                        [NSString stringWithFormat:@"Use prefix [%@]", sSourcePrefix ], nil];
             
             
             
@@ -736,12 +729,11 @@
               };
             
             UIActionSheet * sheet = 
-            [[[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
+            [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
                                 cancelButtonTitle:@"Cancel" 
                            destructiveButtonTitle:@"Use custom prefix"
                                 otherButtonTitles: 
-                                    [NSString stringWithFormat:@"Use prefix [%@]", sTargetPrefix ], nil] 
-             autorelease];
+                                    [NSString stringWithFormat:@"Use prefix [%@]", sTargetPrefix ], nil];
             
             
             
@@ -982,9 +974,8 @@
         
         cell = [tableView dequeueReusableCellWithIdentifier:CellSectionIdentifier];
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc] 
-                     initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellSectionIdentifier] 
-                    autorelease];
+            cell = [[UITableViewCell alloc] 
+                     initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellSectionIdentifier];
         }        
         
     }
@@ -992,9 +983,8 @@
         
         cell = [tableView dequeueReusableCellWithIdentifier:CellGroupIdentifier];
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc] 
-                     initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellGroupIdentifier] 
-                    autorelease];
+            cell = [[UITableViewCell alloc] 
+                     initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellGroupIdentifier];
 
             //[[NSBundle mainBundle] loadNibNamed:@"keygrouped" owner:self options:nil];
             //cell.editingAccessoryView = self.customEditView;
@@ -1016,9 +1006,8 @@
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc] 
-                     initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] 
-                    autorelease];
+            cell = [[UITableViewCell alloc] 
+                     initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
     }    
     
@@ -1127,7 +1116,7 @@
 							   @"Z",
 							   nil ];
 	}
-	return [sectionIndexTitles_ retain];
+	return sectionIndexTitles_;
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
@@ -1299,7 +1288,7 @@
     // Create the fetch request for the entity.
     @autoreleasepool {
         
-        NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         
         // Edit the entity name as appropriate.
         NSEntityDescription *entity = 
@@ -1327,10 +1316,10 @@
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
         NSFetchedResultsController *aFetchedResultsController = 
-        [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+        [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
                                              managedObjectContext:self.managedObjectContext 
                                                sectionNameKeyPath:@"sectionId" 
-                                                        cacheName:nil] autorelease]; 
+                                                        cacheName:nil]; 
         
         aFetchedResultsController.delegate = self;
         
@@ -1438,20 +1427,6 @@
 }
 
 
-- (void)dealloc {
-        
-    //[clickedButtonAtIndexAlert_ release];
-    [clickedButtonAtIndex_ release];
-    
-    [dd_ release];
-    
-    [swipe_ release];
-    
-    [fetchedResultsController_ release];
-    
-    //  [managedObjectContext_ release];
-    [super dealloc];
-}
 
 
 @end

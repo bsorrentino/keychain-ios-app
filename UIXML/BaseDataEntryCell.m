@@ -81,10 +81,6 @@
 
 #pragma mark inherit from NSObject
 
-- (void)dealloc {
-	[dataKey release];
-    [super dealloc];
-}
 
 #pragma mark inherit from UITableViewCell
 

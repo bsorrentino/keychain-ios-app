@@ -47,7 +47,6 @@
         iToast *msg = [[iToast alloc] initWithText:NSLocalizedString(@"Toaster.copyToClipboard", @"")];
         [msg show:cell origin:[gesture locationInView:cell]];
         
-        [msg release];
         return;
     }
     
@@ -71,7 +70,6 @@
                                                action:@selector(handleLongPress:)];
     longPress.minimumPressDuration = 1.2;
     [cell addGestureRecognizer:longPress];
-    [longPress release];
     
 }
 
@@ -86,7 +84,6 @@
 										  cancelButtonTitle:@"OK" 
 										  otherButtonTitles:nil];
 	[alert show];
-	[alert release];
 
 }
 
@@ -255,8 +252,6 @@
 	
 	self.navigationItem.rightBarButtonItem = rightButton;
 	
-	[rightButton release];
-	[leftButton release];
 }
 
 
@@ -303,13 +298,6 @@
 }
 
 
-- (void)dealloc {
-	[entity_ release];
-	[toolbar_ release];
-	[btnSave_ release];
-	[segShowHidePassword_ release];
-    [super dealloc];
-}
 
 
 @end

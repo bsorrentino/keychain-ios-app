@@ -168,7 +168,7 @@
              
             for( NSInteger i = 1; i < [result count]; ++i ) {
                 
-                KeyEntity * entity = [[[KeyEntity alloc] initWithEntity:[self.delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
+                KeyEntity * entity = [[KeyEntity alloc] initWithEntity:[self.delegate entityDescriptor] insertIntoManagedObjectContext:context];
                 
                 NSDictionary *d = [result objectAtIndex:i];
                 [entity fromDictionary:d];
@@ -178,11 +178,11 @@
             
             [[self appDelegate] saveContext];
             
-            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Import" 
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import" 
                                     message:[NSString stringWithFormat:@"Completed\n deleted [%d]\n added [%d]!", [keyList count], [result count]-1 ]
                                     delegate:self 
                                     cancelButtonTitle:@"OK" 
-                                    otherButtonTitles:@"Delete File", nil] autorelease];
+                                    otherButtonTitles:@"Delete File", nil];
             [alert show];
         
         }
@@ -198,7 +198,7 @@
     
     if( self.delegate == nil ) return;
     
-    WaitMaskController *wait = [[[WaitMaskController alloc] init ] autorelease] ;
+    WaitMaskController *wait = [[WaitMaskController alloc] init ] ;
     
     NSInteger addedKeys = 0;
     
@@ -225,7 +225,7 @@
 
                 ++addedKeys;
                 
-                KeyEntity * entity = [[[KeyEntity alloc] initWithEntity:[self.delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
+                KeyEntity * entity = [[KeyEntity alloc] initWithEntity:[self.delegate entityDescriptor] insertIntoManagedObjectContext:context];
                 
                 [entity fromDictionary:d];
                 
@@ -237,11 +237,11 @@
         
         if(addedKeys > 0 ) [[self appDelegate] saveContext];
         
-        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Import" 
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import" 
                                                          message:[NSString stringWithFormat:@"Completed\n added [%d]!", addedKeys ]
                                                         delegate:self 
                                                cancelButtonTitle:@"OK" 
-                                               otherButtonTitles:@"Delete File", nil] autorelease];
+                                               otherButtonTitles:@"Delete File", nil];
         [alert show];
         
     }
@@ -254,7 +254,7 @@
     
     if( self.delegate == nil ) return;
     
-    WaitMaskController *wait = [[[WaitMaskController alloc] init ] autorelease];
+    WaitMaskController *wait = [[WaitMaskController alloc] init ];
     
     NSInteger addedKeys = 0;
     NSInteger updatedKeys = 0;
@@ -283,7 +283,7 @@
                 
                 ++addedKeys;
                 
-                KeyEntity * newEntity = [[[KeyEntity alloc] initWithEntity:[self.delegate entityDescriptor] insertIntoManagedObjectContext:context] autorelease];
+                KeyEntity * newEntity = [[KeyEntity alloc] initWithEntity:[self.delegate entityDescriptor] insertIntoManagedObjectContext:context];
                 
                 [newEntity fromDictionary:d];
                 
@@ -302,11 +302,11 @@
         
         if( addedKeys > 0 || updatedKeys > 0 ) [[self appDelegate] saveContext];
         
-        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Import" 
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import" 
                                                          message:[NSString stringWithFormat:@"Completed\n added [%d]\n updated [%d]!", addedKeys, updatedKeys]
                                                         delegate:self 
                                                cancelButtonTitle:@"OK" 
-                                               otherButtonTitles:@"Delete File", nil] autorelease];
+                                               otherButtonTitles:@"Delete File", nil];
         [alert show];
         
     }
@@ -333,10 +333,10 @@
             NSArray * filteredArray = [dirContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.plist'"]];    
             
             
-            fileArray_ = [[filteredArray sortedArrayUsingComparator: ^(id obj1, id obj2) {
+            fileArray_ = [filteredArray sortedArrayUsingComparator: ^(id obj1, id obj2) {
                 
                 return [obj2 localizedCaseInsensitiveCompare:obj1 ];
-            }] retain];
+            }];
         }
         @finally {
         }
@@ -447,11 +447,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [fileArray_ release];
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -536,7 +531,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...

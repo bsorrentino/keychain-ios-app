@@ -81,10 +81,6 @@
 }
 
 */
-- (void)dealloc {
-	[_segmentKeys release];
-    [super dealloc];
-}
 
 
 

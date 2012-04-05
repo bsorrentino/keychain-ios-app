@@ -120,7 +120,6 @@
     //Start the Animation
     [UIView commitAnimations];
 
-    [login release];
 }
 
 #pragma mark - RootViewController lifecycle
@@ -142,7 +141,6 @@
                                   target:self 
                                   action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
-    [addButton release];
     
 	self.title = NSLocalizedString(@"KeyListViewController.title", @"main title");
     

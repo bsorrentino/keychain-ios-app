@@ -13,14 +13,14 @@
 @interface MailListDataViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate,NSFetchedResultsControllerDelegate> {
 
 @private
-    BaseDataEntryCell *cell_;
+    BaseDataEntryCell *__unsafe_unretained cell_;
     NSFetchedResultsController *fetchedResultsController_;
     NSRegularExpression *regex_;
     
 }
 
-@property (nonatomic,assign) BaseDataEntryCell *cell;
-@property (nonatomic,retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic,unsafe_unretained) BaseDataEntryCell *cell;
+@property (nonatomic) NSFetchedResultsController *fetchedResultsController;
 @end
 
 @interface MailListDataEntryCell : PushControllerDataEntryCell {
@@ -31,9 +31,9 @@
     UITextField *textValue_;
 }
 
-@property (nonatomic,retain) IBOutlet MailListDataViewController *listViewController;
-@property (nonatomic,retain) IBOutlet UITextField *textValue;
-@property (nonatomic,retain) IBOutlet UILabel *textLabel;
+@property (nonatomic) IBOutlet MailListDataViewController *listViewController;
+@property (nonatomic) IBOutlet UITextField *textValue;
+@property (nonatomic) IBOutlet UILabel *textLabel;
 @end
 
 

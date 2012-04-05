@@ -129,12 +129,11 @@
     source_ = value;
 #else    
     if( source_ != nil ) {
-        [source_ release];   
         source_ = nil;
     }
        
     if( value != nil ) {
-       source_ = [value retain];
+       source_ = value;
     }
 #endif    
 }
@@ -177,7 +176,6 @@
     [self.tableView bringSubviewToFront:newView];
     
 #if !_USE_ARC        
-    [newView release]; 
 #endif        
     
     [UIView animateWithDuration:0.4
@@ -564,8 +562,6 @@
 #if !_USE_ARC    
     dispatch_release(scrolling_queue);
     
-    [source_ release];
-    [super dealloc];
 #endif
 }
 

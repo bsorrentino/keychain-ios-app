@@ -55,7 +55,6 @@
         [tf becomeFirstResponder];
         [alert_ addSubview:tf];	
 
-        [tf release];
     }
     
     return self;
@@ -110,10 +109,6 @@
 }
 
 
-- (void)dealloc {
-    [alert_ release];
-    [super dealloc];
-}
 
 #pragma mark UIAlertViewDelegate <NSObject>
 

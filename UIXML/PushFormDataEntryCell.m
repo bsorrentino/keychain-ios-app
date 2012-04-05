@@ -29,7 +29,7 @@
 
 	NSString *controller = [cellData objectForKey:@"controller"];
 	
-	UIXMLFormViewControllerEx *detailViewController = [[[UIXMLFormViewControllerEx alloc] initFromFile: controller registerNotification:NO] autorelease];
+	UIXMLFormViewControllerEx *detailViewController = [[UIXMLFormViewControllerEx alloc] initFromFile: controller registerNotification:NO];
 	
 	detailViewController.delegate = super.owner;
 	
@@ -70,9 +70,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

@@ -76,7 +76,7 @@
         imgWrite_ = [UIImage imageWithContentsOfFile:resourcePath];
     }
     
-    return [imgWrite_ retain];
+    return imgWrite_;
     
 }
 -(UIImage*) imgEdit {
@@ -87,7 +87,7 @@
         imgEdit_ = [UIImage imageWithContentsOfFile:resourcePath];
     }
     
-    return [imgEdit_ retain];
+    return imgEdit_;
     
 }
 
@@ -143,7 +143,7 @@
 	//detailViewController.delegate = super.owner.delegate;
 	
 	[viewController initWithCell:self];
-	return [viewController retain];
+	return viewController;
 }
 
 #pragma mark UITableViewCell
@@ -156,15 +156,6 @@
 }
 
 
-- (void)dealloc {
-    [editIcon_ release];
-    [imgEdit_ release];
-    [imgWrite_ release];
-    
-	//[textLabel release];
-	[viewController release];
-    [super dealloc];
-}
 
 @end
 

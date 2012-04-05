@@ -21,7 +21,6 @@
          initWithString:@"http://www.youtube.com/watch?v=KsNFdkibU44&context=C407c249ADvjVQa1PpcFNS8ap2Q6YqkUIjLRK-kiKU_Q1k0KgzSdc=A" ];
                   
     [[UIApplication sharedApplication] openURL:url ];
-    [url release];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

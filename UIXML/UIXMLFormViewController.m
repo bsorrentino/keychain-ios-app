@@ -48,7 +48,7 @@
 	
 	resource = [[NSBundle mainBundle] pathForResource:file ofType:nil];
 	
-    tableStructure = [[NSArray arrayWithContentsOfFile:resource] retain];
+    tableStructure = [NSArray arrayWithContentsOfFile:resource];
 
 	[self registerControEditingNotification];
 	
@@ -419,10 +419,6 @@
     // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
-- (void)dealloc {
-	[tableStructure release];
-    [super dealloc];
-}
 
 
 @end

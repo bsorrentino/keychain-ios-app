@@ -95,7 +95,7 @@ static iToastSettings *sharedSettings = nil;
 	
 	[window addSubview:v];
 	
-	view = [v retain];
+	view = v;
 	
 	[v addTarget:self action:@selector(hideToast:) forControlEvents:UIControlEventTouchDown];
 }
@@ -117,7 +117,7 @@ static iToastSettings *sharedSettings = nil;
 
 
 + (iToast *) makeText:(NSString *) _text{
-	iToast *toast = [[[iToast alloc] initWithText:_text] autorelease];
+	iToast *toast = [[iToast alloc] initWithText:_text];
 	
 	return toast;
 }

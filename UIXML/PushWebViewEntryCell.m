@@ -19,7 +19,7 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 -(void)back:(id)sender;
 -(void)save:(id)sender;
 -(void)clearContent;
--(UIView *)initInlineEditControls;
+-(UIView *)inlineEditControls;
 @end
 
 @implementation WebViewController
@@ -177,8 +177,8 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
     
 }
 
--(UIView *)initInlineEditControls {
-    UIView *inlineView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 24*2+2, 24)] autorelease];
+-(UIView *)inlineEditControls {
+    UIView *inlineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 24*2+2, 24)];
     
     // ADD CONFIRM BUTTON
     {
@@ -253,7 +253,7 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
     self.navigationItem.rightBarButtonItem = editButton_; //[editButton_ release];
     
     
-    self.txtURL.rightView = [self initInlineEditControls];
+    self.txtURL.rightView = [self inlineEditControls];
     self.txtURL.rightViewMode = UITextFieldViewModeAlways;
     //self.txtURL.clearButtonMode = UITextFieldViewModeAlways; // Doesn't Work - Probably depends the previous line
 
@@ -270,12 +270,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 }
 
 
-- (void)dealloc {
-    [editButton_ release];
-
-    [waitController_ release];
-    [super dealloc];
-}
 
 #pragma mark UITextFieldDelegate
 
@@ -447,7 +441,7 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
     
     self.viewController.url = [self getControlValue];
 
-	return [viewController retain];
+	return viewController;
 }
 
 #pragma mark UITableViewCell
@@ -462,11 +456,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 }
 */
 
-- (void)dealloc {    
-	//[textLabel release];
-	[viewController release];
-    [super dealloc];
-}
 
 /*
  
