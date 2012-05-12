@@ -569,6 +569,8 @@
             NSString *sTargetPrefix = [eTarget.mnemonic substringWithRange:rTargetPrefix];
             NSString *sSourcePrefix   = [eSource.mnemonic substringWithRange:rFromPrefix];
 
+            __block id _self = self;
+
              self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                  
                  NSLog(@"clickedButtonAtIndex [%d]", i );
@@ -578,7 +580,7 @@
                      {
                          NSLog(@"use custom prefix " );
                          
-                         [self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:YES replaceTarget:YES];
+                         [_self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:YES replaceTarget:YES];
                      }
                          break;                         
                      case 1: // USE TARGET PREFIX  
@@ -587,7 +589,7 @@
                          
                          NSString *groupKey = [KeyEntity sectionNameFromPrefix:sTargetPrefix trim:YES];
                          
-                         [KeyEntity createSection:groupKey groupPrefix:sTargetPrefix inContext:[self managedObjectContext]];
+                         [KeyEntity createSection:groupKey groupPrefix:sTargetPrefix inContext:[_self managedObjectContext]];
 
                          //eTarget.group = [NSNumber numberWithBool:YES];
                          //[KeyEntity groupByReplacingPrefix:eSource groupKey:groupKey prefix:sTargetPrefix];
@@ -603,7 +605,7 @@
                          
                          NSString *groupName = [KeyEntity sectionNameFromPrefix:sSourcePrefix trim:YES];
                          
-                         [KeyEntity createSection:groupName groupPrefix:sSourcePrefix inContext:[self managedObjectContext]];
+                         [KeyEntity createSection:groupName groupPrefix:sSourcePrefix inContext:[_self managedObjectContext]];
                          
                          //eSource.group = [NSNumber numberWithBool:YES];
                          //[KeyEntity groupByReplacingPrefix:eTarget groupKey:groupName prefix:sFromPrefix];
@@ -641,6 +643,8 @@
 
             NSLog(@"ONLY SOURCE HAS PREFIX [%@]", sSourcePrefix );
 
+            __block id _self = self;
+            
             self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                   
                   
@@ -649,7 +653,7 @@
                       {
                           NSLog(@"USE CUSTOM PREFIX" );
                           
-                          [self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:YES replaceTarget:NO];
+                          [_self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:YES replaceTarget:NO];
                       }
                           break;
                       case 1: // USE FROM PREFIX  
@@ -658,7 +662,7 @@
                           
                           NSString *groupName = [KeyEntity sectionNameFromPrefix:sSourcePrefix trim:YES];
                           
-                          [KeyEntity createSection:groupName groupPrefix:sSourcePrefix inContext:[self managedObjectContext]];
+                          [KeyEntity createSection:groupName groupPrefix:sSourcePrefix inContext:[_self managedObjectContext]];
                           
                           //eSource.group = [NSNumber numberWithBool:YES];
                           //[KeyEntity groupByAppendingPrefix:eTarget prefix:sSourcePrefix];
@@ -692,6 +696,7 @@
             //    
             ///////////////////////////////////////////////
 
+            __block id _self = self;
 
             NSString *sTargetPrefix = [eTarget.mnemonic substringWithRange:rTargetPrefix];
 
@@ -704,7 +709,7 @@
                       {
                           NSLog(@"use custom prefix " );
                           
-                          [self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:NO replaceTarget:YES];
+                          [_self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:NO replaceTarget:YES];
                          
                       }
                           break;
@@ -714,7 +719,7 @@
                           
                           NSString *groupKey = [KeyEntity sectionNameFromPrefix:sTargetPrefix trim:YES];
                           
-                          [KeyEntity createSection:groupKey groupPrefix:sTargetPrefix inContext:[self managedObjectContext]];
+                          [KeyEntity createSection:groupKey groupPrefix:sTargetPrefix inContext:[_self managedObjectContext]];
                           
                           //eTarget.group = [NSNumber numberWithBool:YES];
                           //[KeyEntity groupByAppendingPrefix:eSource prefix:sTargetPrefix];

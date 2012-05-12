@@ -39,7 +39,7 @@ typedef enum {
 @property (nonatomic) IBOutlet UITextField *txtPassword;
 @property (nonatomic) IBOutlet UIBarButtonItem *btnVersion;
 @property (nonatomic) IBOutlet UIBarButtonItem *btnInfo;
-@property (nonatomic) WEPopoverController *popoverController;
+@property (nonatomic, strong) WEPopoverController *popoverController;
 @property (nonatomic) IBOutlet UIToolbar *toolBar;
 
 @property (nonatomic) NSString *password;
