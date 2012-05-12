@@ -16,6 +16,8 @@
 
 - (BaseDataEntryCell *)tableView:(UITableView *)tableView cellFromType:(NSString *)cellType cellData:(NSDictionary*)cellData;
 
+- (BaseDataEntryCell *)tableView:(UITableView *)tableView CellFromData:(NSDictionary *)cellData;
+
 @end
 
 @implementation UIXMLFormViewController
@@ -97,6 +99,18 @@
 	}
     
     return cell;
+    
+}
+
+- (BaseDataEntryCell *)tableView:(UITableView *)tableView initCellFromData:(NSDictionary *)cellData {
+
+    NSString *dataKey = [cellData objectForKey:@"DataKey"];
+	NSString *cellType = [cellData objectForKey:@"CellType"];
+    NSString * label = [cellData objectForKey:@"Label"];
+    
+    BaseDataEntryCell *cell = [self tableView:tableView cellFromType:cellType cellData:cellData];
+
+    return [cell init:self datakey:dataKey label:label cellData:cellData];
     
 }
 
@@ -252,14 +266,7 @@
 	NSLog( @"cellData [%@]", cellData );
 #endif
 	
-	NSString *dataKey = [cellData objectForKey:@"DataKey"];
-	NSString *cellType = [cellData objectForKey:@"CellType"];
-	
-	NSLog( @"DataKey[%@] CellType [%@]", dataKey, cellType );
-	
-	BaseDataEntryCell *cell = [self tableView:tableView cellFromType:cellType  cellData:cellData];
-    
-	[cell init:self datakey:dataKey label:[cellData objectForKey:@"Label"] cellData:cellData];
+	BaseDataEntryCell *cell = [self tableView:tableView initCellFromData:cellData];
 	
     if ([self respondsToSelector:@selector(cellControlDidInit:cellData:)]) {
         [self cellControlDidInit:cell cellData:cellData];
