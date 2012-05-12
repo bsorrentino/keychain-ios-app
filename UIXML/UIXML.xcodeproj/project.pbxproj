@@ -11,6 +11,8 @@
 		5F062F6C13774CBE00FAC388 /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F062F6A13774CBE00FAC388 /* PushWebViewEntryCell.m */; };
 		5F30ABCD1297F96700540544 /* SwitchDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F30ABCB1297F96700540544 /* SwitchDataEntryCell.h */; };
 		5F30ABCE1297F96700540544 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F30ABCC1297F96700540544 /* SwitchDataEntryCell.m */; };
+		5F4130D4155E792F00D96FC4 /* OptionPane.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F4130D2155E792F00D96FC4 /* OptionPane.h */; };
+		5F4130D5155E792F00D96FC4 /* OptionPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4130D3155E792F00D96FC4 /* OptionPane.m */; };
 		5F8BD85013B2569400A33B0A /* WaitMaskController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F8BD84E13B2569400A33B0A /* WaitMaskController.h */; };
 		5F8BD85113B2569400A33B0A /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8BD84F13B2569400A33B0A /* WaitMaskController.m */; };
 		5FA7E23E1296F264000F493B /* BaseDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA7E23A1296F264000F493B /* BaseDataEntryCell.h */; };
@@ -43,6 +45,9 @@
 		5F30ABB21297F64900540544 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TextDataEntryCell.xib; sourceTree = "<group>"; };
 		5F30ABCB1297F96700540544 /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchDataEntryCell.h; sourceTree = "<group>"; };
 		5F30ABCC1297F96700540544 /* SwitchDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchDataEntryCell.m; sourceTree = "<group>"; };
+		5F4130D1155E792F00D96FC4 /* confirm24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirm24x24.png; sourceTree = "<group>"; };
+		5F4130D2155E792F00D96FC4 /* OptionPane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionPane.h; sourceTree = "<group>"; };
+		5F4130D3155E792F00D96FC4 /* OptionPane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionPane.m; sourceTree = "<group>"; };
 		5F494C8112D8B0C2002B3631 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DefaultHeaderInSection.xib; sourceTree = "<group>"; };
 		5F777C2E1359DC1D003AFC9E /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
 		5F777C2F1359DC1D003AFC9E /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
@@ -124,6 +129,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5F4130D2155E792F00D96FC4 /* OptionPane.h */,
+				5F4130D3155E792F00D96FC4 /* OptionPane.m */,
 				A0D7A2DA1423330B004C7F68 /* iToast.h */,
 				A0D7A2DB1423330B004C7F68 /* iToast.m */,
 				5F8BD84E13B2569400A33B0A /* WaitMaskController.h */,
@@ -146,6 +153,7 @@
 		5F30ABAE1297F61500540544 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F4130D1155E792F00D96FC4 /* confirm24x24.png */,
 				5F8BD84D13B2569400A33B0A /* back24x24.png */,
 				5F062F6D13774CC700FAC388 /* PushWebViewEntryCell.xib */,
 				5F777C2E1359DC1D003AFC9E /* edit32x32.png */,
@@ -207,6 +215,7 @@
 				5F062F6B13774CBE00FAC388 /* PushWebViewEntryCell.h in Headers */,
 				5F8BD85013B2569400A33B0A /* WaitMaskController.h in Headers */,
 				A0D7A2DC1423330B004C7F68 /* iToast.h in Headers */,
+				5F4130D4155E792F00D96FC4 /* OptionPane.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +285,7 @@
 				5F062F6C13774CBE00FAC388 /* PushWebViewEntryCell.m in Sources */,
 				5F8BD85113B2569400A33B0A /* WaitMaskController.m in Sources */,
 				A0D7A2DD1423330B004C7F68 /* iToast.m in Sources */,
+				5F4130D5155E792F00D96FC4 /* OptionPane.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,9 +364,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UIXML_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = UIXML;
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -369,9 +380,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UIXML_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = UIXML;
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -379,16 +391,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_VERSION = 4.2;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -396,15 +409,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_VERSION = 4.2;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
