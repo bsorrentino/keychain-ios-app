@@ -13,6 +13,10 @@
 
 @interface UINoteView : UITextView
 {
+@private
+    UIColor *lineColor;
+
+
 }
 
 
