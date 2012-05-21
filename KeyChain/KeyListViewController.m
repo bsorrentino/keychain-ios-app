@@ -25,6 +25,12 @@
 #define TOOLBAR_TAG 20
 #define SWIPEBACK_TAG 21
 
+#define IS_SECTION_CRITERIA @"(groupPrefix != nil AND (group == nil OR group == NO))"
+#define IS_GROUPED_CRITERIA @"(groupPrefix != nil AND group != nil AND group == YES)"
+
+static NSString *SEARCHTEXT_CRITERIA = @"(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@)"; // AND (groupPrefix == nil OR (group != nil AND group == YES))";
+static NSString *SEARCHRESET_CRITERIA = @"group == NO or group == nil";
+static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 @interface KeyListViewController (Private)
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -100,7 +106,7 @@
 - (void)filterReset {
     
     [self filterContentByPredicate:
-     [NSPredicate predicateWithFormat:@"group == NO or group == nil" ] 
+     [NSPredicate predicateWithFormat:SEARCHRESET_CRITERIA ] //@"group == NO or group == nil"*/
                              scope:nil];
     reloadData_ = YES;
 }
@@ -177,7 +183,7 @@
         
         // set predicate if a searchText has been set
         predicate = [NSPredicate 
-                     predicateWithFormat:@"groupPrefix == %@ AND group == YES", 
+                     predicateWithFormat:SEARCHSECTION_CRITERIA, 
                      keyEntity.groupPrefix ]; // autorelease    
         
         
@@ -907,6 +913,9 @@
         cell.detailTextLabel.text = managedObject.groupPrefix;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    else if( managedObject.isGrouped ) {
+        cell.detailTextLabel.text = managedObject.groupPrefix;        
+    }
     else {
         cell.textLabel.text = [managedObject.mnemonic description];
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -1276,7 +1285,7 @@
     // set predicate if a searchText has been set
     if( searchText !=nil && searchText.length>0 )  {
         predicate = [NSPredicate 
-                     predicateWithFormat:@"(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@) AND (group == NO OR group == nil)", 
+                     predicateWithFormat:SEARCHTEXT_CRITERIA, //@"(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@) AND (group == NO OR group == nil)", 
                      searchText, [searchText uppercaseString] ]; // autorelease    
     }
     
