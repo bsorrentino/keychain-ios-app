@@ -32,7 +32,7 @@ static NSString *SEARCHTEXT_CRITERIA = @"(mnemonic BEGINSWITH %@ OR mnemonic BEG
 static NSString *SEARCHRESET_CRITERIA = @"group == NO or group == nil";
 static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
-@interface KeyListViewController (Private)
+@interface KeyListViewController ( /*Private*/ )
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)configureCell:(UITableViewCell *)cell entity:(KeyEntity *)managedObject;
 
@@ -47,6 +47,8 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 -(NSManagedObjectContext *)managedObjectContext;
 
 - (void)initGestureRecognizer;
+
+-(BOOL)isSearchTableView:(UITableView*)tableView;
 
 @end
 
@@ -784,6 +786,11 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 #pragma mark - custom implementation
 
+-(BOOL)isSearchTableView:(UITableView*)tableView
+{
+    return [tableView isEqual:self.searchDisplayController.searchResultsTableView];    
+}
+
 -(void)initGestureRecognizer {
     
     swipe_ = [[UISwipeGestureRecognizer alloc] init];
@@ -1376,6 +1383,9 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 #pragma mark UISearchDisplayController Delegate Methods
 #pragma mark -
 
+//  @optional
+
+
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     NSLog(@"shouldReloadTableForSearchString searchString=[%@]", searchString);
@@ -1391,14 +1401,25 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 }
 
 /*
- - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
- {
- [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:
- [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+ // when we start/end showing the search UI
+ - (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller;
+ - (void) searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller;
+ - (void) searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller;
+ - (void) searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller;
  
- return YES; // Return YES to cause the search result table view to be reloaded.
+ // called when the table is created destroyed, shown or hidden. configure as necessary.
+ - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView;
+ - (void)searchDisplayController:(UISearchDisplayController *)controller willUnloadSearchResultsTableView:(UITableView *)tableView;
  
- }
+ // called when table is shown/hidden
+ - (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView;
+ - (void)searchDisplayController:(UISearchDisplayController *)controller didShowSearchResultsTableView:(UITableView *)tableView;
+ - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView;
+ - (void)searchDisplayController:(UISearchDisplayController *)controller didHideSearchResultsTableView:(UITableView *)tableView;
+ 
+ // return YES to reload table. called when search string/option changes. convenience methods on top UISearchBar delegate methods
+ - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption;
+ 
  */
 
 #pragma mark UIGestureRecognizerDelegate
@@ -1445,11 +1466,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 @end
 
-#pragma mark -
-#pragma mark 
-#pragma mark UIDetachButton implementation
-#pragma mark 
-#pragma mark -
+#pragma mark - UIDetachButton implementation
 
 @implementation UIDetachButton;
 
