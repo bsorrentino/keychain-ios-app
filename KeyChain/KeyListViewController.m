@@ -827,7 +827,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 #pragma mark KeyListViewController - KeyEntityFormControllerDelegate
 
 -(BOOL)doSaveObject:(KeyEntity*)entity {
-	NSError *error = nil;
 	
 	NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];	
     
@@ -836,7 +835,9 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         reloadData_ = YES;
 	}
 	
-	
+ 
+	NSError *error = nil;
+    
 	// Save the context.
 	if (![context save:&error]) {
 		/*
@@ -849,6 +850,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 		
 		return NO;
 	}
+
 	
 	return YES;
 }
@@ -1208,13 +1210,18 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    if( self.searchDisplayController.active ) return;
+    
     [self.tableView beginUpdates];
+
 }
 
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     
+    if( self.searchDisplayController.active ) return;
+
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
@@ -1230,7 +1237,9 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath {
-    
+ 
+    if( self.searchDisplayController.active ) return;
+
     UITableView *tableView = self.tableView;
     
     switch(type) {
@@ -1256,7 +1265,13 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView endUpdates];
+    if( self.searchDisplayController.active ) {
+        [self.searchDisplayController setActive:NO animated:YES];   
+    }
+    else {
+        [self.tableView endUpdates];
+        
+    }
 }
 
 /*	 
@@ -1379,9 +1394,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     dd_.enabled = YES; // WORKAROUND DD BUG 
 }
 
-#pragma mark -
-#pragma mark UISearchDisplayController Delegate Methods
-#pragma mark -
+#pragma mark - UISearchDisplayController Delegate Methods
 
 //  @optional
 
@@ -1400,6 +1413,10 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     return YES; // Return YES to cause the search result table view to be reloaded.
 }
 
+// called when the table is created destroyed, shown or hidden. configure as necessary.
+//- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView;
+//- (void)searchDisplayController:(UISearchDisplayController *)controller willUnloadSearchResultsTableView:(UITableView *)tableView;
+
 /*
  // when we start/end showing the search UI
  - (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller;
@@ -1407,9 +1424,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
  - (void) searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller;
  - (void) searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller;
  
- // called when the table is created destroyed, shown or hidden. configure as necessary.
- - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView;
- - (void)searchDisplayController:(UISearchDisplayController *)controller willUnloadSearchResultsTableView:(UITableView *)tableView;
  
  // called when table is shown/hidden
  - (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView;
