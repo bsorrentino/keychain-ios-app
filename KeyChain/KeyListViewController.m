@@ -259,8 +259,8 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 - (void)createSectionChoosingCustomSectionPrefix:(KeyEntity *)source target:(KeyEntity*)target replaceSource:(BOOL)replaceSource replaceTarget:(BOOL)replaceTarget
 {
     
-    UIAlertViewInputSection *inputView = [[UIAlertViewInputSection alloc] init]; //inputView.delegate = self;
-    inputView.clickedButtonAtIndexBlock  = ^(UIAlertViewInputSection *alert, NSInteger buttonIndex) {
+    UIAlertView *inputView = [UIAlertViewInputSection alertViewWithBlock: ^(UIAlertViewInputSection *alert, NSInteger buttonIndex) {
+       
         NSLog(@"clickedButtonAtIndex [%d]", buttonIndex );
         
         if (buttonIndex == 1) {
@@ -292,7 +292,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             }
         }
         
-    };
+    }];
     
     [inputView show];
  
