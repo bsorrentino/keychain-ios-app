@@ -2,6 +2,7 @@
 <Bucket
    type = "1"
    version = "1.0">
+<<<<<<< Updated upstream
    <FileBreakpoints>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -32,4 +33,6 @@
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
+=======
+>>>>>>> Stashed changes
 </Bucket>

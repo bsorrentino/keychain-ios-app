@@ -26,6 +26,8 @@
 		A01671E012AE80A90056F855 /* PushFormDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A01671DD12AE80A90056F855 /* PushFormDataEntryCell.h */; };
 		A01671E112AE80A90056F855 /* PushFormDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A01671DE12AE80A90056F855 /* PushFormDataEntryCell.m */; };
 		A01671E212AE80A90056F855 /* UIXMLFormViewControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A01671DF12AE80A90056F855 /* UIXMLFormViewControllerDelegate.h */; };
+		A022623A148392B5004C6CB8 /* OptionPane.h in Headers */ = {isa = PBXBuildFile; fileRef = A0226238148392B5004C6CB8 /* OptionPane.h */; };
+		A022623B148392B5004C6CB8 /* OptionPane.m in Sources */ = {isa = PBXBuildFile; fileRef = A0226239148392B5004C6CB8 /* OptionPane.m */; };
 		A065363F12D3A52F0001D660 /* PushDateEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A065363D12D3A52F0001D660 /* PushDateEntryCell.h */; };
 		A065364012D3A52F0001D660 /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A065363E12D3A52F0001D660 /* PushDateEntryCell.m */; };
 		A0BB5C8912D5E87600F7E563 /* SegmentedDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A0BB5C8712D5E87600F7E563 /* SegmentedDataEntryCell.h */; };
@@ -65,6 +67,9 @@
 		A01671DE12AE80A90056F855 /* PushFormDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushFormDataEntryCell.m; sourceTree = "<group>"; };
 		A01671DF12AE80A90056F855 /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewControllerDelegate.h; sourceTree = "<group>"; };
 		A018C0C512AEA3E2004FF0AE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushFormDataEntryCell.xib; sourceTree = "<group>"; };
+		A0226238148392B5004C6CB8 /* OptionPane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionPane.h; sourceTree = "<group>"; };
+		A0226239148392B5004C6CB8 /* OptionPane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionPane.m; sourceTree = "<group>"; };
+		A02262451483A7CF004C6CB8 /* confirm24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirm24x24.png; sourceTree = "<group>"; };
 		A03A17D812AD2D2500DF2F05 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MailDataEntryCell.xib; sourceTree = "<group>"; };
 		A065363912D3A32B0001D660 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PushDateEntryCell.xib; sourceTree = "<group>"; };
 		A065363D12D3A52F0001D660 /* PushDateEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushDateEntryCell.h; sourceTree = "<group>"; };
@@ -146,6 +151,9 @@
 		5F30ABAE1297F61500540544 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A02262451483A7CF004C6CB8 /* confirm24x24.png */,
+				A0226238148392B5004C6CB8 /* OptionPane.h */,
+				A0226239148392B5004C6CB8 /* OptionPane.m */,
 				5F8BD84D13B2569400A33B0A /* back24x24.png */,
 				5F062F6D13774CC700FAC388 /* PushWebViewEntryCell.xib */,
 				5F777C2E1359DC1D003AFC9E /* edit32x32.png */,
@@ -207,6 +215,7 @@
 				5F062F6B13774CBE00FAC388 /* PushWebViewEntryCell.h in Headers */,
 				5F8BD85013B2569400A33B0A /* WaitMaskController.h in Headers */,
 				A0D7A2DC1423330B004C7F68 /* iToast.h in Headers */,
+				A022623A148392B5004C6CB8 /* OptionPane.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +245,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = SOUL;
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "UIXML" */;
@@ -276,6 +286,7 @@
 				5F062F6C13774CBE00FAC388 /* PushWebViewEntryCell.m in Sources */,
 				5F8BD85113B2569400A33B0A /* WaitMaskController.m in Sources */,
 				A0D7A2DD1423330B004C7F68 /* iToast.m in Sources */,
+				A022623B148392B5004C6CB8 /* OptionPane.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
