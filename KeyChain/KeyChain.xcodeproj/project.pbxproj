@@ -17,7 +17,6 @@
 		28D3F202112F7DC200FD0661 /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */; };
 		5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F04E6E212E368C800370F50 /* KeyChainLogin.m */; };
 		5F04E6E512E368C800370F50 /* KeyChainLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F04E6E312E368C800370F50 /* KeyChainLogin.xib */; };
-		5F0F6C2D14F0320B00D8B8FC /* back32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6C2C14F0320B00D8B8FC /* back32x32.png */; };
 		5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F129E0912EB607300BF9EF9 /* login32x32.png */; };
 		5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */; };
 		5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F17FB961416E9E4007D88F9 /* Localizable.strings */; };
@@ -27,7 +26,6 @@
 		5F3BD073143B352F00001F01 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3BD072143B352E00001F01 /* CoreData.framework */; };
 		5F4130D7155E7A2A00D96FC4 /* libUIXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4130D6155E7A2A00D96FC4 /* libUIXML.a */; };
 		5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F544F7313F82E350001A8B5 /* logo-57x57.png */; };
-		5F6168F314E9D412004BE24A /* UIAlertViewInputSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6168F214E9D412004BE24A /* UIAlertViewInputSection.m */; };
 		5F6C47811535C4F20092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
 		5F6C47821535C6790092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
 		5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F3439143F315500D9C428 /* ExportViewController.m */; };
@@ -59,7 +57,6 @@
 		5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */; };
 		5FA3A4D012DC780B009BE36C /* KeyEntityFormController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */; };
 		5FA3A50012DC7C8A009BE36C /* KeyEntityForm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */; };
-		5FBB755D14B78C0100A48690 /* model-1.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5FBB755C14B78C0100A48690 /* model-1.2.xcmappingmodel */; };
 		5FD3D1481525E8B5005D7E67 /* youtube199x68.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD3D1471525E8B5005D7E67 /* youtube199x68.png */; };
 		5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD466ED1441A5C600A39BEE /* ImportViewController.m */; };
 		5FD466F21441A81100A39BEE /* import20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD466F11441A81100A39BEE /* import20x20.png */; };
@@ -69,6 +66,10 @@
 		5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754F14E5B06800E3E162 /* KeyListViewController.m */; };
 		65FD1F11C87147678D8BC26A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5112EA4300461BB01FA835 /* libPods.a */; };
 		A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0121169142269B2000AA884 /* AVFoundation.framework */; };
+		A02BB725159C4DFA001FD5AA /* back32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB722159C4DFA001FD5AA /* back32x32.png */; };
+		A02BB726159C4DFA001FD5AA /* keychain-desktop-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */; };
+		A02BB727159C4DFA001FD5AA /* model-1.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */; };
+		A02BB72A159C4E38001FD5AA /* UIAlertViewInputSection.m in Sources */ = {isa = PBXBuildFile; fileRef = A02BB729159C4E38001FD5AA /* UIAlertViewInputSection.m */; };
 		A0759F2114305DBE000701EF /* settings20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A0759F2014305DBE000701EF /* settings20x20.png */; };
 		A083A17A1435CB9B0032B285 /* changePwd24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = A083A1791435CB9B0032B285 /* changePwd24x24.png */; };
 		A083A19114362F020032B285 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -118,7 +119,6 @@
 		5F04E6E112E368C800370F50 /* KeyChainLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainLogin.h; sourceTree = "<group>"; };
 		5F04E6E212E368C800370F50 /* KeyChainLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainLogin.m; sourceTree = "<group>"; };
 		5F04E6E312E368C800370F50 /* KeyChainLogin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyChainLogin.xib; sourceTree = "<group>"; };
-		5F0F6C2C14F0320B00D8B8FC /* back32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back32x32.png; path = "../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/back32x32.png"; sourceTree = "<group>"; };
 		5F129E0912EB607300BF9EF9 /* login32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login32x32.png; sourceTree = "<group>"; };
 		5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.1.xcmappingmodel"; sourceTree = "<group>"; };
 		5F17FB971416E9E4007D88F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -130,8 +130,6 @@
 		5F4130C8155E78D700D96FC4 /* UIXML.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UIXML.xcodeproj; path = ../UIXML/UIXML.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5F4130D6155E7A2A00D96FC4 /* libUIXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIXML.a; path = "../../../APPLE/build/Release-iphoneos/libUIXML.a"; sourceTree = "<group>"; };
 		5F544F7313F82E350001A8B5 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-57x57.png"; sourceTree = "<group>"; };
-		5F6168F114E9D412004BE24A /* UIAlertViewInputSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIAlertViewInputSection.h; path = "../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/UIAlertViewInputSection.h"; sourceTree = "<group>"; };
-		5F6168F214E9D412004BE24A /* UIAlertViewInputSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIAlertViewInputSection.m; path = "../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/UIAlertViewInputSection.m"; sourceTree = "<group>"; };
 		5F6C47801535C4F20092F552 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5F6F3438143F315500D9C428 /* ExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportViewController.h; sourceTree = "<group>"; };
 		5F6F3439143F315500D9C428 /* ExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportViewController.m; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 		5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyEntityFormController.xib; sourceTree = "<group>"; };
 		5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = KeyEntityForm.plist; sourceTree = "<group>"; };
 		5FBB755B14B78BA300A48690 /* KeyChain-1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain-1.1.xcdatamodel"; sourceTree = "<group>"; };
-		5FBB755C14B78C0100A48690 /* model-1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-1.2.xcmappingmodel"; path = "../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/model-1.2.xcmappingmodel"; sourceTree = "<group>"; };
 		5FD3D1471525E8B5005D7E67 /* youtube199x68.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube199x68.png; sourceTree = "<group>"; };
 		5FD466EC1441A5C600A39BEE /* ImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportViewController.h; sourceTree = "<group>"; };
 		5FD466ED1441A5C600A39BEE /* ImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportViewController.m; sourceTree = "<group>"; };
@@ -188,6 +185,11 @@
 		5FFC754F14E5B06800E3E162 /* KeyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyListViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* KeyChain-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KeyChain-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A0121169142269B2000AA884 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A02BB722159C4DFA001FD5AA /* back32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back32x32.png; sourceTree = "<group>"; };
+		A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keychain-desktop-512x512.png"; sourceTree = "<group>"; };
+		A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.2.xcmappingmodel"; sourceTree = "<group>"; };
+		A02BB728159C4E38001FD5AA /* UIAlertViewInputSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewInputSection.h; sourceTree = "<group>"; };
+		A02BB729159C4E38001FD5AA /* UIAlertViewInputSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewInputSection.m; sourceTree = "<group>"; };
 		A0759F2014305DBE000701EF /* settings20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings20x20.png; sourceTree = "<group>"; };
 		A083A1791435CB9B0032B285 /* changePwd24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changePwd24x24.png; sourceTree = "<group>"; };
 		A083A19014362F020032B285 /* KeyChainTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyChainTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,10 +281,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A02BB722159C4DFA001FD5AA /* back32x32.png */,
+				A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */,
+				A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */,
 				5FD3D1471525E8B5005D7E67 /* youtube199x68.png */,
 				5F2718FF15250CEB00C5BBA3 /* InfoViewController.xib */,
 				5F2718FB152508E800C5BBA3 /* info34x34.png */,
-				5F0F6C2C14F0320B00D8B8FC /* back32x32.png */,
 				5FD466F11441A81100A39BEE /* import20x20.png */,
 				5F6F343B143F49EC00D9C428 /* usb48x48.png */,
 				A083A1791435CB9B0032B285 /* changePwd24x24.png */,
@@ -299,7 +303,6 @@
 				8D1107310486CEB800E47090 /* KeyChain-Info.plist */,
 				5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */,
 				5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */,
-				5FBB755C14B78C0100A48690 /* model-1.2.xcmappingmodel */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -380,6 +383,8 @@
 		5FA3A4B712DC7703009BE36C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A02BB728159C4E38001FD5AA /* UIAlertViewInputSection.h */,
+				A02BB729159C4E38001FD5AA /* UIAlertViewInputSection.m */,
 				5F2718FD15250CEB00C5BBA3 /* InfoViewController.h */,
 				5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */,
 				A0FD0E4B14166C32009C7257 /* MailListDataEntryCell.h */,
@@ -405,8 +410,6 @@
 				5F8B67EA14471B7E00A767AE /* KeyListDataSource.h */,
 				5FFC754E14E5B06800E3E162 /* KeyListViewController.h */,
 				5FFC754F14E5B06800E3E162 /* KeyListViewController.m */,
-				5F6168F114E9D412004BE24A /* UIAlertViewInputSection.h */,
-				5F6168F214E9D412004BE24A /* UIAlertViewInputSection.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -547,7 +550,6 @@
 				A083A17A1435CB9B0032B285 /* changePwd24x24.png in Resources */,
 				5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */,
 				5FD466F21441A81100A39BEE /* import20x20.png in Resources */,
-				5F0F6C2D14F0320B00D8B8FC /* back32x32.png in Resources */,
 				5F2718FC152508E800C5BBA3 /* info34x34.png in Resources */,
 				5F27190115250CEB00C5BBA3 /* InfoViewController.xib in Resources */,
 				5F7B8C6E15252C56003981FB /* popoverArrowDown.png in Resources */,
@@ -566,6 +568,8 @@
 				5F7B8C7B15252C56003981FB /* popoverBg@2x.png in Resources */,
 				5F7B8C7C15252C56003981FB /* popoverBgSimple.png in Resources */,
 				5FD3D1481525E8B5005D7E67 /* youtube199x68.png in Resources */,
+				A02BB725159C4DFA001FD5AA /* back32x32.png in Resources */,
+				A02BB726159C4DFA001FD5AA /* keychain-desktop-512x512.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,15 +632,15 @@
 				5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */,
 				5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */,
 				5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */,
-				5FBB755D14B78C0100A48690 /* model-1.2.xcmappingmodel in Sources */,
 				5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */,
-				5F6168F314E9D412004BE24A /* UIAlertViewInputSection.m in Sources */,
 				5F6F634A14FE4521004C1337 /* DDTableViewManager.m in Sources */,
 				5F27190015250CEB00C5BBA3 /* InfoViewController.m in Sources */,
 				5F7B8C8615252C6B003981FB /* UIBarButtonItem+WEPopover.m in Sources */,
 				5F7B8C8715252C6B003981FB /* WEPopoverContainerView.m in Sources */,
 				5F7B8C8815252C6B003981FB /* WEPopoverController.m in Sources */,
 				5F7B8C8915252C6B003981FB /* WETouchableView.m in Sources */,
+				A02BB727159C4DFA001FD5AA /* model-1.2.xcmappingmodel in Sources */,
+				A02BB72A159C4E38001FD5AA /* UIAlertViewInputSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
