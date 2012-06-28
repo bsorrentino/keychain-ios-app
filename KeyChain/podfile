@@ -1,3 +1,22 @@
 platform :ios
 dependency 'SSKeychain',           '~> 0.1.4'
 dependency 'KSCrypto',	'~> 1.0.2'
+#dependency 'WEPopover', '~> 0.0.1'
+
+
+dependency do |s|
+  s.name      = 'WEPopover'
+  s.version   = '0.1.1'
+  s.license  = 'unspecified'
+  s.platform  = :ios
+  s.summary   = 'Forked version - Generic popover implementation for iOS with same API as the UIPopoverController for the iPad, but configurable with custom background and available for iPhone as well'
+  s.description = 'A TweetBot-like notice component for iOS'
+  s.homepage  = 'https://github.com/bsorrentino/WEPopover'
+  s.author    = { 'bsorrentino' =>  ' bartolomeo.sorrentino@gmail.com', 'werner77' => 'http://www.werner-it.com/' }
+  s.source    = { :git => 'https://github.com/bsorrentino/WEPopover.git', :tag => '0.1.1' }
+  s.source_files = 'Classes/Popover/*.{h,m}'
+  s.resources = "*.png"
+  s.frameworks = 'UIKit', 'Foundation', 'CoreGraphics'
+  s.clean_paths = "WEPopover.xcodeproj", "Classes/*.{h,m}", "*.xib", "main.m", "*.pch", "*.plist"
+  s.requires_arc = true
+end

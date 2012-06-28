@@ -1,7 +1,9 @@
 PODS:
   - KSCrypto (1.0.2)
   - SSKeychain (0.1.4)
+  - WEPopover (0.1.1)
 
 DEPENDENCIES:
   - KSCrypto (~> 1.0.2)
   - SSKeychain (~> 0.1.4)
+  - WEPopover (defined in Podfile)

@@ -212,22 +212,13 @@
 									   permittedArrowDirections:UIPopoverArrowDirectionDown 
 													   animated:YES];
          */
-        
-        [self.popoverController 
-            presentPopoverFromBarButtonItem:sender 
-            toolBar:self.toolBar
-            permittedArrowDirections:UIPopoverArrowDirectionDown 
-            animated:YES];
-		
+      
     } 
-    else {
 
-        [self.popoverController 
-            presentPopoverFromBarButtonItem:sender 
-                            toolBar:self.toolBar
-                            permittedArrowDirections:UIPopoverArrowDirectionDown 
-                            animated:YES];
-    }
+     [self.popoverController presentPopoverFromBarButtonItem:sender 
+                                                     toolBar:self.toolBar
+                                    permittedArrowDirections:UIPopoverArrowDirectionDown 
+                                                    animated:YES];
 }
 
 - (IBAction)login:(id)sender {
