@@ -42,7 +42,7 @@
 	//detailViewController.delegate = super.owner.delegate;
 	
 	[viewController initWithCell:self];
-	return [viewController retain];
+	return viewController;
 }
 
 - (id) init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData{
@@ -120,11 +120,6 @@
 }
 
 
-- (void) dealloc {
-	[viewController release];
-	[dateFormatter_ release];
-	[super dealloc];
-}
 @end
 
 
@@ -210,10 +205,5 @@
 }
 
 
-- (void)dealloc {
-	[datePicker release];
-	[btnSave release];
-    [super dealloc];
-}
 
 @end

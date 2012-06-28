@@ -9,12 +9,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "0"
          filePath = "../UIXML/PushTextEntryCell.m"
-         timestampString = "324665617.615954"
+         timestampString = "358521958.585754"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "144"
-         endingLineNumber = "144"
-         landmarkName = "-viewController:"
+         startingLineNumber = "117"
+         endingLineNumber = "117"
+         landmarkName = "-imgWrite"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MailListDataEntryCell.m"
-         timestampString = "341397164.147698"
+         timestampString = "355312771.12503"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "577"
-         endingLineNumber = "577"
+         startingLineNumber = "559"
+         endingLineNumber = "559"
          landmarkName = "-controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -51,13 +51,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MailListDataEntryCell.m"
-         timestampString = "341393587.895546"
+         timestampString = "355312771.12503"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "185"
-         endingLineNumber = "185"
-         landmarkName = "-numberOfObjectsInSection:"
-         landmarkType = "5">
+         startingLineNumber = "68"
+         endingLineNumber = "68"
+         landmarkName = "@implementation MailListDataEntryCell"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"

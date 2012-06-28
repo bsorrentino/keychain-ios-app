@@ -23,15 +23,15 @@
 		
 @private	
 	
-	NSString *resource; 
+	NSString *__unsafe_unretained resource; 
 	
 	BaseDataEntryCell *dataEntryCell;
 	UIView *_headerInSection;
 }
 
-@property (nonatomic,readonly) NSString *resource;
-@property (nonatomic,retain) IBOutlet BaseDataEntryCell *dataEntryCell;	
-@property (nonatomic,retain) IBOutlet UIView *headerInSection;	
+@property (unsafe_unretained, nonatomic,readonly) NSString *resource;
+@property (nonatomic) IBOutlet BaseDataEntryCell *dataEntryCell;	
+@property (nonatomic) IBOutlet UIView *headerInSection;	
 
 
 - (id)initFromFile:(NSString*)resource registerNotification:(BOOL)registerNotification;
@@ -57,11 +57,11 @@
 @interface UIXMLFormViewControllerEx : UIXMLFormViewController {
 	
 	
-	id<UIXMLFormViewControllerDelegate> delegate;
+	id<UIXMLFormViewControllerDelegate> __unsafe_unretained delegate;
 	
 }
 
-@property (nonatomic,assign)  id<UIXMLFormViewControllerDelegate> delegate;
+@property (nonatomic,unsafe_unretained)  id<UIXMLFormViewControllerDelegate> delegate;
 
 @end
 

@@ -1,0 +1,4 @@
+HEADER_SEARCH_PATHS = "$(PODS_ROOT)/Headers" "$(PODS_ROOT)/Headers/KSCrypto" "$(PODS_ROOT)/Headers/SSKeychain"
+PODS_ROOT = $(SRCROOT)/Pods
+OTHER_LDFLAGS = -ObjC -all_load -framework Security -framework Security
+ALWAYS_SEARCH_USER_PATHS = YES

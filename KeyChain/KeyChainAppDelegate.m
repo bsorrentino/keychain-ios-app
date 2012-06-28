@@ -27,7 +27,7 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
     
     @autoreleasepool {
         
-        NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         
         // Edit the entity name as appropriate.
         NSEntityDescription *entity = 
@@ -55,10 +55,10 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
         NSFetchedResultsController *aFetchedResultsController = 
-        [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+        [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
                                              managedObjectContext:delegate.managedObjectContext 
                                                sectionNameKeyPath:@"sectionId" 
-                                                        cacheName:nil] autorelease]; 
+                                                        cacheName:nil]; 
         
         {
         NSError *error = nil;
@@ -82,10 +82,10 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
             
             NSError *error = nil;
             
-            NSRegularExpression *pattern = [[[NSRegularExpression alloc] 
+            NSRegularExpression *pattern = [[NSRegularExpression alloc] 
                                             initWithPattern:_REGEXP 
                                             options:NSRegularExpressionCaseInsensitive 
-                                            error:&error ] autorelease];
+                                            error:&error ];
             if (pattern!=nil) {
                 
                 for (KeyEntity *ki in sections) {
@@ -146,7 +146,6 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
                                               cancelButtonTitle:@"OK" 
                                               otherButtonTitles:nil];
         [alert show];
-        [alert release];
         
 }
 
@@ -161,7 +160,6 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
                                           cancelButtonTitle:@"OK" 
                                           otherButtonTitles:nil];
     [alert show];
-    [alert release];
 }
 
 
@@ -262,14 +260,6 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
 }
 
 
-- (void)dealloc {
-    
-    [click release];
-    [navigationController release];
-    [window release];
-
-    [super dealloc];
-}
 
 
 @end

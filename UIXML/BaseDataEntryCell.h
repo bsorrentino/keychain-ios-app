@@ -34,7 +34,7 @@
 
 }
 
-@property (nonatomic, retain) NSString *dataKey;
+@property (nonatomic) NSString *dataKey;
 @property (nonatomic) BOOL enabled;
 
 -(id)init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData;

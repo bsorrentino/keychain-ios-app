@@ -121,7 +121,6 @@ static  NSString * _REGEXP = @"(\\w+[-@/])(\\w+)";
                 
             }
             
-            [pattern release];
         }
 
         return result;
@@ -231,13 +230,14 @@ static  NSString * _REGEXP = @"(\\w+[-@/])(\\w+)";
 
 - (void)awakeFromFetch {
 
-    [self setPrimitiveValue:NO forKey:_IS_NEW];
+    [self setPrimitiveValue:[NSNumber numberWithBool:NO] forKey:_IS_NEW];
 	
 }
 
 - (void)didSave {
     
-    [self setPrimitiveValue:NO forKey:_IS_NEW];
+    
+    [self setPrimitiveValue:[NSNumber numberWithBool:NO] forKey:_IS_NEW];
 }
 
 //- (NSString *)mnemonic { return [self valueForKey:@"mnemonic"]; }

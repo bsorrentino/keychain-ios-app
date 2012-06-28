@@ -12,12 +12,12 @@
 @interface ExportViewController : UIViewController<UIAlertViewDelegate> {
 
 @private
-    id<KeyListDataSource> delegate_;
+    id<KeyListDataSource> __unsafe_unretained delegate_;
 
     UIButton *exportToITunesButton;
 }
 
-@property (assign,nonatomic) id<KeyListDataSource> delegate;
-@property (retain,nonatomic ) IBOutlet UIButton *exportToITunesButton;
+@property (unsafe_unretained,nonatomic) id<KeyListDataSource> delegate;
+@property (nonatomic ) IBOutlet UIButton *exportToITunesButton;
 
 @end

@@ -14,7 +14,7 @@
 @interface AttributeInfo : NSManagedObject {
 @private
 }
-@property (nonatomic, retain) NSNumber * type;
-@property (nonatomic, retain) NSString * value;
+@property (nonatomic) NSNumber * type;
+@property (nonatomic) NSString * value;
 
 @end

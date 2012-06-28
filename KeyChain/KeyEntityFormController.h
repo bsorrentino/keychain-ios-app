@@ -30,9 +30,9 @@
 
 }
 
-@property (nonatomic,retain) IBOutlet UIView *toolbar;
-@property (nonatomic,retain) IBOutlet UIBarButtonItem *btnSave;
-@property (nonatomic,retain) IBOutlet UISegmentedControl *segShowHidePassword;
+@property (nonatomic) IBOutlet UIView *toolbar;
+@property (nonatomic) IBOutlet UIBarButtonItem *btnSave;
+@property (nonatomic) IBOutlet UISegmentedControl *segShowHidePassword;
 
 - (void)initWithEntity:(KeyEntity*)entity delegate:(NSObject<KeyEntityFormControllerDelegate> *)delegate;
 

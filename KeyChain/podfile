@@ -1,0 +1,3 @@
+platform :ios
+dependency 'SSKeychain',           '~> 0.1.4'
+dependency 'KSCrypto',	'~> 1.0.2'

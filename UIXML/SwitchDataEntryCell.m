@@ -52,9 +52,6 @@
 	return [NSNumber numberWithBool:switchField.on];
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

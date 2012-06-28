@@ -21,5 +21,5 @@
 - (void)maskWithCancelBlock:(NSString*)title cancelBlock:(void (^)(void))cancelBlock;
 - (void)unmask;
 
-@property (nonatomic,retain) NSString *message;
+@property (nonatomic) NSString *message;
 @end

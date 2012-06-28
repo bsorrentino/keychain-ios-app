@@ -62,10 +62,10 @@
 //@property (nonatomic, copy) void (^clickedButtonAtIndexAlert)( UIAlertViewInputSection *alertView, NSInteger buttonIndex) ;
 @property (nonatomic, copy) void (^clickedButtonAtIndex)( UIActionSheet *actionSheet, NSInteger index );
 
-@property (nonatomic, retain, readonly) NSArray *sectionTitlesArray;
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, retain) IBOutlet KeyEntityFormController *keyEntityFormController;
-@property(nonatomic,readonly,retain) UINavigationController *navigationController; // If this view controller has been pushed onto a navigation controller, return it.
+@property (nonatomic, readonly) NSArray *sectionTitlesArray;
+@property (nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic) IBOutlet KeyEntityFormController *keyEntityFormController;
+@property(nonatomic,readonly) UINavigationController *navigationController; // If this view controller has been pushed onto a navigation controller, return it.
 
 @property(nonatomic,copy) NSIndexPath *selectedSection;
 

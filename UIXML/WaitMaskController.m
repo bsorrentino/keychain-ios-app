@@ -39,7 +39,6 @@
 		indicator.center = CGPointMake(waitView_.bounds.size.width / 2, waitView_.bounds.size.height - 50);
 		[indicator startAnimating];
 		[waitView_ addSubview:indicator];
-		[indicator release];
 	}
 	else {
 		waitView_.title = title;
@@ -67,7 +66,6 @@
 		indicator.center = CGPointMake(waitView_.bounds.size.width / 2, waitView_.bounds.size.height - (50*2));
 		[indicator startAnimating];
 		[waitView_ addSubview:indicator];
-		[indicator release];
 	}
 	else {
 		waitView_.title = title;

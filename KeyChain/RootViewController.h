@@ -27,9 +27,9 @@
 	
 }
 
-@property (nonatomic, retain) IBOutlet KeyListViewController *keyListViewController;
-@property (nonatomic, retain) IBOutlet ExportViewController *exportViewController;
-@property (nonatomic, retain) IBOutlet ImportViewController *importViewController;
+@property (nonatomic) IBOutlet KeyListViewController *keyListViewController;
+@property (nonatomic) IBOutlet ExportViewController *exportViewController;
+@property (nonatomic) IBOutlet ImportViewController *importViewController;
 
 -(IBAction)changePassword:(id)sender;
 -(IBAction)export:(id)sender;

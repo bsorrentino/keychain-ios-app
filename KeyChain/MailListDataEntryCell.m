@@ -65,13 +65,6 @@ NSString * const regularExpression = @"(.*)@(.*)";
 	return self.textValue.text;
 }
 
-- (void) dealloc {
-
-    [listViewController_ release];
-    [textValue_ release];
-    
-    [super dealloc];
-}
 
 @end
 
@@ -264,9 +257,6 @@ NSString * const regularExpression = @"(.*)@(.*)";
 															 cacheName:nil];
     fetchedResultsController_.delegate = self;
     
-    [fetchRequest release];
-    [sortDescriptor release];
-    [sortDescriptors release];
     
     
     
@@ -301,8 +291,6 @@ NSString * const regularExpression = @"(.*)@(.*)";
     
 	[alert show];
     
-    [tf release];
-    [alert release];
 	
 }
 
@@ -353,12 +341,6 @@ NSString * const regularExpression = @"(.*)@(.*)";
     return self;
 }
 
-- (void)dealloc
-{
-    [regex_ release];
-    [fetchedResultsController_ release];
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -456,7 +438,7 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
     if( cell==nil )  {
         
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ListDataEntryCell"] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ListDataEntryCell"];
         cell.accessoryType = UITableViewCellAccessoryNone;
         
     }

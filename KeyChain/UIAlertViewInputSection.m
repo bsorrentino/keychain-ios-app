@@ -9,56 +9,51 @@
 #import "UIAlertViewInputSection.h"
 #import "KeyEntity.h"
 
-@interface UIAlertViewInputSection (Private) {
-}
+@interface UIAlertViewInputSection (/*Private*/) 
+
+@property (nonatomic,copy) void (^clickedButtonAtIndexBlock)( UIAlertViewInputSection *alertView, NSInteger buttonIndex) ;
 
 - (BOOL)isSectionAware:(NSString *)key;
-- (void)processInputText;
-
+- (void)processInputText:(UIAlertView*)alert;
 @end
 
 @implementation UIAlertViewInputSection
 
 @synthesize groupName, groupPrefix;
-//@synthesize delegate;
-@synthesize clickedButtonAtIndexBlock=clickedButtonAtIndexBlock_;
+@synthesize clickedButtonAtIndexBlock;
 
-- (id)init  {
+static UIAlertViewInputSection *currentDelegate;
 
-    return [self initWithTitle:NSLocalizedString(@"AlertViewInputSection.alertTitle", @"add new Item") ];
-}
-
-- (id)initWithTitle:(NSString *)title  {
-    
-        
-    if (self = [super init]) {
-    
-        
-        alert_ = [[UIAlertView alloc] 
-                              initWithTitle:title
-                              message:NSLocalizedString(@"AlertViewInputSection.alertMessage", @"add item message") 
-                              delegate:self
-                              cancelButtonTitle:@"Cancel"
-                              otherButtonTitles:@"OK", nil];
-        
-        // Name field
-        UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)]; 
-        tf.tag = 100;
-        tf.keyboardType = UIKeyboardTypeEmailAddress;
-        tf.placeholder = NSLocalizedString(@"AlertViewInputSection.alertPlaceholder", @"add item placeholder");
-        [tf setBackgroundColor:[UIColor whiteColor]]; 
-        tf.clearButtonMode = UITextFieldViewModeWhileEditing;
-        tf.keyboardType = UIKeyboardTypeAlphabet;
-        tf.keyboardAppearance = UIKeyboardAppearanceAlert;
-        tf.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters; //UITextAutocapitalizationTypeWords;
-        tf.autocorrectionType = UITextAutocorrectionTypeNo;
-        [tf becomeFirstResponder];
-        [alert_ addSubview:tf];	
-
-        [tf release];
++ (UIAlertView *)alertViewWithBlock:(void(^)( UIAlertViewInputSection *alertView, NSInteger buttonIndex))clickedButtonAtIndexBlock
+{
+    if( currentDelegate==nil ) {
+        currentDelegate = [[UIAlertViewInputSection alloc] init];
     }
+    currentDelegate.clickedButtonAtIndexBlock = clickedButtonAtIndexBlock;
     
-    return self;
+    
+    UIAlertView *alert_ = [[UIAlertView alloc] 
+              initWithTitle:NSLocalizedString(@"AlertViewInputSection.alertTitle", @"add new Item")
+              message:NSLocalizedString(@"AlertViewInputSection.alertMessage", @"add item message") 
+              delegate:currentDelegate
+              cancelButtonTitle:@"Cancel"
+              otherButtonTitles:@"OK", nil];
+    // Name field
+    UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)]; 
+    tf.tag = 100;
+    tf.keyboardType = UIKeyboardTypeEmailAddress;
+    tf.placeholder = NSLocalizedString(@"AlertViewInputSection.alertPlaceholder", @"add item placeholder");
+    [tf setBackgroundColor:[UIColor whiteColor]]; 
+    tf.clearButtonMode = UITextFieldViewModeWhileEditing;
+    tf.keyboardType = UIKeyboardTypeAlphabet;
+    tf.keyboardAppearance = UIKeyboardAppearanceAlert;
+    tf.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters; //UITextAutocapitalizationTypeWords;
+    tf.autocorrectionType = UITextAutocorrectionTypeNo;
+    [tf becomeFirstResponder];
+    [alert_ addSubview:tf];	
+    
+    return alert_;
+    
 }
 
 
@@ -77,16 +72,16 @@
 }
 
 
-- (void)processInputText {
+- (void)processInputText:(UIAlertView *)alert {
  
         groupName = nil;
         groupPrefix = nil;
 
-        if (alert_ == nil ) {
+        if (alert == nil ) {
             return;
         }
         
-        UITextField *tf = (UITextField*)[alert_ viewWithTag:100];
+        UITextField *tf = (UITextField*)[alert viewWithTag:100];
         
         NSString *trimmed = [tf.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
@@ -105,24 +100,22 @@
         }
 }
 
-- (void)show {
-    [alert_ show];
-}
+#pragma - memory management
 
+- (void)dealloc 
+{
 
-- (void)dealloc {
-    [alert_ release];
-    [super dealloc];
+    NSLog(@" UIAlertViewInputSection.dealloc" );
 }
 
 #pragma mark UIAlertViewDelegate <NSObject>
 
 // Called when a button is clicked. The view will be automatically dismissed after this call returns
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    [self processInputText];
+    [self processInputText:alertView];
     
-    if (clickedButtonAtIndexBlock_!=nil) {
-        clickedButtonAtIndexBlock_( self, buttonIndex);
+    if ( self.clickedButtonAtIndexBlock!=nil) {
+        self.clickedButtonAtIndexBlock( self, buttonIndex);
     }
         
 }

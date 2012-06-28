@@ -58,18 +58,18 @@
 - (void)testFormatDate
 {
     
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    @autoreleasepool {
 
-    NSDateFormatter *dateFormat = [[[NSDateFormatter alloc] init] autorelease];
-    [dateFormat setDateFormat:@"yyyyMMdd"];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyyMMdd"];
+        
+        
+        NSString *fileName = [NSString stringWithFormat:@"keylist-%@.plist", [dateFormat stringFromDate:[NSDate date]]  ];
+        
+        NSLog(@"filename [%@]", fileName);
     
     
-    NSString *fileName = [NSString stringWithFormat:@"keylist-%@.plist", [dateFormat stringFromDate:[NSDate date]]  ];
-    
-    NSLog(@"filename [%@]", fileName);
-    
-    
-    [pool drain];
+    }
 
 }
 
@@ -99,7 +99,6 @@
     NSLog(@"r1.location [%d] r1.length [%d]", r1.location, r1.length);
     
     
-    [pattern release];
 }
 
 

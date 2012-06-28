@@ -18,8 +18,8 @@
 
 -(void)valueChanged:(id)sender;
 
-@property (nonatomic, retain) IBOutlet UILabel *textLabel;
-@property (nonatomic,retain) IBOutlet UISegmentedControl *segmentedField;
+@property (nonatomic) IBOutlet UILabel *textLabel;
+@property (nonatomic) IBOutlet UISegmentedControl *segmentedField;
 
 @end
 

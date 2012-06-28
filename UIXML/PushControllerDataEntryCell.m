@@ -38,9 +38,6 @@
     return nil;
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark inherit from UITableViewCell

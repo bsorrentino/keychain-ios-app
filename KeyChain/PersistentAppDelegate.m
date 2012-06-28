@@ -75,8 +75,7 @@
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc ]init];
-    
+    @autoreleasepool {
     @try {
         
         
@@ -122,8 +121,8 @@
         
     }
     @finally {
-        [pool drain];
     }
+    }     
 }
 
 - (BOOL) isSchemaCompatible:(NSPersistentStoreCoordinator *)psc {
@@ -165,7 +164,6 @@
           [entity isAbstract], 
           [[entity properties] count]  );
     
-    [entity release];
         
     entity = [NSEntityDescription entityForName:@"KeyInfo" inManagedObjectContext:self.managedObjectContext];
     
@@ -174,7 +172,6 @@
           [entity isAbstract], 
           [[entity properties] count]  );
 
-    [entity release];
 }
 
 
@@ -309,7 +306,7 @@
     
     @autoreleasepool {
         
-        NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         
         // Edit the entity name as appropriate.
         NSEntityDescription *entity = 
@@ -333,10 +330,10 @@
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
         NSFetchedResultsController *aFetchedResultsController = 
-            [[[NSFetchedResultsController alloc]    initWithFetchRequest:fetchRequest 
+            [[NSFetchedResultsController alloc]    initWithFetchRequest:fetchRequest 
                                                     managedObjectContext:self.managedObjectContext 
                                                     sectionNameKeyPath:nil 
-                                                    cacheName:nil] autorelease]; 
+                                                    cacheName:nil]; 
         
         {
             NSError *error = nil;
@@ -418,14 +415,6 @@
 #pragma mark - Memory management
 
 
-- (void)dealloc {
-    
-    [managedObjectContext_ release];
-    [managedObjectModel_ release];
-    [persistentStoreCoordinator_ release];
-    
-    [super dealloc];
-}
 
 
 

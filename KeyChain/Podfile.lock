@@ -1,0 +1,7 @@
+PODS:
+  - KSCrypto (1.0.2)
+  - SSKeychain (0.1.4)
+
+DEPENDENCIES:
+  - KSCrypto (~> 1.0.2)
+  - SSKeychain (~> 0.1.4)

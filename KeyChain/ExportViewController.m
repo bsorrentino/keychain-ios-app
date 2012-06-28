@@ -58,7 +58,7 @@
             
             [wait mask:@"Export to ITunes...."];
             
-            NSMutableArray *root = [[[NSMutableArray alloc ]init] autorelease];
+            NSMutableArray *root = [[NSMutableArray alloc ]init];
             
             NSArray * keys = [NSArray  arrayWithObjects:@"version",nil];
             
@@ -75,7 +75,7 @@
             
             for (KeyEntity *entity in items) {
                 
-                NSMutableDictionary * d = [[NSMutableDictionary new] autorelease];
+                NSMutableDictionary * d = [[NSMutableDictionary alloc] init];
                 [root addObject:[entity toDictionary:d]];
             }
             
@@ -101,7 +101,7 @@
             NSString *documentDirectory = [paths objectAtIndex:0];
             NSLog(@"Document paths[0]=[%@]", documentDirectory);
             
-            NSDateFormatter *dateFormat = [[[NSDateFormatter alloc] init] autorelease];
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
             [dateFormat setDateFormat:@"yyyyMMdd"];
             
             
@@ -117,11 +117,11 @@
                 return;
             }
             
-            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Export" 
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Export" 
                                                              message:@"Completed!"
                                                             delegate:self 
                                                    cancelButtonTitle:@"OK" 
-                                                   otherButtonTitles:nil] autorelease];
+                                                   otherButtonTitles:nil];
             [alert show];
 
             
@@ -144,10 +144,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
