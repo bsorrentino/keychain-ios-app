@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>ZKRevealingTableViewCell 0.0.3 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">ZKRevealingTableViewCell 0.0.3 </a></h1>
+				<a id="developerHome" href="index.html">Alex Zielenski</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">ZKRevealingTableViewCell 0.0.3 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">ZKRevealingTableViewCell 0.0.3 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1><a href="Classes/ZKRevealingTableViewCell.html">ZKRevealingTableViewCell</a></h1>
+
+<p>A Sparrow-style Implementation of Swipe-To-Reveal</p>
+
+<hr />
+
+<p>Sparrow for iOS has a different kind of swipe to reveal; its version of the control is that the content view pans with your finger or optionally could swipe.</p>
+
+<p>This Swipe-To-Reveal implementation <strong><em>will</em></strong> pan with your finger and can swipe. It works, <strong>left</strong>, <strong>right</strong>, or <strong>left and right</strong>.</p>
+
+<hr />
+
+<p>Here&rsquo;s a preview:</p>
+
+<p>!<a href="https://github.com/alexzielenski/ZKRevealingTableViewCell/blob/master/Preview.png?raw=true">image</a></p>
+
+<hr />
+
+<h1>Usage</h1>
+
+<p>Simply link <code>QuartzCore.framework</code> and use the <a href="[https://github.com/alexzielenski/ZKRevealingTableViewCell/blob/master/ZKRevealingTableViewCell/ZKRevealingTableViewCell.h">~!@[<code>ZKRevealingTableViewCell</code>](Classes/ZKRevealingTableViewCell.html)</a>](https://github.com/alexzielenski/ZKRevealingTableViewCell/blob/master/ZKRevealingTableViewCell/ZKRevealingTableViewCell.h))@!~ class for your <a href="[http://developer.apple.com/library/ios/](http://developer.apple.com/library/ios/"><code>UITableViewCell</code></a>#documentation/uikit/reference/UITableViewCell_Class/Reference/Reference.html). To change the reveal view, simply modify the <code>backView</code> property of the cell.</p>
+
+<p>```objc
+&ndash; (UITableViewCell <em>)tableView:(UITableView </em>)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {</p>
+
+<pre><code>ZKRevealingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+
+if (!cell) {
+    cell = [[[ZKRevealingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"] autorelease];
+    cell.delegate       = self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+return cell;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>If you want only one item selected at a time, you could do something like this in UITableViewController subclass:</p>
+
+<p>```objc</p>
+
+<h1>pragma mark &ndash; Accessors</h1>
+
+<ul>
+<li><p>(<a href="Classes/ZKRevealingTableViewCell.html">ZKRevealingTableViewCell</a> *)currentlyRevealedCell
+{
+  return _currentlyRevealedCell;
+}</p></li>
+<li><p>(void)setCurrentlyRevealedCell:(<a href="Classes/ZKRevealingTableViewCell.html">ZKRevealingTableViewCell</a> *)currentlyRevealedCell
+{
+  if (_currentlyRevealedCell == currentlyRevealedCell)
+      return;</p>
+
+<p>  [_currentlyRevealedCell setRevealing:NO];</p>
+
+<p>  if (<em>currentlyRevealedCell)
+      [</em>currentlyRevealedCell autorelease];</p>
+
+<p>  [self willChangeValueForKey:@&ldquo;currentlyRevealedCell&rdquo;];
+  _currentlyRevealedCell = [currentlyRevealedCell retain];
+  [self didChangeValueForKey:@&ldquo;currentlyRevealedCell&rdquo;];
+}</p></li>
+</ul>
+
+
+<h1>pragma mark &ndash; <a href="Protocols/ZKRevealingTableViewCellDelegate.html">ZKRevealingTableViewCellDelegate</a></h1>
+
+<ul>
+<li><p>(BOOL)cellShouldReveal:(<a href="Classes/ZKRevealingTableViewCell.html">ZKRevealingTableViewCell</a> *)cell {
+  return YES;
+}</p></li>
+<li><p>(void)cellDidReveal:(<a href="Classes/ZKRevealingTableViewCell.html">ZKRevealingTableViewCell</a> *)cell {
+  NSLog(@&ldquo;Revealed Cell with title: %@&rdquo;, cell.textLabel.text);
+  self.currentlyRevealedCell = cell;
+}</p></li>
+</ul>
+
+
+<h1>pragma mark &ndash; UIScrollViewDelegate</h1>
+
+<ul>
+<li>(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+  self.currentlyRevealedCell = nil;
+}
+```</li>
+</ul>
+
+
+<p>To programmatically reveal/hide the <code>backView</code>, set the <code>revealing</code> property.</p>
+
+<p>```objc
+// Reveal the backView
+cell.revealing = YES;</p>
+
+<p>// Hide the backView
+cell.revealing = NO;
+```</p>
+
+<hr />
+
+<h1>License</h1>
+
+<p>This is licensed under MIT. Here is some legal jargon:</p>
+
+<p>Copyright &copy; 2012 Alex Zielenski</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &lsquo;Software&rsquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &lsquo;AS IS&rsquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/ZKRevealingTableViewCell.html">ZKRevealingTableViewCell</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						<h2 class="index-title">Protocol References</h2>
+						<ul>
+							
+							<li><a href="Protocols/ZKRevealingTableViewCellDelegate.html">ZKRevealingTableViewCellDelegate</a></li>
+							
+						</ul>
+						
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Alex Zielenski. All rights reserved. (Last updated: 2012-07-18)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

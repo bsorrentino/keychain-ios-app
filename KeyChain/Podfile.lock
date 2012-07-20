@@ -2,8 +2,10 @@ PODS:
   - KSCrypto (1.0.2)
   - SSKeychain (0.1.4)
   - WEPopover (0.1.1)
+  - ZKRevealingTableViewCell (0.0.3)
 
 DEPENDENCIES:
   - KSCrypto (~> 1.0.2)
   - SSKeychain (~> 0.1.4)
   - WEPopover (defined in Podfile)
+  - ZKRevealingTableViewCell (~> 0.0.3)

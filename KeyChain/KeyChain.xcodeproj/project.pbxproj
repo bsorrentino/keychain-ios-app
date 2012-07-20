@@ -20,6 +20,9 @@
 		5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F129E0912EB607300BF9EF9 /* login32x32.png */; };
 		5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */; };
 		5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F17FB961416E9E4007D88F9 /* Localizable.strings */; };
+		5F18B47615B6FA7600F7D82A /* lock22x22.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F18B47515B6FA7600F7D82A /* lock22x22.png */; };
+		5F18B47815B7016F00F7D82A /* section22x22.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F18B47715B7016F00F7D82A /* section22x22.png */; };
+		5F18B47A15B7025F00F7D82A /* key22x22.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F18B47915B7025F00F7D82A /* key22x22.png */; };
 		5F2718FC152508E800C5BBA3 /* info34x34.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2718FB152508E800C5BBA3 /* info34x34.png */; };
 		5F27190015250CEB00C5BBA3 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */; };
 		5F27190115250CEB00C5BBA3 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2718FF15250CEB00C5BBA3 /* InfoViewController.xib */; };
@@ -38,6 +41,7 @@
 		5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */; };
 		5FA3A4D012DC780B009BE36C /* KeyEntityFormController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */; };
 		5FA3A50012DC7C8A009BE36C /* KeyEntityForm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */; };
+		5FACE36315B6203D007B45FE /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FACE36215B6203D007B45FE /* KeychainWrapper.m */; };
 		5FD3D1481525E8B5005D7E67 /* youtube199x68.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD3D1471525E8B5005D7E67 /* youtube199x68.png */; };
 		5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD466ED1441A5C600A39BEE /* ImportViewController.m */; };
 		5FD466F21441A81100A39BEE /* import20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD466F11441A81100A39BEE /* import20x20.png */; };
@@ -119,6 +123,9 @@
 		5F129E0912EB607300BF9EF9 /* login32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login32x32.png; sourceTree = "<group>"; };
 		5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.1.xcmappingmodel"; sourceTree = "<group>"; };
 		5F17FB971416E9E4007D88F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5F18B47515B6FA7600F7D82A /* lock22x22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock22x22.png; sourceTree = "<group>"; };
+		5F18B47715B7016F00F7D82A /* section22x22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = section22x22.png; sourceTree = "<group>"; };
+		5F18B47915B7025F00F7D82A /* key22x22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key22x22.png; sourceTree = "<group>"; };
 		5F2718FB152508E800C5BBA3 /* info34x34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info34x34.png; sourceTree = "<group>"; };
 		5F2718FD15250CEB00C5BBA3 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
@@ -146,6 +153,9 @@
 		5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyEntityFormController.m; sourceTree = "<group>"; };
 		5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyEntityFormController.xib; sourceTree = "<group>"; };
 		5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = KeyEntityForm.plist; sourceTree = "<group>"; };
+		5FACE36015B6203D007B45FE /* SecurityConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityConstants.h; sourceTree = "<group>"; };
+		5FACE36115B6203D007B45FE /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		5FACE36215B6203D007B45FE /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		5FBB755B14B78BA300A48690 /* KeyChain-1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain-1.1.xcdatamodel"; sourceTree = "<group>"; };
 		5FD3D1471525E8B5005D7E67 /* youtube199x68.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube199x68.png; sourceTree = "<group>"; };
 		5FD466EC1441A5C600A39BEE /* ImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportViewController.h; sourceTree = "<group>"; };
@@ -244,6 +254,7 @@
 			children = (
 				A02BB72B159C5752001FD5AA /* podfile */,
 				5F4130C8155E78D700D96FC4 /* UIXML.xcodeproj */,
+				5FACE35F15B62006007B45FE /* Security */,
 				5F6F634714FE4504004C1337 /* DragDrop */,
 				5FA3A4B712DC7703009BE36C /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -259,6 +270,9 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5F18B47915B7025F00F7D82A /* key22x22.png */,
+				5F18B47715B7016F00F7D82A /* section22x22.png */,
+				5F18B47515B6FA7600F7D82A /* lock22x22.png */,
 				5F544F7313F82E350001A8B5 /* logo-57x57.png */,
 				5FF78F2E12E5A481008EA886 /* logo-64x64.png */,
 				28A0AAE50D9B0CCF005BE974 /* KeyChain_Prefix.pch */,
@@ -364,6 +378,16 @@
 				5FFC754F14E5B06800E3E162 /* KeyListViewController.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		5FACE35F15B62006007B45FE /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				5FACE36015B6203D007B45FE /* SecurityConstants.h */,
+				5FACE36115B6203D007B45FE /* KeychainWrapper.h */,
+				5FACE36215B6203D007B45FE /* KeychainWrapper.m */,
+			);
+			name = Security;
 			sourceTree = "<group>";
 		};
 		A02BB730159C57F8001FD5AA /* WEPopover */ = {
@@ -536,6 +560,9 @@
 				A02BB74C159C5829001FD5AA /* popoverBg.png in Resources */,
 				A02BB74D159C5829001FD5AA /* popoverBg@2x.png in Resources */,
 				A02BB74E159C5829001FD5AA /* popoverBgSimple.png in Resources */,
+				5F18B47615B6FA7600F7D82A /* lock22x22.png in Resources */,
+				5F18B47815B7016F00F7D82A /* section22x22.png in Resources */,
+				5F18B47A15B7025F00F7D82A /* key22x22.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +630,7 @@
 				5F27190015250CEB00C5BBA3 /* InfoViewController.m in Sources */,
 				A02BB727159C4DFA001FD5AA /* model-1.2.xcmappingmodel in Sources */,
 				A02BB72A159C4E38001FD5AA /* UIAlertViewInputSection.m in Sources */,
+				5FACE36315B6203D007B45FE /* KeychainWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

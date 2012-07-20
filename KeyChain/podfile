@@ -1,10 +1,10 @@
 platform :ios
-dependency 'SSKeychain',           '~> 0.1.4'
-dependency 'KSCrypto',	'~> 1.0.2'
-#dependency 'WEPopover', '~> 0.0.1'
+pod 'SSKeychain',           '~> 0.1.4'
+pod 'KSCrypto',	'~> 1.0.2'
+#pod 'WEPopover', '~> 0.0.1'
+pod 'ZKRevealingTableViewCell', '~>0.0.3'
 
-
-dependency do |s|
+pod do |s|
   s.name      = 'WEPopover'
   s.version   = '0.1.1'
   s.license  = 'unspecified'

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ZKRevealingTableViewCell.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ZKRevealingTableViewCell</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZKRevealingTableViewCell.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZKRevealingTableViewCell/setBackView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZKRevealingTableViewCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) IBOutlet UIView *backView</Declaration>
+			
+			
+			<Anchor>//api/name/backView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ZKRevealingTableViewCell/backView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZKRevealingTableViewCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) IBOutlet UIView *backView</Declaration>
+			
+			
+			<Anchor>//api/name/backView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZKRevealingTableViewCell/setRevealing:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZKRevealingTableViewCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, getter=isRevealing) BOOL revealing</Declaration>
+			
+			
+			<Anchor>//api/name/revealing</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ZKRevealingTableViewCell/revealing</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZKRevealingTableViewCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, getter=isRevealing) BOOL revealing</Declaration>
+			
+			
+			<Anchor>//api/name/revealing</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZKRevealingTableViewCell/setDelegate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZKRevealingTableViewCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) id&lt;&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ZKRevealingTableViewCell/delegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZKRevealingTableViewCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) id&lt;&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZKRevealingTableViewCell/setDirection:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZKRevealingTableViewCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) ZKRevealingTableViewCellDirection direction</Declaration>
+			
+			
+			<Anchor>//api/name/direction</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ZKRevealingTableViewCell/direction</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZKRevealingTableViewCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) ZKRevealingTableViewCellDirection direction</Declaration>
+			
+			
+			<Anchor>//api/name/direction</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ZKRevealingTableViewCell/setShouldBounce:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZKRevealingTableViewCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL shouldBounce</Declaration>
+			
+			
+			<Anchor>//api/name/shouldBounce</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ZKRevealingTableViewCell/shouldBounce</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ZKRevealingTableViewCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL shouldBounce</Declaration>
+			
+			
+			<Anchor>//api/name/shouldBounce</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

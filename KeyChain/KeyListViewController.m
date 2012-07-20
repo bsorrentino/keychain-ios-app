@@ -999,6 +999,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         if (cell == nil) {
             cell = [[UITableViewCell alloc] 
                      initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellSectionIdentifier];
+            cell.imageView.image = [UIImage imageNamed:@"section22x22.png"];
         }        
         
     }
@@ -1022,6 +1023,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             
             cell.editingAccessoryView = detachView;
             
+            cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
         }        
 
         
@@ -1031,6 +1033,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         if (cell == nil) {
             cell = [[UITableViewCell alloc] 
                      initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
         }
     }    
     
