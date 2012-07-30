@@ -2,7 +2,7 @@ platform :ios
 pod 'SSKeychain',           '~> 0.1.4'
 pod 'KSCrypto',	'~> 1.0.2'
 #pod 'WEPopover', '~> 0.0.1'
-pod 'ZKRevealingTableViewCell', '~>0.0.3'
+#pod 'ZKRevealingTableViewCell', '~>0.0.3'
 
 pod do |s|
   s.name      = 'WEPopover'
@@ -18,5 +18,21 @@ pod do |s|
   s.resources = "*.png"
   s.frameworks = 'UIKit', 'Foundation', 'CoreGraphics'
   s.clean_paths = "WEPopover.xcodeproj", "Classes/*.{h,m}", "*.xib", "main.m", "*.pch", "*.plist"
+  s.requires_arc = true
+end
+
+pod do |s|
+  s.name         = 'ZKRevealingTableViewCell'
+  s.version      = '0.1.1'
+  s.license      = 'MIT'
+  s.summary      = 'A Sparrow-style Implementation of Swipe-To-Reveal. (bsorrentino fork)'
+  s.homepage     = 'https://github.com/alexzielenski/ZKRevealingTableViewCell'
+  s.author       = { 'Alex Zielenski' => 'support@alexzielenski.com', "bsorrentino" =>'bartolomeo.sorrentino@gmail.com' }
+  s.source       = { :git => 'https://github.com/bsorrentino/ZKRevealingTableViewCell.git', :tag => '0.1.1' }
+  s.description  = 'A different kind of swipe-to-reveal that pans with your finger and works left and right to reveal a background view.'
+  s.platform     = :ios
+  s.source_files = 'vendor'
+  s.clean_paths  = "ZKRevealingTableViewCell", "ZKRevealingTableViewCell.xcodeproj", "Preview.png"
+  s.framework    = 'QuartzCore'
   s.requires_arc = true
 end

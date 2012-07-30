@@ -20,7 +20,7 @@
 
 #import <QuartzCore/CAAnimation.h>
 #import <QuartzCore/CAMediaTimingFunction.h>
-
+#import "ZKRevealingTableViewCell/ZKRevealingTableViewCell.h"
 
 #define TOOLBAR_TAG 20
 #define SWIPEBACK_TAG 21
@@ -80,6 +80,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 //@synthesize clickedButtonAtIndexAlert=clickedButtonAtIndexAlert_;
 @synthesize clickedButtonAtIndex=clickedButtonAtIndex_;
 @synthesize selectedSection;
+@synthesize keyCell;
 
 #pragma mark -
 #pragma mark KeyListDataSource implementation
@@ -114,9 +115,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 }
 
 
-#pragma mark - 
-#pragma mark Section implementation
-#pragma mark -
+#pragma mark - Section implementation
 
 - (void)setNavigationTitle:(NSString*)title {
 
@@ -1031,10 +1030,21 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
+/* NOT USE BUNDLE
             cell = [[UITableViewCell alloc] 
                      initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
+*/ 
+            [[NSBundle mainBundle] loadNibNamed:@"KeyCell" owner:self options:nil];
+            cell = self.keyCell;
+            self.keyCell = nil;
+            
+            cell.contentView.backgroundColor = [UIColor whiteColor];
+            cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
+            
+            ((ZKRevealingTableViewCell*)cell).direction = ZKRevealingTableViewCellDirectionLeft;
         }
+        
     }    
     
     [self configureCell:cell entity:managedObject];
@@ -1043,6 +1053,13 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 }
 
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Detemine if it's in editing mode
+    if (self.editing) {
+        return UITableViewCellEditingStyleDelete;
+    }
+    return UITableViewCellEditingStyleNone;
+}
 
 
  // Override to support conditional editing of the table view.
@@ -1110,7 +1127,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 #pragma mark - UITableView Index
 
 - (NSArray *)sectionTitlesArray {
-	
+    
 	if (sectionIndexTitles_==nil) {
 		
 		sectionIndexTitles_ = [NSMutableArray arrayWithObjects: 
@@ -1474,11 +1491,21 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 
 - (void)viewDidUnload {
+    [self setKeyCell:nil];
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }
 
 
+#pragma mark - ZKRevealingTableViewCellDelegate
+
+//@optional
+
+/*
+- (BOOL)cellShouldReveal:(ZKRevealingTableViewCell *)cell;
+- (void)cellDidBeginPan:(ZKRevealingTableViewCell *)cell;
+- (void)cellDidReveal:(ZKRevealingTableViewCell *)cell;
+*/
 
 
 @end

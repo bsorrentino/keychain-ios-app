@@ -11,12 +11,14 @@
 #import "KeyEntityFormController.h"
 #import "KeyListDataSource.h"
 #import "DDTableViewManager.h"
+#import "ZKRevealingTableViewCell/ZKRevealingTableViewCell.h"
 
 @class KeyEntityFormController;
 @class KeyListViewController;
 @class ExportViewController;
 @class ImportViewController;
 @class UIAlertViewInputSection;
+@class ZKRevealingTableViewCell;
 
 @interface KeyListViewController : UITableViewController 
     <
@@ -28,7 +30,8 @@
         UIGestureRecognizerDelegate,
         DDTableViewManagerDelegate, 
         UIActionSheetDelegate,
-        UIAlertViewDelegate
+        UIAlertViewDelegate,
+        ZKRevealingTableViewCellDelegate
     > 
 {
     
@@ -68,6 +71,7 @@
 @property(nonatomic,readonly) UINavigationController *navigationController; // If this view controller has been pushed onto a navigation controller, return it.
 
 @property(nonatomic,copy) NSIndexPath *selectedSection;
+@property (unsafe_unretained, nonatomic) IBOutlet ZKRevealingTableViewCell *keyCell;
 
 @end
 

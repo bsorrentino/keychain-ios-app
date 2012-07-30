@@ -1,4 +1,4 @@
 Documentation set was installed to Xcode!
 
-Path: /Users/softphone/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.ZKRevealingTableViewCell-0.0.3.docset
-Time: 2012-07-18 13:37:28 +0000
+Path: /Users/softphone/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.ZKRevealingTableViewCell-0.1.1.docset
+Time: 2012-07-30 16:14:13 +0000

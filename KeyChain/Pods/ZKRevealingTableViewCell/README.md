@@ -7,7 +7,7 @@ A Sparrow-style Implementation of Swipe-To-Reveal
 
 Sparrow for iOS has a different kind of swipe to reveal; its version of the control is that the content view pans with your finger or optionally could swipe.
 
-This Swipe-To-Reveal implementation ***will*** pan with your finger and can swipe. It works, **left**, **right**, or **left and right**.
+This Swipe-To-Reveal implementation ***will*** pan with your finger and can swipe. It works **left**, **right**, or **left and right**.
 
 ---
 
@@ -91,6 +91,11 @@ cell.revealing = YES;
 // Hide the backView
 cell.revealing = NO;
 ```
+
+### Changing the backgroundColor
+
+You may have trouble changing the background color of your `ZKRevealingTableViewCell` instance. The issue that happens is that the contentView's white background color is appearing on the edges of the cell. To fix this just change the contentView's background with the cell's background at the same time.
+
 
 ---
 
