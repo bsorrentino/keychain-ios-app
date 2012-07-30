@@ -303,7 +303,6 @@
 				A0CD69651430C24A00EDE45F /* export20x20.png */,
 				A0759F2014305DBE000701EF /* settings20x20.png */,
 				5F17FB961416E9E4007D88F9 /* Localizable.strings */,
-				A0FD0E4E14168462009C7257 /* MailListDataEntryCell.xib */,
 				5F129E0912EB607300BF9EF9 /* login32x32.png */,
 				5F04E6E312E368C800370F50 /* KeyChainLogin.xib */,
 				5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */,
@@ -338,6 +337,9 @@
 		5F084FC115BAEFA600059E26 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				A0FD0E4B14166C32009C7257 /* MailListDataEntryCell.h */,
+				A0FD0E4C14166C32009C7257 /* MailListDataEntryCell.m */,
+				A0FD0E4E14168462009C7257 /* MailListDataEntryCell.xib */,
 				5F084FC215BAF09100059E26 /* KeyCell.xib */,
 			);
 			name = Cell;
@@ -367,8 +369,6 @@
 				A02BB729159C4E38001FD5AA /* UIAlertViewInputSection.m */,
 				5F2718FD15250CEB00C5BBA3 /* InfoViewController.h */,
 				5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */,
-				A0FD0E4B14166C32009C7257 /* MailListDataEntryCell.h */,
-				A0FD0E4C14166C32009C7257 /* MailListDataEntryCell.m */,
 				A0FD0E4414165D8E009C7257 /* AttributeInfo.h */,
 				A0FD0E4514165D8E009C7257 /* AttributeInfo.m */,
 				5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */,
