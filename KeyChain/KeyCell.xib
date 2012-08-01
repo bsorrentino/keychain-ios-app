@@ -44,7 +44,7 @@
 							<object class="IBUIImageView" id="613518843">
 								<reference key="NSNextResponder" ref="266701462"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{260, 7}, {18, 26}}</string>
+								<string key="NSFrame">{{260, 9}, {18, 24}}</string>
 								<reference key="NSSuperview" ref="266701462"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -53,7 +53,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">swipe22x26.png</string>
+									<string key="NSResourceName">swipeL@18x24.png</string>
 								</object>
 							</object>
 						</array>
@@ -80,6 +80,7 @@
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="266701462"/>
+				<string key="IBUIReuseIdentifier">Cell</string>
 				<real value="43" key="IBUIRowHeight"/>
 			</object>
 			<object class="IBUIView" id="942931208">
@@ -358,8 +359,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">swipe22x26.png</string>
-			<string key="NS.object.0">{22, 26}</string>
+			<string key="NS.key.0">swipeL@18x24.png</string>
+			<string key="NS.object.0">{16, 16}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>

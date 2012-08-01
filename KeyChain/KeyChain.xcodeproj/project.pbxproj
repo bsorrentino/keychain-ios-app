@@ -43,7 +43,7 @@
 		5FA3A4D012DC780B009BE36C /* KeyEntityFormController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */; };
 		5FA3A50012DC7C8A009BE36C /* KeyEntityForm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */; };
 		5FACE36315B6203D007B45FE /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FACE36215B6203D007B45FE /* KeychainWrapper.m */; };
-		5FC717E715C6EE6F00836CED /* swipe22x26.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FC717E615C6EE6F00836CED /* swipe22x26.png */; };
+		5FC717E715C6EE6F00836CED /* swipeL@18x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FC717E615C6EE6F00836CED /* swipeL@18x24.png */; };
 		5FD3D1481525E8B5005D7E67 /* youtube199x68.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD3D1471525E8B5005D7E67 /* youtube199x68.png */; };
 		5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD466ED1441A5C600A39BEE /* ImportViewController.m */; };
 		5FD466F21441A81100A39BEE /* import20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD466F11441A81100A39BEE /* import20x20.png */; };
@@ -160,7 +160,7 @@
 		5FACE36115B6203D007B45FE /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		5FACE36215B6203D007B45FE /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		5FBB755B14B78BA300A48690 /* KeyChain-1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain-1.1.xcdatamodel"; sourceTree = "<group>"; };
-		5FC717E615C6EE6F00836CED /* swipe22x26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swipe22x26.png; sourceTree = "<group>"; };
+		5FC717E615C6EE6F00836CED /* swipeL@18x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swipeL@18x24.png"; sourceTree = "<group>"; };
 		5FD3D1471525E8B5005D7E67 /* youtube199x68.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube199x68.png; sourceTree = "<group>"; };
 		5FD466EC1441A5C600A39BEE /* ImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportViewController.h; sourceTree = "<group>"; };
 		5FD466ED1441A5C600A39BEE /* ImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportViewController.m; sourceTree = "<group>"; };
@@ -275,7 +275,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				5FC717E615C6EE6F00836CED /* swipe22x26.png */,
+				5FC717E615C6EE6F00836CED /* swipeL@18x24.png */,
 				5F084FC015B9641400059E26 /* key22x22.png */,
 				5F18B47715B7016F00F7D82A /* section22x22.png */,
 				5F18B47515B6FA7600F7D82A /* lock22x22.png */,
@@ -578,7 +578,7 @@
 				5F18B47815B7016F00F7D82A /* section22x22.png in Resources */,
 				5F084FBE15B9641400059E26 /* key22x22.png in Resources */,
 				5F084FC315BAF09100059E26 /* KeyCell.xib in Resources */,
-				5FC717E715C6EE6F00836CED /* swipe22x26.png in Resources */,
+				5FC717E715C6EE6F00836CED /* swipeL@18x24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
