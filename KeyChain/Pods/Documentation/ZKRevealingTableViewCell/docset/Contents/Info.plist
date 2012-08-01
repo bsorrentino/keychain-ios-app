@@ -5,9 +5,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.cocoapods.ZKRevealingTableViewCell-0.1.1</string>
+	<string>org.cocoapods.ZKRevealingTableViewCell-0.1.2</string>
 	<key>CFBundleName</key>
-	<string>ZKRevealingTableViewCell 0.1.1 Documentation</string>
+	<string>ZKRevealingTableViewCell 0.1.2 Documentation</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -18,7 +18,7 @@
 	<string>A different kind of swipe-to-reveal that pans with your finger and works left and right to reveal a background view.</string>
 	
 	<key>DocSetFeedName</key>
-	<string>ZKRevealingTableViewCell 0.1.1 Documentation</string>
+	<string>ZKRevealingTableViewCell 0.1.2 Documentation</string>
 	
 	<key>DocSetMinimumXcodeVersion</key>
 	<string>3.0</string>
