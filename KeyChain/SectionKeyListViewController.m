@@ -1,10 +1,13 @@
 //
-//  KeyListViewController.m
+//  SectionKeyListViewController.m
 //  KeyChain
 //
-//  Created by softphone on 10/02/12.
+//  Created by softphone on 02/08/12.
 //  Copyright (c) 2012 SOFTPHONE. All rights reserved.
 //
+
+#import "SectionKeyListViewController.h"
+
 
 #import "KeyListViewController.h"
 #import "KeyEntityFormController.h"
@@ -32,7 +35,7 @@ static NSString *SEARCHTEXT_CRITERIA = @"(mnemonic BEGINSWITH %@ OR mnemonic BEG
 static NSString *SEARCHRESET_CRITERIA = @"group == NO or group == nil";
 static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
-@interface KeyListViewController ( /*Private*/ )
+@interface SectionKeyListViewController ( /*Private*/ )
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)configureCell:(UITableViewCell *)cell entity:(KeyEntity *)managedObject;
 
@@ -46,16 +49,19 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 -(NSManagedObjectContext *)managedObjectContext;
 
+- (void)initGestureRecognizer;
+
 -(BOOL)isSearchTableView:(UITableView*)tableView;
 
 @end
 
 
 
-@interface KeyListViewController (Section) {
+@interface SectionKeyListViewController (Section) {
     
 }
 
+- (IBAction)dismissViewSection:(id)sender;
 - (void)pushViewSection:(KeyEntity *)keyEntity;
 - (NSRange)getSectionPrefix:(NSString*)key;
 - (void)createSectionChoosingCustomSectionPrefix:(KeyEntity *)source target:(KeyEntity*)target replaceSource:(BOOL)replaceSource replaceTarget:(BOOL)replaceTarget;
@@ -67,7 +73,8 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 @end
 
 
-@implementation KeyListViewController
+
+@implementation SectionKeyListViewController
 
 //@synthesize managedObjectContext=managedObjectContext_;
 @synthesize fetchedResultsController=fetchedResultsController_;
@@ -115,10 +122,10 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 #pragma mark - Section implementation
 
 - (void)setNavigationTitle:(NSString*)title {
-
+    
     self.navigationController.navigationBar.topItem.title = title;
     //self.navigationItem.title = value;
-  
+    
 }
 
 - (void)hideNavigationRightButton:(BOOL)value {
@@ -134,8 +141,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 }
 
 - (void)pushViewSection:(KeyEntity *)keyEntity {
-
-#if 0
+    
     if (![keyEntity isSection] ) return;
     
     
@@ -147,20 +153,20 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     [self.navigationController.view.layer addAnimation:animation forKey:@"pushViewSection"];
     dispatch_async(dispatch_get_main_queue(), ^{
-
+        
         UIView *toolbar     = [self.navigationController.view viewWithTag:TOOLBAR_TAG];
         UIView *sectionToolbar = [self.navigationController.view viewWithTag:SWIPEBACK_TAG];
-
+        
         // RESIZE TABLE
         //CGRect frame = self.tableView.frame;
         //frame.size.height += toolbar.frame.size.height;
         //[self.tableView setFrame:frame];
- 
+        
         [self setNavigationTitle:keyEntity.mnemonic];
-                
+        
         // HIDE ADD BUTTON ITEM
         [self hideNavigationRightButton:YES];
-            
+        
         // HIDE ADD BUTTON
         toolbar.hidden = YES;
         
@@ -169,8 +175,8 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         [self.searchDisplayController setActive:NO];
         [self hideSearchBar:NO]; //self.searchDisplayController.searchBar.hidden = YES;
         [self.searchDisplayController.searchBar setUserInteractionEnabled:NO];
-
-
+        
+        
         // SHOW SECTION TOOLBAR (AT BOTTOM)
         [sectionToolbar setFrame:toolbar.frame];
         sectionToolbar.hidden = NO;    
@@ -195,63 +201,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         dd_.enabled = NO;
         
     });
-#endif    
     
-}
-
-
-- (IBAction)dismissViewSection:(id)sender {
-
-#if 0    
-    //UISwipeGestureRecognizer *swipe = (UISwipeGestureRecognizer*)recognizer;
-    
-	CATransition *animation = [CATransition animation];
-	[animation setDuration:0.5];
-	[animation setType:kCATransitionPush];
-	[animation setSubtype:kCATransitionFromLeft];
-	[animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    
-    [self.navigationController.view.layer addAnimation:animation forKey:@"dismissViewSection"];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-
-        UIView *toolbar = [self.navigationController.view viewWithTag:TOOLBAR_TAG];
-
-        // RESIZE TABLE
-        //CGRect frame = self.tableView.frame;
-        //frame.size.height -= toolbar.frame.size.height;
-        //[self.tableView setFrame:frame];
-
-        [self setNavigationTitle: NSLocalizedString(@"KeyListViewController.title", @"main title")];
-
-        // SHOW ADD BUTTON ITEM
-        [self hideNavigationRightButton:NO];
-
-        // SHOW TOOLBAR
-        toolbar.hidden = NO;
-
-        swipe_.enabled = NO;
-        
-        dd_.enabled = YES;
-        
-        [self filterReset]; [self.tableView reloadData];
-        
-        if (self.selectedSection != nil ) {
-            //[self.tableView scrollToRowAtIndexPath:self.selectedSection atScrollPosition:UITableViewScrollPositionTop animated:NO];
-            [self.tableView selectRowAtIndexPath:self.selectedSection animated:NO scrollPosition:UITableViewScrollPositionMiddle];        
-        }
-        
-    });
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-
-        //self.searchDisplayController.searchBar.hidden = NO;
-        [self.searchDisplayController.searchBar setUserInteractionEnabled:YES];        
-
-        [self hideSearchBar:YES];
-        
-    });
-#endif
     
 }
 
@@ -260,7 +210,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 {
     
     UIAlertView *inputView = [UIAlertViewInputSection alertViewWithBlock: ^(UIAlertViewInputSection *alert, NSInteger buttonIndex) {
-       
+        
         NSLog(@"clickedButtonAtIndex [%d]", buttonIndex );
         
         if (buttonIndex == 1) {
@@ -271,23 +221,23 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
                 [KeyEntity createSection:alert.groupName groupPrefix:alert.groupPrefix inContext:[self managedObjectContext] ];
                 
                 /*
-                if (replaceSource) {
-                    [KeyEntity groupByReplacingPrefix:source groupKey:alert.groupName prefix:alert.groupPrefix];
-                }
-                else {
-                    [KeyEntity groupByAppendingPrefix:source prefix:alert.groupPrefix];                    
-                    
-                }                
-                if( replaceTarget ) {
-                    [KeyEntity groupByReplacingName:target mnemonic:[alert.groupPrefix stringByAppendingString:target.mnemonic]];
-                }
-                else {
-                    [KeyEntity groupByAppendingPrefix:target prefix:alert.groupPrefix];                    
-                }
-                */
+                 if (replaceSource) {
+                 [KeyEntity groupByReplacingPrefix:source groupKey:alert.groupName prefix:alert.groupPrefix];
+                 }
+                 else {
+                 [KeyEntity groupByAppendingPrefix:source prefix:alert.groupPrefix];                    
+                 
+                 }                
+                 if( replaceTarget ) {
+                 [KeyEntity groupByReplacingName:target mnemonic:[alert.groupPrefix stringByAppendingString:target.mnemonic]];
+                 }
+                 else {
+                 [KeyEntity groupByAppendingPrefix:target prefix:alert.groupPrefix];                    
+                 }
+                 */
                 [source groupByPrefix:alert.groupPrefix];
                 [target groupByPrefix:alert.groupPrefix];
-               
+                
                 
             }
         }
@@ -295,7 +245,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     }];
     
     [inputView show];
- 
+    
 }
 
 //
@@ -324,6 +274,23 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     return NO;
 }
 
+- (IBAction)detachFromSection:(id)sender {
+    
+    UIDetachButton *detachView = sender;
+    
+    KeyEntity *managedObject = [self.fetchedResultsController objectAtIndexPath: detachView.index];
+    NSLog(@"detach [%@]", managedObject.mnemonic);
+    
+    [managedObject detachFromGroup];
+    
+    
+    if( ![self touchUpInsideEditButton] ) {
+        [self.tableView setEditing:NO animated:YES];    
+        //[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:detachView.index] withRowAnimation:YES];
+    }
+    
+    
+}
 
 #pragma mark UIActionSheetDelegate implementation 
 
@@ -368,11 +335,11 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 #pragma mark - DDTableViewManagerDelegate implementation
 
 //- (BOOL) possibleDropTo:(NSIndexPath *)target 
-    
+
 - (BOOL) beginDrag:(NSIndexPath *)from {
     
     KeyEntity *e = [self.fetchedResultsController objectAtIndexPath:from];
-
+    
     return ![e isSection];
 }
 
@@ -383,7 +350,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     KeyEntity *eSource = [self.fetchedResultsController objectAtIndexPath:source];
     
-
+    
     NSLog(@"Drop from [%@] to [%@]", eSource.mnemonic, eTarget.mnemonic  );
     
     
@@ -396,9 +363,9 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         ///////////////////////////////////////////////
         
         NSRange rPrefix = [KeyEntity getSectionPrefix:eSource checkIfIsSectionAware:YES];
-
+        
         if( !NSEqualRanges( rPrefix, NSMakeRange(NSNotFound, 0) ) ){
-
+            
             NSString *groupKey = [eSource.mnemonic substringWithRange:rPrefix];
             
             NSLog(@"groupkey [%@]", groupKey);
@@ -413,7 +380,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
                 
                 //eSource.group = [NSNumber numberWithBool:YES];
                 //[[self appDelegate] saveContext];
-
+                
                 self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                     
                     NSLog(@"clickedButtonAtIndex [%d]", i );
@@ -434,59 +401,59 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
                 
                 UIActionSheet * sheet = 
                 [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
-                                    cancelButtonTitle:@"Cancel" 
-                               destructiveButtonTitle:@"Confirm" 
-                                    otherButtonTitles: nil];
+                                   cancelButtonTitle:@"Cancel" 
+                              destructiveButtonTitle:@"Confirm" 
+                                   otherButtonTitles: nil];
                 
                 [sheet showInView:self.navigationController.view];
-               
+                
                 
             }
             else {  
-
+                
                 /////////////////////////////////////////////////////////
                 //    
                 // THE PREFIX OF TARGET IS DIFFERENT TO PREFIX OF GROUP
                 //    
                 /////////////////////////////////////////////////////////
-
+                
                 self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
-                      
-                      NSLog(@"clickedButtonAtIndex [%d]", i );
-                      
-                      switch (i) {
-                          case 0: // REMOVE PREFIX
-                          {
-                              [eSource groupByPrefix:eTarget.groupPrefix];
-                              
-                              //[KeyEntity groupByReplacingPrefix:eSource groupKey:groupKey prefix:eTarget.groupPrefix];
-                              //[[self appDelegate] saveContext];
-                          }
+                    
+                    NSLog(@"clickedButtonAtIndex [%d]", i );
+                    
+                    switch (i) {
+                        case 0: // REMOVE PREFIX
+                        {
+                            [eSource groupByPrefix:eTarget.groupPrefix];
+                            
+                            //[KeyEntity groupByReplacingPrefix:eSource groupKey:groupKey prefix:eTarget.groupPrefix];
+                            //[[self appDelegate] saveContext];
+                        }
                             break;
-                          case 1: // ADD TO SECTION  
-                          {
-                              //NSString *newMnemonic = [eTarget.groupPrefix stringByAppendingString:eSource.mnemonic];                              
-                              //[KeyEntity groupByReplacingName:eSource mnemonic:newMnemonic];                              
-                              //[[self appDelegate] saveContext];
-
-                          }
-                              break;
-                      }
-                      
-                  };
+                        case 1: // ADD TO SECTION  
+                        {
+                            //NSString *newMnemonic = [eTarget.groupPrefix stringByAppendingString:eSource.mnemonic];                              
+                            //[KeyEntity groupByReplacingName:eSource mnemonic:newMnemonic];                              
+                            //[[self appDelegate] saveContext];
+                            
+                        }
+                            break;
+                    }
+                    
+                };
                 
                 UIActionSheet * sheet = 
                 [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
-                                    cancelButtonTitle:@"Cancel" 
-                               destructiveButtonTitle:@"Confirm" 
-                                    otherButtonTitles: nil];
+                                   cancelButtonTitle:@"Cancel" 
+                              destructiveButtonTitle:@"Confirm" 
+                                   otherButtonTitles: nil];
                 
                 
                 
                 [sheet showInView:self.navigationController.view];
                 
             }
-                        
+            
         }
         else { 
             
@@ -495,29 +462,29 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             // IF SOURCE HAS NOT PREFIX
             //    
             ///////////////////////////////////////////////
- 
+            
             
             self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
-                  
-                      NSLog(@"clickedButtonAtIndex [%d]", i );
-                      
-                      if (i == 0) // ADD PREFIX 
-                      {
-                          //NSString *newMnemonic = [eTarget.groupPrefix stringByAppendingString:eSource.mnemonic];                          
-                          //[KeyEntity groupByReplacingName:eSource mnemonic:newMnemonic];
-                          //[[self appDelegate] saveContext];
-                          
-                          [eSource groupByPrefix:eTarget.groupPrefix];
-
-                      }
-                                            
-                  };
+                
+                NSLog(@"clickedButtonAtIndex [%d]", i );
+                
+                if (i == 0) // ADD PREFIX 
+                {
+                    //NSString *newMnemonic = [eTarget.groupPrefix stringByAppendingString:eSource.mnemonic];                          
+                    //[KeyEntity groupByReplacingName:eSource mnemonic:newMnemonic];
+                    //[[self appDelegate] saveContext];
+                    
+                    [eSource groupByPrefix:eTarget.groupPrefix];
+                    
+                }
+                
+            };
             
             UIActionSheet * sheet = 
             [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
-                                cancelButtonTitle:@"Cancel" 
-                                destructiveButtonTitle:@"Confirm"
-                                otherButtonTitles:  nil];
+                               cancelButtonTitle:@"Cancel" 
+                          destructiveButtonTitle:@"Confirm"
+                               otherButtonTitles:  nil];
             
             
             
@@ -527,22 +494,22 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         
     }
     else { 
-    
+        
         ///////////////////////////////////////////////
         //    
         // IF TARGET IS NOT A SECTION
         //    
         ///////////////////////////////////////////////
-     
+        
         NSRange rFromPrefix = [KeyEntity getSectionPrefix:eSource checkIfIsSectionAware:YES];
-
+        
         NSRange rTargetPrefix = [KeyEntity getSectionPrefix:eTarget checkIfIsSectionAware:YES];
         
         BOOL sourceHasPrefix = !NSEqualRanges( rFromPrefix, NSMakeRange(NSNotFound, 0));
         BOOL targetHasPrefix = !NSEqualRanges( rTargetPrefix, NSMakeRange(NSNotFound, 0));
-                                              
-        if( !targetHasPrefix && !sourceHasPrefix ) { 
         
+        if( !targetHasPrefix && !sourceHasPrefix ) { 
+            
             ///////////////////////////////////////////////
             //    
             // EITHER SOURCE & TARGET HAVEN'T PREFIX            
@@ -559,63 +526,63 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             ///////////////////////////////////////////////
             NSString *sTargetPrefix = [eTarget.mnemonic substringWithRange:rTargetPrefix];
             NSString *sSourcePrefix   = [eSource.mnemonic substringWithRange:rFromPrefix];
-
+            
             __block id _self = self;
-
-             self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
-                 
-                 NSLog(@"clickedButtonAtIndex [%d]", i );
-                 
-                 switch (i) {
-                     case 0: // USE CUSTOM PREFIX  
-                     {
-                         NSLog(@"use custom prefix " );
-                         
-                         [_self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:YES replaceTarget:YES];
-                     }
-                         break;                         
-                     case 1: // USE TARGET PREFIX  
-                     {
-                         NSLog(@"use target prefix [%@]", sTargetPrefix );
-                         
-                         NSString *groupKey = [KeyEntity sectionNameFromPrefix:sTargetPrefix trim:YES];
-                         
-                         [KeyEntity createSection:groupKey groupPrefix:sTargetPrefix inContext:[_self managedObjectContext]];
-
-                         //eTarget.group = [NSNumber numberWithBool:YES];
-                         //[KeyEntity groupByReplacingPrefix:eSource groupKey:groupKey prefix:sTargetPrefix];
-                         
-                         [eTarget groupByPrefix:sTargetPrefix];
-                         [eSource groupByPrefix:sTargetPrefix];
- 
-                     }
-                         break;
-                     case 2: // USE SOURCE PREFIX  
-                     {
-                         NSLog(@"use source prefix [%@]", sSourcePrefix );
-                         
-                         NSString *groupName = [KeyEntity sectionNameFromPrefix:sSourcePrefix trim:YES];
-                         
-                         [KeyEntity createSection:groupName groupPrefix:sSourcePrefix inContext:[_self managedObjectContext]];
-                         
-                         //eSource.group = [NSNumber numberWithBool:YES];
-                         //[KeyEntity groupByReplacingPrefix:eTarget groupKey:groupName prefix:sFromPrefix];
-                         
-                         [eSource groupByPrefix:sSourcePrefix];
-                         [eTarget groupByPrefix:sSourcePrefix];
-                     }
-                         break;
-                 }
-                 
-             };
+            
+            self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
+                
+                NSLog(@"clickedButtonAtIndex [%d]", i );
+                
+                switch (i) {
+                    case 0: // USE CUSTOM PREFIX  
+                    {
+                        NSLog(@"use custom prefix " );
+                        
+                        [_self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:YES replaceTarget:YES];
+                    }
+                        break;                         
+                    case 1: // USE TARGET PREFIX  
+                    {
+                        NSLog(@"use target prefix [%@]", sTargetPrefix );
+                        
+                        NSString *groupKey = [KeyEntity sectionNameFromPrefix:sTargetPrefix trim:YES];
+                        
+                        [KeyEntity createSection:groupKey groupPrefix:sTargetPrefix inContext:[_self managedObjectContext]];
+                        
+                        //eTarget.group = [NSNumber numberWithBool:YES];
+                        //[KeyEntity groupByReplacingPrefix:eSource groupKey:groupKey prefix:sTargetPrefix];
+                        
+                        [eTarget groupByPrefix:sTargetPrefix];
+                        [eSource groupByPrefix:sTargetPrefix];
+                        
+                    }
+                        break;
+                    case 2: // USE SOURCE PREFIX  
+                    {
+                        NSLog(@"use source prefix [%@]", sSourcePrefix );
+                        
+                        NSString *groupName = [KeyEntity sectionNameFromPrefix:sSourcePrefix trim:YES];
+                        
+                        [KeyEntity createSection:groupName groupPrefix:sSourcePrefix inContext:[_self managedObjectContext]];
+                        
+                        //eSource.group = [NSNumber numberWithBool:YES];
+                        //[KeyEntity groupByReplacingPrefix:eTarget groupKey:groupName prefix:sFromPrefix];
+                        
+                        [eSource groupByPrefix:sSourcePrefix];
+                        [eTarget groupByPrefix:sSourcePrefix];
+                    }
+                        break;
+                }
+                
+            };
             
             UIActionSheet * sheet = 
             [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
-                                cancelButtonTitle:@"Cancel" 
-                           destructiveButtonTitle:@"Use custom prefix"
-                                otherButtonTitles: 
-                                    [NSString stringWithFormat:@"Use prefix [%@]", sTargetPrefix ], 
-                                    [NSString stringWithFormat:@"Use prefix [%@]", sSourcePrefix ], nil];
+                               cancelButtonTitle:@"Cancel" 
+                          destructiveButtonTitle:@"Use custom prefix"
+                               otherButtonTitles: 
+             [NSString stringWithFormat:@"Use prefix [%@]", sTargetPrefix ], 
+             [NSString stringWithFormat:@"Use prefix [%@]", sSourcePrefix ], nil];
             
             
             
@@ -631,48 +598,48 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             ///////////////////////////////////////////////
             
             NSString *sSourcePrefix = [eSource.mnemonic substringWithRange:rFromPrefix];
-
+            
             NSLog(@"ONLY SOURCE HAS PREFIX [%@]", sSourcePrefix );
-
+            
             __block id _self = self;
             
             self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
-                  
-                  
-                  switch (i) {
-                      case 0: // USE CUSTOM PREFIX  
-                      {
-                          NSLog(@"USE CUSTOM PREFIX" );
-                          
-                          [_self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:YES replaceTarget:NO];
-                      }
-                          break;
-                      case 1: // USE FROM PREFIX  
-                      {
-                          NSLog(@"USE SOURCE PREFIX [%@]", sSourcePrefix );
-                          
-                          NSString *groupName = [KeyEntity sectionNameFromPrefix:sSourcePrefix trim:YES];
-                          
-                          [KeyEntity createSection:groupName groupPrefix:sSourcePrefix inContext:[_self managedObjectContext]];
-                          
-                          //eSource.group = [NSNumber numberWithBool:YES];
-                          //[KeyEntity groupByAppendingPrefix:eTarget prefix:sSourcePrefix];
- 
-                          [eSource groupByPrefix:sSourcePrefix];
-                          [eTarget groupByPrefix:sSourcePrefix];
-                          
-                      }
-                          break;
-                  }
-                  
-              };
+                
+                
+                switch (i) {
+                    case 0: // USE CUSTOM PREFIX  
+                    {
+                        NSLog(@"USE CUSTOM PREFIX" );
+                        
+                        [_self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:YES replaceTarget:NO];
+                    }
+                        break;
+                    case 1: // USE FROM PREFIX  
+                    {
+                        NSLog(@"USE SOURCE PREFIX [%@]", sSourcePrefix );
+                        
+                        NSString *groupName = [KeyEntity sectionNameFromPrefix:sSourcePrefix trim:YES];
+                        
+                        [KeyEntity createSection:groupName groupPrefix:sSourcePrefix inContext:[_self managedObjectContext]];
+                        
+                        //eSource.group = [NSNumber numberWithBool:YES];
+                        //[KeyEntity groupByAppendingPrefix:eTarget prefix:sSourcePrefix];
+                        
+                        [eSource groupByPrefix:sSourcePrefix];
+                        [eTarget groupByPrefix:sSourcePrefix];
+                        
+                    }
+                        break;
+                }
+                
+            };
             
             UIActionSheet * sheet = 
             [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
-                                cancelButtonTitle:@"Cancel" 
-                           destructiveButtonTitle:@"Use custom prefix"
-                                otherButtonTitles:
-                                        [NSString stringWithFormat:@"Use prefix [%@]", sSourcePrefix ], nil];
+                               cancelButtonTitle:@"Cancel" 
+                          destructiveButtonTitle:@"Use custom prefix"
+                               otherButtonTitles:
+             [NSString stringWithFormat:@"Use prefix [%@]", sSourcePrefix ], nil];
             
             
             
@@ -686,50 +653,50 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             // ONLY TARGET HAS PREFIX
             //    
             ///////////////////////////////////////////////
-
+            
             __block id _self = self;
-
+            
             NSString *sTargetPrefix = [eTarget.mnemonic substringWithRange:rTargetPrefix];
-
+            
             self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
-                  
-                  NSLog(@"clickedButtonAtIndex [%d]", i );
-                  
-                  switch (i) {
-                      case 0: // USE CUSTOM PREFIX  
-                      {
-                          NSLog(@"use custom prefix " );
-                          
-                          [_self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:NO replaceTarget:YES];
-                         
-                      }
-                          break;
-                      case 1: // USE FROM PREFIX  
-                      {
-                          NSLog(@"use target prefix [%@]", sTargetPrefix );
-                          
-                          NSString *groupKey = [KeyEntity sectionNameFromPrefix:sTargetPrefix trim:YES];
-                          
-                          [KeyEntity createSection:groupKey groupPrefix:sTargetPrefix inContext:[_self managedObjectContext]];
-                          
-                          //eTarget.group = [NSNumber numberWithBool:YES];
-                          //[KeyEntity groupByAppendingPrefix:eSource prefix:sTargetPrefix];
-                          
-                          [eSource groupByPrefix:sTargetPrefix];
-                          [eTarget groupByPrefix:sTargetPrefix];
-
-                      }
-                          break;
-                  }
-                  
-              };
+                
+                NSLog(@"clickedButtonAtIndex [%d]", i );
+                
+                switch (i) {
+                    case 0: // USE CUSTOM PREFIX  
+                    {
+                        NSLog(@"use custom prefix " );
+                        
+                        [_self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:NO replaceTarget:YES];
+                        
+                    }
+                        break;
+                    case 1: // USE FROM PREFIX  
+                    {
+                        NSLog(@"use target prefix [%@]", sTargetPrefix );
+                        
+                        NSString *groupKey = [KeyEntity sectionNameFromPrefix:sTargetPrefix trim:YES];
+                        
+                        [KeyEntity createSection:groupKey groupPrefix:sTargetPrefix inContext:[_self managedObjectContext]];
+                        
+                        //eTarget.group = [NSNumber numberWithBool:YES];
+                        //[KeyEntity groupByAppendingPrefix:eSource prefix:sTargetPrefix];
+                        
+                        [eSource groupByPrefix:sTargetPrefix];
+                        [eTarget groupByPrefix:sTargetPrefix];
+                        
+                    }
+                        break;
+                }
+                
+            };
             
             UIActionSheet * sheet = 
             [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
-                                cancelButtonTitle:@"Cancel" 
-                           destructiveButtonTitle:@"Use custom prefix"
-                                otherButtonTitles: 
-                                    [NSString stringWithFormat:@"Use prefix [%@]", sTargetPrefix ], nil];
+                               cancelButtonTitle:@"Cancel" 
+                          destructiveButtonTitle:@"Use custom prefix"
+                               otherButtonTitles: 
+             [NSString stringWithFormat:@"Use prefix [%@]", sTargetPrefix ], nil];
             
             
             
@@ -774,6 +741,16 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     return [tableView isEqual:self.searchDisplayController.searchResultsTableView];    
 }
 
+-(void)initGestureRecognizer {
+    
+    swipe_ = [[UISwipeGestureRecognizer alloc] init];
+    
+    [swipe_ addTarget:self action:@selector(dismissViewSection:)];
+    
+    [self.tableView addGestureRecognizer:swipe_];
+    
+    
+}
 
 -(void)initWithNavigationController:(UINavigationController *)controller {
     
@@ -808,7 +785,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         reloadData_ = YES;
 	}
 	
- 
+    
 	NSError *error = nil;
     
 	// Save the context.
@@ -823,7 +800,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 		
 		return NO;
 	}
-
+    
 	
 	return YES;
 }
@@ -837,10 +814,12 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 	
     // Set up the edit and add buttons.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-        
+    
     self.searchDisplayController.searchBar.delegate = self;
     
     [self hideSearchBar:NO];
+    
+    [self initGestureRecognizer];
     
     dd_ = [[DDTableViewManager alloc ] initFromTableView:self.tableView]; dd_.delegate = self;
     
@@ -954,8 +933,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier         = @"Cell";
-    static NSString *CellSectionIdentifier  = @"CellSection";
+    static NSString *CellGroupIdentifier    = @"CellGroup";
     
     KeyEntity *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
@@ -965,32 +943,36 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     if ( [managedObject isSection] ) {
         
-        cell = [tableView dequeueReusableCellWithIdentifier:CellSectionIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] 
-                     initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellSectionIdentifier];
-            cell.imageView.image = [UIImage imageNamed:@"section22x22.png"];
-        }        
+        [NSException raise:@"Illegal call!" format:@"Section cell cannot be displayed here!"];
         
     }
-    //else if( [managedObject isGrouped] ) {}
-    else {
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    else if( [managedObject isGrouped] ) {
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:CellGroupIdentifier];
         if (cell == nil) {
-/* NOT USE BUNDLE
             cell = [[UITableViewCell alloc] 
-                     initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
-*/ 
-            [[NSBundle mainBundle] loadNibNamed:@"KeyCell" owner:self options:nil];
-            cell = self.keyCell;
-            self.keyCell = nil;
+                    initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellGroupIdentifier];
             
-            cell.contentView.backgroundColor = [UIColor whiteColor];
-            cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
+            //[[NSBundle mainBundle] loadNibNamed:@"keygrouped" owner:self options:nil];
+            //cell.editingAccessoryView = self.customEditView;
+            //self.customEditView = nil;
             
-            ((ZKRevealingTableViewCell*)cell).direction = ZKRevealingTableViewCellDirectionLeft;
-        }
+            // CREATE CUSTOM CLASS TO KEEP TRACK OF SELECTED INDEX
+            UIDetachButton *detachView = [[UIDetachButton alloc] initFromCell:cell];
+            
+            detachView.index = indexPath;
+            
+            [detachView addTarget:self action:@selector(detachFromSection:) forControlEvents:UIControlEventTouchDown];
+            
+            cell.editingAccessoryView = detachView;
+            
+            cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
+        }        
+        
+        
+    }
+    else {
+        [NSException raise:@"Illegal call!" format:@"Ungrouped  cell cannot be displayed here!"];
         
     }    
     
@@ -1009,11 +991,11 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 }
 
 
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath 
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     KeyEntity *entity = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
+    
     // Return NO if you do not want the specified item to be editable.
     return ![entity isSection];
 }
@@ -1180,7 +1162,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     if( self.searchDisplayController.active ) return;
     
     [self.tableView beginUpdates];
-
+    
 }
 
 
@@ -1188,7 +1170,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     
     if( self.searchDisplayController.active ) return;
-
+    
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
@@ -1204,9 +1186,9 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath {
- 
+    
     if( self.searchDisplayController.active ) return;
-
+    
     UITableView *tableView = self.tableView;
     
     switch(type) {
@@ -1320,9 +1302,9 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         // nil for section name key path means "no sections".
         NSFetchedResultsController *aFetchedResultsController = 
         [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
-                                             managedObjectContext:self.managedObjectContext 
-                                               sectionNameKeyPath:@"sectionId" 
-                                                        cacheName:nil]; 
+                                            managedObjectContext:self.managedObjectContext 
+                                              sectionNameKeyPath:@"sectionId" 
+                                                       cacheName:nil]; 
         
         aFetchedResultsController.delegate = self;
         
@@ -1403,6 +1385,30 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
  
  */
 
+#pragma mark UIGestureRecognizerDelegate
+
+// called when a gesture recognizer attempts to transition out of UIGestureRecognizerStatePossible. returning NO causes it to transition to UIGestureRecognizerStateFailed
+/*
+ - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+ }
+ */
+
+// called when the recognition of one of gestureRecognizer or otherGestureRecognizer would be blocked by the other
+// return YES to allow both to recognize simultaneously. the default implementation returns NO (by default no two gestures can be recognized simultaneously)
+//
+// note: returning YES is guaranteed to allow simultaneous recognition. returning NO is not guaranteed to prevent simultaneous recognition, as the other gesture's delegate may return YES
+/*
+ - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+ }
+ */
+
+// called before touchesBegan:withEvent: is called on the gesture recognizer for a new touch. return NO to prevent the gesture recognizer from seeing this touch
+/*
+ - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+ 
+ }
+ */
+
 #pragma mark Memory management
 
 - (void)didReceiveMemoryWarning {
@@ -1425,11 +1431,39 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 //@optional
 
 /*
-- (BOOL)cellShouldReveal:(ZKRevealingTableViewCell *)cell;
-- (void)cellDidBeginPan:(ZKRevealingTableViewCell *)cell;
-- (void)cellDidReveal:(ZKRevealingTableViewCell *)cell;
-*/
+ - (BOOL)cellShouldReveal:(ZKRevealingTableViewCell *)cell;
+ - (void)cellDidBeginPan:(ZKRevealingTableViewCell *)cell;
+ - (void)cellDidReveal:(ZKRevealingTableViewCell *)cell;
+ */
 
 
 @end
 
+#pragma mark - UIDetachButton implementation
+
+@implementation UIDetachButton;
+
+@synthesize index;
+
+- (id)initFromCell:(UITableViewCell *)cell 
+{
+    CGRect rc = CGRectMake(0, 0, 65, cell.frame.size.height-10 );
+    
+    if( self = [super initWithFrame:rc] ) {
+        
+        self.layer.cornerRadius = 5.0f;
+        self.layer.masksToBounds = YES;
+        self.layer.borderWidth = 1.0f; 
+        
+        
+        [self setTitle:@"Detach" forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.titleLabel.font = [UIFont systemFontOfSize:14];
+        self.backgroundColor = [UIColor lightGrayColor];
+        
+    }
+    
+    return self;
+}
+
+@end

@@ -1,10 +1,12 @@
 //
-//  KeyListViewController.h
+//  SectionKeyListViewController.h
 //  KeyChain
 //
-//  Created by softphone on 10/02/12.
+//  Created by softphone on 02/08/12.
 //  Copyright (c) 2012 SOFTPHONE. All rights reserved.
 //
+
+#import <UIKit/UIKit.h>
 
 #import <UIKit/UIKit.h>
 #import "UIXMLFormViewControllerDelegate.h"
@@ -20,13 +22,14 @@
 @class UIAlertViewInputSection;
 @class ZKRevealingTableViewCell;
 
-@interface KeyListViewController : UITableViewController 
+@interface SectionKeyListViewController : UITableViewController
     <
         NSFetchedResultsControllerDelegate,
         KeyListDataSource,
         KeyEntityFormControllerDelegate,
         UISearchDisplayDelegate,
         UISearchBarDelegate,
+        UIGestureRecognizerDelegate,
         DDTableViewManagerDelegate, 
         UIActionSheetDelegate,
         UIAlertViewDelegate,
@@ -40,12 +43,14 @@
 	NSArray *sectionIndexTitles_;
     UINavigationController *navigationController_;
     
+    UISwipeGestureRecognizer *swipe_;
+    
     DDTableViewManager *dd_; // Drag & Drop manager
     
     BOOL reloadData_;
     
     void (^clickedButtonAtIndex_)( UIActionSheet *actionSheet, NSInteger index );
-
+    
     UIBarButtonItem *addButton_;
     
     NSIndexPath *selectedSection;
@@ -73,6 +78,16 @@
 @end
 
 
+@interface UIDetachButton : UIButton {
+    
+@private
+    
+    NSIndexPath *index;
+}
 
+@property(nonatomic,copy) NSIndexPath *index;
 
+- (id)initFromCell:(UITableViewCell *)cell;
+
+@end
 
