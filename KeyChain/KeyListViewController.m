@@ -816,9 +816,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             ZKRevealingTableViewCell *revealCell = (ZKRevealingTableViewCell *)cell;
             
             UILabel *label = (UILabel *)[revealCell.backView viewWithTag:1];
-            
             label.text = [managedObject valueForKey:@"password"];
-            
         }
         
         cell.textLabel.text = [managedObject.mnemonic description];
@@ -883,10 +881,11 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             self.keyCell = nil;
             
             cell.contentView.backgroundColor = [UIColor whiteColor];
-            cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
+            //cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
+            cell.imageView.image = [UIImage imageNamed:@"swipeR@18x24.png"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-            ((ZKRevealingTableViewCell*)cell).direction = ZKRevealingTableViewCellDirectionLeft;
+            ((ZKRevealingTableViewCell*)cell).direction = ZKRevealingTableViewCellDirectionRight;
         }
         
     }    
