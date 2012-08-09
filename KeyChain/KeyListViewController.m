@@ -880,12 +880,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             cell = self.keyCell;
             self.keyCell = nil;
             
-            cell.contentView.backgroundColor = [UIColor whiteColor];
-            //cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
-            cell.imageView.image = [UIImage imageNamed:@"swipeR@18x24.png"];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-            ((ZKRevealingTableViewCell*)cell).direction = ZKRevealingTableViewCellDirectionRight;
         }
         
     }    

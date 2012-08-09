@@ -39,6 +39,7 @@
 		5F6F634A14FE4521004C1337 /* DDTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F634914FE4521004C1337 /* DDTableViewManager.m */; };
 		5F82059D15D4109000862BC2 /* swipeR@18x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F82059C15D4109000862BC2 /* swipeR@18x24.png */; };
 		5F8205A015D4144400862BC2 /* UIPasswordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F82059F15D4144400862BC2 /* UIPasswordLabel.m */; };
+		5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8205A215D41FC600862BC2 /* KeyTableViewCell.m */; };
 		5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */; };
 		5FA3A4C112DC7730009BE36C /* KeyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BB12DC7730009BE36C /* KeyEntity.m */; };
 		5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */; };
@@ -147,6 +148,8 @@
 		5F82059C15D4109000862BC2 /* swipeR@18x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swipeR@18x24.png"; sourceTree = "<group>"; };
 		5F82059E15D4144400862BC2 /* UIPasswordLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPasswordLabel.h; sourceTree = "<group>"; };
 		5F82059F15D4144400862BC2 /* UIPasswordLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPasswordLabel.m; sourceTree = "<group>"; };
+		5F8205A115D41FC600862BC2 /* KeyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyTableViewCell.h; sourceTree = "<group>"; };
+		5F8205A215D41FC600862BC2 /* KeyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyTableViewCell.m; sourceTree = "<group>"; };
 		5F8B67EA14471B7E00A767AE /* KeyListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListDataSource.h; sourceTree = "<group>"; };
 		5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainAppDelegate.h; sourceTree = "<group>"; };
 		5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainAppDelegate.m; sourceTree = "<group>"; };
@@ -362,6 +365,8 @@
 				5F084FC215BAF09100059E26 /* KeyCell.xib */,
 				5F82059E15D4144400862BC2 /* UIPasswordLabel.h */,
 				5F82059F15D4144400862BC2 /* UIPasswordLabel.m */,
+				5F8205A115D41FC600862BC2 /* KeyTableViewCell.h */,
+				5F8205A215D41FC600862BC2 /* KeyTableViewCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -666,6 +671,7 @@
 				5F052D8A15CBE90900330214 /* iToast.m in Sources */,
 				5F052D9415CBEADA00330214 /* OptionPane.m in Sources */,
 				5F8205A015D4144400862BC2 /* UIPasswordLabel.m in Sources */,
+				5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

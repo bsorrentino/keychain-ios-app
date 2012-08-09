@@ -470,17 +470,6 @@ static NSString *SEARCH_CRITERIA =
             [detachView addTarget:self action:@selector(detachFromSection:) forControlEvents:UIControlEventTouchDown];
             
             cell.editingAccessoryView = detachView;
-            //cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
-            cell.imageView.image = [UIImage imageNamed:@"swipeR@18x24.png"];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
-            cell.contentView.backgroundColor = [UIColor whiteColor];
-            cell.direction = ZKRevealingTableViewCellDirectionRight;
-        
-            UIView *v1 = [cell.contentView viewWithTag:1];
-            
-            v1.layer.zPosition = 1;
-            //[cell.contentView bringSubviewToFront:v1];
         }
         
         
