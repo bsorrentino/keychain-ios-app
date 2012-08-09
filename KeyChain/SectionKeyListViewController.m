@@ -400,21 +400,22 @@ static NSString *SEARCH_CRITERIA =
 
 - (void)configureCell:(UITableViewCell *)cell entity:(KeyEntity *)managedObject {
     
+
     cell.textLabel.text = [managedObject.mnemonic description];
+    //cell.detailTextLabel.text = managedObject.groupPrefix;
+   
     
-    if (managedObject.isSection) {
-        //cell.detailTextLabel.text = NSLocalizedString(@"CellGroup.detailTextLabel", nil);
-        cell.detailTextLabel.text = managedObject.groupPrefix;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if ([cell isKindOfClass:[ZKRevealingTableViewCell class]]) {
+        
+        ZKRevealingTableViewCell *revealCell = (ZKRevealingTableViewCell *)cell;
+        
+        UILabel *label = (UILabel *)[revealCell.backView viewWithTag:1];
+        
+        label.text = [managedObject valueForKey:@"password"];
+        
     }
-    else if( managedObject.isGrouped ) {
-        cell.detailTextLabel.text = managedObject.groupPrefix;        
-    }
-    else {
-        cell.textLabel.text = [managedObject.mnemonic description];
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
+
+
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -470,6 +471,7 @@ static NSString *SEARCH_CRITERIA =
             
             cell.editingAccessoryView = detachView;
             cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             cell.contentView.backgroundColor = [UIColor whiteColor];
             cell.direction = ZKRevealingTableViewCellDirectionLeft;

@@ -807,10 +807,20 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         cell.detailTextLabel.text = managedObject.groupPrefix;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    else if( managedObject.isGrouped ) {
-        cell.detailTextLabel.text = managedObject.groupPrefix;        
-    }
+    //else if( managedObject.isGrouped ) {
+    //    cell.detailTextLabel.text = managedObject.groupPrefix;
+    //}
     else {
+        if ([cell isKindOfClass:[ZKRevealingTableViewCell class]]) {
+
+            ZKRevealingTableViewCell *revealCell = (ZKRevealingTableViewCell *)cell;
+            
+            UILabel *label = (UILabel *)[revealCell.backView viewWithTag:1];
+            
+            label.text = [managedObject valueForKey:@"password"];
+            
+        }
+        
         cell.textLabel.text = [managedObject.mnemonic description];
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
@@ -874,7 +884,8 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             
             cell.contentView.backgroundColor = [UIColor whiteColor];
             cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
-            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
             ((ZKRevealingTableViewCell*)cell).direction = ZKRevealingTableViewCellDirectionLeft;
         }
         
