@@ -22,6 +22,8 @@
 #import <QuartzCore/CAMediaTimingFunction.h>
 #import "ZKRevealingTableViewCell/ZKRevealingTableViewCell.h"
 
+#import "SectionKeyListViewController.h"
+
 #define TOOLBAR_TAG 20
 #define SWIPEBACK_TAG 21
 
@@ -78,6 +80,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 @synthesize clickedButtonAtIndex=clickedButtonAtIndex_;
 @synthesize selectedSection;
 @synthesize keyCell;
+@synthesize sectionController;
 
 #pragma mark -
 #pragma mark KeyListDataSource implementation
@@ -116,13 +119,14 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 - (void)setNavigationTitle:(NSString*)title {
 
+/*
     self.navigationController.navigationBar.topItem.title = title;
-    //self.navigationItem.title = value;
-  
+*/  
 }
 
 - (void)hideNavigationRightButton:(BOOL)value {
-    
+
+/*
     if (value) {
         addButton_ = self.navigationController.navigationBar.topItem.rightBarButtonItem;
         [self.navigationController.navigationBar.topItem setRightBarButtonItem:nil];
@@ -130,131 +134,17 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     else {
         [self.navigationController.navigationBar.topItem setRightBarButtonItem:addButton_];   
     }
-    
+*/    
 }
 
 - (void)pushViewSection:(KeyEntity *)keyEntity {
 
-#if 0
-    if (![keyEntity isSection] ) return;
+    [self.sectionController prepareForAppear:keyEntity];
     
-    
-	CATransition *animation = [CATransition animation];
-	[animation setDuration:0.5];
-	[animation setType:kCATransitionPush];
-	[animation setSubtype:kCATransitionFromRight];
-	[animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    
-    [self.navigationController.view.layer addAnimation:animation forKey:@"pushViewSection"];
-    dispatch_async(dispatch_get_main_queue(), ^{
+    [self.navigationController pushViewController:self.sectionController animated:YES];
 
-        UIView *toolbar     = [self.navigationController.view viewWithTag:TOOLBAR_TAG];
-        UIView *sectionToolbar = [self.navigationController.view viewWithTag:SWIPEBACK_TAG];
-
-        // RESIZE TABLE
-        //CGRect frame = self.tableView.frame;
-        //frame.size.height += toolbar.frame.size.height;
-        //[self.tableView setFrame:frame];
- 
-        [self setNavigationTitle:keyEntity.mnemonic];
-                
-        // HIDE ADD BUTTON ITEM
-        [self hideNavigationRightButton:YES];
-            
-        // HIDE ADD BUTTON
-        toolbar.hidden = YES;
-        
-        // SEARCH BAR
-        //[self searchBarCancelButtonClicked:self.searchDisplayController.searchBar];
-        [self.searchDisplayController setActive:NO];
-        [self hideSearchBar:NO]; //self.searchDisplayController.searchBar.hidden = YES;
-        [self.searchDisplayController.searchBar setUserInteractionEnabled:NO];
-
-
-        // SHOW SECTION TOOLBAR (AT BOTTOM)
-        [sectionToolbar setFrame:toolbar.frame];
-        sectionToolbar.hidden = NO;    
-        UIPageControl *pageControl = (UIPageControl *)[sectionToolbar viewWithTag:2];
-        pageControl.currentPage = 1;
-        
-        
-        NSPredicate *predicate = nil;
-        
-        // set predicate if a searchText has been set
-        predicate = [NSPredicate 
-                     predicateWithFormat:SEARCHSECTION_CRITERIA, 
-                     keyEntity.groupPrefix ]; // autorelease    
-        
-        
-        [self filterContentByPredicate:predicate scope:nil];
-        
-        [self.tableView reloadData];
-        
-        swipe_.enabled = YES;
-        
-        dd_.enabled = NO;
-        
-    });
-#endif    
     
 }
-
-
-- (IBAction)dismissViewSection:(id)sender {
-
-#if 0    
-    //UISwipeGestureRecognizer *swipe = (UISwipeGestureRecognizer*)recognizer;
-    
-	CATransition *animation = [CATransition animation];
-	[animation setDuration:0.5];
-	[animation setType:kCATransitionPush];
-	[animation setSubtype:kCATransitionFromLeft];
-	[animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    
-    [self.navigationController.view.layer addAnimation:animation forKey:@"dismissViewSection"];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-
-        UIView *toolbar = [self.navigationController.view viewWithTag:TOOLBAR_TAG];
-
-        // RESIZE TABLE
-        //CGRect frame = self.tableView.frame;
-        //frame.size.height -= toolbar.frame.size.height;
-        //[self.tableView setFrame:frame];
-
-        [self setNavigationTitle: NSLocalizedString(@"KeyListViewController.title", @"main title")];
-
-        // SHOW ADD BUTTON ITEM
-        [self hideNavigationRightButton:NO];
-
-        // SHOW TOOLBAR
-        toolbar.hidden = NO;
-
-        swipe_.enabled = NO;
-        
-        dd_.enabled = YES;
-        
-        [self filterReset]; [self.tableView reloadData];
-        
-        if (self.selectedSection != nil ) {
-            //[self.tableView scrollToRowAtIndexPath:self.selectedSection atScrollPosition:UITableViewScrollPositionTop animated:NO];
-            [self.tableView selectRowAtIndexPath:self.selectedSection animated:NO scrollPosition:UITableViewScrollPositionMiddle];        
-        }
-        
-    });
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-
-        //self.searchDisplayController.searchBar.hidden = NO;
-        [self.searchDisplayController.searchBar setUserInteractionEnabled:YES];        
-
-        [self hideSearchBar:YES];
-        
-    });
-#endif
-    
-}
-
 
 - (void)createSectionChoosingCustomSectionPrefix:(KeyEntity *)source target:(KeyEntity*)target replaceSource:(BOOL)replaceSource replaceTarget:(BOOL)replaceTarget
 {
@@ -767,6 +657,33 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 	//[e release];
 }
 
+// Deprecated
+- (void)insertNewObject2 {
+    
+	
+    // Create a new instance of the entity managed by the fetched results controller.
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    
+    // If appropriate, configure the new managed object.
+    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![context save:&error]) {
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+         */
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+}
+
+
+
 #pragma mark - custom implementation
 
 -(BOOL)isSearchTableView:(UITableView*)tableView
@@ -835,9 +752,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     reloadData_ = NO;
 	
-    // Set up the edit and add buttons.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-        
     self.searchDisplayController.searchBar.delegate = self;
     
     [self hideSearchBar:NO];
@@ -908,34 +822,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     KeyEntity *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [self configureCell:cell entity:managedObject];
-}
-
-#pragma mark Add/Update a new object
-
-
-// Deprecated
-- (void)insertNewObject2 {
-    
-	
-    // Create a new instance of the entity managed by the fetched results controller.
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
-    // If appropriate, configure the new managed object.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
-    
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
 }
 
 #pragma mark - Table view data source

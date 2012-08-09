@@ -19,6 +19,7 @@
 @class ImportViewController;
 @class UIAlertViewInputSection;
 @class ZKRevealingTableViewCell;
+@class SectionKeyListViewController;
 
 @interface KeyListViewController : UITableViewController 
     <
@@ -45,8 +46,6 @@
     BOOL reloadData_;
     
     void (^clickedButtonAtIndex_)( UIActionSheet *actionSheet, NSInteger index );
-
-    UIBarButtonItem *addButton_;
     
     NSIndexPath *selectedSection;
     
@@ -69,6 +68,8 @@
 
 @property(nonatomic,copy) NSIndexPath *selectedSection;
 @property (unsafe_unretained, nonatomic) IBOutlet ZKRevealingTableViewCell *keyCell;
+@property (strong, nonatomic) IBOutlet SectionKeyListViewController *sectionController;
+
 
 @end
 

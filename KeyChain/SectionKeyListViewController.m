@@ -25,46 +25,28 @@
 #import <QuartzCore/CAMediaTimingFunction.h>
 #import "ZKRevealingTableViewCell/ZKRevealingTableViewCell.h"
 
-#define TOOLBAR_TAG 20
-#define SWIPEBACK_TAG 21
-
-#define IS_SECTION_CRITERIA @"(groupPrefix != nil AND (group == nil OR group == NO))"
-#define IS_GROUPED_CRITERIA @"(groupPrefix != nil AND group != nil AND group == YES)"
-
-static NSString *SEARCHTEXT_CRITERIA = @"(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@)"; // AND (groupPrefix == nil OR (group != nil AND group == YES))";
-static NSString *SEARCHRESET_CRITERIA = @"group == NO or group == nil";
-static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
+static NSString *SEARCH_CRITERIA =
+    @"(groupPrefix != nil AND group != nil AND groupPrefix == %@ AND group == YES)";
 
 @interface SectionKeyListViewController ( /*Private*/ )
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)configureCell:(UITableViewCell *)cell entity:(KeyEntity *)managedObject;
 
-- (void)insertNewObject2 __attribute__ ((deprecated));
-
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope;
-
-- (void)hideSearchBar:(BOOL)animated;
 - (PersistentAppDelegate *) appDelegate;
-//- (NSArray *)fetchedObjects;
 
--(NSManagedObjectContext *)managedObjectContext;
+- (NSManagedObjectContext *)managedObjectContext;
 
-- (void)initGestureRecognizer;
-
--(BOOL)isSearchTableView:(UITableView*)tableView;
+@property (unsafe_unretained, nonatomic) KeyEntity *section;
 
 @end
-
 
 
 @interface SectionKeyListViewController (Section) {
     
 }
 
-- (IBAction)dismissViewSection:(id)sender;
-- (void)pushViewSection:(KeyEntity *)keyEntity;
 - (NSRange)getSectionPrefix:(NSString*)key;
-- (void)createSectionChoosingCustomSectionPrefix:(KeyEntity *)source target:(KeyEntity*)target replaceSource:(BOOL)replaceSource replaceTarget:(BOOL)replaceTarget;
 - (void)setNavigationTitle:(NSString*)title;
 - (BOOL)touchUpInsideEditButton;
 
@@ -73,23 +55,15 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 @end
 
 
-
 @implementation SectionKeyListViewController
 
-//@synthesize managedObjectContext=managedObjectContext_;
 @synthesize fetchedResultsController=fetchedResultsController_;
 @synthesize keyEntityFormController=keyEntityFormController_;
-@synthesize navigationController;
-
-//@synthesize clickedButtonAtIndexAlert=clickedButtonAtIndexAlert_;
 @synthesize clickedButtonAtIndex=clickedButtonAtIndex_;
-@synthesize selectedSection;
 @synthesize keyCell;
+@synthesize section=section_;
 
-#pragma mark -
-#pragma mark KeyListDataSource implementation
-#pragma mark -
-
+#pragma mark - KeyListDataSource implementation
 
 - (NSEntityDescription *)entityDescriptor {
     return [[self.fetchedResultsController fetchRequest] entity];    
@@ -111,12 +85,88 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 }
 
 - (void)filterReset {
+
     
-    [self filterContentByPredicate:
-     [NSPredicate predicateWithFormat:SEARCHRESET_CRITERIA ] //@"group == NO or group == nil"*/
-                             scope:nil];
+    NSAssert(self.section!=nil,@"section is nil");
+    
+    if( self.section == nil ) return;
+    
+    NSLog(@"filter data for section [%@] and prefix [%@]",
+            self.section.mnemonic,
+          self.section.groupPrefix );
+    
+    NSPredicate *predicate = [NSPredicate
+                                predicateWithFormat:SEARCH_CRITERIA,
+                                self.section.groupPrefix
+                              ]; // autorelease
+
+    [self filterContentByPredicate:predicate scope:nil];
+    
     reloadData_ = YES;
 }
+
+#pragma mark - Content Filtering
+
+- (void)filterContentByPredicate:(NSPredicate *)predicate scope:(NSString *)scope {
+    
+    // Set up the fetched results controller.
+    // Create the fetch request for the entity.
+    @autoreleasepool {
+        
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        
+        // Edit the entity name as appropriate.
+        NSEntityDescription *entity =
+        [NSEntityDescription entityForName:@"KeyInfo" inManagedObjectContext:self.managedObjectContext];
+        
+        [fetchRequest setEntity:entity];
+        
+        if (predicate != nil ) {
+            
+            [fetchRequest setPredicate:predicate];
+        }
+        
+        
+        // Set the batch size to a suitable number.
+        [fetchRequest setFetchBatchSize:20];
+        
+        // Edit the sort key as appropriate.
+        
+        NSSortDescriptor *sortDescriptor =
+        [NSSortDescriptor sortDescriptorWithKey:@"mnemonic" ascending:YES];
+        
+        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+        
+        [fetchRequest setSortDescriptors:sortDescriptors];
+        
+        // Edit the section name key path and cache name if appropriate.
+        // nil for section name key path means "no sections".
+        NSFetchedResultsController *aFetchedResultsController =
+        [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                            managedObjectContext:self.managedObjectContext
+                                              sectionNameKeyPath:@"sectionId"
+                                                       cacheName:nil];
+        
+        aFetchedResultsController.delegate = self;
+        
+        self.fetchedResultsController = aFetchedResultsController;
+        
+    }
+    
+    
+    NSError *error = nil;
+    if (![fetchedResultsController_ performFetch:&error]) {
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+         */
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        //abort();
+    }
+    
+}
+
 
 
 #pragma mark - Section implementation
@@ -137,114 +187,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     else {
         [self.navigationController.navigationBar.topItem setRightBarButtonItem:addButton_];   
     }
-    
-}
-
-- (void)pushViewSection:(KeyEntity *)keyEntity {
-    
-    if (![keyEntity isSection] ) return;
-    
-    
-	CATransition *animation = [CATransition animation];
-	[animation setDuration:0.5];
-	[animation setType:kCATransitionPush];
-	[animation setSubtype:kCATransitionFromRight];
-	[animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    
-    [self.navigationController.view.layer addAnimation:animation forKey:@"pushViewSection"];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        UIView *toolbar     = [self.navigationController.view viewWithTag:TOOLBAR_TAG];
-        UIView *sectionToolbar = [self.navigationController.view viewWithTag:SWIPEBACK_TAG];
-        
-        // RESIZE TABLE
-        //CGRect frame = self.tableView.frame;
-        //frame.size.height += toolbar.frame.size.height;
-        //[self.tableView setFrame:frame];
-        
-        [self setNavigationTitle:keyEntity.mnemonic];
-        
-        // HIDE ADD BUTTON ITEM
-        [self hideNavigationRightButton:YES];
-        
-        // HIDE ADD BUTTON
-        toolbar.hidden = YES;
-        
-        // SEARCH BAR
-        //[self searchBarCancelButtonClicked:self.searchDisplayController.searchBar];
-        [self.searchDisplayController setActive:NO];
-        [self hideSearchBar:NO]; //self.searchDisplayController.searchBar.hidden = YES;
-        [self.searchDisplayController.searchBar setUserInteractionEnabled:NO];
-        
-        
-        // SHOW SECTION TOOLBAR (AT BOTTOM)
-        [sectionToolbar setFrame:toolbar.frame];
-        sectionToolbar.hidden = NO;    
-        UIPageControl *pageControl = (UIPageControl *)[sectionToolbar viewWithTag:2];
-        pageControl.currentPage = 1;
-        
-        
-        NSPredicate *predicate = nil;
-        
-        // set predicate if a searchText has been set
-        predicate = [NSPredicate 
-                     predicateWithFormat:SEARCHSECTION_CRITERIA, 
-                     keyEntity.groupPrefix ]; // autorelease    
-        
-        
-        [self filterContentByPredicate:predicate scope:nil];
-        
-        [self.tableView reloadData];
-        
-        swipe_.enabled = YES;
-        
-        dd_.enabled = NO;
-        
-    });
-    
-    
-}
-
-
-- (void)createSectionChoosingCustomSectionPrefix:(KeyEntity *)source target:(KeyEntity*)target replaceSource:(BOOL)replaceSource replaceTarget:(BOOL)replaceTarget
-{
-    
-    UIAlertView *inputView = [UIAlertViewInputSection alertViewWithBlock: ^(UIAlertViewInputSection *alert, NSInteger buttonIndex) {
-        
-        NSLog(@"clickedButtonAtIndex [%d]", buttonIndex );
-        
-        if (buttonIndex == 1) {
-            NSLog(@"clickedButtonAtIndex groupName=[%@] grouPrefix[%@]", alert.groupName, alert.groupPrefix ); 
-            
-            if( alert.groupName != nil && alert.groupPrefix != nil) {
-                
-                [KeyEntity createSection:alert.groupName groupPrefix:alert.groupPrefix inContext:[self managedObjectContext] ];
-                
-                /*
-                 if (replaceSource) {
-                 [KeyEntity groupByReplacingPrefix:source groupKey:alert.groupName prefix:alert.groupPrefix];
-                 }
-                 else {
-                 [KeyEntity groupByAppendingPrefix:source prefix:alert.groupPrefix];                    
-                 
-                 }                
-                 if( replaceTarget ) {
-                 [KeyEntity groupByReplacingName:target mnemonic:[alert.groupPrefix stringByAppendingString:target.mnemonic]];
-                 }
-                 else {
-                 [KeyEntity groupByAppendingPrefix:target prefix:alert.groupPrefix];                    
-                 }
-                 */
-                [source groupByPrefix:alert.groupPrefix];
-                [target groupByPrefix:alert.groupPrefix];
-                
-                
-            }
-        }
-        
-    }];
-    
-    [inputView show];
     
 }
 
@@ -332,391 +274,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 //- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex  // after animation
 
-#pragma mark - DDTableViewManagerDelegate implementation
-
-//- (BOOL) possibleDropTo:(NSIndexPath *)target 
-
-- (BOOL) beginDrag:(NSIndexPath *)from {
-    
-    KeyEntity *e = [self.fetchedResultsController objectAtIndexPath:from];
-    
-    return ![e isSection];
-}
-
-- (void) dropTo:(NSIndexPath *)source target:(NSIndexPath *)target {
-    
-    
-    KeyEntity *eTarget = [self.fetchedResultsController objectAtIndexPath:target];
-    
-    KeyEntity *eSource = [self.fetchedResultsController objectAtIndexPath:source];
-    
-    
-    NSLog(@"Drop from [%@] to [%@]", eSource.mnemonic, eTarget.mnemonic  );
-    
-    
-    if ([eTarget isSection]) { 
-        
-        ///////////////////////////////////////////////
-        //    
-        // IF TARGET IS A SECTION
-        //    
-        ///////////////////////////////////////////////
-        
-        NSRange rPrefix = [KeyEntity getSectionPrefix:eSource checkIfIsSectionAware:YES];
-        
-        if( !NSEqualRanges( rPrefix, NSMakeRange(NSNotFound, 0) ) ){
-            
-            NSString *groupKey = [eSource.mnemonic substringWithRange:rPrefix];
-            
-            NSLog(@"groupkey [%@]", groupKey);
-            
-            if ( [eTarget.groupPrefix compare:groupKey options:NSCaseInsensitiveSearch] == NSOrderedSame ) {
-                
-                /////////////////////////////////////////////////////////
-                //    
-                // THE PREFIX OF TARGET IS EQUAL TO PREFIX OF GROUP 
-                //    
-                /////////////////////////////////////////////////////////
-                
-                //eSource.group = [NSNumber numberWithBool:YES];
-                //[[self appDelegate] saveContext];
-                
-                self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
-                    
-                    NSLog(@"clickedButtonAtIndex [%d]", i );
-                    
-                    switch (i) {
-                        case 0: // ADD TO SECTION  
-                        {
-                            //NSString *newMnemonic = [eTarget.groupPrefix stringByAppendingString:eSource.mnemonic];                            
-                            //[KeyEntity groupByReplacingName:eSource mnemonic:newMnemonic];
-                            //[[self appDelegate] saveContext];
-                            
-                            [eSource groupByPrefix:eTarget.groupPrefix];
-                        }
-                            break;
-                    }
-                    
-                };
-                
-                UIActionSheet * sheet = 
-                [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
-                                   cancelButtonTitle:@"Cancel" 
-                              destructiveButtonTitle:@"Confirm" 
-                                   otherButtonTitles: nil];
-                
-                [sheet showInView:self.navigationController.view];
-                
-                
-            }
-            else {  
-                
-                /////////////////////////////////////////////////////////
-                //    
-                // THE PREFIX OF TARGET IS DIFFERENT TO PREFIX OF GROUP
-                //    
-                /////////////////////////////////////////////////////////
-                
-                self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
-                    
-                    NSLog(@"clickedButtonAtIndex [%d]", i );
-                    
-                    switch (i) {
-                        case 0: // REMOVE PREFIX
-                        {
-                            [eSource groupByPrefix:eTarget.groupPrefix];
-                            
-                            //[KeyEntity groupByReplacingPrefix:eSource groupKey:groupKey prefix:eTarget.groupPrefix];
-                            //[[self appDelegate] saveContext];
-                        }
-                            break;
-                        case 1: // ADD TO SECTION  
-                        {
-                            //NSString *newMnemonic = [eTarget.groupPrefix stringByAppendingString:eSource.mnemonic];                              
-                            //[KeyEntity groupByReplacingName:eSource mnemonic:newMnemonic];                              
-                            //[[self appDelegate] saveContext];
-                            
-                        }
-                            break;
-                    }
-                    
-                };
-                
-                UIActionSheet * sheet = 
-                [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
-                                   cancelButtonTitle:@"Cancel" 
-                              destructiveButtonTitle:@"Confirm" 
-                                   otherButtonTitles: nil];
-                
-                
-                
-                [sheet showInView:self.navigationController.view];
-                
-            }
-            
-        }
-        else { 
-            
-            ///////////////////////////////////////////////
-            //    
-            // IF SOURCE HAS NOT PREFIX
-            //    
-            ///////////////////////////////////////////////
-            
-            
-            self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
-                
-                NSLog(@"clickedButtonAtIndex [%d]", i );
-                
-                if (i == 0) // ADD PREFIX 
-                {
-                    //NSString *newMnemonic = [eTarget.groupPrefix stringByAppendingString:eSource.mnemonic];                          
-                    //[KeyEntity groupByReplacingName:eSource mnemonic:newMnemonic];
-                    //[[self appDelegate] saveContext];
-                    
-                    [eSource groupByPrefix:eTarget.groupPrefix];
-                    
-                }
-                
-            };
-            
-            UIActionSheet * sheet = 
-            [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
-                               cancelButtonTitle:@"Cancel" 
-                          destructiveButtonTitle:@"Confirm"
-                               otherButtonTitles:  nil];
-            
-            
-            
-            [sheet showInView:self.navigationController.view];
-            
-        }
-        
-    }
-    else { 
-        
-        ///////////////////////////////////////////////
-        //    
-        // IF TARGET IS NOT A SECTION
-        //    
-        ///////////////////////////////////////////////
-        
-        NSRange rFromPrefix = [KeyEntity getSectionPrefix:eSource checkIfIsSectionAware:YES];
-        
-        NSRange rTargetPrefix = [KeyEntity getSectionPrefix:eTarget checkIfIsSectionAware:YES];
-        
-        BOOL sourceHasPrefix = !NSEqualRanges( rFromPrefix, NSMakeRange(NSNotFound, 0));
-        BOOL targetHasPrefix = !NSEqualRanges( rTargetPrefix, NSMakeRange(NSNotFound, 0));
-        
-        if( !targetHasPrefix && !sourceHasPrefix ) { 
-            
-            ///////////////////////////////////////////////
-            //    
-            // EITHER SOURCE & TARGET HAVEN'T PREFIX            
-            //    
-            ///////////////////////////////////////////////
-            [self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:NO replaceTarget:NO];
-        }
-        else if( targetHasPrefix && sourceHasPrefix) { 
-            
-            ///////////////////////////////////////////////
-            //    
-            // BOTH SOURCE & TARGET HAVE PREFIX
-            //    
-            ///////////////////////////////////////////////
-            NSString *sTargetPrefix = [eTarget.mnemonic substringWithRange:rTargetPrefix];
-            NSString *sSourcePrefix   = [eSource.mnemonic substringWithRange:rFromPrefix];
-            
-            __block id _self = self;
-            
-            self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
-                
-                NSLog(@"clickedButtonAtIndex [%d]", i );
-                
-                switch (i) {
-                    case 0: // USE CUSTOM PREFIX  
-                    {
-                        NSLog(@"use custom prefix " );
-                        
-                        [_self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:YES replaceTarget:YES];
-                    }
-                        break;                         
-                    case 1: // USE TARGET PREFIX  
-                    {
-                        NSLog(@"use target prefix [%@]", sTargetPrefix );
-                        
-                        NSString *groupKey = [KeyEntity sectionNameFromPrefix:sTargetPrefix trim:YES];
-                        
-                        [KeyEntity createSection:groupKey groupPrefix:sTargetPrefix inContext:[_self managedObjectContext]];
-                        
-                        //eTarget.group = [NSNumber numberWithBool:YES];
-                        //[KeyEntity groupByReplacingPrefix:eSource groupKey:groupKey prefix:sTargetPrefix];
-                        
-                        [eTarget groupByPrefix:sTargetPrefix];
-                        [eSource groupByPrefix:sTargetPrefix];
-                        
-                    }
-                        break;
-                    case 2: // USE SOURCE PREFIX  
-                    {
-                        NSLog(@"use source prefix [%@]", sSourcePrefix );
-                        
-                        NSString *groupName = [KeyEntity sectionNameFromPrefix:sSourcePrefix trim:YES];
-                        
-                        [KeyEntity createSection:groupName groupPrefix:sSourcePrefix inContext:[_self managedObjectContext]];
-                        
-                        //eSource.group = [NSNumber numberWithBool:YES];
-                        //[KeyEntity groupByReplacingPrefix:eTarget groupKey:groupName prefix:sFromPrefix];
-                        
-                        [eSource groupByPrefix:sSourcePrefix];
-                        [eTarget groupByPrefix:sSourcePrefix];
-                    }
-                        break;
-                }
-                
-            };
-            
-            UIActionSheet * sheet = 
-            [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
-                               cancelButtonTitle:@"Cancel" 
-                          destructiveButtonTitle:@"Use custom prefix"
-                               otherButtonTitles: 
-             [NSString stringWithFormat:@"Use prefix [%@]", sTargetPrefix ], 
-             [NSString stringWithFormat:@"Use prefix [%@]", sSourcePrefix ], nil];
-            
-            
-            
-            [sheet showInView:self.navigationController.view];
-            
-        }
-        else if( sourceHasPrefix ) { 
-            
-            ///////////////////////////////////////////////
-            //    
-            // ONLY SOURCE HAS PREFIX
-            //    
-            ///////////////////////////////////////////////
-            
-            NSString *sSourcePrefix = [eSource.mnemonic substringWithRange:rFromPrefix];
-            
-            NSLog(@"ONLY SOURCE HAS PREFIX [%@]", sSourcePrefix );
-            
-            __block id _self = self;
-            
-            self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
-                
-                
-                switch (i) {
-                    case 0: // USE CUSTOM PREFIX  
-                    {
-                        NSLog(@"USE CUSTOM PREFIX" );
-                        
-                        [_self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:YES replaceTarget:NO];
-                    }
-                        break;
-                    case 1: // USE FROM PREFIX  
-                    {
-                        NSLog(@"USE SOURCE PREFIX [%@]", sSourcePrefix );
-                        
-                        NSString *groupName = [KeyEntity sectionNameFromPrefix:sSourcePrefix trim:YES];
-                        
-                        [KeyEntity createSection:groupName groupPrefix:sSourcePrefix inContext:[_self managedObjectContext]];
-                        
-                        //eSource.group = [NSNumber numberWithBool:YES];
-                        //[KeyEntity groupByAppendingPrefix:eTarget prefix:sSourcePrefix];
-                        
-                        [eSource groupByPrefix:sSourcePrefix];
-                        [eTarget groupByPrefix:sSourcePrefix];
-                        
-                    }
-                        break;
-                }
-                
-            };
-            
-            UIActionSheet * sheet = 
-            [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
-                               cancelButtonTitle:@"Cancel" 
-                          destructiveButtonTitle:@"Use custom prefix"
-                               otherButtonTitles:
-             [NSString stringWithFormat:@"Use prefix [%@]", sSourcePrefix ], nil];
-            
-            
-            
-            [sheet showInView:self.navigationController.view];
-            
-        }
-        else { 
-            
-            ///////////////////////////////////////////////
-            //    
-            // ONLY TARGET HAS PREFIX
-            //    
-            ///////////////////////////////////////////////
-            
-            __block id _self = self;
-            
-            NSString *sTargetPrefix = [eTarget.mnemonic substringWithRange:rTargetPrefix];
-            
-            self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
-                
-                NSLog(@"clickedButtonAtIndex [%d]", i );
-                
-                switch (i) {
-                    case 0: // USE CUSTOM PREFIX  
-                    {
-                        NSLog(@"use custom prefix " );
-                        
-                        [_self createSectionChoosingCustomSectionPrefix:eSource target:eTarget replaceSource:NO replaceTarget:YES];
-                        
-                    }
-                        break;
-                    case 1: // USE FROM PREFIX  
-                    {
-                        NSLog(@"use target prefix [%@]", sTargetPrefix );
-                        
-                        NSString *groupKey = [KeyEntity sectionNameFromPrefix:sTargetPrefix trim:YES];
-                        
-                        [KeyEntity createSection:groupKey groupPrefix:sTargetPrefix inContext:[_self managedObjectContext]];
-                        
-                        //eTarget.group = [NSNumber numberWithBool:YES];
-                        //[KeyEntity groupByAppendingPrefix:eSource prefix:sTargetPrefix];
-                        
-                        [eSource groupByPrefix:sTargetPrefix];
-                        [eTarget groupByPrefix:sTargetPrefix];
-                        
-                    }
-                        break;
-                }
-                
-            };
-            
-            UIActionSheet * sheet = 
-            [[UIActionSheet alloc] initWithTitle:@"Move to section" delegate:self 
-                               cancelButtonTitle:@"Cancel" 
-                          destructiveButtonTitle:@"Use custom prefix"
-                               otherButtonTitles: 
-             [NSString stringWithFormat:@"Use prefix [%@]", sTargetPrefix ], nil];
-            
-            
-            
-            [sheet showInView:self.navigationController.view];
-            
-        }
-    }
-    
-}
-
-#pragma mark - KeyListViewController properties
-
--(UINavigationController *)navigationController {
-    
-    if( navigationController_!=nil ) {
-        return navigationController_;
-    }
-    
-    return super.navigationController;
-}
 
 #pragma mark - actions
 
@@ -736,25 +293,19 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 #pragma mark - custom implementation
 
--(BOOL)isSearchTableView:(UITableView*)tableView
+-(void)prepareForAppear:(KeyEntity *)section
 {
-    return [tableView isEqual:self.searchDisplayController.searchResultsTableView];    
-}
-
--(void)initGestureRecognizer {
     
-    swipe_ = [[UISwipeGestureRecognizer alloc] init];
+    NSParameterAssert(section!=nil);
     
-    [swipe_ addTarget:self action:@selector(dismissViewSection:)];
+    if( section == nil ) {
+        [NSException raise:NSInvalidArgumentException format:@"section is null!"];
+    }
     
-    [self.tableView addGestureRecognizer:swipe_];
+    section_ = section;
     
+    self.navigationItem.title = section.mnemonic;
     
-}
-
--(void)initWithNavigationController:(UINavigationController *)controller {
-    
-    navigationController_ = controller;
 }
 
 - (PersistentAppDelegate *)appDelegate {
@@ -764,13 +315,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 -(NSManagedObjectContext *)managedObjectContext {
     return [[self appDelegate] managedObjectContext];
-}
-
-- (void)hideSearchBar:(BOOL)animated {
-    //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];    
-    //self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
-    [self.tableView setContentOffset:CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height) animated:animated];
-    
 }
 
 
@@ -813,15 +357,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     reloadData_ = NO;
 	
     // Set up the edit and add buttons.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
-    self.searchDisplayController.searchBar.delegate = self;
-    
-    [self hideSearchBar:NO];
-    
-    [self initGestureRecognizer];
-    
-    dd_ = [[DDTableViewManager alloc ] initFromTableView:self.tableView]; dd_.delegate = self;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
 }
 
@@ -834,7 +370,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         reloadData_ = NO;
     }
     
-    //[self hideSearchBar];
 }
 
 
@@ -889,34 +424,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     [self configureCell:cell entity:managedObject];
 }
 
-#pragma mark Add/Update a new object
-
-
-// Deprecated
-- (void)insertNewObject2 {
-    
-	
-    // Create a new instance of the entity managed by the fetched results controller.
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
-    // If appropriate, configure the new managed object.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
-    
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -933,13 +440,15 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellGroupIdentifier    = @"CellGroup";
+    static NSString *CellGroupIdentifier    = @"Cell";
     
     KeyEntity *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    UITableViewCell *cell = nil;
+    ZKRevealingTableViewCell *cell = nil;
     
     NSLog(@"groupPrefix [%@]", managedObject.groupPrefix);
+    
+    NSAssert([managedObject isGrouped], @"Only grouped cell canbe displayed here!");
     
     if ( [managedObject isSection] ) {
         
@@ -947,17 +456,12 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         
     }
     else if( [managedObject isGrouped] ) {
-        
         cell = [tableView dequeueReusableCellWithIdentifier:CellGroupIdentifier];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc] 
-                    initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellGroupIdentifier];
-            
-            //[[NSBundle mainBundle] loadNibNamed:@"keygrouped" owner:self options:nil];
-            //cell.editingAccessoryView = self.customEditView;
-            //self.customEditView = nil;
-            
-            // CREATE CUSTOM CLASS TO KEEP TRACK OF SELECTED INDEX
+ 
+            [[NSBundle mainBundle] loadNibNamed:@"KeyCell" owner:self options:nil];
+            cell = self.keyCell; self.keyCell = nil;
+                    
             UIDetachButton *detachView = [[UIDetachButton alloc] initFromCell:cell];
             
             detachView.index = indexPath;
@@ -965,9 +469,16 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             [detachView addTarget:self action:@selector(detachFromSection:) forControlEvents:UIControlEventTouchDown];
             
             cell.editingAccessoryView = detachView;
-            
             cell.imageView.image = [UIImage imageNamed:@"key22x22.png"];
-        }        
+            
+            cell.contentView.backgroundColor = [UIColor whiteColor];
+            cell.direction = ZKRevealingTableViewCellDirectionLeft;
+        
+            UIView *v1 = [cell.contentView viewWithTag:1];
+            
+            v1.layer.zPosition = 1;
+            //[cell.contentView bringSubviewToFront:v1];
+        }
         
         
     }
@@ -1116,26 +627,13 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     if ([e isSection] ) {
         
-        self.selectedSection = indexPath;
-        [self pushViewSection:e];
+        [NSException raise:@"Illegal call!" format:@"Section cell cannot be selected here!"];
     }
     else {
         [self.keyEntityFormController initWithEntity:e delegate:self];
         
         [self.navigationController pushViewController:self.keyEntityFormController animated:YES];
 	}
-    
-    
-    
-    // Navigation logic may go here -- for example, create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
 }
 
 
@@ -1159,7 +657,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    if( self.searchDisplayController.active ) return;
     
     [self.tableView beginUpdates];
     
@@ -1168,8 +665,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-    
-    if( self.searchDisplayController.active ) return;
     
     switch(type) {
         case NSFetchedResultsChangeInsert:
@@ -1187,7 +682,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath {
     
-    if( self.searchDisplayController.active ) return;
     
     UITableView *tableView = self.tableView;
     
@@ -1214,13 +708,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    if( self.searchDisplayController.active ) {
-        [self.searchDisplayController setActive:NO animated:YES];   
-    }
-    else {
-        [self.tableView endUpdates];
-        
-    }
+    [self.tableView endUpdates];
 }
 
 /*	 
@@ -1240,172 +728,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
  - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
  // In the simplest, most efficient, case, reload the table view.
  [self.tableView reloadData];
- }
- */
-#pragma mark -
-#pragma mark Content Filtering
-#pragma mark -
-
-
-
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
-{
-    
-    NSPredicate *predicate = nil;
-    
-    // set predicate if a searchText has been set
-    if( searchText !=nil && searchText.length>0 )  {
-        predicate = [NSPredicate 
-                     predicateWithFormat:SEARCHTEXT_CRITERIA, //@"(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@) AND (group == NO OR group == nil)", 
-                     searchText, [searchText uppercaseString] ]; // autorelease    
-    }
-    
-    
-    [self filterContentByPredicate:predicate scope:scope];
-    
-    
-}
-
-
-- (void)filterContentByPredicate:(NSPredicate *)predicate scope:(NSString *)scope {
-    
-    // Set up the fetched results controller.
-    // Create the fetch request for the entity.
-    @autoreleasepool {
-        
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        
-        // Edit the entity name as appropriate.
-        NSEntityDescription *entity = 
-        [NSEntityDescription entityForName:@"KeyInfo" inManagedObjectContext:self.managedObjectContext];
-        
-        [fetchRequest setEntity:entity];
-        
-        if (predicate != nil ) {
-            
-            [fetchRequest setPredicate:predicate];
-        }
-        
-        
-        // Set the batch size to a suitable number.
-        [fetchRequest setFetchBatchSize:20];
-        
-        // Edit the sort key as appropriate.
-        
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"mnemonic" ascending:YES];
-        
-        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-        
-        [fetchRequest setSortDescriptors:sortDescriptors];
-        
-        // Edit the section name key path and cache name if appropriate.
-        // nil for section name key path means "no sections".
-        NSFetchedResultsController *aFetchedResultsController = 
-        [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
-                                            managedObjectContext:self.managedObjectContext 
-                                              sectionNameKeyPath:@"sectionId" 
-                                                       cacheName:nil]; 
-        
-        aFetchedResultsController.delegate = self;
-        
-        self.fetchedResultsController = aFetchedResultsController;
-        
-    }
-    
-    
-    NSError *error = nil;
-    if (![fetchedResultsController_ performFetch:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        //abort();
-    }
-    
-}
-
-
-#pragma mark -
-#pragma mark UISearchBarDelegate implementation
-#pragma mark -
-
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {                    // called when cancel button pressed
-    
-    NSLog( @"searchBarCancelButtonClicked " );
-    
-    [self filterReset];
-    [self.tableView reloadData];
-    [searchBar resignFirstResponder];
-    
-    dd_.enabled = YES; // WORKAROUND DD BUG 
-}
-
-#pragma mark - UISearchDisplayController Delegate Methods
-
-//  @optional
-
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    NSLog(@"shouldReloadTableForSearchString searchString=[%@]", searchString);
-    
-    //[self filterContentForSearchText:searchString scope:
-    //    [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    
-    [self filterContentForSearchText:searchString scope:nil];
-    
-    dd_.enabled = NO; // WORKAROUND DD BUG  
-    
-    return YES; // Return YES to cause the search result table view to be reloaded.
-}
-
-// called when the table is created destroyed, shown or hidden. configure as necessary.
-//- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView;
-//- (void)searchDisplayController:(UISearchDisplayController *)controller willUnloadSearchResultsTableView:(UITableView *)tableView;
-
-/*
- // when we start/end showing the search UI
- - (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller;
- - (void) searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller;
- - (void) searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller;
- - (void) searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller;
- 
- 
- // called when table is shown/hidden
- - (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView;
- - (void)searchDisplayController:(UISearchDisplayController *)controller didShowSearchResultsTableView:(UITableView *)tableView;
- - (void)searchDisplayController:(UISearchDisplayController *)controller willHideSearchResultsTableView:(UITableView *)tableView;
- - (void)searchDisplayController:(UISearchDisplayController *)controller didHideSearchResultsTableView:(UITableView *)tableView;
- 
- // return YES to reload table. called when search string/option changes. convenience methods on top UISearchBar delegate methods
- - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption;
- 
- */
-
-#pragma mark UIGestureRecognizerDelegate
-
-// called when a gesture recognizer attempts to transition out of UIGestureRecognizerStatePossible. returning NO causes it to transition to UIGestureRecognizerStateFailed
-/*
- - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
- }
- */
-
-// called when the recognition of one of gestureRecognizer or otherGestureRecognizer would be blocked by the other
-// return YES to allow both to recognize simultaneously. the default implementation returns NO (by default no two gestures can be recognized simultaneously)
-//
-// note: returning YES is guaranteed to allow simultaneous recognition. returning NO is not guaranteed to prevent simultaneous recognition, as the other gesture's delegate may return YES
-/*
- - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
- }
- */
-
-// called before touchesBegan:withEvent: is called on the gesture recognizer for a new touch. return NO to prevent the gesture recognizer from seeing this touch
-/*
- - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
- 
  }
  */
 
