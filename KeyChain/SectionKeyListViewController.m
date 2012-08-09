@@ -306,6 +306,10 @@ static NSString *SEARCH_CRITERIA =
     
     self.navigationItem.title = section.mnemonic;
     
+    [self filterReset];
+    
+
+    
 }
 
 - (PersistentAppDelegate *)appDelegate {
@@ -637,8 +641,6 @@ static NSString *SEARCH_CRITERIA =
     if (fetchedResultsController_ != nil) {
         return fetchedResultsController_;
     }
-    
-    [self filterReset];
     
     return fetchedResultsController_;
 }    
