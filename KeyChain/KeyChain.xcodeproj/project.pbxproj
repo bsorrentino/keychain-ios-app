@@ -265,6 +265,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5F0FC7D515D522FD00C68EA2 /* Login */,
 				A02BB72B159C5752001FD5AA /* podfile */,
 				5FB1293815CAFB18007365C5 /* SectionKeyList */,
 				5FD37D4715CDD005008F9F1D /* KeyList */,
@@ -316,7 +317,6 @@
 				A0759F2014305DBE000701EF /* settings20x20.png */,
 				5F17FB961416E9E4007D88F9 /* Localizable.strings */,
 				5F129E0912EB607300BF9EF9 /* login32x32.png */,
-				5F04E6E312E368C800370F50 /* KeyChainLogin.xib */,
 				5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */,
 				28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
@@ -371,6 +371,16 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		5F0FC7D515D522FD00C68EA2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5F04E6E112E368C800370F50 /* KeyChainLogin.h */,
+				5F04E6E212E368C800370F50 /* KeyChainLogin.m */,
+				5F04E6E312E368C800370F50 /* KeyChainLogin.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		5F6F634714FE4504004C1337 /* DragDrop */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,8 +410,6 @@
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
 				5FA3A4CC12DC780B009BE36C /* KeyEntityFormController.h */,
 				5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */,
-				5F04E6E112E368C800370F50 /* KeyChainLogin.h */,
-				5F04E6E212E368C800370F50 /* KeyChainLogin.m */,
 				5F6F3438143F315500D9C428 /* ExportViewController.h */,
 				5F6F3439143F315500D9C428 /* ExportViewController.m */,
 				5FD466EC1441A5C600A39BEE /* ImportViewController.h */,
