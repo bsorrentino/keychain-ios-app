@@ -49,6 +49,8 @@
 	if ([p compare: txtPassword.text] != 0 ) {
 		UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Password doesn't match!" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
 		[alert show];
+        
+        self.txtPassword.text = @"";
 		return NO;
 		
 	}
