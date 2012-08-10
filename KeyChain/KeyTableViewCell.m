@@ -60,22 +60,23 @@
     
     NSLog(@"willTransitionToState [%d]", state);
     
-    switch (state) {
-        case UITableViewCellStateShowingEditControlMask:
-            [self.backView setHidden:YES];
-            [self.imageView setHidden:YES];
-            self.imageView.image = nil;
-            self.direction = ZKRevealingTableViewCellDirectionNone;
-            
-            break;
-        case UITableViewCellStateShowingDeleteConfirmationMask:
-            break;
-        default: // UITableViewCellStateDefaultMask
-            [self.backView setHidden:NO];
-            self.imageView.image = self.imageCached;
-            [self.imageView setHidden:NO];
-            self.direction = ZKRevealingTableViewCellDirectionRight;
-            break;
+    if( state & UITableViewCellStateShowingEditControlMask ) {
+        [self.backView setHidden:YES];
+        [self.imageView setHidden:YES];
+        self.imageView.image = nil;
+        self.direction = ZKRevealingTableViewCellDirectionNone;
+        
+    }
+    else if (state & UITableViewCellStateShowingDeleteConfirmationMask )  {
+        
+    }
+    else /*if( state & UITableViewCellStateDefaultMask )*/ {
+
+        [self.backView setHidden:NO];
+        self.imageView.image = self.imageCached;
+        [self.imageView setHidden:NO];
+        self.direction = ZKRevealingTableViewCellDirectionRight;
+        
     }
     
     [super willTransitionToState:state];
