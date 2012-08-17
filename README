@@ -11,11 +11,6 @@ It uses:
 - UIXML ( https://github.com/bsorrentino/UIXML.git )
 - Core Data
 
-
-TableViewDataEntry
-===================
-Test application that show "HOW TO" use UIXML (https://github.com/bsorrentino/UIXML.git)
-
 HttpClient (DEPRECATED)
 ========================
 
