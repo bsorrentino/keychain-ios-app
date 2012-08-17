@@ -17,6 +17,19 @@ install_resource()
       ;;
   esac
 }
+install_resource 'UIXML/back24x24.png'
+install_resource 'UIXML/chevron.png'
+install_resource 'UIXML/confirm24x24.png'
+install_resource 'UIXML/edit32x32.png'
+install_resource 'UIXML/write32x32.png'
+install_resource 'UIXML/en.lproj/DefaultHeaderInSection.xib'
+install_resource 'UIXML/en.lproj/MailDataEntryCell.xib'
+install_resource 'UIXML/en.lproj/PushDateEntryCell.xib'
+install_resource 'UIXML/en.lproj/PushFormDataEntryCell.xib'
+install_resource 'UIXML/en.lproj/PushTextEntryCell.xib'
+install_resource 'UIXML/en.lproj/PushWebViewEntryCell.xib'
+install_resource 'UIXML/en.lproj/SwitchDataEntryCell.xib'
+install_resource 'UIXML/en.lproj/TextDataEntryCell.xib'
 install_resource 'WEPopover/popoverArrowDown.png'
 install_resource 'WEPopover/popoverArrowDown@2x.png'
 install_resource 'WEPopover/popoverArrowDownSimple.png'

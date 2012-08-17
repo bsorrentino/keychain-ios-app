@@ -30,7 +30,6 @@
 		5F27190015250CEB00C5BBA3 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */; };
 		5F27190115250CEB00C5BBA3 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2718FF15250CEB00C5BBA3 /* InfoViewController.xib */; };
 		5F3BD073143B352F00001F01 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3BD072143B352E00001F01 /* CoreData.framework */; };
-		5F4130D7155E7A2A00D96FC4 /* libUIXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4130D6155E7A2A00D96FC4 /* libUIXML.a */; };
 		5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F544F7313F82E350001A8B5 /* logo-57x57.png */; };
 		5F6C47811535C4F20092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
 		5F6C47821535C6790092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
@@ -224,7 +223,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F4130D7155E7A2A00D96FC4 /* libUIXML.a in Frameworks */,
 				5F6C47811535C4F20092F552 /* Security.framework in Frameworks */,
 				5FD68C9414E40E2200B57E0C /* QuartzCore.framework in Frameworks */,
 				A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */,

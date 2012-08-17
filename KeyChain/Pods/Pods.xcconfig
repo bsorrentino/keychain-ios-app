@@ -1,4 +1,4 @@
-PODS_ROOT = ${SRCROOT}/Pods
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/KSCrypto" "${PODS_ROOT}/Headers/SSKeychain" "${PODS_ROOT}/Headers/UIXML" "${PODS_ROOT}/Headers/WEPopover" "${PODS_ROOT}/Headers/ZKRevealingTableViewCell"
 OTHER_LDFLAGS = -ObjC -framework CoreGraphics -framework Foundation -framework QuartzCore -framework Security -framework UIKit
+PODS_ROOT = ${SRCROOT}/Pods
 ALWAYS_SEARCH_USER_PATHS = YES
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/KSCrypto" "${PODS_ROOT}/Headers/SSKeychain" "${PODS_ROOT}/Headers/WEPopover" "${PODS_ROOT}/Headers/ZKRevealingTableViewCell"
