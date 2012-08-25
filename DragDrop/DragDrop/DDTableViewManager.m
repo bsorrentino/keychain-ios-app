@@ -169,7 +169,10 @@
     UIGraphicsEndImageContext();
     
     UIImageView * newView = [[UIImageView alloc] initWithImage:viewImage];
+    [newView.layer setBorderColor: [[UIColor blackColor] CGColor]];
+    [newView.layer setBorderWidth: 2.0];
     newView.tag = 99;
+    
 
     [self.tableView addSubview:newView];
     //[self.tableView insertSubview:newView atIndex:1];
