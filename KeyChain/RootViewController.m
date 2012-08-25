@@ -32,16 +32,67 @@
 @synthesize exportViewController=exportViewController_;
 @synthesize importViewController=importViewController_;
 
+#pragma mark - private implementation
 
-#pragma mark - 
-#pragma mark KeyListDataSource implementation
-#pragma mark - 
+- (KeyChainAppDelegate *)appDelegate {
+    return (KeyChainAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
 
-- (NSArray *)fetchedObjects 
+
+-(NSManagedObjectContext *)managedObjectContext {
+    return [[self appDelegate] managedObjectContext];
+}
+
+#pragma mark - KeyListDataSource implementation
+
+
+- (NSArray *)fetchedObjects
 {
     
-    [self.keyListViewController filterContentByPredicate:nil scope:nil];
-    return [self.keyListViewController fetchedObjects];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    // Edit the entity name as appropriate.
+    NSEntityDescription *entity =
+    [NSEntityDescription    entityForName:@"KeyInfo"
+                   inManagedObjectContext:[self managedObjectContext]];
+    
+    [fetchRequest setEntity:entity];
+    
+    // Set the batch size to a suitable number.
+    [fetchRequest setFetchBatchSize:20];
+    
+    // Edit the sort key as appropriate.
+    
+    NSSortDescriptor *sortDescriptor =
+    [NSSortDescriptor sortDescriptorWithKey:@"mnemonic" ascending:YES];
+    
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController =
+    [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                        managedObjectContext:[self managedObjectContext]
+                                          sectionNameKeyPath:@"sectionId"
+                                                   cacheName:nil];
+    
+    NSError *error = nil;
+    
+    if (![aFetchedResultsController performFetch:&error]) {
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+         */
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        //abort();
+        return nil;
+    }
+    
+    return [aFetchedResultsController fetchedObjects];
+    
 }
 
 - (NSEntityDescription *)entityDescriptor 
@@ -50,9 +101,9 @@
     return [self.keyListViewController entityDescriptor];
 }
 
-- (void)filterReset 
+- (void)filterReset:(BOOL)reloadData
 {
-    [self.keyListViewController filterReset];
+    [self.keyListViewController filterReset:reloadData];
     
 }
 
@@ -148,6 +199,7 @@
     
     self.exportViewController.delegate = self;
     self.importViewController.delegate = self;
+
 }
 
 // Implement viewWillAppear: to do additional setup before the view is presented.

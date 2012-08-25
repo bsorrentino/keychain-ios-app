@@ -9,15 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "KeyListDataSource.h"
 
+@class WaitMaskController;
+
 @interface ExportViewController : UIViewController<UIAlertViewDelegate> {
 
 @private
-    id<KeyListDataSource> __unsafe_unretained delegate_;
 
-    UIButton *exportToITunesButton;
+    WaitMaskController *_wait;
+    
 }
 
-@property (unsafe_unretained,nonatomic) id<KeyListDataSource> delegate;
 @property (nonatomic ) IBOutlet UIButton *exportToITunesButton;
 
+@property (unsafe_unretained,nonatomic) id<KeyListDataSource> delegate;
 @end
