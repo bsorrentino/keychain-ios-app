@@ -17,6 +17,6 @@
 
 - (NSEntityDescription *)entityDescriptor;
 
-- (void)filterReset;
+- (void)filterReset:(BOOL)reloadData;
 
 @end

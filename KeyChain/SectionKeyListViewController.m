@@ -84,7 +84,7 @@ static NSString *SEARCH_CRITERIA =
     
 }
 
-- (void)filterReset {
+- (void)filterReset:(BOOL)reloadData {
 
     
     NSAssert(self.section!=nil,@"section is nil");
@@ -102,7 +102,7 @@ static NSString *SEARCH_CRITERIA =
 
     [self filterContentByPredicate:predicate scope:nil];
     
-    reloadData_ = YES;
+    reloadData_ = reloadData;
 }
 
 #pragma mark - Content Filtering
@@ -293,7 +293,7 @@ static NSString *SEARCH_CRITERIA =
 
 #pragma mark - custom implementation
 
--(void)prepareForAppear:(KeyEntity *)section
+-(void)prepareForAppear:(KeyEntity *)section onDisappear:(dispatch_block_t)onDisappear
 {
     
     NSParameterAssert(section!=nil);
@@ -302,11 +302,13 @@ static NSString *SEARCH_CRITERIA =
         [NSException raise:NSInvalidArgumentException format:@"section is null!"];
     }
     
+    _onDisappear = onDisappear;
+    
     section_ = section;
     
     self.navigationItem.title = section.mnemonic;
     
-    [self filterReset];
+    [self filterReset:YES];
     
 
     
@@ -376,22 +378,28 @@ static NSString *SEARCH_CRITERIA =
     
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+}
+
+ - (void)viewWillDisappear:(BOOL)animated {
+     
+     [super viewWillDisappear:animated];
+     
+     if (_onDisappear != nil ) {
+         _onDisappear();
+     }
+ }
+
+
 
 /*
  - (void)viewDidAppear:(BOOL)animated {
  [super viewDidAppear:animated];
  }
  */
-/*
- - (void)viewWillDisappear:(BOOL)animated {
- [super viewWillDisappear:animated];
- }
- */
-/*
- - (void)viewDidDisappear:(BOOL)animated {
- [super viewDidDisappear:animated];
- }
- */
+
 
 /*
  // Override to allow orientations other than the default portrait orientation.
@@ -638,12 +646,10 @@ static NSString *SEARCH_CRITERIA =
 
 - (NSFetchedResultsController *)fetchedResultsController {
     
-    if (fetchedResultsController_ != nil) {
-        return fetchedResultsController_;
-    }
+    NSAssert( fetchedResultsController_ != nil, @"fetched result controller is nil!");
     
     return fetchedResultsController_;
-}    
+}
 
 
 #pragma mark -

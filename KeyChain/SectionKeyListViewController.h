@@ -19,6 +19,7 @@
 @class UIAlertViewInputSection;
 @class ZKRevealingTableViewCell;
 
+
 @interface SectionKeyListViewController : UITableViewController
     <
         NSFetchedResultsControllerDelegate,
@@ -44,12 +45,13 @@
     
     NSIndexPath *selectedSection;
     
+    dispatch_block_t _onDisappear;
 }
 
 
 -(IBAction)insertNewObject:(id)sender;
 -(void)filterContentByPredicate:(NSPredicate *)predicate scope:(NSString *)scope;
--(void)prepareForAppear:(KeyEntity *)section;
+-(void)prepareForAppear:(KeyEntity *)section onDisappear:(dispatch_block_t)onDisappear;
 
 @property (nonatomic, copy) void (^clickedButtonAtIndex)( UIActionSheet *actionSheet, NSInteger index );
 @property (nonatomic, readonly) NSArray *sectionTitlesArray;
