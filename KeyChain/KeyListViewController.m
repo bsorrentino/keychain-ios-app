@@ -1235,9 +1235,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 }
 
 
-#pragma mark -
-#pragma mark UISearchBarDelegate implementation
-#pragma mark -
+#pragma mark - UISearchBarDelegate implementation
 
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {                    // called when cancel button pressed

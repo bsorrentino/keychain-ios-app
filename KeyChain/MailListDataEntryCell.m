@@ -32,13 +32,9 @@ NSString * const regularExpression = @"(.*)@(.*)";
 #pragma - DataEntryCell 
 
 
--(id)init:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData
+-(void)prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData
 {
-    if( [super init:controller datakey:key label:label cellData:cellData]!=nil ) {
-         //self.detailTextLabel.text = @"test1";
-    }
-    
-    return self;
+    [super prepareToAppear:controller datakey:key label:label cellData:cellData];
     
 }
 

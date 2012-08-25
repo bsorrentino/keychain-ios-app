@@ -39,14 +39,15 @@ end
 
 pod do |s|
   s.name      = 'UIXML'
-  s.version   = '1.0.0'
+  s.version   = '1.2.0'
   s.license  = 'unspecified'
   s.platform  = :ios
   s.summary   = 'Generate Form based upon UITableView from .plist file(s)'
   s.description = 'Generate Form based upon UITableView from .plist file(s)'
   s.homepage  = 'https://github.com/bsorrentino/UIXML'
   s.author    = { 'bsorrentino' =>  ' bartolomeo.sorrentino@gmail.com' }
-  s.source    = { :git => 'https://github.com/bsorrentino/UIXML.git', :tag => '1.0.0' }
+  #s.source    = { :git => 'https://github.com/bsorrentino/UIXML.git', :tag => '1.2.0' }
+  s.source    = { :git => 'https://github.com/bsorrentino/UIXML.git', :commit => '3ef22aec4c6f2ef8bc9f4dd8380854f98cad34b9' }
   s.source_files = '*.{h,m}'
   s.resources = "*.png", "en.lproj/*.xib"
   s.frameworks = 'Foundation'
