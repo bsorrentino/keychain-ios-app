@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PushTextEntryCell.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PushTextEntryCell</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushTextEntryCell/setViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) IBOutlet PushTextViewController *viewController</Declaration>
+			
+			
+			<Anchor>//api/name/viewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PushTextEntryCell/viewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) IBOutlet PushTextViewController *viewController</Declaration>
+			
+			
+			<Anchor>//api/name/viewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushTextEntryCell/setEditIcon:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) IBOutlet UIImageView *editIcon</Declaration>
+			
+			
+			<Anchor>//api/name/editIcon</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PushTextEntryCell/editIcon</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) IBOutlet UIImageView *editIcon</Declaration>
+			
+			
+			<Anchor>//api/name/editIcon</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushTextEntryCell/setImgWrite:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) UIImage *imgWrite</Declaration>
+			
+			
+			<Anchor>//api/name/imgWrite</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PushTextEntryCell/imgWrite</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) UIImage *imgWrite</Declaration>
+			
+			
+			<Anchor>//api/name/imgWrite</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushTextEntryCell/setImgEdit:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) UIImage *imgEdit</Declaration>
+			
+			
+			<Anchor>//api/name/imgEdit</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PushTextEntryCell/imgEdit</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) UIImage *imgEdit</Declaration>
+			
+			
+			<Anchor>//api/name/imgEdit</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

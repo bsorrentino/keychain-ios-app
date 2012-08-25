@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PushTextViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PushTextViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>
+			
+			<NodeRef refid="7"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushTextViewController/setBtnSave:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) IBOutlet UIBarButtonItem *btnSave</Declaration>
+			
+			
+			<Anchor>//api/name/btnSave</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PushTextViewController/btnSave</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) IBOutlet UIBarButtonItem *btnSave</Declaration>
+			
+			
+			<Anchor>//api/name/btnSave</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushTextViewController/setTxtValue:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) IBOutlet UINoteView *txtValue</Declaration>
+			
+			
+			<Anchor>//api/name/txtValue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PushTextViewController/txtValue</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) IBOutlet UINoteView *txtValue</Declaration>
+			
+			
+			<Anchor>//api/name/txtValue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushTextViewController/saveValue:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>- (IBAction)saveValue:(id)sender</Declaration>
+			
+			
+			<Anchor>//api/name/saveValue:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushTextViewController/initWithCell:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushTextEntryCell.h</DeclaredIn>			
+			
+			<Declaration>- (void)initWithCell:(PushTextEntryCell *)cell</Declaration>
+			
+			
+			<Anchor>//api/name/initWithCell:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

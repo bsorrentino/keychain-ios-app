@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PushDateEntryCell.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PushDateEntryCell</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushDateEntryCell.h</DeclaredIn>
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushDateEntryCell/stringFromDate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushDateEntryCell.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromDate:(NSDate *)value</Declaration>
+			
+			
+			<Anchor>//api/name/stringFromDate:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushDateEntryCell/setDateFormatter:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushDateEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (UIXML_STRONG, nonatomic, readonly) NSDateFormatter *dateFormatter</Declaration>
+			
+			
+			<Anchor>//api/name/dateFormatter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PushDateEntryCell/dateFormatter</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushDateEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (UIXML_STRONG, nonatomic, readonly) NSDateFormatter *dateFormatter</Declaration>
+			
+			
+			<Anchor>//api/name/dateFormatter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushDateEntryCell/setTxtValue:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushDateEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (UIXML_WEAK, nonatomic) IBOutlet UITextField *txtValue</Declaration>
+			
+			
+			<Anchor>//api/name/txtValue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PushDateEntryCell/txtValue</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushDateEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (UIXML_WEAK, nonatomic) IBOutlet UITextField *txtValue</Declaration>
+			
+			
+			<Anchor>//api/name/txtValue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushDateEntryCell/setViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushDateEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (UIXML_STRONG, nonatomic) IBOutlet PushDateViewController *viewController</Declaration>
+			
+			
+			<Anchor>//api/name/viewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PushDateEntryCell/viewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushDateEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (UIXML_STRONG, nonatomic) IBOutlet PushDateViewController *viewController</Declaration>
+			
+			
+			<Anchor>//api/name/viewController</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>
