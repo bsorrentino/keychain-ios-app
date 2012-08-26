@@ -17,11 +17,6 @@ install_resource()
       ;;
   esac
 }
-install_resource '../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/UIXML/back24x24.png'
-install_resource '../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/UIXML/chevron.png'
-install_resource '../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/UIXML/confirm24x24.png'
-install_resource '../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/UIXML/edit32x32.png'
-install_resource '../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/UIXML/write32x32.png'
 install_resource '../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/popoverArrowDown.png'
 install_resource '../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/popoverArrowDown@2x.png'
 install_resource '../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/popoverArrowDownSimple.png'
