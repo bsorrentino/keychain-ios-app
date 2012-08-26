@@ -676,8 +676,10 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
 	if (entity.isNew) {
 		[context insertObject:entity];
-        reloadData_ = YES;
 	}
+
+    [self filterReset:entity.isNew];
+    
 	
  
 	NSError *error = nil;
