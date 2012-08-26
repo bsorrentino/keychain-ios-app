@@ -770,10 +770,12 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         cell.detailTextLabel.text = managedObject.groupPrefix;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    else if( managedObject.isGrouped ) {
-        cell.detailTextLabel.text = managedObject.groupPrefix;
-    }
     else {
+        
+        if( managedObject.isGrouped ) {
+            cell.detailTextLabel.text = managedObject.groupPrefix;
+        }
+
         if ([cell isKindOfClass:[ZKRevealingTableViewCell class]]) {
 
             ZKRevealingTableViewCell *revealCell = (ZKRevealingTableViewCell *)cell;
