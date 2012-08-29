@@ -11,8 +11,3 @@ It uses:
 - UIXML ( https://github.com/bsorrentino/UIXML.git )
 - Core Data
 
-HttpClient (DEPRECATED)
-========================
-
-Library that join http[s] access plus JSON marshall & unmarshall
-
