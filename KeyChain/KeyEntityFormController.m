@@ -13,20 +13,36 @@
 #import "KeyChainAppDelegate.h"
 #import "iToast.h"
 
-@interface KeyEntityFormController(Private)
+@interface KeyEntityFormController( /*Private*/ )
 
 -(void) handleLongPress:(UILongPressGestureRecognizer *)gesture;
 - (void)copyToClipboard:(BaseDataEntryCell*)cell;
 - (void)playClick;
 - (void) setupLongGesture:(BaseDataEntryCell *)cell;
 
+@property (assign) BOOL valid;
+
 @end
 
 @implementation KeyEntityFormController
 
 @synthesize toolbar=toolbar_, btnSave=btnSave_, segShowHidePassword=segShowHidePassword_;
+@synthesize valid=_valid;
 
 #pragma mark - private implementation
+
+
+-(void)setValid:(BOOL)valid
+{
+    _valid = valid;
+    
+    self.btnSave.enabled = valid;
+    
+}
+
+- (BOOL)valid {
+    return _valid;
+}
 
 - (void)playClick {
     
@@ -90,8 +106,10 @@
 - (void)initWithEntity:(KeyEntity*)entity delegate:(NSObject<KeyEntityFormControllerDelegate>*) delegate {
 	
 	entity_ = entity;
-	valid_ = YES;
-	formDelegate_ = delegate;
+	
+    self.valid = NO;
+	
+    formDelegate_ = delegate;
 	
 	[self.tableView reloadData];
 	[self.segShowHidePassword sendActionsForControlEvents:UIControlEventValueChanged];
@@ -124,17 +142,18 @@
 	
 	NSError *error = nil;
 	
-	if (!valid_) {
+	if (!self.valid) {
 		return;
 	}
+    
 	if (entity_.isNew) {
-		valid_ = [entity_ validateForInsert:&error];
+		_valid = [entity_ validateForInsert:&error];
 	}
 	else {
-		valid_ = [entity_ validateForUpdate:&error];
+		_valid = [entity_ validateForUpdate:&error];
 	}
 	
-	if (!valid_) {
+	if (!_valid) {
 		
 		NSLog(@"entity not valid for insert/update error %@, %@", error, [error userInfo]);
 
@@ -147,7 +166,7 @@
     
     
 	if (formDelegate_!=nil && [formDelegate_ respondsToSelector:@selector(doSaveObject:)]) {
-		valid_ = [formDelegate_ doSaveObject:entity_];
+		_valid = [formDelegate_ doSaveObject:entity_];
 	}
 	
 	[self.navigationController popViewControllerAnimated:true];
@@ -177,9 +196,9 @@
 
 	NSError *error = nil;
 	
-	valid_ = [entity_ validateValue:&value forKey:cell.dataKey error:&error]; 
+	self.valid = [entity_ validateValue:&value forKey:cell.dataKey error:&error];
 
-	if (!valid_) {
+	if (!self.valid) {
 		
 		NSLog(@"value [%@] is not valid! error %@", error, [error userInfo]);
 		

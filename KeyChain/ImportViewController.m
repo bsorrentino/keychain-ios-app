@@ -21,14 +21,14 @@
 - (void)importOnlyAddNew:(NSString *)fileName;
 - (BOOL)containsKey:(NSArray *)keyList object:(id)object entityRef:(KeyEntity **)entity;
 - (NSArray *)loadDataFromPropertyList:(NSString *)fileName;
+
 @end
 
 
 @implementation ImportViewController
+@synthesize delegate;
 
-@synthesize delegate=delegate_;
-
-#pragma mark - ImportViewController UIAlertViewDelegate implementation 
+#pragma mark - ImportViewController UIAlertViewDelegate implementation
 
 /*
 // Called when a button is clicked. The view will be automatically dismissed after this call returns
@@ -82,7 +82,6 @@
 #pragma mark - ImportViewController private methods 
 
 - (KeyChainAppDelegate *)appDelegate {
-    
     return (KeyChainAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
@@ -135,16 +134,17 @@
 }
 
 - (void)importReplacingAll:(NSString *)fileName {
-    
+
+    NSAssert( self.delegate != nil, @"delegate is null" );
     if( self.delegate == nil ) return;
     
     @autoreleasepool {
         
-        WaitMaskController *wait = [[WaitMaskController alloc] init ] ;
+        if( _wait == nil ) _wait = [[WaitMaskController alloc] init ] ;
 
         @try { 
 
-            [wait mask:@"Import file ...."];
+            [_wait mask:@"Import file ...."];
             
             NSArray *result = [self loadDataFromPropertyList:fileName];
             if (result== nil ) {
@@ -153,7 +153,7 @@
             
             NSManagedObjectContext *context = [[self appDelegate] managedObjectContext];
             
-            wait.message = @"deleting keys .....";
+            _wait.message = @"deleting keys .....";
 
             NSArray *keyList = [self.delegate fetchedObjects];
             
@@ -164,7 +164,7 @@
             }
             
             
-            wait.message = @"adding keys .....";
+            _wait.message = @"adding keys .....";
              
             for( NSInteger i = 1; i < [result count]; ++i ) {
                 
@@ -188,7 +188,7 @@
         }
         @finally {
             
-            [wait unmask];
+            [_wait unmask];
             
         }
     }
@@ -196,15 +196,16 @@
 
 - (void)importOnlyAddNew:(NSString *)fileName {
     
+    NSAssert( self.delegate != nil, @"delegate is null" );
     if( self.delegate == nil ) return;
     
-    WaitMaskController *wait = [[WaitMaskController alloc] init ] ;
+    if( _wait == nil ) _wait = [[WaitMaskController alloc] init ] ;
     
     NSInteger addedKeys = 0;
     
     @autoreleasepool {
 
-        [wait mask:@"Import file ...."];
+        [_wait mask:@"Import file ...."];
     
         NSArray *result = [self loadDataFromPropertyList:fileName];
         if (result== nil ) {
@@ -215,7 +216,7 @@
         
         NSArray *keyList = [self.delegate fetchedObjects];
                 
-        wait.message = @"adding keys .....";
+        _wait.message = @"adding keys .....";
         
         for( NSInteger i = 1; i < [result count]; ++i ) {
             
@@ -246,22 +247,23 @@
         
     }
     
-    [wait unmask];
+    [_wait unmask];
         
 }
 
 - (void)importAddAndUpdate:(NSString *)fileName {
     
+    NSAssert( self.delegate != nil, @"delegate is null" );
     if( self.delegate == nil ) return;
     
-    WaitMaskController *wait = [[WaitMaskController alloc] init ];
+    if( _wait == nil ) _wait = [[WaitMaskController alloc] init ] ;
     
     NSInteger addedKeys = 0;
     NSInteger updatedKeys = 0;
     
     @autoreleasepool {
         
-        [wait mask:@"Import file ...."];
+        [_wait mask:@"Import file ...."];
         
         NSArray *result = [self loadDataFromPropertyList:fileName];
         if (result== nil ) {
@@ -272,7 +274,7 @@
         
         NSArray *keyList = [self.delegate fetchedObjects];
         
-        wait.message = @"adding & updating keys .....";
+        _wait.message = @"adding & updating keys .....";
         
         for( NSInteger i = 1; i < [result count]; ++i ) {
             
@@ -311,7 +313,7 @@
         
     }
     
-    [wait unmask];
+    [_wait unmask];
     
 }
 
@@ -436,6 +438,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex;  // after animation
 */
 
+
 #pragma mark - ImportViewController initialization 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -493,9 +496,11 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.delegate filterReset];
-    
     [super viewWillDisappear:animated];
+
+    NSAssert( self.delegate != nil, @"delegate is null" );
+    if( self.delegate !=nil ) [self.delegate filterReset:YES];
+        
 }
 
 - (void)viewDidDisappear:(BOOL)animated

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/BaseDataEntryCell.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/BaseDataEntryCell</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BaseDataEntryCell.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BaseDataEntryCell/setDataKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BaseDataEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, UIXML_WEAK) NSString *dataKey</Declaration>
+			
+			
+			<Anchor>//api/name/dataKey</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/BaseDataEntryCell/dataKey</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BaseDataEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, UIXML_WEAK) NSString *dataKey</Declaration>
+			
+			
+			<Anchor>//api/name/dataKey</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BaseDataEntryCell/setEnabled:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BaseDataEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/BaseDataEntryCell/enabled</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BaseDataEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BaseDataEntryCell/prepareToAppear:datakey:label:cellData:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BaseDataEntryCell.h</DeclaredIn>			
+			
+			<Declaration>- (void)prepareToAppear:(UIXMLFormViewController *)controller datakey:(NSString *)key label:(NSString *)label cellData:(NSDictionary *)cellData</Declaration>
+			
+			
+			<Anchor>//api/name/prepareToAppear:datakey:label:cellData:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BaseDataEntryCell/setControlValue:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BaseDataEntryCell.h</DeclaredIn>			
+			
+			<Declaration>- (void)setControlValue:(id)value</Declaration>
+			
+			
+			<Anchor>//api/name/setControlValue:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BaseDataEntryCell/getControlValue</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BaseDataEntryCell.h</DeclaredIn>			
+			
+			<Declaration>- (id)getControlValue</Declaration>
+			
+			
+			<Anchor>//api/name/getControlValue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BaseDataEntryCell/isStringEmpty:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BaseDataEntryCell.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isStringEmpty:(NSString *)value</Declaration>
+			
+			
+			<Anchor>//api/name/isStringEmpty:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BaseDataEntryCell/getRectRelativeToLabel:padding:rpadding:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>BaseDataEntryCell.h</DeclaredIn>			
+			
+			<Declaration>- (CGRect)getRectRelativeToLabel:(CGRect)controlFrame padding:(NSInteger)padding rpadding:(NSInteger)rpadding</Declaration>
+			
+			
+			<Anchor>//api/name/getRectRelativeToLabel:padding:rpadding:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

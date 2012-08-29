@@ -10,12 +10,15 @@
 
 #import "KeyListDataSource.h"
 
+@class WaitMaskController;
+
 @interface ImportViewController : UITableViewController<UIActionSheetDelegate, UIAlertViewDelegate> {
 
 @private
-    id<KeyListDataSource> __unsafe_unretained delegate_;
     
     NSArray/*(NSString*)*/ *fileArray_;
+
+    WaitMaskController *_wait;
 }
 
 @property (unsafe_unretained,nonatomic) id<KeyListDataSource> delegate;

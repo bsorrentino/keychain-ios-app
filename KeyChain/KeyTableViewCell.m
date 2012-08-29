@@ -23,7 +23,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.imageView.image = self.imageCached;
+        //self.imageView.image = self.imageCached;
         self.contentView.backgroundColor = [UIColor whiteColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.direction = ZKRevealingTableViewCellDirectionRight;
@@ -37,7 +37,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.imageView.image = self.imageCached;
+        //self.imageView.image = self.imageCached;
         self.contentView.backgroundColor = [UIColor whiteColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.direction = ZKRevealingTableViewCellDirectionRight;

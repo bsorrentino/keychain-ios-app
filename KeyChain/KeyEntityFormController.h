@@ -26,7 +26,7 @@
 	UIBarButtonItem *btnSave_;
 	UISegmentedControl *segShowHidePassword_;
 	
-	BOOL valid_;
+	BOOL _valid;
 
 }
 
@@ -37,7 +37,7 @@
 - (void)initWithEntity:(KeyEntity*)entity delegate:(NSObject<KeyEntityFormControllerDelegate> *)delegate;
 
 -(IBAction)save:(id)sender;
--(IBAction) cancel:(id)sender;
+-(IBAction)cancel:(id)sender;
 -(IBAction)showHidePassword:(id)sender;
 
 @end

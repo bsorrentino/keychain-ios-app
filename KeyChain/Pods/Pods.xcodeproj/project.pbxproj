@@ -7,317 +7,283 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01D78EF82612432CB2B780E1 /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12119FA7134236AE555279 /* PushWebViewEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		0A63760C3A2F4957AC201A88 /* BaseDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FF97E302DD427387E15CD9 /* BaseDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		0AA5D3FED9354FF88427403D /* KSSHA1Stream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0EE57CCF47FF4F99A5B7DD57 /* KSSHA1Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0FCB43FE26634F2EA3C16E22 /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B799E31ED2429E884A6329 /* UIXMLFormViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		1365C240EEE4498FB935394E /* PushWebViewEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D49CC504697846FCB0AB96BB /* PushWebViewEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1FEA58DB47CE45BF85DE1EF7 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9AEA5BEC1412F902B601F /* SSKeychain.m */; };
-		225DFD20F18F4C3480184A61 /* WEPopoverParentView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D1F137A81B224819A7DED204 /* WEPopoverParentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		23F6281D33834540BBE9FAD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E184296345B493288A3566F /* Foundation.framework */; };
-		24B2F4C6B8E5428AB421B885 /* UIXMLFormViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9FE08249365B44D1A3B5F5A8 /* UIXMLFormViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26A16FEA836E421E98D017D7 /* UIXMLFormViewControllerDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F335FE8B7BFD4C209F26DDA4 /* UIXMLFormViewControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		30153B62AD904B029E4C6469 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958C830445EF403ABEF2B88C /* WaitMaskController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		36433C863B90437F94E8CC56 /* PushFormDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DA92B97DC642EEA1C59991 /* PushFormDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		3D2C934C176E4E3FAF8E7B25 /* ZKRevealingTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7E5011266DDE4266BE0F15B7 /* ZKRevealingTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		404146C0F0AF4A5294174602 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D0B14CEBA1443BB28E809D /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		571271E0FCC7440E9C7BA952 /* SwitchDataEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9FAC2404E1004C5BBC3A7591 /* SwitchDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		572C275FB1A34D5AAF65B097 /* BaseDataEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC0E70E5036C4B85A4B243E4 /* BaseDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5AEA972DCE7F4662B06230F5 /* WaitMaskController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7EAA8044B8DA44CEB4C0D22D /* WaitMaskController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5AF98B8255E346CB897EF7BA /* WEPopoverController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 797D7A96124E47EE803F4B35 /* WEPopoverController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DA5D41F19B04887827A9EB5 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF3F691AEC642A8AA0E771A /* SwitchDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		73E47CF1A9EB4977922674E7 /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = C672EA6712554CD39A37270B /* WEPopoverController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		83C71FF6D87C4203BFD41131 /* PushFormDataEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81511AF960F343E0B512E606 /* PushFormDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88FBE9197242461489AA7D78 /* WEPopoverContainerView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A35669D678428EAFBB930E /* WEPopoverContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		929166B253FF41A3BBDDD39C /* PushDateEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 19817B7A4BF04FF39301D93D /* PushDateEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A385614B7E4945F8ADC9AA28 /* KSSHA1Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A88AC78D84D2B801FC29C /* KSSHA1Stream.m */; };
-		AD263D4F941D46D5BBF00080 /* UIXML.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67BA18F613C3486CB1F59038 /* UIXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B5967A8F74E04F33A3F0CB9D /* TextDataEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C4B8D9F6AC52407CA8101061 /* TextDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BB4B7867B64F486883DCF033 /* PushTextEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27E4409D3DB34C5F886C00B3 /* PushTextEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF1AAB782E4048CFAC586635 /* SegmentedDataEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9A05859C280E48419EB8F51C /* SegmentedDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CAD7957CBC9644E6924ED457 /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71029426C2BD4C33B51E08C8 /* WETouchableView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D14295257973430AA8E8CF1A /* UIBarButtonItem+WEPopover.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1ADCD43D6F1E4403834B39AC /* UIBarButtonItem+WEPopover.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D6D214263787459DAE2DC082 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E309E1D97C141518E5355B7 /* PushTextEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D90D89F72E2B49E2992B0739 /* PushControllerDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FA86FE5C4147D6AE622C24 /* PushControllerDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		DB70DDFCF326479BAB791680 /* SSKeychain.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8001C383B33E458B8CD9EAF8 /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD030584205746E0A7BDD2BC /* PodsDummy_Pods.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F197D01FBF45F2AE6492A7 /* PodsDummy_Pods.m */; };
-		DD31F9B5849A4BFAA69C2789 /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9CCAD1AE634833A0783E8F /* TextDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		DE4325B32B69473E9897B9F4 /* SegmentedDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65778D80C0F448DCB5B39056 /* SegmentedDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		DF4FC372AE3B4390BF721650 /* WETouchableView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8392D4CDA98D42E8940839E1 /* WETouchableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB1418CAEC564E559B96AFB7 /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9909803EC2C47EDBB76B6DE /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		ED449BF2E8BE4480B4687742 /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD0283BC2BD4E2C9C99D128 /* PushDateEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		EF063EDEB08B4F639A1CE204 /* PushControllerDataEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3611A0DA5BA6402485ED141C /* PushControllerDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8983A3BE1B944AE8ABB173E /* ZKRevealingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A52A30C04A9B4AE3A4879B66 /* ZKRevealingTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0E6B8A569BAE46E69847D524 /* WEPopoverParentView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A58796455DF4D0B85480AFD /* WEPopoverParentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3079837D5094443AA0CC61BC /* KSSHA1Stream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A269167B2F3480A9646A62D /* KSSHA1Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		396C7EB92C624A4FAC641B25 /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17538E3193704E1EB6989698 /* WEPopoverController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4E8BD438A48B4073880C86C6 /* PodsDummy_Pods.m in Sources */ = {isa = PBXBuildFile; fileRef = B03A707B4AEB4121946149D3 /* PodsDummy_Pods.m */; };
+		51D1B5508AB4408FBFDBFD82 /* WEPopoverContainerView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A42C287CCF75431F8E6E88BE /* WEPopoverContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C3910876F86429687172ACF /* UIBarButtonItem+WEPopover.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 89BE33ADC51D4EFEABA309E1 /* UIBarButtonItem+WEPopover.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FE0EE8815E9AB5E00472C44 /* BaseDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE6515E9AB5E00472C44 /* BaseDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5FE0EE8915E9AB5E00472C44 /* PushControllerDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE6B15E9AB5E00472C44 /* PushControllerDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5FE0EE8A15E9AB5E00472C44 /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE6D15E9AB5E00472C44 /* PushDateEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5FE0EE8B15E9AB5E00472C44 /* PushFormDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE7015E9AB5E00472C44 /* PushFormDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5FE0EE8C15E9AB5E00472C44 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE7315E9AB5E00472C44 /* PushTextEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5FE0EE8D15E9AB5E00472C44 /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE7615E9AB5E00472C44 /* PushWebViewEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5FE0EE8E15E9AB5E00472C44 /* SegmentedDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE7A15E9AB5E00472C44 /* SegmentedDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5FE0EE8F15E9AB5E00472C44 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE7C15E9AB5E00472C44 /* SwitchDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5FE0EE9015E9AB5E00472C44 /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE7F15E9AB5E00472C44 /* TextDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5FE0EE9115E9AB5E00472C44 /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE8315E9AB5E00472C44 /* UIXMLFormViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5FE0EE9215E9AB5E00472C44 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE8615E9AB5E00472C44 /* WaitMaskController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6831B7EC6AC342C6A8C8DAC4 /* WETouchableView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 82C3E21749C0435383593FBF /* WETouchableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C94AD36981C49D28DBEB991 /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F34F01E4614A97AD8D6874 /* WETouchableView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		956CBF1E465C4FA6BBE3705A /* WEPopoverController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF10891BB007456EB075710B /* WEPopoverController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9949F73E98F24866B10573C7 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = C403BE31672B42369B0AE745 /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		B3C90F98C2F34E85BEB6CD21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240859D03745460A8787B677 /* Foundation.framework */; };
+		B53ECA47A4EC440BB90D5198 /* ZKRevealingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 569951EFD8204816858A6465 /* ZKRevealingTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		B86F546EAFB740769FC9E5F3 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7420E41F2D5E40E9B8EF4A30 /* SSKeychain.m */; };
+		D682616847E44073860A08E9 /* KSSHA1Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 813092329D2841A79E9A6CEB /* KSSHA1Stream.m */; };
+		DF8BED1D45F5486DA0880B55 /* ZKRevealingTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8D35EB0E00941F6854D27D2 /* ZKRevealingTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4E44EC6B7A04EA99712A408 /* SSKeychain.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 905F9AF5C95F45EB98D8F841 /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FEA1F8BB54D549C08A1AA781 /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB52490624437ABDFD8CDC /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B51A6EA032114045BA3B8ADF /* CopyFiles */ = {
+		C313D14CA34540BCB2FDE9D5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				0AA5D3FED9354FF88427403D /* KSSHA1Stream.h in CopyFiles */,
-				DB70DDFCF326479BAB791680 /* SSKeychain.h in CopyFiles */,
-				572C275FB1A34D5AAF65B097 /* BaseDataEntryCell.h in CopyFiles */,
-				EF063EDEB08B4F639A1CE204 /* PushControllerDataEntryCell.h in CopyFiles */,
-				929166B253FF41A3BBDDD39C /* PushDateEntryCell.h in CopyFiles */,
-				83C71FF6D87C4203BFD41131 /* PushFormDataEntryCell.h in CopyFiles */,
-				BB4B7867B64F486883DCF033 /* PushTextEntryCell.h in CopyFiles */,
-				1365C240EEE4498FB935394E /* PushWebViewEntryCell.h in CopyFiles */,
-				BF1AAB782E4048CFAC586635 /* SegmentedDataEntryCell.h in CopyFiles */,
-				571271E0FCC7440E9C7BA952 /* SwitchDataEntryCell.h in CopyFiles */,
-				B5967A8F74E04F33A3F0CB9D /* TextDataEntryCell.h in CopyFiles */,
-				AD263D4F941D46D5BBF00080 /* UIXML.h in CopyFiles */,
-				24B2F4C6B8E5428AB421B885 /* UIXMLFormViewController.h in CopyFiles */,
-				26A16FEA836E421E98D017D7 /* UIXMLFormViewControllerDelegate.h in CopyFiles */,
-				5AEA972DCE7F4662B06230F5 /* WaitMaskController.h in CopyFiles */,
-				D14295257973430AA8E8CF1A /* UIBarButtonItem+WEPopover.h in CopyFiles */,
-				88FBE9197242461489AA7D78 /* WEPopoverContainerView.h in CopyFiles */,
-				5AF98B8255E346CB897EF7BA /* WEPopoverController.h in CopyFiles */,
-				225DFD20F18F4C3480184A61 /* WEPopoverParentView.h in CopyFiles */,
-				DF4FC372AE3B4390BF721650 /* WETouchableView.h in CopyFiles */,
-				3D2C934C176E4E3FAF8E7B25 /* ZKRevealingTableViewCell.h in CopyFiles */,
+				3079837D5094443AA0CC61BC /* KSSHA1Stream.h in CopyFiles */,
+				F4E44EC6B7A04EA99712A408 /* SSKeychain.h in CopyFiles */,
+				5C3910876F86429687172ACF /* UIBarButtonItem+WEPopover.h in CopyFiles */,
+				51D1B5508AB4408FBFDBFD82 /* WEPopoverContainerView.h in CopyFiles */,
+				956CBF1E465C4FA6BBE3705A /* WEPopoverController.h in CopyFiles */,
+				0E6B8A569BAE46E69847D524 /* WEPopoverParentView.h in CopyFiles */,
+				6831B7EC6AC342C6A8C8DAC4 /* WETouchableView.h in CopyFiles */,
+				DF8BED1D45F5486DA0880B55 /* ZKRevealingTableViewCell.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0EE57CCF47FF4F99A5B7DD57 /* KSSHA1Stream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KSSHA1Stream.h; path = KSCrypto/KSSHA1Stream.h; sourceTree = SOURCE_ROOT; };
-		19817B7A4BF04FF39301D93D /* PushDateEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PushDateEntryCell.h; path = UIXML/PushDateEntryCell.h; sourceTree = SOURCE_ROOT; };
-		1ADCD43D6F1E4403834B39AC /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+WEPopover.h"; path = "WEPopover/Classes/Popover/UIBarButtonItem+WEPopover.h"; sourceTree = SOURCE_ROOT; };
-		23B799E31ED2429E884A6329 /* UIXMLFormViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UIXMLFormViewController.m; path = UIXML/UIXMLFormViewController.m; sourceTree = SOURCE_ROOT; };
-		27E4409D3DB34C5F886C00B3 /* PushTextEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PushTextEntryCell.h; path = UIXML/PushTextEntryCell.h; sourceTree = SOURCE_ROOT; };
-		3611A0DA5BA6402485ED141C /* PushControllerDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PushControllerDataEntryCell.h; path = UIXML/PushControllerDataEntryCell.h; sourceTree = SOURCE_ROOT; };
-		36D0B14CEBA1443BB28E809D /* UIBarButtonItem+WEPopover.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+WEPopover.m"; path = "WEPopover/Classes/Popover/UIBarButtonItem+WEPopover.m"; sourceTree = SOURCE_ROOT; };
-		4E184296345B493288A3566F /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4E309E1D97C141518E5355B7 /* PushTextEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PushTextEntryCell.m; path = UIXML/PushTextEntryCell.m; sourceTree = SOURCE_ROOT; };
-		5AD0283BC2BD4E2C9C99D128 /* PushDateEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PushDateEntryCell.m; path = UIXML/PushDateEntryCell.m; sourceTree = SOURCE_ROOT; };
-		5B12119FA7134236AE555279 /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PushWebViewEntryCell.m; path = UIXML/PushWebViewEntryCell.m; sourceTree = SOURCE_ROOT; };
-		65778D80C0F448DCB5B39056 /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SegmentedDataEntryCell.m; path = UIXML/SegmentedDataEntryCell.m; sourceTree = SOURCE_ROOT; };
-		66FF97E302DD427387E15CD9 /* BaseDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BaseDataEntryCell.m; path = UIXML/BaseDataEntryCell.m; sourceTree = SOURCE_ROOT; };
-		67BA18F613C3486CB1F59038 /* UIXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UIXML.h; path = UIXML/UIXML.h; sourceTree = SOURCE_ROOT; };
-		6CF3F691AEC642A8AA0E771A /* SwitchDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SwitchDataEntryCell.m; path = UIXML/SwitchDataEntryCell.m; sourceTree = SOURCE_ROOT; };
-		71029426C2BD4C33B51E08C8 /* WETouchableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WETouchableView.m; path = WEPopover/Classes/Popover/WETouchableView.m; sourceTree = SOURCE_ROOT; };
-		72F197D01FBF45F2AE6492A7 /* PodsDummy_Pods.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PodsDummy_Pods.m; sourceTree = SOURCE_ROOT; };
-		797D7A96124E47EE803F4B35 /* WEPopoverController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverController.h; path = WEPopover/Classes/Popover/WEPopoverController.h; sourceTree = SOURCE_ROOT; };
-		7E5011266DDE4266BE0F15B7 /* ZKRevealingTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZKRevealingTableViewCell.h; path = ZKRevealingTableViewCell/vendor/ZKRevealingTableViewCell.h; sourceTree = SOURCE_ROOT; };
-		7EAA8044B8DA44CEB4C0D22D /* WaitMaskController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WaitMaskController.h; path = UIXML/WaitMaskController.h; sourceTree = SOURCE_ROOT; };
-		8001C383B33E458B8CD9EAF8 /* SSKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = SSKeychain/SSKeychain.h; sourceTree = SOURCE_ROOT; };
-		81511AF960F343E0B512E606 /* PushFormDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PushFormDataEntryCell.h; path = UIXML/PushFormDataEntryCell.h; sourceTree = SOURCE_ROOT; };
-		8392D4CDA98D42E8940839E1 /* WETouchableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WETouchableView.h; path = WEPopover/Classes/Popover/WETouchableView.h; sourceTree = SOURCE_ROOT; };
-		87C9AEA5BEC1412F902B601F /* SSKeychain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSKeychain.m; path = SSKeychain/SSKeychain.m; sourceTree = SOURCE_ROOT; };
-		87FA86FE5C4147D6AE622C24 /* PushControllerDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PushControllerDataEntryCell.m; path = UIXML/PushControllerDataEntryCell.m; sourceTree = SOURCE_ROOT; };
-		88DE4C2E72C84BA9AA73F663 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		958C830445EF403ABEF2B88C /* WaitMaskController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WaitMaskController.m; path = UIXML/WaitMaskController.m; sourceTree = SOURCE_ROOT; };
-		98DA92B97DC642EEA1C59991 /* PushFormDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PushFormDataEntryCell.m; path = UIXML/PushFormDataEntryCell.m; sourceTree = SOURCE_ROOT; };
-		9A05859C280E48419EB8F51C /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SegmentedDataEntryCell.h; path = UIXML/SegmentedDataEntryCell.h; sourceTree = SOURCE_ROOT; };
-		9B6A88AC78D84D2B801FC29C /* KSSHA1Stream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KSSHA1Stream.m; path = KSCrypto/KSSHA1Stream.m; sourceTree = SOURCE_ROOT; };
-		9FAC2404E1004C5BBC3A7591 /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwitchDataEntryCell.h; path = UIXML/SwitchDataEntryCell.h; sourceTree = SOURCE_ROOT; };
-		9FE08249365B44D1A3B5F5A8 /* UIXMLFormViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UIXMLFormViewController.h; path = UIXML/UIXMLFormViewController.h; sourceTree = SOURCE_ROOT; };
-		A026071815DE8C8F009B2F72 /* back24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back24x24.png; path = UIXML/back24x24.png; sourceTree = "<group>"; };
-		A026071915DE8C8F009B2F72 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chevron.png; path = UIXML/chevron.png; sourceTree = "<group>"; };
-		A026071A15DE8C8F009B2F72 /* confirm24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = confirm24x24.png; path = UIXML/confirm24x24.png; sourceTree = "<group>"; };
-		A026071B15DE8C8F009B2F72 /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edit32x32.png; path = UIXML/edit32x32.png; sourceTree = "<group>"; };
-		A026071C15DE8C8F009B2F72 /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = write32x32.png; path = UIXML/write32x32.png; sourceTree = "<group>"; };
-		A026071E15DE8C9C009B2F72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = UIXML/en.lproj/DefaultHeaderInSection.xib; sourceTree = "<group>"; };
-		A026072015DE8C9C009B2F72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = UIXML/en.lproj/MailDataEntryCell.xib; sourceTree = "<group>"; };
-		A026072215DE8C9C009B2F72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = UIXML/en.lproj/PushDateEntryCell.xib; sourceTree = "<group>"; };
-		A026072415DE8C9C009B2F72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = UIXML/en.lproj/PushFormDataEntryCell.xib; sourceTree = "<group>"; };
-		A026072615DE8C9C009B2F72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = UIXML/en.lproj/PushTextEntryCell.xib; sourceTree = "<group>"; };
-		A026072815DE8C9C009B2F72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = UIXML/en.lproj/PushWebViewEntryCell.xib; sourceTree = "<group>"; };
-		A026072A15DE8C9C009B2F72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = UIXML/en.lproj/SwitchDataEntryCell.xib; sourceTree = "<group>"; };
-		A026072C15DE8C9C009B2F72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = UIXML/en.lproj/TextDataEntryCell.xib; sourceTree = "<group>"; };
-		A52A30C04A9B4AE3A4879B66 /* ZKRevealingTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZKRevealingTableViewCell.m; path = ZKRevealingTableViewCell/vendor/ZKRevealingTableViewCell.m; sourceTree = SOURCE_ROOT; };
-		B0D71040C58D461C99C86E76 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = SOURCE_ROOT; };
-		BC9CCAD1AE634833A0783E8F /* TextDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TextDataEntryCell.m; path = UIXML/TextDataEntryCell.m; sourceTree = SOURCE_ROOT; };
-		C4B8D9F6AC52407CA8101061 /* TextDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TextDataEntryCell.h; path = UIXML/TextDataEntryCell.h; sourceTree = SOURCE_ROOT; };
-		C672EA6712554CD39A37270B /* WEPopoverController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverController.m; path = WEPopover/Classes/Popover/WEPopoverController.m; sourceTree = SOURCE_ROOT; };
-		C6A35669D678428EAFBB930E /* WEPopoverContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverContainerView.h; path = WEPopover/Classes/Popover/WEPopoverContainerView.h; sourceTree = SOURCE_ROOT; };
-		C9909803EC2C47EDBB76B6DE /* WEPopoverContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverContainerView.m; path = WEPopover/Classes/Popover/WEPopoverContainerView.m; sourceTree = SOURCE_ROOT; };
-		D1F137A81B224819A7DED204 /* WEPopoverParentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverParentView.h; path = WEPopover/Classes/Popover/WEPopoverParentView.h; sourceTree = SOURCE_ROOT; };
-		D49CC504697846FCB0AB96BB /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PushWebViewEntryCell.h; path = UIXML/PushWebViewEntryCell.h; sourceTree = SOURCE_ROOT; };
-		E0BEDEE22FBB47398AA4E956 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		E83231F496614CE5A144507C /* Pods-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-prefix.pch"; sourceTree = SOURCE_ROOT; };
-		EC0E70E5036C4B85A4B243E4 /* BaseDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BaseDataEntryCell.h; path = UIXML/BaseDataEntryCell.h; sourceTree = SOURCE_ROOT; };
-		F335FE8B7BFD4C209F26DDA4 /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UIXMLFormViewControllerDelegate.h; path = UIXML/UIXMLFormViewControllerDelegate.h; sourceTree = SOURCE_ROOT; };
+		17538E3193704E1EB6989698 /* WEPopoverController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverController.m; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WEPopoverController.m"; sourceTree = SOURCE_ROOT; };
+		1A58796455DF4D0B85480AFD /* WEPopoverParentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverParentView.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WEPopoverParentView.h"; sourceTree = SOURCE_ROOT; };
+		240859D03745460A8787B677 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		40384BBE793D49F698EF7F02 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		52F34F01E4614A97AD8D6874 /* WETouchableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WETouchableView.m; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WETouchableView.m"; sourceTree = SOURCE_ROOT; };
+		569951EFD8204816858A6465 /* ZKRevealingTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZKRevealingTableViewCell.m; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/ZKRevealingTableViewCell/vendor/ZKRevealingTableViewCell.m"; sourceTree = SOURCE_ROOT; };
+		5FE0EE6315E9AB5E00472C44 /* back24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back24x24.png; path = UIXML/back24x24.png; sourceTree = "<group>"; };
+		5FE0EE6415E9AB5E00472C44 /* BaseDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseDataEntryCell.h; path = UIXML/BaseDataEntryCell.h; sourceTree = "<group>"; };
+		5FE0EE6515E9AB5E00472C44 /* BaseDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseDataEntryCell.m; path = UIXML/BaseDataEntryCell.m; sourceTree = "<group>"; };
+		5FE0EE6615E9AB5E00472C44 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chevron.png; path = UIXML/chevron.png; sourceTree = "<group>"; };
+		5FE0EE6715E9AB5E00472C44 /* confirm24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = confirm24x24.png; path = UIXML/confirm24x24.png; sourceTree = "<group>"; };
+		5FE0EE6815E9AB5E00472C44 /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edit32x32.png; path = UIXML/edit32x32.png; sourceTree = "<group>"; };
+		5FE0EE6915E9AB5E00472C44 /* MailDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MailDataEntryCell.xib; path = UIXML/MailDataEntryCell.xib; sourceTree = "<group>"; };
+		5FE0EE6A15E9AB5E00472C44 /* PushControllerDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushControllerDataEntryCell.h; path = UIXML/PushControllerDataEntryCell.h; sourceTree = "<group>"; };
+		5FE0EE6B15E9AB5E00472C44 /* PushControllerDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushControllerDataEntryCell.m; path = UIXML/PushControllerDataEntryCell.m; sourceTree = "<group>"; };
+		5FE0EE6C15E9AB5E00472C44 /* PushDateEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushDateEntryCell.h; path = UIXML/PushDateEntryCell.h; sourceTree = "<group>"; };
+		5FE0EE6D15E9AB5E00472C44 /* PushDateEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushDateEntryCell.m; path = UIXML/PushDateEntryCell.m; sourceTree = "<group>"; };
+		5FE0EE6E15E9AB5E00472C44 /* PushDateEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushDateEntryCell.xib; path = UIXML/PushDateEntryCell.xib; sourceTree = "<group>"; };
+		5FE0EE6F15E9AB5E00472C44 /* PushFormDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushFormDataEntryCell.h; path = UIXML/PushFormDataEntryCell.h; sourceTree = "<group>"; };
+		5FE0EE7015E9AB5E00472C44 /* PushFormDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushFormDataEntryCell.m; path = UIXML/PushFormDataEntryCell.m; sourceTree = "<group>"; };
+		5FE0EE7115E9AB5E00472C44 /* PushFormDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushFormDataEntryCell.xib; path = UIXML/PushFormDataEntryCell.xib; sourceTree = "<group>"; };
+		5FE0EE7215E9AB5E00472C44 /* PushTextEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushTextEntryCell.h; path = UIXML/PushTextEntryCell.h; sourceTree = "<group>"; };
+		5FE0EE7315E9AB5E00472C44 /* PushTextEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushTextEntryCell.m; path = UIXML/PushTextEntryCell.m; sourceTree = "<group>"; };
+		5FE0EE7415E9AB5E00472C44 /* PushTextEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushTextEntryCell.xib; path = UIXML/PushTextEntryCell.xib; sourceTree = "<group>"; };
+		5FE0EE7515E9AB5E00472C44 /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushWebViewEntryCell.h; path = UIXML/PushWebViewEntryCell.h; sourceTree = "<group>"; };
+		5FE0EE7615E9AB5E00472C44 /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushWebViewEntryCell.m; path = UIXML/PushWebViewEntryCell.m; sourceTree = "<group>"; };
+		5FE0EE7715E9AB5E00472C44 /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushWebViewEntryCell.xib; path = UIXML/PushWebViewEntryCell.xib; sourceTree = "<group>"; };
+		5FE0EE7815E9AB5E00472C44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = UIXML/README.md; sourceTree = "<group>"; };
+		5FE0EE7915E9AB5E00472C44 /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SegmentedDataEntryCell.h; path = UIXML/SegmentedDataEntryCell.h; sourceTree = "<group>"; };
+		5FE0EE7A15E9AB5E00472C44 /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SegmentedDataEntryCell.m; path = UIXML/SegmentedDataEntryCell.m; sourceTree = "<group>"; };
+		5FE0EE7B15E9AB5E00472C44 /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwitchDataEntryCell.h; path = UIXML/SwitchDataEntryCell.h; sourceTree = "<group>"; };
+		5FE0EE7C15E9AB5E00472C44 /* SwitchDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchDataEntryCell.m; path = UIXML/SwitchDataEntryCell.m; sourceTree = "<group>"; };
+		5FE0EE7D15E9AB5E00472C44 /* SwitchDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SwitchDataEntryCell.xib; path = UIXML/SwitchDataEntryCell.xib; sourceTree = "<group>"; };
+		5FE0EE7E15E9AB5E00472C44 /* TextDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextDataEntryCell.h; path = UIXML/TextDataEntryCell.h; sourceTree = "<group>"; };
+		5FE0EE7F15E9AB5E00472C44 /* TextDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextDataEntryCell.m; path = UIXML/TextDataEntryCell.m; sourceTree = "<group>"; };
+		5FE0EE8015E9AB5E00472C44 /* TextDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextDataEntryCell.xib; path = UIXML/TextDataEntryCell.xib; sourceTree = "<group>"; };
+		5FE0EE8115E9AB5E00472C44 /* UIXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIXML.h; path = UIXML/UIXML.h; sourceTree = "<group>"; };
+		5FE0EE8215E9AB5E00472C44 /* UIXMLFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIXMLFormViewController.h; path = UIXML/UIXMLFormViewController.h; sourceTree = "<group>"; };
+		5FE0EE8315E9AB5E00472C44 /* UIXMLFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIXMLFormViewController.m; path = UIXML/UIXMLFormViewController.m; sourceTree = "<group>"; };
+		5FE0EE8415E9AB5E00472C44 /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIXMLFormViewControllerDelegate.h; path = UIXML/UIXMLFormViewControllerDelegate.h; sourceTree = "<group>"; };
+		5FE0EE8515E9AB5E00472C44 /* WaitMaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaitMaskController.h; path = UIXML/WaitMaskController.h; sourceTree = "<group>"; };
+		5FE0EE8615E9AB5E00472C44 /* WaitMaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaitMaskController.m; path = UIXML/WaitMaskController.m; sourceTree = "<group>"; };
+		5FE0EE8715E9AB5E00472C44 /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = write32x32.png; path = UIXML/write32x32.png; sourceTree = "<group>"; };
+		7420E41F2D5E40E9B8EF4A30 /* SSKeychain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSKeychain.m; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/SSKeychain/SSKeychain.m"; sourceTree = SOURCE_ROOT; };
+		7A269167B2F3480A9646A62D /* KSSHA1Stream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KSSHA1Stream.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/KSCrypto/KSSHA1Stream.h"; sourceTree = SOURCE_ROOT; };
+		80B80CD9B1CB4F14B6E612B5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		813092329D2841A79E9A6CEB /* KSSHA1Stream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KSSHA1Stream.m; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/KSCrypto/KSSHA1Stream.m"; sourceTree = SOURCE_ROOT; };
+		82048508F6EE4B3EB9B1E49E /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = SOURCE_ROOT; };
+		82C3E21749C0435383593FBF /* WETouchableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WETouchableView.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WETouchableView.h"; sourceTree = SOURCE_ROOT; };
+		89BE33ADC51D4EFEABA309E1 /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+WEPopover.h"; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/UIBarButtonItem+WEPopover.h"; sourceTree = SOURCE_ROOT; };
+		905F9AF5C95F45EB98D8F841 /* SSKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/SSKeychain/SSKeychain.h"; sourceTree = SOURCE_ROOT; };
+		A42C287CCF75431F8E6E88BE /* WEPopoverContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverContainerView.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WEPopoverContainerView.h"; sourceTree = SOURCE_ROOT; };
+		B03A707B4AEB4121946149D3 /* PodsDummy_Pods.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PodsDummy_Pods.m; sourceTree = SOURCE_ROOT; };
+		C403BE31672B42369B0AE745 /* UIBarButtonItem+WEPopover.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+WEPopover.m"; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/UIBarButtonItem+WEPopover.m"; sourceTree = SOURCE_ROOT; };
+		C8D35EB0E00941F6854D27D2 /* ZKRevealingTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZKRevealingTableViewCell.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/ZKRevealingTableViewCell/vendor/ZKRevealingTableViewCell.h"; sourceTree = SOURCE_ROOT; };
+		CF10891BB007456EB075710B /* WEPopoverController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverController.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WEPopoverController.h"; sourceTree = SOURCE_ROOT; };
+		D72636F477E24F4AAB8B1811 /* Pods-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-prefix.pch"; sourceTree = SOURCE_ROOT; };
+		F7BB52490624437ABDFD8CDC /* WEPopoverContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverContainerView.m; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WEPopoverContainerView.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E47EAFC7CB5B4EEA90741684 /* Frameworks */ = {
+		AFF48E8B32FC49CA9F4F955F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23F6281D33834540BBE9FAD4 /* Foundation.framework in Frameworks */,
+				B3C90F98C2F34E85BEB6CD21 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0ACB8E7EA2704175A15BC65C /* Frameworks */ = {
+		078496DAA36B48DF8F7231F6 /* ZKRevealingTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				4E184296345B493288A3566F /* Foundation.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		105C9C735D3B4BFC8A3C2882 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				88DE4C2E72C84BA9AA73F663 /* libPods.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		1BCABE77DACD4E149E67B3B7 /* ZKRevealingTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				7E5011266DDE4266BE0F15B7 /* ZKRevealingTableViewCell.h */,
-				A52A30C04A9B4AE3A4879B66 /* ZKRevealingTableViewCell.m */,
+				C8D35EB0E00941F6854D27D2 /* ZKRevealingTableViewCell.h */,
+				569951EFD8204816858A6465 /* ZKRevealingTableViewCell.m */,
 			);
 			name = ZKRevealingTableViewCell;
 			sourceTree = "<group>";
 		};
-		28B7FC7FF27D45E8AFB848D7 = {
+		3E21C714FD62421BB9DD7860 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				105C9C735D3B4BFC8A3C2882 /* Products */,
-				3CADFDFBF61046BDA04BCA80 /* Pods */,
-				F7162FEB750A47EBB0846681 /* Targets Support Files */,
-				0ACB8E7EA2704175A15BC65C /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		3CADFDFBF61046BDA04BCA80 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DD3BECC74AFE4C0F9B77E764 /* KSCrypto */,
-				86DB9BE328F7440BAAC28B09 /* SSKeychain */,
-				E2EEC2069855490B826C60C8 /* UIXML */,
-				A88DC1EF275244FD879A1AF4 /* WEPopover */,
-				1BCABE77DACD4E149E67B3B7 /* ZKRevealingTableViewCell */,
+				5FE0EE6115E9AB4100472C44 /* UIXML */,
+				AC29203E09344CC08591F411 /* KSCrypto */,
+				EF7C1C679FE24FF18D4FA2F1 /* SSKeychain */,
+				B7B1A0A6D5E34593B2E3300F /* WEPopover */,
+				078496DAA36B48DF8F7231F6 /* ZKRevealingTableViewCell */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		7059A2704DD84D62B8FD4CA7 /* Pods */ = {
+		43A9397186354F808AA5B4D6 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B0D71040C58D461C99C86E76 /* Pods-resources.sh */,
-				E83231F496614CE5A144507C /* Pods-prefix.pch */,
-				E0BEDEE22FBB47398AA4E956 /* Pods.xcconfig */,
+				89B3F0DBD8CE4FC3B097D13F /* Pods */,
+				B03A707B4AEB4121946149D3 /* PodsDummy_Pods.m */,
 			);
-			name = Pods;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		86DB9BE328F7440BAAC28B09 /* SSKeychain */ = {
+		576783A57C7844669DC55EE9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8001C383B33E458B8CD9EAF8 /* SSKeychain.h */,
-				87C9AEA5BEC1412F902B601F /* SSKeychain.m */,
+				40384BBE793D49F698EF7F02 /* libPods.a */,
 			);
-			name = SSKeychain;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		A026071615DE8C69009B2F72 /* resources */ = {
+		5FE0EE6115E9AB4100472C44 /* UIXML */ = {
 			isa = PBXGroup;
 			children = (
-				A026071D15DE8C9C009B2F72 /* DefaultHeaderInSection.xib */,
-				A026071F15DE8C9C009B2F72 /* MailDataEntryCell.xib */,
-				A026072115DE8C9C009B2F72 /* PushDateEntryCell.xib */,
-				A026072315DE8C9C009B2F72 /* PushFormDataEntryCell.xib */,
-				A026072515DE8C9C009B2F72 /* PushTextEntryCell.xib */,
-				A026072715DE8C9C009B2F72 /* PushWebViewEntryCell.xib */,
-				A026072915DE8C9C009B2F72 /* SwitchDataEntryCell.xib */,
-				A026072B15DE8C9C009B2F72 /* TextDataEntryCell.xib */,
-				A026071815DE8C8F009B2F72 /* back24x24.png */,
-				A026071915DE8C8F009B2F72 /* chevron.png */,
-				A026071A15DE8C8F009B2F72 /* confirm24x24.png */,
-				A026071B15DE8C8F009B2F72 /* edit32x32.png */,
-				A026071C15DE8C8F009B2F72 /* write32x32.png */,
-			);
-			name = resources;
-			sourceTree = "<group>";
-		};
-		A88DC1EF275244FD879A1AF4 /* WEPopover */ = {
-			isa = PBXGroup;
-			children = (
-				1ADCD43D6F1E4403834B39AC /* UIBarButtonItem+WEPopover.h */,
-				C6A35669D678428EAFBB930E /* WEPopoverContainerView.h */,
-				797D7A96124E47EE803F4B35 /* WEPopoverController.h */,
-				D1F137A81B224819A7DED204 /* WEPopoverParentView.h */,
-				8392D4CDA98D42E8940839E1 /* WETouchableView.h */,
-				36D0B14CEBA1443BB28E809D /* UIBarButtonItem+WEPopover.m */,
-				C9909803EC2C47EDBB76B6DE /* WEPopoverContainerView.m */,
-				C672EA6712554CD39A37270B /* WEPopoverController.m */,
-				71029426C2BD4C33B51E08C8 /* WETouchableView.m */,
-			);
-			name = WEPopover;
-			sourceTree = "<group>";
-		};
-		DD3BECC74AFE4C0F9B77E764 /* KSCrypto */ = {
-			isa = PBXGroup;
-			children = (
-				0EE57CCF47FF4F99A5B7DD57 /* KSSHA1Stream.h */,
-				9B6A88AC78D84D2B801FC29C /* KSSHA1Stream.m */,
-			);
-			name = KSCrypto;
-			sourceTree = "<group>";
-		};
-		E2EEC2069855490B826C60C8 /* UIXML */ = {
-			isa = PBXGroup;
-			children = (
-				A026071615DE8C69009B2F72 /* resources */,
-				EC0E70E5036C4B85A4B243E4 /* BaseDataEntryCell.h */,
-				3611A0DA5BA6402485ED141C /* PushControllerDataEntryCell.h */,
-				19817B7A4BF04FF39301D93D /* PushDateEntryCell.h */,
-				81511AF960F343E0B512E606 /* PushFormDataEntryCell.h */,
-				27E4409D3DB34C5F886C00B3 /* PushTextEntryCell.h */,
-				D49CC504697846FCB0AB96BB /* PushWebViewEntryCell.h */,
-				9A05859C280E48419EB8F51C /* SegmentedDataEntryCell.h */,
-				9FAC2404E1004C5BBC3A7591 /* SwitchDataEntryCell.h */,
-				C4B8D9F6AC52407CA8101061 /* TextDataEntryCell.h */,
-				67BA18F613C3486CB1F59038 /* UIXML.h */,
-				9FE08249365B44D1A3B5F5A8 /* UIXMLFormViewController.h */,
-				F335FE8B7BFD4C209F26DDA4 /* UIXMLFormViewControllerDelegate.h */,
-				7EAA8044B8DA44CEB4C0D22D /* WaitMaskController.h */,
-				66FF97E302DD427387E15CD9 /* BaseDataEntryCell.m */,
-				87FA86FE5C4147D6AE622C24 /* PushControllerDataEntryCell.m */,
-				5AD0283BC2BD4E2C9C99D128 /* PushDateEntryCell.m */,
-				98DA92B97DC642EEA1C59991 /* PushFormDataEntryCell.m */,
-				4E309E1D97C141518E5355B7 /* PushTextEntryCell.m */,
-				5B12119FA7134236AE555279 /* PushWebViewEntryCell.m */,
-				65778D80C0F448DCB5B39056 /* SegmentedDataEntryCell.m */,
-				6CF3F691AEC642A8AA0E771A /* SwitchDataEntryCell.m */,
-				BC9CCAD1AE634833A0783E8F /* TextDataEntryCell.m */,
-				23B799E31ED2429E884A6329 /* UIXMLFormViewController.m */,
-				958C830445EF403ABEF2B88C /* WaitMaskController.m */,
+				5FE0EE6315E9AB5E00472C44 /* back24x24.png */,
+				5FE0EE6415E9AB5E00472C44 /* BaseDataEntryCell.h */,
+				5FE0EE6515E9AB5E00472C44 /* BaseDataEntryCell.m */,
+				5FE0EE6615E9AB5E00472C44 /* chevron.png */,
+				5FE0EE6715E9AB5E00472C44 /* confirm24x24.png */,
+				5FE0EE6815E9AB5E00472C44 /* edit32x32.png */,
+				5FE0EE6915E9AB5E00472C44 /* MailDataEntryCell.xib */,
+				5FE0EE6A15E9AB5E00472C44 /* PushControllerDataEntryCell.h */,
+				5FE0EE6B15E9AB5E00472C44 /* PushControllerDataEntryCell.m */,
+				5FE0EE6C15E9AB5E00472C44 /* PushDateEntryCell.h */,
+				5FE0EE6D15E9AB5E00472C44 /* PushDateEntryCell.m */,
+				5FE0EE6E15E9AB5E00472C44 /* PushDateEntryCell.xib */,
+				5FE0EE6F15E9AB5E00472C44 /* PushFormDataEntryCell.h */,
+				5FE0EE7015E9AB5E00472C44 /* PushFormDataEntryCell.m */,
+				5FE0EE7115E9AB5E00472C44 /* PushFormDataEntryCell.xib */,
+				5FE0EE7215E9AB5E00472C44 /* PushTextEntryCell.h */,
+				5FE0EE7315E9AB5E00472C44 /* PushTextEntryCell.m */,
+				5FE0EE7415E9AB5E00472C44 /* PushTextEntryCell.xib */,
+				5FE0EE7515E9AB5E00472C44 /* PushWebViewEntryCell.h */,
+				5FE0EE7615E9AB5E00472C44 /* PushWebViewEntryCell.m */,
+				5FE0EE7715E9AB5E00472C44 /* PushWebViewEntryCell.xib */,
+				5FE0EE7815E9AB5E00472C44 /* README.md */,
+				5FE0EE7915E9AB5E00472C44 /* SegmentedDataEntryCell.h */,
+				5FE0EE7A15E9AB5E00472C44 /* SegmentedDataEntryCell.m */,
+				5FE0EE7B15E9AB5E00472C44 /* SwitchDataEntryCell.h */,
+				5FE0EE7C15E9AB5E00472C44 /* SwitchDataEntryCell.m */,
+				5FE0EE7D15E9AB5E00472C44 /* SwitchDataEntryCell.xib */,
+				5FE0EE7E15E9AB5E00472C44 /* TextDataEntryCell.h */,
+				5FE0EE7F15E9AB5E00472C44 /* TextDataEntryCell.m */,
+				5FE0EE8015E9AB5E00472C44 /* TextDataEntryCell.xib */,
+				5FE0EE8115E9AB5E00472C44 /* UIXML.h */,
+				5FE0EE8215E9AB5E00472C44 /* UIXMLFormViewController.h */,
+				5FE0EE8315E9AB5E00472C44 /* UIXMLFormViewController.m */,
+				5FE0EE8415E9AB5E00472C44 /* UIXMLFormViewControllerDelegate.h */,
+				5FE0EE8515E9AB5E00472C44 /* WaitMaskController.h */,
+				5FE0EE8615E9AB5E00472C44 /* WaitMaskController.m */,
+				5FE0EE8715E9AB5E00472C44 /* write32x32.png */,
 			);
 			name = UIXML;
 			sourceTree = "<group>";
 		};
-		F7162FEB750A47EBB0846681 /* Targets Support Files */ = {
+		89B3F0DBD8CE4FC3B097D13F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7059A2704DD84D62B8FD4CA7 /* Pods */,
-				72F197D01FBF45F2AE6492A7 /* PodsDummy_Pods.m */,
+				82048508F6EE4B3EB9B1E49E /* Pods-resources.sh */,
+				D72636F477E24F4AAB8B1811 /* Pods-prefix.pch */,
+				80B80CD9B1CB4F14B6E612B5 /* Pods.xcconfig */,
 			);
-			name = "Targets Support Files";
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC29203E09344CC08591F411 /* KSCrypto */ = {
+			isa = PBXGroup;
+			children = (
+				7A269167B2F3480A9646A62D /* KSSHA1Stream.h */,
+				813092329D2841A79E9A6CEB /* KSSHA1Stream.m */,
+			);
+			name = KSCrypto;
+			sourceTree = "<group>";
+		};
+		B7B1A0A6D5E34593B2E3300F /* WEPopover */ = {
+			isa = PBXGroup;
+			children = (
+				89BE33ADC51D4EFEABA309E1 /* UIBarButtonItem+WEPopover.h */,
+				A42C287CCF75431F8E6E88BE /* WEPopoverContainerView.h */,
+				CF10891BB007456EB075710B /* WEPopoverController.h */,
+				1A58796455DF4D0B85480AFD /* WEPopoverParentView.h */,
+				82C3E21749C0435383593FBF /* WETouchableView.h */,
+				C403BE31672B42369B0AE745 /* UIBarButtonItem+WEPopover.m */,
+				F7BB52490624437ABDFD8CDC /* WEPopoverContainerView.m */,
+				17538E3193704E1EB6989698 /* WEPopoverController.m */,
+				52F34F01E4614A97AD8D6874 /* WETouchableView.m */,
+			);
+			name = WEPopover;
+			sourceTree = "<group>";
+		};
+		EE48E93526CD4E8188715C6E = {
+			isa = PBXGroup;
+			children = (
+				576783A57C7844669DC55EE9 /* Products */,
+				3E21C714FD62421BB9DD7860 /* Pods */,
+				43A9397186354F808AA5B4D6 /* Targets Support Files */,
+				F6EF3180E9BB4B718C9A9D35 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EF7C1C679FE24FF18D4FA2F1 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				905F9AF5C95F45EB98D8F841 /* SSKeychain.h */,
+				7420E41F2D5E40E9B8EF4A30 /* SSKeychain.m */,
+			);
+			name = SSKeychain;
+			sourceTree = "<group>";
+		};
+		F6EF3180E9BB4B718C9A9D35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				240859D03745460A8787B677 /* Foundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		57685D75D5DA4BCEBC053050 /* Pods */ = {
+		1AD5BBFC10EA40BF9B9F6777 /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5A0D445824BE480A8D3CD2BD /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = 724BCA68F5F8490D9CF4FA46 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				679A8645D5754DE0857F5831 /* Sources */,
-				B51A6EA032114045BA3B8ADF /* CopyFiles */,
-				E47EAFC7CB5B4EEA90741684 /* Frameworks */,
+				49EF269570874874A4AC702A /* Sources */,
+				C313D14CA34540BCB2FDE9D5 /* CopyFiles */,
+				AFF48E8B32FC49CA9F4F955F /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -325,146 +291,90 @@
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = 88DE4C2E72C84BA9AA73F663 /* libPods.a */;
+			productReference = 40384BBE793D49F698EF7F02 /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6702E809C04C45CF8B7846DC /* Project object */ = {
+		81EC07FC1345446C9987CD88 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = 1547FF9CADD446F1B90EE9D4 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = E90394330F7949ADB9F77044 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 28B7FC7FF27D45E8AFB848D7;
-			productRefGroup = 105C9C735D3B4BFC8A3C2882 /* Products */;
+			mainGroup = EE48E93526CD4E8188715C6E;
+			productRefGroup = 576783A57C7844669DC55EE9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				57685D75D5DA4BCEBC053050 /* Pods */,
+				1AD5BBFC10EA40BF9B9F6777 /* Pods */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		679A8645D5754DE0857F5831 /* Sources */ = {
+		49EF269570874874A4AC702A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A385614B7E4945F8ADC9AA28 /* KSSHA1Stream.m in Sources */,
-				1FEA58DB47CE45BF85DE1EF7 /* SSKeychain.m in Sources */,
-				0A63760C3A2F4957AC201A88 /* BaseDataEntryCell.m in Sources */,
-				D90D89F72E2B49E2992B0739 /* PushControllerDataEntryCell.m in Sources */,
-				ED449BF2E8BE4480B4687742 /* PushDateEntryCell.m in Sources */,
-				36433C863B90437F94E8CC56 /* PushFormDataEntryCell.m in Sources */,
-				D6D214263787459DAE2DC082 /* PushTextEntryCell.m in Sources */,
-				01D78EF82612432CB2B780E1 /* PushWebViewEntryCell.m in Sources */,
-				DE4325B32B69473E9897B9F4 /* SegmentedDataEntryCell.m in Sources */,
-				5DA5D41F19B04887827A9EB5 /* SwitchDataEntryCell.m in Sources */,
-				DD31F9B5849A4BFAA69C2789 /* TextDataEntryCell.m in Sources */,
-				0FCB43FE26634F2EA3C16E22 /* UIXMLFormViewController.m in Sources */,
-				30153B62AD904B029E4C6469 /* WaitMaskController.m in Sources */,
-				404146C0F0AF4A5294174602 /* UIBarButtonItem+WEPopover.m in Sources */,
-				EB1418CAEC564E559B96AFB7 /* WEPopoverContainerView.m in Sources */,
-				73E47CF1A9EB4977922674E7 /* WEPopoverController.m in Sources */,
-				CAD7957CBC9644E6924ED457 /* WETouchableView.m in Sources */,
-				F8983A3BE1B944AE8ABB173E /* ZKRevealingTableViewCell.m in Sources */,
-				DD030584205746E0A7BDD2BC /* PodsDummy_Pods.m in Sources */,
+				D682616847E44073860A08E9 /* KSSHA1Stream.m in Sources */,
+				B86F546EAFB740769FC9E5F3 /* SSKeychain.m in Sources */,
+				9949F73E98F24866B10573C7 /* UIBarButtonItem+WEPopover.m in Sources */,
+				FEA1F8BB54D549C08A1AA781 /* WEPopoverContainerView.m in Sources */,
+				396C7EB92C624A4FAC641B25 /* WEPopoverController.m in Sources */,
+				8C94AD36981C49D28DBEB991 /* WETouchableView.m in Sources */,
+				B53ECA47A4EC440BB90D5198 /* ZKRevealingTableViewCell.m in Sources */,
+				4E8BD438A48B4073880C86C6 /* PodsDummy_Pods.m in Sources */,
+				5FE0EE8815E9AB5E00472C44 /* BaseDataEntryCell.m in Sources */,
+				5FE0EE8915E9AB5E00472C44 /* PushControllerDataEntryCell.m in Sources */,
+				5FE0EE8A15E9AB5E00472C44 /* PushDateEntryCell.m in Sources */,
+				5FE0EE8B15E9AB5E00472C44 /* PushFormDataEntryCell.m in Sources */,
+				5FE0EE8C15E9AB5E00472C44 /* PushTextEntryCell.m in Sources */,
+				5FE0EE8D15E9AB5E00472C44 /* PushWebViewEntryCell.m in Sources */,
+				5FE0EE8E15E9AB5E00472C44 /* SegmentedDataEntryCell.m in Sources */,
+				5FE0EE8F15E9AB5E00472C44 /* SwitchDataEntryCell.m in Sources */,
+				5FE0EE9015E9AB5E00472C44 /* TextDataEntryCell.m in Sources */,
+				5FE0EE9115E9AB5E00472C44 /* UIXMLFormViewController.m in Sources */,
+				5FE0EE9215E9AB5E00472C44 /* WaitMaskController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		A026071D15DE8C9C009B2F72 /* DefaultHeaderInSection.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A026071E15DE8C9C009B2F72 /* en */,
-			);
-			name = DefaultHeaderInSection.xib;
-			sourceTree = "<group>";
-		};
-		A026071F15DE8C9C009B2F72 /* MailDataEntryCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A026072015DE8C9C009B2F72 /* en */,
-			);
-			name = MailDataEntryCell.xib;
-			sourceTree = "<group>";
-		};
-		A026072115DE8C9C009B2F72 /* PushDateEntryCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A026072215DE8C9C009B2F72 /* en */,
-			);
-			name = PushDateEntryCell.xib;
-			sourceTree = "<group>";
-		};
-		A026072315DE8C9C009B2F72 /* PushFormDataEntryCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A026072415DE8C9C009B2F72 /* en */,
-			);
-			name = PushFormDataEntryCell.xib;
-			sourceTree = "<group>";
-		};
-		A026072515DE8C9C009B2F72 /* PushTextEntryCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A026072615DE8C9C009B2F72 /* en */,
-			);
-			name = PushTextEntryCell.xib;
-			sourceTree = "<group>";
-		};
-		A026072715DE8C9C009B2F72 /* PushWebViewEntryCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A026072815DE8C9C009B2F72 /* en */,
-			);
-			name = PushWebViewEntryCell.xib;
-			sourceTree = "<group>";
-		};
-		A026072915DE8C9C009B2F72 /* SwitchDataEntryCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A026072A15DE8C9C009B2F72 /* en */,
-			);
-			name = SwitchDataEntryCell.xib;
-			sourceTree = "<group>";
-		};
-		A026072B15DE8C9C009B2F72 /* TextDataEntryCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A026072C15DE8C9C009B2F72 /* en */,
-			);
-			name = TextDataEntryCell.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		10411CD2BFC94F9987FABF0B /* Release */ = {
+		6D3666EA95C34BCF86032A5E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0BEDEE22FBB47398AA4E956 /* Pods.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		7587950D71F54D6BA125EEC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80B80CD9B1CB4F14B6E612B5 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pods-prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "";
+				PODS_HEADERS_SEARCH_PATHS = "${PODS_BUILD_HEADERS_SEARCH_PATHS}";
 				PODS_ROOT = "${SRCROOT}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
@@ -474,18 +384,21 @@
 			};
 			name = Release;
 		};
-		193E9F1436824643A67D8C66 /* Release */ = {
+		A33E157B757C4569ABE59D83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
-			name = Release;
+			name = Debug;
 		};
-		863D688C08704B10AB77BAEE /* Debug */ = {
+		A7081FCEA4A943228F89FBCC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0BEDEE22FBB47398AA4E956 /* Pods.xcconfig */;
+			baseConfigurationReference = 80B80CD9B1CB4F14B6E612B5 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -499,9 +412,11 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "";
+				PODS_HEADERS_SEARCH_PATHS = "${PODS_BUILD_HEADERS_SEARCH_PATHS}";
 				PODS_ROOT = "${SRCROOT}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
@@ -510,34 +425,28 @@
 			};
 			name = Debug;
 		};
-		D67FB842F3CF48A3A054D157 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1547FF9CADD446F1B90EE9D4 /* Build configuration list for PBXProject "Pods" */ = {
+		724BCA68F5F8490D9CF4FA46 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D67FB842F3CF48A3A054D157 /* Debug */,
-				193E9F1436824643A67D8C66 /* Release */,
+				A7081FCEA4A943228F89FBCC /* Debug */,
+				7587950D71F54D6BA125EEC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5A0D445824BE480A8D3CD2BD /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		E90394330F7949ADB9F77044 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				863D688C08704B10AB77BAEE /* Debug */,
-				10411CD2BFC94F9987FABF0B /* Release */,
+				A33E157B757C4569ABE59D83 /* Debug */,
+				6D3666EA95C34BCF86032A5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6702E809C04C45CF8B7846DC /* Project object */;
+	rootObject = 81EC07FC1345446C9987CD88 /* Project object */;
 }

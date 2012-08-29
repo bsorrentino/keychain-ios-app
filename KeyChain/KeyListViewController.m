@@ -61,10 +61,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 - (void)pushViewSection:(KeyEntity *)keyEntity;
 - (NSRange)getSectionPrefix:(NSString*)key;
 - (void)createSectionChoosingCustomSectionPrefix:(KeyEntity *)source target:(KeyEntity*)target replaceSource:(BOOL)replaceSource replaceTarget:(BOOL)replaceTarget;
-- (void)setNavigationTitle:(NSString*)title;
-- (BOOL)touchUpInsideEditButton;
-
-- (IBAction)detachFromSection:(id)sender;
 
 @end
 
@@ -106,40 +102,24 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
 }
 
-- (void)filterReset {
+- (void)filterReset:(BOOL)reloadData {
     
     [self filterContentByPredicate:
      [NSPredicate predicateWithFormat:SEARCHRESET_CRITERIA ] //@"group == NO or group == nil"*/
                              scope:nil];
-    reloadData_ = YES;
+    reloadData_ = reloadData;
 }
 
 
 #pragma mark - Section implementation
 
-- (void)setNavigationTitle:(NSString*)title {
-
-/*
-    self.navigationController.navigationBar.topItem.title = title;
-*/  
-}
-
-- (void)hideNavigationRightButton:(BOOL)value {
-
-/*
-    if (value) {
-        addButton_ = self.navigationController.navigationBar.topItem.rightBarButtonItem;
-        [self.navigationController.navigationBar.topItem setRightBarButtonItem:nil];
-    }
-    else {
-        [self.navigationController.navigationBar.topItem setRightBarButtonItem:addButton_];   
-    }
-*/    
-}
 
 - (void)pushViewSection:(KeyEntity *)keyEntity {
 
-    [self.sectionController prepareForAppear:keyEntity];
+    [self.sectionController prepareForAppear:keyEntity onDisappear:^() {
+       
+        [self filterReset:YES];
+    }];
     
     [self.navigationController pushViewController:self.sectionController animated:YES];
 
@@ -186,32 +166,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     [inputView show];
  
-}
-
-//
-// fireEvent UIControlEventTouchUpInside to edit button
-//
-- (BOOL)touchUpInsideEditButton {
-    
-    for (UIView *subview in self.navigationController.navigationBar.subviews) 
-    {
-        NSLog(@"class [%@]", [subview class].description );
-        
-        if ([[subview class].description isEqualToString:@"UINavigationButton"])
-        {
-            
-            UIButton * button = (UIButton *)subview;
-            
-            NSLog(@"button.text [%@]", button.titleLabel.text);
-            
-            [button sendActionsForControlEvents:UIControlEventTouchUpInside];
-            
-            return YES;
-            
-        }
-        
-    }   
-    return NO;
 }
 
 
@@ -722,8 +676,10 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
 	if (entity.isNew) {
 		[context insertObject:entity];
-        reloadData_ = YES;
 	}
+
+    [self filterReset:entity.isNew];
+    
 	
  
 	NSError *error = nil;
@@ -750,15 +706,24 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    reloadData_ = NO;
-	
     self.searchDisplayController.searchBar.delegate = self;
     
     [self hideSearchBar:NO];
     
     dd_ = [[DDTableViewManager alloc ] initFromTableView:self.tableView]; dd_.delegate = self;
     
+    [self filterReset:YES];
+    
+
 }
+
+- (void)viewDidUnload {
+    [self setKeyCell:nil];
+    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+    // For example: self.myOutlet = nil;
+}
+
+
 
 // Implement viewWillAppear: to do additional setup before the view is presented.
 - (void)viewWillAppear:(BOOL)animated {
@@ -807,10 +772,12 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         cell.detailTextLabel.text = managedObject.groupPrefix;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    //else if( managedObject.isGrouped ) {
-    //    cell.detailTextLabel.text = managedObject.groupPrefix;
-    //}
     else {
+        
+        if( managedObject.isGrouped ) {
+            cell.detailTextLabel.text = managedObject.groupPrefix;
+        }
+
         if ([cell isKindOfClass:[ZKRevealingTableViewCell class]]) {
 
             ZKRevealingTableViewCell *revealCell = (ZKRevealingTableViewCell *)cell;
@@ -1052,11 +1019,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 - (NSFetchedResultsController *)fetchedResultsController {
     
-    if (fetchedResultsController_ != nil) {
-        return fetchedResultsController_;
-    }
-    
-    [self filterReset];
+    NSAssert( fetchedResultsController_ != nil, @"fetched result controller is nil!");
     
     return fetchedResultsController_;
 }    
@@ -1235,16 +1198,14 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 }
 
 
-#pragma mark -
-#pragma mark UISearchBarDelegate implementation
-#pragma mark -
+#pragma mark - UISearchBarDelegate implementation
 
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {                    // called when cancel button pressed
     
     NSLog( @"searchBarCancelButtonClicked " );
     
-    [self filterReset];
+    [self filterReset:NO];
     [self.tableView reloadData];
     [searchBar resignFirstResponder];
     
@@ -1300,13 +1261,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     [super didReceiveMemoryWarning];
     
     // Relinquish ownership any cached data, images, etc that aren't in use.
-}
-
-
-- (void)viewDidUnload {
-    [self setKeyCell:nil];
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
 }
 
 

@@ -1,7 +1,7 @@
 PODS:
   - KSCrypto (1.0.2)
   - SSKeychain (0.1.4)
-  - UIXML (1.0.0)
+  - UIXML (1.2.0)
   - WEPopover (0.1.1)
   - ZKRevealingTableViewCell (0.1.2)
 

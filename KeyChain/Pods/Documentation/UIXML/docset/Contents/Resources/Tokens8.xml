@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PushWebViewEntryCell.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PushWebViewEntryCell</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushWebViewEntryCell.h</DeclaredIn>
+			
+			<NodeRef refid="8"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushWebViewEntryCell/setViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushWebViewEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (UIXML_STRONG, nonatomic) IBOutlet WebViewController *viewController</Declaration>
+			
+			
+			<Anchor>//api/name/viewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PushWebViewEntryCell/viewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushWebViewEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (UIXML_STRONG, nonatomic) IBOutlet WebViewController *viewController</Declaration>
+			
+			
+			<Anchor>//api/name/viewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushWebViewEntryCell/setTextValue:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushWebViewEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (UIXML_WEAK, nonatomic) IBOutlet UITextField *textValue</Declaration>
+			
+			
+			<Anchor>//api/name/textValue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PushWebViewEntryCell/textValue</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushWebViewEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (UIXML_WEAK, nonatomic) IBOutlet UITextField *textValue</Declaration>
+			
+			
+			<Anchor>//api/name/textValue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PushWebViewEntryCell/setTextLabel:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushWebViewEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (UIXML_WEAK, nonatomic) IBOutlet UILabel *textLabel</Declaration>
+			
+			
+			<Anchor>//api/name/textLabel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PushWebViewEntryCell/textLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PushWebViewEntryCell.h</DeclaredIn>			
+			
+			<Declaration>@property (UIXML_WEAK, nonatomic) IBOutlet UILabel *textLabel</Declaration>
+			
+			
+			<Anchor>//api/name/textLabel</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

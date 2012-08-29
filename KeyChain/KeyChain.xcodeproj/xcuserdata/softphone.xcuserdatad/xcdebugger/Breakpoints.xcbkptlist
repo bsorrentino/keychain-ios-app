@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MailListDataEntryCell.m"
-         timestampString = "355312771.12503"
+         timestampString = "367405288.997188"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "559"
-         endingLineNumber = "559"
+         startingLineNumber = "555"
+         endingLineNumber = "555"
          landmarkName = "-controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -51,11 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MailListDataEntryCell.m"
-         timestampString = "355312771.12503"
+         timestampString = "367405288.997188"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
+         startingLineNumber = "64"
+         endingLineNumber = "64"
          landmarkName = "@implementation MailListDataEntryCell"
          landmarkType = "3">
       </FileBreakpoint>

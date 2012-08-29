@@ -15,10 +15,15 @@
 @implementation InfoViewController
 
 - (IBAction)showVideo:(id)sender {
- 
+
+#define YOUTUBE_1 @"http://www.youtube.com/watch?v=KsNFdkibU44&context=C407c249ADvjVQa1PpcFNS8ap2Q6YqkUIjLRK-kiKU_Q1k0KgzSdc=A"
+    
+#define YOUTUBE @"http://www.youtube.com/watch?v=0B-nxrle8CY&feature=g-upl"
+    
+    
     NSURL *url = 
         [[NSURL alloc] 
-         initWithString:@"http://www.youtube.com/watch?v=KsNFdkibU44&context=C407c249ADvjVQa1PpcFNS8ap2Q6YqkUIjLRK-kiKU_Q1k0KgzSdc=A" ];
+         initWithString:YOUTUBE ];
                   
     [[UIApplication sharedApplication] openURL:url ];
 }
