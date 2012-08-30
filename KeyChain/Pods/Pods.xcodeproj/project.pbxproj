@@ -7,283 +7,344 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E6B8A569BAE46E69847D524 /* WEPopoverParentView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A58796455DF4D0B85480AFD /* WEPopoverParentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3079837D5094443AA0CC61BC /* KSSHA1Stream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A269167B2F3480A9646A62D /* KSSHA1Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		396C7EB92C624A4FAC641B25 /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17538E3193704E1EB6989698 /* WEPopoverController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4E8BD438A48B4073880C86C6 /* PodsDummy_Pods.m in Sources */ = {isa = PBXBuildFile; fileRef = B03A707B4AEB4121946149D3 /* PodsDummy_Pods.m */; };
-		51D1B5508AB4408FBFDBFD82 /* WEPopoverContainerView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A42C287CCF75431F8E6E88BE /* WEPopoverContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5C3910876F86429687172ACF /* UIBarButtonItem+WEPopover.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 89BE33ADC51D4EFEABA309E1 /* UIBarButtonItem+WEPopover.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5FE0EE8815E9AB5E00472C44 /* BaseDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE6515E9AB5E00472C44 /* BaseDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5FE0EE8915E9AB5E00472C44 /* PushControllerDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE6B15E9AB5E00472C44 /* PushControllerDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5FE0EE8A15E9AB5E00472C44 /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE6D15E9AB5E00472C44 /* PushDateEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5FE0EE8B15E9AB5E00472C44 /* PushFormDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE7015E9AB5E00472C44 /* PushFormDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5FE0EE8C15E9AB5E00472C44 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE7315E9AB5E00472C44 /* PushTextEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5FE0EE8D15E9AB5E00472C44 /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE7615E9AB5E00472C44 /* PushWebViewEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5FE0EE8E15E9AB5E00472C44 /* SegmentedDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE7A15E9AB5E00472C44 /* SegmentedDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5FE0EE8F15E9AB5E00472C44 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE7C15E9AB5E00472C44 /* SwitchDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5FE0EE9015E9AB5E00472C44 /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE7F15E9AB5E00472C44 /* TextDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5FE0EE9115E9AB5E00472C44 /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE8315E9AB5E00472C44 /* UIXMLFormViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5FE0EE9215E9AB5E00472C44 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE0EE8615E9AB5E00472C44 /* WaitMaskController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		6831B7EC6AC342C6A8C8DAC4 /* WETouchableView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 82C3E21749C0435383593FBF /* WETouchableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8C94AD36981C49D28DBEB991 /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F34F01E4614A97AD8D6874 /* WETouchableView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		956CBF1E465C4FA6BBE3705A /* WEPopoverController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF10891BB007456EB075710B /* WEPopoverController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9949F73E98F24866B10573C7 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = C403BE31672B42369B0AE745 /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		B3C90F98C2F34E85BEB6CD21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240859D03745460A8787B677 /* Foundation.framework */; };
-		B53ECA47A4EC440BB90D5198 /* ZKRevealingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 569951EFD8204816858A6465 /* ZKRevealingTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		B86F546EAFB740769FC9E5F3 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7420E41F2D5E40E9B8EF4A30 /* SSKeychain.m */; };
-		D682616847E44073860A08E9 /* KSSHA1Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 813092329D2841A79E9A6CEB /* KSSHA1Stream.m */; };
-		DF8BED1D45F5486DA0880B55 /* ZKRevealingTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8D35EB0E00941F6854D27D2 /* ZKRevealingTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4E44EC6B7A04EA99712A408 /* SSKeychain.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 905F9AF5C95F45EB98D8F841 /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FEA1F8BB54D549C08A1AA781 /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB52490624437ABDFD8CDC /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0045ECD5EC614051BBCB3CAA /* WEPopoverContainerView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DEFA2452F13349269940AED9 /* WEPopoverContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0471350B76D944D281867A14 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3F9B7517144FE3941EBCE2 /* PushTextEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0545D314E8E74BD18440D462 /* UIXML.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63930A3CF63B44779107942E /* UIXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		096EB9F858444D92BB14D97C /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE37AEC2244E4E7A9CE14FC4 /* UIXMLFormViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0ADC565506A44D608B98CB09 /* RNCryptor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 828728FDABEB4BDA9586F9D3 /* RNCryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0AEEDA7B5912482CB25BDFAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B5636FE2B4A8E9C3AA342 /* Foundation.framework */; };
+		0B267BC260414EC089854837 /* RNOpenSSLCryptor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8EA778301BAB4ABB92D3F998 /* RNOpenSSLCryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0CB93B1AC9B046FEBB8E7563 /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BEC886B19E4B129CE14628 /* WETouchableView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0DE2CAA33AFA4BD9959784AF /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1233638E547D46AC96A67227 /* SwitchDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0E7241B856DC468A8193FECD /* UIBarButtonItem+WEPopover.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F16EDE63424FBE8E72F07A /* UIBarButtonItem+WEPopover.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		131F960C09C94E8B82A754C6 /* PushFormDataEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6479215F79AC4FF9BD205DA9 /* PushFormDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		14E3E94D57CF4B5394006193 /* PushDateEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 752C4FE2294745F2BBCF1CCC /* PushDateEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23359C77738D4D96AAE6755A /* RNOpenSSLEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 661C2EDDD6F64C849B29EDAE /* RNOpenSSLEncryptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		2450075F925B483ABEE66DBC /* RNCryptorEngine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EF5D48129F564700B7AEC529 /* RNCryptorEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26AE8EC5986647C79E71E424 /* UIXMLFormViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 086DE5F8E99A40D592C4BC3F /* UIXMLFormViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2994CDA8B9DF466986D55CBE /* RNOpenSSLEncryptor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E3DD4303697343A0AFA123FC /* RNOpenSSLEncryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B1D7CDAA77E4CEC8668EAC2 /* UIXMLFormViewControllerDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CAAC19DBAF04AAB906D37D2 /* UIXMLFormViewControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C84E2DFB7FB48778FC86198 /* RNEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6669FBB83E7E4A23B4FF7C29 /* RNEncryptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		30D9568E33994B7B98802B10 /* RNOpenSSLDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD365BABE594C599568E391 /* RNOpenSSLDecryptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3849D1CE65F44A18813CC274 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BFBA343B6A41ECB04FD239 /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		40499F574AEB457C98A3E7AB /* RNCryptorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D89FBBCB3D74600866A6AF9 /* RNCryptorEngine.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		43A6092846F946219D09F608 /* SegmentedDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 010F7CDE795D4C61BA0361B5 /* SegmentedDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4EC3B3886E5F4FF7B4E9D0B6 /* RNOpenSSLDecryptor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A76F045E24334EFE864FBD48 /* RNOpenSSLDecryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A4C743F16104C4E9F3330BD /* PushWebViewEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A1ECCC54AE54281B7AC4A7C /* PushWebViewEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		66EDCC44A699437589A6F7BF /* RNDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DF77750FB2431FA2B6DC8C /* RNDecryptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6A600FAE489046979790E0C2 /* ZKRevealingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E92E4E97CE4DDEB6BAE642 /* ZKRevealingTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6AB6507020984466BFDEE3CE /* TextDataEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CED1C44866744D7898294EDD /* TextDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6AD049170EC349988F365713 /* SegmentedDataEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 98A08FB213E44B9DA92DD5A5 /* SegmentedDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70778B6BAE0541DB89102602 /* BaseDataEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8B4F9ED030AA419FB453BA38 /* BaseDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		775C10D95AD5461E9F7090BB /* PodsDummy_Pods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7D013C4BF149949AD9CD5B /* PodsDummy_Pods.m */; };
+		807AC15416DE47E291F17F65 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = F43157870652493AA5644C3B /* SSKeychain.m */; };
+		832CFD55A1C2440180FC914F /* BaseDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38221F11E93644B195D06495 /* BaseDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		87847E6702F44578AE0A3954 /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CC8AE1E4E94612BBC042BF /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		88E5549C75DC4A498B703989 /* WEPopoverParentView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0D27036A0B3E4E828E549883 /* WEPopoverParentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		949B2458BAF64BDE98CA0C9E /* KSSHA1Stream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ED9B724D52174E84A4A4DA17 /* KSSHA1Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		957C1A750CB348ACAF5C34DA /* RNOpenSSLCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7187D4F00CFB4BFB81BE15E1 /* RNOpenSSLCryptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9DB6A53AD3934D36ADD8D331 /* PushControllerDataEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 13647FC6B3454F1DBC6E43E2 /* PushControllerDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9F27A78D8FB947DC88192388 /* KSSHA1Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 956236FFAC4C4B62A319B792 /* KSSHA1Stream.m */; };
+		AFE3F0B9E7544766B957011A /* WaitMaskController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E363F43F347E4D26BE7B459C /* WaitMaskController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B025F32FAAF54ADBBDD74AC3 /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C3CEAEC2E04965A71366D5 /* PushWebViewEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		B02A095902CE4E84A94D7B43 /* WEPopoverController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC1D6CBCCC7549B2AEE81677 /* WEPopoverController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B673EF92B46040F88B4AF330 /* RNDecryptor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D070AF50A364471D89C7B491 /* RNDecryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B7DC8AED393D4ABE907A8969 /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0E194F66C46A6BFE5C830 /* TextDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C018F1A08AC84B3F9A197DC9 /* RNCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = E954C510B9524B169AB8EA0B /* RNCryptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C74A7B2607B449B3BC50BAA2 /* SwitchDataEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 827191CBB1394392B068E90D /* SwitchDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C821913083124CF1B86D8685 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BDA02181EA47228541675B /* WaitMaskController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CA3A9ACE87344C7C94FBD33E /* ZKRevealingTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6D554904B8C442F1838C29C1 /* ZKRevealingTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0508A92BCDC4781A3125043 /* WETouchableView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2C0195BE90F9490A9F83AF6D /* WETouchableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EFAEADEC3647F68B3A9650 /* RNCryptor+Private.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A78C0F2400C944539DEF2062 /* RNCryptor+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8419B01B77340AFA2C0B062 /* PushTextEntryCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B73B8D3BC0594567858FFCEF /* PushTextEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D95A6979C040470CAB2D36CC /* SSKeychain.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D1FDC232046F4E2492906F1C /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC081E3D48DC4493A6A8F025 /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723E769B2453FA0982ACF /* WEPopoverController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		DD5105276C1D425EACC9108D /* RNEncryptor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E3350CE048F4C7BBC04D850 /* RNEncryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DDDC9E4C8FD64357AFA826C5 /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBAD86818EA4483B260C10A /* PushDateEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		E23D32755DA9474A9F4B85BB /* PushControllerDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4477C8115794EAFBC52E9E1 /* PushControllerDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		F0CE2502AF744D09A56D59AF /* PushFormDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB8A674B8C643B08AFB82D4 /* PushFormDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C313D14CA34540BCB2FDE9D5 /* CopyFiles */ = {
+		576D190A28614ED8AFDEC115 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				3079837D5094443AA0CC61BC /* KSSHA1Stream.h in CopyFiles */,
-				F4E44EC6B7A04EA99712A408 /* SSKeychain.h in CopyFiles */,
-				5C3910876F86429687172ACF /* UIBarButtonItem+WEPopover.h in CopyFiles */,
-				51D1B5508AB4408FBFDBFD82 /* WEPopoverContainerView.h in CopyFiles */,
-				956CBF1E465C4FA6BBE3705A /* WEPopoverController.h in CopyFiles */,
-				0E6B8A569BAE46E69847D524 /* WEPopoverParentView.h in CopyFiles */,
-				6831B7EC6AC342C6A8C8DAC4 /* WETouchableView.h in CopyFiles */,
-				DF8BED1D45F5486DA0880B55 /* ZKRevealingTableViewCell.h in CopyFiles */,
+				949B2458BAF64BDE98CA0C9E /* KSSHA1Stream.h in CopyFiles */,
+				D2EFAEADEC3647F68B3A9650 /* RNCryptor+Private.h in CopyFiles */,
+				0ADC565506A44D608B98CB09 /* RNCryptor.h in CopyFiles */,
+				2450075F925B483ABEE66DBC /* RNCryptorEngine.h in CopyFiles */,
+				B673EF92B46040F88B4AF330 /* RNDecryptor.h in CopyFiles */,
+				DD5105276C1D425EACC9108D /* RNEncryptor.h in CopyFiles */,
+				0B267BC260414EC089854837 /* RNOpenSSLCryptor.h in CopyFiles */,
+				4EC3B3886E5F4FF7B4E9D0B6 /* RNOpenSSLDecryptor.h in CopyFiles */,
+				2994CDA8B9DF466986D55CBE /* RNOpenSSLEncryptor.h in CopyFiles */,
+				D95A6979C040470CAB2D36CC /* SSKeychain.h in CopyFiles */,
+				70778B6BAE0541DB89102602 /* BaseDataEntryCell.h in CopyFiles */,
+				9DB6A53AD3934D36ADD8D331 /* PushControllerDataEntryCell.h in CopyFiles */,
+				14E3E94D57CF4B5394006193 /* PushDateEntryCell.h in CopyFiles */,
+				131F960C09C94E8B82A754C6 /* PushFormDataEntryCell.h in CopyFiles */,
+				D8419B01B77340AFA2C0B062 /* PushTextEntryCell.h in CopyFiles */,
+				5A4C743F16104C4E9F3330BD /* PushWebViewEntryCell.h in CopyFiles */,
+				6AD049170EC349988F365713 /* SegmentedDataEntryCell.h in CopyFiles */,
+				C74A7B2607B449B3BC50BAA2 /* SwitchDataEntryCell.h in CopyFiles */,
+				6AB6507020984466BFDEE3CE /* TextDataEntryCell.h in CopyFiles */,
+				0545D314E8E74BD18440D462 /* UIXML.h in CopyFiles */,
+				26AE8EC5986647C79E71E424 /* UIXMLFormViewController.h in CopyFiles */,
+				2B1D7CDAA77E4CEC8668EAC2 /* UIXMLFormViewControllerDelegate.h in CopyFiles */,
+				AFE3F0B9E7544766B957011A /* WaitMaskController.h in CopyFiles */,
+				0E7241B856DC468A8193FECD /* UIBarButtonItem+WEPopover.h in CopyFiles */,
+				0045ECD5EC614051BBCB3CAA /* WEPopoverContainerView.h in CopyFiles */,
+				B02A095902CE4E84A94D7B43 /* WEPopoverController.h in CopyFiles */,
+				88E5549C75DC4A498B703989 /* WEPopoverParentView.h in CopyFiles */,
+				D0508A92BCDC4781A3125043 /* WETouchableView.h in CopyFiles */,
+				CA3A9ACE87344C7C94FBD33E /* ZKRevealingTableViewCell.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		17538E3193704E1EB6989698 /* WEPopoverController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverController.m; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WEPopoverController.m"; sourceTree = SOURCE_ROOT; };
-		1A58796455DF4D0B85480AFD /* WEPopoverParentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverParentView.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WEPopoverParentView.h"; sourceTree = SOURCE_ROOT; };
-		240859D03745460A8787B677 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		40384BBE793D49F698EF7F02 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		52F34F01E4614A97AD8D6874 /* WETouchableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WETouchableView.m; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WETouchableView.m"; sourceTree = SOURCE_ROOT; };
-		569951EFD8204816858A6465 /* ZKRevealingTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZKRevealingTableViewCell.m; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/ZKRevealingTableViewCell/vendor/ZKRevealingTableViewCell.m"; sourceTree = SOURCE_ROOT; };
-		5FE0EE6315E9AB5E00472C44 /* back24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back24x24.png; path = UIXML/back24x24.png; sourceTree = "<group>"; };
-		5FE0EE6415E9AB5E00472C44 /* BaseDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseDataEntryCell.h; path = UIXML/BaseDataEntryCell.h; sourceTree = "<group>"; };
-		5FE0EE6515E9AB5E00472C44 /* BaseDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseDataEntryCell.m; path = UIXML/BaseDataEntryCell.m; sourceTree = "<group>"; };
-		5FE0EE6615E9AB5E00472C44 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chevron.png; path = UIXML/chevron.png; sourceTree = "<group>"; };
-		5FE0EE6715E9AB5E00472C44 /* confirm24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = confirm24x24.png; path = UIXML/confirm24x24.png; sourceTree = "<group>"; };
-		5FE0EE6815E9AB5E00472C44 /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edit32x32.png; path = UIXML/edit32x32.png; sourceTree = "<group>"; };
-		5FE0EE6915E9AB5E00472C44 /* MailDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MailDataEntryCell.xib; path = UIXML/MailDataEntryCell.xib; sourceTree = "<group>"; };
-		5FE0EE6A15E9AB5E00472C44 /* PushControllerDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushControllerDataEntryCell.h; path = UIXML/PushControllerDataEntryCell.h; sourceTree = "<group>"; };
-		5FE0EE6B15E9AB5E00472C44 /* PushControllerDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushControllerDataEntryCell.m; path = UIXML/PushControllerDataEntryCell.m; sourceTree = "<group>"; };
-		5FE0EE6C15E9AB5E00472C44 /* PushDateEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushDateEntryCell.h; path = UIXML/PushDateEntryCell.h; sourceTree = "<group>"; };
-		5FE0EE6D15E9AB5E00472C44 /* PushDateEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushDateEntryCell.m; path = UIXML/PushDateEntryCell.m; sourceTree = "<group>"; };
-		5FE0EE6E15E9AB5E00472C44 /* PushDateEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushDateEntryCell.xib; path = UIXML/PushDateEntryCell.xib; sourceTree = "<group>"; };
-		5FE0EE6F15E9AB5E00472C44 /* PushFormDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushFormDataEntryCell.h; path = UIXML/PushFormDataEntryCell.h; sourceTree = "<group>"; };
-		5FE0EE7015E9AB5E00472C44 /* PushFormDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushFormDataEntryCell.m; path = UIXML/PushFormDataEntryCell.m; sourceTree = "<group>"; };
-		5FE0EE7115E9AB5E00472C44 /* PushFormDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushFormDataEntryCell.xib; path = UIXML/PushFormDataEntryCell.xib; sourceTree = "<group>"; };
-		5FE0EE7215E9AB5E00472C44 /* PushTextEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushTextEntryCell.h; path = UIXML/PushTextEntryCell.h; sourceTree = "<group>"; };
-		5FE0EE7315E9AB5E00472C44 /* PushTextEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushTextEntryCell.m; path = UIXML/PushTextEntryCell.m; sourceTree = "<group>"; };
-		5FE0EE7415E9AB5E00472C44 /* PushTextEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushTextEntryCell.xib; path = UIXML/PushTextEntryCell.xib; sourceTree = "<group>"; };
-		5FE0EE7515E9AB5E00472C44 /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushWebViewEntryCell.h; path = UIXML/PushWebViewEntryCell.h; sourceTree = "<group>"; };
-		5FE0EE7615E9AB5E00472C44 /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushWebViewEntryCell.m; path = UIXML/PushWebViewEntryCell.m; sourceTree = "<group>"; };
-		5FE0EE7715E9AB5E00472C44 /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushWebViewEntryCell.xib; path = UIXML/PushWebViewEntryCell.xib; sourceTree = "<group>"; };
-		5FE0EE7815E9AB5E00472C44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = UIXML/README.md; sourceTree = "<group>"; };
-		5FE0EE7915E9AB5E00472C44 /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SegmentedDataEntryCell.h; path = UIXML/SegmentedDataEntryCell.h; sourceTree = "<group>"; };
-		5FE0EE7A15E9AB5E00472C44 /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SegmentedDataEntryCell.m; path = UIXML/SegmentedDataEntryCell.m; sourceTree = "<group>"; };
-		5FE0EE7B15E9AB5E00472C44 /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwitchDataEntryCell.h; path = UIXML/SwitchDataEntryCell.h; sourceTree = "<group>"; };
-		5FE0EE7C15E9AB5E00472C44 /* SwitchDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchDataEntryCell.m; path = UIXML/SwitchDataEntryCell.m; sourceTree = "<group>"; };
-		5FE0EE7D15E9AB5E00472C44 /* SwitchDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SwitchDataEntryCell.xib; path = UIXML/SwitchDataEntryCell.xib; sourceTree = "<group>"; };
-		5FE0EE7E15E9AB5E00472C44 /* TextDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextDataEntryCell.h; path = UIXML/TextDataEntryCell.h; sourceTree = "<group>"; };
-		5FE0EE7F15E9AB5E00472C44 /* TextDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextDataEntryCell.m; path = UIXML/TextDataEntryCell.m; sourceTree = "<group>"; };
-		5FE0EE8015E9AB5E00472C44 /* TextDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextDataEntryCell.xib; path = UIXML/TextDataEntryCell.xib; sourceTree = "<group>"; };
-		5FE0EE8115E9AB5E00472C44 /* UIXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIXML.h; path = UIXML/UIXML.h; sourceTree = "<group>"; };
-		5FE0EE8215E9AB5E00472C44 /* UIXMLFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIXMLFormViewController.h; path = UIXML/UIXMLFormViewController.h; sourceTree = "<group>"; };
-		5FE0EE8315E9AB5E00472C44 /* UIXMLFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIXMLFormViewController.m; path = UIXML/UIXMLFormViewController.m; sourceTree = "<group>"; };
-		5FE0EE8415E9AB5E00472C44 /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIXMLFormViewControllerDelegate.h; path = UIXML/UIXMLFormViewControllerDelegate.h; sourceTree = "<group>"; };
-		5FE0EE8515E9AB5E00472C44 /* WaitMaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaitMaskController.h; path = UIXML/WaitMaskController.h; sourceTree = "<group>"; };
-		5FE0EE8615E9AB5E00472C44 /* WaitMaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaitMaskController.m; path = UIXML/WaitMaskController.m; sourceTree = "<group>"; };
-		5FE0EE8715E9AB5E00472C44 /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = write32x32.png; path = UIXML/write32x32.png; sourceTree = "<group>"; };
-		7420E41F2D5E40E9B8EF4A30 /* SSKeychain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSKeychain.m; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/SSKeychain/SSKeychain.m"; sourceTree = SOURCE_ROOT; };
-		7A269167B2F3480A9646A62D /* KSSHA1Stream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KSSHA1Stream.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/KSCrypto/KSSHA1Stream.h"; sourceTree = SOURCE_ROOT; };
-		80B80CD9B1CB4F14B6E612B5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		813092329D2841A79E9A6CEB /* KSSHA1Stream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KSSHA1Stream.m; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/KSCrypto/KSSHA1Stream.m"; sourceTree = SOURCE_ROOT; };
-		82048508F6EE4B3EB9B1E49E /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = SOURCE_ROOT; };
-		82C3E21749C0435383593FBF /* WETouchableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WETouchableView.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WETouchableView.h"; sourceTree = SOURCE_ROOT; };
-		89BE33ADC51D4EFEABA309E1 /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+WEPopover.h"; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/UIBarButtonItem+WEPopover.h"; sourceTree = SOURCE_ROOT; };
-		905F9AF5C95F45EB98D8F841 /* SSKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/SSKeychain/SSKeychain.h"; sourceTree = SOURCE_ROOT; };
-		A42C287CCF75431F8E6E88BE /* WEPopoverContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverContainerView.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WEPopoverContainerView.h"; sourceTree = SOURCE_ROOT; };
-		B03A707B4AEB4121946149D3 /* PodsDummy_Pods.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PodsDummy_Pods.m; sourceTree = SOURCE_ROOT; };
-		C403BE31672B42369B0AE745 /* UIBarButtonItem+WEPopover.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+WEPopover.m"; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/UIBarButtonItem+WEPopover.m"; sourceTree = SOURCE_ROOT; };
-		C8D35EB0E00941F6854D27D2 /* ZKRevealingTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZKRevealingTableViewCell.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/ZKRevealingTableViewCell/vendor/ZKRevealingTableViewCell.h"; sourceTree = SOURCE_ROOT; };
-		CF10891BB007456EB075710B /* WEPopoverController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverController.h; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WEPopoverController.h"; sourceTree = SOURCE_ROOT; };
-		D72636F477E24F4AAB8B1811 /* Pods-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-prefix.pch"; sourceTree = SOURCE_ROOT; };
-		F7BB52490624437ABDFD8CDC /* WEPopoverContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverContainerView.m; path = "../../../../../../../Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities/KeyChain/Pods/WEPopover/Classes/Popover/WEPopoverContainerView.m"; sourceTree = SOURCE_ROOT; };
+		010F7CDE795D4C61BA0361B5 /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SegmentedDataEntryCell.m; path = UIXML/SegmentedDataEntryCell.m; sourceTree = SOURCE_ROOT; };
+		086DE5F8E99A40D592C4BC3F /* UIXMLFormViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UIXMLFormViewController.h; path = UIXML/UIXMLFormViewController.h; sourceTree = SOURCE_ROOT; };
+		0A1ECCC54AE54281B7AC4A7C /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PushWebViewEntryCell.h; path = UIXML/PushWebViewEntryCell.h; sourceTree = SOURCE_ROOT; };
+		0AC723E769B2453FA0982ACF /* WEPopoverController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverController.m; path = WEPopover/Classes/Popover/WEPopoverController.m; sourceTree = SOURCE_ROOT; };
+		0D27036A0B3E4E828E549883 /* WEPopoverParentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverParentView.h; path = WEPopover/Classes/Popover/WEPopoverParentView.h; sourceTree = SOURCE_ROOT; };
+		1233638E547D46AC96A67227 /* SwitchDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SwitchDataEntryCell.m; path = UIXML/SwitchDataEntryCell.m; sourceTree = SOURCE_ROOT; };
+		13647FC6B3454F1DBC6E43E2 /* PushControllerDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PushControllerDataEntryCell.h; path = UIXML/PushControllerDataEntryCell.h; sourceTree = SOURCE_ROOT; };
+		1D89FBBCB3D74600866A6AF9 /* RNCryptorEngine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNCryptorEngine.m; path = RNCryptor/RNCryptor/RNCryptorEngine.m; sourceTree = SOURCE_ROOT; };
+		1E3350CE048F4C7BBC04D850 /* RNEncryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNEncryptor.h; path = RNCryptor/RNCryptor/RNEncryptor.h; sourceTree = SOURCE_ROOT; };
+		22E0E194F66C46A6BFE5C830 /* TextDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TextDataEntryCell.m; path = UIXML/TextDataEntryCell.m; sourceTree = SOURCE_ROOT; };
+		2C0195BE90F9490A9F83AF6D /* WETouchableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WETouchableView.h; path = WEPopover/Classes/Popover/WETouchableView.h; sourceTree = SOURCE_ROOT; };
+		2D7D013C4BF149949AD9CD5B /* PodsDummy_Pods.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PodsDummy_Pods.m; sourceTree = SOURCE_ROOT; };
+		38221F11E93644B195D06495 /* BaseDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BaseDataEntryCell.m; path = UIXML/BaseDataEntryCell.m; sourceTree = SOURCE_ROOT; };
+		4CAAC19DBAF04AAB906D37D2 /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UIXMLFormViewControllerDelegate.h; path = UIXML/UIXMLFormViewControllerDelegate.h; sourceTree = SOURCE_ROOT; };
+		63930A3CF63B44779107942E /* UIXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UIXML.h; path = UIXML/UIXML.h; sourceTree = SOURCE_ROOT; };
+		6479215F79AC4FF9BD205DA9 /* PushFormDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PushFormDataEntryCell.h; path = UIXML/PushFormDataEntryCell.h; sourceTree = SOURCE_ROOT; };
+		661C2EDDD6F64C849B29EDAE /* RNOpenSSLEncryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNOpenSSLEncryptor.m; path = RNCryptor/RNCryptor/RNOpenSSLEncryptor.m; sourceTree = SOURCE_ROOT; };
+		6669FBB83E7E4A23B4FF7C29 /* RNEncryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNEncryptor.m; path = RNCryptor/RNCryptor/RNEncryptor.m; sourceTree = SOURCE_ROOT; };
+		66BEC886B19E4B129CE14628 /* WETouchableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WETouchableView.m; path = WEPopover/Classes/Popover/WETouchableView.m; sourceTree = SOURCE_ROOT; };
+		66DF77750FB2431FA2B6DC8C /* RNDecryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNDecryptor.m; path = RNCryptor/RNCryptor/RNDecryptor.m; sourceTree = SOURCE_ROOT; };
+		67495DAD79AF4E7AA617125E /* Pods-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-prefix.pch"; sourceTree = SOURCE_ROOT; };
+		6D554904B8C442F1838C29C1 /* ZKRevealingTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZKRevealingTableViewCell.h; path = ZKRevealingTableViewCell/vendor/ZKRevealingTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		7187D4F00CFB4BFB81BE15E1 /* RNOpenSSLCryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNOpenSSLCryptor.m; path = RNCryptor/RNCryptor/RNOpenSSLCryptor.m; sourceTree = SOURCE_ROOT; };
+		73BFBA343B6A41ECB04FD239 /* UIBarButtonItem+WEPopover.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+WEPopover.m"; path = "WEPopover/Classes/Popover/UIBarButtonItem+WEPopover.m"; sourceTree = SOURCE_ROOT; };
+		752C4FE2294745F2BBCF1CCC /* PushDateEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PushDateEntryCell.h; path = UIXML/PushDateEntryCell.h; sourceTree = SOURCE_ROOT; };
+		75F16EDE63424FBE8E72F07A /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+WEPopover.h"; path = "WEPopover/Classes/Popover/UIBarButtonItem+WEPopover.h"; sourceTree = SOURCE_ROOT; };
+		81BF675F5C514AAF8DDEA106 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		827191CBB1394392B068E90D /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwitchDataEntryCell.h; path = UIXML/SwitchDataEntryCell.h; sourceTree = SOURCE_ROOT; };
+		828728FDABEB4BDA9586F9D3 /* RNCryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNCryptor.h; path = RNCryptor/RNCryptor/RNCryptor.h; sourceTree = SOURCE_ROOT; };
+		8B4F9ED030AA419FB453BA38 /* BaseDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BaseDataEntryCell.h; path = UIXML/BaseDataEntryCell.h; sourceTree = SOURCE_ROOT; };
+		8EA778301BAB4ABB92D3F998 /* RNOpenSSLCryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNOpenSSLCryptor.h; path = RNCryptor/RNCryptor/RNOpenSSLCryptor.h; sourceTree = SOURCE_ROOT; };
+		93BA9E6A11F94CDB936B349D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		956236FFAC4C4B62A319B792 /* KSSHA1Stream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KSSHA1Stream.m; path = KSCrypto/KSSHA1Stream.m; sourceTree = SOURCE_ROOT; };
+		98A08FB213E44B9DA92DD5A5 /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SegmentedDataEntryCell.h; path = UIXML/SegmentedDataEntryCell.h; sourceTree = SOURCE_ROOT; };
+		A76F045E24334EFE864FBD48 /* RNOpenSSLDecryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNOpenSSLDecryptor.h; path = RNCryptor/RNCryptor/RNOpenSSLDecryptor.h; sourceTree = SOURCE_ROOT; };
+		A78C0F2400C944539DEF2062 /* RNCryptor+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RNCryptor+Private.h"; path = "RNCryptor/RNCryptor/RNCryptor+Private.h"; sourceTree = SOURCE_ROOT; };
+		ADD365BABE594C599568E391 /* RNOpenSSLDecryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNOpenSSLDecryptor.m; path = RNCryptor/RNCryptor/RNOpenSSLDecryptor.m; sourceTree = SOURCE_ROOT; };
+		AE37AEC2244E4E7A9CE14FC4 /* UIXMLFormViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UIXMLFormViewController.m; path = UIXML/UIXMLFormViewController.m; sourceTree = SOURCE_ROOT; };
+		B02B5636FE2B4A8E9C3AA342 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B4477C8115794EAFBC52E9E1 /* PushControllerDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PushControllerDataEntryCell.m; path = UIXML/PushControllerDataEntryCell.m; sourceTree = SOURCE_ROOT; };
+		B73B8D3BC0594567858FFCEF /* PushTextEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PushTextEntryCell.h; path = UIXML/PushTextEntryCell.h; sourceTree = SOURCE_ROOT; };
+		BCB8A674B8C643B08AFB82D4 /* PushFormDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PushFormDataEntryCell.m; path = UIXML/PushFormDataEntryCell.m; sourceTree = SOURCE_ROOT; };
+		BF3F9B7517144FE3941EBCE2 /* PushTextEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PushTextEntryCell.m; path = UIXML/PushTextEntryCell.m; sourceTree = SOURCE_ROOT; };
+		C2E92E4E97CE4DDEB6BAE642 /* ZKRevealingTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZKRevealingTableViewCell.m; path = ZKRevealingTableViewCell/vendor/ZKRevealingTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		CED1C44866744D7898294EDD /* TextDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TextDataEntryCell.h; path = UIXML/TextDataEntryCell.h; sourceTree = SOURCE_ROOT; };
+		D070AF50A364471D89C7B491 /* RNDecryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNDecryptor.h; path = RNCryptor/RNCryptor/RNDecryptor.h; sourceTree = SOURCE_ROOT; };
+		D1CC8AE1E4E94612BBC042BF /* WEPopoverContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverContainerView.m; path = WEPopover/Classes/Popover/WEPopoverContainerView.m; sourceTree = SOURCE_ROOT; };
+		D1FDC232046F4E2492906F1C /* SSKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = SSKeychain/SSKeychain.h; sourceTree = SOURCE_ROOT; };
+		D8BDA02181EA47228541675B /* WaitMaskController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WaitMaskController.m; path = UIXML/WaitMaskController.m; sourceTree = SOURCE_ROOT; };
+		DA23F7965DE746FFBA7D50D5 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = SOURCE_ROOT; };
+		DEFA2452F13349269940AED9 /* WEPopoverContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverContainerView.h; path = WEPopover/Classes/Popover/WEPopoverContainerView.h; sourceTree = SOURCE_ROOT; };
+		E2C3CEAEC2E04965A71366D5 /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PushWebViewEntryCell.m; path = UIXML/PushWebViewEntryCell.m; sourceTree = SOURCE_ROOT; };
+		E363F43F347E4D26BE7B459C /* WaitMaskController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WaitMaskController.h; path = UIXML/WaitMaskController.h; sourceTree = SOURCE_ROOT; };
+		E3DD4303697343A0AFA123FC /* RNOpenSSLEncryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNOpenSSLEncryptor.h; path = RNCryptor/RNCryptor/RNOpenSSLEncryptor.h; sourceTree = SOURCE_ROOT; };
+		E954C510B9524B169AB8EA0B /* RNCryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNCryptor.m; path = RNCryptor/RNCryptor/RNCryptor.m; sourceTree = SOURCE_ROOT; };
+		EC1D6CBCCC7549B2AEE81677 /* WEPopoverController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverController.h; path = WEPopover/Classes/Popover/WEPopoverController.h; sourceTree = SOURCE_ROOT; };
+		ED9B724D52174E84A4A4DA17 /* KSSHA1Stream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KSSHA1Stream.h; path = KSCrypto/KSSHA1Stream.h; sourceTree = SOURCE_ROOT; };
+		EF5D48129F564700B7AEC529 /* RNCryptorEngine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNCryptorEngine.h; path = RNCryptor/RNCryptor/RNCryptorEngine.h; sourceTree = SOURCE_ROOT; };
+		EFBAD86818EA4483B260C10A /* PushDateEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PushDateEntryCell.m; path = UIXML/PushDateEntryCell.m; sourceTree = SOURCE_ROOT; };
+		F43157870652493AA5644C3B /* SSKeychain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSKeychain.m; path = SSKeychain/SSKeychain.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AFF48E8B32FC49CA9F4F955F /* Frameworks */ = {
+		64E7F10DB49F4B2E8BD692FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3C90F98C2F34E85BEB6CD21 /* Foundation.framework in Frameworks */,
+				0AEEDA7B5912482CB25BDFAA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		078496DAA36B48DF8F7231F6 /* ZKRevealingTableViewCell */ = {
+		1CC32F7E424A44F69774AC8E /* WEPopover */ = {
 			isa = PBXGroup;
 			children = (
-				C8D35EB0E00941F6854D27D2 /* ZKRevealingTableViewCell.h */,
-				569951EFD8204816858A6465 /* ZKRevealingTableViewCell.m */,
-			);
-			name = ZKRevealingTableViewCell;
-			sourceTree = "<group>";
-		};
-		3E21C714FD62421BB9DD7860 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5FE0EE6115E9AB4100472C44 /* UIXML */,
-				AC29203E09344CC08591F411 /* KSCrypto */,
-				EF7C1C679FE24FF18D4FA2F1 /* SSKeychain */,
-				B7B1A0A6D5E34593B2E3300F /* WEPopover */,
-				078496DAA36B48DF8F7231F6 /* ZKRevealingTableViewCell */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		43A9397186354F808AA5B4D6 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				89B3F0DBD8CE4FC3B097D13F /* Pods */,
-				B03A707B4AEB4121946149D3 /* PodsDummy_Pods.m */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		576783A57C7844669DC55EE9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				40384BBE793D49F698EF7F02 /* libPods.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		5FE0EE6115E9AB4100472C44 /* UIXML */ = {
-			isa = PBXGroup;
-			children = (
-				5FE0EE6315E9AB5E00472C44 /* back24x24.png */,
-				5FE0EE6415E9AB5E00472C44 /* BaseDataEntryCell.h */,
-				5FE0EE6515E9AB5E00472C44 /* BaseDataEntryCell.m */,
-				5FE0EE6615E9AB5E00472C44 /* chevron.png */,
-				5FE0EE6715E9AB5E00472C44 /* confirm24x24.png */,
-				5FE0EE6815E9AB5E00472C44 /* edit32x32.png */,
-				5FE0EE6915E9AB5E00472C44 /* MailDataEntryCell.xib */,
-				5FE0EE6A15E9AB5E00472C44 /* PushControllerDataEntryCell.h */,
-				5FE0EE6B15E9AB5E00472C44 /* PushControllerDataEntryCell.m */,
-				5FE0EE6C15E9AB5E00472C44 /* PushDateEntryCell.h */,
-				5FE0EE6D15E9AB5E00472C44 /* PushDateEntryCell.m */,
-				5FE0EE6E15E9AB5E00472C44 /* PushDateEntryCell.xib */,
-				5FE0EE6F15E9AB5E00472C44 /* PushFormDataEntryCell.h */,
-				5FE0EE7015E9AB5E00472C44 /* PushFormDataEntryCell.m */,
-				5FE0EE7115E9AB5E00472C44 /* PushFormDataEntryCell.xib */,
-				5FE0EE7215E9AB5E00472C44 /* PushTextEntryCell.h */,
-				5FE0EE7315E9AB5E00472C44 /* PushTextEntryCell.m */,
-				5FE0EE7415E9AB5E00472C44 /* PushTextEntryCell.xib */,
-				5FE0EE7515E9AB5E00472C44 /* PushWebViewEntryCell.h */,
-				5FE0EE7615E9AB5E00472C44 /* PushWebViewEntryCell.m */,
-				5FE0EE7715E9AB5E00472C44 /* PushWebViewEntryCell.xib */,
-				5FE0EE7815E9AB5E00472C44 /* README.md */,
-				5FE0EE7915E9AB5E00472C44 /* SegmentedDataEntryCell.h */,
-				5FE0EE7A15E9AB5E00472C44 /* SegmentedDataEntryCell.m */,
-				5FE0EE7B15E9AB5E00472C44 /* SwitchDataEntryCell.h */,
-				5FE0EE7C15E9AB5E00472C44 /* SwitchDataEntryCell.m */,
-				5FE0EE7D15E9AB5E00472C44 /* SwitchDataEntryCell.xib */,
-				5FE0EE7E15E9AB5E00472C44 /* TextDataEntryCell.h */,
-				5FE0EE7F15E9AB5E00472C44 /* TextDataEntryCell.m */,
-				5FE0EE8015E9AB5E00472C44 /* TextDataEntryCell.xib */,
-				5FE0EE8115E9AB5E00472C44 /* UIXML.h */,
-				5FE0EE8215E9AB5E00472C44 /* UIXMLFormViewController.h */,
-				5FE0EE8315E9AB5E00472C44 /* UIXMLFormViewController.m */,
-				5FE0EE8415E9AB5E00472C44 /* UIXMLFormViewControllerDelegate.h */,
-				5FE0EE8515E9AB5E00472C44 /* WaitMaskController.h */,
-				5FE0EE8615E9AB5E00472C44 /* WaitMaskController.m */,
-				5FE0EE8715E9AB5E00472C44 /* write32x32.png */,
-			);
-			name = UIXML;
-			sourceTree = "<group>";
-		};
-		89B3F0DBD8CE4FC3B097D13F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				82048508F6EE4B3EB9B1E49E /* Pods-resources.sh */,
-				D72636F477E24F4AAB8B1811 /* Pods-prefix.pch */,
-				80B80CD9B1CB4F14B6E612B5 /* Pods.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		AC29203E09344CC08591F411 /* KSCrypto */ = {
-			isa = PBXGroup;
-			children = (
-				7A269167B2F3480A9646A62D /* KSSHA1Stream.h */,
-				813092329D2841A79E9A6CEB /* KSSHA1Stream.m */,
-			);
-			name = KSCrypto;
-			sourceTree = "<group>";
-		};
-		B7B1A0A6D5E34593B2E3300F /* WEPopover */ = {
-			isa = PBXGroup;
-			children = (
-				89BE33ADC51D4EFEABA309E1 /* UIBarButtonItem+WEPopover.h */,
-				A42C287CCF75431F8E6E88BE /* WEPopoverContainerView.h */,
-				CF10891BB007456EB075710B /* WEPopoverController.h */,
-				1A58796455DF4D0B85480AFD /* WEPopoverParentView.h */,
-				82C3E21749C0435383593FBF /* WETouchableView.h */,
-				C403BE31672B42369B0AE745 /* UIBarButtonItem+WEPopover.m */,
-				F7BB52490624437ABDFD8CDC /* WEPopoverContainerView.m */,
-				17538E3193704E1EB6989698 /* WEPopoverController.m */,
-				52F34F01E4614A97AD8D6874 /* WETouchableView.m */,
+				75F16EDE63424FBE8E72F07A /* UIBarButtonItem+WEPopover.h */,
+				DEFA2452F13349269940AED9 /* WEPopoverContainerView.h */,
+				EC1D6CBCCC7549B2AEE81677 /* WEPopoverController.h */,
+				0D27036A0B3E4E828E549883 /* WEPopoverParentView.h */,
+				2C0195BE90F9490A9F83AF6D /* WETouchableView.h */,
+				73BFBA343B6A41ECB04FD239 /* UIBarButtonItem+WEPopover.m */,
+				D1CC8AE1E4E94612BBC042BF /* WEPopoverContainerView.m */,
+				0AC723E769B2453FA0982ACF /* WEPopoverController.m */,
+				66BEC886B19E4B129CE14628 /* WETouchableView.m */,
 			);
 			name = WEPopover;
 			sourceTree = "<group>";
 		};
-		EE48E93526CD4E8188715C6E = {
+		2056DD205D5E40279C239958 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				576783A57C7844669DC55EE9 /* Products */,
-				3E21C714FD62421BB9DD7860 /* Pods */,
-				43A9397186354F808AA5B4D6 /* Targets Support Files */,
-				F6EF3180E9BB4B718C9A9D35 /* Frameworks */,
+				DA23F7965DE746FFBA7D50D5 /* Pods-resources.sh */,
+				67495DAD79AF4E7AA617125E /* Pods-prefix.pch */,
+				81BF675F5C514AAF8DDEA106 /* Pods.xcconfig */,
 			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		EF7C1C679FE24FF18D4FA2F1 /* SSKeychain */ = {
+		6169EA27D9CC4A9487D33A54 /* KSCrypto */ = {
 			isa = PBXGroup;
 			children = (
-				905F9AF5C95F45EB98D8F841 /* SSKeychain.h */,
-				7420E41F2D5E40E9B8EF4A30 /* SSKeychain.m */,
+				ED9B724D52174E84A4A4DA17 /* KSSHA1Stream.h */,
+				956236FFAC4C4B62A319B792 /* KSSHA1Stream.m */,
+			);
+			name = KSCrypto;
+			sourceTree = "<group>";
+		};
+		6C1123DD97304A32821C0A66 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6169EA27D9CC4A9487D33A54 /* KSCrypto */,
+				9F298F79408440F48B596299 /* RNCryptor */,
+				71243FBF4CC64467B2A619FE /* SSKeychain */,
+				7FE72F4AC6D74897AF500E68 /* UIXML */,
+				1CC32F7E424A44F69774AC8E /* WEPopover */,
+				FDE991472448462A9F985003 /* ZKRevealingTableViewCell */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		71243FBF4CC64467B2A619FE /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				D1FDC232046F4E2492906F1C /* SSKeychain.h */,
+				F43157870652493AA5644C3B /* SSKeychain.m */,
 			);
 			name = SSKeychain;
 			sourceTree = "<group>";
 		};
-		F6EF3180E9BB4B718C9A9D35 /* Frameworks */ = {
+		7FE72F4AC6D74897AF500E68 /* UIXML */ = {
 			isa = PBXGroup;
 			children = (
-				240859D03745460A8787B677 /* Foundation.framework */,
+				8B4F9ED030AA419FB453BA38 /* BaseDataEntryCell.h */,
+				13647FC6B3454F1DBC6E43E2 /* PushControllerDataEntryCell.h */,
+				752C4FE2294745F2BBCF1CCC /* PushDateEntryCell.h */,
+				6479215F79AC4FF9BD205DA9 /* PushFormDataEntryCell.h */,
+				B73B8D3BC0594567858FFCEF /* PushTextEntryCell.h */,
+				0A1ECCC54AE54281B7AC4A7C /* PushWebViewEntryCell.h */,
+				98A08FB213E44B9DA92DD5A5 /* SegmentedDataEntryCell.h */,
+				827191CBB1394392B068E90D /* SwitchDataEntryCell.h */,
+				CED1C44866744D7898294EDD /* TextDataEntryCell.h */,
+				63930A3CF63B44779107942E /* UIXML.h */,
+				086DE5F8E99A40D592C4BC3F /* UIXMLFormViewController.h */,
+				4CAAC19DBAF04AAB906D37D2 /* UIXMLFormViewControllerDelegate.h */,
+				E363F43F347E4D26BE7B459C /* WaitMaskController.h */,
+				38221F11E93644B195D06495 /* BaseDataEntryCell.m */,
+				B4477C8115794EAFBC52E9E1 /* PushControllerDataEntryCell.m */,
+				EFBAD86818EA4483B260C10A /* PushDateEntryCell.m */,
+				BCB8A674B8C643B08AFB82D4 /* PushFormDataEntryCell.m */,
+				BF3F9B7517144FE3941EBCE2 /* PushTextEntryCell.m */,
+				E2C3CEAEC2E04965A71366D5 /* PushWebViewEntryCell.m */,
+				010F7CDE795D4C61BA0361B5 /* SegmentedDataEntryCell.m */,
+				1233638E547D46AC96A67227 /* SwitchDataEntryCell.m */,
+				22E0E194F66C46A6BFE5C830 /* TextDataEntryCell.m */,
+				AE37AEC2244E4E7A9CE14FC4 /* UIXMLFormViewController.m */,
+				D8BDA02181EA47228541675B /* WaitMaskController.m */,
+			);
+			name = UIXML;
+			sourceTree = "<group>";
+		};
+		9EC4D429992A43A59B0E2C47 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2056DD205D5E40279C239958 /* Pods */,
+				2D7D013C4BF149949AD9CD5B /* PodsDummy_Pods.m */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		9F298F79408440F48B596299 /* RNCryptor */ = {
+			isa = PBXGroup;
+			children = (
+				A78C0F2400C944539DEF2062 /* RNCryptor+Private.h */,
+				828728FDABEB4BDA9586F9D3 /* RNCryptor.h */,
+				EF5D48129F564700B7AEC529 /* RNCryptorEngine.h */,
+				D070AF50A364471D89C7B491 /* RNDecryptor.h */,
+				1E3350CE048F4C7BBC04D850 /* RNEncryptor.h */,
+				8EA778301BAB4ABB92D3F998 /* RNOpenSSLCryptor.h */,
+				A76F045E24334EFE864FBD48 /* RNOpenSSLDecryptor.h */,
+				E3DD4303697343A0AFA123FC /* RNOpenSSLEncryptor.h */,
+				E954C510B9524B169AB8EA0B /* RNCryptor.m */,
+				1D89FBBCB3D74600866A6AF9 /* RNCryptorEngine.m */,
+				66DF77750FB2431FA2B6DC8C /* RNDecryptor.m */,
+				6669FBB83E7E4A23B4FF7C29 /* RNEncryptor.m */,
+				7187D4F00CFB4BFB81BE15E1 /* RNOpenSSLCryptor.m */,
+				ADD365BABE594C599568E391 /* RNOpenSSLDecryptor.m */,
+				661C2EDDD6F64C849B29EDAE /* RNOpenSSLEncryptor.m */,
+			);
+			name = RNCryptor;
+			sourceTree = "<group>";
+		};
+		BB1BCCEC4677494F86E1CB95 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93BA9E6A11F94CDB936B349D /* libPods.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEEF8436D74C4F7EB582FF11 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B02B5636FE2B4A8E9C3AA342 /* Foundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1E171A283A84D30B75165EA = {
+			isa = PBXGroup;
+			children = (
+				BB1BCCEC4677494F86E1CB95 /* Products */,
+				6C1123DD97304A32821C0A66 /* Pods */,
+				9EC4D429992A43A59B0E2C47 /* Targets Support Files */,
+				BEEF8436D74C4F7EB582FF11 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FDE991472448462A9F985003 /* ZKRevealingTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6D554904B8C442F1838C29C1 /* ZKRevealingTableViewCell.h */,
+				C2E92E4E97CE4DDEB6BAE642 /* ZKRevealingTableViewCell.m */,
+			);
+			name = ZKRevealingTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1AD5BBFC10EA40BF9B9F6777 /* Pods */ = {
+		B1D3EC87109F493A85EE8862 /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 724BCA68F5F8490D9CF4FA46 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = 55370A460B654FDEA8C9F61D /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				49EF269570874874A4AC702A /* Sources */,
-				C313D14CA34540BCB2FDE9D5 /* CopyFiles */,
-				AFF48E8B32FC49CA9F4F955F /* Frameworks */,
+				B7E377323C374484AAF8B08A /* Sources */,
+				576D190A28614ED8AFDEC115 /* CopyFiles */,
+				64E7F10DB49F4B2E8BD692FB /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -291,79 +352,83 @@
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = 40384BBE793D49F698EF7F02 /* libPods.a */;
+			productReference = 93BA9E6A11F94CDB936B349D /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		81EC07FC1345446C9987CD88 /* Project object */ = {
+		BC49D7C244774949AA52D03C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = E90394330F7949ADB9F77044 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 3CFB7DEE48574381A854F197 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = EE48E93526CD4E8188715C6E;
-			productRefGroup = 576783A57C7844669DC55EE9 /* Products */;
+			mainGroup = F1E171A283A84D30B75165EA;
+			productRefGroup = BB1BCCEC4677494F86E1CB95 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1AD5BBFC10EA40BF9B9F6777 /* Pods */,
+				B1D3EC87109F493A85EE8862 /* Pods */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		49EF269570874874A4AC702A /* Sources */ = {
+		B7E377323C374484AAF8B08A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D682616847E44073860A08E9 /* KSSHA1Stream.m in Sources */,
-				B86F546EAFB740769FC9E5F3 /* SSKeychain.m in Sources */,
-				9949F73E98F24866B10573C7 /* UIBarButtonItem+WEPopover.m in Sources */,
-				FEA1F8BB54D549C08A1AA781 /* WEPopoverContainerView.m in Sources */,
-				396C7EB92C624A4FAC641B25 /* WEPopoverController.m in Sources */,
-				8C94AD36981C49D28DBEB991 /* WETouchableView.m in Sources */,
-				B53ECA47A4EC440BB90D5198 /* ZKRevealingTableViewCell.m in Sources */,
-				4E8BD438A48B4073880C86C6 /* PodsDummy_Pods.m in Sources */,
-				5FE0EE8815E9AB5E00472C44 /* BaseDataEntryCell.m in Sources */,
-				5FE0EE8915E9AB5E00472C44 /* PushControllerDataEntryCell.m in Sources */,
-				5FE0EE8A15E9AB5E00472C44 /* PushDateEntryCell.m in Sources */,
-				5FE0EE8B15E9AB5E00472C44 /* PushFormDataEntryCell.m in Sources */,
-				5FE0EE8C15E9AB5E00472C44 /* PushTextEntryCell.m in Sources */,
-				5FE0EE8D15E9AB5E00472C44 /* PushWebViewEntryCell.m in Sources */,
-				5FE0EE8E15E9AB5E00472C44 /* SegmentedDataEntryCell.m in Sources */,
-				5FE0EE8F15E9AB5E00472C44 /* SwitchDataEntryCell.m in Sources */,
-				5FE0EE9015E9AB5E00472C44 /* TextDataEntryCell.m in Sources */,
-				5FE0EE9115E9AB5E00472C44 /* UIXMLFormViewController.m in Sources */,
-				5FE0EE9215E9AB5E00472C44 /* WaitMaskController.m in Sources */,
+				9F27A78D8FB947DC88192388 /* KSSHA1Stream.m in Sources */,
+				C018F1A08AC84B3F9A197DC9 /* RNCryptor.m in Sources */,
+				40499F574AEB457C98A3E7AB /* RNCryptorEngine.m in Sources */,
+				66EDCC44A699437589A6F7BF /* RNDecryptor.m in Sources */,
+				2C84E2DFB7FB48778FC86198 /* RNEncryptor.m in Sources */,
+				957C1A750CB348ACAF5C34DA /* RNOpenSSLCryptor.m in Sources */,
+				30D9568E33994B7B98802B10 /* RNOpenSSLDecryptor.m in Sources */,
+				23359C77738D4D96AAE6755A /* RNOpenSSLEncryptor.m in Sources */,
+				807AC15416DE47E291F17F65 /* SSKeychain.m in Sources */,
+				832CFD55A1C2440180FC914F /* BaseDataEntryCell.m in Sources */,
+				E23D32755DA9474A9F4B85BB /* PushControllerDataEntryCell.m in Sources */,
+				DDDC9E4C8FD64357AFA826C5 /* PushDateEntryCell.m in Sources */,
+				F0CE2502AF744D09A56D59AF /* PushFormDataEntryCell.m in Sources */,
+				0471350B76D944D281867A14 /* PushTextEntryCell.m in Sources */,
+				B025F32FAAF54ADBBDD74AC3 /* PushWebViewEntryCell.m in Sources */,
+				43A6092846F946219D09F608 /* SegmentedDataEntryCell.m in Sources */,
+				0DE2CAA33AFA4BD9959784AF /* SwitchDataEntryCell.m in Sources */,
+				B7DC8AED393D4ABE907A8969 /* TextDataEntryCell.m in Sources */,
+				096EB9F858444D92BB14D97C /* UIXMLFormViewController.m in Sources */,
+				C821913083124CF1B86D8685 /* WaitMaskController.m in Sources */,
+				3849D1CE65F44A18813CC274 /* UIBarButtonItem+WEPopover.m in Sources */,
+				87847E6702F44578AE0A3954 /* WEPopoverContainerView.m in Sources */,
+				DC081E3D48DC4493A6A8F025 /* WEPopoverController.m in Sources */,
+				0CB93B1AC9B046FEBB8E7563 /* WETouchableView.m in Sources */,
+				6A600FAE489046979790E0C2 /* ZKRevealingTableViewCell.m in Sources */,
+				775C10D95AD5461E9F7090BB /* PodsDummy_Pods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		6D3666EA95C34BCF86032A5E /* Release */ = {
+		51CA26BA6D304EEAB1BA0D3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
-			name = Release;
+			name = Debug;
 		};
-		7587950D71F54D6BA125EEC2 /* Release */ = {
+		615E8ABAA0CA4567AA30057D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80B80CD9B1CB4F14B6E612B5 /* Pods.xcconfig */;
+			baseConfigurationReference = 81BF675F5C514AAF8DDEA106 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -384,21 +449,18 @@
 			};
 			name = Release;
 		};
-		A33E157B757C4569ABE59D83 /* Debug */ = {
+		6F9A9CADC11B4092A72E7E10 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
-			name = Debug;
+			name = Release;
 		};
-		A7081FCEA4A943228F89FBCC /* Debug */ = {
+		A528223203D34CAC940075D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80B80CD9B1CB4F14B6E612B5 /* Pods.xcconfig */;
+			baseConfigurationReference = 81BF675F5C514AAF8DDEA106 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -428,25 +490,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		724BCA68F5F8490D9CF4FA46 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		3CFB7DEE48574381A854F197 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A7081FCEA4A943228F89FBCC /* Debug */,
-				7587950D71F54D6BA125EEC2 /* Release */,
+				51CA26BA6D304EEAB1BA0D3E /* Debug */,
+				6F9A9CADC11B4092A72E7E10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E90394330F7949ADB9F77044 /* Build configuration list for PBXProject "Pods" */ = {
+		55370A460B654FDEA8C9F61D /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A33E157B757C4569ABE59D83 /* Debug */,
-				6D3666EA95C34BCF86032A5E /* Release */,
+				A528223203D34CAC940075D4 /* Debug */,
+				615E8ABAA0CA4567AA30057D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 81EC07FC1345446C9987CD88 /* Project object */;
+	rootObject = BC49D7C244774949AA52D03C /* Project object */;
 }

@@ -1,5 +1,6 @@
 PODS:
   - KSCrypto (1.0.2)
+  - RNCryptor (1.2)
   - SSKeychain (0.1.4)
   - UIXML (1.2.0)
   - WEPopover (0.1.1)
@@ -7,6 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - KSCrypto (~> 1.0.2)
+  - RNCryptor (defined in Podfile)
   - SSKeychain (~> 0.1.4)
   - UIXML (defined in Podfile)
   - WEPopover (defined in Podfile)

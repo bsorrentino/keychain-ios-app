@@ -7,7 +7,8 @@
 //
 
 #import "KeyChainTests.h"
-
+#import "RNEncryptor.h"
+#import "RNDecryptor.h"
 
 @implementation KeyChainTests
 
@@ -26,6 +27,41 @@
     // Tear-down code here.
     
     [super tearDown];
+}
+
+
+-(void)testCryptor
+{
+    NSString * aPassword = @"password";
+    NSString * dataToEncrypt = @"Data";
+    
+    NSData *data = [dataToEncrypt dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error;
+    
+    NSData *encryptedData = [RNEncryptor encryptData:data
+                                        withSettings:kRNCryptorAES256Settings
+                                            password:aPassword
+                                               error:&error];
+    
+    STAssertNotNil(encryptedData, @"encryptedData is null!");
+    
+    NSLog(@"\n==============\nEncrypted Data\n==============\n%@\n==============\n",
+          encryptedData );
+    /*
+    This generates an NSData including a header, encryption salt, HMAC salt, IV, ciphertext, and HMAC. To decrypt this bundle:
+    */
+    NSData *decryptedData = [RNDecryptor decryptData:encryptedData
+                                        withPassword:aPassword
+                                               error:&error];
+    
+    STAssertNotNil(encryptedData, @"decryptedData is null!");
+    
+    NSString *decryptedDataAsString =
+    [[NSString alloc] initWithData:decryptedData encoding:NSUTF8StringEncoding];
+
+    STAssertEqualObjects(dataToEncrypt, decryptedDataAsString, @"decrypted data doesn't match!");
+    
 }
 
 - (void)testDirectoryList {

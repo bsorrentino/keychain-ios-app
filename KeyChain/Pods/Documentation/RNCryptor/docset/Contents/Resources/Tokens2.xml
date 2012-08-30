@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/RNCryptorEngine.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/RNCryptorEngine</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptorEngine.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptorEngine/initWithOperation:settings:key:IV:error:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptorEngine.h</DeclaredIn>			
+			
+			<Declaration>- (RNCryptorEngine *)initWithOperation:(CCOperation)operation settings:(RNCryptorSettings)settings key:(NSData *)key IV:(NSData *)IV error:(NSError **)error</Declaration>
+			
+			
+			<Anchor>//api/name/initWithOperation:settings:key:IV:error:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptorEngine/addData:error:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptorEngine.h</DeclaredIn>			
+			
+			<Declaration>- (NSData *)addData:(NSData *)data error:(NSError **)error</Declaration>
+			
+			
+			<Anchor>//api/name/addData:error:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptorEngine/finishWithError:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptorEngine.h</DeclaredIn>			
+			
+			<Declaration>- (NSData *)finishWithError:(NSError **)error</Declaration>
+			
+			
+			<Anchor>//api/name/finishWithError:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

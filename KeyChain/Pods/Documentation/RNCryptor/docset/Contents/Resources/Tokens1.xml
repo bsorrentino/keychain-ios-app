@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/RNCryptor.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/RNCryptor</TokenIdentifier>
+			<Abstract type="html">** Encryptor/Decryptor for iOS</Abstract>
+			<DeclaredIn>RNCryptor.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/setError:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSError *error</Declaration>
+			
+			
+			<Anchor>//api/name/error</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/RNCryptor/error</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, strong) NSError *error</Declaration>
+			
+			
+			<Anchor>//api/name/error</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/setFinished:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, getter=isFinished) BOOL finished</Declaration>
+			
+			
+			<Anchor>//api/name/finished</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/RNCryptor/finished</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, getter=isFinished) BOOL finished</Declaration>
+			
+			
+			<Anchor>//api/name/finished</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/setHandler:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, copy) RNCryptorHandler handler</Declaration>
+			
+			
+			<Anchor>//api/name/handler</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/RNCryptor/handler</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, copy) RNCryptorHandler handler</Declaration>
+			
+			
+			<Anchor>//api/name/handler</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/setResponseQueue:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readwrite) dispatch_queue_t responseQueue</Declaration>
+			
+			
+			<Anchor>//api/name/responseQueue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/RNCryptor/responseQueue</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readwrite) dispatch_queue_t responseQueue</Declaration>
+			
+			
+			<Anchor>//api/name/responseQueue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/addData:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor.h</DeclaredIn>			
+			
+			<Declaration>- (void)addData:(NSData *)data</Declaration>
+			
+			
+			<Anchor>//api/name/addData:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/finish</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor.h</DeclaredIn>			
+			
+			<Declaration>- (void)finish</Declaration>
+			
+			
+			<Anchor>//api/name/finish</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/RNCryptor/keyForPassword:salt:settings:</TokenIdentifier>
+			<Abstract type="html">Generate key given a password and salt using a PBKDF</Abstract>
+			<DeclaredIn>RNCryptor.h</DeclaredIn>			
+			
+			<Declaration>+ (NSData *)keyForPassword:(NSString *)password salt:(NSData *)salt settings:(RNCryptorKeyDerivationSettings)keySettings</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>password</Name>
+					<Abstract type="html">Password to use for PBKDF</Abstract>
+				</Parameter><Parameter>
+					<Name>salt</Name>
+					<Abstract type="html">Salt for password</Abstract>
+				</Parameter><Parameter>
+					<Name>keySettings</Name>
+					<Abstract type="html">Settings for the derivation (RNCryptorKeyDerivationSettings)</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Key
+@throws if settings are illegal</Abstract></ReturnValue>
+			<Anchor>//api/name/keyForPassword:salt:settings:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/RNCryptor/randomDataOfLength:</TokenIdentifier>
+			<Abstract type="html">Generate random data</Abstract>
+			<DeclaredIn>RNCryptor.h</DeclaredIn>			
+			
+			<Declaration>+ (NSData *)randomDataOfLength:(size_t)length</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>length</Name>
+					<Abstract type="html">Length of data to generate</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">random data</Abstract></ReturnValue>
+			<Anchor>//api/name/randomDataOfLength:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/setEngine:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readwrite, strong) RNCryptorEngine *engine</Declaration>
+			
+			
+			<Anchor>//api/name/engine</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/RNCryptor/engine</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readwrite, strong) RNCryptorEngine *engine</Declaration>
+			
+			
+			<Anchor>//api/name/engine</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/setQueue:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readwrite, assign) dispatch_queue_t queue</Declaration>
+			
+			
+			<Anchor>//api/name/queue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/RNCryptor/queue</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readwrite, assign) dispatch_queue_t queue</Declaration>
+			
+			
+			<Anchor>//api/name/queue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/setOutData:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSMutableData *outData</Declaration>
+			
+			
+			<Anchor>//api/name/outData</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/RNCryptor/outData</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSMutableData *outData</Declaration>
+			
+			
+			<Anchor>//api/name/outData</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/setHMACLength:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readwrite, assign) NSUInteger HMACLength</Declaration>
+			
+			
+			<Anchor>//api/name/HMACLength</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/RNCryptor/HMACLength</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readwrite, assign) NSUInteger HMACLength</Declaration>
+			
+			
+			<Anchor>//api/name/HMACLength</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/setOptions:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readwrite, assign) RNCryptorOptions options</Declaration>
+			
+			
+			<Anchor>//api/name/options</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/RNCryptor/options</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readwrite, assign) RNCryptorOptions options</Declaration>
+			
+			
+			<Anchor>//api/name/options</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/initWithHandler:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithHandler:(RNCryptorHandler)handler</Declaration>
+			
+			
+			<Anchor>//api/name/initWithHandler:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/RNCryptor/synchronousResultForCryptor:data:error:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>+ (NSData *)synchronousResultForCryptor:(RNCryptor *)cryptor data:(NSData *)inData error:(NSError **)anError</Declaration>
+			
+			
+			<Anchor>//api/name/synchronousResultForCryptor:data:error:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/cleanupAndNotifyWithError:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>- (void)cleanupAndNotifyWithError:(NSError *)error</Declaration>
+			
+			
+			<Anchor>//api/name/cleanupAndNotifyWithError:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RNCryptor/hasHMAC</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>RNCryptor+Private.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)hasHMAC</Declaration>
+			
+			
+			<Anchor>//api/name/hasHMAC</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

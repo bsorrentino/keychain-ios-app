@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>RNCryptor 1.2 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">RNCryptor 1.2 </a></h1>
+				<a id="developerHome" href="index.html">bsorrentino</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">RNCryptor 1.2 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">RNCryptor 1.2 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>Overview</h1>
+
+<p>Encryptor/Decryptor for iOS</p>
+
+<p>Provides an easy-to-use, Objective-C interface to the AES functionality of CommonCrypto. Simplifies correct handling of
+password stretching (PBKDF2), salting, and IV. For more information on these terms, see ~!@<a href="http://robnapier.net/blog/aes-commoncrypto-564">&ldquo;Properly encrypting with AES
+with CommonCrypto,&rdquo;</a>@!~ and <a href="http://iosptl.com">iOS 5 Programming Pushing the Limits</a>, Chapter 11.
+Also includes automatic HMAC handling to integrity-check messages.</p>
+
+<p><a href="Classes/RNCryptor.html"><code>RNCryptor</code></a> is an abstract class. Concrete subclasses include:</p>
+
+<ul>
+<li><code>RNEncryptor</code>, <code>RNDecryptor</code> : Writer and reader for the <a href="https://github.com/rnapier/RNCryptor/wiki/Data-Format">RNCryptor data format</a>.</li>
+<li><a href="Classes/RNOpenSSLEncryptor.html"><code>RNOpenSSLEncryptor</code></a>, <a href="Classes/RNOpenSSLDecryptor.html"><code>RNOpenSSLDecryptor</code></a> : Writer and reader for the OpenSSL format. This format is not recommended due to its weak
+security settings, but is available for compatibility.</li>
+</ul>
+
+
+<h1>Synchronous use</h1>
+
+<p>The most common in-memory use case is as follows:</p>
+
+<pre><code>NSData *data = [@"Data" dataUsingEncoding:NSUTF8StringEncoding];
+NSError *error;
+NSData *encryptedData = [RNEncryptor encryptData:data
+                                  withSettings:kRNCryptorAES256Settings
+                                      password:aPassword
+                                         error:&amp;error];
+</code></pre>
+
+<p>This generates an <code>NSData</code> including a header, encryption salt, HMAC salt, IV, ciphertext, and HMAC. To decrypt this bundle:</p>
+
+<pre><code>NSData *decryptedData = [RNDecryptor decryptData:encryptedData
+                                    withPassword:aPassword
+                                           error:&amp;error];
+</code></pre>
+
+<p>Note that <a href="Classes/RNDecryptor.html"><code>RNDecryptor</code></a> does not require settings. These are read from the header.</p>
+
+<h1>Asynchronous use</h1>
+
+<p><a href="Classes/RNCryptor.html"><code>RNCryptor</code></a> suports asynchronous use, specifically designed to work with <code>NSURLConnection</code>.
+This is also useful for cases where the encrypted or decrypted data will not comfortably fit in memory.
+If the data will comfortably fit in memory, ansynchronous operation is best acheived using <code>dispatch_async()</code>.</p>
+
+<p>To operate in asynchronous mode, you create an <a href="Classes/RNEncryptor.html"><code>RNEncryptor</code></a> or <a href="Classes/RNDecryptor.html"><code>RNDecryptor</code></a>, providing it a handler. This handler will be
+called as data is encrypted or decrypted. As data becomes available, call <code>addData:</code>. When you reach the end of the data
+call <code>finish</code>.</p>
+
+<pre><code>- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+  [self.cryptor addData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+  [self.cryptor finish];
+}
+
+// Other connection delegates
+
+- (void)decryptionDidFinish {
+  if (self.cryptor.error) {
+    // An error occurred. You cannot trust encryptedData at this point
+  }
+  else {
+    // self.encryptedData is complete. Use it as you like
+  }
+  self.encryptedData = nil;
+  self.cryptor = nil;
+  self.connection = nil;
+}
+
+- (void)decryptRequest:(NSURLRequest *)request
+{
+  self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+  self.cryptor = [[RNDecryptor alloc] initWithPassword:self.password
+                                               handler:^(RNCryptor *cryptor, NSData *data) {
+                                                   [self.decryptedData appendData:data];
+                                                   if (cryptor.isFinished) {
+                                                     [self decryptionDidFinish];
+                                                   }
+                                                 }];
+}
+</code></pre>
+
+<h1>API Documentation</h1>
+
+<p>Full API information is available at <a href="http://rnapier.github.com/RNCryptor/doc/html/Classes/RNCryptor.html.">http://rnapier.github.com/RNCryptor/doc/html/Classes/RNCryptor.html.</a></p>
+
+<p>Details on the data format are available at <a href="https://github.com/rnapier/RNCryptor/wiki/Data-Format.">https://github.com/rnapier/RNCryptor/wiki/Data-Format.</a></p>
+
+<h1>Building</h1>
+
+<p>Comes packaged as a static library, but the source files can be dropped into any project. The OpenSSL files are not required.</p>
+
+<p>Requires <code>Security.framework</code>.</p>
+
+<p>Supports 10.7+ and iOS 5+. For more information on backporting, read and comment on Issue #22.</p>
+
+<h1>Design considerations</h1>
+
+<p><a href="Classes/RNCryptor.html"><code>RNCryptor</code></a> has several design goals, in order of importance:</p>
+
+<h2>Easy to use correctly for most common use cases</h2>
+
+<p>The most critical concern is that it be easy for non-experts to use <a href="Classes/RNCryptor.html"><code>RNCryptor</code></a> correctly. A framework that is more secure, but requires a steep learning curve on the developer will either be not used, or used incorrectly. Whenever possible, a single line of code should &ldquo;do the right thing&rdquo; for the most common cases.</p>
+
+<p>This also requires that it fail correctly and provide good errors.</p>
+
+<h2>Reliance on CommonCryptor functionality</h2>
+
+<p><a href="Classes/RNCryptor.html"><code>RNCryptor</code></a> has very little &ldquo;security&rdquo; code. It relies as much as possible on the OS-provided CommonCryptor. If a feature does not exist in CommonCryptor, then it generally will not be provided in <a href="Classes/RNCryptor.html"><code>RNCryptor</code></a>.</p>
+
+<h2>Best practice security</h2>
+
+<p>Wherever possible within the above constraints, the best available algorithms are applied. This means AES-256, HMAC+SHA1, and PBKDF2:</p>
+
+<ul>
+<li><p>AES-256. While Bruce Schneier has made some interesting recommendations regarding moving to AES-128 due to certain attacks on AES-256, my current thinking is in line with Colin Percival here: <a href="http://www.daemonology.net/blog/2009-07-31-thoughts-on-AES.html.">http://www.daemonology.net/blog/2009-07-31-thoughts-on-AES.html.</a> PBKDF2 output is effectively random, which should negate related-keys attacks against the kinds of use cases we&rsquo;re interested in.</p></li>
+<li><p>AES-CBC mode. This was a somewhat complex decision, but the ubiquity of CBC outweighs other considerations here. There are no
+major problems with CBC mode, and nonce-based modes like CTR have other trade-offs. See <a href="http://robnapier.net/blog/mode-rncryptor-767">http://robnapier.net/blog/mode-rncryptor-767</a> for
+more details on this decision.</p></li>
+<li><p>Encrypt-then-MAC. If there were a good authenticated AES mode on iOS (GCM for instance), I would probably use that for
+its simplicity. Colin Percival makes <a href="http://www.daemonology.net/blog/2009-06-24-encrypt-then-mac.html">good arguments for hand-coding an encrypt-than-MAC</a> rather than using an authenticated
+AES mode, but in <a href="Classes/RNCryptor.html">RNCryptor</a> mananging the HMAC actually adds quite a bit of complexity. I&rsquo;d rather the complexity at a
+more broadly peer-reviewed layer like CommonCryptor than at the <a href="Classes/RNCryptor.html">RNCryptor</a> layer. But this isn&rsquo;t an option, so I fall back
+to my own Encrypt-than-MAC.</p></li>
+<li><p>HMAC+SHA256. No surprises here.</p></li>
+<li><p>PBKDF2. While bcrypt and scrypt may be more secure than PBKDF2, CommonCryptor only supports PBKDF2. NIST also continues to recommend PBKDF2. <a href="http://security.stackexchange.com/questions/4781/do-any-security-experts-recommend-bcrypt-for-password-storage">http://security.stackexchange.com/questions/4781/do-any-security-experts-recommend-bcrypt-for-password-storage</a> We use 10k rounds of PBKDF2 which represents about 80ms on an iPhone 4.</p></li>
+</ul>
+
+
+<h2>Code simplicity</h2>
+
+<p><code>RNCryptor</code> endeavors to be implemented as simply as possible, avoiding tricky code. It is designed to be easy to read and code review.</p>
+
+<h2>Performance</h2>
+
+<p>Performance is a goal, but not the most important goal. The code must be secure and easy to use. Within that, it is as fast and memory-efficient as possible.</p>
+
+<h2>Portability</h2>
+
+<p>Without sacrificing other goals, it is preferable to read the output format of <code>RNCryptor</code> on other platforms.</p>
+
+<h1>Roadmap</h1>
+
+<ul>
+<li>v2.0 adds asynchronous modes.</li>
+<li>v2.1 backports <a href="Classes/RNCryptor.html"><code>RNCryptor</code></a> to older versions of Mac OS X (and possibly iOS).</li>
+</ul>
+
+
+<h1>LICENSE</h1>
+
+<p>This code is licensed under the MIT License:</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the &ldquo;Software&rdquo;),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/RNCryptor.html">RNCryptor</a></li>
+							
+							<li><a href="Classes/RNCryptorEngine.html">RNCryptorEngine</a></li>
+							
+							<li><a href="Classes/RNDecryptor.html">RNDecryptor</a></li>
+							
+							<li><a href="Classes/RNEncryptor.html">RNEncryptor</a></li>
+							
+							<li><a href="Classes/RNOpenSSLDecryptor.html">RNOpenSSLDecryptor</a></li>
+							
+							<li><a href="Classes/RNOpenSSLEncryptor.html">RNOpenSSLEncryptor</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						
+						<h2 class="index-title">Category References</h2>
+						<ul>
+							
+							<li><a href="Categories/NSMutableData+RNCryptor.html">NSMutableData(RNCryptor)</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 bsorrentino. All rights reserved. (Last updated: 2012-08-30)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>
