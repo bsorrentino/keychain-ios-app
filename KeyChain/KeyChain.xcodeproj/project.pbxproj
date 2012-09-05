@@ -53,6 +53,18 @@
 		5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD466ED1441A5C600A39BEE /* ImportViewController.m */; };
 		5FD466F21441A81100A39BEE /* import20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD466F11441A81100A39BEE /* import20x20.png */; };
 		5FD68C9414E40E2200B57E0C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD68C9314E40E2200B57E0C /* QuartzCore.framework */; };
+		5FE8A80B15F7B15B00F8566F /* back24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A7FF15F7B15B00F8566F /* back24x24.png */; };
+		5FE8A80C15F7B15B00F8566F /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80015F7B15B00F8566F /* chevron.png */; };
+		5FE8A80D15F7B15B00F8566F /* confirm24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80115F7B15B00F8566F /* confirm24x24.png */; };
+		5FE8A80E15F7B15B00F8566F /* edit32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80215F7B15B00F8566F /* edit32x32.png */; };
+		5FE8A80F15F7B15B00F8566F /* write32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80315F7B15B00F8566F /* write32x32.png */; };
+		5FE8A81015F7B15B00F8566F /* MailDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80415F7B15B00F8566F /* MailDataEntryCell.xib */; };
+		5FE8A81115F7B15B00F8566F /* PushDateEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80515F7B15B00F8566F /* PushDateEntryCell.xib */; };
+		5FE8A81215F7B15B00F8566F /* PushFormDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80615F7B15B00F8566F /* PushFormDataEntryCell.xib */; };
+		5FE8A81315F7B15B00F8566F /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80715F7B15B00F8566F /* PushTextEntryCell.xib */; };
+		5FE8A81415F7B15B00F8566F /* PushWebViewEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80815F7B15B00F8566F /* PushWebViewEntryCell.xib */; };
+		5FE8A81515F7B15B00F8566F /* SwitchDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80915F7B15B00F8566F /* SwitchDataEntryCell.xib */; };
+		5FE8A81615F7B15B00F8566F /* TextDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80A15F7B15B00F8566F /* TextDataEntryCell.xib */; };
 		5FEA98E512B981950034ADC1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */; };
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
 		5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754F14E5B06800E3E162 /* KeyListViewController.m */; };
@@ -173,6 +185,18 @@
 		5FD466ED1441A5C600A39BEE /* ImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportViewController.m; sourceTree = "<group>"; };
 		5FD466F11441A81100A39BEE /* import20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = import20x20.png; sourceTree = "<group>"; };
 		5FD68C9314E40E2200B57E0C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5FE8A7FF15F7B15B00F8566F /* back24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back24x24.png; path = Pods/UIXML/back24x24.png; sourceTree = "<group>"; };
+		5FE8A80015F7B15B00F8566F /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chevron.png; path = Pods/UIXML/chevron.png; sourceTree = "<group>"; };
+		5FE8A80115F7B15B00F8566F /* confirm24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = confirm24x24.png; path = Pods/UIXML/confirm24x24.png; sourceTree = "<group>"; };
+		5FE8A80215F7B15B00F8566F /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edit32x32.png; path = Pods/UIXML/edit32x32.png; sourceTree = "<group>"; };
+		5FE8A80315F7B15B00F8566F /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = write32x32.png; path = Pods/UIXML/write32x32.png; sourceTree = "<group>"; };
+		5FE8A80415F7B15B00F8566F /* MailDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MailDataEntryCell.xib; path = Pods/UIXML/MailDataEntryCell.xib; sourceTree = "<group>"; };
+		5FE8A80515F7B15B00F8566F /* PushDateEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushDateEntryCell.xib; path = Pods/UIXML/PushDateEntryCell.xib; sourceTree = "<group>"; };
+		5FE8A80615F7B15B00F8566F /* PushFormDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushFormDataEntryCell.xib; path = Pods/UIXML/PushFormDataEntryCell.xib; sourceTree = "<group>"; };
+		5FE8A80715F7B15B00F8566F /* PushTextEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushTextEntryCell.xib; path = Pods/UIXML/PushTextEntryCell.xib; sourceTree = "<group>"; };
+		5FE8A80815F7B15B00F8566F /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushWebViewEntryCell.xib; path = Pods/UIXML/PushWebViewEntryCell.xib; sourceTree = "<group>"; };
+		5FE8A80915F7B15B00F8566F /* SwitchDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SwitchDataEntryCell.xib; path = Pods/UIXML/SwitchDataEntryCell.xib; sourceTree = "<group>"; };
+		5FE8A80A15F7B15B00F8566F /* TextDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextDataEntryCell.xib; path = Pods/UIXML/TextDataEntryCell.xib; sourceTree = "<group>"; };
 		5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		5FF78F2E12E5A481008EA886 /* logo-64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-64x64.png"; sourceTree = "<group>"; };
 		5FFC754E14E5B06800E3E162 /* KeyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListViewController.h; sourceTree = "<group>"; };
@@ -303,6 +327,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5FE8A7FE15F7B10B00F8566F /* UIXML */,
 				A02BB730159C57F8001FD5AA /* WEPopover */,
 				A02BB722159C4DFA001FD5AA /* back32x32.png */,
 				A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */,
@@ -467,6 +492,25 @@
 			name = KeyList;
 			sourceTree = "<group>";
 		};
+		5FE8A7FE15F7B10B00F8566F /* UIXML */ = {
+			isa = PBXGroup;
+			children = (
+				5FE8A7FF15F7B15B00F8566F /* back24x24.png */,
+				5FE8A80015F7B15B00F8566F /* chevron.png */,
+				5FE8A80115F7B15B00F8566F /* confirm24x24.png */,
+				5FE8A80215F7B15B00F8566F /* edit32x32.png */,
+				5FE8A80315F7B15B00F8566F /* write32x32.png */,
+				5FE8A80415F7B15B00F8566F /* MailDataEntryCell.xib */,
+				5FE8A80515F7B15B00F8566F /* PushDateEntryCell.xib */,
+				5FE8A80615F7B15B00F8566F /* PushFormDataEntryCell.xib */,
+				5FE8A80715F7B15B00F8566F /* PushTextEntryCell.xib */,
+				5FE8A80815F7B15B00F8566F /* PushWebViewEntryCell.xib */,
+				5FE8A80915F7B15B00F8566F /* SwitchDataEntryCell.xib */,
+				5FE8A80A15F7B15B00F8566F /* TextDataEntryCell.xib */,
+			);
+			name = UIXML;
+			sourceTree = "<group>";
+		};
 		A02BB730159C57F8001FD5AA /* WEPopover */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,6 +671,18 @@
 				5F084FC315BAF09100059E26 /* KeyCell.xib in Resources */,
 				5FC717E715C6EE6F00836CED /* swipeL@18x24.png in Resources */,
 				5F82059D15D4109000862BC2 /* swipeR@18x24.png in Resources */,
+				5FE8A80B15F7B15B00F8566F /* back24x24.png in Resources */,
+				5FE8A80C15F7B15B00F8566F /* chevron.png in Resources */,
+				5FE8A80D15F7B15B00F8566F /* confirm24x24.png in Resources */,
+				5FE8A80E15F7B15B00F8566F /* edit32x32.png in Resources */,
+				5FE8A80F15F7B15B00F8566F /* write32x32.png in Resources */,
+				5FE8A81015F7B15B00F8566F /* MailDataEntryCell.xib in Resources */,
+				5FE8A81115F7B15B00F8566F /* PushDateEntryCell.xib in Resources */,
+				5FE8A81215F7B15B00F8566F /* PushFormDataEntryCell.xib in Resources */,
+				5FE8A81315F7B15B00F8566F /* PushTextEntryCell.xib in Resources */,
+				5FE8A81415F7B15B00F8566F /* PushWebViewEntryCell.xib in Resources */,
+				5FE8A81515F7B15B00F8566F /* SwitchDataEntryCell.xib in Resources */,
+				5FE8A81615F7B15B00F8566F /* TextDataEntryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
