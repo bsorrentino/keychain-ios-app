@@ -768,7 +768,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     cell.textLabel.text = [managedObject.mnemonic description];
     
     if (managedObject.isSection) {
-        //cell.detailTextLabel.text = NSLocalizedString(@"CellGroup.detailTextLabel", nil);
         cell.detailTextLabel.text = managedObject.groupPrefix;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
@@ -776,6 +775,9 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
         
         if( managedObject.isGrouped ) {
             cell.detailTextLabel.text = managedObject.groupPrefix;
+        }
+        else {
+            cell.detailTextLabel.text = @"";
         }
 
         if ([cell isKindOfClass:[ZKRevealingTableViewCell class]]) {
