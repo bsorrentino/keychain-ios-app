@@ -9,6 +9,7 @@
 #import "KeyChainLogin.h"
 #import "WEPopoverController.h"
 #import "InfoViewController.h"
+#import "AccountCredential.h"
 
 #define TAG_FOR_LOGIN_BUTTON 5
 
@@ -38,9 +39,9 @@
 
 - (BOOL)loginToSystem {
 	
-	NSString *p = self.password;
+	NSString *p = [AccountCredential sharedCredential].password;
 	if ( p==nil ) {
-		self.password = txtPassword.text;
+		[AccountCredential sharedCredential].password = txtPassword.text;
 		self.txtPassword.text = @"";
 		self.txtPassword.placeholder = NSLocalizedString(@"login.confirmPassword", @"");
 		return NO;
@@ -97,7 +98,7 @@
     switch (changePasswordStep_) {
         case CHECKPASSWORD:
         {
-            NSString *p = self.password;
+            NSString *p = [AccountCredential sharedCredential].password;
 
             if ([p compare: txtPassword.text] != 0 ) {
                 UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Password doesn't match!" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
@@ -133,7 +134,7 @@
             }
             else {
                 
-                self.password = tmpPassword_;
+                [AccountCredential sharedCredential].password = tmpPassword_;
                 result = YES;
                 [self.navigationController popViewControllerAnimated:YES]; 
             }
@@ -229,34 +230,6 @@
 }
 
 #pragma mark -
-#pragma mark User Preferences
-#pragma mark -
-
--(NSString*) password {
-	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-	NSString *result = [prefs objectForKey:@"pwd"];
-	return result;
-}
-
--(void) setPassword:(NSString *)value {
-	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-	[prefs setObject:value forKey:@"pwd"];
-	[prefs synchronize];
-}
-
--(NSString*) version {
-	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-	NSString *result = [prefs objectForKey:@"ver"];
-	return result;
-}
-
--(void) setVersion:(NSString *)value {
-	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-	[prefs setObject:value forKey:@"ver"];
-	[prefs synchronize];
-}
-
-#pragma mark -
 #pragma mark inherit from UITextFieldDelegate
 #pragma mark -
 
@@ -286,13 +259,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+    NSString *_bundleVersion = [AccountCredential sharedCredential].bundleVersion;
+
 	txtPassword.delegate = self;
     
-    NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey]; 
+    NSLog(@"bundle version [%@]", _bundleVersion );
     
-    NSLog(@"bundle version [%@]", bundleVersion);
-    
-    NSString *versionTitle = [NSString stringWithFormat:self.btnVersion.title, bundleVersion];
+    NSString *versionTitle = [NSString stringWithFormat:self.btnVersion.title, _bundleVersion];
     
     self.btnVersion.title = versionTitle;
     
@@ -301,21 +274,14 @@
 
 //
 -(void)viewDidAppear:(BOOL)animated {
+
+    __block KeyChainLogin *_self = self;
     
     dispatch_async(dispatch_get_main_queue(), ^{
        
-        NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey]; 
-        
-        NSString *currentVersion = self.version;
-        
-        if( currentVersion == nil || [currentVersion compare:bundleVersion options:NSCaseInsensitiveSearch] ) {
+        if ( [[AccountCredential sharedCredential] checkAndUpdateCurrentVersion] ) {
             
-            NSLog(@"detect different version current [%@] deployed [%@]", currentVersion, bundleVersion);
-
-            self.version = bundleVersion;
-            
-            [self info:self.btnInfo];
-            
+            [_self info:_self.btnInfo];
         }
     });
     

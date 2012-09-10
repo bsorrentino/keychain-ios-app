@@ -42,10 +42,6 @@ typedef enum {
 @property (nonatomic, strong) WEPopoverController *popoverController;
 @property (nonatomic) IBOutlet UIToolbar *toolBar;
 
-@property (nonatomic) NSString *password;
-@property (nonatomic) NSString *version;
-
-
 -(id)initForChangePassword;
 - (IBAction)login:(id)sender;
 - (IBAction)info:(id)sender;
