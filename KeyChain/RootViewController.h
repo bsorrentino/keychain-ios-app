@@ -30,10 +30,12 @@
 @property (nonatomic) IBOutlet KeyListViewController *keyListViewController;
 @property (nonatomic) IBOutlet ExportViewController *exportViewController;
 @property (nonatomic) IBOutlet ImportViewController *importViewController;
+@property (unsafe_unretained, nonatomic) IBOutlet UIBarButtonItem *encryptButton;
 
 -(IBAction)changePassword:(id)sender;
 -(IBAction)export:(id)sender;
 -(IBAction)import:(id)sender;
+- (IBAction)encrypt:(id)sender;
 
 
 @end

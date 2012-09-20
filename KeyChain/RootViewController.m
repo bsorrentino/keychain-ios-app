@@ -20,6 +20,7 @@
 #import <QuartzCore/CAAnimation.h>
 #import <QuartzCore/CAMediaTimingFunction.h>
 
+#import "YISplashScreen+Migration.h"
 
 @interface RootViewController (Private)
 -(void)insertNewObject;
@@ -31,6 +32,7 @@
 @synthesize keyListViewController=keyListViewController_;
 @synthesize exportViewController=exportViewController_;
 @synthesize importViewController=importViewController_;
+@synthesize encryptButton;
 
 #pragma mark - private implementation
 
@@ -133,6 +135,21 @@
     [UIView commitAnimations];
 }
 
+- (IBAction)encrypt:(id)sender {
+
+    [YISplashScreen show];
+    
+    [YISplashScreen waitForMigration:^{
+        
+        
+    } completion:^{
+        
+        [YISplashScreen hide];
+        
+    }];
+
+}
+
 -(IBAction)export:(id)sender {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration: 1];
@@ -221,6 +238,10 @@
 
 
 
+- (void)viewDidUnload {
+    [self setEncryptButton:nil];
+    [super viewDidUnload];
+}
 @end
 
 
