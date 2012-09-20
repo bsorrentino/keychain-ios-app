@@ -1,7 +1,7 @@
-ALWAYS_SEARCH_USER_PATHS = YES
-HEADER_SEARCH_PATHS = ${PODS_HEADERS_SEARCH_PATHS}
 PODS_ROOT = ${SRCROOT}/Pods
-PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/KSCrypto" "${PODS_ROOT}/BuildHeaders/RNCryptor" "${PODS_ROOT}/BuildHeaders/SSKeychain" "${PODS_ROOT}/BuildHeaders/UIXML" "${PODS_ROOT}/BuildHeaders/WEPopover" "${PODS_ROOT}/BuildHeaders/ZKRevealingTableViewCell"
 OTHER_LDFLAGS = -ObjC -framework CoreGraphics -framework Foundation -framework QuartzCore -framework Security -framework UIKit
+PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/KSCrypto" "${PODS_ROOT}/BuildHeaders/MTStatusBarOverlay" "${PODS_ROOT}/BuildHeaders/RNCryptor" "${PODS_ROOT}/BuildHeaders/SSKeychain" "${PODS_ROOT}/BuildHeaders/UIXML" "${PODS_ROOT}/BuildHeaders/WEPopover" "${PODS_ROOT}/BuildHeaders/ZKRevealingTableViewCell"
+ALWAYS_SEARCH_USER_PATHS = YES
 PODS_HEADERS_SEARCH_PATHS = ${PODS_PUBLIC_HEADERS_SEARCH_PATHS}
-PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/KSCrypto" "${PODS_ROOT}/Headers/RNCryptor" "${PODS_ROOT}/Headers/SSKeychain" "${PODS_ROOT}/Headers/UIXML" "${PODS_ROOT}/Headers/WEPopover" "${PODS_ROOT}/Headers/ZKRevealingTableViewCell"
+PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/KSCrypto" "${PODS_ROOT}/Headers/MTStatusBarOverlay" "${PODS_ROOT}/Headers/RNCryptor" "${PODS_ROOT}/Headers/SSKeychain" "${PODS_ROOT}/Headers/UIXML" "${PODS_ROOT}/Headers/WEPopover" "${PODS_ROOT}/Headers/ZKRevealingTableViewCell"
+HEADER_SEARCH_PATHS = ${PODS_HEADERS_SEARCH_PATHS}

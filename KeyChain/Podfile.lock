@@ -1,5 +1,6 @@
 PODS:
   - KSCrypto (1.0.2)
+  - MTStatusBarOverlay (0.9)
   - RNCryptor (1.2)
   - SSKeychain (0.1.4)
   - UIXML (1.2.0)
@@ -8,6 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - KSCrypto (~> 1.0.2)
+  - MTStatusBarOverlay (~> 0.9)
   - RNCryptor (defined in Podfile)
   - SSKeychain (~> 0.1.4)
   - UIXML (defined in Podfile)

@@ -30,6 +30,7 @@
 		5F2718FC152508E800C5BBA3 /* info34x34.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2718FB152508E800C5BBA3 /* info34x34.png */; };
 		5F27190015250CEB00C5BBA3 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */; };
 		5F27190115250CEB00C5BBA3 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2718FF15250CEB00C5BBA3 /* InfoViewController.xib */; };
+		5F3486C2160B859C00F2C1A2 /* StringEncryptionTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */; };
 		5F3BD073143B352F00001F01 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3BD072143B352E00001F01 /* CoreData.framework */; };
 		5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F544F7313F82E350001A8B5 /* logo-57x57.png */; };
 		5F6C47811535C4F20092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
@@ -48,6 +49,11 @@
 		5FA3A4D012DC780B009BE36C /* KeyEntityFormController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */; };
 		5FA3A50012DC7C8A009BE36C /* KeyEntityForm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */; };
 		5FB1293F15CAFCED007365C5 /* SectionKeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1293D15CAFCED007365C5 /* SectionKeyListViewController.m */; };
+		5FC65096160933F1003BC18F /* YISplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC65091160933F1003BC18F /* YISplashScreen.m */; };
+		5FC65097160933F1003BC18F /* YISplashScreen+Migration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC65093160933F1003BC18F /* YISplashScreen+Migration.m */; };
+		5FC65098160933F1003BC18F /* YISplashScreenAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC65095160933F1003BC18F /* YISplashScreenAnimation.m */; };
+		5FC6509B16093451003BC18F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FC6509916093451003BC18F /* Default-568h@2x.png */; };
+		5FC6509C16093451003BC18F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FC6509A16093451003BC18F /* Default@2x.png */; };
 		5FC717E715C6EE6F00836CED /* swipeL@18x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FC717E615C6EE6F00836CED /* swipeL@18x24.png */; };
 		5FD3D1481525E8B5005D7E67 /* youtube199x68.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD3D1471525E8B5005D7E67 /* youtube199x68.png */; };
 		5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD466ED1441A5C600A39BEE /* ImportViewController.m */; };
@@ -149,6 +155,8 @@
 		5F2718FD15250CEB00C5BBA3 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		5F2718FF15250CEB00C5BBA3 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		5F3486C0160B859C00F2C1A2 /* StringEncryptionTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncryptionTransformer.h; sourceTree = "<group>"; };
+		5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryptionTransformer.m; sourceTree = "<group>"; };
 		5F3BD072143B352E00001F01 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5F4130D6155E7A2A00D96FC4 /* libUIXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIXML.a; path = "../../../APPLE/build/Release-iphoneos/libUIXML.a"; sourceTree = "<group>"; };
 		5F544F7313F82E350001A8B5 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-57x57.png"; sourceTree = "<group>"; };
@@ -179,6 +187,14 @@
 		5FB1293C15CAFCED007365C5 /* SectionKeyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionKeyListViewController.h; sourceTree = "<group>"; };
 		5FB1293D15CAFCED007365C5 /* SectionKeyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionKeyListViewController.m; sourceTree = "<group>"; };
 		5FBB755B14B78BA300A48690 /* KeyChain-1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain-1.1.xcdatamodel"; sourceTree = "<group>"; };
+		5FC65090160933F1003BC18F /* YISplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YISplashScreen.h; sourceTree = "<group>"; };
+		5FC65091160933F1003BC18F /* YISplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YISplashScreen.m; sourceTree = "<group>"; };
+		5FC65092160933F1003BC18F /* YISplashScreen+Migration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YISplashScreen+Migration.h"; sourceTree = "<group>"; };
+		5FC65093160933F1003BC18F /* YISplashScreen+Migration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YISplashScreen+Migration.m"; sourceTree = "<group>"; };
+		5FC65094160933F1003BC18F /* YISplashScreenAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YISplashScreenAnimation.h; sourceTree = "<group>"; };
+		5FC65095160933F1003BC18F /* YISplashScreenAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YISplashScreenAnimation.m; sourceTree = "<group>"; };
+		5FC6509916093451003BC18F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5FC6509A16093451003BC18F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5FC717E615C6EE6F00836CED /* swipeL@18x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swipeL@18x24.png"; sourceTree = "<group>"; };
 		5FD3D1471525E8B5005D7E67 /* youtube199x68.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube199x68.png; sourceTree = "<group>"; };
 		5FD466EC1441A5C600A39BEE /* ImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportViewController.h; sourceTree = "<group>"; };
@@ -286,6 +302,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5F3486BF160B83D200F2C1A2 /* datamodel */,
+				5FC6508F160933A9003BC18F /* migration */,
 				A02BB72B159C5752001FD5AA /* podfile */,
 				5FA71BE815E968DB001AFCCF /* Export */,
 				5FA71BE915E96913001AFCCF /* Import */,
@@ -342,10 +360,8 @@
 				A0759F2014305DBE000701EF /* settings20x20.png */,
 				5F17FB961416E9E4007D88F9 /* Localizable.strings */,
 				5F129E0912EB607300BF9EF9 /* login32x32.png */,
-				28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* KeyChain-Info.plist */,
-				5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -404,6 +420,19 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		5F3486BF160B83D200F2C1A2 /* datamodel */ = {
+			isa = PBXGroup;
+			children = (
+				28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */,
+				5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */,
+				5FA3A4BA12DC7730009BE36C /* KeyEntity.h */,
+				5FA3A4BB12DC7730009BE36C /* KeyEntity.m */,
+				5F3486C0160B859C00F2C1A2 /* StringEncryptionTransformer.h */,
+				5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */,
+			);
+			name = datamodel;
+			sourceTree = "<group>";
+		};
 		5F6F634714FE4504004C1337 /* DragDrop */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,8 +453,6 @@
 				A0FD0E4514165D8E009C7257 /* AttributeInfo.m */,
 				5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */,
 				5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */,
-				5FA3A4BA12DC7730009BE36C /* KeyEntity.h */,
-				5FA3A4BB12DC7730009BE36C /* KeyEntity.m */,
 				5FA3A4BC12DC7730009BE36C /* PersistentAppDelegate.h */,
 				5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */,
 				5FA3A4BE12DC7730009BE36C /* RootViewController.h */,
@@ -480,6 +507,21 @@
 				5FB1293D15CAFCED007365C5 /* SectionKeyListViewController.m */,
 			);
 			name = SectionKeyList;
+			sourceTree = "<group>";
+		};
+		5FC6508F160933A9003BC18F /* migration */ = {
+			isa = PBXGroup;
+			children = (
+				5FC6509916093451003BC18F /* Default-568h@2x.png */,
+				5FC6509A16093451003BC18F /* Default@2x.png */,
+				5FC65090160933F1003BC18F /* YISplashScreen.h */,
+				5FC65091160933F1003BC18F /* YISplashScreen.m */,
+				5FC65092160933F1003BC18F /* YISplashScreen+Migration.h */,
+				5FC65093160933F1003BC18F /* YISplashScreen+Migration.m */,
+				5FC65094160933F1003BC18F /* YISplashScreenAnimation.h */,
+				5FC65095160933F1003BC18F /* YISplashScreenAnimation.m */,
+			);
+			name = migration;
 			sourceTree = "<group>";
 		};
 		5FD37D4715CDD005008F9F1D /* KeyList */ = {
@@ -683,6 +725,8 @@
 				5FE8A81415F7B15B00F8566F /* PushWebViewEntryCell.xib in Resources */,
 				5FE8A81515F7B15B00F8566F /* SwitchDataEntryCell.xib in Resources */,
 				5FE8A81615F7B15B00F8566F /* TextDataEntryCell.xib in Resources */,
+				5FC6509B16093451003BC18F /* Default-568h@2x.png in Resources */,
+				5FC6509C16093451003BC18F /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +800,10 @@
 				5F8205A015D4144400862BC2 /* UIPasswordLabel.m in Sources */,
 				5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */,
 				5F251A6015EF968200A270A6 /* AccountCredential.m in Sources */,
+				5FC65096160933F1003BC18F /* YISplashScreen.m in Sources */,
+				5FC65097160933F1003BC18F /* YISplashScreen+Migration.m in Sources */,
+				5FC65098160933F1003BC18F /* YISplashScreenAnimation.m in Sources */,
+				5F3486C2160B859C00F2C1A2 /* StringEncryptionTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
