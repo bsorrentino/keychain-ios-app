@@ -14,7 +14,6 @@
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* RootViewController.xib */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
-		28D3F202112F7DC200FD0661 /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */; };
 		5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F04E6E212E368C800370F50 /* KeyChainLogin.m */; };
 		5F04E6E512E368C800370F50 /* KeyChainLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F04E6E312E368C800370F50 /* KeyChainLogin.xib */; };
 		5F052D8A15CBE90900330214 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F052D8915CBE90900330214 /* iToast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -30,9 +29,11 @@
 		5F2718FC152508E800C5BBA3 /* info34x34.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2718FB152508E800C5BBA3 /* info34x34.png */; };
 		5F27190015250CEB00C5BBA3 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */; };
 		5F27190115250CEB00C5BBA3 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2718FF15250CEB00C5BBA3 /* InfoViewController.xib */; };
+		5F30A4841610E3AD005BAE36 /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F30A47F1610E3AD005BAE36 /* KeyChain.xcdatamodeld */; };
 		5F3486C2160B859C00F2C1A2 /* StringEncryptionTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */; };
 		5F3BD073143B352F00001F01 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3BD072143B352E00001F01 /* CoreData.framework */; };
 		5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F544F7313F82E350001A8B5 /* logo-57x57.png */; };
+		5F66446D1611B80D00800259 /* KeyEntity+Cryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66446C1611B80D00800259 /* KeyEntity+Cryptor.m */; };
 		5F6C47811535C4F20092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
 		5F6C47821535C6790092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
 		5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F3439143F315500D9C428 /* ExportViewController.m */; };
@@ -73,6 +74,7 @@
 		5FE8A81615F7B15B00F8566F /* TextDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80A15F7B15B00F8566F /* TextDataEntryCell.xib */; };
 		5FEA98E512B981950034ADC1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */; };
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
+		5FF9DFF31610EBB9003ABEA0 /* model-1.3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */; };
 		5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754F14E5B06800E3E162 /* KeyListViewController.m */; };
 		65FD1F11C87147678D8BC26A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5112EA4300461BB01FA835 /* libPods.a */; };
 		A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0121169142269B2000AA884 /* AVFoundation.framework */; };
@@ -126,7 +128,6 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* KeyChain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		28860B760F44E54D00985440 /* KeyChain.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = KeyChain.xcdatamodel; sourceTree = "<group>"; };
 		28860BE40F44EE6400985440 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E55F0DE3E45000AC0155 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
@@ -155,11 +156,17 @@
 		5F2718FD15250CEB00C5BBA3 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		5F2718FF15250CEB00C5BBA3 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		5F30A4801610E3AD005BAE36 /* KeyChain-1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain-1.0.xcdatamodel"; sourceTree = "<group>"; };
+		5F30A4811610E3AD005BAE36 /* KeyChain-1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain-1.1.xcdatamodel"; sourceTree = "<group>"; };
+		5F30A4821610E3AD005BAE36 /* KeyChain-1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain-1.2.xcdatamodel"; sourceTree = "<group>"; };
+		5F30A4831610E3AD005BAE36 /* KeyChain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KeyChain.xcdatamodel; sourceTree = "<group>"; };
 		5F3486C0160B859C00F2C1A2 /* StringEncryptionTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncryptionTransformer.h; sourceTree = "<group>"; };
 		5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryptionTransformer.m; sourceTree = "<group>"; };
 		5F3BD072143B352E00001F01 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5F4130D6155E7A2A00D96FC4 /* libUIXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIXML.a; path = "../../../APPLE/build/Release-iphoneos/libUIXML.a"; sourceTree = "<group>"; };
 		5F544F7313F82E350001A8B5 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-57x57.png"; sourceTree = "<group>"; };
+		5F66446B1611B80D00800259 /* KeyEntity+Cryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeyEntity+Cryptor.h"; sourceTree = "<group>"; };
+		5F66446C1611B80D00800259 /* KeyEntity+Cryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KeyEntity+Cryptor.m"; sourceTree = "<group>"; };
 		5F6C47801535C4F20092F552 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5F6F3438143F315500D9C428 /* ExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportViewController.h; sourceTree = "<group>"; };
 		5F6F3439143F315500D9C428 /* ExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportViewController.m; sourceTree = "<group>"; };
@@ -186,7 +193,6 @@
 		5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = KeyEntityForm.plist; sourceTree = "<group>"; };
 		5FB1293C15CAFCED007365C5 /* SectionKeyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionKeyListViewController.h; sourceTree = "<group>"; };
 		5FB1293D15CAFCED007365C5 /* SectionKeyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionKeyListViewController.m; sourceTree = "<group>"; };
-		5FBB755B14B78BA300A48690 /* KeyChain-1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain-1.1.xcdatamodel"; sourceTree = "<group>"; };
 		5FC65090160933F1003BC18F /* YISplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YISplashScreen.h; sourceTree = "<group>"; };
 		5FC65091160933F1003BC18F /* YISplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YISplashScreen.m; sourceTree = "<group>"; };
 		5FC65092160933F1003BC18F /* YISplashScreen+Migration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YISplashScreen+Migration.h"; sourceTree = "<group>"; };
@@ -215,6 +221,7 @@
 		5FE8A80A15F7B15B00F8566F /* TextDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextDataEntryCell.xib; path = Pods/UIXML/TextDataEntryCell.xib; sourceTree = "<group>"; };
 		5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		5FF78F2E12E5A481008EA886 /* logo-64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-64x64.png"; sourceTree = "<group>"; };
+		5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.3.xcmappingmodel"; sourceTree = "<group>"; };
 		5FFC754E14E5B06800E3E162 /* KeyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListViewController.h; sourceTree = "<group>"; };
 		5FFC754F14E5B06800E3E162 /* KeyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyListViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* KeyChain-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KeyChain-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -249,7 +256,6 @@
 		A083A19B14362F020032B285 /* KeyChainTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyChainTests.h; sourceTree = "<group>"; };
 		A083A19D14362F020032B285 /* KeyChainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyChainTests.m; sourceTree = "<group>"; };
 		A0CD69651430C24A00EDE45F /* export20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = export20x20.png; sourceTree = "<group>"; };
-		A0FD0E4014165BAC009C7257 /* KeyChain-1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain-1.0.xcdatamodel"; sourceTree = "<group>"; };
 		A0FD0E4414165D8E009C7257 /* AttributeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeInfo.h; sourceTree = "<group>"; };
 		A0FD0E4514165D8E009C7257 /* AttributeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttributeInfo.m; sourceTree = "<group>"; };
 		A0FD0E4B14166C32009C7257 /* MailListDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailListDataEntryCell.h; sourceTree = "<group>"; };
@@ -349,7 +355,6 @@
 				A02BB730159C57F8001FD5AA /* WEPopover */,
 				A02BB722159C4DFA001FD5AA /* back32x32.png */,
 				A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */,
-				A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */,
 				5FD3D1471525E8B5005D7E67 /* youtube199x68.png */,
 				5F2718FF15250CEB00C5BBA3 /* InfoViewController.xib */,
 				5F2718FB152508E800C5BBA3 /* info34x34.png */,
@@ -423,12 +428,16 @@
 		5F3486BF160B83D200F2C1A2 /* datamodel */ = {
 			isa = PBXGroup;
 			children = (
-				28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */,
+				5F30A47F1610E3AD005BAE36 /* KeyChain.xcdatamodeld */,
+				5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */,
+				A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */,
 				5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */,
 				5FA3A4BA12DC7730009BE36C /* KeyEntity.h */,
 				5FA3A4BB12DC7730009BE36C /* KeyEntity.m */,
 				5F3486C0160B859C00F2C1A2 /* StringEncryptionTransformer.h */,
 				5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */,
+				5F66446B1611B80D00800259 /* KeyEntity+Cryptor.h */,
+				5F66446C1611B80D00800259 /* KeyEntity+Cryptor.m */,
 			);
 			name = datamodel;
 			sourceTree = "<group>";
@@ -777,7 +786,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				28D3F202112F7DC200FD0661 /* KeyChain.xcdatamodeld in Sources */,
 				5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */,
 				5FA3A4C112DC7730009BE36C /* KeyEntity.m in Sources */,
 				5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */,
@@ -804,6 +812,9 @@
 				5FC65097160933F1003BC18F /* YISplashScreen+Migration.m in Sources */,
 				5FC65098160933F1003BC18F /* YISplashScreenAnimation.m in Sources */,
 				5F3486C2160B859C00F2C1A2 /* StringEncryptionTransformer.m in Sources */,
+				5F30A4841610E3AD005BAE36 /* KeyChain.xcdatamodeld in Sources */,
+				5FF9DFF31610EBB9003ABEA0 /* model-1.3.xcmappingmodel in Sources */,
+				5F66446D1611B80D00800259 /* KeyEntity+Cryptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1068,14 +1079,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		28D3F201112F7DC200FD0661 /* KeyChain.xcdatamodeld */ = {
+		5F30A47F1610E3AD005BAE36 /* KeyChain.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5FBB755B14B78BA300A48690 /* KeyChain-1.1.xcdatamodel */,
-				A0FD0E4014165BAC009C7257 /* KeyChain-1.0.xcdatamodel */,
-				28860B760F44E54D00985440 /* KeyChain.xcdatamodel */,
+				5F30A4801610E3AD005BAE36 /* KeyChain-1.0.xcdatamodel */,
+				5F30A4811610E3AD005BAE36 /* KeyChain-1.1.xcdatamodel */,
+				5F30A4821610E3AD005BAE36 /* KeyChain-1.2.xcdatamodel */,
+				5F30A4831610E3AD005BAE36 /* KeyChain.xcdatamodel */,
 			);
-			currentVersion = 28860B760F44E54D00985440 /* KeyChain.xcdatamodel */;
+			currentVersion = 5F30A4831610E3AD005BAE36 /* KeyChain.xcdatamodel */;
 			path = KeyChain.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

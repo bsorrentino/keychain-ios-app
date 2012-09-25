@@ -13,6 +13,7 @@
 @synthesize password;
 @synthesize version;
 @synthesize bundleVersion;
+@synthesize encryptionEnabled;
 
 static AccountCredential *_sharedInstance;
 
@@ -100,6 +101,20 @@ static AccountCredential *_sharedInstance;
 -(void) setVersion:(NSString *)value {
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	[prefs setObject:value forKey:@"ver"];
+	[prefs synchronize];
+}
+
+-(BOOL) encryptionEnabled
+{
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	BOOL result = [prefs boolForKey:@"encryption"];
+	return result;
+}
+
+-(void) setEncryptionEnabled:(BOOL)value
+{
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	[prefs setBool:value forKey:@"encryption"];
 	[prefs synchronize];
 }
 

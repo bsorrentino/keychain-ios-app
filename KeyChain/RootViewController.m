@@ -21,6 +21,8 @@
 #import <QuartzCore/CAMediaTimingFunction.h>
 
 #import "YISplashScreen+Migration.h"
+#import "AccountCredential.h"
+#import "StringEncryptionTransformer.h"
 
 @interface RootViewController (Private)
 -(void)insertNewObject;
@@ -135,15 +137,27 @@
     [UIView commitAnimations];
 }
 
+
+
 - (IBAction)encrypt:(id)sender {
 
+    if ([AccountCredential sharedCredential].encryptionEnabled ) {
+        return;
+    }
+    
     [YISplashScreen show];
     
     [YISplashScreen waitForMigration:^{
         
+        [[self fetchedObjects] makeObjectsPerformSelector:@selector(encryptPassword)];
+        
         
     } completion:^{
         
+        [AccountCredential sharedCredential].encryptionEnabled = YES;
+        
+        [[self appDelegate] saveContext ] ;
+        [self filterReset:YES];
         [YISplashScreen hide];
         
     }];

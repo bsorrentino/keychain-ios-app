@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/MTStatusBarOverlayDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/MTStatusBarOverlayDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MTStatusBarOverlayDelegate/statusBarOverlayDidRecognizeGesture:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)statusBarOverlayDidRecognizeGesture:(UIGestureRecognizer *)gestureRecognizer</Declaration>
+			
+			
+			<Anchor>//api/name/statusBarOverlayDidRecognizeGesture:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MTStatusBarOverlayDelegate/statusBarOverlayDidHide</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)statusBarOverlayDidHide</Declaration>
+			
+			
+			<Anchor>//api/name/statusBarOverlayDidHide</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MTStatusBarOverlayDelegate/statusBarOverlayDidSwitchFromOldMessage:toNewMessage:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)statusBarOverlayDidSwitchFromOldMessage:(NSString *)oldMessage toNewMessage:(NSString *)newMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusBarOverlayDidSwitchFromOldMessage:toNewMessage:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MTStatusBarOverlayDelegate/statusBarOverlayDidClearMessageQueue:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)statusBarOverlayDidClearMessageQueue:(NSArray *)messageQueue</Declaration>
+			
+			
+			<Anchor>//api/name/statusBarOverlayDidClearMessageQueue:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

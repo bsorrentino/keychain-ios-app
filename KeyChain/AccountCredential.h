@@ -14,9 +14,11 @@
 
 @property (nonatomic,unsafe_unretained) NSString *password;
 @property (nonatomic,unsafe_unretained) NSString *version;
+@property (nonatomic,assign) BOOL encryptionEnabled;
 
 @property (nonatomic,unsafe_unretained,readonly,getter=getBundleVersion) NSString *bundleVersion;
 
 -(BOOL)checkAndUpdateCurrentVersion;
+
 
 @end

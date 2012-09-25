@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MTStatusBarOverlay.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MTStatusBarOverlay</TokenIdentifier>
+			<Abstract type="html">This class provides an overlay over the iOS Status Bar that can display information
+and perform an animation when you touch it:</Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setBackgroundView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIView *backgroundView</Declaration>
+			
+			
+			<Anchor>//api/name/backgroundView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/backgroundView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIView *backgroundView</Declaration>
+			
+			
+			<Anchor>//api/name/backgroundView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setDetailView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIView *detailView</Declaration>
+			
+			
+			<Anchor>//api/name/detailView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/detailView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIView *detailView</Declaration>
+			
+			
+			<Anchor>//api/name/detailView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setProgress:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) double progress</Declaration>
+			
+			
+			<Anchor>//api/name/progress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/progress</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) double progress</Declaration>
+			
+			
+			<Anchor>//api/name/progress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setSmallFrame:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGRect smallFrame</Declaration>
+			
+			
+			<Anchor>//api/name/smallFrame</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/smallFrame</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGRect smallFrame</Declaration>
+			
+			
+			<Anchor>//api/name/smallFrame</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setAnimation:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) MTStatusBarOverlayAnimation animation</Declaration>
+			
+			
+			<Anchor>//api/name/animation</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/animation</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) MTStatusBarOverlayAnimation animation</Declaration>
+			
+			
+			<Anchor>//api/name/animation</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setFinishedLabel:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UILabel *finishedLabel</Declaration>
+			
+			
+			<Anchor>//api/name/finishedLabel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/finishedLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UILabel *finishedLabel</Declaration>
+			
+			
+			<Anchor>//api/name/finishedLabel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setHidesActivity:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL hidesActivity</Declaration>
+			
+			
+			<Anchor>//api/name/hidesActivity</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/hidesActivity</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL hidesActivity</Declaration>
+			
+			
+			<Anchor>//api/name/hidesActivity</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setDefaultStatusBarImage:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIImage *defaultStatusBarImage</Declaration>
+			
+			
+			<Anchor>//api/name/defaultStatusBarImage</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/defaultStatusBarImage</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIImage *defaultStatusBarImage</Declaration>
+			
+			
+			<Anchor>//api/name/defaultStatusBarImage</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setDefaultStatusBarImageShrinked:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIImage *defaultStatusBarImageShrinked</Declaration>
+			
+			
+			<Anchor>//api/name/defaultStatusBarImageShrinked</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/defaultStatusBarImageShrinked</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIImage *defaultStatusBarImageShrinked</Declaration>
+			
+			
+			<Anchor>//api/name/defaultStatusBarImageShrinked</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setShrinked:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, getter=isShrinked) BOOL shrinked</Declaration>
+			
+			
+			<Anchor>//api/name/shrinked</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/shrinked</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, getter=isShrinked) BOOL shrinked</Declaration>
+			
+			
+			<Anchor>//api/name/shrinked</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setDetailViewHidden:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, getter=isDetailViewHidden) BOOL detailViewHidden</Declaration>
+			
+			
+			<Anchor>//api/name/detailViewHidden</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/detailViewHidden</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, getter=isDetailViewHidden) BOOL detailViewHidden</Declaration>
+			
+			
+			<Anchor>//api/name/detailViewHidden</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setMessageHistory:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSMutableArray *messageHistory</Declaration>
+			
+			
+			<Anchor>//api/name/messageHistory</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/messageHistory</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSMutableArray *messageHistory</Declaration>
+			
+			
+			<Anchor>//api/name/messageHistory</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setHistoryEnabled:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, getter=isHistoryEnabled) BOOL historyEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/historyEnabled</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/historyEnabled</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, getter=isHistoryEnabled) BOOL historyEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/historyEnabled</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setCanRemoveImmediateMessagesFromQueue:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL canRemoveImmediateMessagesFromQueue</Declaration>
+			
+			
+			<Anchor>//api/name/canRemoveImmediateMessagesFromQueue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/canRemoveImmediateMessagesFromQueue</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL canRemoveImmediateMessagesFromQueue</Declaration>
+			
+			
+			<Anchor>//api/name/canRemoveImmediateMessagesFromQueue</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setDetailViewMode:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) MTDetailViewMode detailViewMode</Declaration>
+			
+			
+			<Anchor>//api/name/detailViewMode</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/detailViewMode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) MTDetailViewMode detailViewMode</Declaration>
+			
+			
+			<Anchor>//api/name/detailViewMode</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setDetailText:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) NSString *detailText</Declaration>
+			
+			
+			<Anchor>//api/name/detailText</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/detailText</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) NSString *detailText</Declaration>
+			
+			
+			<Anchor>//api/name/detailText</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/setDelegate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, unsafe_unretained) id&lt;&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MTStatusBarOverlay/delegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, unsafe_unretained) id&lt;&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MTStatusBarOverlay/sharedInstance</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>+ (MTStatusBarOverlay *)sharedInstance</Declaration>
+			
+			
+			<Anchor>//api/name/sharedInstance</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MTStatusBarOverlay/sharedOverlay</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>+ (MTStatusBarOverlay *)sharedOverlay</Declaration>
+			
+			
+			<Anchor>//api/name/sharedOverlay</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/addSubviewToBackgroundView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)addSubviewToBackgroundView:(UIView *)view</Declaration>
+			
+			
+			<Anchor>//api/name/addSubviewToBackgroundView:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/addSubviewToBackgroundView:atIndex:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)addSubviewToBackgroundView:(UIView *)view atIndex:(NSInteger)index</Declaration>
+			
+			
+			<Anchor>//api/name/addSubviewToBackgroundView:atIndex:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/postMessage:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)postMessage:(NSString *)message</Declaration>
+			
+			
+			<Anchor>//api/name/postMessage:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/postMessage:duration:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)postMessage:(NSString *)message duration:(NSTimeInterval)duration</Declaration>
+			
+			
+			<Anchor>//api/name/postMessage:duration:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/postMessage:duration:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)postMessage:(NSString *)message duration:(NSTimeInterval)duration animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/postMessage:duration:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/postMessage:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)postMessage:(NSString *)message animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/postMessage:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/postImmediateMessage:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)postImmediateMessage:(NSString *)message animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/postImmediateMessage:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/postImmediateMessage:duration:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)postImmediateMessage:(NSString *)message duration:(NSTimeInterval)duration animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/postImmediateMessage:duration:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/postFinishMessage:duration:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)postFinishMessage:(NSString *)message duration:(NSTimeInterval)duration</Declaration>
+			
+			
+			<Anchor>//api/name/postFinishMessage:duration:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/postFinishMessage:duration:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)postFinishMessage:(NSString *)message duration:(NSTimeInterval)duration animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/postFinishMessage:duration:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/postImmediateFinishMessage:duration:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)postImmediateFinishMessage:(NSString *)message duration:(NSTimeInterval)duration animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/postImmediateFinishMessage:duration:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/postErrorMessage:duration:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)postErrorMessage:(NSString *)message duration:(NSTimeInterval)duration</Declaration>
+			
+			
+			<Anchor>//api/name/postErrorMessage:duration:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/postErrorMessage:duration:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)postErrorMessage:(NSString *)message duration:(NSTimeInterval)duration animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/postErrorMessage:duration:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/postImmediateErrorMessage:duration:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)postImmediateErrorMessage:(NSString *)message duration:(NSTimeInterval)duration animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/postImmediateErrorMessage:duration:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/hide</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)hide</Declaration>
+			
+			
+			<Anchor>//api/name/hide</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/hideTemporary</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)hideTemporary</Declaration>
+			
+			
+			<Anchor>//api/name/hideTemporary</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/show</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)show</Declaration>
+			
+			
+			<Anchor>//api/name/show</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/saveState</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)saveState</Declaration>
+			
+			
+			<Anchor>//api/name/saveState</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/saveStateSynchronized:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)saveStateSynchronized:(BOOL)synchronizeAtEnd</Declaration>
+			
+			
+			<Anchor>//api/name/saveStateSynchronized:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MTStatusBarOverlay/restoreState</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MTStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)restoreState</Declaration>
+			
+			
+			<Anchor>//api/name/restoreState</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>
