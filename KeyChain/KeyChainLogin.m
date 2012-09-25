@@ -18,7 +18,7 @@
 
 - (BOOL)loginToSystem;
 - (BOOL)changePassword;
-- (void)doModal:(UIViewController *)root;
+- (void)doModal:(UIViewController *)root onLoggedIn:(dispatch_block_t)block;
 - (void)getNewPassword;
 
 
@@ -55,12 +55,12 @@
 		return NO;
 		
 	}
+    
+    if( _onLoggedIn ) _onLoggedIn();
 
 	[self.parent.view setHidden:NO];
 	[self.parent dismissModalViewControllerAnimated:YES];
-	
-	//[self.parentViewController.view setHidden:NO];
-	//[[self.parentViewController modalViewController] dismissModalViewControllerAnimated:YES];
+	    
 	return YES;
 }
 
@@ -150,7 +150,10 @@
     
 }
 
-- (void)doModal:(UIViewController *)root {
+- (void)doModal:(UIViewController *)root onLoggedIn:(dispatch_block_t)block
+{
+
+    _onLoggedIn = block;
     
     self.title = @"";
     
@@ -170,10 +173,10 @@
 #pragma mark - KeyChainLogin 
 
 
-+ (void)doModal:(UIViewController *)root {
++ (void)doModal:(UIViewController *)root onLoggedIn:(dispatch_block_t)block {
     
     KeyChainLogin *login = [[KeyChainLogin alloc] initWithNibName:@"KeyChainLogin" bundle:nil] ;
-    [login	doModal:root];
+    [login	doModal:root onLoggedIn:block];
     
 }
 

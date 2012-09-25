@@ -27,6 +27,17 @@
     
 }
 
+-(void)decryptPassword
+{
+    NSData *dataEncoded = [self.password dataUsingEncoding:NSUTF8StringEncoding];
+    if( ![[self class ] isDataDecrypted:dataEncoded]) return;
+    
+    NSData * mutable = [dataEncoded subdataWithRange:NSMakeRange(2,[dataEncoded length]-2)];
+        
+    self.password = [[NSString alloc] initWithData:mutable encoding:NSUTF8StringEncoding];
+    
+}
+
 -(BOOL)isPasswordDecrypted
 {
 

@@ -11,6 +11,8 @@
 @interface KeyEntity (Cryptor)
 
 -(void)encryptPassword;
+-(void)decryptPassword;
+
 -(BOOL)isPasswordDecrypted;
 
 +(BOOL)isDataDecrypted:(NSData *)data;

@@ -8,12 +8,14 @@
 
 #import "KeyChainAppDelegate.h"
 #import "RootViewController.h"
+#import "KeyListViewController.h"
 #import "KeyChainLogin.h"
 
 @implementation KeyChainAppDelegate
 
 @synthesize window;
 @synthesize navigationController;
+@synthesize rootViewController;
 
 #pragma mark class methods
 
@@ -220,23 +222,17 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 
-    /*
-	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Title" message:@"Message" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-	[alert show];
-	[alert release];
-	 */
-	/*
-     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-     */
-    
-    /*
-	KeyChainLogin *login = [[KeyChainLogin alloc] initWithNibName:@"KeyChainLogin" bundle:nil] ;
-	[login	doModal:navigationController];
+    static dispatch_once_t onceToken;
+  
+    NSLog( @"application state [%d]", application.applicationState );
 	
-	[login release];
-	*/
-	
-	[KeyChainLogin	doModal:navigationController];
+    __block KeyChainAppDelegate *_self = self;
+	[KeyChainLogin	doModal:navigationController onLoggedIn:^{
+        
+        dispatch_once(&onceToken, ^{
+            [_self.rootViewController.keyListViewController filterReset:YES];
+        });
+    }];
 }
 
 

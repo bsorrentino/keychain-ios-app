@@ -11,7 +11,7 @@
 #import "PersistentAppDelegate.h"
 #import <AVFoundation/AVAudioPlayer.h>
 
-
+@class RootViewController;
 //
 // DEFINE IN THE PREPROCESSOR MACRO (DOESN'T WORK WITH XCODE 4.2)
 //
@@ -29,6 +29,7 @@
 
 @property (nonatomic) IBOutlet UIWindow *window;
 @property (nonatomic) IBOutlet UINavigationController *navigationController;
+@property (unsafe_unretained, nonatomic) IBOutlet RootViewController *rootViewController;
 
 
 - (void)playClick;

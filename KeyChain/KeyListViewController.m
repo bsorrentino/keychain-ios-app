@@ -712,7 +712,10 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     dd_ = [[DDTableViewManager alloc ] initFromTableView:self.tableView]; dd_.delegate = self;
     
-    [self filterReset:YES];
+    //
+    // Keep to much time at startup
+    //
+    //[self filterReset:YES];
     
 
 }
@@ -804,11 +807,15 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if( self.fetchedResultsController == nil ) return 0;
+    
     return [[self.fetchedResultsController sections] count];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if( self.fetchedResultsController == nil ) return 0;
+
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
 }
@@ -1021,7 +1028,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 - (NSFetchedResultsController *)fetchedResultsController {
     
-    NSAssert( fetchedResultsController_ != nil, @"fetched result controller is nil!");
+    //NSAssert( fetchedResultsController_ != nil, @"fetched result controller is nil!");
     
     return fetchedResultsController_;
 }    
@@ -1158,7 +1165,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             
             [fetchRequest setPredicate:predicate];
         }
-        
         
         // Set the batch size to a suitable number.
         [fetchRequest setFetchBatchSize:20];

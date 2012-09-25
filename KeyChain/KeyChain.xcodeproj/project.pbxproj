@@ -365,7 +365,6 @@
 				A0759F2014305DBE000701EF /* settings20x20.png */,
 				5F17FB961416E9E4007D88F9 /* Localizable.strings */,
 				5F129E0912EB607300BF9EF9 /* login32x32.png */,
-				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* KeyChain-Info.plist */,
 			);
 			name = Resources;
@@ -467,6 +466,7 @@
 				5FA3A4BE12DC7730009BE36C /* RootViewController.h */,
 				5FA3A4BF12DC7730009BE36C /* RootViewController.m */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
+				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
