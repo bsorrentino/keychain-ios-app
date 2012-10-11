@@ -832,7 +832,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     UITableViewCell *cell = nil;
     
-    NSLog(@"groupPrefix [%@]", managedObject.groupPrefix);
+    //NSLog(@"groupPrefix [%@]", managedObject.groupPrefix);
     
     if ( [managedObject isSection] ) {
         
@@ -926,7 +926,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     if (sectionArray.count > section ) {
         id <NSFetchedResultsSectionInfo> sectionInfo = [sectionArray objectAtIndex:section];	
         
-        NSLog(@"titleForHeaderInSection section:[%d] [%@]", section, sectionInfo.name );
+        //NSLog(@"titleForHeaderInSection section:[%d] [%@]", section, sectionInfo.name );
         
         return sectionInfo.name;
     }

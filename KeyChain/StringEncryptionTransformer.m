@@ -24,14 +24,34 @@
 
 @implementation StringEncryptionTransformer
 
-+ (Class)transformedValueClass
++ (NSData *)encryptData:(NSString *)source password:(NSString *)key
 {
-    return [NSString class];
-}
-
-+ (BOOL)allowsReverseTransformation
-{
-    return YES;
+    NSParameterAssert(source!=nil);
+    NSParameterAssert(key!=nil);
+    
+    if( source == nil ) return nil;
+    
+    NSData *dataEncoded = [source dataUsingEncoding:_ENCODING];
+    if( key == nil ) return dataEncoded;
+    
+    NSError *error;
+    
+    NSData *encryptedData =
+    [RNEncryptor encryptData:dataEncoded
+                withSettings:kRNCryptorAES256Settings
+                    password:key
+                       error:&error];
+    NSAssert( error == nil, @"encryption error" );
+    NSAssert( encryptedData != nil, @"encryption result is null!" );
+    
+    if( error != nil ) {
+        [NSException exceptionWithName:@"encryption error" reason:[error description] userInfo:[error userInfo]];
+    }
+    if( encryptedData == nil ) {
+        [NSException exceptionWithName:@"encryption error" reason:@"encryption result is null!" userInfo:nil];
+    }
+    
+    return encryptedData;
 }
 
 + (NSString*)dataToString:(NSData *)data
@@ -40,17 +60,50 @@
                                  encoding:_ENCODING];
 }
 
-/**
- * Returns the key used for encrypting / decrypting values during transformation.
- */
+//Returns the key used for encrypting / decrypting values during transformation.
 - (NSString*)key
 {
     BOOL _encryptionEnabled = [AccountCredential sharedCredential].encryptionEnabled;
     
     // Your version of this class might get this key from the app delegate or elsewhere.
     return ( _encryptionEnabled ) ?
-                [AccountCredential sharedCredential].password :
-                nil;
+    [AccountCredential sharedCredential].password :
+    nil;
+}
+
+
+#pragma mark - NSValueTransformer implementation
+
+#define _COMPATIBILITY_MODE
+
+
++ (BOOL)allowsReverseTransformation
+{
+    return YES;
+}
+
+#ifdef _COMPATIBILITY_MODE
+
++ (Class)transformedValueClass
+{
+    return [NSData class];
+}
+
+- (id)transformedValue:(NSData*)data
+{
+    return data;
+}
+
+- (id)reverseTransformedValue:(NSData*)data
+{
+    return data;
+}
+
+#else
+
++ (Class)transformedValueClass
+{
+    return [NSString class];
 }
 
 - (id)transformedValue:(NSString*)data
@@ -107,36 +160,8 @@
     return [[self class ]dataToString:decryptedData];
 }
 
+#endif
 
-+ (NSData *)encryptData:(NSString *)source password:(NSString *)key
-{
-    NSParameterAssert(source!=nil);
-    NSParameterAssert(key!=nil);
-    
-    if( source == nil ) return nil;
-    
-    NSData *dataEncoded = [source dataUsingEncoding:_ENCODING];
-    if( key == nil ) return dataEncoded;
-    
-    NSError *error;
-    
-    NSData *encryptedData =
-    [RNEncryptor encryptData:dataEncoded
-                withSettings:kRNCryptorAES256Settings
-                    password:key
-                       error:&error];
-    NSAssert( error == nil, @"encryption error" );
-    NSAssert( encryptedData != nil, @"encryption result is null!" );
-    
-    if( error != nil ) {
-        [NSException exceptionWithName:@"encryption error" reason:[error description] userInfo:[error userInfo]];
-    }
-    if( encryptedData == nil ) {
-        [NSException exceptionWithName:@"encryption error" reason:@"encryption result is null!" userInfo:nil];
-    }
-    
-    return encryptedData;
-}
 
 
 

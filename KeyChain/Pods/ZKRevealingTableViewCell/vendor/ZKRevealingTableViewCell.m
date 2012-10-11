@@ -189,12 +189,6 @@
 	[self addSubview:self.contentView];
 	self.backView.frame = self.contentView.frame;
 
-    NSLog(@"layoutSubviews\nself.bounds.width[%f]\ncontentView.bounds.width [%f]\nadjusted bounds width [%f]", 
-          self.bounds.size.width, 
-          self.contentView.bounds.size.width,
-          self.boundsWidth
-          );
-    
 }
 
 #pragma mark - Accessors
