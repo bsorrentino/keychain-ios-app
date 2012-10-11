@@ -8,6 +8,10 @@
 
 #import "ZKRevealingTableViewCell/ZKRevealingTableViewCell.h"
 
+@class KeyEntity;
+
 @interface KeyTableViewCell : ZKRevealingTableViewCell
 
+
+@property (KEYCHAIN_WEAK,nonatomic) KeyEntity *entity;
 @end

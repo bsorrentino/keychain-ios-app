@@ -12,9 +12,8 @@
 #import "RNCryptor/RNDecryptor.h"
 #import "KeyEntity+Cryptor.h"
 
-
 //const NSStringEncoding _ENCODING = NSUnicodeStringEncoding;
-const NSStringEncoding _ENCODING = NSUTF8StringEncoding;
+//const NSStringEncoding _ENCODING = NSUTF8StringEncoding;
 
 @interface StringEncryptionTransformer ()
 

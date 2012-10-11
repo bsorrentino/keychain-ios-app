@@ -1,4 +1,4 @@
-//
+    //
 //  KeyTableViewCell.m
 //  KeyChain
 //
@@ -7,6 +7,7 @@
 //
 
 #import "KeyTableViewCell.h"
+#import "KeyEntity+Cryptor.h"
 
 @interface KeyTableViewCell ()
 
@@ -16,6 +17,7 @@
 
 @implementation KeyTableViewCell
 @synthesize imageCached;
+@synthesize entity;
 
 #pragma mark - Lifecycle
 
@@ -23,6 +25,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        self.entity = nil;
         //self.imageView.image = self.imageCached;
         self.contentView.backgroundColor = [UIColor whiteColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -37,6 +40,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.entity = nil;
         //self.imageView.image = self.imageCached;
         self.contentView.backgroundColor = [UIColor whiteColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -83,5 +87,20 @@
 }
 //- (void)didTransitionToState:(UITableViewCellStateMask)state __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0);
 
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    BOOL result = [super gestureRecognizerShouldBegin:gestureRecognizer];
+    
+    if( result ) {
+
+        UILabel *label = (UILabel *)[self.backView viewWithTag:1];
+        if( label != nil ) {
+            label.text = [entity getPasswordDecrypted];
+        }
+    }
+	return result;
+}
 
 @end

@@ -8,6 +8,8 @@
 
 #import "KeyEntity.h"
 
+extern const NSStringEncoding _ENCODING;
+
 @interface KeyEntity (Cryptor)
 
 -(void)encryptPassword;
@@ -16,5 +18,8 @@
 -(BOOL)isPasswordDecrypted;
 
 +(BOOL)isDataDecrypted:(NSData *)data;
+
+-(NSString *)getPasswordDecrypted;
+-(void)setPasswordToEncrypt:(NSString*)value;
 
 @end

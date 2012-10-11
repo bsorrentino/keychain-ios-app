@@ -23,6 +23,7 @@
 #import "ZKRevealingTableViewCell/ZKRevealingTableViewCell.h"
 
 #import "SectionKeyListViewController.h"
+#import "KeyTableViewCell.h"
 
 #define TOOLBAR_TAG 20
 #define SWIPEBACK_TAG 21
@@ -783,12 +784,12 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             cell.detailTextLabel.text = @"";
         }
 
-        if ([cell isKindOfClass:[ZKRevealingTableViewCell class]]) {
+        if ([cell isKindOfClass:[KeyTableViewCell class]]) {
 
-            ZKRevealingTableViewCell *revealCell = (ZKRevealingTableViewCell *)cell;
+            KeyTableViewCell *revealCell = (KeyTableViewCell *)cell;
             
-            UILabel *label = (UILabel *)[revealCell.backView viewWithTag:1];
-            label.text = [managedObject valueForKey:@"password"];
+            revealCell.entity = managedObject;
+            
         }
         
         cell.textLabel.text = [managedObject.mnemonic description];

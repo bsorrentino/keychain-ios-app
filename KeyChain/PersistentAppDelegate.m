@@ -245,6 +245,8 @@
     
     NSURL *storeURL = [NSURL fileURLWithPath: [[self applicationDataDirectory] stringByAppendingPathComponent: @_PERSISTENT_APP_NAME".sqlite"]];
     
+    NSLog(@"store URL\n%@", storeURL);
+    
     NSError *error = nil;
     persistentStoreCoordinator_ = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
 

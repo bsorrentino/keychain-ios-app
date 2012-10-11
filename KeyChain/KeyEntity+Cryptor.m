@@ -8,40 +8,83 @@
 
 #import "KeyEntity+Cryptor.h"
 #import "AccountCredential.h"
-#import "StringEncryptionTransformer.h"
+#import "RNCryptor/RNEncryptor.h"
+#import "RNCryptor/RNDecryptor.h"
+
+const NSStringEncoding _ENCODING = NSUTF8StringEncoding;
 
 @implementation KeyEntity (Cryptor)
 
--(void)encryptPassword
+- (NSData*)encryptValue:(NSString*)data useKey:(NSString *)keyOrNil
 {
-    NSData *dataEncoded = [self.password dataUsingEncoding:NSUTF8StringEncoding];
+    if (nil == data) return nil;
     
-    NSMutableData * mutable = [NSMutableData dataWithCapacity:[dataEncoded length] + 2];
+    NSData *dataEncoded = [data dataUsingEncoding:_ENCODING];
     
-    Byte prefix[2] = { 10, 10 };
+    // If there's no key (e.g. during a data migration), don't try to transform the data
+    if (nil == keyOrNil) return dataEncoded;
     
-    [mutable appendBytes:prefix length:2];
-    [mutable appendData:dataEncoded];
+    NSError *error = nil;
     
-    self.password = [[NSString alloc] initWithData:mutable encoding:NSUTF8StringEncoding];
+    NSData *encryptedData =
+    [RNEncryptor encryptData:dataEncoded
+                withSettings:kRNCryptorAES256Settings
+                    password:keyOrNil
+                       error:&error];
+    if( error != nil ) {
+        NSLog(@"error encripting data\n[%@]", [error description] );
+        return dataEncoded;
+    }
+    if( encryptedData == nil ) {
+        NSLog(@"error encripting data\nresult is nil" );
+        return dataEncoded;
+    }
+    
+    return encryptedData;
+}
+
+- (NSData*)decryptValue:(NSData*)encryptedData useKey:(NSString *)keyOrNil
+{
+    if (nil == encryptedData) return nil;
+    
+    // If there's no key (e.g. during a data migration), don't try to transform the data
+    if (nil == keyOrNil) return encryptedData;
+    
+    
+    NSError *error = nil;
+    
+    NSData *decryptedData = [RNDecryptor decryptData:encryptedData
+                                        withPassword:keyOrNil
+                                               error:&error];
+    
+    if( error != nil ) {
+        NSLog(@"error decripting data\n[%@]", [error description] );
+        return encryptedData;
+    }
+    if( decryptedData == nil ) {
+        NSLog(@"error decripting data\nresult is nil" );
+        return encryptedData;
+    }
+    
+    return decryptedData;
     
 }
 
--(void)decryptPassword
+-(NSString*)getPasswordDecrypted
 {
-    NSData *dataEncoded = [self.password dataUsingEncoding:NSUTF8StringEncoding];
-    if( ![[self class ] isDataDecrypted:dataEncoded]) return;
-    
-    NSData * mutable = [dataEncoded subdataWithRange:NSMakeRange(2,[dataEncoded length]-2)];
-        
-    self.password = [[NSString alloc] initWithData:mutable encoding:NSUTF8StringEncoding];
-    
+    NSString * result = [self reverseTransformedValue:self.password];
+    return result;
+}
+
+-(void)setPasswordToEncrypt:(NSString*)value
+{
+    self.password = [self transformedValue:value];
 }
 
 -(BOOL)isPasswordDecrypted
 {
-
-    NSData *dataEncoded = [self.password dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSData *dataEncoded = (NSData*)self.password;
     
     return [[self class] isDataDecrypted:dataEncoded];
     
@@ -59,5 +102,80 @@
     return ( bytes[0]==10 && bytes[1]==10 );
     
 }
+
+
+#pragma mark - methods for bulk crypt and/or encrypt
+
+-(void)encryptPassword
+{
+    NSData *dataEncoded = self.password;
+    
+    NSMutableData * mutable = [NSMutableData dataWithCapacity:[dataEncoded length] + 2];
+    
+    Byte prefix[2] = { 10, 10 };
+    
+    [mutable appendBytes:prefix length:2];
+    [mutable appendData:dataEncoded];
+    
+    NSString *value = [[NSString alloc] initWithData:mutable
+                          encoding:_ENCODING];
+    
+    NSAssert(value!=nil, @"NSData to NSString failed!");
+    
+    self.password =
+        [self encryptValue:value
+                    useKey:[AccountCredential sharedCredential].password];
+
+    
+}
+
+-(void)decryptPassword
+{
+    NSData *dataEncoded =
+        [self decryptValue:self.password
+                    useKey:[AccountCredential sharedCredential].password];
+    
+    if( ![[self class ] isDataDecrypted:dataEncoded]) return;
+    
+    NSData * mutable = [dataEncoded subdataWithRange:NSMakeRange(2,[dataEncoded length]-2)];
+    
+    self.password = mutable;
+    
+}
+
+#pragma mark - NSValueTransformer aware
+
++ (NSString*)dataToString:(NSData *)data
+{
+    if( data == nil ) return nil;
+    return [[NSString alloc] initWithData:data
+                                 encoding:_ENCODING];
+}
+
+
+//Returns the key used for encrypting / decrypting values during transformation.
+- (NSString*)key
+{
+    BOOL _encryptionEnabled = [AccountCredential sharedCredential].encryptionEnabled;
+    
+    // Your version of this class might get this key from the app delegate or elsewhere.
+    return ( _encryptionEnabled ) ?
+    [AccountCredential sharedCredential].password :
+    nil;
+}
+
+
+- (id)transformedValue:(NSString*)data
+{
+    return [self encryptValue:data useKey:[self key]];
+}
+
+- (id)reverseTransformedValue:(NSData*)encryptedData
+{
+    NSData * result = [self decryptValue:encryptedData useKey:[self key]];
+    return [[self class] dataToString:result];
+}
+
+
 
 @end

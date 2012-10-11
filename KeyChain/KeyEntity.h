@@ -46,7 +46,7 @@
 @property (nonatomic) NSString *mnemonic;
 @property (nonatomic) NSString *groupPrefix;
 @property (nonatomic) NSNumber *group;
-@property (nonatomic) NSString *password;
+@property (nonatomic) NSData *password;
 @property (nonatomic) NSString *note;
 
 
