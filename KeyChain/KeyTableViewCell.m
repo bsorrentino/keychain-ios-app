@@ -98,18 +98,17 @@
         __block UILabel *label = (UILabel *)[self.backView viewWithTag:1];
         if( label!=nil ) {
 
-            [UIView animateWithDuration:0.1
-                                  delay:0.1
+            label.transform = CGAffineTransformMakeScale(0.01, 0.01);
+            [UIView animateWithDuration:0.5
+                                  delay:0.0
                                 options:0
                              animations:^() {
-                                 label.alpha = 0;
-                                 //label.text = @"";
+                                 label.transform = CGAffineTransformMakeRotation( -M_PI );
                              }
                              completion:^(BOOL finished) {
-                                 if( !finished ) return;
+                                 if( !finished) return;
                                  label.text = [entity getPasswordDecrypted];
-                                 label.alpha = 1;
-                                 label.transform = CGAffineTransformMakeRotation( -M_PI );
+
                              }];
 
     /*

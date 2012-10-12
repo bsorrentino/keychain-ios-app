@@ -12,10 +12,6 @@
 
 - (void)awakeFromNib
 {
-
-    //NSLog(@"awakeFromNib");
-    
-
 }
 
 - (id)initWithFrame:(CGRect)frame
