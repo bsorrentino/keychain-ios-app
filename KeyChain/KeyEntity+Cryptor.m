@@ -108,8 +108,18 @@ const NSStringEncoding _ENCODING = NSUTF8StringEncoding;
 
 -(void)encryptPassword
 {
-    NSData *dataEncoded = self.password;
+    NSLog(@"encrypting password for [%@] ....", self.mnemonic);
     
+    //
+    // TODO check reason that isPasswordDecrypted doesn't work
+    //
+    //if ([self isPasswordDecrypted]) {
+    //    NSLog(@"password for [%@] is already encrypted", self.mnemonic);
+    //    return;
+    //}
+    
+    NSData *dataEncoded = self.password;
+
     NSMutableData * mutable = [NSMutableData dataWithCapacity:[dataEncoded length] + 2];
     
     Byte prefix[2] = { 10, 10 };
@@ -120,22 +130,44 @@ const NSStringEncoding _ENCODING = NSUTF8StringEncoding;
     NSString *value = [[NSString alloc] initWithData:mutable
                           encoding:_ENCODING];
     
-    NSAssert(value!=nil, @"NSData to NSString failed!");
+    //NSAssert(value!=nil, @"NSData to NSString failed!");
     
-    self.password =
-        [self encryptValue:value
-                    useKey:[AccountCredential sharedCredential].password];
-
+    if( value != nil ) {
+        
+        self.password =
+            [self encryptValue:value
+                        useKey:[AccountCredential sharedCredential].password];
+    }
+    else {
+        NSLog(@"ERROR encrypting password for [%@]", self.mnemonic);
+        
+    }
     
 }
 
 -(void)decryptPassword
 {
+    NSLog(@"decrypting password for [%@] ....", self.mnemonic);
+    
+    //
+    // TODO check reason that isPasswordDecrypted doesn't work
+    //
+    //if (![self isPasswordDecrypted]) {
+    //    NSLog(@"password for [%@] is already encrypted", self.mnemonic);
+    //    return;
+    //}
+    
     NSData *dataEncoded =
         [self decryptValue:self.password
                     useKey:[AccountCredential sharedCredential].password];
     
-    if( ![[self class ] isDataDecrypted:dataEncoded]) return;
+    //NSAssert([[self class ] isDataDecrypted:dataEncoded],
+    //         @"ERROR decrypting password for [%@]", self.mnemonic);
+    
+    if( ![[self class ] isDataDecrypted:dataEncoded]) {
+        NSLog(@"ERROR decrypting password for [%@]", self.mnemonic);
+        return;
+    }
     
     NSData * mutable = [dataEncoded subdataWithRange:NSMakeRange(2,[dataEncoded length]-2)];
     

@@ -346,24 +346,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "KeyEntity+Cryptor.m"
-         timestampString = "371643514.722502"
+         timestampString = "378470779.904216"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "111"
-         endingLineNumber = "111"
-         landmarkName = "-encryptPassword"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "KeyEntity+Cryptor.m"
-         timestampString = "371643514.722502"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "135"
-         endingLineNumber = "135"
+         startingLineNumber = "161"
+         endingLineNumber = "161"
          landmarkName = "-decryptPassword"
          landmarkType = "5">
       </FileBreakpoint>
@@ -404,6 +391,32 @@
          startingLineNumber = "197"
          endingLineNumber = "197"
          landmarkName = "-cellControlDidEndEditing:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "KeyEntity+Cryptor.m"
+         timestampString = "378470779.904216"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "116"
+         endingLineNumber = "116"
+         landmarkName = "-encryptPassword"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "KeyEntity+Cryptor.m"
+         timestampString = "378469979.139778"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "96"
+         endingLineNumber = "96"
+         landmarkName = "+isDataDecrypted:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
