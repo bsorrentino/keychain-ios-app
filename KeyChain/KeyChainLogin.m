@@ -58,9 +58,13 @@
     
     if( _onLoggedIn ) _onLoggedIn();
 
-	[self.parent.view setHidden:NO];
-	[self.parent dismissModalViewControllerAnimated:YES];
-	    
+    __block KeyChainLogin *_self = self;
+    
+	//[self.parent dismissModalViewControllerAnimated:YES];
+	[self.parent dismissViewControllerAnimated:YES completion:^{
+        [_self.parent.view setHidden:NO];
+    }];
+	   
 	return YES;
 }
 
@@ -159,13 +163,16 @@
     
     changePasswordStep_ = NONE;
     
-	[root.view setHidden:YES];
+    
+    __block UIViewController *_root = root;
     
 	//self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 	
-    [root presentModalViewController:self animated:YES];
-    
+    //[root presentModalViewController:self animated:YES];
+    [root presentViewController:self animated:YES completion:^{
+        [_root.view setHidden:YES];
+    }];
     self.parent = root;
 }
 
@@ -175,8 +182,11 @@
 
 + (void)doModal:(UIViewController *)root onLoggedIn:(dispatch_block_t)block {
     
-    KeyChainLogin *login = [[KeyChainLogin alloc] initWithNibName:@"KeyChainLogin" bundle:nil] ;
-    [login	doModal:root onLoggedIn:block];
+    __block KeyChainLogin *login = [[KeyChainLogin alloc] initWithNibName:@"KeyChainLogin" bundle:nil] ;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [login	doModal:root onLoggedIn:block];
+    });
     
 }
 

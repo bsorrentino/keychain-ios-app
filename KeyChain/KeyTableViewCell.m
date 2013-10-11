@@ -107,7 +107,8 @@
                              }
                              completion:^(BOOL finished) {
                                  if( !finished) return;
-                                 label.text = [entity getPasswordDecrypted];
+                                 NSString *pwd = [entity getPasswordDecrypted];
+                                 label.text = [pwd stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]; //[entity getPasswordDecrypted];
 
                              }];
 

@@ -9,6 +9,8 @@
 #import "BaseDataEntryCell.h"
 #import "UIXMLFormViewController.h"	
 
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 @interface BaseDataEntryCell()
 
 -(BOOL)isLabelSupported;
@@ -167,7 +169,14 @@
 
     [UIView animateWithDuration:0.2 animations:^() {
         
-        UITableView * scrollView = (UITableView *)self.superview;
+        UITableView * scrollView = nil;;
+        
+        if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+            scrollView = (UITableView *)self.superview.superview;
+        }
+        else {
+            scrollView = (UITableView *)self.superview;
+        }
         
         UIEdgeInsets contentInsets = UIEdgeInsetsZero;
         scrollView.contentInset = contentInsets;
@@ -202,7 +211,14 @@
 {
 #define MAGIC_NUMBER 18.0
     
-    UITableView * scrollView = (UITableView *)self.superview;
+    UITableView * scrollView = nil;
+    
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        scrollView = (UITableView *)self.superview.superview;
+    }
+    else {
+        scrollView = (UITableView *)self.superview;
+    }
     
     CGSize kbSize = keyboardRect.size;
     

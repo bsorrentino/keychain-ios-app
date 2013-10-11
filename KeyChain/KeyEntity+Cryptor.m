@@ -53,10 +53,16 @@ const NSStringEncoding _ENCODING = NSUTF8StringEncoding;
     
     NSError *error = nil;
     
+#ifdef _ENCRYPT_TEST
+    
+    NSData *decryptedData = encryptedData;
+    
+#else
     NSData *decryptedData = [RNDecryptor decryptData:encryptedData
                                         withPassword:keyOrNil
                                                error:&error];
     
+#endif
     if( error != nil ) {
         NSLog(@"error decripting data\n[%@]", [error description] );
         return encryptedData;
@@ -65,7 +71,6 @@ const NSStringEncoding _ENCODING = NSUTF8StringEncoding;
         NSLog(@"error decripting data\nresult is nil" );
         return encryptedData;
     }
-    
     return decryptedData;
     
 }
