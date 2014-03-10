@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4F28F1FB-E03C-4EFD-BB01-41B6A214F88C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>KeyChain</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2D4DF2B1-03A4-4456-AFAE-47C87200FA7D</key>
+		<string>ssh://github.com/bsorrentino/iphone-commons-utilities.git</string>
+		<key>F81FD1C0-353C-4E01-B59E-3D0C0208BA8A</key>
+		<string>ssh://github.com/bsorrentino/iphone-commons-utilities.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>KeyChain/KeyChain.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2D4DF2B1-03A4-4456-AFAE-47C87200FA7D</key>
+		<string>../../../../../../../Volumes/SSD/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities</string>
+		<key>F81FD1C0-353C-4E01-B59E-3D0C0208BA8A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/bsorrentino/iphone-commons-utilities.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F81FD1C0-353C-4E01-B59E-3D0C0208BA8A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F81FD1C0-353C-4E01-B59E-3D0C0208BA8A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iphone-commons-utilities</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2D4DF2B1-03A4-4456-AFAE-47C87200FA7D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iphone-commons-utilities</string>
+		</dict>
+	</array>
+</dict>
+</plist>
