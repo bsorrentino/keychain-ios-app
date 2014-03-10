@@ -22,6 +22,7 @@ static AccountCredential *_sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedInstance = [[AccountCredential alloc] init];
+        [_sharedInstance setEncryptionEnabled:YES];
     });
     
     return _sharedInstance;
