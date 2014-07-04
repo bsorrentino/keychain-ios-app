@@ -5,68 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-<<<<<<< HEAD
-	<string>4F28F1FB-E03C-4EFD-BB01-41B6A214F88C</string>
-=======
-	<string>48EE221D-8EF8-411F-B4B9-EDDD73EF4158</string>
->>>>>>> origin/encrypt
+	<string>A521DA10-B0B3-4DF4-90EE-1B4804B6A24A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>KeyChain</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-<<<<<<< HEAD
-		<key>2D4DF2B1-03A4-4456-AFAE-47C87200FA7D</key>
-		<string>ssh://github.com/bsorrentino/iphone-commons-utilities.git</string>
-		<key>F81FD1C0-353C-4E01-B59E-3D0C0208BA8A</key>
-=======
-		<key>106D131D-0C5A-41F8-9FD5-E0C39F0B4130</key>
->>>>>>> origin/encrypt
-		<string>ssh://github.com/bsorrentino/iphone-commons-utilities.git</string>
+		<key>8DC28D91-2EFE-4424-A137-AE1C62E37782</key>
+		<string>https://github.com/bsorrentino/keychain-ios-app.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>KeyChain/KeyChain.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-<<<<<<< HEAD
-		<key>2D4DF2B1-03A4-4456-AFAE-47C87200FA7D</key>
-		<string>../../../../../../../Volumes/SSD/Users/softphone/WORKSPACES/GITHUB/iphone-commons-utilities</string>
-		<key>F81FD1C0-353C-4E01-B59E-3D0C0208BA8A</key>
-=======
-		<key>106D131D-0C5A-41F8-9FD5-E0C39F0B4130</key>
->>>>>>> origin/encrypt
+		<key>8DC28D91-2EFE-4424-A137-AE1C62E37782</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/bsorrentino/iphone-commons-utilities.git</string>
+	<string>https://github.com/bsorrentino/keychain-ios-app.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-<<<<<<< HEAD
-	<string>F81FD1C0-353C-4E01-B59E-3D0C0208BA8A</string>
-=======
-	<string>106D131D-0C5A-41F8-9FD5-E0C39F0B4130</string>
->>>>>>> origin/encrypt
+	<string>8DC28D91-2EFE-4424-A137-AE1C62E37782</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-<<<<<<< HEAD
-			<string>F81FD1C0-353C-4E01-B59E-3D0C0208BA8A</string>
+			<string>8DC28D91-2EFE-4424-A137-AE1C62E37782</string>
 			<key>IDESourceControlWCCName</key>
-			<string>iphone-commons-utilities</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2D4DF2B1-03A4-4456-AFAE-47C87200FA7D</string>
-=======
-			<string>106D131D-0C5A-41F8-9FD5-E0C39F0B4130</string>
->>>>>>> origin/encrypt
-			<key>IDESourceControlWCCName</key>
-			<string>iphone-commons-utilities</string>
+			<string>keychain-ios-app</string>
 		</dict>
 	</array>
 </dict>
