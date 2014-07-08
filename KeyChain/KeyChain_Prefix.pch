@@ -14,3 +14,6 @@
     #import <UIKit/UIKit.h>
     #import <CoreData/CoreData.h>
 #endif
+
+#define __BLOCKSELF \
+__typeof(self) __weak __self = self

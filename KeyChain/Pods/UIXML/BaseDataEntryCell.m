@@ -164,14 +164,20 @@
 
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
+    __BLOCKSELF;
 
     [UIView animateWithDuration:0.2 animations:^() {
         
-        UITableView * scrollView = (UITableView *)self.superview;
+        UITableView * scrollView = (UITableView *)__self.superview;
         
         UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-        scrollView.contentInset = contentInsets;
-        scrollView.scrollIndicatorInsets = contentInsets;
+        
+        if( [scrollView respondsToSelector:@selector(setContentInset:)] ) {
+            scrollView.contentInset = contentInsets;
+        }
+        if( [scrollView respondsToSelector:@selector(setScrollIndicatorInsets:)] ) {
+            scrollView.scrollIndicatorInsets = contentInsets;
+        }
         
         
     }];

@@ -31,5 +31,8 @@
 #endif
 #endif
 
+#define __BLOCKSELF \
+__typeof(self) __UIXML_WEAK __self = self
+
 
 #endif
