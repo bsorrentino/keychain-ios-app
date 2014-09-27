@@ -263,7 +263,7 @@ NSString * const regularExpression = @"(.*)@(.*)";
     ;
 	UIAlertView *alert = [[UIAlertView alloc] 
 						  initWithTitle: NSLocalizedString(@"ListDataEntryCell.alertTitle", @"add new Item") 
-						  message:NSLocalizedString(@"ListDataEntryCell.alertMessage", @"add item message") 
+						  message:nil //NSLocalizedString(@"ListDataEntryCell.alertMessage", @"add item message")
 						  delegate:self
 						  cancelButtonTitle:@"Cancel"
 						  otherButtonTitles:@"OK", nil];
@@ -280,8 +280,20 @@ NSString * const regularExpression = @"(.*)@(.*)";
 	tf.autocapitalizationType = UITextAutocapitalizationTypeWords;
 	tf.autocorrectionType = UITextAutocorrectionTypeNo;
     [tf becomeFirstResponder];
-    [alert addSubview:tf];	
-
+    [tf.layer setBorderColor:[[[UIColor blackColor] colorWithAlphaComponent:0.5] CGColor]];
+    [tf.layer setBorderWidth:2.0];
+    
+    //The rounded corner part, where you specify your view's corner radius:
+    tf.layer.cornerRadius = 5;
+    tf.clipsToBounds = YES;
+    
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+        [alert setValue:tf forKey:@"accessoryView"];
+    }
+    else {
+        [alert addSubview:tf];
+    }
+    
     //CGAffineTransform transform = CGAffineTransformMakeTranslation(0.0, 80.0);
     //[alert setTransform:transform];
     

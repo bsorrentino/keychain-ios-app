@@ -10,29 +10,29 @@
 	<string>KeyChain</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8DC28D91-2EFE-4424-A137-AE1C62E37782</key>
+		<key>0DE664417AA1C0196322ED172B55F2E5DBA5D867</key>
 		<string>https://github.com/bsorrentino/keychain-ios-app.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>KeyChain/KeyChain.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8DC28D91-2EFE-4424-A137-AE1C62E37782</key>
+		<key>0DE664417AA1C0196322ED172B55F2E5DBA5D867</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/bsorrentino/keychain-ios-app.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8DC28D91-2EFE-4424-A137-AE1C62E37782</string>
+	<string>0DE664417AA1C0196322ED172B55F2E5DBA5D867</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8DC28D91-2EFE-4424-A137-AE1C62E37782</string>
+			<string>0DE664417AA1C0196322ED172B55F2E5DBA5D867</string>
 			<key>IDESourceControlWCCName</key>
 			<string>keychain-ios-app</string>
 		</dict>

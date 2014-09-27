@@ -8,19 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
-#define _USE_ARC  0
 
-
-#if _USE_ARC == 1
-
-#   define WEAK __weak
-
-#else 
-
-#   define WEAK 
-
+#ifndef DD_STRONG
+#   if __has_feature(objc_arc)
+#       define DD_STRONG strong
+#   else
+#       define DD_STRONG retain
+#   endif
+#   define __DD_STRONG
 #endif
 
+#ifndef DD_WEAK
+#if __has_feature(objc_arc_weak)
+#   define DD_WEAK weak
+#   define __DD_WEAK __weak
+#elif __has_feature(objc_arc)
+#   define DD_WEAK unsafe_unretained
+#   define __DD_WEAK __unsafe_unretained
+#else
+#   define DD_WEAK assign
+#   define __DD_WEAK
+#endif
+#endif
+
+#define __BLOCKSELF \
+__typeof(self) __weak __self = self
 
 @protocol DDTableViewManagerDelegate <NSObject>
 
@@ -35,27 +47,11 @@
 @end
 
 
-@interface DDTableViewManager : NSObject<UIGestureRecognizerDelegate> {
-
-@private
-
-    NSIndexPath *source_;
-    
-    UILongPressGestureRecognizer *longPressRecognizer_;
-    UIPanGestureRecognizer *panRecognizer_;
-
-    UITableView *tableView_;
-    
-    WEAK id<DDTableViewManagerDelegate> __unsafe_unretained delegate;
-    
-    dispatch_queue_t scrolling_queue;
-    
-}
-
+@interface DDTableViewManager : NSObject<UIGestureRecognizerDelegate> 
 @property (nonatomic,readonly) NSIndexPath *source;
 @property (nonatomic,readonly) UITableView *tableView;
 
-#if _USE_ARC == 1 
+#if __has_feature(objc_arc)
 @property (nonatomic,weak) id<DDTableViewManagerDelegate> delegate;
 #else
 @property (nonatomic,unsafe_unretained) id<DDTableViewManagerDelegate> delegate;
