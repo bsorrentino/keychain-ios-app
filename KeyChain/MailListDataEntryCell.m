@@ -15,7 +15,7 @@
 
 NSString * const regularExpression = @"(.*)@(.*)";
 
-@interface MailListDataEntryCell(Private) 
+@interface MailListDataEntryCell()
 
 @end
 
@@ -66,7 +66,8 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 
 
-@interface MailListDataViewController(Private) 
+@interface MailListDataViewController()
+    @property (strong, nonatomic,readonly) IBOutlet UITextField *textMail;
 
 - (void)insertNewObject;
 - (PersistentAppDelegate *) appDelegate;
@@ -84,11 +85,37 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 
 @implementation MailListDataViewController
-
+@synthesize textMail=textMail_;
 @synthesize cell=cell_;
 @synthesize fetchedResultsController=fetchedResultsController_;
 
 #pragma mark - private method
+
+-(UITextField *)textMail {
+    if( !textMail_) {
+     // Name field
+     textMail_ = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 50.0)];
+     textMail_.tag = 100;
+     textMail_.keyboardType = UIKeyboardTypeEmailAddress;
+     textMail_.placeholder = NSLocalizedString(@"ListDataEntryCell.alertPlaceholder", @"add item placeholder");
+     [textMail_ setBackgroundColor:[UIColor whiteColor]];
+     textMail_.clearButtonMode = UITextFieldViewModeWhileEditing;
+     textMail_.keyboardType = UIKeyboardTypeAlphabet;
+     textMail_.keyboardAppearance = UIKeyboardAppearanceAlert;
+     textMail_.autocapitalizationType = UITextAutocapitalizationTypeWords;
+     textMail_.autocorrectionType = UITextAutocorrectionTypeNo;
+     [textMail_ becomeFirstResponder];
+     [textMail_.layer setBorderColor:[[[UIColor blackColor] colorWithAlphaComponent:0.5] CGColor]];
+     [textMail_.layer setBorderWidth:2.0];
+     
+     //The rounded corner part, where you specify your view's corner radius:
+     textMail_.layer.cornerRadius = 5;
+     textMail_.clipsToBounds = YES;
+    }
+    
+    return textMail_;
+    
+}
 
 - (PersistentAppDelegate *)appDelegate {
  
@@ -174,7 +201,7 @@ NSString * const regularExpression = @"(.*)@(.*)";
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     NSUInteger result =  [sectionInfo numberOfObjects];
    
-    NSLog( @"numberOfObjectsInSection:%d=%d", section, result);
+    NSLog( @"numberOfObjectsInSection:%ld=%lu", (long)section, (unsigned long)result);
     
     return result;
 }
@@ -267,31 +294,11 @@ NSString * const regularExpression = @"(.*)@(.*)";
 						  delegate:self
 						  cancelButtonTitle:@"Cancel"
 						  otherButtonTitles:@"OK", nil];
-    
-	// Name field
-    UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)]; 
-    tf.tag = 100;
-    tf.keyboardType = UIKeyboardTypeEmailAddress;
-    tf.placeholder = NSLocalizedString(@"ListDataEntryCell.alertPlaceholder", @"add item placeholder");
-    [tf setBackgroundColor:[UIColor whiteColor]]; 
-	tf.clearButtonMode = UITextFieldViewModeWhileEditing;
-	tf.keyboardType = UIKeyboardTypeAlphabet;
-	tf.keyboardAppearance = UIKeyboardAppearanceAlert;
-	tf.autocapitalizationType = UITextAutocapitalizationTypeWords;
-	tf.autocorrectionType = UITextAutocorrectionTypeNo;
-    [tf becomeFirstResponder];
-    [tf.layer setBorderColor:[[[UIColor blackColor] colorWithAlphaComponent:0.5] CGColor]];
-    [tf.layer setBorderWidth:2.0];
-    
-    //The rounded corner part, where you specify your view's corner radius:
-    tf.layer.cornerRadius = 5;
-    tf.clipsToBounds = YES;
-    
     if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
-        [alert setValue:tf forKey:@"accessoryView"];
+        [alert setValue:self.textMail forKey:@"accessoryView"];
     }
     else {
-        [alert addSubview:tf];
+        [alert addSubview:self.textMail];
     }
     
     //CGAffineTransform transform = CGAffineTransformMakeTranslation(0.0, 80.0);
@@ -307,9 +314,17 @@ NSString * const regularExpression = @"(.*)@(.*)";
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex==1 ) {
-        UITextField *tf = (UITextField*)[alertView viewWithTag:100];
+/*
+        UITextField *tf;
+        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+            tf = (UITextField*)[alertView valueForKey:@"accessoryView"];
+        }
+        else {
+            tf = (UITextField*)[alertView viewWithTag:100];
+        }
+*/
         
-        [self insertManagedObject:tf.text];
+        [self insertManagedObject:self.textMail.text];
         
         //NSInteger count = [self numberOfObjectsInSection:0];
         

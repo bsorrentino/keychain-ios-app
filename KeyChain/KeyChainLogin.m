@@ -11,16 +11,18 @@
 #import "InfoViewController.h"
 #import "AccountCredential.h"
 
+@import LocalAuthentication;
+
 #define TAG_FOR_LOGIN_BUTTON 5
 
-@interface KeyChainLogin(Private)
+@interface KeyChainLogin()
 
 
 - (BOOL)loginToSystem;
 - (BOOL)changePassword;
 - (void)doModal:(UIViewController *)root onLoggedIn:(dispatch_block_t)block;
 - (void)getNewPassword;
-
+- (void)loginUsingTouchID;
 
 @end
 
@@ -37,8 +39,50 @@
 
 #pragma mark - private implementation
 
+
+- (void)loginUsingTouchID {
+    __BLOCKSELF ;
+    
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0") ) {
+        NSString *p = [AccountCredential sharedCredential].password;
+        if ( p!=nil ) {
+            
+            LAContext *localAuthenticationContext = [[LAContext alloc] init];
+            
+            __autoreleasing NSError *authenticationError;
+            
+            NSString *localizedReasonString = NSLocalizedString(@"Authenticate and log into your account.", @"String to prompt the user why we're using Touch ID.");
+            
+            if([localAuthenticationContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authenticationError]) {
+                [localAuthenticationContext
+                 evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                 localizedReason:localizedReasonString
+                 reply:^(BOOL success, NSError *error) {
+                     if (success) {
+                         NSLog(@"ACCESS GRANTED!");
+                         if( _onLoggedIn ) _onLoggedIn();
+                         
+                         [__self dismissViewControllerAnimated:YES completion:^{
+                             [__self.parent.view setHidden:NO];
+                         }];
+
+                     } else {
+                         //Touch ID failed, check the code property on the error object
+                         NSLog(@"ACCESS DENIED!");
+                     }
+                 }];
+            } else {
+                //Error using Touch ID -- most likely not a TouchID supported device
+                NSLog(@"TOUCHID DEVICE IS NOT PRESENT!");
+            }
+        }
+    }
+    
+}
+
 - (BOOL)loginToSystem {
-	
+    __BLOCKSELF ;
+    
 	NSString *p = [AccountCredential sharedCredential].password;
 	if ( p==nil ) {
 		[AccountCredential sharedCredential].password = txtPassword.text;
@@ -57,14 +101,11 @@
 	}
     
     if( _onLoggedIn ) _onLoggedIn();
-
-    __block KeyChainLogin *_self = self;
     
-	//[self.parent dismissModalViewControllerAnimated:YES];
-	[self.parent dismissViewControllerAnimated:YES completion:^{
-        [_self.parent.view setHidden:NO];
+    [self.parent dismissViewControllerAnimated:YES completion:^{
+        [__self.parent.view setHidden:NO];
     }];
-	   
+    
 	return YES;
 }
 
@@ -214,7 +255,7 @@
 		
         InfoViewController *contentViewController = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
 		
-        contentViewController.contentSizeForViewInPopover = CGSizeMake(270, 300);
+        contentViewController.preferredContentSize = CGSizeMake(270, 300);
         
         self.popoverController = [[WEPopoverController alloc] initWithContentViewController:contentViewController];
 		
@@ -285,18 +326,35 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    __BLOCKSELF ;
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if ( [[AccountCredential sharedCredential] checkAndUpdateCurrentVersion] ) {
+            
+            [__self info:__self.btnInfo];
+        }
+    });
+    
+   
+    
+}
+
 //
 -(void)viewDidAppear:(BOOL)animated {
 
-    __block KeyChainLogin *_self = self;
+    [super viewDidAppear:animated];
     
+    __BLOCKSELF ;
+
     dispatch_async(dispatch_get_main_queue(), ^{
-       
-        if ( [[AccountCredential sharedCredential] checkAndUpdateCurrentVersion] ) {
-            
-            [_self info:_self.btnInfo];
-        }
+        [__self loginUsingTouchID];
     });
+    
+
     
 }
 

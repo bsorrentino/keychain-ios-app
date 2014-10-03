@@ -11,7 +11,10 @@
 #import "KeyListViewController.h"
 #import "KeyChainLogin.h"
 
-@implementation KeyChainAppDelegate
+@implementation KeyChainAppDelegate {
+    
+    BOOL _alreadyBecomeActive;
+}
 
 @synthesize window;
 @synthesize navigationController;
@@ -201,6 +204,8 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
      Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
      Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
      */
+    
+    NSLog(@"applicationWillResignActive");
 }
 
 
@@ -209,6 +214,11 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
      */
+    NSLog(@"applicationDidEnterBackground");
+
+    _alreadyBecomeActive = NO;
+    
+    
     [self saveContext];
 }
 
@@ -217,22 +227,27 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
     /*
      Called as part of  transition from the background to the inactive state: here you can undo many of the changes made on entering the background.
      */
+    NSLog(@"applicationWillEnterForeground");
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 
+    __BLOCKSELF;
+    
     static dispatch_once_t onceToken;
   
-    NSLog( @"application state [%d]", application.applicationState );
+    NSLog( @"applicationDidBecomeActive state [%ld]", application.applicationState );
 	
-    __block KeyChainAppDelegate *_self = self;
-	[KeyChainLogin	doModal:navigationController onLoggedIn:^{
-        
-        dispatch_once(&onceToken, ^{
-            [_self.rootViewController.keyListViewController filterReset:YES];
-        });
-    }];
+    if( !_alreadyBecomeActive ) {
+        [KeyChainLogin	doModal:navigationController onLoggedIn:^{
+            
+            dispatch_once(&onceToken, ^{
+                [__self.rootViewController.keyListViewController filterReset:YES];
+            });
+        }];
+        _alreadyBecomeActive = YES;
+    }
 }
 
 
