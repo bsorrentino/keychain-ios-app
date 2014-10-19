@@ -4,50 +4,95 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-MTStatusBarOverlay.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RNCryptor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SSKeychain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-STAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-UIXML.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-WEPopover.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ZKRevealingTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>STAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>11C1E6B1C5484AEB9595CD28</key>
+		<key>13A1D2E030ABD1648B900F06</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2253BB2245774735B36EAE21</key>
+		<key>3555E724541F8256DCEAF395</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3FEE7CD55F3F4CF98B8F608E</key>
+		<key>6D7E8C53BCFD83C088F73036</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4833078604284287952E1A80</key>
+		<key>7A99360D6D9D40C0C4D68E41</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4B436DB54DD243CDB8EC89FA</key>
+		<key>83A532C7C4C93E5DC6D3F5CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>57685D75D5DA4BCEBC053050</key>
+		<key>B50DB08856A3B4D91974C182</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>813A15C31BAF4269AAE770A2</key>
+		<key>D9C06AAE4B1D3D0DB3ADF6A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2A9867A31874F42BF0996BC</key>
+		<key>F60586A7212FC9245CBB506E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F939BA97D0DBB44F97B47C2D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

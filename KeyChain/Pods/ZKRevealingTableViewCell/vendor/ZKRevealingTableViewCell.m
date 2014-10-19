@@ -27,6 +27,9 @@
 #import "ZKRevealingTableViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 
+
+#import <objc/runtime.h>
+
 @interface ZKRevealingTableViewCell ()
 
 @property (nonatomic, retain) UIPanGestureRecognizer   *_panGesture;
@@ -189,10 +192,15 @@
 	[self addSubview:self.contentView];
 	self.backView.frame = self.contentView.frame;
 
+    NSLog(@"layoutSubviews\nself.bounds.width[%f]\ncontentView.bounds.width [%f]\nadjusted bounds width [%f]", 
+          self.bounds.size.width, 
+          self.contentView.bounds.size.width,
+          self.boundsWidth
+          );
+    
 }
 
 #pragma mark - Accessors
-#import <objc/runtime.h>
 
 static char BOOLRevealing;
 

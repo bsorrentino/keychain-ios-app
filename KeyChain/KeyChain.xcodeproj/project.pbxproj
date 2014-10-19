@@ -101,6 +101,10 @@
 		A02BB74D159C5829001FD5AA /* popoverBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB73E159C5829001FD5AA /* popoverBg@2x.png */; };
 		A02BB74E159C5829001FD5AA /* popoverBgSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB73F159C5829001FD5AA /* popoverBgSimple.png */; };
 		A0759F2114305DBE000701EF /* settings20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A0759F2014305DBE000701EF /* settings20x20.png */; };
+		A082214A19F45FE300FC7BFD /* WEPopover.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214919F45FE300FC7BFD /* WEPopover.podspec */; };
+		A082214E19F4649700FC7BFD /* RNCryptor.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214B19F4649700FC7BFD /* RNCryptor.podspec */; };
+		A082214F19F4649700FC7BFD /* UIXML.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214C19F4649700FC7BFD /* UIXML.podspec */; };
+		A082215019F4649700FC7BFD /* ZKRevealingTableViewCell.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */; };
 		A083A17A1435CB9B0032B285 /* changePwd24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = A083A1791435CB9B0032B285 /* changePwd24x24.png */; };
 		A083A19114362F020032B285 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		A083A19214362F020032B285 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -136,7 +140,7 @@
 		28A0AAE50D9B0CCF005BE974 /* KeyChain_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChain_Prefix.pch; sourceTree = "<group>"; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4C40EDF0C47149F7BFC09EF9 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		578803C0E9C2FF0716C2B4CE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5C5112EA4300461BB01FA835 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F04E6E112E368C800370F50 /* KeyChainLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainLogin.h; sourceTree = "<group>"; };
 		5F04E6E212E368C800370F50 /* KeyChainLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainLogin.m; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 		5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.3.xcmappingmodel"; sourceTree = "<group>"; };
 		5FFC754E14E5B06800E3E162 /* KeyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListViewController.h; sourceTree = "<group>"; };
 		5FFC754F14E5B06800E3E162 /* KeyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyListViewController.m; sourceTree = "<group>"; };
+		66F059C75DF530595DF2A1A2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* KeyChain-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KeyChain-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A0121169142269B2000AA884 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A02BB722159C4DFA001FD5AA /* back32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back32x32.png; sourceTree = "<group>"; };
@@ -252,6 +257,10 @@
 		A02BB73E159C5829001FD5AA /* popoverBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "popoverBg@2x.png"; path = "Pods/WEPopover/popoverBg@2x.png"; sourceTree = "<group>"; };
 		A02BB73F159C5829001FD5AA /* popoverBgSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popoverBgSimple.png; path = Pods/WEPopover/popoverBgSimple.png; sourceTree = "<group>"; };
 		A0759F2014305DBE000701EF /* settings20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings20x20.png; sourceTree = "<group>"; };
+		A082214919F45FE300FC7BFD /* WEPopover.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WEPopover.podspec; sourceTree = "<group>"; };
+		A082214B19F4649700FC7BFD /* RNCryptor.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RNCryptor.podspec; sourceTree = "<group>"; };
+		A082214C19F4649700FC7BFD /* UIXML.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIXML.podspec; sourceTree = "<group>"; };
+		A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZKRevealingTableViewCell.podspec; sourceTree = "<group>"; };
 		A083A1791435CB9B0032B285 /* changePwd24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changePwd24x24.png; sourceTree = "<group>"; };
 		A083A19014362F020032B285 /* KeyChainTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyChainTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A083A19614362F020032B285 /* KeyChainTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KeyChainTests-Info.plist"; sourceTree = "<group>"; };
@@ -312,9 +321,13 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				A082214B19F4649700FC7BFD /* RNCryptor.podspec */,
+				A082214C19F4649700FC7BFD /* UIXML.podspec */,
+				A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */,
+				A082214919F45FE300FC7BFD /* WEPopover.podspec */,
+				A02BB72B159C5752001FD5AA /* podfile */,
 				5F3486BF160B83D200F2C1A2 /* datamodel */,
 				5FC6508F160933A9003BC18F /* migration */,
-				A02BB72B159C5752001FD5AA /* podfile */,
 				5FA71BE815E968DB001AFCCF /* Export */,
 				5FA71BE915E96913001AFCCF /* Import */,
 				5FA71BE715E94CB0001AFCCF /* KeyForm */,
@@ -331,7 +344,7 @@
 				A083A19414362F020032B285 /* KeyChainTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				4C40EDF0C47149F7BFC09EF9 /* Pods.xcconfig */,
+				B3A38CD74B4E031E9691339F /* Pods */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -610,6 +623,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B3A38CD74B4E031E9691339F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				578803C0E9C2FF0716C2B4CE /* Pods.debug.xcconfig */,
+				66F059C75DF530595DF2A1A2 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -699,6 +721,7 @@
 				5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */,
 				5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */,
 				5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */,
+				A082214E19F4649700FC7BFD /* RNCryptor.podspec in Resources */,
 				A0FD0E4F14168462009C7257 /* MailListDataEntryCell.xib in Resources */,
 				5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */,
 				A0759F2114305DBE000701EF /* settings20x20.png in Resources */,
@@ -726,12 +749,14 @@
 				A02BB74B159C5829001FD5AA /* popoverArrowUpSimple.png in Resources */,
 				A02BB74C159C5829001FD5AA /* popoverBg.png in Resources */,
 				A02BB74D159C5829001FD5AA /* popoverBg@2x.png in Resources */,
+				A082215019F4649700FC7BFD /* ZKRevealingTableViewCell.podspec in Resources */,
 				A02BB74E159C5829001FD5AA /* popoverBgSimple.png in Resources */,
 				5F18B47615B6FA7600F7D82A /* lock22x22.png in Resources */,
 				5F18B47815B7016F00F7D82A /* section22x22.png in Resources */,
 				5F084FBE15B9641400059E26 /* key22x22.png in Resources */,
 				5F084FC315BAF09100059E26 /* KeyCell.xib in Resources */,
 				5FC717E715C6EE6F00836CED /* swipeL@18x24.png in Resources */,
+				A082214A19F45FE300FC7BFD /* WEPopover.podspec in Resources */,
 				5F82059D15D4109000862BC2 /* swipeR@18x24.png in Resources */,
 				5FE8A80B15F7B15B00F8566F /* back24x24.png in Resources */,
 				5FE8A80C15F7B15B00F8566F /* chevron.png in Resources */,
@@ -745,6 +770,7 @@
 				5FE8A81415F7B15B00F8566F /* PushWebViewEntryCell.xib in Resources */,
 				5FE8A81515F7B15B00F8566F /* SwitchDataEntryCell.xib in Resources */,
 				5FE8A81615F7B15B00F8566F /* TextDataEntryCell.xib in Resources */,
+				A082214F19F4649700FC7BFD /* UIXML.podspec in Resources */,
 				5FC6509B16093451003BC18F /* Default-568h@2x.png in Resources */,
 				5FC6509C16093451003BC18F /* YIDefault@2x.png in Resources */,
 				5F31B3BE1612E41500AE69CD /* keychain-desktop1024x1024.png in Resources */,
@@ -776,7 +802,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 		};
 		A083A18E14362F020032B285 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -880,7 +906,7 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C40EDF0C47149F7BFC09EF9 /* Pods.xcconfig */;
+			baseConfigurationReference = 578803C0E9C2FF0716C2B4CE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -896,12 +922,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					"\"$(PODS_ROOT)/Headers\"",
-					"\"$(PODS_ROOT)/Headers/SSKeychain\"",
-					"$(PODS_ROOT)/Headers/WEPopover",
-					"../../UIXML/**",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = "KeyChain-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = KeyChain;
@@ -915,7 +936,7 @@
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C40EDF0C47149F7BFC09EF9 /* Pods.xcconfig */;
+			baseConfigurationReference = 66F059C75DF530595DF2A1A2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -928,12 +949,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					"\"$(PODS_ROOT)/Headers\"",
-					"\"$(PODS_ROOT)/Headers/SSKeychain\"",
-					"$(PODS_ROOT)/Headers/WEPopover",
-					"../../UIXML/**",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = "KeyChain-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = KeyChain;
@@ -948,7 +964,6 @@
 		};
 		A083A1A014362F020032B285 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C40EDF0C47149F7BFC09EF9 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -980,7 +995,6 @@
 		};
 		A083A1A114362F020032B285 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C40EDF0C47149F7BFC09EF9 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/xcodeproj.dst;

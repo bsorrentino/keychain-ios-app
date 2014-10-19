@@ -12,9 +12,8 @@
 #import "TextDataEntryCell.h"
 #import "PushControllerDataEntryCell.h"
 
-@interface UIXMLFormViewController()
+@interface UIXMLFormViewController(Private) 
 
-@property (strong, nonatomic) IBOutlet UITextField *mailText;
 - (BaseDataEntryCell *)tableView:(UITableView *)tableView initCellFromData:(NSDictionary *)cellData;
 
 @end
@@ -250,7 +249,7 @@
        
     //NSDictionary *cellData = [tableStructure objectAtIndex:indexPath.row];
 
-	NSLog( @"section[%ld] row [%ld]", (long)indexPath.section, (long)indexPath.row );
+	NSLog( @"section[%d] row [%d]", indexPath.section, indexPath.row );
 
 	NSArray *sectionInfo = [tableStructure objectAtIndex:indexPath.section];
 

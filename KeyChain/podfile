@@ -1,76 +1,16 @@
-platform :ios
+platform :ios, "7.0"
 pod 'SSKeychain', '~> 0.1.4'
 pod 'MTStatusBarOverlay','~> 0.9'
 
 #pod 'WEPopover', '~> 0.0.1'
 #pod 'ZKRevealingTableViewCell', '~>0.0.3'
 #pod 'KSCrypto',	'~> 1.0.2'
+pod "STAlertView"
 
-pod do |s|
-  s.name      = 'WEPopover'
-  s.version   = '0.1.1'
-  s.license  = 'unspecified'
-  s.platform  = :ios
-  s.summary   = 'Forked version - Generic popover implementation for iOS with same API as the UIPopoverController for the iPad, but configurable with custom background and available for iPhone as well'
-  s.description = 'A TweetBot-like notice component for iOS'
-  s.homepage  = 'https://github.com/bsorrentino/WEPopover'
-  s.author    = { 'bsorrentino' =>  ' bartolomeo.sorrentino@gmail.com', 'werner77' => 'http://www.werner-it.com/' }
-  s.source    = { :git => 'https://github.com/bsorrentino/WEPopover.git', :tag => '0.1.1' }
-  s.source_files = 'Classes/Popover/*.{h,m}'
-  s.resources = "*.png"
-  s.frameworks = 'UIKit', 'Foundation', 'CoreGraphics'
-  s.clean_paths = "WEPopover.xcodeproj", "Classes/*.{h,m}", "*.xib", "main.m", "*.pch", "*.plist"
-  s.requires_arc = true
-end
+pod 'WEPopover', :podspec => '.'
+pod 'ZKRevealingTableViewCell', :podspec => '.'
+pod 'UIXML', :podspec => '.'
+pod 'RNCryptor', :podspec => '.'
 
-pod do |s|
-  s.name         = 'ZKRevealingTableViewCell'
-  s.version      = '0.1.2'
-  s.license      = 'MIT'
-  s.summary      = 'A Sparrow-style Implementation of Swipe-To-Reveal. (bsorrentino fork)'
-  s.homepage     = 'https://github.com/alexzielenski/ZKRevealingTableViewCell'
-  s.author       = { 'Alex Zielenski' => 'support@alexzielenski.com', "bsorrentino" =>'bartolomeo.sorrentino@gmail.com' }
-  s.source       = { :git => 'https://github.com/bsorrentino/ZKRevealingTableViewCell.git', :tag => '0.1.2' }
-  s.description  = 'A different kind of swipe-to-reveal that pans with your finger and works left and right to reveal a background view.'
-  s.platform     = :ios
-  s.source_files = 'vendor'
-  s.clean_paths  = "ZKRevealingTableViewCell", "ZKRevealingTableViewCell.xcodeproj", "Preview.png"
-  s.framework    = 'QuartzCore'
-  s.requires_arc = true
-end
 
-pod do |s|
-  s.name      = 'UIXML'
-  s.version   = '1.2.0'
-  s.license  = 'unspecified'
-  s.platform  = :ios
-  s.summary   = 'Generate Form based upon UITableView from .plist file(s)'
-  s.description = 'Generate Form based upon UITableView from .plist file(s)'
-  s.homepage  = 'https://github.com/bsorrentino/UIXML'
-  s.author    = { 'bsorrentino' =>  ' bartolomeo.sorrentino@gmail.com' }
-  s.source    = { :git => 'https://github.com/bsorrentino/UIXML.git', :tag => '1.2.0' }
-  #s.source    = { :git => 'https://github.com/bsorrentino/UIXML.git', :commit => '3ef22aec4c6f2ef8bc9f4dd8380854f98cad34b9' }
-  s.source_files = '*.{h,m}'
-  s.resources = "*.png", "en.lproj/*.xib"
-  s.frameworks = 'Foundation'
-  s.clean_paths = "UIXML.xcodeproj", "Samples", "README.md"
-  s.requires_arc = true
-end
-
-pod do |s|
-  s.name      = 'RNCryptor'
-  s.version   = '1.2'
-  s.license  = 'MIT'
-  s.platform  = :ios
-  s.summary   = 'CCCryptor (AES encryption) wrappers for iOS and Mac'
-  s.description = 'CCCryptor (AES encryption) wrappers for iOS and Mac'
-  s.homepage  = 'https://github.com/rnapier/RNCryptor'
-  s.author    = { 'bsorrentino' =>  ' bartolomeo.sorrentino@gmail.com' }
-  s.source    = { :git => 'https://github.com/rnapier/RNCryptor.git', :commit => 'a0a29e4341ea643a83fb180b74fac5e5d234d97b' }
-  s.source_files = 'RNCryptor/*.{h,m}'
-  #s.resources = "*.png", "en.lproj/*.xib"
-  s.frameworks = 'Security'
-  s.clean_paths = "RNCryptor.xcodeproj", "RNCryptorTests", "README.md", "test.enc", "AppledocSettings.plist"
-  s.requires_arc = true
-end
 

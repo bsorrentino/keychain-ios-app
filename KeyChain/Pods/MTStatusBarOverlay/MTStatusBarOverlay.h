@@ -106,6 +106,8 @@ typedef enum MTMessageType {
 @property (nonatomic, strong, readonly) NSMutableArray *messageHistory;
 // DEPRECATED: enable/disable history-tracking of messages
 @property (nonatomic, assign, getter=isHistoryEnabled) BOOL historyEnabled;
+// the last message that was visible
+@property (nonatomic, copy) NSString *lastPostedMessage;
 // determines if immediate messages in the queue get removed or stay in the queue, when a new immediate message gets posted
 @property (nonatomic, assign) BOOL canRemoveImmediateMessagesFromQueue;
 // the mode of the detailView
@@ -134,6 +136,9 @@ typedef enum MTMessageType {
 - (void)addSubviewToBackgroundView:(UIView *)view;
 - (void)addSubviewToBackgroundView:(UIView *)view atIndex:(NSInteger)index;
 
+// Method to re-post a cleared message
+- (void)postMessageDictionary:(NSDictionary *)messageDictionary;
+
 // shows an activity indicator and the given message
 - (void)postMessage:(NSString *)message;
 - (void)postMessage:(NSString *)message duration:(NSTimeInterval)duration;
@@ -141,6 +146,7 @@ typedef enum MTMessageType {
 - (void)postMessage:(NSString *)message animated:(BOOL)animated;
 // clears the message queue and shows this message instantly
 - (void)postImmediateMessage:(NSString *)message animated:(BOOL)animated;
+- (void)postImmediateMessage:(NSString *)message duration:(NSTimeInterval)duration;
 - (void)postImmediateMessage:(NSString *)message duration:(NSTimeInterval)duration animated:(BOOL)animated;
 
 // shows a checkmark instead of the activity indicator and hides the status bar after the specified duration

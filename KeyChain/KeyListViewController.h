@@ -11,7 +11,8 @@
 #import "KeyEntityFormController.h"
 #import "KeyListDataSource.h"
 #import "DDTableViewManager.h"
-#import "ZKRevealingTableViewCell/ZKRevealingTableViewCell.h"
+
+#import "ZKRevealingTableViewCell.h"
 
 @class KeyEntityFormController;
 @class KeyListViewController;

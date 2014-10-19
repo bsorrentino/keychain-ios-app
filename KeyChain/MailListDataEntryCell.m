@@ -10,6 +10,7 @@
 #import "KeyChainAppDelegate.h"
 #import "AttributeInfo.h"
 #import <AVFoundation/AVAudioPlayer.h>
+#import <STAlertView/STAlertView.h>
 
 #define TRACE_ENTER( m ) NSLog( @"enter in [%@]", @#m )
 
@@ -67,7 +68,8 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 
 @interface MailListDataViewController()
-    @property (strong, nonatomic,readonly) IBOutlet UITextField *textMail;
+    @property (nonatomic, strong) STAlertView *mailAlertView;
+
 
 - (void)insertNewObject;
 - (PersistentAppDelegate *) appDelegate;
@@ -85,37 +87,10 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 
 @implementation MailListDataViewController
-@synthesize textMail=textMail_;
 @synthesize cell=cell_;
 @synthesize fetchedResultsController=fetchedResultsController_;
 
 #pragma mark - private method
-
--(UITextField *)textMail {
-    if( !textMail_) {
-     // Name field
-     textMail_ = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 50.0)];
-     textMail_.tag = 100;
-     textMail_.keyboardType = UIKeyboardTypeEmailAddress;
-     textMail_.placeholder = NSLocalizedString(@"ListDataEntryCell.alertPlaceholder", @"add item placeholder");
-     [textMail_ setBackgroundColor:[UIColor whiteColor]];
-     textMail_.clearButtonMode = UITextFieldViewModeWhileEditing;
-     textMail_.keyboardType = UIKeyboardTypeAlphabet;
-     textMail_.keyboardAppearance = UIKeyboardAppearanceAlert;
-     textMail_.autocapitalizationType = UITextAutocapitalizationTypeWords;
-     textMail_.autocorrectionType = UITextAutocorrectionTypeNo;
-     [textMail_ becomeFirstResponder];
-     [textMail_.layer setBorderColor:[[[UIColor blackColor] colorWithAlphaComponent:0.5] CGColor]];
-     [textMail_.layer setBorderWidth:2.0];
-     
-     //The rounded corner part, where you specify your view's corner radius:
-     textMail_.layer.cornerRadius = 5;
-     textMail_.clipsToBounds = YES;
-    }
-    
-    return textMail_;
-    
-}
 
 - (PersistentAppDelegate *)appDelegate {
  
@@ -287,7 +262,27 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 - (void) insertNewObject
 {
-    ;
+
+    __BLOCKSELF;
+    
+    self.mailAlertView = [[STAlertView alloc] initWithTitle:NSLocalizedString(@"ListDataEntryCell.alertTitle", @"add new Item")
+                                                    message:@""
+                                              textFieldHint:@""
+                                             textFieldValue:nil
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Store"
+                        
+                                          cancelButtonBlock:^{
+                                              NSLog(@"cancel mail");
+                                              
+                                            }
+                                           otherButtonBlock:^(NSString * result){
+                                               
+                                               [__self insertManagedObject:result];
+
+                                           }];
+    
+#if 0
 	UIAlertView *alert = [[UIAlertView alloc] 
 						  initWithTitle: NSLocalizedString(@"ListDataEntryCell.alertTitle", @"add new Item") 
 						  message:nil //NSLocalizedString(@"ListDataEntryCell.alertMessage", @"add item message")
@@ -305,40 +300,11 @@ NSString * const regularExpression = @"(.*)@(.*)";
     //[alert setTransform:transform];
     
 	[alert show];
+#endif
+    
     
 	
 }
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex==1 ) {
-/*
-        UITextField *tf;
-        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
-            tf = (UITextField*)[alertView valueForKey:@"accessoryView"];
-        }
-        else {
-            tf = (UITextField*)[alertView viewWithTag:100];
-        }
-*/
-        
-        [self insertManagedObject:self.textMail.text];
-        
-        //NSInteger count = [self numberOfObjectsInSection:0];
-        
-        //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:count inSection:0];
-        //NSArray *indexs = [[NSArray alloc] initWithObjects:indexPath, nil];
-        
-        //[self.tableView insertRowsAtIndexPaths:indexs withRowAnimation:YES];
-        
-        //[indexs release];
-    }
-    //[alertView release];
-}
-
-
 
 #pragma mark - NSFetchedResultsController
 
