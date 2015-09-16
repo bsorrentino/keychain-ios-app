@@ -3,6 +3,7 @@ pod 'SSKeychain',           '~> 0.1.4'
 pod 'KSCrypto',	'~> 1.0.2'
 #pod 'WEPopover', '~> 0.0.1'
 #pod 'ZKRevealingTableViewCell', '~>0.0.3'
+pod 'STAlertView'
 
 pod do |s|
   s.name      = 'WEPopover'
