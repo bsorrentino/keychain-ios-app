@@ -7,8 +7,8 @@
 //
 
 #import "KeyChainTests.h"
-#import "RNEncryptor.h"
-#import "RNDecryptor.h"
+#import "RNCryptor/RNDecryptor.h"
+#import "RNCryptor/RNEncryptor.h"
 
 @implementation KeyChainTests
 

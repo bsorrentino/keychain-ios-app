@@ -33,11 +33,9 @@
 		5F31B3BE1612E41500AE69CD /* keychain-desktop1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F31B3BD1612E41500AE69CD /* keychain-desktop1024x1024.png */; };
 		5F31B3C01612E8BC00AE69CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F31B3BF1612E8BC00AE69CD /* Default@2x.png */; };
 		5F3486C2160B859C00F2C1A2 /* StringEncryptionTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */; };
-		5F3BD073143B352F00001F01 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3BD072143B352E00001F01 /* CoreData.framework */; };
 		5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F544F7313F82E350001A8B5 /* logo-57x57.png */; };
 		5F66446D1611B80D00800259 /* KeyEntity+Cryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66446C1611B80D00800259 /* KeyEntity+Cryptor.m */; };
 		5F6C47811535C4F20092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
-		5F6C47821535C6790092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
 		5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F3439143F315500D9C428 /* ExportViewController.m */; };
 		5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6F343B143F49EC00D9C428 /* usb48x48.png */; };
 		5F6F634A14FE4521004C1337 /* DDTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F634914FE4521004C1337 /* DDTableViewManager.m */; };
@@ -78,7 +76,6 @@
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
 		5FF9DFF31610EBB9003ABEA0 /* model-1.3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */; };
 		5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754F14E5B06800E3E162 /* KeyListViewController.m */; };
-		65FD1F11C87147678D8BC26A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5112EA4300461BB01FA835 /* libPods.a */; };
 		A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0121169142269B2000AA884 /* AVFoundation.framework */; };
 		A02BB725159C4DFA001FD5AA /* back32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB722159C4DFA001FD5AA /* back32x32.png */; };
 		A02BB726159C4DFA001FD5AA /* keychain-desktop-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */; };
@@ -106,29 +103,12 @@
 		A082214F19F4649700FC7BFD /* UIXML.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214C19F4649700FC7BFD /* UIXML.podspec */; };
 		A082215019F4649700FC7BFD /* ZKRevealingTableViewCell.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */; };
 		A083A17A1435CB9B0032B285 /* changePwd24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = A083A1791435CB9B0032B285 /* changePwd24x24.png */; };
-		A083A19114362F020032B285 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		A083A19214362F020032B285 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		A083A19314362F020032B285 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
-		A083A19914362F020032B285 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A083A19714362F020032B285 /* InfoPlist.strings */; };
-		A083A19C14362F020032B285 /* KeyChainTests.h in Resources */ = {isa = PBXBuildFile; fileRef = A083A19B14362F020032B285 /* KeyChainTests.h */; };
-		A083A19E14362F020032B285 /* KeyChainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A083A19D14362F020032B285 /* KeyChainTests.m */; };
-		A083A1A214363E7D0032B285 /* KeyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BB12DC7730009BE36C /* KeyEntity.m */; };
 		A0CD69661430C24A00EDE45F /* export20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CD69651430C24A00EDE45F /* export20x20.png */; };
 		A0FD0E4614165D8E009C7257 /* AttributeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD0E4514165D8E009C7257 /* AttributeInfo.m */; };
 		A0FD0E4D14166C32009C7257 /* MailListDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD0E4C14166C32009C7257 /* MailListDataEntryCell.m */; };
 		A0FD0E4F14168462009C7257 /* MailListDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FD0E4E14168462009C7257 /* MailListDataEntryCell.xib */; };
 		EFA73FD086874FC8A3CA4E35 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5112EA4300461BB01FA835 /* libPods.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5F3BD070143B352200001F01 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
-			remoteInfo = KeyChain;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -228,6 +208,11 @@
 		5FE8A80915F7B15B00F8566F /* SwitchDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SwitchDataEntryCell.xib; path = Pods/UIXML/SwitchDataEntryCell.xib; sourceTree = "<group>"; };
 		5FE8A80A15F7B15B00F8566F /* TextDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextDataEntryCell.xib; path = Pods/UIXML/TextDataEntryCell.xib; sourceTree = "<group>"; };
 		5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		5FF268EF1B5FA8F9007440E7 /* libPods-RNCryptor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPods-RNCryptor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF268F11B5FAA1C007440E7 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF268F31B5FAA37007440E7 /* libPods-RNCryptor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPods-RNCryptor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF268F51B5FAA58007440E7 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF268F71B5FAA6C007440E7 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		5FF78F2E12E5A481008EA886 /* logo-64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-64x64.png"; sourceTree = "<group>"; };
 		5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.3.xcmappingmodel"; sourceTree = "<group>"; };
 		5FFC754E14E5B06800E3E162 /* KeyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListViewController.h; sourceTree = "<group>"; };
@@ -240,7 +225,7 @@
 		A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.2.xcmappingmodel"; sourceTree = "<group>"; };
 		A02BB728159C4E38001FD5AA /* UIAlertViewInputSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewInputSection.h; sourceTree = "<group>"; };
 		A02BB729159C4E38001FD5AA /* UIAlertViewInputSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewInputSection.m; sourceTree = "<group>"; };
-		A02BB72B159C5752001FD5AA /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; };
+		A02BB72B159C5752001FD5AA /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A02BB731159C5829001FD5AA /* popoverArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popoverArrowDown.png; path = Pods/WEPopover/popoverArrowDown.png; sourceTree = "<group>"; };
 		A02BB732159C5829001FD5AA /* popoverArrowDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "popoverArrowDown@2x.png"; path = "Pods/WEPopover/popoverArrowDown@2x.png"; sourceTree = "<group>"; };
 		A02BB733159C5829001FD5AA /* popoverArrowDownSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popoverArrowDownSimple.png; path = Pods/WEPopover/popoverArrowDownSimple.png; sourceTree = "<group>"; };
@@ -262,7 +247,6 @@
 		A082214C19F4649700FC7BFD /* UIXML.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIXML.podspec; sourceTree = "<group>"; };
 		A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZKRevealingTableViewCell.podspec; sourceTree = "<group>"; };
 		A083A1791435CB9B0032B285 /* changePwd24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changePwd24x24.png; sourceTree = "<group>"; };
-		A083A19014362F020032B285 /* KeyChainTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyChainTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A083A19614362F020032B285 /* KeyChainTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KeyChainTests-Info.plist"; sourceTree = "<group>"; };
 		A083A19814362F020032B285 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A083A19A14362F020032B285 /* KeyChainTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeyChainTests-Prefix.pch"; sourceTree = "<group>"; };
@@ -293,19 +277,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A083A18C14362F020032B285 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5F6C47821535C6790092F552 /* Security.framework in Frameworks */,
-				5F3BD073143B352F00001F01 /* CoreData.framework in Frameworks */,
-				A083A19114362F020032B285 /* UIKit.framework in Frameworks */,
-				A083A19214362F020032B285 /* Foundation.framework in Frameworks */,
-				A083A19314362F020032B285 /* CoreGraphics.framework in Frameworks */,
-				65FD1F11C87147678D8BC26A /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -313,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* KeyChain.app */,
-				A083A19014362F020032B285 /* KeyChainTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -391,6 +361,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5FF268F71B5FAA6C007440E7 /* libcommonCrypto.dylib */,
+				5FF268F51B5FAA58007440E7 /* libPods.a */,
+				5FF268F31B5FAA37007440E7 /* libPods-RNCryptor.a */,
+				5FF268F11B5FAA1C007440E7 /* libPods.a */,
+				5FF268EF1B5FA8F9007440E7 /* libPods-RNCryptor.a */,
 				5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */,
 				5F3BD072143B352E00001F01 /* CoreData.framework */,
 				A0121169142269B2000AA884 /* AVFoundation.framework */,
@@ -653,26 +628,6 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* KeyChain.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A083A18F14362F020032B285 /* KeyChainTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A083A19F14362F020032B285 /* Build configuration list for PBXNativeTarget "KeyChainTests" */;
-			buildPhases = (
-				A083A18B14362F020032B285 /* Sources */,
-				A083A18C14362F020032B285 /* Frameworks */,
-				A083A18D14362F020032B285 /* Resources */,
-				A083A18E14362F020032B285 /* ShellScript */,
-				70C9F0B6C41F47EC9D3ADA67 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5F3BD071143B352200001F01 /* PBXTargetDependency */,
-			);
-			name = KeyChainTests;
-			productName = KeyChainTests;
-			productReference = A083A19014362F020032B285 /* KeyChainTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -703,7 +658,6 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* KeyChain */,
-				A083A18F14362F020032B285 /* KeyChainTests */,
 			);
 		};
 /* End PBXProject section */
@@ -778,15 +732,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A083A18D14362F020032B285 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A083A19914362F020032B285 /* InfoPlist.strings in Resources */,
-				A083A19C14362F020032B285 /* KeyChainTests.h in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -803,19 +748,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-		};
-		A083A18E14362F020032B285 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -857,24 +789,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A083A18B14362F020032B285 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A083A1A214363E7D0032B285 /* KeyEntity.m in Sources */,
-				A083A19E14362F020032B285 /* KeyChainTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5F3BD071143B352200001F01 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1D6058900D05DD3D006BFB54 /* KeyChain */;
-			targetProxy = 5F3BD070143B352200001F01 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5F084FC015B9641400059E26 /* key22x22.png */ = {
@@ -924,7 +839,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = "KeyChain-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = KeyChain;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -951,7 +866,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = "KeyChain-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = KeyChain;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -959,64 +874,6 @@
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		A083A1A014362F020032B285 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KeyChainTests/KeyChainTests-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "KeyChainTests/KeyChainTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		A083A1A114362F020032B285 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KeyChainTests/KeyChainTests-Prefix.pch";
-				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "KeyChainTests/KeyChainTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -1031,7 +888,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1051,7 +908,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1068,15 +925,6 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		A083A19F14362F020032B285 /* Build configuration list for PBXNativeTarget "KeyChainTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A083A1A014362F020032B285 /* Debug */,
-				A083A1A114362F020032B285 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
