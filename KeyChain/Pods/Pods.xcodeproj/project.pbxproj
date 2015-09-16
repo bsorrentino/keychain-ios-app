@@ -7,971 +7,962 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00142533A40ED5CC74484995 /* PushControllerDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC9B14016F94859108329D7 /* PushControllerDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		033DF7F08F30DC00667B9766 /* RNOpenSSLDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5795C9084DF4072C294B7 /* RNOpenSSLDecryptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		03B9249E70F17B592FB612FD /* MTStatusBarOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 397F21DF1CF5F282CCF5BADD /* MTStatusBarOverlay.h */; };
-		0A21A0955F104B2AB97E7A2B /* ZKRevealingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D47E463BE8C8F6A853F9F934 /* ZKRevealingTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		0E945E18D5701563FB0D197E /* UIXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 143838EE992AF54E237AFFD5 /* UIXML.h */; };
-		1040E4CA4D1D0B294DC082C3 /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 1609ABCF112571A03E554245 /* MTStatusBarOverlay.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		15EBEC679FC0928D7F4CC390 /* RNCryptorEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B18E68DE987391E1B8B4F9C /* RNCryptorEngine.h */; };
-		17FB5F72D10EE3620C3CE963 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2BF980583F3D0803179A75 /* Foundation.framework */; };
-		205F95F53FC891863903B659 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5D827FF88D24C36A6A4051 /* Security.framework */; };
-		264383DED0B83636ED1ED74B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2BF980583F3D0803179A75 /* Foundation.framework */; };
-		2CEDB686F2E120ED9602DDFB /* SegmentedDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048AE8315C485DB63911164A /* SegmentedDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		2D51954BE57B8C1F2D142239 /* Pods-MTStatusBarOverlay-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 271E1E3F8034FA620AF6F90F /* Pods-MTStatusBarOverlay-dummy.m */; };
-		2D7DEE2B94933F8237634F56 /* PushTextEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CF42A565404E3805802CAAD0 /* PushTextEntryCell.h */; };
-		2E8228416076643EC3082F68 /* WaitMaskController.h in Headers */ = {isa = PBXBuildFile; fileRef = B4E2A5317BE6276180A4CD17 /* WaitMaskController.h */; };
-		2EE2040169B5BC62A5B59576 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2BF980583F3D0803179A75 /* Foundation.framework */; };
-		311E9BFD56F0B9E5D1534240 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2BF980583F3D0803179A75 /* Foundation.framework */; };
-		36392FA985554B2F76488360 /* SegmentedDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 887A53D44B3679CEC57DE669 /* SegmentedDataEntryCell.h */; };
-		391C62836E9DA86AA21732AA /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = F75034B5873427397ACCCAE8 /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		3A39F1C76D6C84E92C8F116A /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEC126B035C10FC5D6E4871 /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		3B781F00396ACD10D16B91FF /* SwitchDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 43F7499A70164912626E2C7F /* SwitchDataEntryCell.h */; };
-		3BF9D6683C9976A828CA7FB2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5394D3E126E10727CD2557E5 /* QuartzCore.framework */; };
-		3DABE1E2AED78FCCC46D8A5D /* UIXMLFormViewControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 549B1BD00E683AD316A3FE9F /* UIXMLFormViewControllerDelegate.h */; };
-		4C04E588ABCBF568C28095B8 /* BaseDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA45B05CB809BAC8A5BD0B0 /* BaseDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		4F42922F73F8ADAF5B5D4BA6 /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = C65F4597BFF7C8998FDEA403 /* SSKeychain.h */; };
-		5059E33E745F0F83B5D46A28 /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391EF0574F4FD95BD123F2A0 /* UIXMLFormViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		53613A12B75CFD31CC3CA61A /* Pods-ZKRevealingTableViewCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7652E7C63891D1C93D0A3178 /* Pods-ZKRevealingTableViewCell-dummy.m */; };
-		554F55383ADF4F2761655F58 /* RNDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 187DBD78D7529E050DC84D3D /* RNDecryptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		6596B5DC2514D5C3FF15CC12 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44325AFFE4DC3B5973E4E41F /* WaitMaskController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		67250D2369FB2E925B787E16 /* RNCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3CFB93DAE1840D18AF7A88 /* RNCryptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		6B80D2F147105A10ADE627E3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5D827FF88D24C36A6A4051 /* Security.framework */; };
-		6EFD35AC7E2F07C045ED36C9 /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E84049DEE3DD88F8F909A /* PushDateEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		7168E4DAB8891C08A109D0A4 /* PushControllerDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 62D965D15BFBF5D60A386C8B /* PushControllerDataEntryCell.h */; };
-		7283A69741730196625C30B7 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B070F9B05147099CA1E8CE48 /* SwitchDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		73E1DB62DBA417D83545017B /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F04D6936D7459EA01AB9DD6A /* TextDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		7518EB3A59C57C6B9C83CE36 /* PushFormDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F31DADD0B86B7C132C9FD67D /* PushFormDataEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		785E29C160A93F0E6286E34C /* Pods-RNCryptor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 359495AAF41043495042D876 /* Pods-RNCryptor-dummy.m */; };
-		7BAB9D15724F1CBD846D244E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2BF980583F3D0803179A75 /* Foundation.framework */; };
-		815B8D14733448BD5D04ACF4 /* RNOpenSSLEncryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 123E20573C915A8A1C360754 /* RNOpenSSLEncryptor.h */; };
-		84DA9C54830A788E8B5904E7 /* WETouchableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B99045E09AC1B44B5FD21C3 /* WETouchableView.h */; };
-		8969629C4369AAB9D7CA7BDD /* Pods-UIXML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B69F50C9684B9F83CB0ACF40 /* Pods-UIXML-dummy.m */; };
-		8B3B06A9DEDE90F27D8D4EA4 /* TextDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EFF65D0DE6877C672ABA898 /* TextDataEntryCell.h */; };
-		8CBC6D8251F1EB46BED61FFB /* ZKRevealingTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 199A0CCB7B7D6F1B5A585E71 /* ZKRevealingTableViewCell.h */; };
-		8F22DDEC63409B5229C4DA57 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F20DEF00A6FA0834E829446 /* CoreGraphics.framework */; };
-		98605FA8B0145A45B1847D39 /* RNOpenSSLEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D6217123BB3A11B2FAB2F46D /* RNOpenSSLEncryptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		9A530803B5DA711B5A9664DB /* WEPopoverContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5E7DDC2DA20C521C5E361D /* WEPopoverContainerView.h */; };
-		9B0A19564EC36DDDEF706CF4 /* WEPopoverParentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FEC06DF5536019C3D412575 /* WEPopoverParentView.h */; };
-		9BC4F49EF8BB78C5A2AC6556 /* UIBarButtonItem+WEPopover.h in Headers */ = {isa = PBXBuildFile; fileRef = EF3557E3A8DB70691B56F4D2 /* UIBarButtonItem+WEPopover.h */; };
-		9BF005572CE67820DCBC0252 /* RNCryptorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 338C970BBEAECAA47FD81ED6 /* RNCryptorEngine.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		9EEE828E05FE41F6FC0E99C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E8C7A96DA4139CC379FC64 /* UIKit.framework */; };
-		A11436C2B83DB53BE044EF52 /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB5E47BF4FC2AE60F9DDC94 /* WEPopoverController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		A37E1BC5D4D7CF283C789F39 /* PushWebViewEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 34626353839EE4A620E525C3 /* PushWebViewEntryCell.h */; };
-		A417D8D7F3A54F8AFFD9ABBC /* Pods-WEPopover-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F731E0E9ECCA8B4A3F60D4 /* Pods-WEPopover-dummy.m */; };
-		A4BB478EF7BED695A926E43C /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 505F2AB366023C0F6BBA674B /* PushTextEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		A5EEF4253CF18C2F19D4A9B9 /* PushFormDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A2E06884758EDB1AF7B4A3CA /* PushFormDataEntryCell.h */; };
-		ACAE684F596344DC5070D4A8 /* STAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 50BFB51B16DF4573366C99D3 /* STAlertView.h */; };
-		ADA61DF8B48656D5942DA8FE /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAB7FDDE4E2D1896E83BAF3 /* WETouchableView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		BF10564CE5D901B671D643C1 /* RNEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D01B09D958E5513DFC4FA794 /* RNEncryptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		C2620C6DCCF40E94B0521922 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 790824104DC4968E776F42DC /* SSKeychain.m */; };
-		C276AFDEED99883D1B032854 /* WEPopoverController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4575DBCD3C31541FDEE139B6 /* WEPopoverController.h */; };
-		C28E94DDF1A1AA281834FC05 /* RNCryptor+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 17662D170ABF2D68A5CFB7AF /* RNCryptor+Private.h */; };
-		C4C6BE83AD8232F9DE8FE8ED /* RNOpenSSLCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DE5FBAD06F12A1DF10CE0A /* RNOpenSSLCryptor.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		C6A2F26FD40FF34031A90304 /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1139D1120CC07E9289D757D /* PushWebViewEntryCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		CBC5CBE6D2E98A6C16474B7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2BF980583F3D0803179A75 /* Foundation.framework */; };
-		CC40B0B8F0CB4A96DEA21C7E /* Pods-SSKeychain-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7211C38396A78D8096D692B6 /* Pods-SSKeychain-dummy.m */; };
-		D1004A69B35BAE86E097849F /* RNEncryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = C78E34256D124D6B06997468 /* RNEncryptor.h */; };
-		D68A284F22ACE5764967DFDB /* PushDateEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 73C64E27EEB090E7FA33D16F /* PushDateEntryCell.h */; };
-		D99ED6181961E715A15DE787 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 540BC266C44C72330B3AEF36 /* Pods-dummy.m */; };
-		DA4DF40B3C4D806CC1252B53 /* STAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D10D7E6EFEC98562A2F3CDC2 /* STAlertView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		DDAEE9C8E95B663AE515409D /* RNCryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CF3CB0E2659668A67DDA488C /* RNCryptor.h */; };
-		E6AC2DF1C742DB8630B7D355 /* UIXMLFormViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ED7EB1A6973869609CBA6D69 /* UIXMLFormViewController.h */; };
-		E6D33390839C677AA7E0C890 /* RNDecryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 6ED258DEB5E62A459D65D2BD /* RNDecryptor.h */; };
-		ED17EC6FF5F56DD8D9CE7B82 /* Pods-STAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F346D1878F1757C144F7B84 /* Pods-STAlertView-dummy.m */; };
-		F4BB786BD4B0170BE6B425DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2BF980583F3D0803179A75 /* Foundation.framework */; };
-		F5236DEF89A9D438056895DC /* BaseDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 887017F83160C7C9AEB8B011 /* BaseDataEntryCell.h */; };
-		FA01D8D676EDA6018F2887F7 /* RNOpenSSLDecryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 51570C5F882667300D9063EB /* RNOpenSSLDecryptor.h */; };
-		FCB3892B02693125229B74EB /* RNOpenSSLCryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B14A2B138E554DD4D6EB631 /* RNOpenSSLCryptor.h */; };
-		FE9B6484BA473ADDC586C9F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2BF980583F3D0803179A75 /* Foundation.framework */; };
+		01B572F6727AD515CDCB9B6E508E27D1 /* PushWebViewEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B2B89D086A8F7B7DE1F4F80068EEEDE4 /* PushWebViewEntryCell.h */; };
+		07A0DEC53826E73138291977FD589191 /* RNDecryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1443830E767707A29C2BAC8B0857DE4E /* RNDecryptor.h */; };
+		0A5FB8C8B1B4CFD48DBA8FBCEB25C78A /* WaitMaskController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE7960B16B4EDC5AD202ED84931745D /* WaitMaskController.h */; };
+		0CD77008300461FE2E6F27A468F56BF4 /* STAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEA14310270E1E5A5265A7EC7FCACDD /* STAlertView-dummy.m */; };
+		14C13961401888A9395A97A827B9CFB6 /* PushFormDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F5B22E8D45DC27AF8BAA997E905A596B /* PushFormDataEntryCell.h */; };
+		1564113FAA38CB0FE122255C6F95E16E /* RNCryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F0D5FC654C1FBE19BF7E403A72009EE /* RNCryptor.h */; };
+		1738F5C5835ED9685D6DE7CB70666ECC /* RNOpenSSLEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = AA09D8D9FE43DEC396DD3AD445B6A0B2 /* RNOpenSSLEncryptor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1A9DC805C094A01942701755FD5B59A5 /* PushControllerDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A31388ABEF8C93DC40DB71A3FDDF5F6 /* PushControllerDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1C5675FBCE54644C6CDB159016B40636 /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9767013CE72E4BF7F076720F2E6206D /* PushDateEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1EA08DDDD1BFC58C1119DE59C128E0E8 /* RNDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C5600A8C9DE78AA4115BA632E9AF10 /* RNDecryptor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		218A7517DC00279589AF1077EEB3A235 /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1DD75B0FF11B4F73F76BA76400DE99 /* MTStatusBarOverlay.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		23A104375817C4C5AD11D442FF502300 /* UIXML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D6E87861C154B0116EDA1A73DC82DC /* UIXML-dummy.m */; };
+		29A7220821781467FCB3035EC0FE24A9 /* UIXMLFormViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 74983A530819710700355F29D9200331 /* UIXMLFormViewController.h */; };
+		2CA4452C65A5CBFF22082BE509949216 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC168130D9AD76992F4666CCBBC469F0 /* Foundation.framework */; };
+		36375777F940F9A28EE0E6D2A3224EFA /* PushDateEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = DF55E4639BD0B82276C724F1654ED4A1 /* PushDateEntryCell.h */; };
+		364AF964C7404549365C2018F7326D6E /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 463779C0ABDD2A53685A87A792A9BAAB /* Pods-dummy.m */; };
+		3700AA5B087A420CBD98B7C468610B53 /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2419F5A01587D4687477E0DD0009C555 /* TextDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		378C0A673DF740D2E8926FA1CD886CE6 /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F157DA54DC50CBFA1F7D08310C45BA /* UIXMLFormViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		39C04B8D23B3DAFBC03CC39C866892F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804647FC6D29C2B71B0F165A16E528C2 /* CoreGraphics.framework */; };
+		3EA88DC14B9D340B7C38AC313E2DDE80 /* ZKRevealingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCC8FA3946B3100C777FA38BD1318F /* ZKRevealingTableViewCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		40FB616E8E55236AD7646C1967FB34DB /* RNOpenSSLEncryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 188F202B4BD91FE77851E248465D8625 /* RNOpenSSLEncryptor.h */; };
+		4120D9A6DE357852D8E4ADF75CF0795F /* WEPopoverParentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AF4F25DB7F010FF7EA9DAFF00D0915E /* WEPopoverParentView.h */; };
+		42419CF1D406AFDC31D48AEAB95678C6 /* RNCryptorEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = A5145217BE88613E25A8E3D0F5A0FA7D /* RNCryptorEngine.h */; };
+		4425245C4AEA2AA3262074270C6AB160 /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6E378FEB4785F21E3C04454B130A0 /* WETouchableView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		54135DDE299F0ED51D16593E36FDFD15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC168130D9AD76992F4666CCBBC469F0 /* Foundation.framework */; };
+		5CF443E56252968B7A5C1B72745BDB47 /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 699EDD9D63E576B7C6D3A505D28B4FD6 /* WEPopoverController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6237652B1505D69DEB8D0FC304FDEC85 /* SwitchDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C463CEF4C50BEBB8ECD34CB6ACF167F4 /* SwitchDataEntryCell.h */; };
+		64FC6B8DD4CFC08723CE841520A40AD7 /* BaseDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA48907679AA85CBFEAE76EBE988749 /* BaseDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6535A7F32DEEEB62C4571C0A9ADECBDE /* RNEncryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = C30B33D1CD3C6F464A8815F6F877F2EE /* RNEncryptor.h */; };
+		65A805690C346D560E2BFFE90D873FCC /* RNCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BE8FA67D7C175F1D67AA54B16D8464 /* RNCryptor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		66E88931EF5FC197E635812E0CDBA4C6 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DA005117E94F0B62812F0762585AFB /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		670D860A557992FEA4ABCA43043E4BFD /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCF5BFE01628FDAA8DBFE40210A9709 /* PushWebViewEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		69E23AF1F51A2AC6A6661A71CF55C62D /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D43F376BEE437491DDFF57B3FB509B /* SwitchDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6D5F4D09453478CFB552B9E7E92843E1 /* WEPopover-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5A4AB6227C6E32B087820C2F67B2 /* WEPopover-dummy.m */; };
+		6EAA6BB23319EDC7811F7C39A4561138 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC168130D9AD76992F4666CCBBC469F0 /* Foundation.framework */; };
+		6F521F3DD4890FC06E76F7951B0110E7 /* RNCryptor+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D429CCEDA700A312AB188DC9677822A /* RNCryptor+Private.h */; };
+		722D9A5C21F1F139E49D446D3D8E295D /* PushFormDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F46EDED6F79B256D7398DD21337B334B /* PushFormDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		775D9A81F6C368C5A2A2B3B0B6ABF3C1 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DA46F5D53277C92C830C5AC6EA6554 /* SSKeychain.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		79D0299AFC2FD573ABD9B083A71C25E8 /* STAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5A027D203D3358874437ED7F7A010 /* STAlertView.m */; };
+		7A7715B960B40EE851422E6415C91949 /* RNEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BD829ADDDD307CBA27348DF4FB0C55E2 /* RNEncryptor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7B587F2EEFCB01758AE4EF797DB189DE /* SegmentedDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6E7DEF70DBB691C3566D64B1E3271F /* SegmentedDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		81883454C403467E67C01D3E7FFA0187 /* RNCryptorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AC62D34321C4EF9C2FE2DED5DE30BB /* RNCryptorEngine.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		83EA00753F3B2997E81167397B2E9460 /* WEPopoverContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 630A0A12182749F862A93CAA7BCB2F9A /* WEPopoverContainerView.h */; };
+		862F57422395BA58AD880794D286FAFF /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = A3ABF6B520AC2E8DC9344D3DA0EC679A /* SSKeychain.h */; };
+		8A2E415000EF273E674999B294EB8C1A /* UIXMLFormViewControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AEA791B2DE27A1C5CF213D8D8225ABC2 /* UIXMLFormViewControllerDelegate.h */; };
+		8A38B62D6827A1041618BFB930F3BD74 /* BaseDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9D5ADE98DBC2F9B0176BCC4209F548 /* BaseDataEntryCell.h */; };
+		8D17B6C02B1E6579F31CEDD741B6BD53 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87CDD46D11832E4CA005771CDCCFFA03 /* WaitMaskController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		91C97ABA1C67EC5E27CE9A05E36679DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC168130D9AD76992F4666CCBBC469F0 /* Foundation.framework */; };
+		9225FF943E53C0C4A6438DA171602609 /* TextDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B9663DEBF6E83E0DBA3047B2616B362C /* TextDataEntryCell.h */; };
+		94921648DB70440431ED4A6EFD5FE80C /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA10B258E0B0C23D7EF9ADB7F0B406 /* PushTextEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9594CD1F034CF27C6CCF0A4C3FEF90C3 /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A84789B68BD19AE3B8ACFE486AFDB5 /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		97F9B1A978D6E610793406D31E064414 /* RNCryptor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAC017AF5C96D4405736F29BF52DAE /* RNCryptor-dummy.m */; };
+		9F128EDD4BFFB24EF1D37BFDEBC7E87A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC168130D9AD76992F4666CCBBC469F0 /* Foundation.framework */; };
+		A18380444D31523B852615193FFC3AE3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8FA081C364C78CF5FC8DA45BE6CC2F /* QuartzCore.framework */; };
+		A2AAF57DC2169927CBC883DA59F20B70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC168130D9AD76992F4666CCBBC469F0 /* Foundation.framework */; };
+		A57C7C84A6E7168A786F15C248DBDD63 /* STAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = F74AFE336B26F3AD9678F37B45C6A068 /* STAlertView.h */; };
+		A89C09A454833014E7BB4F6DAC51A3F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC168130D9AD76992F4666CCBBC469F0 /* Foundation.framework */; };
+		AA4DB212CE7CFF31EE0A98F1F692E8EB /* UIXML.h in Headers */ = {isa = PBXBuildFile; fileRef = B823F8EE1F49F1EFAB97BB7C33E8FCF2 /* UIXML.h */; };
+		AF6537CE4D13104543C18E938A425F9F /* SSKeychain-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CEF8B2ADCDA300A49D6A5C10A18D7 /* SSKeychain-dummy.m */; };
+		B406DE7C9D4C8F8F1CDB830A35B7ECB4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B440A89ED1E7E30A966A3F691F1D465 /* Security.framework */; };
+		B617D91494EC29FD10BEA60DAE46144C /* ZKRevealingTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A071FF4880A95AC85474725CD1214E01 /* ZKRevealingTableViewCell.h */; };
+		B9BDE4DD8FA0DD6342E1DDC1CE833B0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9BA580CFCE7FF392E09041E066E066D /* UIKit.framework */; };
+		BEF012EC808CA4821909C9E296160FE2 /* MTStatusBarOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = BD651B94F62B76138F68B013E604AA89 /* MTStatusBarOverlay.h */; };
+		D517D518C546CCE4700C7BB572ECA8DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC168130D9AD76992F4666CCBBC469F0 /* Foundation.framework */; };
+		D5EFA4F0AF87FA9683EF5D4B51F3EAE1 /* RNOpenSSLDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1974AEB0BF09A468A9423B70AF6F0479 /* RNOpenSSLDecryptor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D7A84B58BAE987A5D6BFD3C8F6CAE80B /* WETouchableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FE50B9F017398F1681C03BFBA94A93D /* WETouchableView.h */; };
+		D8FA060AA99B7CBA231777F4E0766D1B /* RNOpenSSLDecryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = C7C38DFFE156A69D7E126279ABFFCD75 /* RNOpenSSLDecryptor.h */; };
+		D96F159C2437D3E33C59FEA75395F947 /* UIBarButtonItem+WEPopover.h in Headers */ = {isa = PBXBuildFile; fileRef = C87BF406A452925AC39F664035A93305 /* UIBarButtonItem+WEPopover.h */; };
+		E38F91B336A744260894DD1712654E38 /* SegmentedDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = DF1D2898C086CB683EFE91393AECE817 /* SegmentedDataEntryCell.h */; };
+		E406094D488DA70CEC8286D9114987B0 /* PushControllerDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 161C7F442DC21786784C7FA0269C9181 /* PushControllerDataEntryCell.h */; };
+		E693B3B641B66056E2D7BBF6FCA98998 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B440A89ED1E7E30A966A3F691F1D465 /* Security.framework */; };
+		ED3A7E9B45AC80F94D69B662F2EB97F0 /* WEPopoverController.h in Headers */ = {isa = PBXBuildFile; fileRef = 49222BF59A646DACFEB3647C0DE2E12A /* WEPopoverController.h */; };
+		F262587C456376703081FD2FF9FCB387 /* MTStatusBarOverlay-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DDB8EE60DD443E89E4FF577F081A7D /* MTStatusBarOverlay-dummy.m */; };
+		F34144EA8B2535E8BA017FB0E3B9B150 /* RNOpenSSLCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA0D2AA853B458DF5F8F6E23271BDD4 /* RNOpenSSLCryptor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F3C7679ACBEA259814D26689010793DF /* RNOpenSSLCryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B50DC30CC8E4771EDF7359490B81E79 /* RNOpenSSLCryptor.h */; };
+		F88C03F5DF379C9C0801FF0FA50A979A /* PushTextEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 1622C1D6653576640714343727363B06 /* PushTextEntryCell.h */; };
+		FE5979C88BAABACBA29ABBDCF6A946EE /* ZKRevealingTableViewCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AF67AFF70944993AC01CEFC2993D7F /* ZKRevealingTableViewCell-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		251CE7A97F7DB0011CF06A2B /* PBXContainerItemProxy */ = {
+		111B87C904F63365637B0E8D8CC4609E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0782823303F994B130079A93 /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 83A532C7C4C93E5DC6D3F5CB;
-			remoteInfo = "Pods-STAlertView";
+			remoteGlobalIDString = BF75F033E7832191F76E1454DD4AB576;
+			remoteInfo = SSKeychain;
 		};
-		2DE5DAF7FA63A3A71B58E02F /* PBXContainerItemProxy */ = {
+		14E48F4C94B977E6E2C30AAC7719150F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0782823303F994B130079A93 /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3555E724541F8256DCEAF395;
+			remoteGlobalIDString = 7FED11B70C87D20E48C19F02D6CAFA01;
+			remoteInfo = RNCryptor;
+		};
+		3211F82B06EBF08442CE861ED7FC2CB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCB0FC1BDC2673D1DF6374AB6BAA74E6;
 			remoteInfo = STAlertView;
 		};
-		46FDE606A0A5A1B5097F4FA9 /* PBXContainerItemProxy */ = {
+		45D80FDF2FC58DD532A97E5A9DA7A8F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0782823303F994B130079A93 /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D9C06AAE4B1D3D0DB3ADF6A4;
-			remoteInfo = "Pods-RNCryptor";
+			remoteGlobalIDString = D346BD8B0FBFD8F6B4CD6502A0F64F34;
+			remoteInfo = ZKRevealingTableViewCell;
 		};
-		5789D0FE7BBD7A637F93E2F7 /* PBXContainerItemProxy */ = {
+		4C7EDB5740798B3191E77087F51E60FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0782823303F994B130079A93 /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7A99360D6D9D40C0C4D68E41;
-			remoteInfo = "Pods-SSKeychain";
+			remoteGlobalIDString = 97E87C3A42F51FD863BC25176A5A5210;
+			remoteInfo = "STAlertView-STAlertView";
 		};
-		6ECB35FB3D66B1787AA6DAED /* PBXContainerItemProxy */ = {
+		59560DF43C567F5060EF33AB3E76A10F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0782823303F994B130079A93 /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F939BA97D0DBB44F97B47C2D;
-			remoteInfo = "Pods-UIXML";
+			remoteGlobalIDString = 13647F2326CCC9565134D688FFFC3535;
+			remoteInfo = MTStatusBarOverlay;
 		};
-		78715AC0C2DD9D76ADEE22B2 /* PBXContainerItemProxy */ = {
+		6FCF0C88BAA51DAE5A1EB31160719203 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0782823303F994B130079A93 /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 13A1D2E030ABD1648B900F06;
-			remoteInfo = "Pods-MTStatusBarOverlay";
+			remoteGlobalIDString = B97F810488660D64CC6DA054B25299F5;
+			remoteInfo = UIXML;
 		};
-		CD1A94A1653ACA4DB04724CE /* PBXContainerItemProxy */ = {
+		FD030032331AB0B299D206E4A6537D11 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0782823303F994B130079A93 /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B50DB08856A3B4D91974C182;
-			remoteInfo = "Pods-WEPopover";
-		};
-		F357A598DFD237023992150B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0782823303F994B130079A93 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F60586A7212FC9245CBB506E;
-			remoteInfo = "Pods-ZKRevealingTableViewCell";
+			remoteGlobalIDString = FAC32A57643713F06A5CE91E66677C3A;
+			remoteInfo = WEPopover;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02D39A69D5AD5107AC47FECC /* popoverArrowUp@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowUp@2x.png"; sourceTree = "<group>"; };
-		048AE8315C485DB63911164A /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SegmentedDataEntryCell.m; sourceTree = "<group>"; };
-		05F36AC2A3EB50DA01C6DDC2 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		07397C5C43436F4F08C4B946 /* Pods-UIXML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UIXML-prefix.pch"; sourceTree = "<group>"; };
-		074B7C22AA6DA4AD91149433 /* libPods-WEPopover.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WEPopover.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B14A2B138E554DD4D6EB631 /* RNOpenSSLCryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNOpenSSLCryptor.h; path = RNCryptor/RNOpenSSLCryptor.h; sourceTree = "<group>"; };
-		0BAD88E00B0EA244212E0153 /* Pods-MTStatusBarOverlay-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MTStatusBarOverlay-Private.xcconfig"; sourceTree = "<group>"; };
-		0D831418CF8F6A0CFC34A10D /* Pods-ZKRevealingTableViewCell-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZKRevealingTableViewCell-Private.xcconfig"; sourceTree = "<group>"; };
-		0DA45B05CB809BAC8A5BD0B0 /* BaseDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BaseDataEntryCell.m; sourceTree = "<group>"; };
-		0FEC06DF5536019C3D412575 /* WEPopoverParentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverParentView.h; path = Classes/Popover/WEPopoverParentView.h; sourceTree = "<group>"; };
-		123E20573C915A8A1C360754 /* RNOpenSSLEncryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNOpenSSLEncryptor.h; path = RNCryptor/RNOpenSSLEncryptor.h; sourceTree = "<group>"; };
-		143838EE992AF54E237AFFD5 /* UIXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UIXML.h; sourceTree = "<group>"; };
-		1609ABCF112571A03E554245 /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
-		1698C3439DE0E732DFE9B3A7 /* PushFormDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushFormDataEntryCell.xib; sourceTree = "<group>"; };
-		170AB5AB4438452C7B1CD032 /* libPods-RNCryptor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNCryptor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		17662D170ABF2D68A5CFB7AF /* RNCryptor+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RNCryptor+Private.h"; path = "RNCryptor/RNCryptor+Private.h"; sourceTree = "<group>"; };
-		187DBD78D7529E050DC84D3D /* RNDecryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNDecryptor.m; path = RNCryptor/RNDecryptor.m; sourceTree = "<group>"; };
-		18878B6D8C19A613231A4901 /* TextDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = TextDataEntryCell.xib; sourceTree = "<group>"; };
-		199A0CCB7B7D6F1B5A585E71 /* ZKRevealingTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZKRevealingTableViewCell.h; path = vendor/ZKRevealingTableViewCell.h; sourceTree = "<group>"; };
-		1B97171D0BD1E374A457751C /* popoverArrowLeftSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowLeftSimple.png; sourceTree = "<group>"; };
-		20E696537C98AE00A6EBEE08 /* PushDateEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushDateEntryCell.xib; sourceTree = "<group>"; };
-		271E1E3F8034FA620AF6F90F /* Pods-MTStatusBarOverlay-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MTStatusBarOverlay-dummy.m"; sourceTree = "<group>"; };
-		2A56C316E7A579934EF1B1E9 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		338C970BBEAECAA47FD81ED6 /* RNCryptorEngine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNCryptorEngine.m; path = RNCryptor/RNCryptorEngine.m; sourceTree = "<group>"; };
-		34626353839EE4A620E525C3 /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushWebViewEntryCell.h; sourceTree = "<group>"; };
-		359495AAF41043495042D876 /* Pods-RNCryptor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RNCryptor-dummy.m"; sourceTree = "<group>"; };
-		38B6EF9F84362185E33ACEEF /* Pods-SSKeychain.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SSKeychain.xcconfig"; sourceTree = "<group>"; };
-		390D21CE739405B819D619FD /* popoverArrowLeft@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowLeft@2x.png"; sourceTree = "<group>"; };
-		391EF0574F4FD95BD123F2A0 /* UIXMLFormViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UIXMLFormViewController.m; sourceTree = "<group>"; };
-		397F21DF1CF5F282CCF5BADD /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
-		3A0A76ABF53E529B25C91366 /* popoverArrowRight.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowRight.png; sourceTree = "<group>"; };
-		3A1E90FF95AC1B33205C593C /* back24x24.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = back24x24.png; sourceTree = "<group>"; };
-		3EFFFD7456FD5BDED659C407 /* libPods-UIXML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UIXML.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F20DEF00A6FA0834E829446 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		3FAB7FDDE4E2D1896E83BAF3 /* WETouchableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WETouchableView.m; path = Classes/Popover/WETouchableView.m; sourceTree = "<group>"; };
-		400661FA6FDF08F3BE37C43A /* libPods-SSKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SSKeychain.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		42DBEDA5B731C5DF92A029DE /* libPods-STAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-STAlertView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		43F7499A70164912626E2C7F /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SwitchDataEntryCell.h; sourceTree = "<group>"; };
-		44325AFFE4DC3B5973E4E41F /* WaitMaskController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WaitMaskController.m; sourceTree = "<group>"; };
-		4575DBCD3C31541FDEE139B6 /* WEPopoverController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverController.h; path = Classes/Popover/WEPopoverController.h; sourceTree = "<group>"; };
-		48F607C4C3A5D0D682C04D7A /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		4EC8F03F600B5E865AF1CCD6 /* SwitchDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SwitchDataEntryCell.xib; sourceTree = "<group>"; };
-		4F2A1452551CBBFCF5D40184 /* Pods-RNCryptor-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RNCryptor-Private.xcconfig"; sourceTree = "<group>"; };
-		505F2AB366023C0F6BBA674B /* PushTextEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushTextEntryCell.m; sourceTree = "<group>"; };
-		50BFB51B16DF4573366C99D3 /* STAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STAlertView.h; path = Pod/Classes/STAlertView.h; sourceTree = "<group>"; };
-		51570C5F882667300D9063EB /* RNOpenSSLDecryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNOpenSSLDecryptor.h; path = RNCryptor/RNOpenSSLDecryptor.h; sourceTree = "<group>"; };
-		51750A9AD022E725BC7C9D8B /* popoverArrowRightSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowRightSimple.png; sourceTree = "<group>"; };
-		5394D3E126E10727CD2557E5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		540BC266C44C72330B3AEF36 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		549B1BD00E683AD316A3FE9F /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewControllerDelegate.h; sourceTree = "<group>"; };
-		59E8C7A96DA4139CC379FC64 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		5B18E68DE987391E1B8B4F9C /* RNCryptorEngine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNCryptorEngine.h; path = RNCryptor/RNCryptorEngine.h; sourceTree = "<group>"; };
-		5B99045E09AC1B44B5FD21C3 /* WETouchableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WETouchableView.h; path = Classes/Popover/WETouchableView.h; sourceTree = "<group>"; };
-		5DA5795C9084DF4072C294B7 /* RNOpenSSLDecryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNOpenSSLDecryptor.m; path = RNCryptor/RNOpenSSLDecryptor.m; sourceTree = "<group>"; };
-		62D965D15BFBF5D60A386C8B /* PushControllerDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushControllerDataEntryCell.h; sourceTree = "<group>"; };
-		64277E2114757B209D8519B1 /* Pods-MTStatusBarOverlay-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MTStatusBarOverlay-prefix.pch"; sourceTree = "<group>"; };
-		64A7511319804DBE60641D20 /* Pods-SSKeychain-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SSKeychain-prefix.pch"; sourceTree = "<group>"; };
-		64F3CD86226E47E0FB450B16 /* Pods-MTStatusBarOverlay.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MTStatusBarOverlay.xcconfig"; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		655D519A32042EC986C26A91 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; };
-=======
-		655D519A32042EC986C26A91 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
->>>>>>> origin/v2.0.0-develop
-		670124E978AA25AB7635F2E6 /* popoverArrowDown@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowDown@2x.png"; sourceTree = "<group>"; };
-		68F731E0E9ECCA8B4A3F60D4 /* Pods-WEPopover-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WEPopover-dummy.m"; sourceTree = "<group>"; };
-		6ED258DEB5E62A459D65D2BD /* RNDecryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNDecryptor.h; path = RNCryptor/RNDecryptor.h; sourceTree = "<group>"; };
-		6F3D7475322749D8A28B2A53 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		709F23D4F24C64A662D4B052 /* chevron.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
-		7211C38396A78D8096D692B6 /* Pods-SSKeychain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SSKeychain-dummy.m"; sourceTree = "<group>"; };
-		73C64E27EEB090E7FA33D16F /* PushDateEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushDateEntryCell.h; sourceTree = "<group>"; };
-		7652E7C63891D1C93D0A3178 /* Pods-ZKRevealingTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ZKRevealingTableViewCell-dummy.m"; sourceTree = "<group>"; };
-		7709DF5487F1ACEA748825EB /* popoverArrowUpSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowUpSimple.png; sourceTree = "<group>"; };
-		773ADD43962BC93993CD17A9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		78C090D2B8E47A897D5972BE /* popoverBg.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverBg.png; sourceTree = "<group>"; };
-		790824104DC4968E776F42DC /* SSKeychain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
-		7A364DEE2DFC5A1CB9A8273E /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushWebViewEntryCell.xib; sourceTree = "<group>"; };
-		7B90AA800203DD3CDE513E36 /* popoverArrowDown.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowDown.png; sourceTree = "<group>"; };
-		7BF0637B32447A40E929ED10 /* edit32x32.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
-		7E200DA67BA83E89D96F51F9 /* Pods-UIXML-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UIXML-Private.xcconfig"; sourceTree = "<group>"; };
-		7E29EDB3C2924EDB8707BAEF /* Pods-STAlertView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-STAlertView-Private.xcconfig"; sourceTree = "<group>"; };
-		876714CF189DA11D9B21C045 /* libPods-MTStatusBarOverlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MTStatusBarOverlay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		887017F83160C7C9AEB8B011 /* BaseDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BaseDataEntryCell.h; sourceTree = "<group>"; };
-		887A53D44B3679CEC57DE669 /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SegmentedDataEntryCell.h; sourceTree = "<group>"; };
-		8C74805A5DD2797E4D63A8D6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D3CFB93DAE1840D18AF7A88 /* RNCryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNCryptor.m; path = RNCryptor/RNCryptor.m; sourceTree = "<group>"; };
-		8E0D66682DF72724CE09B6D4 /* libPods-ZKRevealingTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZKRevealingTableViewCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F346D1878F1757C144F7B84 /* Pods-STAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-STAlertView-dummy.m"; sourceTree = "<group>"; };
-		8FC4B854C6864024D59B0EB6 /* Pods-STAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-STAlertView.xcconfig"; sourceTree = "<group>"; };
-		92DE5FBAD06F12A1DF10CE0A /* RNOpenSSLCryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNOpenSSLCryptor.m; path = RNCryptor/RNOpenSSLCryptor.m; sourceTree = "<group>"; };
-		93D827873DC86C60D055622B /* Pods-WEPopover.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WEPopover.xcconfig"; sourceTree = "<group>"; };
-		9EFF65D0DE6877C672ABA898 /* TextDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TextDataEntryCell.h; sourceTree = "<group>"; };
-		A2E06884758EDB1AF7B4A3CA /* PushFormDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushFormDataEntryCell.h; sourceTree = "<group>"; };
-		AA5E67BFAF16DBD7F9CB52D3 /* confirm24x24.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = confirm24x24.png; sourceTree = "<group>"; };
-		AA7BAA72DF3DF6D1573A2D17 /* popoverArrowUp.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowUp.png; sourceTree = "<group>"; };
-		AF758F73D7030F2604EC38F9 /* Pods-SSKeychain-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SSKeychain-Private.xcconfig"; sourceTree = "<group>"; };
-		AFB2100F216C06C1C2216AEC /* popoverArrowRight@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowRight@2x.png"; sourceTree = "<group>"; };
-		B070F9B05147099CA1E8CE48 /* SwitchDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SwitchDataEntryCell.m; sourceTree = "<group>"; };
-		B24F71733BF2C4091D3C2EBA /* STAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STAlertView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		B2B835AC3D898159C4B62697 /* Pods-RNCryptor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RNCryptor.xcconfig"; sourceTree = "<group>"; };
-		B31889FE0CD9120616B30F29 /* Pods-WEPopover-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WEPopover-Private.xcconfig"; sourceTree = "<group>"; };
-		B4E2A5317BE6276180A4CD17 /* WaitMaskController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WaitMaskController.h; sourceTree = "<group>"; };
-		B568B187BAD4CA0BECAEAD84 /* Pods-ZKRevealingTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ZKRevealingTableViewCell-prefix.pch"; sourceTree = "<group>"; };
-		B69F50C9684B9F83CB0ACF40 /* Pods-UIXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UIXML-dummy.m"; sourceTree = "<group>"; };
-		B882E0859C504AAA6FB2AA5C /* Pods-ZKRevealingTableViewCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZKRevealingTableViewCell.xcconfig"; sourceTree = "<group>"; };
-		BFC9B14016F94859108329D7 /* PushControllerDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushControllerDataEntryCell.m; sourceTree = "<group>"; };
-		C41E84049DEE3DD88F8F909A /* PushDateEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushDateEntryCell.m; sourceTree = "<group>"; };
-		C53C58474AD24B75C2935C8B /* Pods-RNCryptor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RNCryptor-prefix.pch"; sourceTree = "<group>"; };
-		C65F4597BFF7C8998FDEA403 /* SSKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
-		C78E34256D124D6B06997468 /* RNEncryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNEncryptor.h; path = RNCryptor/RNEncryptor.h; sourceTree = "<group>"; };
-		C7BE91E8A9A93D8C8BE2C6A6 /* Pods-STAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-STAlertView-prefix.pch"; sourceTree = "<group>"; };
-		C9E4AD6D74DA51A1A4EEA6C7 /* popoverBgSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverBgSimple.png; sourceTree = "<group>"; };
-		CA2CFAADC07C4E640ECDC17F /* popoverBg@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverBg@2x.png"; sourceTree = "<group>"; };
-		CC5D827FF88D24C36A6A4051 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		CF3CB0E2659668A67DDA488C /* RNCryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNCryptor.h; path = RNCryptor/RNCryptor.h; sourceTree = "<group>"; };
-		CF42A565404E3805802CAAD0 /* PushTextEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushTextEntryCell.h; sourceTree = "<group>"; };
-		D01B09D958E5513DFC4FA794 /* RNEncryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNEncryptor.m; path = RNCryptor/RNEncryptor.m; sourceTree = "<group>"; };
-		D0EF074830ADDAFDE8C49B1D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		D10D7E6EFEC98562A2F3CDC2 /* STAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STAlertView.m; path = Pod/Classes/STAlertView.m; sourceTree = "<group>"; };
-		D353FFD76594301B2D9D9E0D /* MailDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MailDataEntryCell.xib; sourceTree = "<group>"; };
-		D47E463BE8C8F6A853F9F934 /* ZKRevealingTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZKRevealingTableViewCell.m; path = vendor/ZKRevealingTableViewCell.m; sourceTree = "<group>"; };
-		D481AA73F60D6B2ADAD06DBB /* popoverArrowDownSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowDownSimple.png; sourceTree = "<group>"; };
-		D6217123BB3A11B2FAB2F46D /* RNOpenSSLEncryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNOpenSSLEncryptor.m; path = RNCryptor/RNOpenSSLEncryptor.m; sourceTree = "<group>"; };
-		D6FE425917243D875EF84CCB /* write32x32.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
-		DEB5E47BF4FC2AE60F9DDC94 /* WEPopoverController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverController.m; path = Classes/Popover/WEPopoverController.m; sourceTree = "<group>"; };
-		E1139D1120CC07E9289D757D /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushWebViewEntryCell.m; sourceTree = "<group>"; };
-		E4697991CB2AB341B27A7DB2 /* PushTextEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushTextEntryCell.xib; sourceTree = "<group>"; };
-		E6353F6A23F942BCC2F92F1E /* Pods-UIXML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UIXML.xcconfig"; sourceTree = "<group>"; };
-		E89EB335027A75BD7AB5584A /* Pods-WEPopover-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WEPopover-prefix.pch"; sourceTree = "<group>"; };
-		EB2BF980583F3D0803179A75 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		EC5E7DDC2DA20C521C5E361D /* WEPopoverContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverContainerView.h; path = Classes/Popover/WEPopoverContainerView.h; sourceTree = "<group>"; };
-		ED7EB1A6973869609CBA6D69 /* UIXMLFormViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewController.h; sourceTree = "<group>"; };
-		EF3557E3A8DB70691B56F4D2 /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+WEPopover.h"; path = "Classes/Popover/UIBarButtonItem+WEPopover.h"; sourceTree = "<group>"; };
-		F04D6936D7459EA01AB9DD6A /* TextDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TextDataEntryCell.m; sourceTree = "<group>"; };
-		F31DADD0B86B7C132C9FD67D /* PushFormDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushFormDataEntryCell.m; sourceTree = "<group>"; };
-		F75034B5873427397ACCCAE8 /* UIBarButtonItem+WEPopover.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+WEPopover.m"; path = "Classes/Popover/UIBarButtonItem+WEPopover.m"; sourceTree = "<group>"; };
-		FF96037F94CD47986B2FF90D /* popoverArrowLeft.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowLeft.png; sourceTree = "<group>"; };
-		FFEC126B035C10FC5D6E4871 /* WEPopoverContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverContainerView.m; path = Classes/Popover/WEPopoverContainerView.m; sourceTree = "<group>"; };
+		06CBEFF9627FADABBBA6EB32E3F7746A /* popoverArrowDown@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowDown@2x.png"; sourceTree = "<group>"; };
+		06DCD194EE747C7B9E29114473C3AB34 /* PushDateEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushDateEntryCell.xib; sourceTree = "<group>"; };
+		07F157DA54DC50CBFA1F7D08310C45BA /* UIXMLFormViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UIXMLFormViewController.m; sourceTree = "<group>"; };
+		093B68533223A3EA93DB3570E93B4704 /* popoverArrowUpSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowUpSimple.png; sourceTree = "<group>"; };
+		0B50DC30CC8E4771EDF7359490B81E79 /* RNOpenSSLCryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNOpenSSLCryptor.h; path = RNCryptor/RNOpenSSLCryptor.h; sourceTree = "<group>"; };
+		0DCF5BFE01628FDAA8DBFE40210A9709 /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushWebViewEntryCell.m; sourceTree = "<group>"; };
+		0F0D5FC654C1FBE19BF7E403A72009EE /* RNCryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNCryptor.h; path = RNCryptor/RNCryptor.h; sourceTree = "<group>"; };
+		1443830E767707A29C2BAC8B0857DE4E /* RNDecryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNDecryptor.h; path = RNCryptor/RNDecryptor.h; sourceTree = "<group>"; };
+		15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		161C7F442DC21786784C7FA0269C9181 /* PushControllerDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushControllerDataEntryCell.h; sourceTree = "<group>"; };
+		1622C1D6653576640714343727363B06 /* PushTextEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushTextEntryCell.h; sourceTree = "<group>"; };
+		188F202B4BD91FE77851E248465D8625 /* RNOpenSSLEncryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNOpenSSLEncryptor.h; path = RNCryptor/RNOpenSSLEncryptor.h; sourceTree = "<group>"; };
+		1974AEB0BF09A468A9423B70AF6F0479 /* RNOpenSSLDecryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNOpenSSLDecryptor.m; path = RNCryptor/RNOpenSSLDecryptor.m; sourceTree = "<group>"; };
+		1B799A27C48016D664C0403ECA13D792 /* RNCryptor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RNCryptor-prefix.pch"; sourceTree = "<group>"; };
+		1D429CCEDA700A312AB188DC9677822A /* RNCryptor+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RNCryptor+Private.h"; path = "RNCryptor/RNCryptor+Private.h"; sourceTree = "<group>"; };
+		1E6E7DEF70DBB691C3566D64B1E3271F /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SegmentedDataEntryCell.m; sourceTree = "<group>"; };
+		1FA05ED74A682A285D96395954265BD4 /* libSTAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSTAlertView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2419F5A01587D4687477E0DD0009C555 /* TextDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TextDataEntryCell.m; sourceTree = "<group>"; };
+		2CFCC8FA3946B3100C777FA38BD1318F /* ZKRevealingTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZKRevealingTableViewCell.m; path = vendor/ZKRevealingTableViewCell.m; sourceTree = "<group>"; };
+		2DE7960B16B4EDC5AD202ED84931745D /* WaitMaskController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WaitMaskController.h; sourceTree = "<group>"; };
+		324C084D9DCC4F3478476281E8436857 /* libRNCryptor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNCryptor.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		332EE1676957A214F49757EB73080AF2 /* popoverBgSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverBgSimple.png; sourceTree = "<group>"; };
+		38DA46F5D53277C92C830C5AC6EA6554 /* SSKeychain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		38EAC017AF5C96D4405736F29BF52DAE /* RNCryptor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RNCryptor-dummy.m"; sourceTree = "<group>"; };
+		3B7B11340919A499AACE33C67EBB9E83 /* UIXML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIXML-prefix.pch"; sourceTree = "<group>"; };
+		3D8FA081C364C78CF5FC8DA45BE6CC2F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		3E9D5ADE98DBC2F9B0176BCC4209F548 /* BaseDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BaseDataEntryCell.h; sourceTree = "<group>"; };
+		420CEF8B2ADCDA300A49D6A5C10A18D7 /* SSKeychain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SSKeychain-dummy.m"; sourceTree = "<group>"; };
+		4378EC6CDA6B12E6F426E648E107BDB8 /* STAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STAlertView-prefix.pch"; sourceTree = "<group>"; };
+		447AC204D7B853B33542E81DA87BFD50 /* ZKRevealingTableViewCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZKRevealingTableViewCell.xcconfig; sourceTree = "<group>"; };
+		463779C0ABDD2A53685A87A792A9BAAB /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		49222BF59A646DACFEB3647C0DE2E12A /* WEPopoverController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverController.h; path = Classes/Popover/WEPopoverController.h; sourceTree = "<group>"; };
+		4B835BCE54A18B037FBBA97B24E42B1D /* STAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STAlertView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F9DF817656C6BE0CBF751E140011D70 /* WEPopover-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WEPopover-prefix.pch"; sourceTree = "<group>"; };
+		4FE50B9F017398F1681C03BFBA94A93D /* WETouchableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WETouchableView.h; path = Classes/Popover/WETouchableView.h; sourceTree = "<group>"; };
+		510499FFF3E9301E00C044411A2CF220 /* chevron.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
+		5220D55287054A314389BC7723EC88CD /* MTStatusBarOverlay.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MTStatusBarOverlay.xcconfig; sourceTree = "<group>"; };
+		55DDB8EE60DD443E89E4FF577F081A7D /* MTStatusBarOverlay-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MTStatusBarOverlay-dummy.m"; sourceTree = "<group>"; };
+		56A84789B68BD19AE3B8ACFE486AFDB5 /* WEPopoverContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverContainerView.m; path = Classes/Popover/WEPopoverContainerView.m; sourceTree = "<group>"; };
+		5886C6D67533D292ED6CE2D2A1E53341 /* popoverArrowDown.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowDown.png; sourceTree = "<group>"; };
+		5F1CBAEBFEB05B369886DB2B5E4E5ED1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		5F3BBD372EB2D8F53A27E137834617D7 /* libSSKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSSKeychain.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		60AC62D34321C4EF9C2FE2DED5DE30BB /* RNCryptorEngine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNCryptorEngine.m; path = RNCryptor/RNCryptorEngine.m; sourceTree = "<group>"; };
+		630A0A12182749F862A93CAA7BCB2F9A /* WEPopoverContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverContainerView.h; path = Classes/Popover/WEPopoverContainerView.h; sourceTree = "<group>"; };
+		641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		65280E83212CE3701ED5C4702F7590CD /* UIXML-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIXML-Private.xcconfig"; sourceTree = "<group>"; };
+		699EDD9D63E576B7C6D3A505D28B4FD6 /* WEPopoverController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverController.m; path = Classes/Popover/WEPopoverController.m; sourceTree = "<group>"; };
+		6A1DD75B0FF11B4F73F76BA76400DE99 /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
+		6A6E047BA63C477B2D4C5F7E31693AFE /* popoverArrowUp.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowUp.png; sourceTree = "<group>"; };
+		6AA48907679AA85CBFEAE76EBE988749 /* BaseDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BaseDataEntryCell.m; sourceTree = "<group>"; };
+		6B440A89ED1E7E30A966A3F691F1D465 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		70C02C4566BE9FCDFA1E24052C57FDF7 /* UIXML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UIXML.xcconfig; sourceTree = "<group>"; };
+		72CC5B74239F23007768663A85EBAEBE /* STAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = STAlertView.xcconfig; sourceTree = "<group>"; };
+		731A592200E4CCB9C1936510BCDF795D /* STAlertView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "STAlertView-Private.xcconfig"; sourceTree = "<group>"; };
+		7382A28507E979EF1665C61A0FB4D308 /* popoverArrowUp@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowUp@2x.png"; sourceTree = "<group>"; };
+		74983A530819710700355F29D9200331 /* UIXMLFormViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewController.h; sourceTree = "<group>"; };
+		76BE8FA67D7C175F1D67AA54B16D8464 /* RNCryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNCryptor.m; path = RNCryptor/RNCryptor.m; sourceTree = "<group>"; };
+		7A3E3E91996FE3E207D1DD2012E4300E /* libUIXML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUIXML.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AA8A60AF8F26C3B81E96536719BEF0F /* libWEPopover.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWEPopover.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AC5A027D203D3358874437ED7F7A010 /* STAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STAlertView.m; path = Pod/Classes/STAlertView.m; sourceTree = "<group>"; };
+		7AF4F25DB7F010FF7EA9DAFF00D0915E /* WEPopoverParentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverParentView.h; path = Classes/Popover/WEPopoverParentView.h; sourceTree = "<group>"; };
+		804647FC6D29C2B71B0F165A16E528C2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		81BE5A4AB6227C6E32B087820C2F67B2 /* WEPopover-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WEPopover-dummy.m"; sourceTree = "<group>"; };
+		87CDD46D11832E4CA005771CDCCFFA03 /* WaitMaskController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WaitMaskController.m; sourceTree = "<group>"; };
+		8A31388ABEF8C93DC40DB71A3FDDF5F6 /* PushControllerDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushControllerDataEntryCell.m; sourceTree = "<group>"; };
+		8A33224DFCCF5EBE31BAAE4DFA0E7453 /* PushFormDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushFormDataEntryCell.xib; sourceTree = "<group>"; };
+		8CE1D5BF7C5E46E17B316928DE0B4E51 /* ZKRevealingTableViewCell-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ZKRevealingTableViewCell-Private.xcconfig"; sourceTree = "<group>"; };
+		8F574EA28DB356382628D0BDF8281376 /* back24x24.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = back24x24.png; sourceTree = "<group>"; };
+		95591656118B6D149A03DF45B992B800 /* PushTextEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushTextEntryCell.xib; sourceTree = "<group>"; };
+		96DA005117E94F0B62812F0762585AFB /* UIBarButtonItem+WEPopover.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+WEPopover.m"; path = "Classes/Popover/UIBarButtonItem+WEPopover.m"; sourceTree = "<group>"; };
+		97EDEC66D2B74D5FAB2A11F01201511A /* popoverArrowRight@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowRight@2x.png"; sourceTree = "<group>"; };
+		9AA024CAD0017489E3814799165FFB7D /* libMTStatusBarOverlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMTStatusBarOverlay.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D87BEE7AF34582103E60CF9D6A8E151 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EC003E8EFBDC236D285100E6E2261A5 /* libZKRevealingTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZKRevealingTableViewCell.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A071FF4880A95AC85474725CD1214E01 /* ZKRevealingTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZKRevealingTableViewCell.h; path = vendor/ZKRevealingTableViewCell.h; sourceTree = "<group>"; };
+		A3ABF6B520AC2E8DC9344D3DA0EC679A /* SSKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		A5145217BE88613E25A8E3D0F5A0FA7D /* RNCryptorEngine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNCryptorEngine.h; path = RNCryptor/RNCryptorEngine.h; sourceTree = "<group>"; };
+		A51E18BBAB474740AF346A660800CEBA /* popoverBg.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverBg.png; sourceTree = "<group>"; };
+		A523F022DD04D1BF7496F1F157C9F676 /* popoverArrowRight.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowRight.png; sourceTree = "<group>"; };
+		A6FF62EC3E4FE3040979AF2B53ECC9C9 /* MTStatusBarOverlay-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MTStatusBarOverlay-Private.xcconfig"; sourceTree = "<group>"; };
+		A7B7F940EFA890BC76B5E4D7CA2F6A62 /* TextDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = TextDataEntryCell.xib; sourceTree = "<group>"; };
+		AA09D8D9FE43DEC396DD3AD445B6A0B2 /* RNOpenSSLEncryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNOpenSSLEncryptor.m; path = RNCryptor/RNOpenSSLEncryptor.m; sourceTree = "<group>"; };
+		AB0022061DB55B9D78F4D3F3655A1F05 /* SSKeychain-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSKeychain-prefix.pch"; sourceTree = "<group>"; };
+		AEA791B2DE27A1C5CF213D8D8225ABC2 /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewControllerDelegate.h; sourceTree = "<group>"; };
+		AFCEA557ABA282DAB44C735052B015D6 /* popoverArrowDownSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowDownSimple.png; sourceTree = "<group>"; };
+		AFCF1A3CA82C9449FFC1B5FE94C05EF9 /* MTStatusBarOverlay-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTStatusBarOverlay-prefix.pch"; sourceTree = "<group>"; };
+		B08F4B1DA09336FEC61433BD3179FCA3 /* confirm24x24.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = confirm24x24.png; sourceTree = "<group>"; };
+		B2B89D086A8F7B7DE1F4F80068EEEDE4 /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushWebViewEntryCell.h; sourceTree = "<group>"; };
+		B473F48F80CAB0B33F67ABC371628CC6 /* write32x32.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
+		B823F8EE1F49F1EFAB97BB7C33E8FCF2 /* UIXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UIXML.h; sourceTree = "<group>"; };
+		B9663DEBF6E83E0DBA3047B2616B362C /* TextDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TextDataEntryCell.h; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BB5B5007754BBA1252CE647F1B0B642E /* popoverArrowRightSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowRightSimple.png; sourceTree = "<group>"; };
+		BD651B94F62B76138F68B013E604AA89 /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
+		BD829ADDDD307CBA27348DF4FB0C55E2 /* RNEncryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNEncryptor.m; path = RNCryptor/RNEncryptor.m; sourceTree = "<group>"; };
+		BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		C30B33D1CD3C6F464A8815F6F877F2EE /* RNEncryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNEncryptor.h; path = RNCryptor/RNEncryptor.h; sourceTree = "<group>"; };
+		C30CC23C2CC7843D12FC4FBFDC3DAA9F /* SSKeychain-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SSKeychain-Private.xcconfig"; sourceTree = "<group>"; };
+		C463CEF4C50BEBB8ECD34CB6ACF167F4 /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SwitchDataEntryCell.h; sourceTree = "<group>"; };
+		C497BF3A17D8C910D8DB58F4D090427A /* MailDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MailDataEntryCell.xib; sourceTree = "<group>"; };
+		C4AF67AFF70944993AC01CEFC2993D7F /* ZKRevealingTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZKRevealingTableViewCell-dummy.m"; sourceTree = "<group>"; };
+		C4C6E378FEB4785F21E3C04454B130A0 /* WETouchableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WETouchableView.m; path = Classes/Popover/WETouchableView.m; sourceTree = "<group>"; };
+		C75610CCC51146810891C823B9B2D3E9 /* RNCryptor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RNCryptor.xcconfig; sourceTree = "<group>"; };
+		C7C38DFFE156A69D7E126279ABFFCD75 /* RNOpenSSLDecryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RNOpenSSLDecryptor.h; path = RNCryptor/RNOpenSSLDecryptor.h; sourceTree = "<group>"; };
+		C86AB28E6F0951A153C5E985C97E9FDC /* popoverArrowLeftSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowLeftSimple.png; sourceTree = "<group>"; };
+		C87BF406A452925AC39F664035A93305 /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+WEPopover.h"; path = "Classes/Popover/UIBarButtonItem+WEPopover.h"; sourceTree = "<group>"; };
+		C9767013CE72E4BF7F076720F2E6206D /* PushDateEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushDateEntryCell.m; sourceTree = "<group>"; };
+		CC168130D9AD76992F4666CCBBC469F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D0D6E87861C154B0116EDA1A73DC82DC /* UIXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIXML-dummy.m"; sourceTree = "<group>"; };
+		D347A50BE4EF0A494CC3016190E834B6 /* RNCryptor-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "RNCryptor-Private.xcconfig"; sourceTree = "<group>"; };
+		D3B6FF5DEAAB580ABD96FE661F619857 /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushWebViewEntryCell.xib; sourceTree = "<group>"; };
+		D477BBBBF22F140CE9A6860CFB2656D2 /* popoverArrowLeft.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowLeft.png; sourceTree = "<group>"; };
+		D5C5600A8C9DE78AA4115BA632E9AF10 /* RNDecryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNDecryptor.m; path = RNCryptor/RNDecryptor.m; sourceTree = "<group>"; };
+		D844B425518B9268A4E6E33EB5EAF75C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		D97F4FA3E2BEFF114E84D841D05ED0AA /* SSKeychain.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SSKeychain.xcconfig; sourceTree = "<group>"; };
+		DB92ACDD67E758CCF13EC3B316A7D0B9 /* edit32x32.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
+		DBA0D2AA853B458DF5F8F6E23271BDD4 /* RNOpenSSLCryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNOpenSSLCryptor.m; path = RNCryptor/RNOpenSSLCryptor.m; sourceTree = "<group>"; };
+		DDC9F062176642C02D0B7F74FA967DB7 /* ZKRevealingTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZKRevealingTableViewCell-prefix.pch"; sourceTree = "<group>"; };
+		DF1D2898C086CB683EFE91393AECE817 /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SegmentedDataEntryCell.h; sourceTree = "<group>"; };
+		DF55E4639BD0B82276C724F1654ED4A1 /* PushDateEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushDateEntryCell.h; sourceTree = "<group>"; };
+		E2F669FF43915D7B4C11EAC1A7793682 /* SwitchDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SwitchDataEntryCell.xib; sourceTree = "<group>"; };
+		E9BA580CFCE7FF392E09041E066E066D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		ECEA14310270E1E5A5265A7EC7FCACDD /* STAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "STAlertView-dummy.m"; sourceTree = "<group>"; };
+		EE681EB5A45EC03D51F5477E759F05C8 /* WEPopover-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "WEPopover-Private.xcconfig"; sourceTree = "<group>"; };
+		F46EDED6F79B256D7398DD21337B334B /* PushFormDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushFormDataEntryCell.m; sourceTree = "<group>"; };
+		F4D43F376BEE437491DDFF57B3FB509B /* SwitchDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SwitchDataEntryCell.m; sourceTree = "<group>"; };
+		F5B22E8D45DC27AF8BAA997E905A596B /* PushFormDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushFormDataEntryCell.h; sourceTree = "<group>"; };
+		F74AFE336B26F3AD9678F37B45C6A068 /* STAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STAlertView.h; path = Pod/Classes/STAlertView.h; sourceTree = "<group>"; };
+		F91CB315D10D9BC8C0777C2E9D24EDE3 /* popoverArrowLeft@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowLeft@2x.png"; sourceTree = "<group>"; };
+		FABA9AF8C172B4735CF75F3FD4E2F4B2 /* WEPopover.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WEPopover.xcconfig; sourceTree = "<group>"; };
+		FFB1680871053A78AF9B43E6DE90D94E /* popoverBg@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverBg@2x.png"; sourceTree = "<group>"; };
+		FFFA10B258E0B0C23D7EF9ADB7F0B406 /* PushTextEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushTextEntryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		21B0F78403D9E9C1D0B4D1AD /* Frameworks */ = {
+		0A2564701C90BA14863FAAA9CB38BDA9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				264383DED0B83636ED1ED74B /* Foundation.framework in Frameworks */,
+				9F128EDD4BFFB24EF1D37BFDEBC7E87A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		49D625C920DA7B17EB806532 /* Frameworks */ = {
+		0BA312EC0A2F197BA030760164E3470A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EE2040169B5BC62A5B59576 /* Foundation.framework in Frameworks */,
-				205F95F53FC891863903B659 /* Security.framework in Frameworks */,
+				2CA4452C65A5CBFF22082BE509949216 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4BBAAD5D3DCF2252293F062B /* Frameworks */ = {
+		427D73848EFE218A442ED8348440B0BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBC5CBE6D2E98A6C16474B7B /* Foundation.framework in Frameworks */,
+				39C04B8D23B3DAFBC03CC39C866892F1 /* CoreGraphics.framework in Frameworks */,
+				D517D518C546CCE4700C7BB572ECA8DE /* Foundation.framework in Frameworks */,
+				B9BDE4DD8FA0DD6342E1DDC1CE833B0B /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C37465400AB1AE782355D30 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				311E9BFD56F0B9E5D1534240 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		929F5F032B6B8BFCFBA76146 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8F22DDEC63409B5229C4DA57 /* CoreGraphics.framework in Frameworks */,
-				17FB5F72D10EE3620C3CE963 /* Foundation.framework in Frameworks */,
-				9EEE828E05FE41F6FC0E99C7 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		986588196C6FF79DCB791DA2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F4BB786BD4B0170BE6B425DB /* Foundation.framework in Frameworks */,
-				6B80D2F147105A10ADE627E3 /* Security.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF463F9D5E2490FBF4B4E1CA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7BAB9D15724F1CBD846D244E /* Foundation.framework in Frameworks */,
-				3BF9D6683C9976A828CA7FB2 /* QuartzCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D9985F8C5457EDFC66BF5BAA /* Frameworks */ = {
+		ABB96AB7B6CAD1EFC609FBA82B4A7223 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA43463C12CBC41896A4C7D1 /* Frameworks */ = {
+		AC6AC89C7CDB7CD9BA2187773B757044 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE9B6484BA473ADDC586C9F2 /* Foundation.framework in Frameworks */,
+				6EAA6BB23319EDC7811F7C39A4561138 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B001661CE98CCAC659D2F30D2D8B24CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91C97ABA1C67EC5E27CE9A05E36679DE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2BE5ED43CE440B9E6EA316214964A8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2AAF57DC2169927CBC883DA59F20B70 /* Foundation.framework in Frameworks */,
+				A18380444D31523B852615193FFC3AE3 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB80ACC01565DB5E918E11514B18AD3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A89C09A454833014E7BB4F6DAC51A3F5 /* Foundation.framework in Frameworks */,
+				B406DE7C9D4C8F8F1CDB830A35B7ECB4 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC362A058CA9A88DA719E2AEA6324116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54135DDE299F0ED51D16593E36FDFD15 /* Foundation.framework in Frameworks */,
+				E693B3B641B66056E2D7BBF6FCA98998 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		06277BAA7268D1EB12FD4893 = {
+		0758B5E3640EA2E8FA83301D1CD40A2F /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				655D519A32042EC986C26A91 /* Podfile */,
-				247E53DA14DB678510406535 /* Frameworks */,
-				A703C3927A1D08100FC296E1 /* Pods */,
-				37A75E266ECE41DC6D427BA8 /* Products */,
-				69FE242ECD98721FE3E1BB0F /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		0FF8F4726D4FA0096215C4E0 /* WEPopover */ = {
-			isa = PBXGroup;
-			children = (
-				EF3557E3A8DB70691B56F4D2 /* UIBarButtonItem+WEPopover.h */,
-				F75034B5873427397ACCCAE8 /* UIBarButtonItem+WEPopover.m */,
-				EC5E7DDC2DA20C521C5E361D /* WEPopoverContainerView.h */,
-				FFEC126B035C10FC5D6E4871 /* WEPopoverContainerView.m */,
-				4575DBCD3C31541FDEE139B6 /* WEPopoverController.h */,
-				DEB5E47BF4FC2AE60F9DDC94 /* WEPopoverController.m */,
-				0FEC06DF5536019C3D412575 /* WEPopoverParentView.h */,
-				5B99045E09AC1B44B5FD21C3 /* WETouchableView.h */,
-				3FAB7FDDE4E2D1896E83BAF3 /* WETouchableView.m */,
-				7FE48D61EEDD85795867AA92 /* Resources */,
-				47513B23C3E48AC97BE7A4CD /* Support Files */,
-			);
-			path = WEPopover;
-			sourceTree = "<group>";
-		};
-		247E53DA14DB678510406535 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7B67B0AD9A3811B030B916DC /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		28878AED0405B57F9F049320 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				38B6EF9F84362185E33ACEEF /* Pods-SSKeychain.xcconfig */,
-				AF758F73D7030F2604EC38F9 /* Pods-SSKeychain-Private.xcconfig */,
-				7211C38396A78D8096D692B6 /* Pods-SSKeychain-dummy.m */,
-				64A7511319804DBE60641D20 /* Pods-SSKeychain-prefix.pch */,
+				C75610CCC51146810891C823B9B2D3E9 /* RNCryptor.xcconfig */,
+				D347A50BE4EF0A494CC3016190E834B6 /* RNCryptor-Private.xcconfig */,
+				38EAC017AF5C96D4405736F29BF52DAE /* RNCryptor-dummy.m */,
+				1B799A27C48016D664C0403ECA13D792 /* RNCryptor-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Pods-SSKeychain";
+			path = "../Target Support Files/RNCryptor";
 			sourceTree = "<group>";
 		};
-		29119A569F394DBED0B8F903 /* Support Files */ = {
+		0A1E3F0791D10107B717BF6B07F0C6BE /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				64F3CD86226E47E0FB450B16 /* Pods-MTStatusBarOverlay.xcconfig */,
-				0BAD88E00B0EA244212E0153 /* Pods-MTStatusBarOverlay-Private.xcconfig */,
-				271E1E3F8034FA620AF6F90F /* Pods-MTStatusBarOverlay-dummy.m */,
-				64277E2114757B209D8519B1 /* Pods-MTStatusBarOverlay-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-MTStatusBarOverlay";
-			sourceTree = "<group>";
-		};
-		2C222C19375FF68C493A4B25 /* STAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				50BFB51B16DF4573366C99D3 /* STAlertView.h */,
-				D10D7E6EFEC98562A2F3CDC2 /* STAlertView.m */,
-				4213E20CFF46A983B788BFCE /* Support Files */,
-			);
-			path = STAlertView;
-			sourceTree = "<group>";
-		};
-		37A75E266ECE41DC6D427BA8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B24F71733BF2C4091D3C2EBA /* STAlertView.bundle */,
-				8C74805A5DD2797E4D63A8D6 /* libPods.a */,
-				876714CF189DA11D9B21C045 /* libPods-MTStatusBarOverlay.a */,
-				170AB5AB4438452C7B1CD032 /* libPods-RNCryptor.a */,
-				400661FA6FDF08F3BE37C43A /* libPods-SSKeychain.a */,
-				42DBEDA5B731C5DF92A029DE /* libPods-STAlertView.a */,
-				3EFFFD7456FD5BDED659C407 /* libPods-UIXML.a */,
-				074B7C22AA6DA4AD91149433 /* libPods-WEPopover.a */,
-				8E0D66682DF72724CE09B6D4 /* libPods-ZKRevealingTableViewCell.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3AEA3347ECC976DD2867C4B3 /* MTStatusBarOverlay */ = {
-			isa = PBXGroup;
-			children = (
-				397F21DF1CF5F282CCF5BADD /* MTStatusBarOverlay.h */,
-				1609ABCF112571A03E554245 /* MTStatusBarOverlay.m */,
-				29119A569F394DBED0B8F903 /* Support Files */,
-			);
-			path = MTStatusBarOverlay;
-			sourceTree = "<group>";
-		};
-		4213E20CFF46A983B788BFCE /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				8FC4B854C6864024D59B0EB6 /* Pods-STAlertView.xcconfig */,
-				7E29EDB3C2924EDB8707BAEF /* Pods-STAlertView-Private.xcconfig */,
-				8F346D1878F1757C144F7B84 /* Pods-STAlertView-dummy.m */,
-				C7BE91E8A9A93D8C8BE2C6A6 /* Pods-STAlertView-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-STAlertView";
-			sourceTree = "<group>";
-		};
-		47513B23C3E48AC97BE7A4CD /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				93D827873DC86C60D055622B /* Pods-WEPopover.xcconfig */,
-				B31889FE0CD9120616B30F29 /* Pods-WEPopover-Private.xcconfig */,
-				68F731E0E9ECCA8B4A3F60D4 /* Pods-WEPopover-dummy.m */,
-				E89EB335027A75BD7AB5584A /* Pods-WEPopover-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-WEPopover";
-			sourceTree = "<group>";
-		};
-		69FE242ECD98721FE3E1BB0F /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				AE249FFA93BA7956A772C72A /* Pods */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		725380B0168A148BBB356AB8 /* ZKRevealingTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				199A0CCB7B7D6F1B5A585E71 /* ZKRevealingTableViewCell.h */,
-				D47E463BE8C8F6A853F9F934 /* ZKRevealingTableViewCell.m */,
-				FA3076740F60E10CBEAE4DD3 /* Support Files */,
-			);
-			path = ZKRevealingTableViewCell;
-			sourceTree = "<group>";
-		};
-		7B67B0AD9A3811B030B916DC /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3F20DEF00A6FA0834E829446 /* CoreGraphics.framework */,
-				EB2BF980583F3D0803179A75 /* Foundation.framework */,
-				5394D3E126E10727CD2557E5 /* QuartzCore.framework */,
-				CC5D827FF88D24C36A6A4051 /* Security.framework */,
-				59E8C7A96DA4139CC379FC64 /* UIKit.framework */,
+				804647FC6D29C2B71B0F165A16E528C2 /* CoreGraphics.framework */,
+				CC168130D9AD76992F4666CCBBC469F0 /* Foundation.framework */,
+				3D8FA081C364C78CF5FC8DA45BE6CC2F /* QuartzCore.framework */,
+				6B440A89ED1E7E30A966A3F691F1D465 /* Security.framework */,
+				E9BA580CFCE7FF392E09041E066E066D /* UIKit.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7FE48D61EEDD85795867AA92 /* Resources */ = {
+		1B092590A11FF1EDFDE38FF4F1106557 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7B90AA800203DD3CDE513E36 /* popoverArrowDown.png */,
-				670124E978AA25AB7635F2E6 /* popoverArrowDown@2x.png */,
-				D481AA73F60D6B2ADAD06DBB /* popoverArrowDownSimple.png */,
-				FF96037F94CD47986B2FF90D /* popoverArrowLeft.png */,
-				390D21CE739405B819D619FD /* popoverArrowLeft@2x.png */,
-				1B97171D0BD1E374A457751C /* popoverArrowLeftSimple.png */,
-				3A0A76ABF53E529B25C91366 /* popoverArrowRight.png */,
-				AFB2100F216C06C1C2216AEC /* popoverArrowRight@2x.png */,
-				51750A9AD022E725BC7C9D8B /* popoverArrowRightSimple.png */,
-				AA7BAA72DF3DF6D1573A2D17 /* popoverArrowUp.png */,
-				02D39A69D5AD5107AC47FECC /* popoverArrowUp@2x.png */,
-				7709DF5487F1ACEA748825EB /* popoverArrowUpSimple.png */,
-				78C090D2B8E47A897D5972BE /* popoverBg.png */,
-				CA2CFAADC07C4E640ECDC17F /* popoverBg@2x.png */,
-				C9E4AD6D74DA51A1A4EEA6C7 /* popoverBgSimple.png */,
+				D97F4FA3E2BEFF114E84D841D05ED0AA /* SSKeychain.xcconfig */,
+				C30CC23C2CC7843D12FC4FBFDC3DAA9F /* SSKeychain-Private.xcconfig */,
+				420CEF8B2ADCDA300A49D6A5C10A18D7 /* SSKeychain-dummy.m */,
+				AB0022061DB55B9D78F4D3F3655A1F05 /* SSKeychain-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SSKeychain";
+			sourceTree = "<group>";
+		};
+		20B56609144CE204DFA8221F742B2D76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A1E3F0791D10107B717BF6B07F0C6BE /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		22DF5C3B0D17AC71C43D05B3FFF109B9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C497BF3A17D8C910D8DB58F4D090427A /* MailDataEntryCell.xib */,
+				06DCD194EE747C7B9E29114473C3AB34 /* PushDateEntryCell.xib */,
+				8A33224DFCCF5EBE31BAAE4DFA0E7453 /* PushFormDataEntryCell.xib */,
+				95591656118B6D149A03DF45B992B800 /* PushTextEntryCell.xib */,
+				D3B6FF5DEAAB580ABD96FE661F619857 /* PushWebViewEntryCell.xib */,
+				E2F669FF43915D7B4C11EAC1A7793682 /* SwitchDataEntryCell.xib */,
+				A7B7F940EFA890BC76B5E4D7CA2F6A62 /* TextDataEntryCell.xib */,
+				8F574EA28DB356382628D0BDF8281376 /* back24x24.png */,
+				510499FFF3E9301E00C044411A2CF220 /* chevron.png */,
+				B08F4B1DA09336FEC61433BD3179FCA3 /* confirm24x24.png */,
+				DB92ACDD67E758CCF13EC3B316A7D0B9 /* edit32x32.png */,
+				B473F48F80CAB0B33F67ABC371628CC6 /* write32x32.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		862A1D72C6638DCFEDFB81F7 /* Support Files */ = {
+		24C36AB5CD4FDECAB4CE7E6AF77CB623 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B2B835AC3D898159C4B62697 /* Pods-RNCryptor.xcconfig */,
-				4F2A1452551CBBFCF5D40184 /* Pods-RNCryptor-Private.xcconfig */,
-				359495AAF41043495042D876 /* Pods-RNCryptor-dummy.m */,
-				C53C58474AD24B75C2935C8B /* Pods-RNCryptor-prefix.pch */,
+				72CC5B74239F23007768663A85EBAEBE /* STAlertView.xcconfig */,
+				731A592200E4CCB9C1936510BCDF795D /* STAlertView-Private.xcconfig */,
+				ECEA14310270E1E5A5265A7EC7FCACDD /* STAlertView-dummy.m */,
+				4378EC6CDA6B12E6F426E648E107BDB8 /* STAlertView-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Pods-RNCryptor";
+			path = "../Target Support Files/STAlertView";
 			sourceTree = "<group>";
 		};
-		8D3296CB70B96B1E08193FFB /* UIXML */ = {
+		2E2F7814FB4190A4975C62F0FBE2E96C /* STAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				887017F83160C7C9AEB8B011 /* BaseDataEntryCell.h */,
-				0DA45B05CB809BAC8A5BD0B0 /* BaseDataEntryCell.m */,
-				62D965D15BFBF5D60A386C8B /* PushControllerDataEntryCell.h */,
-				BFC9B14016F94859108329D7 /* PushControllerDataEntryCell.m */,
-				73C64E27EEB090E7FA33D16F /* PushDateEntryCell.h */,
-				C41E84049DEE3DD88F8F909A /* PushDateEntryCell.m */,
-				A2E06884758EDB1AF7B4A3CA /* PushFormDataEntryCell.h */,
-				F31DADD0B86B7C132C9FD67D /* PushFormDataEntryCell.m */,
-				CF42A565404E3805802CAAD0 /* PushTextEntryCell.h */,
-				505F2AB366023C0F6BBA674B /* PushTextEntryCell.m */,
-				34626353839EE4A620E525C3 /* PushWebViewEntryCell.h */,
-				E1139D1120CC07E9289D757D /* PushWebViewEntryCell.m */,
-				887A53D44B3679CEC57DE669 /* SegmentedDataEntryCell.h */,
-				048AE8315C485DB63911164A /* SegmentedDataEntryCell.m */,
-				43F7499A70164912626E2C7F /* SwitchDataEntryCell.h */,
-				B070F9B05147099CA1E8CE48 /* SwitchDataEntryCell.m */,
-				9EFF65D0DE6877C672ABA898 /* TextDataEntryCell.h */,
-				F04D6936D7459EA01AB9DD6A /* TextDataEntryCell.m */,
-				143838EE992AF54E237AFFD5 /* UIXML.h */,
-				ED7EB1A6973869609CBA6D69 /* UIXMLFormViewController.h */,
-				391EF0574F4FD95BD123F2A0 /* UIXMLFormViewController.m */,
-				549B1BD00E683AD316A3FE9F /* UIXMLFormViewControllerDelegate.h */,
-				B4E2A5317BE6276180A4CD17 /* WaitMaskController.h */,
-				44325AFFE4DC3B5973E4E41F /* WaitMaskController.m */,
-				FF26FB48FA874EA52E0D763A /* Resources */,
-				9AD85F776545176DFC5FF7EE /* Support Files */,
+				F74AFE336B26F3AD9678F37B45C6A068 /* STAlertView.h */,
+				7AC5A027D203D3358874437ED7F7A010 /* STAlertView.m */,
+				24C36AB5CD4FDECAB4CE7E6AF77CB623 /* Support Files */,
 			);
-			path = UIXML;
+			path = STAlertView;
 			sourceTree = "<group>";
 		};
-		9AD85F776545176DFC5FF7EE /* Support Files */ = {
+		3647B3789B85AAACE5EC6F6A1B574F0B /* SSKeychain */ = {
 			isa = PBXGroup;
 			children = (
-				E6353F6A23F942BCC2F92F1E /* Pods-UIXML.xcconfig */,
-				7E200DA67BA83E89D96F51F9 /* Pods-UIXML-Private.xcconfig */,
-				B69F50C9684B9F83CB0ACF40 /* Pods-UIXML-dummy.m */,
-				07397C5C43436F4F08C4B946 /* Pods-UIXML-prefix.pch */,
+				A3ABF6B520AC2E8DC9344D3DA0EC679A /* SSKeychain.h */,
+				38DA46F5D53277C92C830C5AC6EA6554 /* SSKeychain.m */,
+				1B092590A11FF1EDFDE38FF4F1106557 /* Support Files */,
+			);
+			path = SSKeychain;
+			sourceTree = "<group>";
+		};
+		4AB04A96E985A6CFDEAE3DC8E5CE302B /* RNCryptor */ = {
+			isa = PBXGroup;
+			children = (
+				0F0D5FC654C1FBE19BF7E403A72009EE /* RNCryptor.h */,
+				76BE8FA67D7C175F1D67AA54B16D8464 /* RNCryptor.m */,
+				1D429CCEDA700A312AB188DC9677822A /* RNCryptor+Private.h */,
+				A5145217BE88613E25A8E3D0F5A0FA7D /* RNCryptorEngine.h */,
+				60AC62D34321C4EF9C2FE2DED5DE30BB /* RNCryptorEngine.m */,
+				1443830E767707A29C2BAC8B0857DE4E /* RNDecryptor.h */,
+				D5C5600A8C9DE78AA4115BA632E9AF10 /* RNDecryptor.m */,
+				C30B33D1CD3C6F464A8815F6F877F2EE /* RNEncryptor.h */,
+				BD829ADDDD307CBA27348DF4FB0C55E2 /* RNEncryptor.m */,
+				0B50DC30CC8E4771EDF7359490B81E79 /* RNOpenSSLCryptor.h */,
+				DBA0D2AA853B458DF5F8F6E23271BDD4 /* RNOpenSSLCryptor.m */,
+				C7C38DFFE156A69D7E126279ABFFCD75 /* RNOpenSSLDecryptor.h */,
+				1974AEB0BF09A468A9423B70AF6F0479 /* RNOpenSSLDecryptor.m */,
+				188F202B4BD91FE77851E248465D8625 /* RNOpenSSLEncryptor.h */,
+				AA09D8D9FE43DEC396DD3AD445B6A0B2 /* RNOpenSSLEncryptor.m */,
+				0758B5E3640EA2E8FA83301D1CD40A2F /* Support Files */,
+			);
+			path = RNCryptor;
+			sourceTree = "<group>";
+		};
+		7ABACCEDDBC5EA8D3AEE706C0E05B578 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				447AC204D7B853B33542E81DA87BFD50 /* ZKRevealingTableViewCell.xcconfig */,
+				8CE1D5BF7C5E46E17B316928DE0B4E51 /* ZKRevealingTableViewCell-Private.xcconfig */,
+				C4AF67AFF70944993AC01CEFC2993D7F /* ZKRevealingTableViewCell-dummy.m */,
+				DDC9F062176642C02D0B7F74FA967DB7 /* ZKRevealingTableViewCell-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Pods-UIXML";
+			path = "../Target Support Files/ZKRevealingTableViewCell";
 			sourceTree = "<group>";
 		};
-		A703C3927A1D08100FC296E1 /* Pods */ = {
+		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				3AEA3347ECC976DD2867C4B3 /* MTStatusBarOverlay */,
-				E4D1359B7BC0D6D7D1121C35 /* RNCryptor */,
-				C299F3029A1585767CD7E0A2 /* SSKeychain */,
-				2C222C19375FF68C493A4B25 /* STAlertView */,
-				8D3296CB70B96B1E08193FFB /* UIXML */,
-				0FF8F4726D4FA0096215C4E0 /* WEPopover */,
-				725380B0168A148BBB356AB8 /* ZKRevealingTableViewCell */,
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				20B56609144CE204DFA8221F742B2D76 /* Frameworks */,
+				D610D90AF5942FAD3A2884BA8B905FCE /* Pods */,
+				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
+				D2411A5FE7F7A004607BED49990C37F4 /* Targets Support Files */,
 			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
-		AE249FFA93BA7956A772C72A /* Pods */ = {
+		821852F18DE4A7E0D4C2BDCE0B4F79FD /* WEPopover */ = {
 			isa = PBXGroup;
 			children = (
-				2A56C316E7A579934EF1B1E9 /* Pods-acknowledgements.markdown */,
-				05F36AC2A3EB50DA01C6DDC2 /* Pods-acknowledgements.plist */,
-				540BC266C44C72330B3AEF36 /* Pods-dummy.m */,
-				48F607C4C3A5D0D682C04D7A /* Pods-environment.h */,
-				6F3D7475322749D8A28B2A53 /* Pods-resources.sh */,
-				D0EF074830ADDAFDE8C49B1D /* Pods.debug.xcconfig */,
-				773ADD43962BC93993CD17A9 /* Pods.release.xcconfig */,
+				C87BF406A452925AC39F664035A93305 /* UIBarButtonItem+WEPopover.h */,
+				96DA005117E94F0B62812F0762585AFB /* UIBarButtonItem+WEPopover.m */,
+				630A0A12182749F862A93CAA7BCB2F9A /* WEPopoverContainerView.h */,
+				56A84789B68BD19AE3B8ACFE486AFDB5 /* WEPopoverContainerView.m */,
+				49222BF59A646DACFEB3647C0DE2E12A /* WEPopoverController.h */,
+				699EDD9D63E576B7C6D3A505D28B4FD6 /* WEPopoverController.m */,
+				7AF4F25DB7F010FF7EA9DAFF00D0915E /* WEPopoverParentView.h */,
+				4FE50B9F017398F1681C03BFBA94A93D /* WETouchableView.h */,
+				C4C6E378FEB4785F21E3C04454B130A0 /* WETouchableView.m */,
+				B97B6B4AAEA2F738E9B23B36B5BD30B3 /* Resources */,
+				83D3149A86186BE36080CA3EB7254608 /* Support Files */,
+			);
+			path = WEPopover;
+			sourceTree = "<group>";
+		};
+		83D3149A86186BE36080CA3EB7254608 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FABA9AF8C172B4735CF75F3FD4E2F4B2 /* WEPopover.xcconfig */,
+				EE681EB5A45EC03D51F5477E759F05C8 /* WEPopover-Private.xcconfig */,
+				81BE5A4AB6227C6E32B087820C2F67B2 /* WEPopover-dummy.m */,
+				4F9DF817656C6BE0CBF751E140011D70 /* WEPopover-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/WEPopover";
+			sourceTree = "<group>";
+		};
+		952EEBFAF8F7E620423C9F156F25A506 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */,
+				BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */,
+				463779C0ABDD2A53685A87A792A9BAAB /* Pods-dummy.m */,
+				641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */,
+				5F1CBAEBFEB05B369886DB2B5E4E5ED1 /* Pods.debug.xcconfig */,
+				D844B425518B9268A4E6E33EB5EAF75C /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		C299F3029A1585767CD7E0A2 /* SSKeychain */ = {
+		ABC891A8303C4D7A0752E595F2DCC630 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C65F4597BFF7C8998FDEA403 /* SSKeychain.h */,
-				790824104DC4968E776F42DC /* SSKeychain.m */,
-				28878AED0405B57F9F049320 /* Support Files */,
-			);
-			path = SSKeychain;
-			sourceTree = "<group>";
-		};
-		E4D1359B7BC0D6D7D1121C35 /* RNCryptor */ = {
-			isa = PBXGroup;
-			children = (
-				CF3CB0E2659668A67DDA488C /* RNCryptor.h */,
-				8D3CFB93DAE1840D18AF7A88 /* RNCryptor.m */,
-				17662D170ABF2D68A5CFB7AF /* RNCryptor+Private.h */,
-				5B18E68DE987391E1B8B4F9C /* RNCryptorEngine.h */,
-				338C970BBEAECAA47FD81ED6 /* RNCryptorEngine.m */,
-				6ED258DEB5E62A459D65D2BD /* RNDecryptor.h */,
-				187DBD78D7529E050DC84D3D /* RNDecryptor.m */,
-				C78E34256D124D6B06997468 /* RNEncryptor.h */,
-				D01B09D958E5513DFC4FA794 /* RNEncryptor.m */,
-				0B14A2B138E554DD4D6EB631 /* RNOpenSSLCryptor.h */,
-				92DE5FBAD06F12A1DF10CE0A /* RNOpenSSLCryptor.m */,
-				51570C5F882667300D9063EB /* RNOpenSSLDecryptor.h */,
-				5DA5795C9084DF4072C294B7 /* RNOpenSSLDecryptor.m */,
-				123E20573C915A8A1C360754 /* RNOpenSSLEncryptor.h */,
-				D6217123BB3A11B2FAB2F46D /* RNOpenSSLEncryptor.m */,
-				862A1D72C6638DCFEDFB81F7 /* Support Files */,
-			);
-			path = RNCryptor;
-			sourceTree = "<group>";
-		};
-		FA3076740F60E10CBEAE4DD3 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B882E0859C504AAA6FB2AA5C /* Pods-ZKRevealingTableViewCell.xcconfig */,
-				0D831418CF8F6A0CFC34A10D /* Pods-ZKRevealingTableViewCell-Private.xcconfig */,
-				7652E7C63891D1C93D0A3178 /* Pods-ZKRevealingTableViewCell-dummy.m */,
-				B568B187BAD4CA0BECAEAD84 /* Pods-ZKRevealingTableViewCell-prefix.pch */,
+				5220D55287054A314389BC7723EC88CD /* MTStatusBarOverlay.xcconfig */,
+				A6FF62EC3E4FE3040979AF2B53ECC9C9 /* MTStatusBarOverlay-Private.xcconfig */,
+				55DDB8EE60DD443E89E4FF577F081A7D /* MTStatusBarOverlay-dummy.m */,
+				AFCF1A3CA82C9449FFC1B5FE94C05EF9 /* MTStatusBarOverlay-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Pods-ZKRevealingTableViewCell";
+			path = "../Target Support Files/MTStatusBarOverlay";
 			sourceTree = "<group>";
 		};
-		FF26FB48FA874EA52E0D763A /* Resources */ = {
+		B97B6B4AAEA2F738E9B23B36B5BD30B3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D353FFD76594301B2D9D9E0D /* MailDataEntryCell.xib */,
-				20E696537C98AE00A6EBEE08 /* PushDateEntryCell.xib */,
-				1698C3439DE0E732DFE9B3A7 /* PushFormDataEntryCell.xib */,
-				E4697991CB2AB341B27A7DB2 /* PushTextEntryCell.xib */,
-				7A364DEE2DFC5A1CB9A8273E /* PushWebViewEntryCell.xib */,
-				4EC8F03F600B5E865AF1CCD6 /* SwitchDataEntryCell.xib */,
-				18878B6D8C19A613231A4901 /* TextDataEntryCell.xib */,
-				3A1E90FF95AC1B33205C593C /* back24x24.png */,
-				709F23D4F24C64A662D4B052 /* chevron.png */,
-				AA5E67BFAF16DBD7F9CB52D3 /* confirm24x24.png */,
-				7BF0637B32447A40E929ED10 /* edit32x32.png */,
-				D6FE425917243D875EF84CCB /* write32x32.png */,
+				5886C6D67533D292ED6CE2D2A1E53341 /* popoverArrowDown.png */,
+				06CBEFF9627FADABBBA6EB32E3F7746A /* popoverArrowDown@2x.png */,
+				AFCEA557ABA282DAB44C735052B015D6 /* popoverArrowDownSimple.png */,
+				D477BBBBF22F140CE9A6860CFB2656D2 /* popoverArrowLeft.png */,
+				F91CB315D10D9BC8C0777C2E9D24EDE3 /* popoverArrowLeft@2x.png */,
+				C86AB28E6F0951A153C5E985C97E9FDC /* popoverArrowLeftSimple.png */,
+				A523F022DD04D1BF7496F1F157C9F676 /* popoverArrowRight.png */,
+				97EDEC66D2B74D5FAB2A11F01201511A /* popoverArrowRight@2x.png */,
+				BB5B5007754BBA1252CE647F1B0B642E /* popoverArrowRightSimple.png */,
+				6A6E047BA63C477B2D4C5F7E31693AFE /* popoverArrowUp.png */,
+				7382A28507E979EF1665C61A0FB4D308 /* popoverArrowUp@2x.png */,
+				093B68533223A3EA93DB3570E93B4704 /* popoverArrowUpSimple.png */,
+				A51E18BBAB474740AF346A660800CEBA /* popoverBg.png */,
+				FFB1680871053A78AF9B43E6DE90D94E /* popoverBg@2x.png */,
+				332EE1676957A214F49757EB73080AF2 /* popoverBgSimple.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B835BCE54A18B037FBBA97B24E42B1D /* STAlertView.bundle */,
+				9AA024CAD0017489E3814799165FFB7D /* libMTStatusBarOverlay.a */,
+				9D87BEE7AF34582103E60CF9D6A8E151 /* libPods.a */,
+				324C084D9DCC4F3478476281E8436857 /* libRNCryptor.a */,
+				5F3BBD372EB2D8F53A27E137834617D7 /* libSSKeychain.a */,
+				1FA05ED74A682A285D96395954265BD4 /* libSTAlertView.a */,
+				7A3E3E91996FE3E207D1DD2012E4300E /* libUIXML.a */,
+				7AA8A60AF8F26C3B81E96536719BEF0F /* libWEPopover.a */,
+				9EC003E8EFBDC236D285100E6E2261A5 /* libZKRevealingTableViewCell.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2411A5FE7F7A004607BED49990C37F4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				952EEBFAF8F7E620423C9F156F25A506 /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		D610D90AF5942FAD3A2884BA8B905FCE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E15033FB6476C51FB81A8F073BECE2A5 /* MTStatusBarOverlay */,
+				4AB04A96E985A6CFDEAE3DC8E5CE302B /* RNCryptor */,
+				3647B3789B85AAACE5EC6F6A1B574F0B /* SSKeychain */,
+				2E2F7814FB4190A4975C62F0FBE2E96C /* STAlertView */,
+				FAA550A11A79E9834AC22976C1561D55 /* UIXML */,
+				821852F18DE4A7E0D4C2BDCE0B4F79FD /* WEPopover */,
+				EDC85EF6E0CD83C8C6582AEE820E7D79 /* ZKRevealingTableViewCell */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E0D0C51E58782F07057CCF33C22634C0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				70C02C4566BE9FCDFA1E24052C57FDF7 /* UIXML.xcconfig */,
+				65280E83212CE3701ED5C4702F7590CD /* UIXML-Private.xcconfig */,
+				D0D6E87861C154B0116EDA1A73DC82DC /* UIXML-dummy.m */,
+				3B7B11340919A499AACE33C67EBB9E83 /* UIXML-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/UIXML";
+			sourceTree = "<group>";
+		};
+		E15033FB6476C51FB81A8F073BECE2A5 /* MTStatusBarOverlay */ = {
+			isa = PBXGroup;
+			children = (
+				BD651B94F62B76138F68B013E604AA89 /* MTStatusBarOverlay.h */,
+				6A1DD75B0FF11B4F73F76BA76400DE99 /* MTStatusBarOverlay.m */,
+				ABC891A8303C4D7A0752E595F2DCC630 /* Support Files */,
+			);
+			path = MTStatusBarOverlay;
+			sourceTree = "<group>";
+		};
+		EDC85EF6E0CD83C8C6582AEE820E7D79 /* ZKRevealingTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A071FF4880A95AC85474725CD1214E01 /* ZKRevealingTableViewCell.h */,
+				2CFCC8FA3946B3100C777FA38BD1318F /* ZKRevealingTableViewCell.m */,
+				7ABACCEDDBC5EA8D3AEE706C0E05B578 /* Support Files */,
+			);
+			path = ZKRevealingTableViewCell;
+			sourceTree = "<group>";
+		};
+		FAA550A11A79E9834AC22976C1561D55 /* UIXML */ = {
+			isa = PBXGroup;
+			children = (
+				3E9D5ADE98DBC2F9B0176BCC4209F548 /* BaseDataEntryCell.h */,
+				6AA48907679AA85CBFEAE76EBE988749 /* BaseDataEntryCell.m */,
+				161C7F442DC21786784C7FA0269C9181 /* PushControllerDataEntryCell.h */,
+				8A31388ABEF8C93DC40DB71A3FDDF5F6 /* PushControllerDataEntryCell.m */,
+				DF55E4639BD0B82276C724F1654ED4A1 /* PushDateEntryCell.h */,
+				C9767013CE72E4BF7F076720F2E6206D /* PushDateEntryCell.m */,
+				F5B22E8D45DC27AF8BAA997E905A596B /* PushFormDataEntryCell.h */,
+				F46EDED6F79B256D7398DD21337B334B /* PushFormDataEntryCell.m */,
+				1622C1D6653576640714343727363B06 /* PushTextEntryCell.h */,
+				FFFA10B258E0B0C23D7EF9ADB7F0B406 /* PushTextEntryCell.m */,
+				B2B89D086A8F7B7DE1F4F80068EEEDE4 /* PushWebViewEntryCell.h */,
+				0DCF5BFE01628FDAA8DBFE40210A9709 /* PushWebViewEntryCell.m */,
+				DF1D2898C086CB683EFE91393AECE817 /* SegmentedDataEntryCell.h */,
+				1E6E7DEF70DBB691C3566D64B1E3271F /* SegmentedDataEntryCell.m */,
+				C463CEF4C50BEBB8ECD34CB6ACF167F4 /* SwitchDataEntryCell.h */,
+				F4D43F376BEE437491DDFF57B3FB509B /* SwitchDataEntryCell.m */,
+				B9663DEBF6E83E0DBA3047B2616B362C /* TextDataEntryCell.h */,
+				2419F5A01587D4687477E0DD0009C555 /* TextDataEntryCell.m */,
+				B823F8EE1F49F1EFAB97BB7C33E8FCF2 /* UIXML.h */,
+				74983A530819710700355F29D9200331 /* UIXMLFormViewController.h */,
+				07F157DA54DC50CBFA1F7D08310C45BA /* UIXMLFormViewController.m */,
+				AEA791B2DE27A1C5CF213D8D8225ABC2 /* UIXMLFormViewControllerDelegate.h */,
+				2DE7960B16B4EDC5AD202ED84931745D /* WaitMaskController.h */,
+				87CDD46D11832E4CA005771CDCCFFA03 /* WaitMaskController.m */,
+				22DF5C3B0D17AC71C43D05B3FFF109B9 /* Resources */,
+				E0D0C51E58782F07057CCF33C22634C0 /* Support Files */,
+			);
+			path = UIXML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		56ACBA748141FFCC3BF9CF70 /* Headers */ = {
+		108A989922F1864267FBCF2939594E74 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28E94DDF1A1AA281834FC05 /* RNCryptor+Private.h in Headers */,
-				DDAEE9C8E95B663AE515409D /* RNCryptor.h in Headers */,
-				15EBEC679FC0928D7F4CC390 /* RNCryptorEngine.h in Headers */,
-				E6D33390839C677AA7E0C890 /* RNDecryptor.h in Headers */,
-				D1004A69B35BAE86E097849F /* RNEncryptor.h in Headers */,
-				FCB3892B02693125229B74EB /* RNOpenSSLCryptor.h in Headers */,
-				FA01D8D676EDA6018F2887F7 /* RNOpenSSLDecryptor.h in Headers */,
-				815B8D14733448BD5D04ACF4 /* RNOpenSSLEncryptor.h in Headers */,
+				B617D91494EC29FD10BEA60DAE46144C /* ZKRevealingTableViewCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59F3AD0D51A91B2AE61A4A51 /* Headers */ = {
+		264E486A1368A057AD5F3F7ED8046485 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5236DEF89A9D438056895DC /* BaseDataEntryCell.h in Headers */,
-				7168E4DAB8891C08A109D0A4 /* PushControllerDataEntryCell.h in Headers */,
-				D68A284F22ACE5764967DFDB /* PushDateEntryCell.h in Headers */,
-				A5EEF4253CF18C2F19D4A9B9 /* PushFormDataEntryCell.h in Headers */,
-				2D7DEE2B94933F8237634F56 /* PushTextEntryCell.h in Headers */,
-				A37E1BC5D4D7CF283C789F39 /* PushWebViewEntryCell.h in Headers */,
-				36392FA985554B2F76488360 /* SegmentedDataEntryCell.h in Headers */,
-				3B781F00396ACD10D16B91FF /* SwitchDataEntryCell.h in Headers */,
-				8B3B06A9DEDE90F27D8D4EA4 /* TextDataEntryCell.h in Headers */,
-				0E945E18D5701563FB0D197E /* UIXML.h in Headers */,
-				E6AC2DF1C742DB8630B7D355 /* UIXMLFormViewController.h in Headers */,
-				3DABE1E2AED78FCCC46D8A5D /* UIXMLFormViewControllerDelegate.h in Headers */,
-				2E8228416076643EC3082F68 /* WaitMaskController.h in Headers */,
+				862F57422395BA58AD880794D286FAFF /* SSKeychain.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		947EBD2F1A68AC708B99C2CA /* Headers */ = {
+		7ED94BCD03E9D7ADD56D5F48524B4522 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03B9249E70F17B592FB612FD /* MTStatusBarOverlay.h in Headers */,
+				A57C7C84A6E7168A786F15C248DBDD63 /* STAlertView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B15E3DFF5C2F612A576325E8 /* Headers */ = {
+		9506463E68B0533D7C398EB6026498EC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CBC6D8251F1EB46BED61FFB /* ZKRevealingTableViewCell.h in Headers */,
+				8A38B62D6827A1041618BFB930F3BD74 /* BaseDataEntryCell.h in Headers */,
+				E406094D488DA70CEC8286D9114987B0 /* PushControllerDataEntryCell.h in Headers */,
+				36375777F940F9A28EE0E6D2A3224EFA /* PushDateEntryCell.h in Headers */,
+				14C13961401888A9395A97A827B9CFB6 /* PushFormDataEntryCell.h in Headers */,
+				F88C03F5DF379C9C0801FF0FA50A979A /* PushTextEntryCell.h in Headers */,
+				01B572F6727AD515CDCB9B6E508E27D1 /* PushWebViewEntryCell.h in Headers */,
+				E38F91B336A744260894DD1712654E38 /* SegmentedDataEntryCell.h in Headers */,
+				6237652B1505D69DEB8D0FC304FDEC85 /* SwitchDataEntryCell.h in Headers */,
+				9225FF943E53C0C4A6438DA171602609 /* TextDataEntryCell.h in Headers */,
+				AA4DB212CE7CFF31EE0A98F1F692E8EB /* UIXML.h in Headers */,
+				29A7220821781467FCB3035EC0FE24A9 /* UIXMLFormViewController.h in Headers */,
+				8A2E415000EF273E674999B294EB8C1A /* UIXMLFormViewControllerDelegate.h in Headers */,
+				0A5FB8C8B1B4CFD48DBA8FBCEB25C78A /* WaitMaskController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C9D6276EEBCFD63B0DCD6AD6 /* Headers */ = {
+		A0A0EDF0CA6897560921E1036C595D87 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACAE684F596344DC5070D4A8 /* STAlertView.h in Headers */,
+				BEF012EC808CA4821909C9E296160FE2 /* MTStatusBarOverlay.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D57CCD57A5C2A6F7E4326169 /* Headers */ = {
+		C211672DDD95742F94C27FF7A5E8D717 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F42922F73F8ADAF5B5D4BA6 /* SSKeychain.h in Headers */,
+				6F521F3DD4890FC06E76F7951B0110E7 /* RNCryptor+Private.h in Headers */,
+				1564113FAA38CB0FE122255C6F95E16E /* RNCryptor.h in Headers */,
+				42419CF1D406AFDC31D48AEAB95678C6 /* RNCryptorEngine.h in Headers */,
+				07A0DEC53826E73138291977FD589191 /* RNDecryptor.h in Headers */,
+				6535A7F32DEEEB62C4571C0A9ADECBDE /* RNEncryptor.h in Headers */,
+				F3C7679ACBEA259814D26689010793DF /* RNOpenSSLCryptor.h in Headers */,
+				D8FA060AA99B7CBA231777F4E0766D1B /* RNOpenSSLDecryptor.h in Headers */,
+				40FB616E8E55236AD7646C1967FB34DB /* RNOpenSSLEncryptor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E1C29BEF9EB8A29485772510 /* Headers */ = {
+		CB39A10B3601A08337FCB579A32E20BF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BC4F49EF8BB78C5A2AC6556 /* UIBarButtonItem+WEPopover.h in Headers */,
-				9A530803B5DA711B5A9664DB /* WEPopoverContainerView.h in Headers */,
-				C276AFDEED99883D1B032854 /* WEPopoverController.h in Headers */,
-				9B0A19564EC36DDDEF706CF4 /* WEPopoverParentView.h in Headers */,
-				84DA9C54830A788E8B5904E7 /* WETouchableView.h in Headers */,
+				D96F159C2437D3E33C59FEA75395F947 /* UIBarButtonItem+WEPopover.h in Headers */,
+				83EA00753F3B2997E81167397B2E9460 /* WEPopoverContainerView.h in Headers */,
+				ED3A7E9B45AC80F94D69B662F2EB97F0 /* WEPopoverController.h in Headers */,
+				4120D9A6DE357852D8E4ADF75CF0795F /* WEPopoverParentView.h in Headers */,
+				D7A84B58BAE987A5D6BFD3C8F6CAE80B /* WETouchableView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		13A1D2E030ABD1648B900F06 /* Pods-MTStatusBarOverlay */ = {
+		13647F2326CCC9565134D688FFFC3535 /* MTStatusBarOverlay */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 41F92D71AF37A790EC51EBF4 /* Build configuration list for PBXNativeTarget "Pods-MTStatusBarOverlay" */;
+			buildConfigurationList = 5E86B1D7E88974DD297A32B4938F44F5 /* Build configuration list for PBXNativeTarget "MTStatusBarOverlay" */;
 			buildPhases = (
-				D3DB256A544CA9BC52DDFDF8 /* Sources */,
-				7C37465400AB1AE782355D30 /* Frameworks */,
-				947EBD2F1A68AC708B99C2CA /* Headers */,
+				3AD1CD239FB16FDE06DF2183B009B207 /* Sources */,
+				AC6AC89C7CDB7CD9BA2187773B757044 /* Frameworks */,
+				A0A0EDF0CA6897560921E1036C595D87 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-MTStatusBarOverlay";
-			productName = "Pods-MTStatusBarOverlay";
-			productReference = 876714CF189DA11D9B21C045 /* libPods-MTStatusBarOverlay.a */;
+			name = MTStatusBarOverlay;
+			productName = MTStatusBarOverlay;
+			productReference = 9AA024CAD0017489E3814799165FFB7D /* libMTStatusBarOverlay.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		3555E724541F8256DCEAF395 /* STAlertView */ = {
+		7EDBFCF50DE9EC1440DBD73BB7FB5FAF /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B4739ADA8B0A7D44C643C9B2 /* Build configuration list for PBXNativeTarget "STAlertView" */;
+			buildConfigurationList = E7344EB5C89CC80DB350957CD5B5329F /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				03D845DF97E54B5B8356D178 /* Sources */,
-				D9985F8C5457EDFC66BF5BAA /* Frameworks */,
-				EDAE3BD02BDCC59C70228A05 /* Resources */,
+				BA7852882BB03B6990E064E703E00440 /* Sources */,
+				0BA312EC0A2F197BA030760164E3470A /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = STAlertView;
-			productName = STAlertView;
-			productReference = B24F71733BF2C4091D3C2EBA /* STAlertView.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
-		6D7E8C53BCFD83C088F73036 /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6FC9D3FF2C2A283C9645F62D /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				35240E504C9B8040F33315F8 /* Sources */,
-				4BBAAD5D3DCF2252293F062B /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1D1D67953E599178B5D9BA8E /* PBXTargetDependency */,
-				2749901751BA3D548E64AFAB /* PBXTargetDependency */,
-				2445CACAF53B47E2A2BABEC5 /* PBXTargetDependency */,
-				5518ABB01DE975E26302E4D3 /* PBXTargetDependency */,
-				E4A72A4AD87F303BFCE74D68 /* PBXTargetDependency */,
-				413CD7D76049C79DF7DE5C25 /* PBXTargetDependency */,
-				3A38DD4BB6A7FC6FEEE40759 /* PBXTargetDependency */,
+				691DD0CD38E19651A76BCEFD88570D1A /* PBXTargetDependency */,
+				947649AF7010F0A3B3361D243F9358C0 /* PBXTargetDependency */,
+				BCB3C6FD4DD68CA879A676082A6C99BF /* PBXTargetDependency */,
+				6185FA6015802FA8F0101CD4953B00E6 /* PBXTargetDependency */,
+				3BCD95AE7A4BA228FAE7B0D7C56EE675 /* PBXTargetDependency */,
+				9551509C404C82B61A5CAFFF92C1F8B1 /* PBXTargetDependency */,
+				41C2A1287CDC02E6E6D276971B368EB3 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = 8C74805A5DD2797E4D63A8D6 /* libPods.a */;
+			productReference = 9D87BEE7AF34582103E60CF9D6A8E151 /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		7A99360D6D9D40C0C4D68E41 /* Pods-SSKeychain */ = {
+		7FED11B70C87D20E48C19F02D6CAFA01 /* RNCryptor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AE6D80A9BEC289E0FBC54052 /* Build configuration list for PBXNativeTarget "Pods-SSKeychain" */;
+			buildConfigurationList = 84F674A66DBBC88A9F8684D87DFFEEDF /* Build configuration list for PBXNativeTarget "RNCryptor" */;
 			buildPhases = (
-				0685F30F9B3FFDEAAB583380 /* Sources */,
-				986588196C6FF79DCB791DA2 /* Frameworks */,
-				D57CCD57A5C2A6F7E4326169 /* Headers */,
+				9AA9609261908FC05984EC85A91A2C1C /* Sources */,
+				BB80ACC01565DB5E918E11514B18AD3E /* Frameworks */,
+				C211672DDD95742F94C27FF7A5E8D717 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-SSKeychain";
-			productName = "Pods-SSKeychain";
-			productReference = 400661FA6FDF08F3BE37C43A /* libPods-SSKeychain.a */;
+			name = RNCryptor;
+			productName = RNCryptor;
+			productReference = 324C084D9DCC4F3478476281E8436857 /* libRNCryptor.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		83A532C7C4C93E5DC6D3F5CB /* Pods-STAlertView */ = {
+		97E87C3A42F51FD863BC25176A5A5210 /* STAlertView-STAlertView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E17DCFF4E07A0148BD11B97A /* Build configuration list for PBXNativeTarget "Pods-STAlertView" */;
+			buildConfigurationList = 63F691589EF75A040094C7E47EA9DF41 /* Build configuration list for PBXNativeTarget "STAlertView-STAlertView" */;
 			buildPhases = (
-				86147BD99AF715FFD198AB11 /* Sources */,
-				21B0F78403D9E9C1D0B4D1AD /* Frameworks */,
-				C9D6276EEBCFD63B0DCD6AD6 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6DBD7F91BBAAD65E13468050 /* PBXTargetDependency */,
-			);
-			name = "Pods-STAlertView";
-			productName = "Pods-STAlertView";
-			productReference = 42DBEDA5B731C5DF92A029DE /* libPods-STAlertView.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		B50DB08856A3B4D91974C182 /* Pods-WEPopover */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 21CA77457B08B29C14136490 /* Build configuration list for PBXNativeTarget "Pods-WEPopover" */;
-			buildPhases = (
-				D04139AF0B384D0279FBF242 /* Sources */,
-				929F5F032B6B8BFCFBA76146 /* Frameworks */,
-				E1C29BEF9EB8A29485772510 /* Headers */,
+				8F4B5B7FA3537D67AC05E19E384D976F /* Sources */,
+				ABB96AB7B6CAD1EFC609FBA82B4A7223 /* Frameworks */,
+				613291B7AF4EB64EE2FDCF3215DC49A0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-WEPopover";
-			productName = "Pods-WEPopover";
-			productReference = 074B7C22AA6DA4AD91149433 /* libPods-WEPopover.a */;
-			productType = "com.apple.product-type.library.static";
+			name = "STAlertView-STAlertView";
+			productName = "STAlertView-STAlertView";
+			productReference = 4B835BCE54A18B037FBBA97B24E42B1D /* STAlertView.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
-		D9C06AAE4B1D3D0DB3ADF6A4 /* Pods-RNCryptor */ = {
+		B97F810488660D64CC6DA054B25299F5 /* UIXML */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B2068538D9413AD63A8AB3C0 /* Build configuration list for PBXNativeTarget "Pods-RNCryptor" */;
+			buildConfigurationList = 5A9B830B82DD06E934B436EEFC06FF4B /* Build configuration list for PBXNativeTarget "UIXML" */;
 			buildPhases = (
-				F6E98DBAE89F1E492AC7EBD2 /* Sources */,
-				49D625C920DA7B17EB806532 /* Frameworks */,
-				56ACBA748141FFCC3BF9CF70 /* Headers */,
+				93FB74D80DE6A45EC7FF0AD1EACD6FF7 /* Sources */,
+				0A2564701C90BA14863FAAA9CB38BDA9 /* Frameworks */,
+				9506463E68B0533D7C398EB6026498EC /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-RNCryptor";
-			productName = "Pods-RNCryptor";
-			productReference = 170AB5AB4438452C7B1CD032 /* libPods-RNCryptor.a */;
+			name = UIXML;
+			productName = UIXML;
+			productReference = 7A3E3E91996FE3E207D1DD2012E4300E /* libUIXML.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		F60586A7212FC9245CBB506E /* Pods-ZKRevealingTableViewCell */ = {
+		BF75F033E7832191F76E1454DD4AB576 /* SSKeychain */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BB9B77FD34C3A98698B41240 /* Build configuration list for PBXNativeTarget "Pods-ZKRevealingTableViewCell" */;
+			buildConfigurationList = F894B8D7FB437AC0967AF0EFCDFFA057 /* Build configuration list for PBXNativeTarget "SSKeychain" */;
 			buildPhases = (
-				58D8CF7C51586AFB430B69D7 /* Sources */,
-				CF463F9D5E2490FBF4B4E1CA /* Frameworks */,
-				B15E3DFF5C2F612A576325E8 /* Headers */,
+				CF53FE9C3B7E4CB4556AD57F44E6CBB7 /* Sources */,
+				FC362A058CA9A88DA719E2AEA6324116 /* Frameworks */,
+				264E486A1368A057AD5F3F7ED8046485 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-ZKRevealingTableViewCell";
-			productName = "Pods-ZKRevealingTableViewCell";
-			productReference = 8E0D66682DF72724CE09B6D4 /* libPods-ZKRevealingTableViewCell.a */;
+			name = SSKeychain;
+			productName = SSKeychain;
+			productReference = 5F3BBD372EB2D8F53A27E137834617D7 /* libSSKeychain.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		F939BA97D0DBB44F97B47C2D /* Pods-UIXML */ = {
+		D346BD8B0FBFD8F6B4CD6502A0F64F34 /* ZKRevealingTableViewCell */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 377D1E51D03FA25B70DB3CC5 /* Build configuration list for PBXNativeTarget "Pods-UIXML" */;
+			buildConfigurationList = 620D62CA0440CEE5CDD371DEA384CD11 /* Build configuration list for PBXNativeTarget "ZKRevealingTableViewCell" */;
 			buildPhases = (
-				754DD4A68362572E4EEEE654 /* Sources */,
-				DA43463C12CBC41896A4C7D1 /* Frameworks */,
-				59F3AD0D51A91B2AE61A4A51 /* Headers */,
+				DBD6132A788BA9D05C4D566138C3718D /* Sources */,
+				B2BE5ED43CE440B9E6EA316214964A8F /* Frameworks */,
+				108A989922F1864267FBCF2939594E74 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-UIXML";
-			productName = "Pods-UIXML";
-			productReference = 3EFFFD7456FD5BDED659C407 /* libPods-UIXML.a */;
+			name = ZKRevealingTableViewCell;
+			productName = ZKRevealingTableViewCell;
+			productReference = 9EC003E8EFBDC236D285100E6E2261A5 /* libZKRevealingTableViewCell.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FAC32A57643713F06A5CE91E66677C3A /* WEPopover */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D208128C860C00235359729C56B2207 /* Build configuration list for PBXNativeTarget "WEPopover" */;
+			buildPhases = (
+				CF7C08F173DD61846F42E583781B730C /* Sources */,
+				427D73848EFE218A442ED8348440B0BA /* Frameworks */,
+				CB39A10B3601A08337FCB579A32E20BF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WEPopover;
+			productName = WEPopover;
+			productReference = 7AA8A60AF8F26C3B81E96536719BEF0F /* libWEPopover.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FCB0FC1BDC2673D1DF6374AB6BAA74E6 /* STAlertView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 302D1047B8C77316FA2CCE50A08E747D /* Build configuration list for PBXNativeTarget "STAlertView" */;
+			buildPhases = (
+				C3BA55C44EE19EEBA4FCCFE8AC60C814 /* Sources */,
+				B001661CE98CCAC659D2F30D2D8B24CE /* Frameworks */,
+				7ED94BCD03E9D7ADD56D5F48524B4522 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A76A9F5CDF9411F1A1AD3A0F87409229 /* PBXTargetDependency */,
+			);
+			name = STAlertView;
+			productName = STAlertView;
+			productReference = 1FA05ED74A682A285D96395954265BD4 /* libSTAlertView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0782823303F994B130079A93 /* Project object */ = {
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-<<<<<<< HEAD
-				LastUpgradeCheck = 0510;
-=======
-				LastUpgradeCheck = 0640;
->>>>>>> origin/v2.0.0-develop
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 			};
-			buildConfigurationList = 6EA9B9624C3E9646992E5935 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 06277BAA7268D1EB12FD4893;
-			productRefGroup = 37A75E266ECE41DC6D427BA8 /* Products */;
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6D7E8C53BCFD83C088F73036 /* Pods */,
-				13A1D2E030ABD1648B900F06 /* Pods-MTStatusBarOverlay */,
-				D9C06AAE4B1D3D0DB3ADF6A4 /* Pods-RNCryptor */,
-				7A99360D6D9D40C0C4D68E41 /* Pods-SSKeychain */,
-				83A532C7C4C93E5DC6D3F5CB /* Pods-STAlertView */,
-				F939BA97D0DBB44F97B47C2D /* Pods-UIXML */,
-				B50DB08856A3B4D91974C182 /* Pods-WEPopover */,
-				F60586A7212FC9245CBB506E /* Pods-ZKRevealingTableViewCell */,
-				3555E724541F8256DCEAF395 /* STAlertView */,
+				13647F2326CCC9565134D688FFFC3535 /* MTStatusBarOverlay */,
+				7EDBFCF50DE9EC1440DBD73BB7FB5FAF /* Pods */,
+				7FED11B70C87D20E48C19F02D6CAFA01 /* RNCryptor */,
+				BF75F033E7832191F76E1454DD4AB576 /* SSKeychain */,
+				FCB0FC1BDC2673D1DF6374AB6BAA74E6 /* STAlertView */,
+				97E87C3A42F51FD863BC25176A5A5210 /* STAlertView-STAlertView */,
+				B97F810488660D64CC6DA054B25299F5 /* UIXML */,
+				FAC32A57643713F06A5CE91E66677C3A /* WEPopover */,
+				D346BD8B0FBFD8F6B4CD6502A0F64F34 /* ZKRevealingTableViewCell */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EDAE3BD02BDCC59C70228A05 /* Resources */ = {
+		613291B7AF4EB64EE2FDCF3215DC49A0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -981,184 +972,165 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		03D845DF97E54B5B8356D178 /* Sources */ = {
+		3AD1CD239FB16FDE06DF2183B009B207 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F262587C456376703081FD2FF9FCB387 /* MTStatusBarOverlay-dummy.m in Sources */,
+				218A7517DC00279589AF1077EEB3A235 /* MTStatusBarOverlay.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F4B5B7FA3537D67AC05E19E384D976F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0685F30F9B3FFDEAAB583380 /* Sources */ = {
+		93FB74D80DE6A45EC7FF0AD1EACD6FF7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC40B0B8F0CB4A96DEA21C7E /* Pods-SSKeychain-dummy.m in Sources */,
-				C2620C6DCCF40E94B0521922 /* SSKeychain.m in Sources */,
+				64FC6B8DD4CFC08723CE841520A40AD7 /* BaseDataEntryCell.m in Sources */,
+				1A9DC805C094A01942701755FD5B59A5 /* PushControllerDataEntryCell.m in Sources */,
+				1C5675FBCE54644C6CDB159016B40636 /* PushDateEntryCell.m in Sources */,
+				722D9A5C21F1F139E49D446D3D8E295D /* PushFormDataEntryCell.m in Sources */,
+				94921648DB70440431ED4A6EFD5FE80C /* PushTextEntryCell.m in Sources */,
+				670D860A557992FEA4ABCA43043E4BFD /* PushWebViewEntryCell.m in Sources */,
+				7B587F2EEFCB01758AE4EF797DB189DE /* SegmentedDataEntryCell.m in Sources */,
+				69E23AF1F51A2AC6A6661A71CF55C62D /* SwitchDataEntryCell.m in Sources */,
+				3700AA5B087A420CBD98B7C468610B53 /* TextDataEntryCell.m in Sources */,
+				23A104375817C4C5AD11D442FF502300 /* UIXML-dummy.m in Sources */,
+				378C0A673DF740D2E8926FA1CD886CE6 /* UIXMLFormViewController.m in Sources */,
+				8D17B6C02B1E6579F31CEDD741B6BD53 /* WaitMaskController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		35240E504C9B8040F33315F8 /* Sources */ = {
+		9AA9609261908FC05984EC85A91A2C1C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D99ED6181961E715A15DE787 /* Pods-dummy.m in Sources */,
+				97F9B1A978D6E610793406D31E064414 /* RNCryptor-dummy.m in Sources */,
+				65A805690C346D560E2BFFE90D873FCC /* RNCryptor.m in Sources */,
+				81883454C403467E67C01D3E7FFA0187 /* RNCryptorEngine.m in Sources */,
+				1EA08DDDD1BFC58C1119DE59C128E0E8 /* RNDecryptor.m in Sources */,
+				7A7715B960B40EE851422E6415C91949 /* RNEncryptor.m in Sources */,
+				F34144EA8B2535E8BA017FB0E3B9B150 /* RNOpenSSLCryptor.m in Sources */,
+				D5EFA4F0AF87FA9683EF5D4B51F3EAE1 /* RNOpenSSLDecryptor.m in Sources */,
+				1738F5C5835ED9685D6DE7CB70666ECC /* RNOpenSSLEncryptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		58D8CF7C51586AFB430B69D7 /* Sources */ = {
+		BA7852882BB03B6990E064E703E00440 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53613A12B75CFD31CC3CA61A /* Pods-ZKRevealingTableViewCell-dummy.m in Sources */,
-				0A21A0955F104B2AB97E7A2B /* ZKRevealingTableViewCell.m in Sources */,
+				364AF964C7404549365C2018F7326D6E /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		754DD4A68362572E4EEEE654 /* Sources */ = {
+		C3BA55C44EE19EEBA4FCCFE8AC60C814 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C04E588ABCBF568C28095B8 /* BaseDataEntryCell.m in Sources */,
-				8969629C4369AAB9D7CA7BDD /* Pods-UIXML-dummy.m in Sources */,
-				00142533A40ED5CC74484995 /* PushControllerDataEntryCell.m in Sources */,
-				6EFD35AC7E2F07C045ED36C9 /* PushDateEntryCell.m in Sources */,
-				7518EB3A59C57C6B9C83CE36 /* PushFormDataEntryCell.m in Sources */,
-				A4BB478EF7BED695A926E43C /* PushTextEntryCell.m in Sources */,
-				C6A2F26FD40FF34031A90304 /* PushWebViewEntryCell.m in Sources */,
-				2CEDB686F2E120ED9602DDFB /* SegmentedDataEntryCell.m in Sources */,
-				7283A69741730196625C30B7 /* SwitchDataEntryCell.m in Sources */,
-				73E1DB62DBA417D83545017B /* TextDataEntryCell.m in Sources */,
-				5059E33E745F0F83B5D46A28 /* UIXMLFormViewController.m in Sources */,
-				6596B5DC2514D5C3FF15CC12 /* WaitMaskController.m in Sources */,
+				0CD77008300461FE2E6F27A468F56BF4 /* STAlertView-dummy.m in Sources */,
+				79D0299AFC2FD573ABD9B083A71C25E8 /* STAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		86147BD99AF715FFD198AB11 /* Sources */ = {
+		CF53FE9C3B7E4CB4556AD57F44E6CBB7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED17EC6FF5F56DD8D9CE7B82 /* Pods-STAlertView-dummy.m in Sources */,
-				DA4DF40B3C4D806CC1252B53 /* STAlertView.m in Sources */,
+				AF6537CE4D13104543C18E938A425F9F /* SSKeychain-dummy.m in Sources */,
+				775D9A81F6C368C5A2A2B3B0B6ABF3C1 /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D04139AF0B384D0279FBF242 /* Sources */ = {
+		CF7C08F173DD61846F42E583781B730C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A417D8D7F3A54F8AFFD9ABBC /* Pods-WEPopover-dummy.m in Sources */,
-				391C62836E9DA86AA21732AA /* UIBarButtonItem+WEPopover.m in Sources */,
-				3A39F1C76D6C84E92C8F116A /* WEPopoverContainerView.m in Sources */,
-				A11436C2B83DB53BE044EF52 /* WEPopoverController.m in Sources */,
-				ADA61DF8B48656D5942DA8FE /* WETouchableView.m in Sources */,
+				66E88931EF5FC197E635812E0CDBA4C6 /* UIBarButtonItem+WEPopover.m in Sources */,
+				6D5F4D09453478CFB552B9E7E92843E1 /* WEPopover-dummy.m in Sources */,
+				9594CD1F034CF27C6CCF0A4C3FEF90C3 /* WEPopoverContainerView.m in Sources */,
+				5CF443E56252968B7A5C1B72745BDB47 /* WEPopoverController.m in Sources */,
+				4425245C4AEA2AA3262074270C6AB160 /* WETouchableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D3DB256A544CA9BC52DDFDF8 /* Sources */ = {
+		DBD6132A788BA9D05C4D566138C3718D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1040E4CA4D1D0B294DC082C3 /* MTStatusBarOverlay.m in Sources */,
-				2D51954BE57B8C1F2D142239 /* Pods-MTStatusBarOverlay-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F6E98DBAE89F1E492AC7EBD2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				785E29C160A93F0E6286E34C /* Pods-RNCryptor-dummy.m in Sources */,
-				67250D2369FB2E925B787E16 /* RNCryptor.m in Sources */,
-				9BF005572CE67820DCBC0252 /* RNCryptorEngine.m in Sources */,
-				554F55383ADF4F2761655F58 /* RNDecryptor.m in Sources */,
-				BF10564CE5D901B671D643C1 /* RNEncryptor.m in Sources */,
-				C4C6BE83AD8232F9DE8FE8ED /* RNOpenSSLCryptor.m in Sources */,
-				033DF7F08F30DC00667B9766 /* RNOpenSSLDecryptor.m in Sources */,
-				98605FA8B0145A45B1847D39 /* RNOpenSSLEncryptor.m in Sources */,
+				FE5979C88BAABACBA29ABBDCF6A946EE /* ZKRevealingTableViewCell-dummy.m in Sources */,
+				3EA88DC14B9D340B7C38AC313E2DDE80 /* ZKRevealingTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1D1D67953E599178B5D9BA8E /* PBXTargetDependency */ = {
+		3BCD95AE7A4BA228FAE7B0D7C56EE675 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13A1D2E030ABD1648B900F06 /* Pods-MTStatusBarOverlay */;
-			targetProxy = 78715AC0C2DD9D76ADEE22B2 /* PBXContainerItemProxy */;
+			name = UIXML;
+			target = B97F810488660D64CC6DA054B25299F5 /* UIXML */;
+			targetProxy = 6FCF0C88BAA51DAE5A1EB31160719203 /* PBXContainerItemProxy */;
 		};
-		2445CACAF53B47E2A2BABEC5 /* PBXTargetDependency */ = {
+		41C2A1287CDC02E6E6D276971B368EB3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7A99360D6D9D40C0C4D68E41 /* Pods-SSKeychain */;
-			targetProxy = 5789D0FE7BBD7A637F93E2F7 /* PBXContainerItemProxy */;
+			name = ZKRevealingTableViewCell;
+			target = D346BD8B0FBFD8F6B4CD6502A0F64F34 /* ZKRevealingTableViewCell */;
+			targetProxy = 45D80FDF2FC58DD532A97E5A9DA7A8F1 /* PBXContainerItemProxy */;
 		};
-		2749901751BA3D548E64AFAB /* PBXTargetDependency */ = {
+		6185FA6015802FA8F0101CD4953B00E6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D9C06AAE4B1D3D0DB3ADF6A4 /* Pods-RNCryptor */;
-			targetProxy = 46FDE606A0A5A1B5097F4FA9 /* PBXContainerItemProxy */;
+			name = STAlertView;
+			target = FCB0FC1BDC2673D1DF6374AB6BAA74E6 /* STAlertView */;
+			targetProxy = 3211F82B06EBF08442CE861ED7FC2CB2 /* PBXContainerItemProxy */;
 		};
-		3A38DD4BB6A7FC6FEEE40759 /* PBXTargetDependency */ = {
+		691DD0CD38E19651A76BCEFD88570D1A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F60586A7212FC9245CBB506E /* Pods-ZKRevealingTableViewCell */;
-			targetProxy = F357A598DFD237023992150B /* PBXContainerItemProxy */;
+			name = MTStatusBarOverlay;
+			target = 13647F2326CCC9565134D688FFFC3535 /* MTStatusBarOverlay */;
+			targetProxy = 59560DF43C567F5060EF33AB3E76A10F /* PBXContainerItemProxy */;
 		};
-		413CD7D76049C79DF7DE5C25 /* PBXTargetDependency */ = {
+		947649AF7010F0A3B3361D243F9358C0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B50DB08856A3B4D91974C182 /* Pods-WEPopover */;
-			targetProxy = CD1A94A1653ACA4DB04724CE /* PBXContainerItemProxy */;
+			name = RNCryptor;
+			target = 7FED11B70C87D20E48C19F02D6CAFA01 /* RNCryptor */;
+			targetProxy = 14E48F4C94B977E6E2C30AAC7719150F /* PBXContainerItemProxy */;
 		};
-		5518ABB01DE975E26302E4D3 /* PBXTargetDependency */ = {
+		9551509C404C82B61A5CAFFF92C1F8B1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 83A532C7C4C93E5DC6D3F5CB /* Pods-STAlertView */;
-			targetProxy = 251CE7A97F7DB0011CF06A2B /* PBXContainerItemProxy */;
+			name = WEPopover;
+			target = FAC32A57643713F06A5CE91E66677C3A /* WEPopover */;
+			targetProxy = FD030032331AB0B299D206E4A6537D11 /* PBXContainerItemProxy */;
 		};
-		6DBD7F91BBAAD65E13468050 /* PBXTargetDependency */ = {
+		A76A9F5CDF9411F1A1AD3A0F87409229 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3555E724541F8256DCEAF395 /* STAlertView */;
-			targetProxy = 2DE5DAF7FA63A3A71B58E02F /* PBXContainerItemProxy */;
+			name = "STAlertView-STAlertView";
+			target = 97E87C3A42F51FD863BC25176A5A5210 /* STAlertView-STAlertView */;
+			targetProxy = 4C7EDB5740798B3191E77087F51E60FB /* PBXContainerItemProxy */;
 		};
-		E4A72A4AD87F303BFCE74D68 /* PBXTargetDependency */ = {
+		BCB3C6FD4DD68CA879A676082A6C99BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F939BA97D0DBB44F97B47C2D /* Pods-UIXML */;
-			targetProxy = 6ECB35FB3D66B1787AA6DAED /* PBXContainerItemProxy */;
+			name = SSKeychain;
+			target = BF75F033E7832191F76E1454DD4AB576 /* SSKeychain */;
+			targetProxy = 111B87C904F63365637B0E8D8CC4609E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		03BCB57AE8CEDC365DDAE775 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F2A1452551CBBFCF5D40184 /* Pods-RNCryptor-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-RNCryptor/Pods-RNCryptor-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		19D299C2710A55698B857395 /* Debug */ = {
+		052A17875CB827423D627183396CEB60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
@@ -1166,214 +1138,9 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-<<<<<<< HEAD
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
-=======
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = NO;
->>>>>>> origin/v2.0.0-develop
-				STRIP_INSTALLED_PRODUCT = NO;
-			};
-			name = Debug;
-		};
-		1A6DF6F2DC8E8213881E52BF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E29EDB3C2924EDB8707BAEF /* Pods-STAlertView-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-STAlertView/Pods-STAlertView-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		2158CF755A8A4B346133209F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF758F73D7030F2604EC38F9 /* Pods-SSKeychain-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-SSKeychain/Pods-SSKeychain-prefix.pch";
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		465D99D74D357622E592C42C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0EF074830ADDAFDE8C49B1D /* Pods.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		4DC0159B06A391D392AF85AA /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 773ADD43962BC93993CD17A9 /* Pods.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		7A90BCCE11B6D8412D72FAE9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B31889FE0CD9120616B30F29 /* Pods-WEPopover-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-WEPopover/Pods-WEPopover-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		8D066B7D121B4A780E13832A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F2A1452551CBBFCF5D40184 /* Pods-RNCryptor-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-RNCryptor/Pods-RNCryptor-prefix.pch";
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		8DC400E0466A1BB9B9BE7605 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
@@ -1383,383 +1150,426 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-<<<<<<< HEAD
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-=======
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
->>>>>>> origin/v2.0.0-develop
 				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		9881B23D4AB7D14CE9E03862 /* Debug */ = {
+		0C8C0C13F032A5AE7B8CE657A12BF02F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D831418CF8F6A0CFC34A10D /* Pods-ZKRevealingTableViewCell-Private.xcconfig */;
+			baseConfigurationReference = A6FF62EC3E4FE3040979AF2B53ECC9C9 /* MTStatusBarOverlay-Private.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-ZKRevealingTableViewCell/Pods-ZKRevealingTableViewCell-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MTStatusBarOverlay/MTStatusBarOverlay-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		0DCC91DF7608CA77D73A2B014C9FD95E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C30CC23C2CC7843D12FC4FBFDC3DAA9F /* SSKeychain-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SSKeychain/SSKeychain-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		193ACA723BBF67140FD3454AAC28C37B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D347A50BE4EF0A494CC3016190E834B6 /* RNCryptor-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RNCryptor/RNCryptor-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		28F9F2239EAC08FA6BC3FA50A626A38B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 731A592200E4CCB9C1936510BCDF795D /* STAlertView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STAlertView/STAlertView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		9900A29F652872A442CE05D3 /* Release */ = {
+		2C0DAA1009B4A48C70F1D98166AD8F01 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B31889FE0CD9120616B30F29 /* Pods-WEPopover-Private.xcconfig */;
+			baseConfigurationReference = 65280E83212CE3701ED5C4702F7590CD /* UIXML-Private.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-WEPopover/Pods-WEPopover-prefix.pch";
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UIXML/UIXML-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		9DCB6E260631FBCFFDD13A2C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BAD88E00B0EA244212E0153 /* Pods-MTStatusBarOverlay-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-MTStatusBarOverlay/Pods-MTStatusBarOverlay-prefix.pch";
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		A72287C4675EF50BAC29AF67 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E29EDB3C2924EDB8707BAEF /* Pods-STAlertView-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-STAlertView/Pods-STAlertView-prefix.pch";
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		C7987525948B43C7EA19C0BD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E200DA67BA83E89D96F51F9 /* Pods-UIXML-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-UIXML/Pods-UIXML-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		D282FD1D708947E4177B8E37 /* Release */ = {
+		338A32CF7404771B3C619D1774B6E96A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E200DA67BA83E89D96F51F9 /* Pods-UIXML-Private.xcconfig */;
+			baseConfigurationReference = 5F1CBAEBFEB05B369886DB2B5E4E5ED1 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-UIXML/Pods-UIXML-prefix.pch";
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		E0D350A096DCA64F8545CB47 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF758F73D7030F2604EC38F9 /* Pods-SSKeychain-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-SSKeychain/Pods-SSKeychain-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		E30151A3B5D261F9C9D98615 /* Release */ = {
+		4B6DBA5B30EF799AEA35F03B34E6F74E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D831418CF8F6A0CFC34A10D /* Pods-ZKRevealingTableViewCell-Private.xcconfig */;
+			baseConfigurationReference = C30CC23C2CC7843D12FC4FBFDC3DAA9F /* SSKeychain-Private.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-ZKRevealingTableViewCell/Pods-ZKRevealingTableViewCell-prefix.pch";
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SSKeychain/SSKeychain-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		ED545D2F5F3E42C4BBB4FF47 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BAD88E00B0EA244212E0153 /* Pods-MTStatusBarOverlay-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-MTStatusBarOverlay/Pods-MTStatusBarOverlay-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		F8AA9AE53EB08120063BA48B /* Release */ = {
+		89588D6BD521D757AA235C28C78A52E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65280E83212CE3701ED5C4702F7590CD /* UIXML-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UIXML/UIXML-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8A8FA3FB965FC093F91BBE0A0C6855A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D844B425518B9268A4E6E33EB5EAF75C /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B37F0F91F85060E28F1DAAB522DC7EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B3D9F49CFCD3E03280607FB93E03C65F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE681EB5A45EC03D51F5477E759F05C8 /* WEPopover-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/WEPopover/WEPopover-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C3A67108990627617E861B08F55D13AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D347A50BE4EF0A494CC3016190E834B6 /* RNCryptor-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RNCryptor/RNCryptor-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D28BBD30297DDE543F85CD682F08F12C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CE1D5BF7C5E46E17B316928DE0B4E51 /* ZKRevealingTableViewCell-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ZKRevealingTableViewCell/ZKRevealingTableViewCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DB1398A9CC1C12A76BEDE9948D2A5B57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6FF62EC3E4FE3040979AF2B53ECC9C9 /* MTStatusBarOverlay-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MTStatusBarOverlay/MTStatusBarOverlay-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DBFBDA11821167F43DD6924E771BC19E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 731A592200E4CCB9C1936510BCDF795D /* STAlertView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = STAlertView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
-		FA81C5B8B47B822941D4DDE3 /* Debug */ = {
+		DF46883879B9C7079EE7A3CE108F5142 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE681EB5A45EC03D51F5477E759F05C8 /* WEPopover-Private.xcconfig */;
 			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/WEPopover/WEPopover-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DFE787A1BB3C82FC83FEC560A7857F1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CE1D5BF7C5E46E17B316928DE0B4E51 /* ZKRevealingTableViewCell-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ZKRevealingTableViewCell/ZKRevealingTableViewCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E05D93B7C65B52827053935833AEDC75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 731A592200E4CCB9C1936510BCDF795D /* STAlertView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = STAlertView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
+		};
+		F4CB2169A01AC331DEC969E320E60E9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 731A592200E4CCB9C1936510BCDF795D /* STAlertView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STAlertView/STAlertView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		21CA77457B08B29C14136490 /* Build configuration list for PBXNativeTarget "Pods-WEPopover" */ = {
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7A90BCCE11B6D8412D72FAE9 /* Debug */,
-				9900A29F652872A442CE05D3 /* Release */,
+				B37F0F91F85060E28F1DAAB522DC7EC1 /* Debug */,
+				052A17875CB827423D627183396CEB60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		377D1E51D03FA25B70DB3CC5 /* Build configuration list for PBXNativeTarget "Pods-UIXML" */ = {
+		302D1047B8C77316FA2CCE50A08E747D /* Build configuration list for PBXNativeTarget "STAlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C7987525948B43C7EA19C0BD /* Debug */,
-				D282FD1D708947E4177B8E37 /* Release */,
+				28F9F2239EAC08FA6BC3FA50A626A38B /* Debug */,
+				F4CB2169A01AC331DEC969E320E60E9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		41F92D71AF37A790EC51EBF4 /* Build configuration list for PBXNativeTarget "Pods-MTStatusBarOverlay" */ = {
+		5A9B830B82DD06E934B436EEFC06FF4B /* Build configuration list for PBXNativeTarget "UIXML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ED545D2F5F3E42C4BBB4FF47 /* Debug */,
-				9DCB6E260631FBCFFDD13A2C /* Release */,
+				2C0DAA1009B4A48C70F1D98166AD8F01 /* Debug */,
+				89588D6BD521D757AA235C28C78A52E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6EA9B9624C3E9646992E5935 /* Build configuration list for PBXProject "Pods" */ = {
+		5D208128C860C00235359729C56B2207 /* Build configuration list for PBXNativeTarget "WEPopover" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				19D299C2710A55698B857395 /* Debug */,
-				8DC400E0466A1BB9B9BE7605 /* Release */,
+				B3D9F49CFCD3E03280607FB93E03C65F /* Debug */,
+				DF46883879B9C7079EE7A3CE108F5142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6FC9D3FF2C2A283C9645F62D /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		5E86B1D7E88974DD297A32B4938F44F5 /* Build configuration list for PBXNativeTarget "MTStatusBarOverlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				465D99D74D357622E592C42C /* Debug */,
-				4DC0159B06A391D392AF85AA /* Release */,
+				DB1398A9CC1C12A76BEDE9948D2A5B57 /* Debug */,
+				0C8C0C13F032A5AE7B8CE657A12BF02F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AE6D80A9BEC289E0FBC54052 /* Build configuration list for PBXNativeTarget "Pods-SSKeychain" */ = {
+		620D62CA0440CEE5CDD371DEA384CD11 /* Build configuration list for PBXNativeTarget "ZKRevealingTableViewCell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E0D350A096DCA64F8545CB47 /* Debug */,
-				2158CF755A8A4B346133209F /* Release */,
+				D28BBD30297DDE543F85CD682F08F12C /* Debug */,
+				DFE787A1BB3C82FC83FEC560A7857F1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B2068538D9413AD63A8AB3C0 /* Build configuration list for PBXNativeTarget "Pods-RNCryptor" */ = {
+		63F691589EF75A040094C7E47EA9DF41 /* Build configuration list for PBXNativeTarget "STAlertView-STAlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				03BCB57AE8CEDC365DDAE775 /* Debug */,
-				8D066B7D121B4A780E13832A /* Release */,
+				E05D93B7C65B52827053935833AEDC75 /* Debug */,
+				DBFBDA11821167F43DD6924E771BC19E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B4739ADA8B0A7D44C643C9B2 /* Build configuration list for PBXNativeTarget "STAlertView" */ = {
+		84F674A66DBBC88A9F8684D87DFFEEDF /* Build configuration list for PBXNativeTarget "RNCryptor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA81C5B8B47B822941D4DDE3 /* Debug */,
-				F8AA9AE53EB08120063BA48B /* Release */,
+				C3A67108990627617E861B08F55D13AA /* Debug */,
+				193ACA723BBF67140FD3454AAC28C37B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BB9B77FD34C3A98698B41240 /* Build configuration list for PBXNativeTarget "Pods-ZKRevealingTableViewCell" */ = {
+		E7344EB5C89CC80DB350957CD5B5329F /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9881B23D4AB7D14CE9E03862 /* Debug */,
-				E30151A3B5D261F9C9D98615 /* Release */,
+				338A32CF7404771B3C619D1774B6E96A /* Debug */,
+				8A8FA3FB965FC093F91BBE0A0C6855A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E17DCFF4E07A0148BD11B97A /* Build configuration list for PBXNativeTarget "Pods-STAlertView" */ = {
+		F894B8D7FB437AC0967AF0EFCDFFA057 /* Build configuration list for PBXNativeTarget "SSKeychain" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1A6DF6F2DC8E8213881E52BF /* Debug */,
-				A72287C4675EF50BAC29AF67 /* Release */,
+				4B6DBA5B30EF799AEA35F03B34E6F74E /* Debug */,
+				0DCC91DF7608CA77D73A2B014C9FD95E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0782823303F994B130079A93 /* Project object */;
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 }

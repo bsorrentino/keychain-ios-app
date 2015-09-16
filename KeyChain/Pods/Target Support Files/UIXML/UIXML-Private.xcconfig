@@ -1,0 +1,6 @@
+#include "UIXML.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/UIXML" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/MTStatusBarOverlay" "${PODS_ROOT}/Headers/Public/RNCryptor" "${PODS_ROOT}/Headers/Public/SSKeychain" "${PODS_ROOT}/Headers/Public/STAlertView" "${PODS_ROOT}/Headers/Public/UIXML" "${PODS_ROOT}/Headers/Public/WEPopover" "${PODS_ROOT}/Headers/Public/ZKRevealingTableViewCell"
+OTHER_LDFLAGS = ${UIXML_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES

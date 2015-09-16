@@ -4,37 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-MTStatusBarOverlay.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-RNCryptor.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-SSKeychain.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-STAlertView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-UIXML.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-WEPopover.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-ZKRevealingTableViewCell.xcscheme</key>
+		<key>MTStatusBarOverlay.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -44,7 +14,37 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RNCryptor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SSKeychain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>STAlertView-STAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>STAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIXML.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>WEPopover.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ZKRevealingTableViewCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,47 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13A1D2E030ABD1648B900F06</key>
+		<key>13647F2326CCC9565134D688FFFC3535</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3555E724541F8256DCEAF395</key>
+		<key>7EDBFCF50DE9EC1440DBD73BB7FB5FAF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D7E8C53BCFD83C088F73036</key>
+		<key>7FED11B70C87D20E48C19F02D6CAFA01</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A99360D6D9D40C0C4D68E41</key>
+		<key>97E87C3A42F51FD863BC25176A5A5210</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>83A532C7C4C93E5DC6D3F5CB</key>
+		<key>B97F810488660D64CC6DA054B25299F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B50DB08856A3B4D91974C182</key>
+		<key>BF75F033E7832191F76E1454DD4AB576</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D9C06AAE4B1D3D0DB3ADF6A4</key>
+		<key>D346BD8B0FBFD8F6B4CD6502A0F64F34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F60586A7212FC9245CBB506E</key>
+		<key>FAC32A57643713F06A5CE91E66677C3A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F939BA97D0DBB44F97B47C2D</key>
+		<key>FCB0FC1BDC2673D1DF6374AB6BAA74E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

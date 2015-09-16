@@ -1,0 +1,36 @@
+{
+  "name": "WEPopover",
+  "version": "0.1.1",
+  "summary": "TweetBot-like notice component for iOS",
+  "description": "Forked version - Generic popover implementation for iOS with same API as the UIPopoverController for the iPad, but configurable with custom background and available for iPhone as well                   A",
+  "homepage": "https://github.com/bsorrentino/WEPopover",
+  "license": "unspecified",
+  "authors": {
+    "bsorrentino": " bartolomeo.sorrentino@gmail.com",
+    "werner77": "http://www.werner-it.com/"
+  },
+  "platforms": {
+    "ios": null
+  },
+  "source": {
+    "git": "https://github.com/bsorrentino/WEPopover.git",
+    "tag": "0.1.1"
+  },
+  "source_files": "Classes/Popover/*.{h,m}",
+  "exclude_files": [
+    "WEPopover.xcodeproj",
+    "Classes/*.{h,m}",
+    "*.xib",
+    "main.m",
+    "*.pch",
+    "*.plist"
+  ],
+  "public_header_files": "Classes/Popover/*.h",
+  "resources": "*.png",
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreGraphics"
+  ],
+  "requires_arc": true
+}

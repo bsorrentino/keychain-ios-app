@@ -27,9 +27,6 @@
 #import "ZKRevealingTableViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 
-
-#import <objc/runtime.h>
-
 @interface ZKRevealingTableViewCell ()
 
 @property (nonatomic, retain) UIPanGestureRecognizer   *_panGesture;
@@ -201,6 +198,7 @@
 }
 
 #pragma mark - Accessors
+#import <objc/runtime.h>
 
 static char BOOLRevealing;
 
