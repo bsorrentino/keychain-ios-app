@@ -16,6 +16,7 @@
 		A052D46B1BAC18AC0037EF6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A052D4691BAC18AC0037EF6F /* LaunchScreen.storyboard */; };
 		A052D4761BAC18AC0037EF6F /* keychain2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A052D4751BAC18AC0037EF6F /* keychain2Tests.swift */; };
 		A052D4811BAC18AC0037EF6F /* keychain2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A052D4801BAC18AC0037EF6F /* keychain2UITests.swift */; };
+		A052D4901BAC7EC20037EF6F /* DDTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A052D48F1BAC7EC20037EF6F /* DDTableViewManager.swift */; settings = {ASSET_TAGS = (); }; };
 		AFC64FE2F372633EF4116C00 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533E90CC208DA5B3E432AF1E /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		A052D47C1BAC18AC0037EF6F /* keychain2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keychain2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A052D4801BAC18AC0037EF6F /* keychain2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keychain2UITests.swift; sourceTree = "<group>"; };
 		A052D4821BAC18AC0037EF6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A052D48F1BAC7EC20037EF6F /* DDTableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDTableViewManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		A052D44F1BAC18AB0037EF6F = {
 			isa = PBXGroup;
 			children = (
+				A052D48E1BAC7E8E0037EF6F /* Drag&Drop */,
 				A052D45A1BAC18AB0037EF6F /* keychain2 */,
 				A052D4741BAC18AC0037EF6F /* keychain2Tests */,
 				A052D47F1BAC18AC0037EF6F /* keychain2UITests */,
@@ -153,6 +156,14 @@
 				A052D4821BAC18AC0037EF6F /* Info.plist */,
 			);
 			path = keychain2UITests;
+			sourceTree = "<group>";
+		};
+		A052D48E1BAC7E8E0037EF6F /* Drag&Drop */ = {
+			isa = PBXGroup;
+			children = (
+				A052D48F1BAC7EC20037EF6F /* DDTableViewManager.swift */,
+			);
+			name = "Drag&Drop";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +350,7 @@
 				A052D45F1BAC18AC0037EF6F /* keychain2.xcdatamodeld in Sources */,
 				A052D45C1BAC18AB0037EF6F /* AppDelegate.swift in Sources */,
 				A052D4611BAC18AC0037EF6F /* MasterViewController.swift in Sources */,
+				A052D4901BAC7EC20037EF6F /* DDTableViewManager.swift in Sources */,
 				A052D4631BAC18AC0037EF6F /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
