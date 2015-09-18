@@ -2,8 +2,8 @@
 //  DetailViewController.swift
 //  keychain2
 //
-//  Created by Bartolomeo Sorrentino on 16/09/15.
-//  Copyright (c) 2015 Bartolomeo Sorrentino. All rights reserved.
+//  Created by Bartolomeo Sorrentino on 18/09/15.
+//  Copyright © 2015 Bartolomeo Sorrentino. All rights reserved.
 //
 
 import UIKit
@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
+        if let detail = self.detailItem {
             if let label = self.detailDescriptionLabel {
                 label.text = detail.valueForKey("timeStamp")!.description
             }
