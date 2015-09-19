@@ -15,21 +15,47 @@ public class DDTableViewManager {
     public var beginDrag: ((source:NSIndexPath) -> Bool)?
     public var dropTo: ((source:NSIndexPath, target:NSIndexPath) -> Void)?
     
-    private var _tableView:UITableView
+    private var tableView:UITableView
 
-    private var _source:NSIndexPath?
+    private var source:NSIndexPath?
+    
+    private let viewTag = 99
     
     private var _longPressRecognizer:UILongPressGestureRecognizer = UILongPressGestureRecognizer()
     private var _panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer()
     
+    private var dragView:UIView? {
+        get {
+            return self.tableView.viewWithTag(viewTag)
+        }
+    }
+    
+    public var enabled:Bool {
+        get {
+            return _longPressRecognizer.enabled && _panRecognizer.enabled
+        }
+        set(value) {
+            _longPressRecognizer.enabled = value
+            _panRecognizer.enabled = value
+        }
+    }
+    
+    // MARK:
+
     init(tableView:UITableView!)  {
         
-        self._tableView = tableView
+        self.tableView = tableView
      
         self._longPressRecognizer.addTarget(self, action: "handleLongPress:")
         self._panRecognizer.addTarget(self, action: "handlePan:")
+        
+        self.tableView.addGestureRecognizer(self._longPressRecognizer)
+        self.tableView.addGestureRecognizer(self._panRecognizer)
     }
 
+    // MARK:
+    // MARK: delegate closures
+    
     private func isPossibleBeginDrag( i:NSIndexPath ) -> Bool {
     
         guard let bd = beginDrag  else {
@@ -40,11 +66,12 @@ public class DDTableViewManager {
         
     }
     
-    
     private func isPossibleDropTo( i:NSIndexPath ) -> Bool {
     
-        if _source != nil && _source == i {
+        if let s = source {
+            if s.compare(i) == .OrderedSame {
                 return false;
+            }
         }
    
         guard let pdt = possibleDropTo else {
@@ -54,15 +81,17 @@ public class DDTableViewManager {
         return pdt(target: i)
     }
     
-    
     private func performDropTo( source:NSIndexPath, target:NSIndexPath ) {
-
+        
         guard let pdt = dropTo else {
             return
         }
-
+        
         pdt(source:source, target:target )
     }
+    
+    // MARK:
+    // MARK: private methods
     
     private func isTopRow( index:NSIndexPath ) -> Bool {
     
@@ -71,23 +100,251 @@ public class DDTableViewManager {
     }
 
     private func isLastRow(index:NSIndexPath) -> Bool {
-        let sectionsAmount = self._tableView.numberOfSections
-        let rowsAmount = self._tableView.numberOfRowsInSection(index.section)
+        let sectionsAmount = self.tableView.numberOfSections
+        let rowsAmount = self.tableView.numberOfRowsInSection(index.section)
         return index.section == sectionsAmount - 1 && index.row == rowsAmount - 1
         
     }
 
-    func beginDrag( recognizer:UIGestureRecognizer ) {
+    private func addDragViewFromCell(cell:UITableViewCell) -> UIView {
+        
+        UIGraphicsBeginImageContext(cell.bounds.size)
+        
+        let graficContext = UIGraphicsGetCurrentContext()
+        
+        cell.layer.renderInContext(graficContext!)
+        
+        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext();
+        
+        let newView = UIImageView(image: viewImage)
+        
+        newView.layer.borderColor = UIColor.blackColor().CGColor
+        newView.layer.borderWidth = 2.0
+        newView.tag = viewTag;
+        
+        
+        self.tableView.addSubview(newView)
+        self.tableView.bringSubviewToFront(newView)
+        
+        
+        UIView.animateWithDuration(0.4,
+            delay:0.0,
+            options: .CurveLinear,
+            animations:{ () -> Void in
+                newView.transform = CGAffineTransformMakeScale(0.9, 0.9);
+            },
+            completion:{ (finished:Bool) -> Void in
+            })
+        
+        newView.center = cell.center;
+        
+        return newView;
     
     }
-    func endDrag( recognizer:UIGestureRecognizer ) {
+    
+    private func removeDragView() -> UIView? {
+    
+        guard let dragView = self.dragView else {
+            return nil
+        }
         
+        dragView.removeFromSuperview()
+        
+        return dragView;
     }
 
-    func moveDrag( recognizer:UIGestureRecognizer ) {
+    private func cellForRowAtPoint( point:CGPoint) -> UITableViewCell?  {
+    
+        guard let i = self.tableView.indexPathForRowAtPoint(point) else {
+            return nil
+        }
+        
+        return self.tableView.cellForRowAtIndexPath(i)
         
     }
+    
+    
+    private func findTappedCell( recognizer:UIGestureRecognizer ) -> UITableViewCell? {
+        
+        
+        let tPoint = recognizer.locationInView(self.tableView)
+        
+        let cells = self.tableView.visibleCells
+        
+        
+        for cell in cells {
+            
+            if (CGRectContainsPoint(cell.frame, tPoint)) {
+                return cell;
+            }
+        }
+    
+        return nil
+    }
+    
+    private func checkForScrollingUsingVisibleRows( i:NSIndexPath ) -> Bool {
+    
+        guard let dragView = self.dragView else {
+            return false
+        }
+        
+        if self.isTopRow(i) || self.isLastRow(i)  {
+            return false
+        }
+        
+        guard let visibleRow = self.tableView.indexPathsForVisibleRows else {
+            return false;
+        }
+        
+        if i.compare(visibleRow[0]) == .OrderedSame  {
+        
+            if let cell = self.tableView.cellForRowAtIndexPath(i) {
+            
+                var frame = cell.frame;
+            
+                frame.origin.y -= (frame.size.height + 5);
+            
+                self.tableView.scrollRectToVisible(frame, animated:true)
+                self.tableView.bringSubviewToFront(dragView)
+            
+                return true;
+            }
+        }
+        else if i.compare(visibleRow[visibleRow.count-1]) == .OrderedSame  {
+            
+            if let cell = self.tableView.cellForRowAtIndexPath(i) {
+            
+                var frame = cell.frame;
+            
+                frame.origin.y += frame.size.height;
+            
+                self.tableView.scrollRectToVisible(frame, animated:true)
+                self.tableView.bringSubviewToFront(dragView)
+                
+                return true;
+            }
+        }
+        
+        return false
+    }
+  
+    private func beginDrag( recognizer:UIGestureRecognizer ) {
+        var selectedCell:UITableViewCell?
+        
+        var selectedIndexPath = self.tableView.indexPathForSelectedRow
+        
+        if let i = selectedIndexPath  {
+            self.tableView.deselectRowAtIndexPath(i, animated:true)
+            
+            selectedCell = self.tableView.cellForRowAtIndexPath(i)
+            
+        }
+        else {
+            
+            let tPoint = recognizer.locationInView(self.tableView)
+            
+            selectedIndexPath = self.tableView.indexPathForRowAtPoint(tPoint)
+            
+            if let i = selectedIndexPath  {
+                
+                selectedCell = self.tableView.cellForRowAtIndexPath(i)
+            }
+        }
+        
+        if let i = selectedIndexPath, let cell = selectedCell {
+        
+            if !self.isPossibleBeginDrag(i) {
+                return;
+            }
+        
+            self.source = i
 
+            self.addDragViewFromCell(cell)
+        }
+        
+    
+    }
+    
+    private func moveDrag( recognizer:UIGestureRecognizer ) {
+        
+        guard let dragView = self.dragView else {
+            return
+        }
+        
+        var tPoint = recognizer.locationInView(self.tableView)
+        
+        if let i = self.tableView.indexPathForRowAtPoint(tPoint) {
+            
+            if !self.checkForScrollingUsingVisibleRows(i) {
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void  in
+                    
+                    if self.isPossibleDropTo(i) {
+                        
+                        self.tableView.selectRowAtIndexPath(i, animated: true, scrollPosition: UITableViewScrollPosition.None)
+                    }
+                    
+                });
+            }
+        }
+        
+        tPoint = recognizer.locationInView(self.tableView)
+        
+        dragView.center = tPoint;
+        
+    }
+    
+    private func endDrag( recognizer:UIGestureRecognizer ) {
+        
+        guard let dragView = self.dragView else {
+            return
+        }
+        
+        
+        let tPoint = recognizer.locationInView(self.tableView)
+        
+        let index:NSIndexPath? = self.tableView.indexPathForRowAtPoint(tPoint)
+        
+        if let i = index  {
+        
+            if !self.isPossibleDropTo(i) {
+                self.endDrop(nil)
+                return
+            }
+        }
+        
+        dragView.center = tPoint;
+        
+        UIView.animateWithDuration(0.4,
+            delay:0.0,
+            options: .CurveEaseIn,
+            animations:{ () -> Void in
+                dragView.transform = CGAffineTransformMakeScale(0.2, 0.2);
+            },
+            completion: {(finished:Bool) -> Void in
+                self.endDrop(index)
+            })
+        
+    }
+    
+    private func endDrop(index:NSIndexPath?) -> Void {
+    
+        self.removeDragView()
+        
+        if let i = index, let s = source  {
+            self.performDropTo(s, target:i)
+        }
+        
+        self.source = nil
+    
+    }
+
+    
+    // MARK:
+    // MARK: GestureRecognizer
+    
     func handleLongPress( sender:UIGestureRecognizer) {
         
         switch sender.state {
@@ -110,7 +367,7 @@ public class DDTableViewManager {
             break;
         case .Failed:
             print("Start Drag Failed")
-            self._source = nil
+            self.source = nil
             break;
         }
         
