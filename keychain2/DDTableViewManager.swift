@@ -243,42 +243,29 @@ public class DDTableViewManager {
     }
   
     private func beginDrag( recognizer:UIGestureRecognizer ) {
-        var selectedCell:UITableViewCell?
+        // Check for previous select cell
+        if let prevSelectedIndexPath = self.tableView.indexPathForSelectedRow {
+            
+            self.tableView.deselectRowAtIndexPath(prevSelectedIndexPath, animated:true)
+            
+        }
         
-        var selectedIndexPath = self.tableView.indexPathForSelectedRow
-        
-        if let i = selectedIndexPath  {
+        let tPoint = recognizer.locationInView(self.tableView)
 
-            if !self.isPossibleBeginDrag(i) {
+        guard let selectedIndexPath = self.tableView.indexPathForRowAtPoint(tPoint) else {
+        
+            return
+        }
+
+        if !self.isPossibleBeginDrag(selectedIndexPath) {
                 return;
-            }
-            
-            self.tableView.deselectRowAtIndexPath(i, animated:true)
-            
-            selectedCell = self.tableView.cellForRowAtIndexPath(i)
-            
         }
-        else {
-            
-            let tPoint = recognizer.locationInView(self.tableView)
-            
-            selectedIndexPath = self.tableView.indexPathForRowAtPoint(tPoint)
-            
-            if let i = selectedIndexPath  {
-                
-                if !self.isPossibleBeginDrag(i) {
-                    return;
-                }
-                
-                selectedCell = self.tableView.cellForRowAtIndexPath(i)
-            }
-        }
+                    
+        if  let selectedCell = self.tableView.cellForRowAtIndexPath(selectedIndexPath) {
         
-        if let i = selectedIndexPath, let cell = selectedCell {
-        
-            self.source = i
+            self.source = selectedIndexPath
 
-            self.addDragViewFromCell(cell)
+            self.addDragViewFromCell(selectedCell)
         }
         
     
