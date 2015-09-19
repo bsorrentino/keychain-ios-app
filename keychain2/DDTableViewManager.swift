@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class DDTableViewManager {
+public class DDTableViewManager : NSObject, UIGestureRecognizerDelegate {
 
     public var shouldDropCell: ((target:NSIndexPath) -> Bool)?
     public var shouldBeginDrag: ((source:NSIndexPath) -> Bool)?
@@ -51,17 +51,21 @@ public class DDTableViewManager {
     // MARK:
 
     init(tableView:UITableView!)  {
-        
         self.tableView = tableView
+
+        super.init()
      
         let handleLongPressSelector : Selector = "handleLongPress:"
         self.longPressRecognizer.addTarget(self, action: handleLongPressSelector )
+        self.longPressRecognizer.delegate = self
         self.tableView.addGestureRecognizer(self.longPressRecognizer)
+        
 
         
         #if USE_PAN
         let handlePanSelector : Selector = "handlePan:"
         self.panRecognizer.addTarget(self, action: handlePanSelector )
+        self.panRecognizer.delegate = self
         self.tableView.addGestureRecognizer(self.panRecognizer)
         #endif
     }
@@ -404,4 +408,34 @@ public class DDTableViewManager {
         
     }
     #endif
+    
+    //MARK:
+    //MARK: UIGestureRecognizerDelegate
+    
+    // called when a gesture recognizer attempts to transition out of UIGestureRecognizerStatePossible. returning NO causes it to transition to UIGestureRecognizerStateFailed
+    public func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        if gestureRecognizer.isKindOfClass(UILongPressGestureRecognizer)  {
+            return true;
+        }
+        
+        /*
+        return ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && dragStarted_ );
+        */
+        return false
+    }
+    
+    // called when the recognition of one of gestureRecognizer or otherGestureRecognizer would be blocked by the other
+    // return YES to allow both to recognize simultaneously. the default implementation returns NO (by default no two gestures can be recognized simultaneously)
+    //
+    // note: returning YES is guaranteed to allow simultaneous recognition. returning NO is not guaranteed to prevent simultaneous recognition, as the other gesture's delegate may return YES
+    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    
+        //return ([gestureRecognizer isKindOfClass:[UILongPressGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]);
+        return false
+    }
+    
+    // called before touchesBegan:withEvent: is called on the gesture recognizer for a new touch. return NO to prevent the gesture recognizer from seeing this touch
+    //- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch;
+    
 }
