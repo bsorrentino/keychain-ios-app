@@ -419,23 +419,22 @@ public class DDTableViewManager : NSObject, UIGestureRecognizerDelegate {
             return true;
         }
         
-        /*
-        return ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && dragStarted_ );
-        */
+        #if USE_PAN
+        return (gestureRecognizer.isKindOfClass(UIPanGestureRecognizer) && self.dragView != nil /* dragStarted */ );
+        #else
         return false
+        #endif
     }
     
     // called when the recognition of one of gestureRecognizer or otherGestureRecognizer would be blocked by the other
     // return YES to allow both to recognize simultaneously. the default implementation returns NO (by default no two gestures can be recognized simultaneously)
     //
     // note: returning YES is guaranteed to allow simultaneous recognition. returning NO is not guaranteed to prevent simultaneous recognition, as the other gesture's delegate may return YES
+    #if USE_PAN
     public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
     
-        //return ([gestureRecognizer isKindOfClass:[UILongPressGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]);
-        return false
+        return (gestureRecognizer.isKindOfClass(UILongPressGestureRecognizer) && otherGestureRecognizer.isKindOfClass(UIPanGestureRecognizer) );
     }
-    
-    // called before touchesBegan:withEvent: is called on the gesture recognizer for a new touch. return NO to prevent the gesture recognizer from seeing this touch
-    //- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch;
+    #endif
     
 }
