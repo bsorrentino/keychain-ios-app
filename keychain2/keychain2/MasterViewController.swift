@@ -14,7 +14,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
 
-
+    var ddmanager:DDTableViewManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -26,6 +27,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        ddmanager = DDTableViewManager(tableView: self.tableView)
+        
+        
     }
 
     override func viewWillAppear(animated: Bool) {

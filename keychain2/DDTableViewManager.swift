@@ -11,8 +11,8 @@ import UIKit
 
 public class DDTableViewManager {
 
-    public var possibleDropTo: ((target:NSIndexPath) -> Bool)?
-    public var beginDrag: ((source:NSIndexPath) -> Bool)?
+    public var isPossibleDropTo: ((target:NSIndexPath) -> Bool)?
+    public var isPossiblebeginDrag: ((source:NSIndexPath) -> Bool)?
     public var dropTo: ((source:NSIndexPath, target:NSIndexPath) -> Void)?
     
     private var tableView:UITableView
@@ -21,8 +21,10 @@ public class DDTableViewManager {
     
     private let viewTag = 99
     
-    private var _longPressRecognizer:UILongPressGestureRecognizer = UILongPressGestureRecognizer()
-    private var _panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer()
+    private var longPressRecognizer:UILongPressGestureRecognizer = UILongPressGestureRecognizer()
+    #if USE_PAN
+    private var panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer()
+    #endif
     
     private var dragView:UIView? {
         get {
@@ -32,11 +34,17 @@ public class DDTableViewManager {
     
     public var enabled:Bool {
         get {
-            return _longPressRecognizer.enabled && _panRecognizer.enabled
+            #if USE_PAN
+            return longPressRecognizer.enabled && panRecognizer.enabled
+            #else
+            return longPressRecognizer.enabled
+            #endif
         }
         set(value) {
-            _longPressRecognizer.enabled = value
-            _panRecognizer.enabled = value
+            longPressRecognizer.enabled = value
+            #if USE_PAN
+            panRecognizer.enabled = value
+            #endif
         }
     }
     
@@ -46,11 +54,16 @@ public class DDTableViewManager {
         
         self.tableView = tableView
      
-        self._longPressRecognizer.addTarget(self, action: "handleLongPress:")
-        self._panRecognizer.addTarget(self, action: "handlePan:")
+        let handleLongPressSelector : Selector = "handleLongPress:"
+        self.longPressRecognizer.addTarget(self, action: handleLongPressSelector )
+        self.tableView.addGestureRecognizer(self.longPressRecognizer)
+
         
-        self.tableView.addGestureRecognizer(self._longPressRecognizer)
-        self.tableView.addGestureRecognizer(self._panRecognizer)
+        #if USE_PAN
+        let handlePanSelector : Selector = "handlePan:"
+        self.panRecognizer.addTarget(self, action: handlePanSelector )
+        self.tableView.addGestureRecognizer(self.panRecognizer)
+        #endif
     }
 
     // MARK:
@@ -58,7 +71,7 @@ public class DDTableViewManager {
     
     private func isPossibleBeginDrag( i:NSIndexPath ) -> Bool {
     
-        guard let bd = beginDrag  else {
+        guard let bd = isPossiblebeginDrag  else {
             return true
         }
         
@@ -74,7 +87,7 @@ public class DDTableViewManager {
             }
         }
    
-        guard let pdt = possibleDropTo else {
+        guard let pdt = isPossibleDropTo else {
             return true
         }
         
@@ -128,6 +141,7 @@ public class DDTableViewManager {
         self.tableView.addSubview(newView)
         self.tableView.bringSubviewToFront(newView)
         
+        newView.center = cell.center;
         
         UIView.animateWithDuration(0.4,
             delay:0.0,
@@ -137,8 +151,6 @@ public class DDTableViewManager {
             },
             completion:{ (finished:Bool) -> Void in
             })
-        
-        newView.center = cell.center;
         
         return newView;
     
@@ -236,6 +248,11 @@ public class DDTableViewManager {
         var selectedIndexPath = self.tableView.indexPathForSelectedRow
         
         if let i = selectedIndexPath  {
+
+            if !self.isPossibleBeginDrag(i) {
+                return;
+            }
+            
             self.tableView.deselectRowAtIndexPath(i, animated:true)
             
             selectedCell = self.tableView.cellForRowAtIndexPath(i)
@@ -249,15 +266,15 @@ public class DDTableViewManager {
             
             if let i = selectedIndexPath  {
                 
+                if !self.isPossibleBeginDrag(i) {
+                    return;
+                }
+                
                 selectedCell = self.tableView.cellForRowAtIndexPath(i)
             }
         }
         
         if let i = selectedIndexPath, let cell = selectedCell {
-        
-            if !self.isPossibleBeginDrag(i) {
-                return;
-            }
         
             self.source = i
 
@@ -333,11 +350,11 @@ public class DDTableViewManager {
     
         self.removeDragView()
         
+        self.source = nil
+        
         if let i = index, let s = source  {
             self.performDropTo(s, target:i)
         }
-        
-        self.source = nil
     
     }
 
@@ -345,7 +362,7 @@ public class DDTableViewManager {
     // MARK:
     // MARK: GestureRecognizer
     
-    func handleLongPress( sender:UIGestureRecognizer) {
+    @objc public func handleLongPress( sender:UIGestureRecognizer) {
         
         switch sender.state {
         case .Began:
@@ -354,6 +371,7 @@ public class DDTableViewManager {
             break;
         case .Changed:
             print("Start Drag Changed")
+            self.moveDrag(sender)
             break;
         case .Ended:
             print("Start Drag Ended")
@@ -373,7 +391,8 @@ public class DDTableViewManager {
         
     }
 
-    func handlePan( sender:UIGestureRecognizer ) {
+    #if USE_PAN
+    @objc public func handlePan( sender:UIGestureRecognizer ) {
         switch sender.state {
         case .Began:
             print("Start Drag Became")
@@ -397,4 +416,5 @@ public class DDTableViewManager {
         }
         
     }
+    #endif
 }
