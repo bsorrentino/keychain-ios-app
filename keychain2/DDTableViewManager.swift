@@ -11,9 +11,9 @@ import UIKit
 
 public class DDTableViewManager {
 
-    public var isPossibleDropTo: ((target:NSIndexPath) -> Bool)?
-    public var isPossiblebeginDrag: ((source:NSIndexPath) -> Bool)?
-    public var dropTo: ((source:NSIndexPath, target:NSIndexPath) -> Void)?
+    public var shouldDropCell: ((target:NSIndexPath) -> Bool)?
+    public var shouldBeginDrag: ((source:NSIndexPath) -> Bool)?
+    public var didDropCell: ((source:NSIndexPath, target:NSIndexPath) -> Void)?
     
     private var tableView:UITableView
 
@@ -69,9 +69,9 @@ public class DDTableViewManager {
     // MARK:
     // MARK: delegate closures
     
-    private func isPossibleBeginDrag( i:NSIndexPath ) -> Bool {
+    private func shouldBeginDrag( i:NSIndexPath ) -> Bool {
     
-        guard let bd = isPossiblebeginDrag  else {
+        guard let bd = shouldBeginDrag  else {
             return true
         }
         
@@ -79,7 +79,7 @@ public class DDTableViewManager {
         
     }
     
-    private func isPossibleDropTo( i:NSIndexPath ) -> Bool {
+    private func shouldDropCell( i:NSIndexPath ) -> Bool {
     
         if let s = source {
             if s.compare(i) == .OrderedSame {
@@ -87,16 +87,16 @@ public class DDTableViewManager {
             }
         }
    
-        guard let pdt = isPossibleDropTo else {
+        guard let pdt = shouldDropCell else {
             return true
         }
         
         return pdt(target: i)
     }
     
-    private func performDropTo( source:NSIndexPath, target:NSIndexPath ) {
+    private func didDropCell( source:NSIndexPath, target:NSIndexPath ) {
         
-        guard let pdt = dropTo else {
+        guard let pdt = didDropCell else {
             return
         }
         
@@ -257,7 +257,7 @@ public class DDTableViewManager {
             return
         }
 
-        if !self.isPossibleBeginDrag(selectedIndexPath) {
+        if !self.shouldBeginDrag(selectedIndexPath) {
                 return;
         }
                     
@@ -285,7 +285,7 @@ public class DDTableViewManager {
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void  in
                     
-                    if self.isPossibleDropTo(i) {
+                    if self.shouldDropCell(i) {
                         
                         self.tableView.selectRowAtIndexPath(i, animated: true, scrollPosition: UITableViewScrollPosition.None)
                     }
@@ -313,8 +313,8 @@ public class DDTableViewManager {
         
         if let i = index  {
         
-            if !self.isPossibleDropTo(i) {
-                self.endDrop(nil)
+            if !self.shouldDropCell(i) {
+                self.drop(nil)
                 return
             }
         }
@@ -323,24 +323,24 @@ public class DDTableViewManager {
         
         UIView.animateWithDuration(0.4,
             delay:0.0,
-            options: .CurveEaseIn,
+            options: UIViewAnimationOptions.CurveEaseIn,
             animations:{ () -> Void in
                 dragView.transform = CGAffineTransformMakeScale(0.2, 0.2);
             },
             completion: {(finished:Bool) -> Void in
-                self.endDrop(index)
+                self.drop(index)
             })
         
     }
     
-    private func endDrop(index:NSIndexPath?) -> Void {
+    private func drop(index:NSIndexPath?) -> Void {
     
         self.removeDragView()
         
         self.source = nil
         
         if let i = index, let s = source  {
-            self.performDropTo(s, target:i)
+            self.didDropCell(s, target:i)
         }
     
     }
