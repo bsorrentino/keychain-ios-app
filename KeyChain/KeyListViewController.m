@@ -132,7 +132,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     UIAlertView *inputView = [UIAlertViewInputSection alertViewWithBlock: ^(UIAlertViewInputSection *alert, NSInteger buttonIndex) {
        
-        NSLog(@"clickedButtonAtIndex [%d]", buttonIndex );
+        NSLog(@"clickedButtonAtIndex [%ld]", buttonIndex );
         
         if (buttonIndex == 1) {
             NSLog(@"clickedButtonAtIndex groupName=[%@] grouPrefix[%@]", alert.groupName, alert.groupPrefix ); 
@@ -212,7 +212,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 #pragma mark - DDTableViewManagerDelegate implementation
 
-//- (BOOL) possibleDropTo:(NSIndexPath *)target 
+//- (BOOL) possibleDropTo:(NSIndexPath *)target
     
 - (BOOL) beginDrag:(NSIndexPath *)from {
     
