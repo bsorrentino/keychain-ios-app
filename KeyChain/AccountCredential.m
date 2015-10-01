@@ -7,7 +7,7 @@
 //
 
 #import "AccountCredential.h"
-#import "SSKeychain.h"
+@import KeychainAccess; // Swift module
 
 @implementation AccountCredential
 @synthesize password;
@@ -55,6 +55,8 @@ static AccountCredential *_sharedInstance;
     
     // Issue 16
 
+    
+#if 0
     NSString *_passwd = [SSKeychain passwordForService:@"it.softphone.keychain" account:@"softphone" error:nil];
     
     if( _passwd == nil ) {
@@ -72,12 +74,16 @@ static AccountCredential *_sharedInstance;
         }
     
     }
+#else
     
+    NSString *_passwd = nil;
+#endif
 	return _passwd;
 }
 
 -(void) setPassword:(NSString *)value {
     
+#if 0
     // Issue 16
     BOOL result = [SSKeychain setPassword:value forService:@"it.softphone.keychain" account:@"softphone"];
 
@@ -91,6 +97,8 @@ static AccountCredential *_sharedInstance;
         [prefs setObject:value forKey:@"pwd"];
         [prefs synchronize];
     }
+#endif
+    
 }
 
 -(NSString*) version {

@@ -39,6 +39,7 @@
 		5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F3439143F315500D9C428 /* ExportViewController.m */; };
 		5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6F343B143F49EC00D9C428 /* usb48x48.png */; };
 		5F6F634A14FE4521004C1337 /* DDTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F634914FE4521004C1337 /* DDTableViewManager.m */; };
+		5F7781861BBD1784007B37B5 /* AccountCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7781851BBD1784007B37B5 /* AccountCredential.swift */; settings = {ASSET_TAGS = (); }; };
 		5F82059D15D4109000862BC2 /* swipeR@18x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F82059C15D4109000862BC2 /* swipeR@18x24.png */; };
 		5F8205A015D4144400862BC2 /* UIPasswordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F82059F15D4144400862BC2 /* UIPasswordLabel.m */; };
 		5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8205A215D41FC600862BC2 /* KeyTableViewCell.m */; };
@@ -163,7 +164,8 @@
 		5F6F343B143F49EC00D9C428 /* usb48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usb48x48.png; sourceTree = "<group>"; };
 		5F6F634814FE4521004C1337 /* DDTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDTableViewManager.h; path = ../DragDrop/DragDrop/DDTableViewManager.h; sourceTree = "<group>"; };
 		5F6F634914FE4521004C1337 /* DDTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDTableViewManager.m; path = ../DragDrop/DragDrop/DDTableViewManager.m; sourceTree = "<group>"; };
-		5F7781831BBD0E1A007B37B5 /* KeyChain-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeyChain-Bridging-Header.h"; sourceTree = "<group>"; };
+		5F7781841BBD1783007B37B5 /* KeyChain-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeyChain-Bridging-Header.h"; sourceTree = "<group>"; };
+		5F7781851BBD1784007B37B5 /* AccountCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCredential.swift; sourceTree = "<group>"; };
 		5F82059C15D4109000862BC2 /* swipeR@18x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swipeR@18x24.png"; sourceTree = "<group>"; };
 		5F82059E15D4144400862BC2 /* UIPasswordLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPasswordLabel.h; sourceTree = "<group>"; };
 		5F82059F15D4144400862BC2 /* UIPasswordLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPasswordLabel.m; sourceTree = "<group>"; };
@@ -324,7 +326,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				5F7781831BBD0E1A007B37B5 /* KeyChain-Bridging-Header.h */,
+				5F7781841BBD1783007B37B5 /* KeyChain-Bridging-Header.h */,
 				28A0AAE50D9B0CCF005BE974 /* KeyChain_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -500,6 +502,7 @@
 			children = (
 				5F251A5E15EF968200A270A6 /* AccountCredential.h */,
 				5F251A5F15EF968200A270A6 /* AccountCredential.m */,
+				5F7781851BBD1784007B37B5 /* AccountCredential.swift */,
 			);
 			name = Security;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = SOFTPHONE;
 				TargetAttributes = {
@@ -814,6 +818,7 @@
 				5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */,
 				5F251A6015EF968200A270A6 /* AccountCredential.m in Sources */,
 				5FC65096160933F1003BC18F /* YISplashScreen.m in Sources */,
+				5F7781861BBD1784007B37B5 /* AccountCredential.swift in Sources */,
 				5FC65097160933F1003BC18F /* YISplashScreen+Migration.m in Sources */,
 				5FC65098160933F1003BC18F /* YISplashScreenAnimation.m in Sources */,
 				5F3486C2160B859C00F2C1A2 /* StringEncryptionTransformer.m in Sources */,
@@ -876,11 +881,14 @@
 				HEADER_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = "KeyChain-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = KeyChain;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "KeyChain-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -905,11 +913,13 @@
 				HEADER_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = "KeyChain-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = KeyChain;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "KeyChain-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
