@@ -1,4 +1,5 @@
 PODS:
+  - KeychainAccess (2.0.0)
   - MTStatusBarOverlay (0.9.1)
   - RNCryptor (1.2)
   - SSKeychain (0.1.4)
@@ -8,6 +9,7 @@ PODS:
   - ZKRevealingTableViewCell (0.1.2)
 
 DEPENDENCIES:
+  - KeychainAccess
   - MTStatusBarOverlay (~> 0.9)
   - RNCryptor (from `.`)
   - SSKeychain (~> 0.1.4)
@@ -27,6 +29,7 @@ EXTERNAL SOURCES:
     :podspec: .
 
 SPEC CHECKSUMS:
+  KeychainAccess: 1e705665a234b3af69d653aaa3c8f696e4a992f1
   MTStatusBarOverlay: 258a1ee369f4dc4b94107d02cfd7f6b1317c421b
   RNCryptor: 6d32a7b8cf010f4635441e0b7266b2c0d4728b5f
   SSKeychain: 5a5b3fdca333015abe3ab50371ffd5fe42a0b4f4
@@ -35,4 +38,4 @@ SPEC CHECKSUMS:
   WEPopover: 3c23b47c67e61ceab993fa7e3e215d87c723172c
   ZKRevealingTableViewCell: e717212944d9ffe7798866d097c7c0ffe4481128
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0.beta.4

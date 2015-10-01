@@ -1,4 +1,9 @@
-platform :ios, "7.0"
+use_frameworks!
+platform :ios, "8.0"
+
+#pod 'KeychainAccess', :git => 'https://github.com/kishikawakatsumi/KeychainAccess.git'
+pod 'KeychainAccess'
+
 pod 'SSKeychain', '~> 0.1.4'
 pod 'MTStatusBarOverlay','~> 0.9'
 

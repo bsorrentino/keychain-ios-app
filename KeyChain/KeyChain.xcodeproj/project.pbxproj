@@ -76,6 +76,7 @@
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
 		5FF9DFF31610EBB9003ABEA0 /* model-1.3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */; };
 		5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754F14E5B06800E3E162 /* KeyListViewController.m */; };
+		830BEB43A4445F84D057DFCF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5078F8982C97BF318D752C05 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0121169142269B2000AA884 /* AVFoundation.framework */; };
 		A02BB725159C4DFA001FD5AA /* back32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB722159C4DFA001FD5AA /* back32x32.png */; };
 		A02BB726159C4DFA001FD5AA /* keychain-desktop-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */; };
@@ -120,6 +121,7 @@
 		28A0AAE50D9B0CCF005BE974 /* KeyChain_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChain_Prefix.pch; sourceTree = "<group>"; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5078F8982C97BF318D752C05 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		578803C0E9C2FF0716C2B4CE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5C5112EA4300461BB01FA835 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F04E6E112E368C800370F50 /* KeyChainLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainLogin.h; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		5F6F343B143F49EC00D9C428 /* usb48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usb48x48.png; sourceTree = "<group>"; };
 		5F6F634814FE4521004C1337 /* DDTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDTableViewManager.h; path = ../DragDrop/DragDrop/DDTableViewManager.h; sourceTree = "<group>"; };
 		5F6F634914FE4521004C1337 /* DDTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDTableViewManager.m; path = ../DragDrop/DragDrop/DDTableViewManager.m; sourceTree = "<group>"; };
+		5F7781831BBD0E1A007B37B5 /* KeyChain-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeyChain-Bridging-Header.h"; sourceTree = "<group>"; };
 		5F82059C15D4109000862BC2 /* swipeR@18x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swipeR@18x24.png"; sourceTree = "<group>"; };
 		5F82059E15D4144400862BC2 /* UIPasswordLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPasswordLabel.h; sourceTree = "<group>"; };
 		5F82059F15D4144400862BC2 /* UIPasswordLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPasswordLabel.m; sourceTree = "<group>"; };
@@ -209,9 +212,7 @@
 		5FE8A80A15F7B15B00F8566F /* TextDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextDataEntryCell.xib; path = Pods/UIXML/TextDataEntryCell.xib; sourceTree = "<group>"; };
 		5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		5FF268EF1B5FA8F9007440E7 /* libPods-RNCryptor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPods-RNCryptor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FF268F11B5FAA1C007440E7 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF268F31B5FAA37007440E7 /* libPods-RNCryptor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPods-RNCryptor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FF268F51B5FAA58007440E7 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF268F71B5FAA6C007440E7 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		5FF78F2E12E5A481008EA886 /* logo-64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-64x64.png"; sourceTree = "<group>"; };
 		5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.3.xcmappingmodel"; sourceTree = "<group>"; };
@@ -274,6 +275,7 @@
 				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
 				5FEA98E512B981950034ADC1 /* libsqlite3.0.dylib in Frameworks */,
 				EFA73FD086874FC8A3CA4E35 /* libPods.a in Frameworks */,
+				830BEB43A4445F84D057DFCF /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,13 +324,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				5F82059C15D4109000862BC2 /* swipeR@18x24.png */,
-				5FC717E615C6EE6F00836CED /* swipeL@18x24.png */,
-				5F084FC015B9641400059E26 /* key22x22.png */,
-				5F18B47715B7016F00F7D82A /* section22x22.png */,
-				5F18B47515B6FA7600F7D82A /* lock22x22.png */,
-				5F544F7313F82E350001A8B5 /* logo-57x57.png */,
-				5FF78F2E12E5A481008EA886 /* logo-64x64.png */,
+				5F7781831BBD0E1A007B37B5 /* KeyChain-Bridging-Header.h */,
 				28A0AAE50D9B0CCF005BE974 /* KeyChain_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -340,6 +336,13 @@
 			children = (
 				5FE8A7FE15F7B10B00F8566F /* UIXML */,
 				A02BB730159C57F8001FD5AA /* WEPopover */,
+				5F82059C15D4109000862BC2 /* swipeR@18x24.png */,
+				5FC717E615C6EE6F00836CED /* swipeL@18x24.png */,
+				5F084FC015B9641400059E26 /* key22x22.png */,
+				5F18B47715B7016F00F7D82A /* section22x22.png */,
+				5F18B47515B6FA7600F7D82A /* lock22x22.png */,
+				5F544F7313F82E350001A8B5 /* logo-57x57.png */,
+				5FF78F2E12E5A481008EA886 /* logo-64x64.png */,
 				A02BB722159C4DFA001FD5AA /* back32x32.png */,
 				5F31B3BD1612E41500AE69CD /* keychain-desktop1024x1024.png */,
 				A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */,
@@ -362,9 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF268F71B5FAA6C007440E7 /* libcommonCrypto.dylib */,
-				5FF268F51B5FAA58007440E7 /* libPods.a */,
 				5FF268F31B5FAA37007440E7 /* libPods-RNCryptor.a */,
-				5FF268F11B5FAA1C007440E7 /* libPods.a */,
 				5FF268EF1B5FA8F9007440E7 /* libPods-RNCryptor.a */,
 				5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */,
 				5F3BD072143B352E00001F01 /* CoreData.framework */,
@@ -377,6 +378,7 @@
 				28860BE40F44EE6400985440 /* CoreData.framework */,
 				5C5112EA4300461BB01FA835 /* libPods.a */,
 				5F4130D6155E7A2A00D96FC4 /* libUIXML.a */,
+				5078F8982C97BF318D752C05 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -614,10 +616,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "KeyChain" */;
 			buildPhases = (
+				C7274CDA38226E44D574C6FD /* Check Pods Manifest.lock */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
 				70C9F0B6C41F47EC9D3ADA67 /* Copy Pods Resources */,
+				A8FABC98558280733A4BE02F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -749,6 +753,36 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 		};
+		A8FABC98558280733A4BE02F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7274CDA38226E44D574C6FD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -824,12 +858,14 @@
 			baseConfigurationReference = 578803C0E9C2FF0716C2B4CE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/xcodeproj.dst;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -839,7 +875,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = "KeyChain-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = KeyChain;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -854,11 +890,13 @@
 			baseConfigurationReference = 66F059C75DF530595DF2A1A2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = KeyChain_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
@@ -866,7 +904,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(inherited)/**";
 				INFOPLIST_FILE = "KeyChain-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = KeyChain;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -888,7 +926,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -908,7 +946,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
