@@ -192,7 +192,8 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
     
     // Override point for customization after application launch.
     // Add the navigation controller's view to the window and display.
-    [window addSubview:navigationController.view];
+    [window setRootViewController:navigationController];
+    //[window addSubview:navigationController.view];
     [window makeKeyAndVisible];
 
     return YES;
