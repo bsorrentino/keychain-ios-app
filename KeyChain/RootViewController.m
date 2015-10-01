@@ -21,8 +21,9 @@
 #import <QuartzCore/CAMediaTimingFunction.h>
 
 #import "YISplashScreen+Migration.h"
-#import "AccountCredential.h"
 #import "StringEncryptionTransformer.h"
+
+#import "Keychain-Swift.h"
 
 @interface RootViewController (Private)
 -(void)insertNewObject;

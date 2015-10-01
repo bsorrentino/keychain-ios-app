@@ -7,10 +7,11 @@
 //
 
 #import "StringEncryptionTransformer.h"
-#import "AccountCredential.h"
 #import "RNCryptor/RNEncryptor.h"
 #import "RNCryptor/RNDecryptor.h"
 #import "KeyEntity+Cryptor.h"
+
+#import "KeyChain-Swift.h"
 
 //const NSStringEncoding _ENCODING = NSUnicodeStringEncoding;
 //const NSStringEncoding _ENCODING = NSUTF8StringEncoding;

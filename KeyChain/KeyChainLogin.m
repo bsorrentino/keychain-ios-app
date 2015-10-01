@@ -8,7 +8,7 @@
 
 #import "KeyChainLogin.h"
 #import "InfoViewController.h"
-#import "AccountCredential.h"
+#import "KeyChain-Swift.h"
 
 #import "WEPopoverController.h"
 

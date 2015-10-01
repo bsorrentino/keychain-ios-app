@@ -7,7 +7,7 @@
 //
 
 #import "KeyEntity+Cryptor.h"
-#import "AccountCredential.h"
+#import "KeyChain-Swift.h"
 #import "RNCryptor/RNEncryptor.h"
 #import "RNCryptor/RNDecryptor.h"
 

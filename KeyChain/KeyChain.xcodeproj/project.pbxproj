@@ -25,7 +25,6 @@
 		5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F17FB961416E9E4007D88F9 /* Localizable.strings */; };
 		5F18B47615B6FA7600F7D82A /* lock22x22.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F18B47515B6FA7600F7D82A /* lock22x22.png */; };
 		5F18B47815B7016F00F7D82A /* section22x22.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F18B47715B7016F00F7D82A /* section22x22.png */; };
-		5F251A6015EF968200A270A6 /* AccountCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F251A5F15EF968200A270A6 /* AccountCredential.m */; };
 		5F2718FC152508E800C5BBA3 /* info34x34.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2718FB152508E800C5BBA3 /* info34x34.png */; };
 		5F27190015250CEB00C5BBA3 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */; };
 		5F27190115250CEB00C5BBA3 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2718FF15250CEB00C5BBA3 /* InfoViewController.xib */; };
@@ -139,8 +138,6 @@
 		5F17FB971416E9E4007D88F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F18B47515B6FA7600F7D82A /* lock22x22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock22x22.png; sourceTree = "<group>"; };
 		5F18B47715B7016F00F7D82A /* section22x22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = section22x22.png; sourceTree = "<group>"; };
-		5F251A5E15EF968200A270A6 /* AccountCredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCredential.h; sourceTree = "<group>"; };
-		5F251A5F15EF968200A270A6 /* AccountCredential.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCredential.m; sourceTree = "<group>"; };
 		5F2718FB152508E800C5BBA3 /* info34x34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info34x34.png; sourceTree = "<group>"; };
 		5F2718FD15250CEB00C5BBA3 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
@@ -500,8 +497,6 @@
 		5FACE35F15B62006007B45FE /* Security */ = {
 			isa = PBXGroup;
 			children = (
-				5F251A5E15EF968200A270A6 /* AccountCredential.h */,
-				5F251A5F15EF968200A270A6 /* AccountCredential.m */,
 				5F7781851BBD1784007B37B5 /* AccountCredential.swift */,
 			);
 			name = Security;
@@ -816,7 +811,6 @@
 				5F052D9415CBEADA00330214 /* OptionPane.m in Sources */,
 				5F8205A015D4144400862BC2 /* UIPasswordLabel.m in Sources */,
 				5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */,
-				5F251A6015EF968200A270A6 /* AccountCredential.m in Sources */,
 				5FC65096160933F1003BC18F /* YISplashScreen.m in Sources */,
 				5F7781861BBD1784007B37B5 /* AccountCredential.swift in Sources */,
 				5FC65097160933F1003BC18F /* YISplashScreen+Migration.m in Sources */,
