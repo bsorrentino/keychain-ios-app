@@ -20,6 +20,10 @@
 #import <QuartzCore/CAAnimation.h>
 #import <QuartzCore/CAMediaTimingFunction.h>
 
+#import "YISplashScreen+Migration.h"
+#import "StringEncryptionTransformer.h"
+
+#import "Keychain-Swift.h"
 
 @interface RootViewController (Private)
 -(void)insertNewObject;
@@ -31,6 +35,8 @@
 @synthesize keyListViewController=keyListViewController_;
 @synthesize exportViewController=exportViewController_;
 @synthesize importViewController=importViewController_;
+@synthesize encryptButton;
+@synthesize decryptButton;
 
 #pragma mark - private implementation
 
@@ -60,9 +66,7 @@
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
-    
     // Edit the sort key as appropriate.
-    
     NSSortDescriptor *sortDescriptor =
     [NSSortDescriptor sortDescriptorWithKey:@"mnemonic" ascending:YES];
     
@@ -131,6 +135,69 @@
     
     //Start the Animation
     [UIView commitAnimations];
+}
+
+
+
+- (IBAction)encrypt:(id)sender {
+
+    __block RootViewController *_self = self;
+    
+    if ([AccountCredential sharedCredential].encryptionEnabled ) {
+        return;
+    }
+    
+    [YISplashScreen show];
+    
+    [YISplashScreen waitForMigration:^{
+        
+        [[_self fetchedObjects] makeObjectsPerformSelector:@selector(encryptPassword)];
+        
+        [AccountCredential sharedCredential].encryptionEnabled = YES;
+        
+        [[_self appDelegate] saveContext ];
+        
+        [_self filterReset:YES];
+        
+    } completion:^{
+        
+        _self.encryptButton.enabled = NO;
+        _self.decryptButton.enabled = YES;
+        
+        [YISplashScreen hide];
+        
+    }];
+
+}
+
+- (IBAction)decrypt:(id)sender {
+    __block RootViewController *_self = self;
+    
+    if (![AccountCredential sharedCredential].encryptionEnabled ) {
+        return;
+    }
+    
+    [YISplashScreen show];
+    
+    [YISplashScreen waitForMigration:^{
+        
+        [[_self fetchedObjects] makeObjectsPerformSelector:@selector(decryptPassword)];
+        
+        [AccountCredential sharedCredential].encryptionEnabled = NO;
+        
+        [[_self appDelegate] saveContext ];
+        
+        [_self filterReset:YES];
+        
+    } completion:^{
+        
+        _self.encryptButton.enabled = YES;
+        _self.decryptButton.enabled = NO;
+
+        [YISplashScreen hide];
+        
+    }];
+    
 }
 
 -(IBAction)export:(id)sender {
@@ -206,6 +273,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.keyListViewController viewWillAppear:animated];
+   
+    self.encryptButton.enabled =
+        ![AccountCredential sharedCredential].encryptionEnabled;
+    self.decryptButton.enabled =
+        [AccountCredential sharedCredential].encryptionEnabled;
 }
 
 /*
@@ -215,12 +287,17 @@
 */
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
-    
+
     [self.keyListViewController setEditing:editing animated:animated];
 }
 
 
 
+- (void)viewDidUnload {
+    [self setEncryptButton:nil];
+    [self setDecryptButton:nil];
+    [super viewDidUnload];
+}
 @end
 
 

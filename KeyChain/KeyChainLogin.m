@@ -7,20 +7,23 @@
 //
 
 #import "KeyChainLogin.h"
-#import "WEPopoverController.h"
 #import "InfoViewController.h"
-#import "AccountCredential.h"
+#import "KeyChain-Swift.h"
+
+#import "WEPopoverController.h"
+
+@import LocalAuthentication;
 
 #define TAG_FOR_LOGIN_BUTTON 5
 
-@interface KeyChainLogin(Private)
+@interface KeyChainLogin()
 
 
 - (BOOL)loginToSystem;
 - (BOOL)changePassword;
-- (void)doModal:(UIViewController *)root;
+- (void)doModal:(UIViewController *)root onLoggedIn:(dispatch_block_t)block;
 - (void)getNewPassword;
-
+- (void)loginUsingTouchID;
 
 @end
 
@@ -37,8 +40,50 @@
 
 #pragma mark - private implementation
 
+
+- (void)loginUsingTouchID {
+    __BLOCKSELF ;
+    
+    if( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0") ) {
+        NSString *p = [AccountCredential sharedCredential].password;
+        if ( p!=nil ) {
+            
+            LAContext *localAuthenticationContext = [[LAContext alloc] init];
+            
+            __autoreleasing NSError *authenticationError;
+            
+            NSString *localizedReasonString = NSLocalizedString(@"Authenticate and log into your account.", @"String to prompt the user why we're using Touch ID.");
+            
+            if([localAuthenticationContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authenticationError]) {
+                [localAuthenticationContext
+                 evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                 localizedReason:localizedReasonString
+                 reply:^(BOOL success, NSError *error) {
+                     if (success) {
+                         NSLog(@"ACCESS GRANTED!");
+                         if( _onLoggedIn ) _onLoggedIn();
+                         
+                         [__self dismissViewControllerAnimated:YES completion:^{
+                             [__self.parent.view setHidden:NO];
+                         }];
+
+                     } else {
+                         //Touch ID failed, check the code property on the error object
+                         NSLog(@"ACCESS DENIED!");
+                     }
+                 }];
+            } else {
+                //Error using Touch ID -- most likely not a TouchID supported device
+                NSLog(@"TOUCHID DEVICE IS NOT PRESENT!");
+            }
+        }
+    }
+    
+}
+
 - (BOOL)loginToSystem {
-	
+    __BLOCKSELF ;
+    
 	NSString *p = [AccountCredential sharedCredential].password;
 	if ( p==nil ) {
 		[AccountCredential sharedCredential].password = txtPassword.text;
@@ -55,12 +100,13 @@
 		return NO;
 		
 	}
-
-	[self.parent.view setHidden:NO];
-	[self.parent dismissModalViewControllerAnimated:YES];
-	
-	//[self.parentViewController.view setHidden:NO];
-	//[[self.parentViewController modalViewController] dismissModalViewControllerAnimated:YES];
+    
+    if( _onLoggedIn ) _onLoggedIn();
+    
+    [self.parent dismissViewControllerAnimated:YES completion:^{
+        [__self.parent.view setHidden:NO];
+    }];
+    
 	return YES;
 }
 
@@ -150,19 +196,25 @@
     
 }
 
-- (void)doModal:(UIViewController *)root {
+- (void)doModal:(UIViewController *)root onLoggedIn:(dispatch_block_t)block
+{
+
+    _onLoggedIn = block;
     
     self.title = @"";
     
     changePasswordStep_ = NONE;
     
-	[root.view setHidden:YES];
+    
+    __block UIViewController *_root = root;
     
 	//self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 	
-    [root presentModalViewController:self animated:YES];
-    
+    //[root presentModalViewController:self animated:YES];
+    [root presentViewController:self animated:YES completion:^{
+        [_root.view setHidden:YES];
+    }];
     self.parent = root;
 }
 
@@ -170,10 +222,13 @@
 #pragma mark - KeyChainLogin 
 
 
-+ (void)doModal:(UIViewController *)root {
++ (void)doModal:(UIViewController *)root onLoggedIn:(dispatch_block_t)block {
     
-    KeyChainLogin *login = [[KeyChainLogin alloc] initWithNibName:@"KeyChainLogin" bundle:nil] ;
-    [login	doModal:root];
+    __block KeyChainLogin *login = [[KeyChainLogin alloc] initWithNibName:@"KeyChainLogin" bundle:nil] ;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [login	doModal:root onLoggedIn:block];
+    });
     
 }
 
@@ -201,7 +256,7 @@
 		
         InfoViewController *contentViewController = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
 		
-        contentViewController.contentSizeForViewInPopover = CGSizeMake(270, 300);
+        contentViewController.preferredContentSize = CGSizeMake(270, 300);
         
         self.popoverController = [[WEPopoverController alloc] initWithContentViewController:contentViewController];
 		
@@ -272,18 +327,35 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    __BLOCKSELF ;
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if ( [[AccountCredential sharedCredential] checkAndUpdateCurrentVersion] ) {
+            
+            [__self info:__self.btnInfo];
+        }
+    });
+    
+   
+    
+}
+
 //
 -(void)viewDidAppear:(BOOL)animated {
 
-    __block KeyChainLogin *_self = self;
+    [super viewDidAppear:animated];
     
+    __BLOCKSELF ;
+
     dispatch_async(dispatch_get_main_queue(), ^{
-       
-        if ( [[AccountCredential sharedCredential] checkAndUpdateCurrentVersion] ) {
-            
-            [_self info:_self.btnInfo];
-        }
+        [__self loginUsingTouchID];
     });
+    
+
     
 }
 

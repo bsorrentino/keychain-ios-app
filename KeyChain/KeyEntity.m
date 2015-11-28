@@ -16,7 +16,10 @@ static NSString * _IS_NEW = @"isNew";
 
 @synthesize sectionId;
 @dynamic mnemonic;
-@dynamic group, groupPrefix;
+@dynamic group;
+@dynamic groupPrefix;
+@dynamic password;
+@dynamic note;
 
 
 #pragma mark -

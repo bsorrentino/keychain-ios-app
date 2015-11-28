@@ -4,40 +4,55 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>MTStatusBarOverlay.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RNCryptor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SSKeychain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>STAlertView-STAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>STAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIXML.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>WEPopover.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ZKRevealingTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>11C1E6B1C5484AEB9595CD28</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>13647F2326CCC9565134D688FFFC3535</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2253BB2245774735B36EAE21</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4833078604284287952E1A80</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4B436DB54DD243CDB8EC89FA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>57685D75D5DA4BCEBC053050</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,17 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>813A15C31BAF4269AAE770A2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>97E87C3A42F51FD863BC25176A5A5210</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B1D3EC87109F493A85EE8862</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,7 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2A9867A31874F42BF0996BC</key>
+		<key>D346BD8B0FBFD8F6B4CD6502A0F64F34</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAC32A57643713F06A5CE91E66677C3A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FCB0FC1BDC2673D1DF6374AB6BAA74E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class WEPopoverController;
 
 typedef enum {
@@ -33,6 +34,7 @@ typedef enum {
     // POPOVER SECTION
 	WEPopoverController *popoverController;
     
+    dispatch_block_t _onLoggedIn;
 }
 
 @property (nonatomic,unsafe_unretained) UIViewController *parent;
@@ -46,6 +48,6 @@ typedef enum {
 - (IBAction)login:(id)sender;
 - (IBAction)info:(id)sender;
 
-+ (void)doModal:(UIViewController *)root ;
++ (void)doModal:(UIViewController *)root onLoggedIn:(dispatch_block_t)block;
 
 @end

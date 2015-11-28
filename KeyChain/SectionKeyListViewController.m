@@ -25,6 +25,8 @@
 #import <QuartzCore/CAMediaTimingFunction.h>
 #import "ZKRevealingTableViewCell/ZKRevealingTableViewCell.h"
 
+#import "KeyTableViewCell.h"
+
 static NSString *SEARCH_CRITERIA =
     @"(groupPrefix != nil AND group != nil AND groupPrefix == %@ AND group == YES)";
 
@@ -417,13 +419,12 @@ static NSString *SEARCH_CRITERIA =
     //cell.detailTextLabel.text = managedObject.groupPrefix;
    
     
-    if ([cell isKindOfClass:[ZKRevealingTableViewCell class]]) {
+    if ([cell isKindOfClass:[KeyTableViewCell class]]) {
         
-        ZKRevealingTableViewCell *revealCell = (ZKRevealingTableViewCell *)cell;
+        KeyTableViewCell *revealCell = (KeyTableViewCell *)cell;
         
-        UILabel *label = (UILabel *)[revealCell.backView viewWithTag:1];
+        revealCell.entity = managedObject;
         
-        label.text = [managedObject valueForKey:@"password"];
         
     }
 
@@ -459,7 +460,7 @@ static NSString *SEARCH_CRITERIA =
     
     ZKRevealingTableViewCell *cell = nil;
     
-    NSLog(@"groupPrefix [%@]", managedObject.groupPrefix);
+   // NSLog(@"groupPrefix [%@]", managedObject.groupPrefix);
     
     NSAssert([managedObject isGrouped], @"Only grouped cell canbe displayed here!");
     
@@ -556,7 +557,7 @@ static NSString *SEARCH_CRITERIA =
     if (sectionArray.count > section ) {
         id <NSFetchedResultsSectionInfo> sectionInfo = [sectionArray objectAtIndex:section];	
         
-        NSLog(@"titleForHeaderInSection section:[%d] [%@]", section, sectionInfo.name );
+        //NSLog(@"titleForHeaderInSection section:[%d] [%@]", section, sectionInfo.name );
         
         return sectionInfo.name;
     }

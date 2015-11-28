@@ -10,12 +10,13 @@
 #import "KeyChainAppDelegate.h"
 #import "AttributeInfo.h"
 #import <AVFoundation/AVAudioPlayer.h>
+#import <STAlertView/STAlertView.h>
 
 #define TRACE_ENTER( m ) NSLog( @"enter in [%@]", @#m )
 
 NSString * const regularExpression = @"(.*)@(.*)";
 
-@interface MailListDataEntryCell(Private) 
+@interface MailListDataEntryCell()
 
 @end
 
@@ -66,7 +67,9 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 
 
-@interface MailListDataViewController(Private) 
+@interface MailListDataViewController()
+    @property (nonatomic, strong) STAlertView *mailAlertView;
+
 
 - (void)insertNewObject;
 - (PersistentAppDelegate *) appDelegate;
@@ -84,7 +87,6 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 
 @implementation MailListDataViewController
-
 @synthesize cell=cell_;
 @synthesize fetchedResultsController=fetchedResultsController_;
 
@@ -174,7 +176,7 @@ NSString * const regularExpression = @"(.*)@(.*)";
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     NSUInteger result =  [sectionInfo numberOfObjects];
    
-    NSLog( @"numberOfObjectsInSection:%d=%d", section, result);
+    NSLog( @"numberOfObjectsInSection:%ld=%lu", (long)section, (unsigned long)result);
     
     return result;
 }
@@ -260,58 +262,49 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 - (void) insertNewObject
 {
-    ;
+
+    __BLOCKSELF;
+    
+    self.mailAlertView = [[STAlertView alloc] initWithTitle:NSLocalizedString(@"ListDataEntryCell.alertTitle", @"add new Item")
+                                                    message:@""
+                                              textFieldHint:@""
+                                             textFieldValue:nil
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Store"
+                        
+                                          cancelButtonBlock:^{
+                                              NSLog(@"cancel mail");
+                                              
+                                            }
+                                           otherButtonBlock:^(NSString * result){
+                                               
+                                               [__self insertManagedObject:result];
+
+                                           }];
+    
+#if 0
 	UIAlertView *alert = [[UIAlertView alloc] 
 						  initWithTitle: NSLocalizedString(@"ListDataEntryCell.alertTitle", @"add new Item") 
-						  message:NSLocalizedString(@"ListDataEntryCell.alertMessage", @"add item message") 
+						  message:nil //NSLocalizedString(@"ListDataEntryCell.alertMessage", @"add item message")
 						  delegate:self
 						  cancelButtonTitle:@"Cancel"
 						  otherButtonTitles:@"OK", nil];
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+        [alert setValue:self.textMail forKey:@"accessoryView"];
+    }
+    else {
+        [alert addSubview:self.textMail];
+    }
     
-	// Name field
-    UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)]; 
-    tf.tag = 100;
-    tf.keyboardType = UIKeyboardTypeEmailAddress;
-    tf.placeholder = NSLocalizedString(@"ListDataEntryCell.alertPlaceholder", @"add item placeholder");
-    [tf setBackgroundColor:[UIColor whiteColor]]; 
-	tf.clearButtonMode = UITextFieldViewModeWhileEditing;
-	tf.keyboardType = UIKeyboardTypeAlphabet;
-	tf.keyboardAppearance = UIKeyboardAppearanceAlert;
-	tf.autocapitalizationType = UITextAutocapitalizationTypeWords;
-	tf.autocorrectionType = UITextAutocorrectionTypeNo;
-    [tf becomeFirstResponder];
-    [alert addSubview:tf];	
-
     //CGAffineTransform transform = CGAffineTransformMakeTranslation(0.0, 80.0);
     //[alert setTransform:transform];
     
 	[alert show];
+#endif
+    
     
 	
 }
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex==1 ) {
-        UITextField *tf = (UITextField*)[alertView viewWithTag:100];
-        
-        [self insertManagedObject:tf.text];
-        
-        //NSInteger count = [self numberOfObjectsInSection:0];
-        
-        //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:count inSection:0];
-        //NSArray *indexs = [[NSArray alloc] initWithObjects:indexPath, nil];
-        
-        //[self.tableView insertRowsAtIndexPaths:indexs withRowAnimation:YES];
-        
-        //[indexs release];
-    }
-    //[alertView release];
-}
-
-
 
 #pragma mark - NSFetchedResultsController
 

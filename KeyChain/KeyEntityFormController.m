@@ -7,7 +7,7 @@
 //
 
 #import "KeyEntityFormController.h"
-#import "KeyEntity.h"
+#import "KeyEntity+Cryptor.h"
 #import "BaseDataEntryCell.h"
 #import "TextDataEntryCell.h"
 #import "KeyChainAppDelegate.h"
@@ -15,11 +15,11 @@
 
 @interface KeyEntityFormController( /*Private*/ )
 
--(void) handleLongPress:(UILongPressGestureRecognizer *)gesture;
+- (void) handleLongPress:(UILongPressGestureRecognizer *)gesture;
 - (void)copyToClipboard:(BaseDataEntryCell*)cell;
 - (void)playClick;
 - (void) setupLongGesture:(BaseDataEntryCell *)cell;
-
+- (BOOL) isPassword:(BaseDataEntryCell *)cell;
 @property (assign) BOOL valid;
 
 @end
@@ -31,6 +31,10 @@
 
 #pragma mark - private implementation
 
+- (BOOL) isPassword:(BaseDataEntryCell *)cell
+{
+    return [cell.dataKey compare:@"password"]==NSOrderedSame ;
+}
 
 -(void)setValid:(BOOL)valid
 {
@@ -207,19 +211,35 @@
         [KeyChainAppDelegate showMessagePopup:[NSString stringWithFormat:@"value for field [%@] is not valid!", cell.dataKey] title:@"error"];
         
         
-		[cell setControlValue:[entity_ valueForKey:cell.dataKey]];
+        if( [self isPassword:cell]  ) {
+            [cell setControlValue:[entity_ getPasswordDecrypted] ];
+        }
+        else {
+            [cell setControlValue:[entity_ valueForKey:cell.dataKey]];
+        }
 	}
-	else {	 
-		[entity_ setValue:value forKey:cell.dataKey];
+	else {
+        if( [self isPassword:cell]  ) {
+            [entity_ setPasswordToEncrypt:value];
+        }
+        else {
+            [entity_ setValue:value forKey:cell.dataKey];
+        }
 	}
 }
 
 -(void)cellControlDidInit:(BaseDataEntryCell *)cell cellData:(NSDictionary *)cellData {
 	
-	id value = [entity_ valueForKey:cell.dataKey];
-	NSLog(@"[%@].cellControlDidInit [%@]", cell.dataKey, value  );
+	NSLog(@"[%@].cellControlDidInit ", cell.dataKey  );
 	
-	[cell setControlValue:value];	
+    if( [self isPassword:cell]  ) {
+        [cell setControlValue:[entity_ getPasswordDecrypted] ];
+        
+    }
+    else {
+        id value = [entity_ valueForKey:cell.dataKey];
+        [cell setControlValue:value];
+    }
 }
 
 -(void)cellControlDidLoad:(BaseDataEntryCell *)cell cellData:(NSDictionary *)cellData {

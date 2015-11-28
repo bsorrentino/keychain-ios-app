@@ -12,11 +12,6 @@
 
 - (void)awakeFromNib
 {
-
-    NSLog(@"awakeFromNib");
-    
-    self.transform = CGAffineTransformMakeRotation( -M_PI );
-
 }
 
 - (id)initWithFrame:(CGRect)frame

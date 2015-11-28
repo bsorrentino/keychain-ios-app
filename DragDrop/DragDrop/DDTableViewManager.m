@@ -11,14 +11,26 @@
 #import <QuartzCore/CALayer.h>
 
 
-@interface DDTableViewManager(Private)
+@interface DDTableViewManager() {
+    
+    NSIndexPath *source_;
+    
+    UILongPressGestureRecognizer *longPressRecognizer_;
+    UIPanGestureRecognizer *panRecognizer_;
+    
+    UITableView *tableView_;
+    
+    dispatch_queue_t scrolling_queue;
+    
+}
+
 
 -(UITableViewCell *)cellForRowAtPoint:(CGPoint)point ;
 -(UITableViewCell *)findTappedCell:(UIGestureRecognizer *)recognizer __attribute__((deprecated));;
 
--(void)beginDrag:recognizer:(UIGestureRecognizer *)recognizer;
--(void)moveDrag:recognizer:(UIGestureRecognizer *)recognizer;
--(void)endDrag:recognizer:(UIGestureRecognizer *)recognizer;
+-(void)beginDrag:(UIGestureRecognizer *)recognizer;
+-(void)moveDrag:(UIGestureRecognizer *)recognizer;
+-(void)endDrag:(UIGestureRecognizer *)recognizer;
 - (void)endDrop:(NSIndexPath *)i;
 
 - (BOOL)isLastRow:(NSIndexPath *)index;
@@ -39,7 +51,7 @@
 // DELEGATE 
 -(BOOL)isPossibleBeginDrag:(NSIndexPath *)i;
 -(BOOL)isPossibleDropTo:(NSIndexPath *)i;
--(void)performDropTo:(NSIndexPath *)i;
+-(void)performDropTo:(NSIndexPath *)from target:(NSIndexPath *)target;
 
 @end
 
@@ -178,9 +190,8 @@
     //[self.tableView insertSubview:newView atIndex:1];
     [self.tableView bringSubviewToFront:newView];
     
-#if !_USE_ARC        
-#endif        
-    
+    newView.center = cell.center;
+        
     [UIView animateWithDuration:0.4
                           delay:0.0
                         options: UIViewAnimationCurveLinear
@@ -198,8 +209,6 @@
     
     [UIView commitAnimations];
 */
-    
-    newView.center = cell.center;
     
     return newView;
 
@@ -251,38 +260,31 @@
 -(void)beginDrag:(UIGestureRecognizer *)recognizer 
 {
     
-    
-    UITableViewCell *cell = nil;
-    
-    
-    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-    
-    if (selectedIndexPath==nil) {
-        
-        CGPoint tPoint = [recognizer locationInView:self.tableView];
-       
-        selectedIndexPath = [self.tableView indexPathForRowAtPoint:tPoint];
-        
-        if( selectedIndexPath != nil ) {
+    NSIndexPath *prevSelectedIndexPath = [self.tableView indexPathForSelectedRow];
 
-            cell = [self.tableView cellForRowAtIndexPath:selectedIndexPath];
-        }
+    if (prevSelectedIndexPath==nil) {
+        [self.tableView deselectRowAtIndexPath:prevSelectedIndexPath animated:YES];
     }
-    else {
-                
-        [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
+
+    CGPoint tPoint = [recognizer locationInView:self.tableView];
+
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForRowAtPoint:tPoint];
+    
+    if (selectedIndexPath!=nil && ![self isPossibleBeginDrag:selectedIndexPath] ) {
+        return;
+    }
+
+    UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:selectedIndexPath];
+    
+    if( selectedCell != nil ) {
+
+        [self setSource:selectedIndexPath];
         
-        cell = [self.tableView cellForRowAtIndexPath:selectedIndexPath];
+        
+        [self dragViewFromCell:selectedCell recognizer:recognizer];
         
     }
-    
-    
-    if( ![self isPossibleBeginDrag:selectedIndexPath] ) return;
   
-    [self setSource:selectedIndexPath];
-    
-    
-    [self dragViewFromCell:cell recognizer:recognizer];
 }
 
 - (BOOL)checkForScrolling:(NSIndexPath *)i 
@@ -562,9 +564,8 @@
 
 
 - (void)dealloc {
-#if !_USE_ARC    
+#if !__has_feature(objc_arc)
     dispatch_release(scrolling_queue);
-    
 #endif
 }
 

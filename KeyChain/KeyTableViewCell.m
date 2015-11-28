@@ -1,4 +1,4 @@
-//
+    //
 //  KeyTableViewCell.m
 //  KeyChain
 //
@@ -7,6 +7,7 @@
 //
 
 #import "KeyTableViewCell.h"
+#import "KeyEntity+Cryptor.h"
 
 @interface KeyTableViewCell ()
 
@@ -16,6 +17,7 @@
 
 @implementation KeyTableViewCell
 @synthesize imageCached;
+@synthesize entity;
 
 #pragma mark - Lifecycle
 
@@ -23,6 +25,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        self.entity = nil;
         //self.imageView.image = self.imageCached;
         self.contentView.backgroundColor = [UIColor whiteColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -37,6 +40,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.entity = nil;
         //self.imageView.image = self.imageCached;
         self.contentView.backgroundColor = [UIColor whiteColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -83,5 +87,47 @@
 }
 //- (void)didTransitionToState:(UITableViewCellStateMask)state __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0);
 
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    BOOL result = [super gestureRecognizerShouldBegin:gestureRecognizer];
+
+    if( result ) {
+        
+        __block UILabel *label = (UILabel *)[self.backView viewWithTag:1];
+        if( label!=nil ) {
+
+            label.transform = CGAffineTransformMakeScale(0.01, 0.01);
+            [UIView animateWithDuration:0.5
+                                  delay:0.0
+                                options:0
+                             animations:^() {
+                                 label.transform = CGAffineTransformMakeRotation( -M_PI );
+                             }
+                             completion:^(BOOL finished) {
+                                 if( !finished) return;
+                                 NSString *pwd = [entity getPasswordDecrypted];
+                                 label.text = [pwd stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]; //[entity getPasswordDecrypted];
+
+                             }];
+
+    /*
+            double delayInSeconds = .25;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UILabel *label = (UILabel *)[self.backView viewWithTag:1];
+                    if( label != nil )
+                        label.text = [entity getPasswordDecrypted];
+                    
+                });
+            });
+    */
+        }
+    }
+    
+	return result;
+}
 
 @end

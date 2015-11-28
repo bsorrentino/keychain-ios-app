@@ -8,12 +8,17 @@
 
 #import "KeyChainAppDelegate.h"
 #import "RootViewController.h"
+#import "KeyListViewController.h"
 #import "KeyChainLogin.h"
 
-@implementation KeyChainAppDelegate
+@implementation KeyChainAppDelegate {
+    
+    BOOL _alreadyBecomeActive;
+}
 
 @synthesize window;
 @synthesize navigationController;
+@synthesize rootViewController;
 
 #pragma mark class methods
 
@@ -187,7 +192,8 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
     
     // Override point for customization after application launch.
     // Add the navigation controller's view to the window and display.
-    [window addSubview:navigationController.view];
+    [window setRootViewController:navigationController];
+    //[window addSubview:navigationController.view];
     [window makeKeyAndVisible];
 
     return YES;
@@ -199,6 +205,8 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
      Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
      Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
      */
+    
+    NSLog(@"applicationWillResignActive");
 }
 
 
@@ -207,6 +215,11 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
      */
+    NSLog(@"applicationDidEnterBackground");
+
+    _alreadyBecomeActive = NO;
+    
+    
     [self saveContext];
 }
 
@@ -215,28 +228,27 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
     /*
      Called as part of  transition from the background to the inactive state: here you can undo many of the changes made on entering the background.
      */
+    NSLog(@"applicationWillEnterForeground");
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 
-    /*
-	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Title" message:@"Message" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-	[alert show];
-	[alert release];
-	 */
-	/*
-     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-     */
+    __BLOCKSELF;
     
-    /*
-	KeyChainLogin *login = [[KeyChainLogin alloc] initWithNibName:@"KeyChainLogin" bundle:nil] ;
-	[login	doModal:navigationController];
+    static dispatch_once_t onceToken;
+  
+    NSLog( @"applicationDidBecomeActive state [%ld]", application.applicationState );
 	
-	[login release];
-	*/
-	
-	[KeyChainLogin	doModal:navigationController];
+    if( !_alreadyBecomeActive ) {
+        [KeyChainLogin	doModal:navigationController onLoggedIn:^{
+            
+            dispatch_once(&onceToken, ^{
+                [__self.rootViewController.keyListViewController filterReset:YES];
+            });
+        }];
+        _alreadyBecomeActive = YES;
+    }
 }
 
 

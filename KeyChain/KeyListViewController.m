@@ -23,6 +23,7 @@
 #import "ZKRevealingTableViewCell/ZKRevealingTableViewCell.h"
 
 #import "SectionKeyListViewController.h"
+#import "KeyTableViewCell.h"
 
 #define TOOLBAR_TAG 20
 #define SWIPEBACK_TAG 21
@@ -131,7 +132,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     UIAlertView *inputView = [UIAlertViewInputSection alertViewWithBlock: ^(UIAlertViewInputSection *alert, NSInteger buttonIndex) {
        
-        NSLog(@"clickedButtonAtIndex [%d]", buttonIndex );
+        NSLog(@"clickedButtonAtIndex [%ld]", buttonIndex );
         
         if (buttonIndex == 1) {
             NSLog(@"clickedButtonAtIndex groupName=[%@] grouPrefix[%@]", alert.groupName, alert.groupPrefix ); 
@@ -211,7 +212,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 #pragma mark - DDTableViewManagerDelegate implementation
 
-//- (BOOL) possibleDropTo:(NSIndexPath *)target 
+//- (BOOL) possibleDropTo:(NSIndexPath *)target
     
 - (BOOL) beginDrag:(NSIndexPath *)from {
     
@@ -712,7 +713,10 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     dd_ = [[DDTableViewManager alloc ] initFromTableView:self.tableView]; dd_.delegate = self;
     
-    [self filterReset:YES];
+    //
+    // Keep to much time at startup
+    //
+    //[self filterReset:YES];
     
 
 }
@@ -780,12 +784,12 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             cell.detailTextLabel.text = @"";
         }
 
-        if ([cell isKindOfClass:[ZKRevealingTableViewCell class]]) {
+        if ([cell isKindOfClass:[KeyTableViewCell class]]) {
 
-            ZKRevealingTableViewCell *revealCell = (ZKRevealingTableViewCell *)cell;
+            KeyTableViewCell *revealCell = (KeyTableViewCell *)cell;
             
-            UILabel *label = (UILabel *)[revealCell.backView viewWithTag:1];
-            label.text = [managedObject valueForKey:@"password"];
+            revealCell.entity = managedObject;
+            
         }
         
         cell.textLabel.text = [managedObject.mnemonic description];
@@ -804,11 +808,15 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if( self.fetchedResultsController == nil ) return 0;
+    
     return [[self.fetchedResultsController sections] count];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if( self.fetchedResultsController == nil ) return 0;
+
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
 }
@@ -824,7 +832,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     UITableViewCell *cell = nil;
     
-    NSLog(@"groupPrefix [%@]", managedObject.groupPrefix);
+    //NSLog(@"groupPrefix [%@]", managedObject.groupPrefix);
     
     if ( [managedObject isSection] ) {
         
@@ -918,7 +926,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     if (sectionArray.count > section ) {
         id <NSFetchedResultsSectionInfo> sectionInfo = [sectionArray objectAtIndex:section];	
         
-        NSLog(@"titleForHeaderInSection section:[%d] [%@]", section, sectionInfo.name );
+        //NSLog(@"titleForHeaderInSection section:[%d] [%@]", section, sectionInfo.name );
         
         return sectionInfo.name;
     }
@@ -1021,7 +1029,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
 - (NSFetchedResultsController *)fetchedResultsController {
     
-    NSAssert( fetchedResultsController_ != nil, @"fetched result controller is nil!");
+    //NSAssert( fetchedResultsController_ != nil, @"fetched result controller is nil!");
     
     return fetchedResultsController_;
 }    
@@ -1158,7 +1166,6 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             
             [fetchRequest setPredicate:predicate];
         }
-        
         
         // Set the batch size to a suitable number.
         [fetchRequest setFetchBatchSize:20];

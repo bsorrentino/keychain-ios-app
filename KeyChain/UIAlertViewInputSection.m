@@ -32,27 +32,30 @@ static UIAlertViewInputSection *currentDelegate;
     currentDelegate.clickedButtonAtIndexBlock = clickedButtonAtIndexBlock;
     
     
-    UIAlertView *alert_ = [[UIAlertView alloc] 
+    UIAlertView *alert = [[UIAlertView alloc]
               initWithTitle:NSLocalizedString(@"AlertViewInputSection.alertTitle", @"add new Item")
               message:NSLocalizedString(@"AlertViewInputSection.alertMessage", @"add item message") 
               delegate:currentDelegate
               cancelButtonTitle:@"Cancel"
               otherButtonTitles:@"OK", nil];
-    // Name field
-    UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)]; 
-    tf.tag = 100;
-    tf.keyboardType = UIKeyboardTypeEmailAddress;
-    tf.placeholder = NSLocalizedString(@"AlertViewInputSection.alertPlaceholder", @"add item placeholder");
-    [tf setBackgroundColor:[UIColor whiteColor]]; 
-    tf.clearButtonMode = UITextFieldViewModeWhileEditing;
-    tf.keyboardType = UIKeyboardTypeAlphabet;
-    tf.keyboardAppearance = UIKeyboardAppearanceAlert;
-    tf.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters; //UITextAutocapitalizationTypeWords;
-    tf.autocorrectionType = UITextAutocorrectionTypeNo;
-    [tf becomeFirstResponder];
-    [alert_ addSubview:tf];	
     
-    return alert_;
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField * alertTextField = [alert textFieldAtIndex:0];
+    // Name field
+    //UITextField *alertTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
+    //alertTextField.tag = 100;
+    alertTextField.keyboardType = UIKeyboardTypeEmailAddress;
+    alertTextField.placeholder = NSLocalizedString(@"AlertViewInputSection.alertPlaceholder", @"add item placeholder");
+    [alertTextField setBackgroundColor:[UIColor whiteColor]];
+    alertTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    alertTextField.keyboardType = UIKeyboardTypeAlphabet;
+    alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+    alertTextField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters; //UITextAutocapitalizationTypeWords;
+    alertTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    //[alertTextField becomeFirstResponder];
+    //[alert_ addSubview:tf];
+    
+    return alert;
     
 }
 
@@ -80,10 +83,11 @@ static UIAlertViewInputSection *currentDelegate;
         if (alert == nil ) {
             return;
         }
+    
+        UITextField *alertTextField = [alert textFieldAtIndex:0];
+        //UITextField *alertTextField = (UITextField*)[alert viewWithTag:100];
         
-        UITextField *tf = (UITextField*)[alert viewWithTag:100];
-        
-        NSString *trimmed = [tf.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *trimmed = [alertTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
         if( [trimmed length] == 0 ) {
             return ;
