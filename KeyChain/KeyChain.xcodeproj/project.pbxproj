@@ -38,7 +38,7 @@
 		5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F3439143F315500D9C428 /* ExportViewController.m */; };
 		5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6F343B143F49EC00D9C428 /* usb48x48.png */; };
 		5F6F634A14FE4521004C1337 /* DDTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F634914FE4521004C1337 /* DDTableViewManager.m */; };
-		5F7781861BBD1784007B37B5 /* AccountCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7781851BBD1784007B37B5 /* AccountCredential.swift */; settings = {ASSET_TAGS = (); }; };
+		5F7781861BBD1784007B37B5 /* AccountCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7781851BBD1784007B37B5 /* AccountCredential.swift */; };
 		5F82059D15D4109000862BC2 /* swipeR@18x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F82059C15D4109000862BC2 /* swipeR@18x24.png */; };
 		5F8205A015D4144400862BC2 /* UIPasswordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F82059F15D4144400862BC2 /* UIPasswordLabel.m */; };
 		5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8205A215D41FC600862BC2 /* KeyTableViewCell.m */; };
@@ -876,6 +876,7 @@
 				INFOPLIST_FILE = "KeyChain-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.softphone.keychain;
 				PRODUCT_NAME = KeyChain;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -908,6 +909,7 @@
 				INFOPLIST_FILE = "KeyChain-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.softphone.keychain;
 				PRODUCT_NAME = KeyChain;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

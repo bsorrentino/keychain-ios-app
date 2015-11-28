@@ -90,9 +90,17 @@
     return [NSData class];
 }
 
-- (id)transformedValue:(NSData*)data
+- (id)transformedValue:(id)data
 {
-    return data;
+    if( data ) {
+        if ([data isKindOfClass:[NSString class]]) {
+            return [data dataUsingEncoding:NSUTF8StringEncoding];
+        }
+        else if ([data isKindOfClass:[NSData class]]) {
+            return data;
+        }
+    }
+    return nil;
 }
 
 - (id)reverseTransformedValue:(NSData*)data

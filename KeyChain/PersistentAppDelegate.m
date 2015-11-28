@@ -159,37 +159,44 @@
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"AttributeInfo" inManagedObjectContext:self.managedObjectContext];
     
-    NSLog(@"AttributeInfo entity name [%@] abstract [%d] count[%d]", 
+    NSUInteger count = [[entity properties] count];
+    
+    NSLog(@"AttributeInfo entity name [%@] abstract [%d] count[%lu]", 
           entity.name, 
           [entity isAbstract], 
-          [[entity properties] count]  );
+           (unsigned long)count);
     
         
     entity = [NSEntityDescription entityForName:@"KeyInfo" inManagedObjectContext:self.managedObjectContext];
     
-    NSLog(@"KeyInfo entity name [%@] abstract [%d] count[%d]", 
+    NSLog(@"KeyInfo entity name [%@] abstract [%d] count[%lu]", 
           entity.name, 
           [entity isAbstract], 
-          [[entity properties] count]  );
+          (unsigned long)count  );
 
 }
 
 
 - (void)saveContext {
     
-    NSError *error = nil;
     if (managedObjectContext_ != nil) {
-        if ([managedObjectContext_ hasChanges] && ![managedObjectContext_ save:&error]) {
-            /*
-             Replace this implementation with code to handle the error appropriately.
-             
-             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-             */
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 
+        
+        if ([managedObjectContext_ hasChanges] ) {
+            
+            NSError *error = nil;
+            if( ![managedObjectContext_ save:&error]) {
+        
+                /*
+                 Replace this implementation with code to handle the error appropriately.
+                 
+                 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+                 */
+                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                abort();
+            }
+        }
     }
-}    
+}
 
 #pragma mark -
 #pragma mark Core Data stack
