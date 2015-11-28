@@ -1,0 +1,27 @@
+{
+  "name": "ZKRevealingTableViewCell",
+  "version": "0.1.2",
+  "license": "MIT",
+  "summary": "A Sparrow-style Implementation of Swipe-To-Reveal. (bsorrentino fork)",
+  "homepage": "https://github.com/alexzielenski/ZKRevealingTableViewCell",
+  "authors": {
+    "Alex Zielenski": "support@alexzielenski.com",
+    "bsorrentino": "bartolomeo.sorrentino@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/bsorrentino/ZKRevealingTableViewCell.git",
+    "tag": "0.1.2"
+  },
+  "description": "A different kind of swipe-to-reveal that pans with your finger and works left and right to reveal a background view.",
+  "platforms": {
+    "ios": null
+  },
+  "source_files": "vendor",
+  "exclude_files": [
+    "ZKRevealingTableViewCell",
+    "ZKRevealingTableViewCell.xcodeproj",
+    "Preview.png"
+  ],
+  "frameworks": "QuartzCore",
+  "requires_arc": true
+}

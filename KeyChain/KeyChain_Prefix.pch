@@ -1,0 +1,50 @@
+//
+// Prefix header for all source files of the 'KeyChain' target in the 'KeyChain' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iPhone SDK 3.0 and later."
+#endif
+
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+    #import <CoreData/CoreData.h>
+#endif
+
+
+#ifndef KEYCHAIN_STRONG
+#   if __has_feature(objc_arc)
+#       define KEYCHAIN_STRONG strong
+#   else
+#       define KEYCHAIN_STRONG retain
+#   endif
+#   define __KEYCHAIN_STRONG
+#endif
+
+#ifndef KEYCHAIN_WEAK
+#if __has_feature(objc_arc_weak)
+#   define KEYCHAIN_WEAK weak
+#   define __KEYCHAIN_WEAK __weak
+#elif __has_feature(objc_arc)
+#   define KEYCHAIN_WEAK unsafe_unretained
+#   define __KEYCHAIN_WEAK __unsafe_unretained
+#else
+#   define KEYCHAIN_WEAK assign
+#   define __KEYCHAIN_WEAK
+#endif
+
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+
+#define __BLOCKSELF \
+__typeof(self) __weak __self = self
+
+#endif
