@@ -1,0 +1,6 @@
+framework module STAlertView {
+  umbrella header "STAlertView-umbrella.h"
+
+  export *
+  module * { export * }
+}

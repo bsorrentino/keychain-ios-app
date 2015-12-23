@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'KeyChainTests' target in the 'KeyChainTests' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif

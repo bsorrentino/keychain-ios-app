@@ -1,0 +1,28 @@
+{
+  "name": "RNCryptor",
+  "version": "1.2",
+  "license": "MIT",
+  "platforms": {
+    "ios": null
+  },
+  "summary": "CCCryptor (AES encryption) wrappers for iOS and Mac",
+  "description": "CCCryptor (AES encryption) wrappers for iOS and Mac",
+  "homepage": "https://github.com/rnapier/RNCryptor",
+  "authors": {
+    "bsorrentino": " bartolomeo.sorrentino@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/rnapier/RNCryptor.git",
+    "commit": "a0a29e4341ea643a83fb180b74fac5e5d234d97b"
+  },
+  "source_files": "RNCryptor/*.{h,m}",
+  "frameworks": "Security",
+  "exclude_files": [
+    "RNCryptor.xcodeproj",
+    "RNCryptorTests",
+    "README.md",
+    "test.enc",
+    "AppledocSettings.plist"
+  ],
+  "requires_arc": true
+}
