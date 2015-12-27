@@ -78,6 +78,20 @@ import KeychainAccess
         }
         
     }
+
+    var versionNumber:UInt {
+        get {
+            let prefs = NSUserDefaults.standardUserDefaults()
+            return UInt(prefs.integerForKey("ver#"))
+        }
+        
+        set(value) {
+            let prefs = NSUserDefaults.standardUserDefaults()
+            prefs.setInteger( Int(value), forKey:"ver#")
+            prefs.synchronize()
+        }
+        
+    }
     
     var bundleVersion:String? {
         get {
@@ -98,11 +112,29 @@ import KeychainAccess
         {
     
             self.version = bv
-    
+            self.versionNumber = UInt(CFBundleGetVersionNumber(CFBundleGetMainBundle()))
+            
             return true
         }
     
         return false
+    }
+
+    // check if currentVersion is different to bundleVersion
+    // exec callback if are differents
+    func checkCurrentVersion( cb:( prev:UInt, next:UInt ) -> Void ) -> AccountCredential
+    {
+        let prev = self.versionNumber
+        let next = UInt(CFBundleGetVersionNumber(CFBundleGetMainBundle()))
+      
+        if( prev < next  )
+        {
+            
+            cb( prev:prev, next:next )
+            
+        }
+        
+        return self
     }
     
     override init() {

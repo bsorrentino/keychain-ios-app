@@ -8,6 +8,7 @@
 
 #import "PersistentAppDelegate.h"
 #import "OptionPane.h"
+#import "KeyChain-Swift.h"
 
 #ifndef _PERSISTENT_APP_NAME 
 #define _PERSISTENT_APP_NAME "MyApp"
@@ -271,7 +272,15 @@
                 ;
     }
     else {
-        NSLog(@"schema is compatible.");        
+        NSLog(@"schema is compatible.");
+        
+        [[AccountCredential sharedCredential] checkCurrentVersion:^(NSUInteger prev, NSUInteger next) {
+           
+            if (prev == 0) {
+                
+                //@TODO  MIGRATE ENCRYPTED KEYS TO KEYCHAIN
+            }
+        }];
     }
 
     
@@ -354,7 +363,7 @@
         
         NSArray *result = [aFetchedResultsController fetchedObjects];
 
-        NSLog(@"findKeyEntityByName fetchedObjects #[%d]", [result count]);
+        NSLog(@"findKeyEntityByName fetchedObjects #[%lu]", (unsigned long)[result count]);
 
         return ( [result count] > 0 ) ? [result lastObject] : nil;
 
