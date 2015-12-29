@@ -260,7 +260,9 @@
 
     NSDictionary *options = nil;
     
-    if (![self isSchemaCompatible:persistentStoreCoordinator_]) {
+    BOOL schemaIsCompatible = [self isSchemaCompatible:persistentStoreCoordinator_];
+    
+    if (!schemaIsCompatible) {
         NSLog(@"schema is not compatible. try lightweight migration");        
         //
         // DATA MIGRATION
@@ -273,18 +275,9 @@
     }
     else {
         NSLog(@"schema is compatible.");
-        
-        [[AccountCredential sharedCredential] checkCurrentVersion:^(NSUInteger prev, NSUInteger next) {
-           
-            if (prev == 0) {
-                
-                //@TODO  MIGRATE ENCRYPTED KEYS TO KEYCHAIN
-            }
-        }];
     }
-
-    
-    if (![persistentStoreCoordinator_ 
+ 
+    if (![persistentStoreCoordinator_
           addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) 
     {
         
@@ -314,7 +307,23 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }    
+
     
+    if( schemaIsCompatible ) {
+
+        //MIGRATE ENCRYPTED KEYS TO KEYCHAIN
+        
+        [[AccountCredential sharedCredential] checkCurrentVersion:^(NSUInteger prev, NSUInteger next) {
+            
+            if (next == 0) {
+                
+                [KeyEntity2 copyPasswordToKeychain:self.managedObjectContext];
+            }
+        }];
+    }
+    
+    
+
     return persistentStoreCoordinator_;
 }
 

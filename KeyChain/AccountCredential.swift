@@ -11,7 +11,6 @@ import KeychainAccess
 
 @objc class AccountCredential : NSObject {
     
-    static let KeychainService = "it.softphone.keychain"
     
     static private var _sharedCredential:AccountCredential?
     
@@ -43,7 +42,7 @@ import KeychainAccess
     
     var password:String?  {
         get {
-            let keychain = Keychain(service: AccountCredential.KeychainService)
+            let keychain = Keychain(service: bundleId)
             
             if let token = try? keychain.getString("pwd") { return token }
             return nil
@@ -53,7 +52,7 @@ import KeychainAccess
             
             if let v = value  {
                 
-                let keychain = Keychain(service: AccountCredential.KeychainService)
+                let keychain = Keychain(service: bundleId)
                 
                 try! keychain
                     .accessibility(.WhenUnlocked)
@@ -93,6 +92,13 @@ import KeychainAccess
         
     }
     
+    var bundleId:String {
+        get {
+            return CFBundleGetIdentifier(CFBundleGetMainBundle()) as String
+        }
+        
+    }
+    
     var bundleVersion:String? {
         get {
             return  NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String
@@ -104,16 +110,13 @@ import KeychainAccess
     // return YES if are differents
     func checkAndUpdateCurrentVersion() -> Bool
     {
-        guard let v = self.version, let bv = self.bundleVersion else {
+        guard let bv = self.bundleVersion else {
             return false
         }
         
-        if( v.compare(bv, options:.CaseInsensitiveSearch) != .OrderedSame )
-        {
-    
+        if( self.version == nil || bv.compare(self.version!, options:.CaseInsensitiveSearch) != .OrderedSame ){
             self.version = bv
             self.versionNumber = UInt(CFBundleGetVersionNumber(CFBundleGetMainBundle()))
-            
             return true
         }
     
@@ -127,13 +130,8 @@ import KeychainAccess
         let prev = self.versionNumber
         let next = UInt(CFBundleGetVersionNumber(CFBundleGetMainBundle()))
       
-        if( prev < next  )
-        {
+        cb( prev:prev, next:next )
             
-            cb( prev:prev, next:next )
-            
-        }
-        
         return self
     }
     
