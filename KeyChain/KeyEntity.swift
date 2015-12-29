@@ -30,8 +30,8 @@ import KeychainAccess
     
     @NSManaged var mnemonic:String
     @NSManaged var groupPrefix:String?
-    @NSManaged var group:NSNumber?;
-    @NSManaged var password:NSData;
+    @NSManaged var group:NSNumber?
+    @NSManaged var password:NSData
     @NSManaged var note:String
     
     
@@ -62,23 +62,36 @@ import KeychainAccess
         }
     }
     
-    var password2:String {
+    var password2:String? {
         
         get {
             let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
             
-            let data =  try! keychain.getData(self.mnemonic)!
+            if let data =  try! keychain.getData(self.mnemonic) {
+
+                return String(data:data, encoding:NSUTF8StringEncoding)
+                
+            }
             
-            return String(data:data, encoding:NSUTF8StringEncoding)!
+            return nil
         }
         set(value) {
             
-            let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
-            try! keychain
-                .accessibility(.WhenUnlocked)
-                .set(value.dataUsingEncoding(NSUTF8StringEncoding)!, key: self.mnemonic)
-
+            if let v = value {
+                let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
+                try! keychain
+                    .accessibility(.WhenUnlocked)
+                    .set(v.dataUsingEncoding(NSUTF8StringEncoding)!, key: self.mnemonic)
+                
+                if self.isNew {
+                    invalidatePasswordField()
+                }
+            }
         }
+    }
+    
+    private func invalidatePasswordField() {
+        self.password = "***".dataUsingEncoding(NSUTF8StringEncoding)!
     }
 
     //MARK: Grouping section
@@ -217,6 +230,8 @@ import KeychainAccess
                         try! Keychain(service: AccountCredential.sharedCredential.bundleId)
                             .accessibility(.WhenUnlocked)
                             .set(data, key: key)
+                        
+                        kk.invalidatePasswordField()
                     }
                     
                 })
