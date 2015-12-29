@@ -8,7 +8,6 @@
 
 #import "PersistentAppDelegate.h"
 #import "OptionPane.h"
-#import "KeyChain-Swift.h"
 
 #ifndef _PERSISTENT_APP_NAME 
 #define _PERSISTENT_APP_NAME "MyApp"
@@ -317,7 +316,7 @@
             
             if (next == 0) {
                 
-                [KeyEntity2 copyPasswordToKeychain:self.managedObjectContext];
+                [KeyEntity copyPasswordToKeychain:self.managedObjectContext];
             }
         }];
     }

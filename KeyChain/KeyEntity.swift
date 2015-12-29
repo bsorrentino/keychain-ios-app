@@ -10,7 +10,23 @@ import Foundation
 import CoreData
 import KeychainAccess
 
-@objc class KeyEntity2 : NSManagedObject {
+@objc class StringEncryptionTransformer : NSValueTransformer {
+
+    override class func transformedValueClass() -> AnyClass {
+        return NSData.self as AnyClass
+    }
+    override func transformedValue(value: AnyObject?) -> AnyObject? // by default returns value
+    {
+        return value
+    }
+    
+    override func reverseTransformedValue(value: AnyObject?) -> AnyObject? // by default raises an exception if +allowsReverseTransformation
+    {
+        return value
+    }
+}
+
+@objc class KeyEntity : NSManagedObject {
     
     @NSManaged var mnemonic:String
     @NSManaged var groupPrefix:String?
@@ -26,7 +42,7 @@ import KeychainAccess
     var isNew:Bool {
     
         get {
-            let value = self.primitiveValueForKey(KeyEntity2._IS_NEW)!.boolValue
+            let value = self.primitiveValueForKey(KeyEntity._IS_NEW)!.boolValue
             
             return value;
             
@@ -37,13 +53,33 @@ import KeychainAccess
     var sectionId:String? {
     
         get {
-            let k = self.valueForKey(KeyEntity2._MNEMONIC)
+            if let k = self.valueForKey(KeyEntity._MNEMONIC) {
             
-            return k!.substringWithRange(NSMakeRange( 0, 1))
+                return k.substringWithRange(NSMakeRange(0,1))
+            }
             
+            return nil
         }
     }
     
+    var password2:String {
+        
+        get {
+            let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
+            
+            let data =  try! keychain.getData(self.mnemonic)!
+            
+            return String(data:data, encoding:NSUTF8StringEncoding)!
+        }
+        set(value) {
+            
+            let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
+            try! keychain
+                .accessibility(.WhenUnlocked)
+                .set(value.dataUsingEncoding(NSUTF8StringEncoding)!, key: self.mnemonic)
+
+        }
+    }
 
     //MARK: Grouping section
     
@@ -66,18 +102,18 @@ import KeychainAccess
     
     static let _REGEXP = "(\\w+[-@/])(\\w+)"
     
-    static func isSectionAware( key:KeyEntity2 ) -> Bool {
+    static func isSectionAware( key:KeyEntity ) -> Bool {
         
         let predicate = NSPredicate(format: "SELF.mnemonic MATCHES %@", _REGEXP)
         
         return predicate.evaluateWithObject(key)
     }
     
-    static func getSectionPrefix( key:KeyEntity2, checkIfIsSectionAware:Bool ) -> NSRange {
+    static func getSectionPrefix( key:KeyEntity, checkIfIsSectionAware:Bool ) -> NSRange {
     
         var result = NSMakeRange(NSNotFound, 0)
         
-        if( !checkIfIsSectionAware || KeyEntity2.isSectionAware(key) ) {
+        if( !checkIfIsSectionAware || KeyEntity.isSectionAware(key) ) {
         
             do {
                 let pattern = try NSRegularExpression(pattern: _REGEXP, options:.CaseInsensitive)
@@ -134,7 +170,7 @@ import KeychainAccess
 
     static func createSection(  groupKey:String,
                                 groupPrefix:String,
-                                inContext context:NSManagedObjectContext) -> KeyEntity2?
+                                inContext context:NSManagedObjectContext) -> KeyEntity?
     {
     
         guard let entity = NSEntityDescription.entityForName("KeyInfo", inManagedObjectContext:context) else {
@@ -145,7 +181,7 @@ import KeychainAccess
             return nil
         }
             
-        guard let cloned = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext:context) as? KeyEntity2 else {
+        guard let cloned = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext:context) as? KeyEntity else {
             return nil
         }
         
@@ -165,9 +201,9 @@ import KeychainAccess
                 
         do {
 
-            if let result = try context.executeFetchRequest(fetchRequest) as? [NSManagedObject] {
+            if let result = try context.executeFetchRequest(fetchRequest) as? [KeyEntity] {
              
-                result.forEach({ (kk:NSManagedObject) -> () in
+                result.forEach({ (kk:KeyEntity) -> () in
 
                     guard   let data = kk.valueForKey("password") as? NSData,
                             let key = kk.valueForKey("mnemonic") as? String else {
@@ -178,9 +214,7 @@ import KeychainAccess
                     
                         print("key:\(key) password:\(password)")
                     
-                        let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
-                    
-                        try! keychain
+                        try! Keychain(service: AccountCredential.sharedCredential.bundleId)
                             .accessibility(.WhenUnlocked)
                             .set(data, key: key)
                     }
@@ -215,7 +249,7 @@ import KeychainAccess
         
         var k1:String?
     
-        if ( o is KeyEntity2 ) {
+        if ( o is KeyEntity ) {
     
             k1 = o.mnemonic;
     
@@ -224,7 +258,7 @@ import KeychainAccess
     
             let d = o as! NSDictionary
             
-            k1 = d.valueForKey(KeyEntity2._MNEMONIC) as? String
+            k1 = d.valueForKey(KeyEntity._MNEMONIC) as? String
     
         }
         else if( o is String ) {
@@ -243,14 +277,14 @@ import KeychainAccess
     
     override func awakeFromFetch() {
     
-        self.setPrimitiveValue(NSNumber(bool:false), forKey:KeyEntity2._IS_NEW)
+        self.setPrimitiveValue(NSNumber(bool:false), forKey:KeyEntity._IS_NEW)
     
     }
     
     
     override func didSave() {
         
-        self.setPrimitiveValue(NSNumber(bool:false), forKey:KeyEntity2._IS_NEW)
+        self.setPrimitiveValue(NSNumber(bool:false), forKey:KeyEntity._IS_NEW)
     }
     
     //MARK: Serialization
@@ -263,7 +297,7 @@ import KeychainAccess
     
         self.entity.attributesByName.forEach { (key:String, attribute:NSAttributeDescription) -> () in
             
-            if key == KeyEntity2._IS_NEW {
+            if key == KeyEntity._IS_NEW {
                 
                 if let value = self.valueForKey(key) {
                     
@@ -283,7 +317,7 @@ import KeychainAccess
     
         self.entity.attributesByName.forEach { (key:String, attribute:NSAttributeDescription) -> () in
         
-            if key == KeyEntity2._IS_NEW {
+            if key == KeyEntity._IS_NEW {
 
                 if let value = s.valueForKey(key) {
                     

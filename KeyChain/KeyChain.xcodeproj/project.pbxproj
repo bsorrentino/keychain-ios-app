@@ -33,9 +33,7 @@
 		5F30A4841610E3AD005BAE36 /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F30A47F1610E3AD005BAE36 /* KeyChain.xcdatamodeld */; };
 		5F31B3BE1612E41500AE69CD /* keychain-desktop1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F31B3BD1612E41500AE69CD /* keychain-desktop1024x1024.png */; };
 		5F31B3C01612E8BC00AE69CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F31B3BF1612E8BC00AE69CD /* Default@2x.png */; };
-		5F3486C2160B859C00F2C1A2 /* StringEncryptionTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */; };
 		5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F544F7313F82E350001A8B5 /* logo-57x57.png */; };
-		5F66446D1611B80D00800259 /* KeyEntity+Cryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66446C1611B80D00800259 /* KeyEntity+Cryptor.m */; };
 		5F6C47811535C4F20092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
 		5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F3439143F315500D9C428 /* ExportViewController.m */; };
 		5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6F343B143F49EC00D9C428 /* usb48x48.png */; };
@@ -45,7 +43,6 @@
 		5F8205A015D4144400862BC2 /* UIPasswordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F82059F15D4144400862BC2 /* UIPasswordLabel.m */; };
 		5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8205A215D41FC600862BC2 /* KeyTableViewCell.m */; };
 		5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */; };
-		5FA3A4C112DC7730009BE36C /* KeyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BB12DC7730009BE36C /* KeyEntity.m */; };
 		5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */; };
 		5FA3A4C312DC7730009BE36C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BF12DC7730009BE36C /* RootViewController.m */; };
 		5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */; };
@@ -163,13 +160,9 @@
 		5F30A4831610E3AD005BAE36 /* KeyChain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KeyChain.xcdatamodel; sourceTree = "<group>"; };
 		5F31B3BD1612E41500AE69CD /* keychain-desktop1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keychain-desktop1024x1024.png"; sourceTree = "<group>"; };
 		5F31B3BF1612E8BC00AE69CD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		5F3486C0160B859C00F2C1A2 /* StringEncryptionTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncryptionTransformer.h; sourceTree = "<group>"; };
-		5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryptionTransformer.m; sourceTree = "<group>"; };
 		5F3BD072143B352E00001F01 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5F4130D6155E7A2A00D96FC4 /* libUIXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIXML.a; path = "../../../APPLE/build/Release-iphoneos/libUIXML.a"; sourceTree = "<group>"; };
 		5F544F7313F82E350001A8B5 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-57x57.png"; sourceTree = "<group>"; };
-		5F66446B1611B80D00800259 /* KeyEntity+Cryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeyEntity+Cryptor.h"; sourceTree = "<group>"; };
-		5F66446C1611B80D00800259 /* KeyEntity+Cryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KeyEntity+Cryptor.m"; sourceTree = "<group>"; };
 		5F6C47801535C4F20092F552 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5F6F3438143F315500D9C428 /* ExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportViewController.h; sourceTree = "<group>"; };
 		5F6F3439143F315500D9C428 /* ExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportViewController.m; sourceTree = "<group>"; };
@@ -186,8 +179,6 @@
 		5F8B67EA14471B7E00A767AE /* KeyListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListDataSource.h; sourceTree = "<group>"; };
 		5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainAppDelegate.h; sourceTree = "<group>"; };
 		5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainAppDelegate.m; sourceTree = "<group>"; };
-		5FA3A4BA12DC7730009BE36C /* KeyEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyEntity.h; sourceTree = "<group>"; };
-		5FA3A4BB12DC7730009BE36C /* KeyEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyEntity.m; sourceTree = "<group>"; };
 		5FA3A4BC12DC7730009BE36C /* PersistentAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentAppDelegate.h; sourceTree = "<group>"; };
 		5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentAppDelegate.m; sourceTree = "<group>"; };
 		5FA3A4BE12DC7730009BE36C /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -457,12 +448,6 @@
 				5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */,
 				A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */,
 				5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */,
-				5FA3A4BA12DC7730009BE36C /* KeyEntity.h */,
-				5FA3A4BB12DC7730009BE36C /* KeyEntity.m */,
-				5F3486C0160B859C00F2C1A2 /* StringEncryptionTransformer.h */,
-				5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */,
-				5F66446B1611B80D00800259 /* KeyEntity+Cryptor.h */,
-				5F66446C1611B80D00800259 /* KeyEntity+Cryptor.m */,
 				5F0006D61C312424002BD9EC /* KeyEntity.swift */,
 			);
 			name = datamodel;
@@ -854,7 +839,6 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */,
-				5FA3A4C112DC7730009BE36C /* KeyEntity.m in Sources */,
 				5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */,
 				5FA3A4C312DC7730009BE36C /* RootViewController.m in Sources */,
 				5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */,
@@ -879,10 +863,8 @@
 				5F7781861BBD1784007B37B5 /* AccountCredential.swift in Sources */,
 				5FC65097160933F1003BC18F /* YISplashScreen+Migration.m in Sources */,
 				5FC65098160933F1003BC18F /* YISplashScreenAnimation.m in Sources */,
-				5F3486C2160B859C00F2C1A2 /* StringEncryptionTransformer.m in Sources */,
 				5F30A4841610E3AD005BAE36 /* KeyChain.xcdatamodeld in Sources */,
 				5FF9DFF31610EBB9003ABEA0 /* model-1.3.xcmappingmodel in Sources */,
-				5F66446D1611B80D00800259 /* KeyEntity+Cryptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
