@@ -7,7 +7,6 @@
 //
 
 #import "KeyTableViewCell.h"
-#import "KeyEntity+Cryptor.h"
 
 @interface KeyTableViewCell ()
 
@@ -107,7 +106,7 @@
                              }
                              completion:^(BOOL finished) {
                                  if( !finished) return;
-                                 NSString *pwd = [entity getPasswordDecrypted];
+                                 NSString *pwd = entity.password2;
                                  label.text = [pwd stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]; //[entity getPasswordDecrypted];
 
                              }];

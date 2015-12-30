@@ -10,7 +10,6 @@
 #import <CoreData/CoreData.h>
 #import "UIXMLFormViewControllerDelegate.h"
 #import "KeyEntityFormController.h"
-#import "KeyEntity+Cryptor.h"
 #import "KeyListDataSource.h"
 
 @class KeyEntityFormController;

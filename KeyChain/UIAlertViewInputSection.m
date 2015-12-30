@@ -7,7 +7,6 @@
 //
 
 #import "UIAlertViewInputSection.h"
-#import "KeyEntity.h"
 
 @interface UIAlertViewInputSection (/*Private*/) 
 

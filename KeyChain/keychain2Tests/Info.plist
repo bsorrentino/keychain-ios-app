@@ -3,32 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
-	<key>CFBundleDisplayName</key>
-	<string>keychain</string>
+	<string>en</string>
 	<key>CFBundleExecutable</key>
-	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>logo-57x57.png</string>
+	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>it.softphone.keychain</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>keychain</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
-	<string>APPL</string>
+	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2.0.0</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>NSMainNibFile</key>
-	<string>MainWindow</string>
-	<key>UIFileSharingEnabled</key>
-	<true/>
+	<string>1</string>
 </dict>
 </plist>

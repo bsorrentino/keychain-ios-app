@@ -9,7 +9,6 @@
 #import "ImportViewController.h"
 #import "PersistentAppDelegate.h"
 #import "KeyChainAppDelegate.h"
-#import "KeyEntity.h"
 #import "WaitMaskController.h"
 
 @interface ImportViewController(Private)
