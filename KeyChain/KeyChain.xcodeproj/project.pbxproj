@@ -99,7 +99,6 @@
 		A02BB74E159C5829001FD5AA /* popoverBgSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB73F159C5829001FD5AA /* popoverBgSimple.png */; };
 		A0759F2114305DBE000701EF /* settings20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A0759F2014305DBE000701EF /* settings20x20.png */; };
 		A082214A19F45FE300FC7BFD /* WEPopover.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214919F45FE300FC7BFD /* WEPopover.podspec */; };
-		A082214E19F4649700FC7BFD /* RNCryptor.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214B19F4649700FC7BFD /* RNCryptor.podspec */; };
 		A082214F19F4649700FC7BFD /* UIXML.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214C19F4649700FC7BFD /* UIXML.podspec */; };
 		A082215019F4649700FC7BFD /* ZKRevealingTableViewCell.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */; };
 		A083A17A1435CB9B0032B285 /* changePwd24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = A083A1791435CB9B0032B285 /* changePwd24x24.png */; };
@@ -249,7 +248,6 @@
 		A02BB73F159C5829001FD5AA /* popoverBgSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popoverBgSimple.png; path = Pods/WEPopover/popoverBgSimple.png; sourceTree = "<group>"; };
 		A0759F2014305DBE000701EF /* settings20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings20x20.png; sourceTree = "<group>"; };
 		A082214919F45FE300FC7BFD /* WEPopover.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WEPopover.podspec; sourceTree = "<group>"; };
-		A082214B19F4649700FC7BFD /* RNCryptor.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RNCryptor.podspec; sourceTree = "<group>"; };
 		A082214C19F4649700FC7BFD /* UIXML.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIXML.podspec; sourceTree = "<group>"; };
 		A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZKRevealingTableViewCell.podspec; sourceTree = "<group>"; };
 		A083A1791435CB9B0032B285 /* changePwd24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changePwd24x24.png; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				A082214B19F4649700FC7BFD /* RNCryptor.podspec */,
 				A082214C19F4649700FC7BFD /* UIXML.podspec */,
 				A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */,
 				A082214919F45FE300FC7BFD /* WEPopover.podspec */,
@@ -719,7 +716,6 @@
 				5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */,
 				5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */,
 				5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */,
-				A082214E19F4649700FC7BFD /* RNCryptor.podspec in Resources */,
 				A0FD0E4F14168462009C7257 /* MailListDataEntryCell.xib in Resources */,
 				5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */,
 				A0759F2114305DBE000701EF /* settings20x20.png in Resources */,
