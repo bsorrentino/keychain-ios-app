@@ -311,14 +311,16 @@
     if( schemaIsCompatible ) {
 
         //MIGRATE ENCRYPTED KEYS TO KEYCHAIN
-        
+    
+        /*
         [[AccountCredential sharedCredential] checkCurrentVersion:^(NSUInteger prev, NSUInteger next) {
             
             if (next == 0) {
                 
-                [KeyEntity copyPasswordToKeychain:self.managedObjectContext];
+                [KeyEntity copyPasswordsToKeychain:self.managedObjectContext];
             }
         }];
+        */
     }
     
     

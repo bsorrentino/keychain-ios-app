@@ -90,6 +90,13 @@ import KeychainAccess
         }
     }
     
+    var passwordFieldInvalid:Bool {
+        get {
+            let p = String(data: self.password,encoding:NSUTF8StringEncoding)
+            
+            return p == "***"
+        }
+    }
     private func invalidatePasswordField() {
         self.password = "***".dataUsingEncoding(NSUTF8StringEncoding)!
     }
@@ -208,7 +215,8 @@ import KeychainAccess
         return cloned
     }
     
-    static func copyPasswordToKeychain( context:NSManagedObjectContext ) {
+    // Copy all passwords to KeyChain and invalidate related password fields
+    static func copyPasswordsToKeychain( context:NSManagedObjectContext ) {
         
         let fetchRequest = NSFetchRequest(entityName: "KeyInfo")
                 
@@ -218,27 +226,43 @@ import KeychainAccess
              
                 result.forEach({ (kk:KeyEntity) -> () in
 
-                    guard   let data = kk.valueForKey("password") as? NSData,
-                            let key = kk.valueForKey("mnemonic") as? String else {
-                        return
-                    }
-                    
-                    if let password = NSString(data:data, encoding:NSUTF8StringEncoding) as? String {
-                    
-                        print("key:\(key) password:\(password)")
-                    
-                        try! Keychain(service: AccountCredential.sharedCredential.bundleId)
-                            .accessibility(.WhenUnlocked)
-                            .set(data, key: key)
-                        
-                        kk.invalidatePasswordField()
-                    }
+                    copyPasswordToKeychain( kk )
                     
                 })
             }
         }
         catch let error as NSError {
             print( "error perform fetch \(error.userInfo)")
+        }
+        
+    }
+    
+    // Copy single password to KeyChain and invalidate related password field
+    static func copyPasswordToKeychain( kk:KeyEntity ) {
+        
+        
+        guard   let data = kk.valueForKey("password") as? NSData,
+            let key = kk.valueForKey("mnemonic") as? String else {
+                return
+        }
+
+        do {
+            
+
+            if let password = NSString(data:data, encoding:NSUTF8StringEncoding) as? String {
+                
+                print("key:\(key) password:\(password)")
+                
+                try Keychain(service: AccountCredential.sharedCredential.bundleId)
+                    .accessibility(.WhenUnlocked)
+                    .set(data, key: key)
+                
+                kk.invalidatePasswordField()
+            }
+        
+        }
+        catch let error as NSError {
+            print( "error putting in keychain key \(key) - \(error.userInfo)")
         }
         
         

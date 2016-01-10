@@ -172,13 +172,21 @@
                 NSDictionary *d = [result objectAtIndex:i];
                 [entity fromDictionary:d];
                 
+                
+                // MIGRATE ENCRYPTED KEY TO KEYCHAIN
+                if (entity.passwordFieldInvalid) {
+                
+                    [KeyEntity copyPasswordToKeychain:entity];
+                }
+                
+                
                 NSLog(@"mnemonic = [%@]", entity.mnemonic);
             }
             
             [[self appDelegate] saveContext];
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import" 
-                                    message:[NSString stringWithFormat:@"Completed\n deleted [%d]\n added [%d]!", [keyList count], [result count]-1 ]
+                                    message:[NSString stringWithFormat:@"Completed\n deleted [%lu]\n added [%lu]!", (unsigned long)[keyList count], [result count]-1 ]
                                     delegate:self 
                                     cancelButtonTitle:@"OK" 
                                     otherButtonTitles:@"Delete File", nil];
