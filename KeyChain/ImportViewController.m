@@ -174,7 +174,7 @@
                 
                 
                 // MIGRATE ENCRYPTED KEY TO KEYCHAIN
-                if (entity.passwordFieldInvalid) {
+                if (!entity.passwordFieldInvalid) {
                 
                     [KeyEntity copyPasswordToKeychain:entity];
                 }
@@ -383,7 +383,7 @@
     
     NSString *fileName = [fileArray_ objectAtIndex:indexPath.row];
     
-    NSLog(@"clickedButtonAtIndex [%d] [%@]", buttonIndex, fileName );
+    NSLog(@"clickedButtonAtIndex [%ld] [%@]", (long)buttonIndex, fileName );
     
     switch (buttonIndex) {
         case IMPORT_REPLACEALL:

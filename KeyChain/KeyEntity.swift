@@ -336,13 +336,13 @@ import KeychainAccess
     
         self.entity.attributesByName.forEach { (key:String, attribute:NSAttributeDescription) -> () in
             
-            if key == KeyEntity._IS_NEW {
+            if( key == KeyEntity._IS_NEW ) { return; }
                 
-                if let value = self.valueForKey(key) {
-                    
-                    t.setObject(value, forKey: key)
-                }
+            if let value = self.valueForKey(key) {
+                
+                t.setObject(value, forKey: key)
             }
+        
             
         }
         return t;
@@ -356,13 +356,13 @@ import KeychainAccess
     
         self.entity.attributesByName.forEach { (key:String, attribute:NSAttributeDescription) -> () in
         
-            if key == KeyEntity._IS_NEW {
+            if( key == KeyEntity._IS_NEW ) { return; }
 
-                if let value = s.valueForKey(key) {
-                    
-                    self.setValue(value, forKey: key)
-                }
+            if let value = s.valueForKey(key) {
+                
+                self.setValue(value, forKey: key)
             }
+            
         }
     }
 
