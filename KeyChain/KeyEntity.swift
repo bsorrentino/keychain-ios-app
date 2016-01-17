@@ -31,14 +31,15 @@ import KeychainAccess
     @NSManaged var mnemonic:String
     @NSManaged var groupPrefix:String?
     @NSManaged var group:NSNumber?
-    @NSManaged var password:NSData
     @NSManaged var note:String
     
     
     
-    static let _MNEMONIC = "mnemonic"
-    static let _IS_NEW = "isNew"
+    static let _MNEMONIC    = "mnemonic"
+    static let _PASSWORD    = "password"
+    static let _IS_NEW      = "isNew"
 
+    //@TRANSIENT
     var isNew:Bool {
     
         get {
@@ -48,6 +49,55 @@ import KeychainAccess
             
         }
     
+    }
+    
+    //@TRANSIENT
+    var password:NSData? {
+        
+        get {
+            let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
+            
+            if let data =  try! keychain.getData(self.mnemonic) {
+                
+                return data
+                //return String(data:data, encoding:NSUTF8StringEncoding)
+                
+            }
+            
+            return nil
+        }
+        set(value) {
+            
+            if let v = value {
+                let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
+                try! keychain
+                    .accessibility(.WhenUnlocked)
+                    .set(v, key: self.mnemonic)
+                //.set(v.dataUsingEncoding(NSUTF8StringEncoding)!, key: self.mnemonic)
+                
+            }
+        }
+    }
+    
+    var passwordAsString:String? {
+        
+        get {
+            guard let p = self.password else {
+                return nil
+            }
+            return String(data:p, encoding:NSUTF8StringEncoding)
+                
+        }
+        set(value) {
+            
+            if let v = value, let d = v.dataUsingEncoding(NSUTF8StringEncoding) {
+                let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
+                try! keychain
+                    .accessibility(.WhenUnlocked)
+                    .set(d, key: self.mnemonic)
+                
+            }
+        }
     }
     
     var sectionId:String? {
@@ -62,44 +112,6 @@ import KeychainAccess
         }
     }
     
-    var password2:String? {
-        
-        get {
-            let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
-            
-            if let data =  try! keychain.getData(self.mnemonic) {
-
-                return String(data:data, encoding:NSUTF8StringEncoding)
-                
-            }
-            
-            return nil
-        }
-        set(value) {
-            
-            if let v = value {
-                let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
-                try! keychain
-                    .accessibility(.WhenUnlocked)
-                    .set(v.dataUsingEncoding(NSUTF8StringEncoding)!, key: self.mnemonic)
-                
-                if self.isNew {
-                    invalidatePasswordField()
-                }
-            }
-        }
-    }
-    
-    var passwordFieldInvalid:Bool {
-        get {
-            let p = String(data: self.password,encoding:NSUTF8StringEncoding)
-            
-            return p == "***"
-        }
-    }
-    private func invalidatePasswordField() {
-        self.password = "***".dataUsingEncoding(NSUTF8StringEncoding)!
-    }
 
     //MARK: Grouping section
     
@@ -257,7 +269,6 @@ import KeychainAccess
                     .accessibility(.WhenUnlocked)
                     .set(data, key: key)
                 
-                kk.invalidatePasswordField()
             }
         
         }

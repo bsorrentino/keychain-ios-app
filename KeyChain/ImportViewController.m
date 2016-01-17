@@ -173,13 +173,6 @@
                 [entity fromDictionary:d];
                 
                 
-                // MIGRATE ENCRYPTED KEY TO KEYCHAIN
-                if (!entity.passwordFieldInvalid) {
-                
-                    [KeyEntity copyPasswordToKeychain:entity];
-                }
-                
-                
                 NSLog(@"mnemonic = [%@]", entity.mnemonic);
             }
             
