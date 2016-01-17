@@ -33,7 +33,6 @@
 		5F31B3BE1612E41500AE69CD /* keychain-desktop1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F31B3BD1612E41500AE69CD /* keychain-desktop1024x1024.png */; };
 		5F31B3C01612E8BC00AE69CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F31B3BF1612E8BC00AE69CD /* Default@2x.png */; };
 		5F44CC691C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC681C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel */; };
-		5F44CC6B1C4C3E64007003D6 /* model-2.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6A1C4C3E64007003D6 /* model-2.0.xcmappingmodel */; };
 		5F44CC6F1C4C3EBE007003D6 /* model-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6C1C4C3EBE007003D6 /* model-1.1.xcmappingmodel */; };
 		5F44CC701C4C3EBE007003D6 /* model-1.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6D1C4C3EBE007003D6 /* model-1.2.xcmappingmodel */; };
 		5F44CC711C4C3EBE007003D6 /* model-1.3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6E1C4C3EBE007003D6 /* model-1.3.xcmappingmodel */; };
@@ -163,7 +162,6 @@
 		5F3BD072143B352E00001F01 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5F4130D6155E7A2A00D96FC4 /* libUIXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIXML.a; path = "../../../APPLE/build/Release-iphoneos/libUIXML.a"; sourceTree = "<group>"; };
 		5F44CC681C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = "KeyChain-1.3.xcdatamodel"; path = "KeyChain.xcdatamodeld/KeyChain-1.3.xcdatamodel"; sourceTree = "<group>"; };
-		5F44CC6A1C4C3E64007003D6 /* model-2.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-2.0.xcmappingmodel"; path = "datamodel/model-2.0.xcmappingmodel"; sourceTree = "<group>"; };
 		5F44CC6C1C4C3EBE007003D6 /* model-1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-1.1.xcmappingmodel"; path = "datamodel/model-1.1.xcmappingmodel"; sourceTree = "<group>"; };
 		5F44CC6D1C4C3EBE007003D6 /* model-1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-1.2.xcmappingmodel"; path = "datamodel/model-1.2.xcmappingmodel"; sourceTree = "<group>"; };
 		5F44CC6E1C4C3EBE007003D6 /* model-1.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-1.3.xcmappingmodel"; path = "datamodel/model-1.3.xcmappingmodel"; sourceTree = "<group>"; };
@@ -448,7 +446,6 @@
 				5F44CC6C1C4C3EBE007003D6 /* model-1.1.xcmappingmodel */,
 				5F44CC6D1C4C3EBE007003D6 /* model-1.2.xcmappingmodel */,
 				5F44CC6E1C4C3EBE007003D6 /* model-1.3.xcmappingmodel */,
-				5F44CC6A1C4C3E64007003D6 /* model-2.0.xcmappingmodel */,
 				5F30A47F1610E3AD005BAE36 /* KeyChain.xcdatamodeld */,
 				5F44CC681C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel */,
 				5F0006D61C312424002BD9EC /* KeyEntity.swift */,
@@ -843,7 +840,6 @@
 				5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */,
 				5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */,
 				5FA3A4C312DC7730009BE36C /* RootViewController.m in Sources */,
-				5F44CC6B1C4C3E64007003D6 /* model-2.0.xcmappingmodel in Sources */,
 				5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */,
 				5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */,
 				A0FD0E4614165D8E009C7257 /* AttributeInfo.m in Sources */,
