@@ -6,7 +6,7 @@
 //  Copyright 2011 SOUL. All rights reserved.
 //
 
-#import "KeyEntity.h"
+#import "KeyEntity+Cryptor.h"
 
 
 static NSString * _MNEMONIC = @"mnemonic";
@@ -279,10 +279,19 @@ static  NSString * _REGEXP = @"(\\w+[-@/])(\\w+)";
         
         if ([key compare:_IS_NEW]==0 ) continue;
         
-        NSObject* value = [self valueForKey:key];
+        id value = [self valueForKey:key];
+
+        if ([key compare:@"password"]==0) {
+            
+            NSString *v = [self getPasswordDecrypted];
+            [target setObject:v forKey:key];
+            
+        }
+        else {
         
-        if (value != nil) {
-            [target setObject:value forKey:key];
+            if (value != nil) {
+                [target setObject:value forKey:key];
+            }
         }
         
     }
