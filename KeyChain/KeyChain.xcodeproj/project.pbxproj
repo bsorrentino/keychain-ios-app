@@ -22,7 +22,6 @@
 		5F084FBE15B9641400059E26 /* key22x22.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F084FC015B9641400059E26 /* key22x22.png */; };
 		5F084FC315BAF09100059E26 /* KeyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F084FC215BAF09100059E26 /* KeyCell.xib */; };
 		5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F129E0912EB607300BF9EF9 /* login32x32.png */; };
-		5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */; };
 		5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F17FB961416E9E4007D88F9 /* Localizable.strings */; };
 		5F18B47615B6FA7600F7D82A /* lock22x22.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F18B47515B6FA7600F7D82A /* lock22x22.png */; };
 		5F18B47815B7016F00F7D82A /* section22x22.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F18B47715B7016F00F7D82A /* section22x22.png */; };
@@ -33,6 +32,10 @@
 		5F30A4841610E3AD005BAE36 /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F30A47F1610E3AD005BAE36 /* KeyChain.xcdatamodeld */; };
 		5F31B3BE1612E41500AE69CD /* keychain-desktop1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F31B3BD1612E41500AE69CD /* keychain-desktop1024x1024.png */; };
 		5F31B3C01612E8BC00AE69CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F31B3BF1612E8BC00AE69CD /* Default@2x.png */; };
+		5F44CC691C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC681C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel */; };
+		5F44CC6F1C4C3EBE007003D6 /* model-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6C1C4C3EBE007003D6 /* model-1.1.xcmappingmodel */; };
+		5F44CC701C4C3EBE007003D6 /* model-1.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6D1C4C3EBE007003D6 /* model-1.2.xcmappingmodel */; };
+		5F44CC711C4C3EBE007003D6 /* model-1.3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6E1C4C3EBE007003D6 /* model-1.3.xcmappingmodel */; };
 		5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F544F7313F82E350001A8B5 /* logo-57x57.png */; };
 		5F6C47811535C4F20092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
 		5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F3439143F315500D9C428 /* ExportViewController.m */; };
@@ -73,13 +76,11 @@
 		5FE8A81615F7B15B00F8566F /* TextDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80A15F7B15B00F8566F /* TextDataEntryCell.xib */; };
 		5FEA98E512B981950034ADC1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */; };
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
-		5FF9DFF31610EBB9003ABEA0 /* model-1.3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */; };
 		5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754F14E5B06800E3E162 /* KeyListViewController.m */; };
 		830BEB43A4445F84D057DFCF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5078F8982C97BF318D752C05 /* Pods.framework */; };
 		A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0121169142269B2000AA884 /* AVFoundation.framework */; };
 		A02BB725159C4DFA001FD5AA /* back32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB722159C4DFA001FD5AA /* back32x32.png */; };
 		A02BB726159C4DFA001FD5AA /* keychain-desktop-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */; };
-		A02BB727159C4DFA001FD5AA /* model-1.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */; };
 		A02BB72A159C4E38001FD5AA /* UIAlertViewInputSection.m in Sources */ = {isa = PBXBuildFile; fileRef = A02BB729159C4E38001FD5AA /* UIAlertViewInputSection.m */; };
 		A02BB72C159C5752001FD5AA /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = A02BB72B159C5752001FD5AA /* podfile */; };
 		A02BB740159C5829001FD5AA /* popoverArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB731159C5829001FD5AA /* popoverArrowDown.png */; };
@@ -142,7 +143,6 @@
 		5F084FBF15B9641400059E26 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/key22x22.png; sourceTree = "<group>"; };
 		5F084FC215BAF09100059E26 /* KeyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyCell.xib; sourceTree = "<group>"; };
 		5F129E0912EB607300BF9EF9 /* login32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login32x32.png; sourceTree = "<group>"; };
-		5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.1.xcmappingmodel"; sourceTree = "<group>"; };
 		5F17FB971416E9E4007D88F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F18B47515B6FA7600F7D82A /* lock22x22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock22x22.png; sourceTree = "<group>"; };
 		5F18B47715B7016F00F7D82A /* section22x22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = section22x22.png; sourceTree = "<group>"; };
@@ -161,6 +161,10 @@
 		5F31B3BF1612E8BC00AE69CD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5F3BD072143B352E00001F01 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5F4130D6155E7A2A00D96FC4 /* libUIXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIXML.a; path = "../../../APPLE/build/Release-iphoneos/libUIXML.a"; sourceTree = "<group>"; };
+		5F44CC681C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = "KeyChain-1.3.xcdatamodel"; path = "KeyChain.xcdatamodeld/KeyChain-1.3.xcdatamodel"; sourceTree = "<group>"; };
+		5F44CC6C1C4C3EBE007003D6 /* model-1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-1.1.xcmappingmodel"; path = "datamodel/model-1.1.xcmappingmodel"; sourceTree = "<group>"; };
+		5F44CC6D1C4C3EBE007003D6 /* model-1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-1.2.xcmappingmodel"; path = "datamodel/model-1.2.xcmappingmodel"; sourceTree = "<group>"; };
+		5F44CC6E1C4C3EBE007003D6 /* model-1.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-1.3.xcmappingmodel"; path = "datamodel/model-1.3.xcmappingmodel"; sourceTree = "<group>"; };
 		5F544F7313F82E350001A8B5 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-57x57.png"; sourceTree = "<group>"; };
 		5F6C47801535C4F20092F552 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5F6F3438143F315500D9C428 /* ExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportViewController.h; sourceTree = "<group>"; };
@@ -219,7 +223,6 @@
 		5FF268F31B5FAA37007440E7 /* libPods-RNCryptor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPods-RNCryptor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF268F71B5FAA6C007440E7 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		5FF78F2E12E5A481008EA886 /* logo-64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-64x64.png"; sourceTree = "<group>"; };
-		5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.3.xcmappingmodel"; sourceTree = "<group>"; };
 		5FFC754E14E5B06800E3E162 /* KeyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListViewController.h; sourceTree = "<group>"; };
 		5FFC754F14E5B06800E3E162 /* KeyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyListViewController.m; sourceTree = "<group>"; };
 		66F059C75DF530595DF2A1A2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -227,7 +230,6 @@
 		A0121169142269B2000AA884 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A02BB722159C4DFA001FD5AA /* back32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back32x32.png; sourceTree = "<group>"; };
 		A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keychain-desktop-512x512.png"; sourceTree = "<group>"; };
-		A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.2.xcmappingmodel"; sourceTree = "<group>"; };
 		A02BB728159C4E38001FD5AA /* UIAlertViewInputSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewInputSection.h; sourceTree = "<group>"; };
 		A02BB729159C4E38001FD5AA /* UIAlertViewInputSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewInputSection.m; sourceTree = "<group>"; };
 		A02BB72B159C5752001FD5AA /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -308,7 +310,7 @@
 				A082214919F45FE300FC7BFD /* WEPopover.podspec */,
 				A02BB72B159C5752001FD5AA /* podfile */,
 				5F3486BF160B83D200F2C1A2 /* datamodel */,
-				5FC6508F160933A9003BC18F /* migration */,
+				5FC6508F160933A9003BC18F /* Migration */,
 				5FA71BE815E968DB001AFCCF /* Export */,
 				5FA71BE915E96913001AFCCF /* Import */,
 				5FA71BE715E94CB0001AFCCF /* KeyForm */,
@@ -441,10 +443,11 @@
 		5F3486BF160B83D200F2C1A2 /* datamodel */ = {
 			isa = PBXGroup;
 			children = (
+				5F44CC6C1C4C3EBE007003D6 /* model-1.1.xcmappingmodel */,
+				5F44CC6D1C4C3EBE007003D6 /* model-1.2.xcmappingmodel */,
+				5F44CC6E1C4C3EBE007003D6 /* model-1.3.xcmappingmodel */,
 				5F30A47F1610E3AD005BAE36 /* KeyChain.xcdatamodeld */,
-				5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */,
-				A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */,
-				5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */,
+				5F44CC681C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel */,
 				5F0006D61C312424002BD9EC /* KeyEntity.swift */,
 			);
 			name = datamodel;
@@ -526,7 +529,7 @@
 			name = SectionKeyList;
 			sourceTree = "<group>";
 		};
-		5FC6508F160933A9003BC18F /* migration */ = {
+		5FC6508F160933A9003BC18F /* Migration */ = {
 			isa = PBXGroup;
 			children = (
 				5F31B3BF1612E8BC00AE69CD /* Default@2x.png */,
@@ -539,7 +542,7 @@
 				5FC65094160933F1003BC18F /* YISplashScreenAnimation.h */,
 				5FC65095160933F1003BC18F /* YISplashScreenAnimation.m */,
 			);
-			name = migration;
+			name = Migration;
 			sourceTree = "<group>";
 		};
 		5FD37D4715CDD005008F9F1D /* KeyList */ = {
@@ -840,14 +843,14 @@
 				5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */,
 				5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */,
 				A0FD0E4614165D8E009C7257 /* AttributeInfo.m in Sources */,
+				5F44CC6F1C4C3EBE007003D6 /* model-1.1.xcmappingmodel in Sources */,
 				A0FD0E4D14166C32009C7257 /* MailListDataEntryCell.m in Sources */,
-				5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */,
 				5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */,
 				5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */,
+				5F44CC701C4C3EBE007003D6 /* model-1.2.xcmappingmodel in Sources */,
 				5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */,
 				5F6F634A14FE4521004C1337 /* DDTableViewManager.m in Sources */,
 				5F27190015250CEB00C5BBA3 /* InfoViewController.m in Sources */,
-				A02BB727159C4DFA001FD5AA /* model-1.2.xcmappingmodel in Sources */,
 				A02BB72A159C4E38001FD5AA /* UIAlertViewInputSection.m in Sources */,
 				5FB1293F15CAFCED007365C5 /* SectionKeyListViewController.m in Sources */,
 				5F052D8A15CBE90900330214 /* iToast.m in Sources */,
@@ -859,8 +862,9 @@
 				5F7781861BBD1784007B37B5 /* AccountCredential.swift in Sources */,
 				5FC65097160933F1003BC18F /* YISplashScreen+Migration.m in Sources */,
 				5FC65098160933F1003BC18F /* YISplashScreenAnimation.m in Sources */,
+				5F44CC711C4C3EBE007003D6 /* model-1.3.xcmappingmodel in Sources */,
 				5F30A4841610E3AD005BAE36 /* KeyChain.xcdatamodeld in Sources */,
-				5FF9DFF31610EBB9003ABEA0 /* model-1.3.xcmappingmodel in Sources */,
+				5F44CC691C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,7 +938,7 @@
 				INFOPLIST_FILE = "KeyChain-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = it.softphone.keychain;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.keychain;
 				PRODUCT_NAME = KeyChain;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -967,7 +971,7 @@
 				INFOPLIST_FILE = "KeyChain-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = it.softphone.keychain;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.keychain;
 				PRODUCT_NAME = KeyChain;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

@@ -31,14 +31,15 @@ import KeychainAccess
     @NSManaged var mnemonic:String
     @NSManaged var groupPrefix:String?
     @NSManaged var group:NSNumber?
-    @NSManaged var password:NSData
     @NSManaged var note:String
     
     
     
-    static let _MNEMONIC = "mnemonic"
-    static let _IS_NEW = "isNew"
+    static let _MNEMONIC    = "mnemonic"
+    static let _PASSWORD    = "password"
+    static let _IS_NEW      = "isNew"
 
+    //@TRANSIENT
     var isNew:Bool {
     
         get {
@@ -48,6 +49,34 @@ import KeychainAccess
             
         }
     
+    }
+    
+    //@TRANSIENT
+    var password:String? {
+        
+        get {
+            let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
+            
+            let key = self.mnemonic
+            
+            if let data =  try! keychain.getString(key) {
+                return data
+            }
+            
+            return nil
+        }
+        set(value) {
+            
+            if let v = value {
+                let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
+ 
+                let key = self.mnemonic
+                
+                try! keychain
+                    .accessibility(.WhenUnlocked)
+                    .set(v, key: key)
+            }
+        }
     }
     
     var sectionId:String? {
@@ -62,37 +91,6 @@ import KeychainAccess
         }
     }
     
-    var password2:String? {
-        
-        get {
-            let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
-            
-            if let data =  try! keychain.getData(self.mnemonic) {
-
-                return String(data:data, encoding:NSUTF8StringEncoding)
-                
-            }
-            
-            return nil
-        }
-        set(value) {
-            
-            if let v = value {
-                let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
-                try! keychain
-                    .accessibility(.WhenUnlocked)
-                    .set(v.dataUsingEncoding(NSUTF8StringEncoding)!, key: self.mnemonic)
-                
-                if self.isNew {
-                    invalidatePasswordField()
-                }
-            }
-        }
-    }
-    
-    private func invalidatePasswordField() {
-        self.password = "***".dataUsingEncoding(NSUTF8StringEncoding)!
-    }
 
     //MARK: Grouping section
     
@@ -208,7 +206,8 @@ import KeychainAccess
         return cloned
     }
     
-    static func copyPasswordToKeychain( context:NSManagedObjectContext ) {
+    // Copy all passwords to KeyChain and invalidate related password fields
+    static func copyPasswordsToKeychain( context:NSManagedObjectContext ) {
         
         let fetchRequest = NSFetchRequest(entityName: "KeyInfo")
                 
@@ -218,27 +217,42 @@ import KeychainAccess
              
                 result.forEach({ (kk:KeyEntity) -> () in
 
-                    guard   let data = kk.valueForKey("password") as? NSData,
-                            let key = kk.valueForKey("mnemonic") as? String else {
-                        return
-                    }
-                    
-                    if let password = NSString(data:data, encoding:NSUTF8StringEncoding) as? String {
-                    
-                        print("key:\(key) password:\(password)")
-                    
-                        try! Keychain(service: AccountCredential.sharedCredential.bundleId)
-                            .accessibility(.WhenUnlocked)
-                            .set(data, key: key)
-                        
-                        kk.invalidatePasswordField()
-                    }
+                    copyPasswordToKeychain( kk )
                     
                 })
             }
         }
         catch let error as NSError {
             print( "error perform fetch \(error.userInfo)")
+        }
+        
+    }
+    
+    // Copy single password to KeyChain and invalidate related password field
+    static func copyPasswordToKeychain( kk:KeyEntity ) {
+        
+        
+        guard   let data = kk.valueForKey("password") as? NSData,
+            let key = kk.valueForKey("mnemonic") as? String else {
+                return
+        }
+
+        do {
+            
+
+            if let password = NSString(data:data, encoding:NSUTF8StringEncoding) as? String {
+                
+                print("key:\(key) password:\(password)")
+                
+                try Keychain(service: AccountCredential.sharedCredential.bundleId)
+                    .accessibility(.WhenUnlocked)
+                    .set(data, key: key)
+                
+            }
+        
+        }
+        catch let error as NSError {
+            print( "error putting in keychain key \(key) - \(error.userInfo)")
         }
         
         
@@ -304,23 +318,31 @@ import KeychainAccess
     
     //MARK: Serialization
     
+    let sortPredicate = { (A:(key:String, _:NSAttributeDescription), B:(key:String, _:NSAttributeDescription)) -> Bool in
+        return A.key < B.key
+    }
+    
+    let filterPredicate = { (E:(key:String, _:NSAttributeDescription)) -> Bool in
+        return E.key != KeyEntity._IS_NEW
+    }
+    
     func toDictionary( target:NSMutableDictionary? ) -> NSDictionary? {
     
         guard let t = target else {
             return target;
         }
     
-        self.entity.attributesByName.forEach { (key:String, attribute:NSAttributeDescription) -> () in
+        self.entity.attributesByName
+            .filter( filterPredicate )
+            .sort( sortPredicate )
+            .forEach { (key:String, _:NSAttributeDescription) -> () in
             
-            if key == KeyEntity._IS_NEW {
-                
-                if let value = self.valueForKey(key) {
-                    
-                    t.setObject(value, forKey: key)
+                    if let v = self.valueForKey(key) {
+                        t.setObject(v, forKey: key)
+                    }
                 }
-            }
             
-        }
+                
         return t;
     }
     
@@ -330,15 +352,15 @@ import KeychainAccess
             return
         }
     
-        self.entity.attributesByName.forEach { (key:String, attribute:NSAttributeDescription) -> () in
+        self.entity.attributesByName
+            .filter( filterPredicate )
+            .sort( sortPredicate )
+            .forEach { (key:String, _:NSAttributeDescription) -> () in
         
-            if key == KeyEntity._IS_NEW {
-
                 if let value = s.valueForKey(key) {
-                    
                     self.setValue(value, forKey: key)
                 }
-            }
+            
         }
     }
 

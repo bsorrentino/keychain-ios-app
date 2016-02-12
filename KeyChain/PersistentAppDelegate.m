@@ -229,7 +229,7 @@
     if (managedObjectModel_ != nil) {
         return managedObjectModel_;
     }
-    NSString *modelPath = [[NSBundle mainBundle] pathForResource:@_PERSISTENT_APP_NAME ofType:@"momd"];
+    NSString *modelPath = [[NSBundle mainBundle] pathForResource:@_PERSISTENT_APP_MODEL ofType:@"momd"];
     NSURL *modelURL = [NSURL fileURLWithPath:modelPath];
     managedObjectModel_ = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
     return managedObjectModel_;
@@ -311,14 +311,16 @@
     if( schemaIsCompatible ) {
 
         //MIGRATE ENCRYPTED KEYS TO KEYCHAIN
-        
+    
+        /*
         [[AccountCredential sharedCredential] checkCurrentVersion:^(NSUInteger prev, NSUInteger next) {
             
             if (next == 0) {
                 
-                [KeyEntity copyPasswordToKeychain:self.managedObjectContext];
+                [KeyEntity copyPasswordsToKeychain:self.managedObjectContext];
             }
         }];
+        */
     }
     
     
