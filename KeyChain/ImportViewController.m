@@ -171,23 +171,8 @@
                 
                 NSDictionary *d = [result objectAtIndex:i];
                 
-                //
-                // CONVERT PASSWORD FROM NSDATA TO  NSSTRING
-                //
-
-                id password = [d valueForKey:@"password"];
-                if( [password isKindOfClass:[NSData class]] ) {
-                    
-                    NSString *result;
-                    NSStringEncoding encoding = [NSString stringEncodingForData:password encodingOptions:nil convertedString:&result usedLossyConversion:nil];
-                                        
-                    NSString * v =  [[NSString alloc] initWithData:password encoding:encoding];
-                    [d setValue:v forKey:@"password"];
-                }
-                
                 [entity fromDictionary:d];
-                
-                
+                                
                 NSLog(@"mnemonic = [%@]", entity.mnemonic);
             }
             

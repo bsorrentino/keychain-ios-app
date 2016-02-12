@@ -321,12 +321,11 @@ import KeychainAccess
     let sortPredicate = { (A:(key:String, _:NSAttributeDescription), B:(key:String, _:NSAttributeDescription)) -> Bool in
         return A.key < B.key
     }
+    
     let filterPredicate = { (E:(key:String, _:NSAttributeDescription)) -> Bool in
-        switch E.key {
-        case KeyEntity._IS_NEW: return false
-        default: return true
-        }
+        return E.key != KeyEntity._IS_NEW
     }
+    
     func toDictionary( target:NSMutableDictionary? ) -> NSDictionary? {
     
         guard let t = target else {
@@ -336,7 +335,7 @@ import KeychainAccess
         self.entity.attributesByName
             .filter( filterPredicate )
             .sort( sortPredicate )
-            .forEach { (key:String, attribute:NSAttributeDescription) -> () in
+            .forEach { (key:String, _:NSAttributeDescription) -> () in
             
                     if let v = self.valueForKey(key) {
                         t.setObject(v, forKey: key)
