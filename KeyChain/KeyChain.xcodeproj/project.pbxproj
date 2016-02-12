@@ -14,6 +14,7 @@
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* RootViewController.xib */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		5F0006D71C312424002BD9EC /* KeyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0006D61C312424002BD9EC /* KeyEntity.swift */; };
 		5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F04E6E212E368C800370F50 /* KeyChainLogin.m */; };
 		5F04E6E512E368C800370F50 /* KeyChainLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F04E6E312E368C800370F50 /* KeyChainLogin.xib */; };
 		5F052D8A15CBE90900330214 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F052D8915CBE90900330214 /* iToast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -21,19 +22,21 @@
 		5F084FBE15B9641400059E26 /* key22x22.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F084FC015B9641400059E26 /* key22x22.png */; };
 		5F084FC315BAF09100059E26 /* KeyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F084FC215BAF09100059E26 /* KeyCell.xib */; };
 		5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F129E0912EB607300BF9EF9 /* login32x32.png */; };
-		5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */; };
 		5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F17FB961416E9E4007D88F9 /* Localizable.strings */; };
 		5F18B47615B6FA7600F7D82A /* lock22x22.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F18B47515B6FA7600F7D82A /* lock22x22.png */; };
 		5F18B47815B7016F00F7D82A /* section22x22.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F18B47715B7016F00F7D82A /* section22x22.png */; };
+		5F1FBA211C307E7A005B00A5 /* keychain2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1FBA201C307E7A005B00A5 /* keychain2Tests.swift */; };
 		5F2718FC152508E800C5BBA3 /* info34x34.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2718FB152508E800C5BBA3 /* info34x34.png */; };
 		5F27190015250CEB00C5BBA3 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */; };
 		5F27190115250CEB00C5BBA3 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2718FF15250CEB00C5BBA3 /* InfoViewController.xib */; };
 		5F30A4841610E3AD005BAE36 /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F30A47F1610E3AD005BAE36 /* KeyChain.xcdatamodeld */; };
 		5F31B3BE1612E41500AE69CD /* keychain-desktop1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F31B3BD1612E41500AE69CD /* keychain-desktop1024x1024.png */; };
 		5F31B3C01612E8BC00AE69CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F31B3BF1612E8BC00AE69CD /* Default@2x.png */; };
-		5F3486C2160B859C00F2C1A2 /* StringEncryptionTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */; };
+		5F44CC691C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC681C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel */; };
+		5F44CC6F1C4C3EBE007003D6 /* model-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6C1C4C3EBE007003D6 /* model-1.1.xcmappingmodel */; };
+		5F44CC701C4C3EBE007003D6 /* model-1.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6D1C4C3EBE007003D6 /* model-1.2.xcmappingmodel */; };
+		5F44CC711C4C3EBE007003D6 /* model-1.3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6E1C4C3EBE007003D6 /* model-1.3.xcmappingmodel */; };
 		5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F544F7313F82E350001A8B5 /* logo-57x57.png */; };
-		5F66446D1611B80D00800259 /* KeyEntity+Cryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66446C1611B80D00800259 /* KeyEntity+Cryptor.m */; };
 		5F6C47811535C4F20092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
 		5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F3439143F315500D9C428 /* ExportViewController.m */; };
 		5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6F343B143F49EC00D9C428 /* usb48x48.png */; };
@@ -43,7 +46,6 @@
 		5F8205A015D4144400862BC2 /* UIPasswordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F82059F15D4144400862BC2 /* UIPasswordLabel.m */; };
 		5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8205A215D41FC600862BC2 /* KeyTableViewCell.m */; };
 		5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */; };
-		5FA3A4C112DC7730009BE36C /* KeyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BB12DC7730009BE36C /* KeyEntity.m */; };
 		5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */; };
 		5FA3A4C312DC7730009BE36C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BF12DC7730009BE36C /* RootViewController.m */; };
 		5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */; };
@@ -74,13 +76,11 @@
 		5FE8A81615F7B15B00F8566F /* TextDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8A80A15F7B15B00F8566F /* TextDataEntryCell.xib */; };
 		5FEA98E512B981950034ADC1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */; };
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
-		5FF9DFF31610EBB9003ABEA0 /* model-1.3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */; };
 		5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754F14E5B06800E3E162 /* KeyListViewController.m */; };
 		830BEB43A4445F84D057DFCF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5078F8982C97BF318D752C05 /* Pods.framework */; };
 		A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0121169142269B2000AA884 /* AVFoundation.framework */; };
 		A02BB725159C4DFA001FD5AA /* back32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB722159C4DFA001FD5AA /* back32x32.png */; };
 		A02BB726159C4DFA001FD5AA /* keychain-desktop-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */; };
-		A02BB727159C4DFA001FD5AA /* model-1.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */; };
 		A02BB72A159C4E38001FD5AA /* UIAlertViewInputSection.m in Sources */ = {isa = PBXBuildFile; fileRef = A02BB729159C4E38001FD5AA /* UIAlertViewInputSection.m */; };
 		A02BB72C159C5752001FD5AA /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = A02BB72B159C5752001FD5AA /* podfile */; };
 		A02BB740159C5829001FD5AA /* popoverArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB731159C5829001FD5AA /* popoverArrowDown.png */; };
@@ -100,7 +100,6 @@
 		A02BB74E159C5829001FD5AA /* popoverBgSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB73F159C5829001FD5AA /* popoverBgSimple.png */; };
 		A0759F2114305DBE000701EF /* settings20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A0759F2014305DBE000701EF /* settings20x20.png */; };
 		A082214A19F45FE300FC7BFD /* WEPopover.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214919F45FE300FC7BFD /* WEPopover.podspec */; };
-		A082214E19F4649700FC7BFD /* RNCryptor.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214B19F4649700FC7BFD /* RNCryptor.podspec */; };
 		A082214F19F4649700FC7BFD /* UIXML.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214C19F4649700FC7BFD /* UIXML.podspec */; };
 		A082215019F4649700FC7BFD /* ZKRevealingTableViewCell.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */; };
 		A083A17A1435CB9B0032B285 /* changePwd24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = A083A1791435CB9B0032B285 /* changePwd24x24.png */; };
@@ -109,6 +108,16 @@
 		A0FD0E4D14166C32009C7257 /* MailListDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD0E4C14166C32009C7257 /* MailListDataEntryCell.m */; };
 		A0FD0E4F14168462009C7257 /* MailListDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FD0E4E14168462009C7257 /* MailListDataEntryCell.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5F1FBA231C307E7A005B00A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = KeyChain;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,6 +132,7 @@
 		5078F8982C97BF318D752C05 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		578803C0E9C2FF0716C2B4CE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5C5112EA4300461BB01FA835 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F0006D61C312424002BD9EC /* KeyEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyEntity.swift; sourceTree = "<group>"; };
 		5F04E6E112E368C800370F50 /* KeyChainLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainLogin.h; sourceTree = "<group>"; };
 		5F04E6E212E368C800370F50 /* KeyChainLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainLogin.m; sourceTree = "<group>"; };
 		5F04E6E312E368C800370F50 /* KeyChainLogin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyChainLogin.xib; sourceTree = "<group>"; };
@@ -133,10 +143,12 @@
 		5F084FBF15B9641400059E26 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/key22x22.png; sourceTree = "<group>"; };
 		5F084FC215BAF09100059E26 /* KeyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyCell.xib; sourceTree = "<group>"; };
 		5F129E0912EB607300BF9EF9 /* login32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login32x32.png; sourceTree = "<group>"; };
-		5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.1.xcmappingmodel"; sourceTree = "<group>"; };
 		5F17FB971416E9E4007D88F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5F18B47515B6FA7600F7D82A /* lock22x22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock22x22.png; sourceTree = "<group>"; };
 		5F18B47715B7016F00F7D82A /* section22x22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = section22x22.png; sourceTree = "<group>"; };
+		5F1FBA1E1C307E7A005B00A5 /* keychain2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keychain2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F1FBA201C307E7A005B00A5 /* keychain2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keychain2Tests.swift; sourceTree = "<group>"; };
+		5F1FBA221C307E7A005B00A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F2718FB152508E800C5BBA3 /* info34x34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info34x34.png; sourceTree = "<group>"; };
 		5F2718FD15250CEB00C5BBA3 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		5F2718FE15250CEB00C5BBA3 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
@@ -147,13 +159,13 @@
 		5F30A4831610E3AD005BAE36 /* KeyChain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KeyChain.xcdatamodel; sourceTree = "<group>"; };
 		5F31B3BD1612E41500AE69CD /* keychain-desktop1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keychain-desktop1024x1024.png"; sourceTree = "<group>"; };
 		5F31B3BF1612E8BC00AE69CD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		5F3486C0160B859C00F2C1A2 /* StringEncryptionTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncryptionTransformer.h; sourceTree = "<group>"; };
-		5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryptionTransformer.m; sourceTree = "<group>"; };
 		5F3BD072143B352E00001F01 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5F4130D6155E7A2A00D96FC4 /* libUIXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIXML.a; path = "../../../APPLE/build/Release-iphoneos/libUIXML.a"; sourceTree = "<group>"; };
+		5F44CC681C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = "KeyChain-1.3.xcdatamodel"; path = "KeyChain.xcdatamodeld/KeyChain-1.3.xcdatamodel"; sourceTree = "<group>"; };
+		5F44CC6C1C4C3EBE007003D6 /* model-1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-1.1.xcmappingmodel"; path = "datamodel/model-1.1.xcmappingmodel"; sourceTree = "<group>"; };
+		5F44CC6D1C4C3EBE007003D6 /* model-1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-1.2.xcmappingmodel"; path = "datamodel/model-1.2.xcmappingmodel"; sourceTree = "<group>"; };
+		5F44CC6E1C4C3EBE007003D6 /* model-1.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-1.3.xcmappingmodel"; path = "datamodel/model-1.3.xcmappingmodel"; sourceTree = "<group>"; };
 		5F544F7313F82E350001A8B5 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-57x57.png"; sourceTree = "<group>"; };
-		5F66446B1611B80D00800259 /* KeyEntity+Cryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeyEntity+Cryptor.h"; sourceTree = "<group>"; };
-		5F66446C1611B80D00800259 /* KeyEntity+Cryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KeyEntity+Cryptor.m"; sourceTree = "<group>"; };
 		5F6C47801535C4F20092F552 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5F6F3438143F315500D9C428 /* ExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportViewController.h; sourceTree = "<group>"; };
 		5F6F3439143F315500D9C428 /* ExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportViewController.m; sourceTree = "<group>"; };
@@ -170,8 +182,6 @@
 		5F8B67EA14471B7E00A767AE /* KeyListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListDataSource.h; sourceTree = "<group>"; };
 		5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainAppDelegate.h; sourceTree = "<group>"; };
 		5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainAppDelegate.m; sourceTree = "<group>"; };
-		5FA3A4BA12DC7730009BE36C /* KeyEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyEntity.h; sourceTree = "<group>"; };
-		5FA3A4BB12DC7730009BE36C /* KeyEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyEntity.m; sourceTree = "<group>"; };
 		5FA3A4BC12DC7730009BE36C /* PersistentAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentAppDelegate.h; sourceTree = "<group>"; };
 		5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentAppDelegate.m; sourceTree = "<group>"; };
 		5FA3A4BE12DC7730009BE36C /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -213,7 +223,6 @@
 		5FF268F31B5FAA37007440E7 /* libPods-RNCryptor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPods-RNCryptor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF268F71B5FAA6C007440E7 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		5FF78F2E12E5A481008EA886 /* logo-64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-64x64.png"; sourceTree = "<group>"; };
-		5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.3.xcmappingmodel"; sourceTree = "<group>"; };
 		5FFC754E14E5B06800E3E162 /* KeyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListViewController.h; sourceTree = "<group>"; };
 		5FFC754F14E5B06800E3E162 /* KeyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyListViewController.m; sourceTree = "<group>"; };
 		66F059C75DF530595DF2A1A2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -221,7 +230,6 @@
 		A0121169142269B2000AA884 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A02BB722159C4DFA001FD5AA /* back32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back32x32.png; sourceTree = "<group>"; };
 		A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keychain-desktop-512x512.png"; sourceTree = "<group>"; };
-		A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.2.xcmappingmodel"; sourceTree = "<group>"; };
 		A02BB728159C4E38001FD5AA /* UIAlertViewInputSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewInputSection.h; sourceTree = "<group>"; };
 		A02BB729159C4E38001FD5AA /* UIAlertViewInputSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewInputSection.m; sourceTree = "<group>"; };
 		A02BB72B159C5752001FD5AA /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -242,7 +250,6 @@
 		A02BB73F159C5829001FD5AA /* popoverBgSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popoverBgSimple.png; path = Pods/WEPopover/popoverBgSimple.png; sourceTree = "<group>"; };
 		A0759F2014305DBE000701EF /* settings20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings20x20.png; sourceTree = "<group>"; };
 		A082214919F45FE300FC7BFD /* WEPopover.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WEPopover.podspec; sourceTree = "<group>"; };
-		A082214B19F4649700FC7BFD /* RNCryptor.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RNCryptor.podspec; sourceTree = "<group>"; };
 		A082214C19F4649700FC7BFD /* UIXML.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIXML.podspec; sourceTree = "<group>"; };
 		A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZKRevealingTableViewCell.podspec; sourceTree = "<group>"; };
 		A083A1791435CB9B0032B285 /* changePwd24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changePwd24x24.png; sourceTree = "<group>"; };
@@ -276,6 +283,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5F1FBA1B1C307E7A005B00A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -283,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* KeyChain.app */,
+				5F1FBA1E1C307E7A005B00A5 /* keychain2Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -290,13 +305,12 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				A082214B19F4649700FC7BFD /* RNCryptor.podspec */,
 				A082214C19F4649700FC7BFD /* UIXML.podspec */,
 				A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */,
 				A082214919F45FE300FC7BFD /* WEPopover.podspec */,
 				A02BB72B159C5752001FD5AA /* podfile */,
 				5F3486BF160B83D200F2C1A2 /* datamodel */,
-				5FC6508F160933A9003BC18F /* migration */,
+				5FC6508F160933A9003BC18F /* Migration */,
 				5FA71BE815E968DB001AFCCF /* Export */,
 				5FA71BE915E96913001AFCCF /* Import */,
 				5FA71BE715E94CB0001AFCCF /* KeyForm */,
@@ -311,6 +325,7 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				A083A19414362F020032B285 /* KeyChainTests */,
+				5F1FBA1F1C307E7A005B00A5 /* keychain2Tests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				B3A38CD74B4E031E9691339F /* Pods */,
@@ -416,19 +431,24 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		5F1FBA1F1C307E7A005B00A5 /* keychain2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5F1FBA201C307E7A005B00A5 /* keychain2Tests.swift */,
+				5F1FBA221C307E7A005B00A5 /* Info.plist */,
+			);
+			path = keychain2Tests;
+			sourceTree = "<group>";
+		};
 		5F3486BF160B83D200F2C1A2 /* datamodel */ = {
 			isa = PBXGroup;
 			children = (
+				5F44CC6C1C4C3EBE007003D6 /* model-1.1.xcmappingmodel */,
+				5F44CC6D1C4C3EBE007003D6 /* model-1.2.xcmappingmodel */,
+				5F44CC6E1C4C3EBE007003D6 /* model-1.3.xcmappingmodel */,
 				5F30A47F1610E3AD005BAE36 /* KeyChain.xcdatamodeld */,
-				5FF9DFF21610EBB9003ABEA0 /* model-1.3.xcmappingmodel */,
-				A02BB724159C4DFA001FD5AA /* model-1.2.xcmappingmodel */,
-				5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */,
-				5FA3A4BA12DC7730009BE36C /* KeyEntity.h */,
-				5FA3A4BB12DC7730009BE36C /* KeyEntity.m */,
-				5F3486C0160B859C00F2C1A2 /* StringEncryptionTransformer.h */,
-				5F3486C1160B859C00F2C1A2 /* StringEncryptionTransformer.m */,
-				5F66446B1611B80D00800259 /* KeyEntity+Cryptor.h */,
-				5F66446C1611B80D00800259 /* KeyEntity+Cryptor.m */,
+				5F44CC681C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel */,
+				5F0006D61C312424002BD9EC /* KeyEntity.swift */,
 			);
 			name = datamodel;
 			sourceTree = "<group>";
@@ -509,7 +529,7 @@
 			name = SectionKeyList;
 			sourceTree = "<group>";
 		};
-		5FC6508F160933A9003BC18F /* migration */ = {
+		5FC6508F160933A9003BC18F /* Migration */ = {
 			isa = PBXGroup;
 			children = (
 				5F31B3BF1612E8BC00AE69CD /* Default@2x.png */,
@@ -522,7 +542,7 @@
 				5FC65094160933F1003BC18F /* YISplashScreenAnimation.h */,
 				5FC65095160933F1003BC18F /* YISplashScreenAnimation.m */,
 			);
-			name = migration;
+			name = Migration;
 			sourceTree = "<group>";
 		};
 		5FD37D4715CDD005008F9F1D /* KeyList */ = {
@@ -628,18 +648,40 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* KeyChain.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5F1FBA1D1C307E7A005B00A5 /* keychain2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F1FBA271C307E7A005B00A5 /* Build configuration list for PBXNativeTarget "keychain2Tests" */;
+			buildPhases = (
+				5F1FBA1A1C307E7A005B00A5 /* Sources */,
+				5F1FBA1B1C307E7A005B00A5 /* Frameworks */,
+				5F1FBA1C1C307E7A005B00A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F1FBA241C307E7A005B00A5 /* PBXTargetDependency */,
+			);
+			name = keychain2Tests;
+			productName = keychain2Tests;
+			productReference = 5F1FBA1E1C307E7A005B00A5 /* keychain2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = SOFTPHONE;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 48J595L9BX;
+					};
+					5F1FBA1D1C307E7A005B00A5 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 1D6058900D05DD3D006BFB54;
 					};
 				};
 			};
@@ -659,6 +701,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* KeyChain */,
+				5F1FBA1D1C307E7A005B00A5 /* keychain2Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -676,7 +719,6 @@
 				5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */,
 				5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */,
 				5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */,
-				A082214E19F4649700FC7BFD /* RNCryptor.podspec in Resources */,
 				A0FD0E4F14168462009C7257 /* MailListDataEntryCell.xib in Resources */,
 				5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */,
 				A0759F2114305DBE000701EF /* settings20x20.png in Resources */,
@@ -730,6 +772,13 @@
 				5FC6509C16093451003BC18F /* YIDefault@2x.png in Resources */,
 				5F31B3BE1612E41500AE69CD /* keychain-desktop1024x1024.png in Resources */,
 				5F31B3C01612E8BC00AE69CD /* Default@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F1FBA1C1C307E7A005B00A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,38 +838,53 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */,
-				5FA3A4C112DC7730009BE36C /* KeyEntity.m in Sources */,
 				5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */,
 				5FA3A4C312DC7730009BE36C /* RootViewController.m in Sources */,
 				5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */,
 				5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */,
 				A0FD0E4614165D8E009C7257 /* AttributeInfo.m in Sources */,
+				5F44CC6F1C4C3EBE007003D6 /* model-1.1.xcmappingmodel in Sources */,
 				A0FD0E4D14166C32009C7257 /* MailListDataEntryCell.m in Sources */,
-				5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */,
 				5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */,
 				5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */,
+				5F44CC701C4C3EBE007003D6 /* model-1.2.xcmappingmodel in Sources */,
 				5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */,
 				5F6F634A14FE4521004C1337 /* DDTableViewManager.m in Sources */,
 				5F27190015250CEB00C5BBA3 /* InfoViewController.m in Sources */,
-				A02BB727159C4DFA001FD5AA /* model-1.2.xcmappingmodel in Sources */,
 				A02BB72A159C4E38001FD5AA /* UIAlertViewInputSection.m in Sources */,
 				5FB1293F15CAFCED007365C5 /* SectionKeyListViewController.m in Sources */,
 				5F052D8A15CBE90900330214 /* iToast.m in Sources */,
 				5F052D9415CBEADA00330214 /* OptionPane.m in Sources */,
+				5F0006D71C312424002BD9EC /* KeyEntity.swift in Sources */,
 				5F8205A015D4144400862BC2 /* UIPasswordLabel.m in Sources */,
 				5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */,
 				5FC65096160933F1003BC18F /* YISplashScreen.m in Sources */,
 				5F7781861BBD1784007B37B5 /* AccountCredential.swift in Sources */,
 				5FC65097160933F1003BC18F /* YISplashScreen+Migration.m in Sources */,
 				5FC65098160933F1003BC18F /* YISplashScreenAnimation.m in Sources */,
-				5F3486C2160B859C00F2C1A2 /* StringEncryptionTransformer.m in Sources */,
+				5F44CC711C4C3EBE007003D6 /* model-1.3.xcmappingmodel in Sources */,
 				5F30A4841610E3AD005BAE36 /* KeyChain.xcdatamodeld in Sources */,
-				5FF9DFF31610EBB9003ABEA0 /* model-1.3.xcmappingmodel in Sources */,
-				5F66446D1611B80D00800259 /* KeyEntity+Cryptor.m in Sources */,
+				5F44CC691C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F1FBA1A1C307E7A005B00A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F1FBA211C307E7A005B00A5 /* keychain2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5F1FBA241C307E7A005B00A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* KeyChain */;
+			targetProxy = 5F1FBA231C307E7A005B00A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5F084FC015B9641400059E26 /* key22x22.png */ = {
@@ -874,7 +938,7 @@
 				INFOPLIST_FILE = "KeyChain-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = it.softphone.keychain;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.keychain;
 				PRODUCT_NAME = KeyChain;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -907,7 +971,7 @@
 				INFOPLIST_FILE = "KeyChain-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = it.softphone.keychain;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.keychain;
 				PRODUCT_NAME = KeyChain;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -915,6 +979,88 @@
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "KeyChain-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5F1FBA251C307E7A005B00A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = keychain2Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.keychain2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeyChain.app/KeyChain";
+			};
+			name = Debug;
+		};
+		5F1FBA261C307E7A005B00A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = keychain2Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.keychain2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeyChain.app/KeyChain";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -968,6 +1114,15 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5F1FBA271C307E7A005B00A5 /* Build configuration list for PBXNativeTarget "keychain2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F1FBA251C307E7A005B00A5 /* Debug */,
+				5F1FBA261C307E7A005B00A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

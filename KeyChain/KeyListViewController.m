@@ -13,7 +13,6 @@
 #import "KeyChainLogin.h"
 #import "ExportViewController.h"
 #import "ImportViewController.h"
-#import "KeyEntity.h"
 
 #import "WaitMaskController.h"
 #import "UIAlertViewInputSection.h"
@@ -771,13 +770,13 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     cell.textLabel.text = [managedObject.mnemonic description];
     
-    if (managedObject.isSection) {
+    if ([managedObject isSection]) {
         cell.detailTextLabel.text = managedObject.groupPrefix;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else {
         
-        if( managedObject.isGrouped ) {
+        if( [managedObject isGrouped] ) {
             cell.detailTextLabel.text = managedObject.groupPrefix;
         }
         else {
@@ -988,7 +987,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     // tell table which section corresponds to section title/index (e.g. "B",1))
 	index = [self.fetchedResultsController.sectionIndexTitles indexOfObject:title];
 	
-	NSLog(@"sectionForSectionIndexTitle title:[%@] index:[%d]", title, index );
+	NSLog(@"sectionForSectionIndexTitle title:[%@] index:[%ld]", title, (long)index );
 	
 	return index;
 }
