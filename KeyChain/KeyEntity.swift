@@ -52,16 +52,15 @@ import KeychainAccess
     }
     
     //@TRANSIENT
-    var password:NSData? {
+    var password:String? {
         
         get {
             let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
             
-            if let data =  try! keychain.getData(self.mnemonic) {
-                
+            let key = self.mnemonic
+            
+            if let data =  try! keychain.getString(key) {
                 return data
-                //return String(data:data, encoding:NSUTF8StringEncoding)
-                
             }
             
             return nil
@@ -70,32 +69,12 @@ import KeychainAccess
             
             if let v = value {
                 let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
+ 
+                let key = self.mnemonic
+                
                 try! keychain
                     .accessibility(.WhenUnlocked)
-                    .set(v, key: self.mnemonic)
-                //.set(v.dataUsingEncoding(NSUTF8StringEncoding)!, key: self.mnemonic)
-                
-            }
-        }
-    }
-    
-    var passwordAsString:String? {
-        
-        get {
-            guard let p = self.password else {
-                return nil
-            }
-            return String(data:p, encoding:NSUTF8StringEncoding)
-                
-        }
-        set(value) {
-            
-            if let v = value, let d = v.dataUsingEncoding(NSUTF8StringEncoding) {
-                let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
-                try! keychain
-                    .accessibility(.WhenUnlocked)
-                    .set(d, key: self.mnemonic)
-                
+                    .set(v, key: key)
             }
         }
     }
@@ -339,23 +318,32 @@ import KeychainAccess
     
     //MARK: Serialization
     
+    let sortPredicate = { (A:(key:String, _:NSAttributeDescription), B:(key:String, _:NSAttributeDescription)) -> Bool in
+        return A.key < B.key
+    }
+    let filterPredicate = { (E:(key:String, _:NSAttributeDescription)) -> Bool in
+        switch E.key {
+        case KeyEntity._IS_NEW: return false
+        default: return true
+        }
+    }
     func toDictionary( target:NSMutableDictionary? ) -> NSDictionary? {
     
         guard let t = target else {
             return target;
         }
     
-        self.entity.attributesByName.forEach { (key:String, attribute:NSAttributeDescription) -> () in
+        self.entity.attributesByName
+            .filter( filterPredicate )
+            .sort( sortPredicate )
+            .forEach { (key:String, attribute:NSAttributeDescription) -> () in
             
-            if( key == KeyEntity._IS_NEW ) { return; }
-                
-            if let value = self.valueForKey(key) {
-                
-                t.setObject(value, forKey: key)
-            }
-        
+                    if let v = self.valueForKey(key) {
+                        t.setObject(v, forKey: key)
+                    }
+                }
             
-        }
+                
         return t;
     }
     
@@ -365,14 +353,14 @@ import KeychainAccess
             return
         }
     
-        self.entity.attributesByName.forEach { (key:String, attribute:NSAttributeDescription) -> () in
+        self.entity.attributesByName
+            .filter( filterPredicate )
+            .sort( sortPredicate )
+            .forEach { (key:String, _:NSAttributeDescription) -> () in
         
-            if( key == KeyEntity._IS_NEW ) { return; }
-
-            if let value = s.valueForKey(key) {
-                
-                self.setValue(value, forKey: key)
-            }
+                if let value = s.valueForKey(key) {
+                    self.setValue(value, forKey: key)
+                }
             
         }
     }

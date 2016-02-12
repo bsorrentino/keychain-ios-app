@@ -211,7 +211,7 @@
         
         
         if( [self isPassword:cell]  ) {
-            [cell setControlValue:entity_.passwordAsString ];
+            [cell setControlValue:entity_.password ];
         }
         else {
             [cell setControlValue:[entity_ valueForKey:cell.dataKey]];
@@ -219,7 +219,7 @@
 	}
 	else {
         if( [self isPassword:cell]  ) {
-            entity_.passwordAsString = value;
+            entity_.password = value;
         }
         else {
             [entity_ setValue:value forKey:cell.dataKey];
@@ -232,7 +232,7 @@
 	NSLog(@"[%@].cellControlDidInit ", cell.dataKey  );
 	
     if( [self isPassword:cell]  ) {
-        [cell setControlValue:entity_.passwordAsString ];
+        [cell setControlValue:entity_.password ];
         
     }
     else {
