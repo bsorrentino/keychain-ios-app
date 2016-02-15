@@ -281,7 +281,7 @@
 
 	UIBarButtonItem *leftButton = 
 		[[UIBarButtonItem alloc] initWithTitle:@"Back"
-									 style:UIBarButtonItemStyleBordered
+									 style:UIBarButtonItemStylePlain
 									target:self
 									action:@selector(cancel:)];
 	self.navigationItem.leftBarButtonItem = leftButton;

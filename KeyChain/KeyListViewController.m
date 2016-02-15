@@ -260,7 +260,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
                 self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                     
-                    NSLog(@"clickedButtonAtIndex [%d]", i );
+                    NSLog(@"clickedButtonAtIndex [%ld]", (long)i );
                     
                     switch (i) {
                         case 0: // ADD TO SECTION  
@@ -296,7 +296,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
                 self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                       
-                      NSLog(@"clickedButtonAtIndex [%d]", i );
+                      NSLog(@"clickedButtonAtIndex [%ld]", (long)i );
                       
                       switch (i) {
                           case 0: // REMOVE PREFIX
@@ -343,7 +343,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             
             self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                   
-                      NSLog(@"clickedButtonAtIndex [%d]", i );
+                      NSLog(@"clickedButtonAtIndex [%ld]", (long)i );
                       
                       if (i == 0) // ADD PREFIX 
                       {
@@ -408,7 +408,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
              self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                  
-                 NSLog(@"clickedButtonAtIndex [%d]", i );
+                 NSLog(@"clickedButtonAtIndex [%ld]", (long)i );
                  
                  switch (i) {
                      case 0: // USE CUSTOM PREFIX  
@@ -537,7 +537,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
             self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                   
-                  NSLog(@"clickedButtonAtIndex [%d]", i );
+                  NSLog(@"clickedButtonAtIndex [%ld]", (long)i );
                   
                   switch (i) {
                       case 0: // USE CUSTOM PREFIX  
@@ -1058,6 +1058,8 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             
         case NSFetchedResultsChangeDelete:
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        default:
             break;
     }
 }

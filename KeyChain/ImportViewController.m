@@ -239,7 +239,7 @@
         if(addedKeys > 0 ) [[self appDelegate] saveContext];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import" 
-                                                         message:[NSString stringWithFormat:@"Completed\n added [%d]!", addedKeys ]
+                                                         message:[NSString stringWithFormat:@"Completed\n added [%ld]!", (long)addedKeys ]
                                                         delegate:self 
                                                cancelButtonTitle:@"OK" 
                                                otherButtonTitles:@"Delete File", nil];
@@ -305,7 +305,7 @@
         if( addedKeys > 0 || updatedKeys > 0 ) [[self appDelegate] saveContext];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import" 
-                                                         message:[NSString stringWithFormat:@"Completed\n added [%d]\n updated [%d]!", addedKeys, updatedKeys]
+                                                         message:[NSString stringWithFormat:@"Completed\n added [%ld]\n updated [%ld]!", (long)addedKeys, (long)updatedKeys]
                                                         delegate:self 
                                                cancelButtonTitle:@"OK" 
                                                otherButtonTitles:@"Delete File", nil];
