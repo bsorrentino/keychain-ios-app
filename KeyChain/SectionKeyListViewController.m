@@ -618,7 +618,7 @@ static NSString *SEARCH_CRITERIA =
     // tell table which section corresponds to section title/index (e.g. "B",1))
 	index = [self.fetchedResultsController.sectionIndexTitles indexOfObject:title];
 	
-	NSLog(@"sectionForSectionIndexTitle title:[%@] index:[%d]", title, index );
+	NSLog(@"sectionForSectionIndexTitle title:[%@] index:[%ld]", title, (long)index );
 	
 	return index;
 }
@@ -673,6 +673,8 @@ static NSString *SEARCH_CRITERIA =
             
         case NSFetchedResultsChangeDelete:
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        default:
             break;
     }
 }

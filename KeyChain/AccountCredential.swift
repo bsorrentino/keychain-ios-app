@@ -25,21 +25,6 @@ import KeychainAccess
     }
     
     
-    var encryptionEnabled:Bool {
-        
-        get {
-            let prefs = NSUserDefaults.standardUserDefaults()
-            return prefs.boolForKey("encryption")
-        }
-        
-        set(value) {
-            let prefs = NSUserDefaults.standardUserDefaults()
-            prefs.setBool(value, forKey:"encryption")
-            prefs.synchronize()
-        }
-        
-    }
-    
     var password:String?  {
         get {
             let keychain = Keychain(service: bundleId)

@@ -61,7 +61,7 @@
 - (void)willTransitionToState:(UITableViewCellStateMask)state
 {
     
-    NSLog(@"willTransitionToState [%d]", state);
+    NSLog(@"willTransitionToState [%lu]", (unsigned long)state);
     
     if( state & UITableViewCellStateShowingEditControlMask ) {
         [self.backView setHidden:YES];
