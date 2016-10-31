@@ -27,13 +27,13 @@ class keychain2Tests: XCTestCase {
     
     func _testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
 
     func testVersion() {
-        let v = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String
+        let v = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
         
         XCTAssertNotNil(v, "version is null")
         
