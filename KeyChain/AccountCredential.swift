@@ -37,12 +37,12 @@ import KeychainAccess
             
             if let v = value  {
                 
-                let keychain = Keychain(service: bundleId)
-                
-                let accessibility = keychain.accessibility(.whenUnlocked)
-                
                 do {
-                    try accessibility.set(v, key: "pwd")
+
+                    try Keychain(service: bundleId)
+                        //.accessibility(.whenUnlocked)
+                        .accessibility(.afterFirstUnlock)
+                        .set(v, key: "pwd")
                 }
                 catch  {
                     print( "error set password! \(error)")

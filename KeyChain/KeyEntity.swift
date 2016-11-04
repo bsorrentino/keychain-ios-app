@@ -245,7 +245,8 @@ import KeychainAccess
                 print("key:\(key) password:\(password)")
                 
                 try Keychain(service: AccountCredential.sharedCredential.bundleId)
-                    .accessibility(.whenUnlocked)
+                    //.accessibility(.whenUnlocked)
+                    .accessibility(.afterFirstUnlock)
                     .set(data, key: key)
                 
             }
