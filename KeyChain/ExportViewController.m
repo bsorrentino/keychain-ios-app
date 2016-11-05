@@ -8,7 +8,6 @@
 
 #import "ExportViewController.h"
 #import "WaitMaskController.h"
-#import "KeyEntity.h"
 #import "KeyChainAppDelegate.h"
 
 @interface ExportViewController(Private)
@@ -107,12 +106,12 @@
         }
         
         
-        NSString *errorDescription;
+        NSError *error = nil;
         
-        NSData *data = [NSPropertyListSerialization dataFromPropertyList:root format:NSPropertyListXMLFormat_v1_0 errorDescription:&errorDescription ];
+        NSData *data = [NSPropertyListSerialization dataWithPropertyList:root format:NSPropertyListXMLFormat_v1_0 options:NSPropertyListImmutable error:&error ];
         
         if (data== nil ) {
-            NSString *msg = [NSString stringWithFormat:@"error creating NSPropertyListSerialization [%@]", errorDescription ];
+            NSString *msg = [NSString stringWithFormat:@"error creating NSPropertyListSerialization [%@]", [error description] ];
             
             [KeyChainAppDelegate showMessagePopup:msg title:@"error"];
             return;
@@ -137,7 +136,7 @@
         NSString *outputPath = [documentDirectory stringByAppendingPathComponent:fileName];
         
         //BOOL writeResult = [data writeToFile:outputPath atomically:YES];
-        NSError *error = nil;
+        error = nil;
         BOOL writeResult = [data writeToFile:outputPath options:NSDataWritingAtomic error:&error];
         if( !writeResult ) {
             [KeyChainAppDelegate showErrorPopup:error];
@@ -145,7 +144,7 @@
         }
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Export"
-                                                        message:[NSString stringWithFormat:@"Completed\n exported [%d]\n keys!", [items count]]
+                                                        message:[NSString stringWithFormat:@"Completed\n exported [%lu]\n keys!", (unsigned long)[items count]]
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];

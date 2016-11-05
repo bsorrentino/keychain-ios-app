@@ -16,7 +16,7 @@ pod 'ZKRevealingTableViewCell', :podspec => '.'
 pod 'UIXML', :podspec => '.'
 
 #pod 'KSCrypto',	'~> 1.0.2'
-pod 'RNCryptor', :podspec => '.'
+#pod 'RNCryptor', :podspec => '.'
 
 
 

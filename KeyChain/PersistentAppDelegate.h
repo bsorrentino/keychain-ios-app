@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-#define _PERSISTENT_APP_NAME "KeyChain"
-#define _PERSISTENT_APP_MODEL "KeyChain-1.2"
+#define _PERSISTENT_APP_NAME "KeyChain2"
+#define _PERSISTENT_APP_MODEL "KeyChain" //"KeyChain-1.3"
 
 @class KeyEntity;
 

@@ -7,7 +7,6 @@
 //
 
 #import "KeyEntityFormController.h"
-#import "KeyEntity+Cryptor.h"
 #import "BaseDataEntryCell.h"
 #import "TextDataEntryCell.h"
 #import "KeyChainAppDelegate.h"
@@ -130,7 +129,7 @@
 	
 	TextDataEntryCell *cell = (TextDataEntryCell*)[self cellForIndexPath:2 section:0];
 		
-	NSLog(@"showHidePassword selectedSegmentIndex=[%d] [%@]", index, cell );
+	NSLog(@"showHidePassword selectedSegmentIndex=[%ld] [%@]", (long)index, cell );
 	
 	cell.textField.secureTextEntry = (index==0);
 	
@@ -212,7 +211,7 @@
         
         
         if( [self isPassword:cell]  ) {
-            [cell setControlValue:[entity_ getPasswordDecrypted] ];
+            [cell setControlValue:entity_.password ];
         }
         else {
             [cell setControlValue:[entity_ valueForKey:cell.dataKey]];
@@ -220,7 +219,7 @@
 	}
 	else {
         if( [self isPassword:cell]  ) {
-            [entity_ setPasswordToEncrypt:value];
+            entity_.password = value;
         }
         else {
             [entity_ setValue:value forKey:cell.dataKey];
@@ -233,7 +232,7 @@
 	NSLog(@"[%@].cellControlDidInit ", cell.dataKey  );
 	
     if( [self isPassword:cell]  ) {
-        [cell setControlValue:[entity_ getPasswordDecrypted] ];
+        [cell setControlValue:entity_.password ];
         
     }
     else {
@@ -282,7 +281,7 @@
 
 	UIBarButtonItem *leftButton = 
 		[[UIBarButtonItem alloc] initWithTitle:@"Back"
-									 style:UIBarButtonItemStyleBordered
+									 style:UIBarButtonItemStylePlain
 									target:self
 									action:@selector(cancel:)];
 	self.navigationItem.leftBarButtonItem = leftButton;

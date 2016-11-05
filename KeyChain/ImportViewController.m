@@ -9,7 +9,6 @@
 #import "ImportViewController.h"
 #import "PersistentAppDelegate.h"
 #import "KeyChainAppDelegate.h"
-#import "KeyEntity.h"
 #import "WaitMaskController.h"
 
 @interface ImportViewController(Private)
@@ -171,15 +170,16 @@
                 KeyEntity * entity = [[KeyEntity alloc] initWithEntity:[self.delegate entityDescriptor] insertIntoManagedObjectContext:context];
                 
                 NSDictionary *d = [result objectAtIndex:i];
-                [entity fromDictionary:d];
                 
+                [entity fromDictionary:d];
+                                
                 NSLog(@"mnemonic = [%@]", entity.mnemonic);
             }
             
             [[self appDelegate] saveContext];
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import" 
-                                    message:[NSString stringWithFormat:@"Completed\n deleted [%d]\n added [%d]!", [keyList count], [result count]-1 ]
+                                    message:[NSString stringWithFormat:@"Completed\n deleted [%lu]\n added [%lu]!", (unsigned long)[keyList count], [result count]-1 ]
                                     delegate:self 
                                     cancelButtonTitle:@"OK" 
                                     otherButtonTitles:@"Delete File", nil];
@@ -239,7 +239,7 @@
         if(addedKeys > 0 ) [[self appDelegate] saveContext];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import" 
-                                                         message:[NSString stringWithFormat:@"Completed\n added [%d]!", addedKeys ]
+                                                         message:[NSString stringWithFormat:@"Completed\n added [%ld]!", (long)addedKeys ]
                                                         delegate:self 
                                                cancelButtonTitle:@"OK" 
                                                otherButtonTitles:@"Delete File", nil];
@@ -305,7 +305,7 @@
         if( addedKeys > 0 || updatedKeys > 0 ) [[self appDelegate] saveContext];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Import" 
-                                                         message:[NSString stringWithFormat:@"Completed\n added [%d]\n updated [%d]!", addedKeys, updatedKeys]
+                                                         message:[NSString stringWithFormat:@"Completed\n added [%ld]\n updated [%ld]!", (long)addedKeys, (long)updatedKeys]
                                                         delegate:self 
                                                cancelButtonTitle:@"OK" 
                                                otherButtonTitles:@"Delete File", nil];
@@ -376,7 +376,7 @@
     
     NSString *fileName = [fileArray_ objectAtIndex:indexPath.row];
     
-    NSLog(@"clickedButtonAtIndex [%d] [%@]", buttonIndex, fileName );
+    NSLog(@"clickedButtonAtIndex [%ld] [%@]", (long)buttonIndex, fileName );
     
     switch (buttonIndex) {
         case IMPORT_REPLACEALL:
