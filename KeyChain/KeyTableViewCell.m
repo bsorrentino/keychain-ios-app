@@ -7,7 +7,6 @@
 //
 
 #import "KeyTableViewCell.h"
-#import "KeyEntity+Cryptor.h"
 
 @interface KeyTableViewCell ()
 
@@ -62,7 +61,7 @@
 - (void)willTransitionToState:(UITableViewCellStateMask)state
 {
     
-    NSLog(@"willTransitionToState [%d]", state);
+    NSLog(@"willTransitionToState [%lu]", (unsigned long)state);
     
     if( state & UITableViewCellStateShowingEditControlMask ) {
         [self.backView setHidden:YES];
@@ -107,7 +106,7 @@
                              }
                              completion:^(BOOL finished) {
                                  if( !finished) return;
-                                 NSString *pwd = [entity getPasswordDecrypted];
+                                 NSString *pwd = entity.password;
                                  label.text = [pwd stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]; //[entity getPasswordDecrypted];
 
                              }];

@@ -10,7 +10,6 @@
 #import <CoreData/CoreData.h>
 #import "UIXMLFormViewControllerDelegate.h"
 #import "KeyEntityFormController.h"
-#import "KeyEntity+Cryptor.h"
 #import "KeyListDataSource.h"
 
 @class KeyEntityFormController;
@@ -30,14 +29,10 @@
 @property (nonatomic) IBOutlet KeyListViewController *keyListViewController;
 @property (nonatomic) IBOutlet ExportViewController *exportViewController;
 @property (nonatomic) IBOutlet ImportViewController *importViewController;
-@property (unsafe_unretained, nonatomic) IBOutlet UIBarButtonItem *encryptButton;
-@property (unsafe_unretained, nonatomic) IBOutlet UIBarButtonItem *decryptButton;
 
 -(IBAction)changePassword:(id)sender;
 -(IBAction)export:(id)sender;
 -(IBAction)import:(id)sender;
-- (IBAction)encrypt:(id)sender;
-- (IBAction)decrypt:(id)sender;
 
 
 @end

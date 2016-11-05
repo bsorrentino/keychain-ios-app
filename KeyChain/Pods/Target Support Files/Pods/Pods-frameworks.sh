@@ -86,7 +86,6 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/KeychainAccess.framework"
   install_framework "Pods/MTStatusBarOverlay.framework"
-  install_framework "Pods/RNCryptor.framework"
   install_framework "Pods/STAlertView.framework"
   install_framework "Pods/UIXML.framework"
   install_framework "Pods/WEPopover.framework"
@@ -95,7 +94,6 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/KeychainAccess.framework"
   install_framework "Pods/MTStatusBarOverlay.framework"
-  install_framework "Pods/RNCryptor.framework"
   install_framework "Pods/STAlertView.framework"
   install_framework "Pods/UIXML.framework"
   install_framework "Pods/WEPopover.framework"
