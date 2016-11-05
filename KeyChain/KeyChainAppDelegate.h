@@ -6,10 +6,11 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
+@import UIKit;
+@import CoreData;
+@import AVFoundation;
+
 #import "PersistentAppDelegate.h"
-#import <AVFoundation/AVAudioPlayer.h>
 
 @class RootViewController;
 //
