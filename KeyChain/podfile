@@ -1,22 +1,23 @@
 use_frameworks!
+
 platform :ios, "8.0"
 
-#pod 'KeychainAccess', :git => 'https://github.com/kishikawakatsumi/KeychainAccess.git'
-pod 'KeychainAccess'
+target 'KeyChain' do
 
-#pod 'SSKeychain', '~> 0.1.4'
-pod 'MTStatusBarOverlay','~> 0.9'
+    pod 'KeychainAccess', '~> 3.0.1'
+    pod 'MTStatusBarOverlay','~> 0.9'
+    pod 'STAlertView'
+    pod 'WEPopover', :podspec => '.'
+    pod 'ZKRevealingTableViewCell', :podspec => '.'
+    pod 'UIXML', :podspec => '.'
 
-#pod 'WEPopover', '~> 0.0.1'
-#pod 'ZKRevealingTableViewCell', '~>0.0.3'
-pod "STAlertView"
+    #pod 'KeychainAccess', :git => 'https://github.com/kishikawakatsumi/KeychainAccess.git'
+    #pod 'SSKeychain', '~> 0.1.4'
+    #pod 'WEPopover', '~> 0.0.1'
+    #pod 'ZKRevealingTableViewCell', '~>0.0.3'
+    #pod 'KSCrypto',	'~> 1.0.2'
+    #pod 'RNCryptor', :podspec => '.'
 
-pod 'WEPopover', :podspec => '.'
-pod 'ZKRevealingTableViewCell', :podspec => '.'
-pod 'UIXML', :podspec => '.'
-
-#pod 'KSCrypto',	'~> 1.0.2'
-#pod 'RNCryptor', :podspec => '.'
-
+end
 
 
