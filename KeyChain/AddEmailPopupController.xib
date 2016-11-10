@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddEmailPopupController" customModule="KeyChain" customModuleProvider="target">
+            <connections>
+                <outlet property="badgeClose" destination="GL3-kn-nkz" id="Emc-tA-U09"/>
+                <outlet property="popUpView" destination="lYb-60-XpA" id="0tG-I5-wyX"/>
+                <outlet property="txtMail" destination="jTG-eT-eAH" id="GBn-kb-RqX"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Q8V-4G-cdq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYb-60-XpA">
+                    <rect key="frame" x="13" y="101" width="349" height="165"/>
+                    <subviews>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GL3-kn-nkz" customClass="SwiftBadge" customModule="KeyChain" customModuleProvider="target">
+                            <rect key="frame" x="329" y="-17" width="30" height="30"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="ctP-uR-ohc"/>
+                                <constraint firstAttribute="height" constant="30" id="vVW-B2-nxx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="badgeColor">
+                                    <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jTG-eT-eAH" userLabel="txtMail">
+                            <rect key="frame" x="8" y="47" width="333" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="kMo-bj-p5x"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUP-dG-Y3E">
+                            <rect key="frame" x="122" y="106" width="104" height="30"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="W4M-2Z-vUq"/>
+                                <constraint firstAttribute="width" constant="104" id="q2W-5p-lII"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal" title="Confirm">
+                                <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="closePopupWithSender:" destination="-1" eventType="touchUpInside" id="6GW-cW-UwG"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="GL3-kn-nkz" secondAttribute="trailing" constant="-10" id="A5O-R2-EZg"/>
+                        <constraint firstItem="YUP-dG-Y3E" firstAttribute="centerX" secondItem="jTG-eT-eAH" secondAttribute="centerX" id="DIR-Un-Jix"/>
+                        <constraint firstItem="jTG-eT-eAH" firstAttribute="trailing" secondItem="lYb-60-XpA" secondAttribute="trailingMargin" id="dqu-Ya-AAD"/>
+                        <constraint firstItem="jTG-eT-eAH" firstAttribute="leading" secondItem="lYb-60-XpA" secondAttribute="leadingMargin" id="iCv-zu-WcA"/>
+                        <constraint firstItem="jTG-eT-eAH" firstAttribute="top" secondItem="GL3-kn-nkz" secondAttribute="bottom" constant="34" id="irs-Ax-3X1"/>
+                        <constraint firstItem="YUP-dG-Y3E" firstAttribute="top" secondItem="jTG-eT-eAH" secondAttribute="bottom" constant="29" id="ngH-jl-7U8"/>
+                        <constraint firstItem="jTG-eT-eAH" firstAttribute="top" secondItem="lYb-60-XpA" secondAttribute="top" constant="47" id="pPo-M2-jXs"/>
+                        <constraint firstAttribute="bottom" secondItem="YUP-dG-Y3E" secondAttribute="bottom" constant="29" id="yX5-AX-PRd"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add email Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ach-EV-l6u">
+                    <rect key="frame" x="68" y="116" width="240" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="lYb-60-XpA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="9tf-Ve-TKF"/>
+                <constraint firstItem="lYb-60-XpA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RcA-uZ-M5i"/>
+                <constraint firstItem="ach-EV-l6u" firstAttribute="centerX" secondItem="lYb-60-XpA" secondAttribute="centerX" id="bfg-0M-oWN"/>
+                <constraint firstItem="ach-EV-l6u" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="116" id="cC0-h0-GNV"/>
+                <constraint firstItem="lYb-60-XpA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="101" id="rZK-aA-aeh"/>
+                <constraint firstItem="ach-EV-l6u" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="68" id="res-ou-1pN"/>
+            </constraints>
+            <point key="canvasLocation" x="-235.5" y="43.5"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

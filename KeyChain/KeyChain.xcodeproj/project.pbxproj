@@ -78,6 +78,9 @@
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
 		5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754F14E5B06800E3E162 /* KeyListViewController.m */; };
 		A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0121169142269B2000AA884 /* AVFoundation.framework */; };
+		A01C68121DD4876A0086A1B6 /* AddEmailPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C68101DD4876A0086A1B6 /* AddEmailPopupController.swift */; };
+		A01C68131DD4876A0086A1B6 /* AddEmailPopupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01C68111DD4876A0086A1B6 /* AddEmailPopupController.xib */; };
+		A01C68151DD4F02D0086A1B6 /* SwiftBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C68141DD4F02D0086A1B6 /* SwiftBadge.swift */; };
 		A02BB725159C4DFA001FD5AA /* back32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB722159C4DFA001FD5AA /* back32x32.png */; };
 		A02BB726159C4DFA001FD5AA /* keychain-desktop-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */; };
 		A02BB72A159C4E38001FD5AA /* UIAlertViewInputSection.m in Sources */ = {isa = PBXBuildFile; fileRef = A02BB729159C4E38001FD5AA /* UIAlertViewInputSection.m */; };
@@ -225,6 +228,9 @@
 		5FFC754F14E5B06800E3E162 /* KeyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyListViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* KeyChain-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KeyChain-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A0121169142269B2000AA884 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A01C68101DD4876A0086A1B6 /* AddEmailPopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEmailPopupController.swift; sourceTree = "<group>"; };
+		A01C68111DD4876A0086A1B6 /* AddEmailPopupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEmailPopupController.xib; sourceTree = "<group>"; };
+		A01C68141DD4F02D0086A1B6 /* SwiftBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBadge.swift; sourceTree = "<group>"; };
 		A02BB722159C4DFA001FD5AA /* back32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back32x32.png; sourceTree = "<group>"; };
 		A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keychain-desktop-512x512.png"; sourceTree = "<group>"; };
 		A02BB728159C4E38001FD5AA /* UIAlertViewInputSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewInputSection.h; sourceTree = "<group>"; };
@@ -313,6 +319,7 @@
 				5FB1293815CAFB18007365C5 /* SectionKeyList */,
 				5FD37D4715CDD005008F9F1D /* KeyList */,
 				5F052D8F15CBEA6E00330214 /* Commons */,
+				A01C680F1DD487100086A1B6 /* popup */,
 				5F084FC115BAEFA600059E26 /* Cell */,
 				5FACE35F15B62006007B45FE /* Security */,
 				5F6F634714FE4504004C1337 /* DragDrop */,
@@ -575,6 +582,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A01C680F1DD487100086A1B6 /* popup */ = {
+			isa = PBXGroup;
+			children = (
+				A01C68141DD4F02D0086A1B6 /* SwiftBadge.swift */,
+				A01C68101DD4876A0086A1B6 /* AddEmailPopupController.swift */,
+				A01C68111DD4876A0086A1B6 /* AddEmailPopupController.xib */,
+			);
+			name = popup;
+			sourceTree = "<group>";
+		};
 		A02BB730159C57F8001FD5AA /* WEPopover */ = {
 			isa = PBXGroup;
 			children = (
@@ -691,6 +708,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A01C68131DD4876A0086A1B6 /* AddEmailPopupController.xib in Resources */,
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
 				5FA3A4D012DC780B009BE36C /* KeyEntityFormController.xib in Resources */,
@@ -826,6 +844,7 @@
 				A0FD0E4614165D8E009C7257 /* AttributeInfo.m in Sources */,
 				5F44CC6F1C4C3EBE007003D6 /* model-1.1.xcmappingmodel in Sources */,
 				A0FD0E4D14166C32009C7257 /* MailListDataEntryCell.m in Sources */,
+				A01C68121DD4876A0086A1B6 /* AddEmailPopupController.swift in Sources */,
 				5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */,
 				5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */,
 				5F44CC701C4C3EBE007003D6 /* model-1.2.xcmappingmodel in Sources */,
@@ -843,6 +862,7 @@
 				5F7781861BBD1784007B37B5 /* AccountCredential.swift in Sources */,
 				5FC65097160933F1003BC18F /* YISplashScreen+Migration.m in Sources */,
 				5FC65098160933F1003BC18F /* YISplashScreenAnimation.m in Sources */,
+				A01C68151DD4F02D0086A1B6 /* SwiftBadge.swift in Sources */,
 				5F44CC711C4C3EBE007003D6 /* model-1.3.xcmappingmodel in Sources */,
 				5F30A4841610E3AD005BAE36 /* KeyChain.xcdatamodeld in Sources */,
 				5F44CC691C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel in Sources */,
