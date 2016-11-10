@@ -366,10 +366,8 @@ NSString * const regularExpression = @"(.*)@(.*)";
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    
-    if( _addMailPopup && self.addMailPopup.isOpen ) {
-        [self.addMailPopup removeAnimate];
-    }
+
+    [self setEditing:NO animated:NO];
     [super viewWillDisappear:animated];
 }
 
@@ -392,6 +390,9 @@ NSString * const regularExpression = @"(.*)@(.*)";
         
         //[indexPath release]; BUG FIX Issue #6
 
+        if( _addMailPopup  ) {
+            [self.addMailPopup removeAnimate];
+        }
     }
     [super setEditing:editing animated:animated];
 }

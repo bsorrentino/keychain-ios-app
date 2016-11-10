@@ -15,7 +15,6 @@ class AddEmailPopupController : UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var txtMail: UITextField!
-    @IBOutlet weak var badgeClose: SwiftBadge!
     
     private var _isOpen = false
     private var _originalFrame:CGRect?
@@ -50,12 +49,6 @@ class AddEmailPopupController : UIViewController, UITextFieldDelegate {
         
         _originalFrame = self.view.frame
         
-        let tapGesture: UITapGestureRecognizer =
-            UITapGestureRecognizer(target: self, action: #selector(removeAnimate))
-        tapGesture.numberOfTapsRequired = 1
-        badgeClose.isUserInteractionEnabled =  true
-        badgeClose.addGestureRecognizer(tapGesture)
-    
         #if __KEYBOARD
             
         _inputAccessoryView.responders = [
@@ -70,6 +63,9 @@ class AddEmailPopupController : UIViewController, UITextFieldDelegate {
   
     func showInView(aView: UIView!)
     {
+        guard !self._isOpen else {
+            return
+        }
         aView.addSubview(self.view)
         
         var f = self.view.frame
@@ -100,6 +96,10 @@ class AddEmailPopupController : UIViewController, UITextFieldDelegate {
     
     @IBAction func removeAnimate()
     {
+        guard self._isOpen else {
+            return
+        }
+        
         #if __KEYBOARD
         unregisterForKeyboardNotifications()
         #endif
@@ -118,6 +118,9 @@ class AddEmailPopupController : UIViewController, UITextFieldDelegate {
     
     
     @IBAction func closePopup(sender: AnyObject? ) {
+        guard self._isOpen else {
+            return
+        }
         
         self.removeAnimate()
         if let handler = self.onClose  {

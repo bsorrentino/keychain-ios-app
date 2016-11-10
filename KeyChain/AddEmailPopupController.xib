@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddEmailPopupController" customModule="KeyChain" customModuleProvider="target">
             <connections>
-                <outlet property="badgeClose" destination="GL3-kn-nkz" id="Emc-tA-U09"/>
                 <outlet property="popUpView" destination="lYb-60-XpA" id="0tG-I5-wyX"/>
                 <outlet property="txtMail" destination="jTG-eT-eAH" id="GBn-kb-RqX"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Q8V-4G-cdq"/>
@@ -26,28 +25,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYb-60-XpA">
                     <rect key="frame" x="13" y="101" width="349" height="165"/>
                     <subviews>
-                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GL3-kn-nkz" customClass="SwiftBadge" customModule="KeyChain" customModuleProvider="target">
-                            <rect key="frame" x="329" y="-17" width="30" height="30"/>
-                            <gestureRecognizers/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="30" id="ctP-uR-ohc"/>
-                                <constraint firstAttribute="height" constant="30" id="vVW-B2-nxx"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="color" keyPath="badgeColor">
-                                    <color key="value" cocoaTouchSystemColor="darkTextColor"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                    <real key="value" value="2"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jTG-eT-eAH" userLabel="txtMail">
                             <rect key="frame" x="8" y="47" width="333" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -74,11 +51,9 @@
                     </subviews>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="GL3-kn-nkz" secondAttribute="trailing" constant="-10" id="A5O-R2-EZg"/>
                         <constraint firstItem="YUP-dG-Y3E" firstAttribute="centerX" secondItem="jTG-eT-eAH" secondAttribute="centerX" id="DIR-Un-Jix"/>
                         <constraint firstItem="jTG-eT-eAH" firstAttribute="trailing" secondItem="lYb-60-XpA" secondAttribute="trailingMargin" id="dqu-Ya-AAD"/>
                         <constraint firstItem="jTG-eT-eAH" firstAttribute="leading" secondItem="lYb-60-XpA" secondAttribute="leadingMargin" id="iCv-zu-WcA"/>
-                        <constraint firstItem="jTG-eT-eAH" firstAttribute="top" secondItem="GL3-kn-nkz" secondAttribute="bottom" constant="34" id="irs-Ax-3X1"/>
                         <constraint firstItem="YUP-dG-Y3E" firstAttribute="top" secondItem="jTG-eT-eAH" secondAttribute="bottom" constant="29" id="ngH-jl-7U8"/>
                         <constraint firstItem="jTG-eT-eAH" firstAttribute="top" secondItem="lYb-60-XpA" secondAttribute="top" constant="47" id="pPo-M2-jXs"/>
                         <constraint firstAttribute="bottom" secondItem="YUP-dG-Y3E" secondAttribute="bottom" constant="29" id="yX5-AX-PRd"/>
