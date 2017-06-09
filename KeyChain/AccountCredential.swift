@@ -12,7 +12,7 @@ import KeychainAccess
 @objc class AccountCredential : NSObject {
     
     
-    static private var _sharedCredential:AccountCredential?
+    static fileprivate var _sharedCredential:AccountCredential?
     
     static var sharedCredential:AccountCredential {
         get{
@@ -37,11 +37,16 @@ import KeychainAccess
             
             if let v = value  {
                 
-                let keychain = Keychain(service: bundleId)
-                
-                try! keychain
-                    .accessibility(.WhenUnlocked)
-                    .set(v, key: "pwd")
+                do {
+
+                    try Keychain(service: bundleId)
+                        //.accessibility(.whenUnlocked)
+                        .accessibility(.afterFirstUnlock)
+                        .set(v, key: "pwd")
+                }
+                catch  {
+                    print( "error set password! \(error)")
+                }
             }
             
         }
@@ -49,14 +54,14 @@ import KeychainAccess
     
     var version:String? {
         get {
-            let prefs = NSUserDefaults.standardUserDefaults()
-            return prefs.stringForKey("ver")
+            let prefs = UserDefaults.standard
+            return prefs.string(forKey: "ver")
         }
         
         set(value) {
             if let v = value {
-                let prefs = NSUserDefaults.standardUserDefaults()
-                prefs.setObject(v, forKey:"ver")
+                let prefs = UserDefaults.standard
+                prefs.set(v, forKey:"ver")
                 prefs.synchronize()
             }
         }
@@ -65,13 +70,13 @@ import KeychainAccess
 
     var versionNumber:UInt {
         get {
-            let prefs = NSUserDefaults.standardUserDefaults()
-            return UInt(prefs.integerForKey("ver#"))
+            let prefs = UserDefaults.standard
+            return UInt(prefs.integer(forKey: "ver#"))
         }
         
         set(value) {
-            let prefs = NSUserDefaults.standardUserDefaults()
-            prefs.setInteger( Int(value), forKey:"ver#")
+            let prefs = UserDefaults.standard
+            prefs.set( Int(value), forKey:"ver#")
             prefs.synchronize()
         }
         
@@ -86,7 +91,7 @@ import KeychainAccess
     
     var bundleVersion:String? {
         get {
-            return  NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String
+            return  Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
         }
     }
     
@@ -99,7 +104,7 @@ import KeychainAccess
             return false
         }
         
-        if( self.version == nil || bv.compare(self.version!, options:.CaseInsensitiveSearch) != .OrderedSame ){
+        if( self.version == nil || bv.compare(self.version!, options:.caseInsensitive) != .orderedSame ){
             self.version = bv
             self.versionNumber = UInt(CFBundleGetVersionNumber(CFBundleGetMainBundle()))
             return true
@@ -110,12 +115,12 @@ import KeychainAccess
 
     // check if currentVersion is different to bundleVersion
     // exec callback if are differents
-    func checkCurrentVersion( cb:( prev:UInt, next:UInt ) -> Void ) -> AccountCredential
+    func checkCurrentVersion( _ cb:( _ prev:UInt, _ next:UInt ) -> Void ) -> AccountCredential
     {
         let prev = self.versionNumber
         let next = UInt(CFBundleGetVersionNumber(CFBundleGetMainBundle()))
       
-        cb( prev:prev, next:next )
+        cb( prev, next )
             
         return self
     }

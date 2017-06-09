@@ -46,7 +46,7 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
     
     CGRect rc = self.webView.frame;
     
-    rc.origin.y = self.view.frame.origin.y + addressViewRC.size.height + 20;
+    rc.origin.y = self.view.frame.origin.y + addressViewRC.size.height;
     rc.size.height = self.view.frame.size.height - addressViewheight;
     [self.webView setFrame:rc];    
     
@@ -242,8 +242,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 
     CGRect addressViewRC = self.addressView.frame;
     addressViewRC.size.height = 0;
-    addressViewRC.origin.y += 20;
-    
     [self.addressView setFrame: addressViewRC];
     
     

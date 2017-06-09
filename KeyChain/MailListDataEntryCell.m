@@ -9,8 +9,8 @@
 #import "MailListDataEntryCell.h"
 #import "KeyChainAppDelegate.h"
 #import "AttributeInfo.h"
-#import <AVFoundation/AVAudioPlayer.h>
 #import <STAlertView/STAlertView.h>
+#import <AVFoundation/AVAudioPlayer.h>
 
 #define TRACE_ENTER( m ) NSLog( @"enter in [%@]", @#m )
 
@@ -265,23 +265,19 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
     __BLOCKSELF;
     
-    self.mailAlertView = [[STAlertView alloc] initWithTitle:NSLocalizedString(@"ListDataEntryCell.alertTitle", @"add new Item")
-                                                    message:@""
-                                              textFieldHint:@""
-                                             textFieldValue:nil
-                                          cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:@"Store"
-                        
-                                          cancelButtonBlock:^{
-                                              NSLog(@"cancel mail");
-                                              
-                                            }
-                                           otherButtonBlock:^(NSString * result){
-                                               
-                                               [__self insertManagedObject:result];
-
-                                           }];
+    NSString *title = NSLocalizedString(@"ListDataEntryCell.alertTitle", @"add new Item");
     
+    self.mailAlertView =
+    
+    [[STAlertView alloc] initWithTitle:title message:@"" cancelButtonTitle:@"Cancel" otherButtonTitle:@"Store" cancelButtonBlock:^{
+        NSLog(@"cancel mail");
+        
+    } otherButtonBlock:^(NSString * result){
+        
+        [__self insertManagedObject:result];
+        
+    }];
+
 #if 0
 	UIAlertView *alert = [[UIAlertView alloc] 
 						  initWithTitle: NSLocalizedString(@"ListDataEntryCell.alertTitle", @"add new Item") 

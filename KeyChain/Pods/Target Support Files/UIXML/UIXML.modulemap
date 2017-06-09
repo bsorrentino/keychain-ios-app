@@ -1,6 +1,0 @@
-framework module UIXML {
-  umbrella header "UIXML-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -7,345 +7,348 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02A168235EE7BEE5F7EE98055721D136 /* MTStatusBarOverlay-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89291124D52D224F4EA6F642443881 /* MTStatusBarOverlay-dummy.m */; };
-		03AAD373AF82AF3B7719D08498C0B124 /* BaseDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C46243C9CE3860B4CD34CA126121BE /* BaseDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		03CA098C3046A832FB9D5CD1246A1240 /* popoverArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 810552B0DF5B782943C1A85CE43A085D /* popoverArrowDown.png */; };
-		042FCAA991B968DF319288A7B69AFDFB /* ZKRevealingTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D82A2FB8A3BC97D71C837C7A2AB3E70 /* ZKRevealingTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		06BB52E4AF57F2B412DBA74CD1D20F46 /* STAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = BEDF91921234847BF8FFC9F968E4ED13 /* STAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		09F32EA68B552BC1533FB5F505339B34 /* UIXML.h in Headers */ = {isa = PBXBuildFile; fileRef = F2A6D5ED9F983E9F00210BF3181C8BB4 /* UIXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0B3D4523E9564BB374014B5408390531 /* PushTextEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 142599B2688ECA31A89F45B3C0A63959 /* PushTextEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0EB85129E628965B01CCFAA149CA32C5 /* popoverArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E57DE97F0469193A5A5B55E3D45F021E /* popoverArrowUp@2x.png */; };
-		122705533F1BAEB624525D099A7DF83B /* WETouchableView.h in Headers */ = {isa = PBXBuildFile; fileRef = EF5228570193B3565B0962073FDEE0DA /* WETouchableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DBC7AF9FF94E335816C888BAC25292B /* SwitchDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D87D0A5BD635C5151EDDB76DE23A91AA /* SwitchDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1E38FE3165CAEB74310863DEE09A7502 /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F397886A513211302478670459188BA5 /* WETouchableView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		239ACFC884D7378D690D8C73F8671F1C /* popoverArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C700D4530AFBA90CA4F6F98AF8CC62C /* popoverArrowLeft.png */; };
-		2678DCB76E881510F49241FDED925505 /* PushWebViewEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 35A77A33A351D7C62D9E49C5A887BAB8 /* PushWebViewEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2C30F8DE9055F9D0EB13344B82BA59BA /* STAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EBC6957F9249C239667E54F542ECD55 /* STAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2E97BE41D443D7641693B53D2AF2244E /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A377AF494D0084259752AF7438A91E /* Keychain.swift */; };
-		2F60CDA62C2D3E58D0B548824EA9CBE1 /* UIXMLFormViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B8362F8DBCEA47E7C7E09F8A066DADBC /* UIXMLFormViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2FA8B0C6CA883B72E8CA9211B3041780 /* MTStatusBarOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F616376F9FC434AF213D5FE71D8EFC /* MTStatusBarOverlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		30760887617CE8A14F70191588413F49 /* WEPopover-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A116F2BB90C89B79142B27F4F89F8E84 /* WEPopover-dummy.m */; };
-		347E9B6E9260F6E6DAA1FBCD3DA8BF74 /* TextDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E36915D52F3EFFE99F9FCA1AD7843F52 /* TextDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C3CAC27B563586072571D65F82B804 /* MailDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 483DD99C51B3D498E565D05B2FEFE4A1 /* MailDataEntryCell.xib */; };
-		35C092B8388B4B761E9E4EEFD8C824DA /* popoverArrowDownSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D5A4BF7FBC40EF75C7BCFB4E6441610 /* popoverArrowDownSimple.png */; };
-		35E9B581E24E7EFFF8D4B1A2D6AC4CED /* WEPopoverParentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EC1EDA5C81F5495EC30B3227CF280ED /* WEPopoverParentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3C611A7C1F74EB1F264FE5E368FD6594 /* WEPopover-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 060D5F2AF39F31132223862F35AD2AC8 /* WEPopover-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3DEC653EB14600E5E1AD55383FE7076F /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489931F1C40AEF3D79D5807037D39B55 /* UIXMLFormViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		40A3157EF9DCE6B16FC5F783BC51732B /* KeychainAccess-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6103F365D93CD61AEAE66BA6F69BB2 /* KeychainAccess-dummy.m */; };
-		5033B528F70646B78AAEA47BAACF6D81 /* ZKRevealingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC87DFA3F115D65281900C1F96A4C56 /* ZKRevealingTableViewCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		50D4A66C53A2EFECBD70FC5BA49DC3AD /* UIBarButtonItem+WEPopover.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F2EF62C57C612CA8920E865D058A9F0 /* UIBarButtonItem+WEPopover.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		53858BB5FAF9B8FBB5A54D5A8C35F778 /* popoverBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFE1DC4897A75189AD3AB6EB2E28992 /* popoverBg@2x.png */; };
-		53A8455EC477212C63DC3F8BA3A33E6E /* WaitMaskController.h in Headers */ = {isa = PBXBuildFile; fileRef = C6670A65E9312FB6FC142490F283C871 /* WaitMaskController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55F9FBC65B032F0CBEB48157A3BFD594 /* KeychainAccess-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1E0455BDC8463553EB63D18718D748 /* KeychainAccess-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		563CC56FFBF19B35B554761B6C2372F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED04AE2201316F6590E7AD9952706C7B /* UIKit.framework */; };
-		5A5B55671731F0FA9D4B2D8E0D3520DC /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = F548F5B1A8F37715B8AC3E9A8EABD016 /* WaitMaskController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		5F040D23BB714105330B3D2B042CD794 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 208B93463A7DF466B97AF1F3222F22A7 /* chevron.png */; };
-		649EA6664B822061513D6E7CA754D4C1 /* back24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 97F5BFE904F4E252C5AD7BFD3F2567AA /* back24x24.png */; };
-		668C471D436F528241FB447ECB375962 /* UIXML-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0204D002A042D113BA86531D4E9FDBE5 /* UIXML-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		69FD3FC607095631A68FAA46581C0953 /* STAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C14673B72F6E0300BC71FED0474413E7 /* STAlertView-dummy.m */; };
-		6CB2475F25CA851316E8DCBF6E88FD82 /* PushDateEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD2198DF472DB53C80CB3B9E4B41535D /* PushDateEntryCell.xib */; };
-		6E74E1AE8FBBDB9E0EAA17265D494167 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */; };
-		6F1028FBBDCD04A6E70B97B2266A7A11 /* popoverArrowLeftSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 2674B085AFE483BEC5999482D0622576 /* popoverArrowLeftSimple.png */; };
-		718A30965A312B01D1FB806CE7F05FA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */; };
-		719D49C07FFFEE6E2BF8BBFA1C7D257D /* ZKRevealingTableViewCell-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 30DE3D81837A1776F0DB4E4F935EB599 /* ZKRevealingTableViewCell-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		773448A42A961DCBD68A7A28457ED1E1 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7B8AD2930AB79CA5790545F85D0028 /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		784FF5E83EDCD108D4D1D2EDA754D610 /* write32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9CED0729F9C0DDE320CBCE5AEC7DB3 /* write32x32.png */; };
-		7881DA195DE86F3C10200892927B6219 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD25CA4A497622D5ABF4C433D79E4DE /* QuartzCore.framework */; };
-		78AE14BC9FCE09EEC07EDE8BE517C54D /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F74BF2E68146285366E68D1CD50D47C /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		7C178558D34E5049751556A80E6438F6 /* BaseDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B6369A4BE4DAC620328D8228E6BA60E /* BaseDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7CCE2B534646D57E4B2FAFF1394E112E /* popoverBg.png in Resources */ = {isa = PBXBuildFile; fileRef = EC0CEF3FBEB584F8675BAC64847C0510 /* popoverBg.png */; };
-		7E4D89EC12BE0D478927007C34D62B1E /* popoverArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30BCF64743564CD0EFAB711195848E77 /* popoverArrowDown@2x.png */; };
-		7F28EEC1BDDB3A18F253AF47FB1DB8B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */; };
-		8025362EDF7F51FFA51B3DB0C3FB4041 /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA228A49E13CCBA2CE27379ACA5F67A /* MTStatusBarOverlay.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		83ACEB59427280A04421987C57920526 /* popoverArrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 4636855D4A993196D5E2C1530887544F /* popoverArrowUp.png */; };
-		87967F12F6240EE6F74475A76A7EEC6F /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F64F7CB5132FD1CFDD5286EF45ACA3 /* PushTextEntryCell.xib */; };
-		92C41B9AA4249CD05E30D22666BBD2CF /* popoverArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 920C094075FA8738E855A137ABA3525E /* popoverArrowRight.png */; };
-		93279A513C898352691FFD2B974EDB24 /* PushControllerDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07F02887FF7C73140322BC0DEE3CED /* PushControllerDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		96B8813B6941DB2DB0A056AEEE8017D8 /* PushFormDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15850D3A22301D736D6730DFEB39698A /* PushFormDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		99E6ED5FD241C115AA375AF8DD67C942 /* popoverBgSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 272B503265B9BA89E94198BE4C67705A /* popoverBgSimple.png */; };
-		9B56524A386FF005C2E08B087E52CD86 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE7FD0E16F3FACCFE19068F1E872D9F /* CoreGraphics.framework */; };
-		9D2455A2C11D3B9E3971ED00E1A49BC3 /* STAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F5B0714626D8F67E77EB3870F28D78 /* STAlertView.m */; };
-		A1748E01246072F9D69E5E17A338778C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */; };
-		A220C3B6182A678EDB3291FF17EE0087 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */; };
-		A2B652E92EA77198D71A780A3089366B /* ZKRevealingTableViewCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAAD8FBEA68A5CA5596A7B05544F1B5 /* ZKRevealingTableViewCell-dummy.m */; };
-		AD61411BBBE71B16DB2360CEF6B10024 /* WEPopoverContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D420381CE13697E904F45C5C8C5E2E /* WEPopoverContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ADDB6CEC4F0250BA32C1BE82C56476D8 /* WEPopoverController.h in Headers */ = {isa = PBXBuildFile; fileRef = E4109163A281694FA3BE3D315F66CCA5 /* WEPopoverController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AEC717051E559E9EDB49100B27D154E8 /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC012F8B2690020C4CA6C98F4B93209 /* PushDateEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B3E843DDA3481A1B8DF5F31217DA9DC6 /* MTStatusBarOverlay-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 820BB074E095750831985F6E5DFABFEA /* MTStatusBarOverlay-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B6002D5431CCC4602E66275F4CCC3C66 /* PushDateEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04236F0B6AB7AC9ABC6713658C05BBCE /* PushDateEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B96C0B40C3100511F71D6FFD84A7C420 /* popoverArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFD67B0C50FFF1363DA45842BA8F1D47 /* popoverArrowRight@2x.png */; };
-		BE254B19A6DB6388AF85AC0820E9DAA7 /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A29343B47CF59C4BEA4C0C3CADC1A /* WEPopoverController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C20CA3A5FC90D1EB69C2CA79EE815F0E /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 944C73EFB93DB64525E96F3654773768 /* PushWebViewEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C438F517CF95BF9CE9AE88B1BA23B6DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */; };
-		C4D84FA5E1AC3E0C894A29E5F9DB9BD5 /* PushFormDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 144B2F569B0E66E2D9259F9607D1D7E6 /* PushFormDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C95374B29444BC6C77FC9A0ABA7062D5 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CC78061815DCAA71D9A9FA9FD8B47F44 /* edit32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = AB57CCB747AE59B07118C5979AACBA4A /* edit32x32.png */; };
-		CD0BBE84DD5602EBB347AB37196AF382 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */; };
-		CE10F9042658F70B82E8F6ECDB918B86 /* PushWebViewEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC1634BB7871C0161CA0D4566805C97E /* PushWebViewEntryCell.xib */; };
-		D2D3551BDC6744996424AF78E8F962C1 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A48DD9D9168C94F752F029991B0453 /* SwitchDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		D30C601F66940A37CD945FD1C07DFBEA /* popoverArrowRightSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D5939C3BE97A9768E27FFB909606823 /* popoverArrowRightSimple.png */; };
-		D3CCE675A448956657ACC453E8EECFD4 /* confirm24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = A5FBEDD2595334DD949F5027BBB951D2 /* confirm24x24.png */; };
-		D3E0D9ACBF74365C3CAFADB7898EEB45 /* SegmentedDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E144B86FE06DCE4BAED9F86113C19D1 /* SegmentedDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DA86BA2BB7AA2E3442F13596853E560E /* TextDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 532C13B01C4CC66D87F66C88ED5A1622 /* TextDataEntryCell.xib */; };
-		DBE32384F58AFBBC64540DBA79FAB8D1 /* PushControllerDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A59579517A3E501EA216B09B19986AC8 /* PushControllerDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DDE56FADC1E211CA2B6B4E6DE96E9126 /* popoverArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02BDD6B877E8FB640A5314AECF0F0E5F /* popoverArrowLeft@2x.png */; };
-		E08535AA15A23631ADE6E2A5C09257D7 /* SegmentedDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7471E70EBF20C0A00405382448C390 /* SegmentedDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E159591DD52B610339704AC8B5E05ED4 /* popoverArrowUpSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B03AA519E2B90E5492613FC3DB41499 /* popoverArrowUpSimple.png */; };
-		E6FDA8F8EF6AF2DB6CBD44A1C64CFF64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */; };
-		EBA75C3E15F3A2EBA87F3F87814DC549 /* PushFormDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB8906B7C61D03F0DC78490984F31E44 /* PushFormDataEntryCell.xib */; };
-		EE058A4C4A27D99A29D09515A3C594DB /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC81305EC318B369224F0739741BE68A /* TextDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		EFFFA5F7CDC30C8EB070E2A0F1E2330D /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF41930F257046081AC6D224A55C89F3 /* PushTextEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		F0F0A0114C27C848E1C5B5C98E73210C /* STAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF82E8401BEF557ED0297116ABE62E85 /* STAlertView.bundle */; };
-		F17A9A045AFFDC474362BED8EEE1E765 /* SwitchDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62F21DA471CC64E05B767C8BBACDB0BF /* SwitchDataEntryCell.xib */; };
-		FACA37354B1F097D1CB25C83B60BC1BB /* UIXML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA83AADC229039D95C265EEFD0CB989E /* UIXML-dummy.m */; };
-		FCC5C7EF983181947E447B827B29BFA1 /* UIXMLFormViewControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E39CAE4E44701FD943C530FC085B3FBB /* UIXMLFormViewControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0026E0998FC71ED47F385DA236C6634F /* MailDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5698ED3E2E7881AB9FD29ED40666185D /* MailDataEntryCell.xib */; };
+		00DD5C416ACA4D54B4FC7C4A23B5A6F7 /* PushWebViewEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 35A77A33A351D7C62D9E49C5A887BAB8 /* PushWebViewEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0178446B1D206798C0E5041CB9280328 /* popoverBgSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = F026583E2E907FDBD4A1BACED3557FBB /* popoverBgSimple.png */; };
+		0737433CA4778EC49C1CB1CCCF7A32AB /* popoverArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E77D4E1C2DC2F4EE401CDEA6547C05F /* popoverArrowLeft@2x.png */; };
+		0D8ED01AE8B6D926C635BE56572B37AF /* Pods-KeyChain-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E924CBFC4529EC78E2FA45B3ED0CDF14 /* Pods-KeyChain-dummy.m */; };
+		1068AC2E5E6C9D584B83E6B1F3AE7795 /* STAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D650E1F8BFF487E48FA3BF46DEFE2E /* STAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		197EEAE1C303B6138B3BF964FE069845 /* popoverArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C1941672C1356C09F10A5469230B803 /* popoverArrowRight.png */; };
+		19FC8115A00DA33771F7BE639C68A7FF /* UIXML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA83AADC229039D95C265EEFD0CB989E /* UIXML-dummy.m */; };
+		1B108B901FB2E4217AC2AB83136B3064 /* PushControllerDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A59579517A3E501EA216B09B19986AC8 /* PushControllerDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E6BF66203426A903A70F9889FA9E595 /* Pods-KeyChain-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 61422EA4B950E0CE6DA7FF0CC41857DC /* Pods-KeyChain-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EEE103C112BC8315CC666DC64A937CE /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A29343B47CF59C4BEA4C0C3CADC1A /* WEPopoverController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		205935DB1B3940901B4913501A8DBAE9 /* ZKRevealingTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D82A2FB8A3BC97D71C837C7A2AB3E70 /* ZKRevealingTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2692914D5E259FBB7F3CC0AEAD1B6969 /* WETouchableView.h in Headers */ = {isa = PBXBuildFile; fileRef = EF5228570193B3565B0962073FDEE0DA /* WETouchableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C348099617C21391F7C43D4ADE9DE90 /* popoverArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D32194641BE13809FE9B827947AFE756 /* popoverArrowDown@2x.png */; };
+		2E58FEEB63835385EE225C99908EE4AF /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA228A49E13CCBA2CE27379ACA5F67A /* MTStatusBarOverlay.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3586C086974765B9DE39168BFCE3B31F /* edit32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEDF756F03BCF8F581D4FA856C1EBA7 /* edit32x32.png */; };
+		3767D669593338940220EF8A475DA426 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBA94A94B982885ECCA1662BE8CD7CF /* UIKit.framework */; };
+		39D63907516B48DFA4EF2C3B86E270C0 /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 944C73EFB93DB64525E96F3654773768 /* PushWebViewEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3DF9C7A9A8F56780516E5E54C53AC3BE /* SwitchDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE878D3A73FD2E8F2A6A00F23EC9274E /* SwitchDataEntryCell.xib */; };
+		3DFD3F1E55151120CD7DBA0A118C7295 /* popoverArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF31FC60B566AE10D1E694DE5CF268C /* popoverArrowRight@2x.png */; };
+		3F96EC3D3BBC3DEEA8ED438C27DE6086 /* popoverBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 48ED9CED24E8B0D10FB8B089B8DC8B62 /* popoverBg.png */; };
+		40395CE910B152E087F0559006917171 /* PushWebViewEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E54592254C31791481A4D050CBB4D23 /* PushWebViewEntryCell.xib */; };
+		427B6D0C97A3FAD637E61736FE45CF27 /* PushDateEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E82DA64DECCD50E2905687814397BA /* PushDateEntryCell.xib */; };
+		42DC725F4CADC1D317E0CC69F7AF03DE /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF41930F257046081AC6D224A55C89F3 /* PushTextEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		433B1D44F4722A1A526536E89E63D16D /* WEPopoverController.h in Headers */ = {isa = PBXBuildFile; fileRef = E4109163A281694FA3BE3D315F66CCA5 /* WEPopoverController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43BEE5AD1949D3288BBBB1DFE4BD86DE /* popoverArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A05DF30E2BA110FEBFE192A5E36917D8 /* popoverArrowDown.png */; };
+		47883DA12FE06F0C49307CB89B2FA4D4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F748DA8F98E61F788C3488D6BA25DD /* QuartzCore.framework */; };
+		4A119672D97E7DE85D32A1117B247372 /* SegmentedDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7471E70EBF20C0A00405382448C390 /* SegmentedDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4A480B5D498393CEEA41DA7B74650D28 /* PushTextEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 142599B2688ECA31A89F45B3C0A63959 /* PushTextEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AA45C178BF3581B24F84AB5715622D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
+		531276C0AA2EC92F146A6E380DB766A4 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = F548F5B1A8F37715B8AC3E9A8EABD016 /* WaitMaskController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5643DD20034E5218CCACF404F14B4218 /* popoverArrowLeftSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = AB40B8248D29F85DD0C935552A1A50FC /* popoverArrowLeftSimple.png */; };
+		60F6F77FD5EE5FBDFBD47F60E41019E8 /* UIBarButtonItem+WEPopover.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F2EF62C57C612CA8920E865D058A9F0 /* UIBarButtonItem+WEPopover.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6202C7F97DF7C71C19FD1EB4CF0715E0 /* popoverArrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = A82070BF1DFF28914FFB5BF94CFAF8D8 /* popoverArrowUp.png */; };
+		6698DAFF0D72AAC3D2A1792BB8E65F79 /* STAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D69EBC086B92B99C3918AD6819B780 /* STAlertView.m */; };
+		674B0B501E642AEF1323C26F47BE03F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
+		6A579F353A8DABB64E1D5D9ED5FF7C48 /* confirm24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = B7203BB8D606931070AFF5535B4AF551 /* confirm24x24.png */; };
+		6AA98E4FDD469BF24633FD6A13E76E36 /* STAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C9F87E3A9D275A0DAE0B392C9BF3D917 /* STAlertView.bundle */; };
+		6DCDA560F5B23475B28A94F122B3909A /* PushFormDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 144B2F569B0E66E2D9259F9607D1D7E6 /* PushFormDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74B908E43A8BA2B31C7CE4B9D45DA7FA /* WEPopoverContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D420381CE13697E904F45C5C8C5E2E /* WEPopoverContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74C96BDA097126ADEF02A8F034638F5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
+		7707C68A829B310D27C887FC046086F0 /* WaitMaskController.h in Headers */ = {isa = PBXBuildFile; fileRef = C6670A65E9312FB6FC142490F283C871 /* WaitMaskController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		775CC7BE92390A7CF182C6177AB93EDF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3292CC8DBF6352C2BF2B949CB548248F /* CoreGraphics.framework */; };
+		7CBFAD11C49F6B2DE7A84DCC7478B609 /* TextDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6886F740FA0D97B6E76DF9558419CD /* TextDataEntryCell.xib */; };
+		7DAEBD52FFCDDE91E4AD0F8C620407DF /* UIXML-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0204D002A042D113BA86531D4E9FDBE5 /* UIXML-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		819EDB04AC610587DAB0B020D311A719 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A48DD9D9168C94F752F029991B0453 /* SwitchDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		822B74F38C270E43D355E871D27DC720 /* PushDateEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 04236F0B6AB7AC9ABC6713658C05BBCE /* PushDateEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		881A9DB64A230B02AB97B97D9F5D5FBF /* PushFormDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 693F4F84338883AB8F5FF88E24E4B658 /* PushFormDataEntryCell.xib */; };
+		893528E5D2C58FE7B65E4C4E9EB597A7 /* WEPopover-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 060D5F2AF39F31132223862F35AD2AC8 /* WEPopover-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8EC655604E8FB897C35F3B77E3D8332F /* BaseDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C46243C9CE3860B4CD34CA126121BE /* BaseDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9953A257C8EF1A3F428A61BFF9C1239D /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EF8901295C969393A0CB5459491C0A /* chevron.png */; };
+		9EF858069249219D39239DC31400BB11 /* back24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = CE0C540052959617113AD86B6A8B2D8A /* back24x24.png */; };
+		A008743A9ED78F5090C40F4F615B46E3 /* MTStatusBarOverlay-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 820BB074E095750831985F6E5DFABFEA /* MTStatusBarOverlay-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A394904AF6A4E21F234AF5287F995972 /* PushControllerDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07F02887FF7C73140322BC0DEE3CED /* PushControllerDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A5C48D4604F7AA59C46AC51D7D7F13B4 /* UIXMLFormViewControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E39CAE4E44701FD943C530FC085B3FBB /* UIXMLFormViewControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A821CC097D6F36624488830B27C8B40F /* SwitchDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D87D0A5BD635C5151EDDB76DE23A91AA /* SwitchDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A967960EE4C1C1AF8A3FC3555BABDC58 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A377AF494D0084259752AF7438A91E /* Keychain.swift */; };
+		AF4CA8195E9E2E6A00146CE3A519B2BD /* MTStatusBarOverlay-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89291124D52D224F4EA6F642443881 /* MTStatusBarOverlay-dummy.m */; };
+		B8B2458C298B32B6FF247D669A3AC824 /* STAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AE367221C0286C785C545E5F6DCEBF8E /* STAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B95B44010B1959AE2427596B853B24BC /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC012F8B2690020C4CA6C98F4B93209 /* PushDateEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		BD4F738A0AC43C4B17B57FFA65DED2E1 /* STAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41730EF0F805CF5BE5023317F7A56726 /* STAlertView-dummy.m */; };
+		BDA750A5542A5D826A35B1BE6A69574A /* KeychainAccess-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1E0455BDC8463553EB63D18718D748 /* KeychainAccess-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE5D982EC4FCAAD552C4E9DD827E21EF /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F74BF2E68146285366E68D1CD50D47C /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		BF1F484661CE04F9B508E293DFD9F822 /* popoverArrowUpSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF8C2F45DCF56CBC2AB1F9194BBA562 /* popoverArrowUpSimple.png */; };
+		C0FC077B9CCB3329FD465135CED9BB94 /* UIXMLFormViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B8362F8DBCEA47E7C7E09F8A066DADBC /* UIXMLFormViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3F870DAB337C504055D05B0AC885FD2 /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F397886A513211302478670459188BA5 /* WETouchableView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C456AEBA7FACA838B8EF6CE4F7029C3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
+		C6359860D76E70C2252FB528C6996AB4 /* popoverArrowRightSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 677E79E7E4A5BB4FD1920F66AE77D82C /* popoverArrowRightSimple.png */; };
+		C847A70AB28B6378C182C3AE3F9D7198 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
+		C8F299657CCA5C99A5125D1A43486E86 /* ZKRevealingTableViewCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAAD8FBEA68A5CA5596A7B05544F1B5 /* ZKRevealingTableViewCell-dummy.m */; };
+		C923A94EEEFB95BFB497E16D1F8D862C /* WEPopover-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A116F2BB90C89B79142B27F4F89F8E84 /* WEPopover-dummy.m */; };
+		C93D438301C433B82309F4D7723233DE /* TextDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E36915D52F3EFFE99F9FCA1AD7843F52 /* TextDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9E9E19E7CE334AD5AA28C2EC82CA7E0 /* PushFormDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15850D3A22301D736D6730DFEB39698A /* PushFormDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CA1DFBF8F777F747EC24700305D75A41 /* SegmentedDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E144B86FE06DCE4BAED9F86113C19D1 /* SegmentedDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB30C760058746DA7EF9C0A52E0AAA47 /* WEPopoverParentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EC1EDA5C81F5495EC30B3227CF280ED /* WEPopoverParentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0AB239C35EFFBB805F56CB446AD38C0 /* popoverArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACEA18DE128DE1AE8768E3A9F0D7025 /* popoverArrowUp@2x.png */; };
+		D5043527799682ACB813FAFFF23FEDF2 /* ZKRevealingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC87DFA3F115D65281900C1F96A4C56 /* ZKRevealingTableViewCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D543983BC796E4BD3E3983B5143FF1BE /* popoverArrowDownSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D15555E4725520EE9D64FE267472C4 /* popoverArrowDownSimple.png */; };
+		D589645372A07EE3A1FC171855CE261A /* write32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 59F225E5FC87DD1452A255C55E2CE6FA /* write32x32.png */; };
+		D816F7CEFA0AF49EF32680394DBB52C7 /* ZKRevealingTableViewCell-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 30DE3D81837A1776F0DB4E4F935EB599 /* ZKRevealingTableViewCell-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D823270043210DD356225D7700FAF3E4 /* KeychainAccess-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6103F365D93CD61AEAE66BA6F69BB2 /* KeychainAccess-dummy.m */; };
+		DD86A1D9BC61A0844EF9EDB97F33002D /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7B8AD2930AB79CA5790545F85D0028 /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		DDE6EBA38CBFCC07088DE4F76D44E6A0 /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3620C3DC95B9449F5D2ED26BC5B138EA /* PushTextEntryCell.xib */; };
+		DEA371A36299B482297D58F05C52A279 /* UIXML.h in Headers */ = {isa = PBXBuildFile; fileRef = F2A6D5ED9F983E9F00210BF3181C8BB4 /* UIXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E34132E28E525E8A4141B32B54D8DB97 /* MTStatusBarOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F616376F9FC434AF213D5FE71D8EFC /* MTStatusBarOverlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E584A65912E8DE0868D9C83F2307A62D /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489931F1C40AEF3D79D5807037D39B55 /* UIXMLFormViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E83C9B6C8025942E702044B0FFA6D351 /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC81305EC318B369224F0739741BE68A /* TextDataEntryCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EC8F4187F69E81EB7F47BF901F07E8FC /* BaseDataEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B6369A4BE4DAC620328D8228E6BA60E /* BaseDataEntryCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F279450DA82F24BE30323F6E3642A851 /* popoverArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDAB4C2B63E0C0144DF0929DB3D6ED /* popoverArrowLeft.png */; };
+		F444CC6EE8214E7DAADB4AEED42F26F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
+		F6969A6B6023B1231BA3175012EC28B9 /* popoverBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB6515F880A678A70BC6266EE798129 /* popoverBg@2x.png */; };
+		FD37D0F92507F82B90468EA320AC0664 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */; };
+		FDD297B9AB70EB467BD7BE1FA9174DB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBA94A94B982885ECCA1662BE8CD7CF /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		27825718DE4B006B816EBFEE4BC5399A /* PBXContainerItemProxy */ = {
+		3EC971C56F6C7ADA7BBF8020E302B6B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 06FAD94E7BDB37DF16B0960B5C573E05;
-			remoteInfo = STAlertView;
+			remoteGlobalIDString = 8905DB6521F8FDC34752B69DEE3FDEB7;
+			remoteInfo = KeychainAccess;
 		};
-		61D7E49329131CBC3CD478E3882120FE /* PBXContainerItemProxy */ = {
+		5B35B4537A2050C37D7472FED19BC183 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C6B915E1B7089937A8E40C184E238559;
-			remoteInfo = WEPopover;
-		};
-		88BF980736AB7565D18E818E9A6ACA59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B4056F6E07F2FAEAA9DC40AB243E771F;
-			remoteInfo = "STAlertView-STAlertView";
-		};
-		9CCDF14C81928761031865510330E65D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4EF1C028CE3D60A097873B5563A7407D;
-			remoteInfo = ZKRevealingTableViewCell;
-		};
-		D0DF9EAD8460740D0B6353395E654779 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 690737B2A5D2F7641841C116F5FA181A;
-			remoteInfo = MTStatusBarOverlay;
-		};
-		D2E6642A9615CD2136409A800DD49649 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2832F3875A3E658E1307918C1F095AA3;
+			remoteGlobalIDString = 4FB20506A3F8DC74C07E696E82BDC525;
 			remoteInfo = UIXML;
 		};
-		E8FE692598A14C10939F916241CBACC5 /* PBXContainerItemProxy */ = {
+		608A33FDE32301BA0625E2A7133BFE04 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 838A2C6DA366DE138E5FDF1AF19D94C0;
-			remoteInfo = KeychainAccess;
+			remoteGlobalIDString = 3363AFF0C4BCF9EACBECB11374E0C55B;
+			remoteInfo = STAlertView;
+		};
+		8C2991F7A5689638050F009E07E5C3C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 567ED1C8F46773694B327EF5DBD27108;
+			remoteInfo = "STAlertView-STAlertView";
+		};
+		987E4D1D88BE860488439FDC97F01807 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 769EF3910762B5A1E52A03E927159465;
+			remoteInfo = WEPopover;
+		};
+		AC77C67409F0456B3123E6F75C356144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8040B6068BC55FBCCCD91CC894658D7A;
+			remoteInfo = ZKRevealingTableViewCell;
+		};
+		E9C40E4A7F17942B350F60AB787D7EB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 408B6AA66BF1904D594ACCFB0A2E0880;
+			remoteInfo = MTStatusBarOverlay;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0204D002A042D113BA86531D4E9FDBE5 /* UIXML-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIXML-umbrella.h"; sourceTree = "<group>"; };
-		02BDD6B877E8FB640A5314AECF0F0E5F /* popoverArrowLeft@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowLeft@2x.png"; sourceTree = "<group>"; };
 		04236F0B6AB7AC9ABC6713658C05BBCE /* PushDateEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushDateEntryCell.h; sourceTree = "<group>"; };
 		060D5F2AF39F31132223862F35AD2AC8 /* WEPopover-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WEPopover-umbrella.h"; sourceTree = "<group>"; };
-		06E763F336D2C240ADDDE639DEA68CD3 /* UIXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		06EF8901295C969393A0CB5459491C0A /* chevron.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
 		0B6369A4BE4DAC620328D8228E6BA60E /* BaseDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BaseDataEntryCell.h; sourceTree = "<group>"; };
-		0D5A4BF7FBC40EF75C7BCFB4E6441610 /* popoverArrowDownSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowDownSimple.png; sourceTree = "<group>"; };
-		0DD25CA4A497622D5ABF4C433D79E4DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		0C770857B7C74D8706C96890B964676B /* WEPopover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WEPopover.framework; path = WEPopover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E2B6E1EEB9231093BA63C3CB435B9E0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		101E6FF44DE82D51633601FCC7171284 /* STAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = STAlertView.modulemap; sourceTree = "<group>"; };
+		12E8D24ADE41AA82DB6B36D66AD612B3 /* STAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STAlertView-prefix.pch"; sourceTree = "<group>"; };
 		142599B2688ECA31A89F45B3C0A63959 /* PushTextEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushTextEntryCell.h; sourceTree = "<group>"; };
 		144B2F569B0E66E2D9259F9607D1D7E6 /* PushFormDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushFormDataEntryCell.h; sourceTree = "<group>"; };
 		15850D3A22301D736D6730DFEB39698A /* PushFormDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushFormDataEntryCell.m; sourceTree = "<group>"; };
+		1A6886F740FA0D97B6E76DF9558419CD /* TextDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = TextDataEntryCell.xib; sourceTree = "<group>"; };
 		1C1E0455BDC8463553EB63D18718D748 /* KeychainAccess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-umbrella.h"; sourceTree = "<group>"; };
-		1EBC6957F9249C239667E54F542ECD55 /* STAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STAlertView-umbrella.h"; sourceTree = "<group>"; };
-		208B93463A7DF466B97AF1F3222F22A7 /* chevron.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
+		1F305BF472C5D9B63D3842998159CD12 /* STAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = STAlertView.framework; path = STAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20C0A50E519237024051C6AA6876D137 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2674B085AFE483BEC5999482D0622576 /* popoverArrowLeftSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowLeftSimple.png; sourceTree = "<group>"; };
-		272B503265B9BA89E94198BE4C67705A /* popoverBgSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverBgSimple.png; sourceTree = "<group>"; };
 		27A48DD9D9168C94F752F029991B0453 /* SwitchDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SwitchDataEntryCell.m; sourceTree = "<group>"; };
-		2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
+		2CB6515F880A678A70BC6266EE798129 /* popoverBg@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverBg@2x.png"; sourceTree = "<group>"; };
+		2D3B2372E6708DC73880071262E143C9 /* Pods-KeyChain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KeyChain.release.xcconfig"; sourceTree = "<group>"; };
 		2D82A2FB8A3BC97D71C837C7A2AB3E70 /* ZKRevealingTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZKRevealingTableViewCell.h; path = vendor/ZKRevealingTableViewCell.h; sourceTree = "<group>"; };
 		2EC012F8B2690020C4CA6C98F4B93209 /* PushDateEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushDateEntryCell.m; sourceTree = "<group>"; };
 		2F2EF62C57C612CA8920E865D058A9F0 /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+WEPopover.h"; path = "Classes/Popover/UIBarButtonItem+WEPopover.h"; sourceTree = "<group>"; };
 		2F6103F365D93CD61AEAE66BA6F69BB2 /* KeychainAccess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KeychainAccess-dummy.m"; sourceTree = "<group>"; };
-		30BCF64743564CD0EFAB711195848E77 /* popoverArrowDown@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowDown@2x.png"; sourceTree = "<group>"; };
 		30DE3D81837A1776F0DB4E4F935EB599 /* ZKRevealingTableViewCell-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZKRevealingTableViewCell-umbrella.h"; sourceTree = "<group>"; };
+		3292CC8DBF6352C2BF2B949CB548248F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		35A77A33A351D7C62D9E49C5A887BAB8 /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushWebViewEntryCell.h; sourceTree = "<group>"; };
-		3AFE1DC4897A75189AD3AB6EB2E28992 /* popoverBg@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverBg@2x.png"; sourceTree = "<group>"; };
+		3620C3DC95B9449F5D2ED26BC5B138EA /* PushTextEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushTextEntryCell.xib; sourceTree = "<group>"; };
+		381704A43E9935F591A830B4332982F5 /* ResourceBundle-STAlertView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-STAlertView-Info.plist"; sourceTree = "<group>"; };
+		3AF8C2F45DCF56CBC2AB1F9194BBA562 /* popoverArrowUpSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowUpSimple.png; sourceTree = "<group>"; };
 		3E07F02887FF7C73140322BC0DEE3CED /* PushControllerDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushControllerDataEntryCell.m; sourceTree = "<group>"; };
 		3F2230CF0DA72BCC0A254FD39A8F249C /* ZKRevealingTableViewCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZKRevealingTableViewCell.xcconfig; sourceTree = "<group>"; };
 		3F74BF2E68146285366E68D1CD50D47C /* WEPopoverContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverContainerView.m; path = Classes/Popover/WEPopoverContainerView.m; sourceTree = "<group>"; };
-		4636855D4A993196D5E2C1530887544F /* popoverArrowUp.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowUp.png; sourceTree = "<group>"; };
-		483DD99C51B3D498E565D05B2FEFE4A1 /* MailDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MailDataEntryCell.xib; sourceTree = "<group>"; };
+		40D650E1F8BFF487E48FA3BF46DEFE2E /* STAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STAlertView.h; path = Pod/Classes/STAlertView.h; sourceTree = "<group>"; };
+		41730EF0F805CF5BE5023317F7A56726 /* STAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "STAlertView-dummy.m"; sourceTree = "<group>"; };
+		4209221B00CCBDEDE81EF04E71CB63D1 /* STAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = STAlertView.xcconfig; sourceTree = "<group>"; };
 		489931F1C40AEF3D79D5807037D39B55 /* UIXMLFormViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UIXMLFormViewController.m; sourceTree = "<group>"; };
+		48ED9CED24E8B0D10FB8B089B8DC8B62 /* popoverBg.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverBg.png; sourceTree = "<group>"; };
 		49905C54D048A6735A1BCE396323276C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AA228A49E13CCBA2CE27379ACA5F67A /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
-		4AE7FD0E16F3FACCFE19068F1E872D9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		4E89291124D52D224F4EA6F642443881 /* MTStatusBarOverlay-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MTStatusBarOverlay-dummy.m"; sourceTree = "<group>"; };
-		532C13B01C4CC66D87F66C88ED5A1622 /* TextDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = TextDataEntryCell.xib; sourceTree = "<group>"; };
+		52D15555E4725520EE9D64FE267472C4 /* popoverArrowDownSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowDownSimple.png; sourceTree = "<group>"; };
+		5606FED4D7C8FF3F532F2E3E899D4E18 /* ZKRevealingTableViewCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ZKRevealingTableViewCell.framework; path = ZKRevealingTableViewCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5698ED3E2E7881AB9FD29ED40666185D /* MailDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MailDataEntryCell.xib; sourceTree = "<group>"; };
+		59E82DA64DECCD50E2905687814397BA /* PushDateEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushDateEntryCell.xib; sourceTree = "<group>"; };
+		59F225E5FC87DD1452A255C55E2CE6FA /* write32x32.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
 		5A6A29343B47CF59C4BEA4C0C3CADC1A /* WEPopoverController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverController.m; path = Classes/Popover/WEPopoverController.m; sourceTree = "<group>"; };
 		5AE57ACDDBBC752C715F825E93F952BD /* MTStatusBarOverlay.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MTStatusBarOverlay.xcconfig; sourceTree = "<group>"; };
-		5DB0C4EB97C1B5B9856CAB2F4122231E /* STAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = STAlertView.xcconfig; sourceTree = "<group>"; };
-		5DC6BCC15057863155DDAC7B40C579E3 /* STAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = STAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5EDBBD04EB5D869660FC7D443841DF79 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C1941672C1356C09F10A5469230B803 /* popoverArrowRight.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowRight.png; sourceTree = "<group>"; };
 		60D420381CE13697E904F45C5C8C5E2E /* WEPopoverContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverContainerView.h; path = Classes/Popover/WEPopoverContainerView.h; sourceTree = "<group>"; };
-		621AD414C0B2CAC895CCCE745B96E047 /* ZKRevealingTableViewCell.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ZKRevealingTableViewCell.modulemap; sourceTree = "<group>"; };
-		62F21DA471CC64E05B767C8BBACDB0BF /* SwitchDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SwitchDataEntryCell.xib; sourceTree = "<group>"; };
+		61422EA4B950E0CE6DA7FF0CC41857DC /* Pods-KeyChain-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KeyChain-umbrella.h"; sourceTree = "<group>"; };
+		621AD414C0B2CAC895CCCE745B96E047 /* ZKRevealingTableViewCell.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ZKRevealingTableViewCell.modulemap; sourceTree = "<group>"; };
+		677E79E7E4A5BB4FD1920F66AE77D82C /* popoverArrowRightSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowRightSimple.png; sourceTree = "<group>"; };
+		693F4F84338883AB8F5FF88E24E4B658 /* PushFormDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushFormDataEntryCell.xib; sourceTree = "<group>"; };
+		6CD910493622DF5C9F92D62E9BF015D7 /* Pods-KeyChain-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KeyChain-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6E77D4E1C2DC2F4EE401CDEA6547C05F /* popoverArrowLeft@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowLeft@2x.png"; sourceTree = "<group>"; };
 		6EE4667F308F99B397280557187280F5 /* UIXML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UIXML.xcconfig; sourceTree = "<group>"; };
-		70D8487C373AF5ACB716976E49D6331E /* WEPopover.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = WEPopover.modulemap; sourceTree = "<group>"; };
-		75BF1470F8B61EBF403D2922F1B24CEE /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
+		70D8487C373AF5ACB716976E49D6331E /* WEPopover.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = WEPopover.modulemap; sourceTree = "<group>"; };
+		7117EA91173D6DF0864C4C70BF346CBA /* Pods-KeyChain-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KeyChain-acknowledgements.plist"; sourceTree = "<group>"; };
+		72FB5C2FE4AEC0BBB993F11F849D11B5 /* Pods-KeyChain-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KeyChain-resources.sh"; sourceTree = "<group>"; };
+		75C61AF0F3A3B8D0D731943AE82F0FF8 /* MTStatusBarOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MTStatusBarOverlay.framework; path = MTStatusBarOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76A3ABB6AAB7A9468AB104017AD0F806 /* Pods_KeyChain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KeyChain.framework; path = "Pods-KeyChain.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7B8AD2930AB79CA5790545F85D0028 /* UIBarButtonItem+WEPopover.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+WEPopover.m"; path = "Classes/Popover/UIBarButtonItem+WEPopover.m"; sourceTree = "<group>"; };
 		7BAAD8FBEA68A5CA5596A7B05544F1B5 /* ZKRevealingTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZKRevealingTableViewCell-dummy.m"; sourceTree = "<group>"; };
-		7C700D4530AFBA90CA4F6F98AF8CC62C /* popoverArrowLeft.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowLeft.png; sourceTree = "<group>"; };
-		810552B0DF5B782943C1A85CE43A085D /* popoverArrowDown.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowDown.png; sourceTree = "<group>"; };
+		7DCDAB4C2B63E0C0144DF0929DB3D6ED /* popoverArrowLeft.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowLeft.png; sourceTree = "<group>"; };
 		820BB074E095750831985F6E5DFABFEA /* MTStatusBarOverlay-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTStatusBarOverlay-umbrella.h"; sourceTree = "<group>"; };
-		87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		840B5BD3A452005B217DA739EF5AB520 /* UIXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UIXML.framework; path = UIXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C46243C9CE3860B4CD34CA126121BE /* BaseDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BaseDataEntryCell.m; sourceTree = "<group>"; };
-		894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		8B03AA519E2B90E5492613FC3DB41499 /* popoverArrowUpSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowUpSimple.png; sourceTree = "<group>"; };
-		8D5939C3BE97A9768E27FFB909606823 /* popoverArrowRightSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowRightSimple.png; sourceTree = "<group>"; };
+		89DD6EA93D7226ABFDFCC527C6AEB41B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E144B86FE06DCE4BAED9F86113C19D1 /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SegmentedDataEntryCell.h; sourceTree = "<group>"; };
-		8EBC0C770FFD740F6D1235DC241BF432 /* UIXML.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = UIXML.modulemap; sourceTree = "<group>"; };
+		8E54592254C31791481A4D050CBB4D23 /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushWebViewEntryCell.xib; sourceTree = "<group>"; };
+		8EBC0C770FFD740F6D1235DC241BF432 /* UIXML.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = UIXML.modulemap; sourceTree = "<group>"; };
 		8EC1EDA5C81F5495EC30B3227CF280ED /* WEPopoverParentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverParentView.h; path = Classes/Popover/WEPopoverParentView.h; sourceTree = "<group>"; };
-		920C094075FA8738E855A137ABA3525E /* popoverArrowRight.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowRight.png; sourceTree = "<group>"; };
 		93737F1D9EB7DAB803CFCC48F69D7896 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		944C73EFB93DB64525E96F3654773768 /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushWebViewEntryCell.m; sourceTree = "<group>"; };
-		977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		97F5BFE904F4E252C5AD7BFD3F2567AA /* back24x24.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = back24x24.png; sourceTree = "<group>"; };
-		9D076D9970F3BBE1A94A91DF81330861 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DC87DFA3F115D65281900C1F96A4C56 /* ZKRevealingTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZKRevealingTableViewCell.m; path = vendor/ZKRevealingTableViewCell.m; sourceTree = "<group>"; };
-		9F9CED0729F9C0DDE320CBCE5AEC7DB3 /* write32x32.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
+		A05DF30E2BA110FEBFE192A5E36917D8 /* popoverArrowDown.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowDown.png; sourceTree = "<group>"; };
 		A116F2BB90C89B79142B27F4F89F8E84 /* WEPopover-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WEPopover-dummy.m"; sourceTree = "<group>"; };
 		A59579517A3E501EA216B09B19986AC8 /* PushControllerDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushControllerDataEntryCell.h; sourceTree = "<group>"; };
-		A5FBEDD2595334DD949F5027BBB951D2 /* confirm24x24.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = confirm24x24.png; sourceTree = "<group>"; };
-		A9F64F7CB5132FD1CFDD5286EF45ACA3 /* PushTextEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushTextEntryCell.xib; sourceTree = "<group>"; };
-		AB57CCB747AE59B07118C5979AACBA4A /* edit32x32.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
-		AD2198DF472DB53C80CB3B9E4B41535D /* PushDateEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushDateEntryCell.xib; sourceTree = "<group>"; };
-		B05743A32FA51AA0358247DA5A450D7A /* ZKRevealingTableViewCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZKRevealingTableViewCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A82070BF1DFF28914FFB5BF94CFAF8D8 /* popoverArrowUp.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowUp.png; sourceTree = "<group>"; };
+		AB40B8248D29F85DD0C935552A1A50FC /* popoverArrowLeftSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowLeftSimple.png; sourceTree = "<group>"; };
+		AE367221C0286C785C545E5F6DCEBF8E /* STAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STAlertView-umbrella.h"; sourceTree = "<group>"; };
+		B03F83C4F7D0E5AB3DD795567668EBD0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B11CBB0C78004575A85600F4D8574E4B /* ZKRevealingTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZKRevealingTableViewCell-prefix.pch"; sourceTree = "<group>"; };
 		B29D3E6F0C56C87A74FAEB5A0C904557 /* WEPopover-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WEPopover-prefix.pch"; sourceTree = "<group>"; };
 		B2A377AF494D0084259752AF7438A91E /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Lib/KeychainAccess/Keychain.swift; sourceTree = "<group>"; };
+		B36E44B2DC03BE40963A705F94853EFB /* Pods-KeyChain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-KeyChain.modulemap"; sourceTree = "<group>"; };
+		B6010B4E95282CD47FF4AF330045B10D /* Pods-KeyChain-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KeyChain-frameworks.sh"; sourceTree = "<group>"; };
+		B7203BB8D606931070AFF5535B4AF551 /* confirm24x24.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = confirm24x24.png; sourceTree = "<group>"; };
 		B8362F8DBCEA47E7C7E09F8A066DADBC /* UIXMLFormViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewController.h; sourceTree = "<group>"; };
 		B87BE38E4719ECDAD6431E028E1A1A70 /* KeychainAccess-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-prefix.pch"; sourceTree = "<group>"; };
-		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BAEDF756F03BCF8F581D4FA856C1EBA7 /* edit32x32.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
+		BB70344D6CF541CBDF0B53430F2763D0 /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeychainAccess.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC81305EC318B369224F0739741BE68A /* TextDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TextDataEntryCell.m; sourceTree = "<group>"; };
-		BD2133D8C9C2D08121F42B3CB44854D3 /* KeychainAccess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = KeychainAccess.modulemap; sourceTree = "<group>"; };
+		BD2133D8C9C2D08121F42B3CB44854D3 /* KeychainAccess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = KeychainAccess.modulemap; sourceTree = "<group>"; };
 		BE04C8B489F1FBEA886E1644A0AECBDC /* KeychainAccess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeychainAccess.xcconfig; sourceTree = "<group>"; };
-		BEDF91921234847BF8FFC9F968E4ED13 /* STAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STAlertView.h; path = Pod/Classes/STAlertView.h; sourceTree = "<group>"; };
-		C14673B72F6E0300BC71FED0474413E7 /* STAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "STAlertView-dummy.m"; sourceTree = "<group>"; };
-		C3699BF087F89C8592F937CB6149CF1C /* WEPopover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WEPopover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C54376454238EE106560311D5169F1F0 /* STAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STAlertView-prefix.pch"; sourceTree = "<group>"; };
+		C3634E317A06A84B4470F3EA6A6ADFD4 /* STAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = STAlertView.modulemap; sourceTree = "<group>"; };
+		C4D69EBC086B92B99C3918AD6819B780 /* STAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STAlertView.m; path = Pod/Classes/STAlertView.m; sourceTree = "<group>"; };
 		C556FD5AFB840E8D9CBB1F938477B68D /* MTStatusBarOverlay-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTStatusBarOverlay-prefix.pch"; sourceTree = "<group>"; };
 		C658621755FBC7219B5327128C9D4314 /* WEPopover.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WEPopover.xcconfig; sourceTree = "<group>"; };
 		C6670A65E9312FB6FC142490F283C871 /* WaitMaskController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WaitMaskController.h; sourceTree = "<group>"; };
 		C9F616376F9FC434AF213D5FE71D8EFC /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
+		C9F87E3A9D275A0DAE0B392C9BF3D917 /* STAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = STAlertView.bundle; path = STAlertView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA83AADC229039D95C265EEFD0CB989E /* UIXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIXML-dummy.m"; sourceTree = "<group>"; };
-		CB8906B7C61D03F0DC78490984F31E44 /* PushFormDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushFormDataEntryCell.xib; sourceTree = "<group>"; };
-		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CE0C540052959617113AD86B6A8B2D8A /* back24x24.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = back24x24.png; sourceTree = "<group>"; };
+		CE878D3A73FD2E8F2A6A00F23EC9274E /* SwitchDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SwitchDataEntryCell.xib; sourceTree = "<group>"; };
+		D32194641BE13809FE9B827947AFE756 /* popoverArrowDown@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowDown@2x.png"; sourceTree = "<group>"; };
 		D87D0A5BD635C5151EDDB76DE23A91AA /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SwitchDataEntryCell.h; sourceTree = "<group>"; };
-		DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		DC1634BB7871C0161CA0D4566805C97E /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushWebViewEntryCell.xib; sourceTree = "<group>"; };
+		DBF31FC60B566AE10D1E694DE5CF268C /* popoverArrowRight@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowRight@2x.png"; sourceTree = "<group>"; };
 		DC7471E70EBF20C0A00405382448C390 /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SegmentedDataEntryCell.m; sourceTree = "<group>"; };
-		DFD67B0C50FFF1363DA45842BA8F1D47 /* popoverArrowRight@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowRight@2x.png"; sourceTree = "<group>"; };
 		E2607D08BD41769D4D5296754587FB11 /* UIXML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIXML-prefix.pch"; sourceTree = "<group>"; };
 		E36915D52F3EFFE99F9FCA1AD7843F52 /* TextDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TextDataEntryCell.h; sourceTree = "<group>"; };
 		E39CAE4E44701FD943C530FC085B3FBB /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewControllerDelegate.h; sourceTree = "<group>"; };
 		E4109163A281694FA3BE3D315F66CCA5 /* WEPopoverController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverController.h; path = Classes/Popover/WEPopoverController.h; sourceTree = "<group>"; };
-		E57DE97F0469193A5A5B55E3D45F021E /* popoverArrowUp@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowUp@2x.png"; sourceTree = "<group>"; };
-		E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC0CEF3FBEB584F8675BAC64847C0510 /* popoverBg.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverBg.png; sourceTree = "<group>"; };
-		ED04AE2201316F6590E7AD9952706C7B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		E5F748DA8F98E61F788C3488D6BA25DD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		E924CBFC4529EC78E2FA45B3ED0CDF14 /* Pods-KeyChain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KeyChain-dummy.m"; sourceTree = "<group>"; };
+		ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		EE314C8880C4361BDC1FD5F72452AA1C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF41930F257046081AC6D224A55C89F3 /* PushTextEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushTextEntryCell.m; sourceTree = "<group>"; };
 		EF5228570193B3565B0962073FDEE0DA /* WETouchableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WETouchableView.h; path = Classes/Popover/WETouchableView.h; sourceTree = "<group>"; };
-		EF82E8401BEF557ED0297116ABE62E85 /* STAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STAlertView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		F02B9AD0444309227F0149E58F5FF337 /* MTStatusBarOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MTStatusBarOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F09A9D76C6B3495CCA347094F0E58AB5 /* MTStatusBarOverlay.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MTStatusBarOverlay.modulemap; sourceTree = "<group>"; };
+		F026583E2E907FDBD4A1BACED3557FBB /* popoverBgSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverBgSimple.png; sourceTree = "<group>"; };
+		F09A9D76C6B3495CCA347094F0E58AB5 /* MTStatusBarOverlay.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MTStatusBarOverlay.modulemap; sourceTree = "<group>"; };
 		F2A6D5ED9F983E9F00210BF3181C8BB4 /* UIXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UIXML.h; sourceTree = "<group>"; };
+		F2C94FDA8DD4A3BCF670FF51D8DA6EF6 /* Pods-KeyChain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KeyChain.debug.xcconfig"; sourceTree = "<group>"; };
 		F397886A513211302478670459188BA5 /* WETouchableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WETouchableView.m; path = Classes/Popover/WETouchableView.m; sourceTree = "<group>"; };
-		F3F5B0714626D8F67E77EB3870F28D78 /* STAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STAlertView.m; path = Pod/Classes/STAlertView.m; sourceTree = "<group>"; };
 		F548F5B1A8F37715B8AC3E9A8EABD016 /* WaitMaskController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WaitMaskController.m; sourceTree = "<group>"; };
+		FACEA18DE128DE1AE8768E3A9F0D7025 /* popoverArrowUp@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowUp@2x.png"; sourceTree = "<group>"; };
+		FDBA94A94B982885ECCA1662BE8CD7CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		378B65B89F5BFCFFAC5A464F6547DCE5 /* Frameworks */ = {
+		2DDC844C06D46A3907C42C9964BC7434 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C456AEBA7FACA838B8EF6CE4F7029C3C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		559AE29DD6D1BBC3D7A4751479896A2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74C96BDA097126ADEF02A8F034638F5F /* Foundation.framework in Frameworks */,
+				47883DA12FE06F0C49307CB89B2FA4D4 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		785815B9C429A827E5CAF088C9BAE3EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD37D0F92507F82B90468EA320AC0664 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		806478147B024B0BE6D8299404D3902C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				775CC7BE92390A7CF182C6177AB93EDF /* CoreGraphics.framework in Frameworks */,
+				674B0B501E642AEF1323C26F47BE03F1 /* Foundation.framework in Frameworks */,
+				FDD297B9AB70EB467BD7BE1FA9174DB9 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83473662FC3D99244EC98576564A258E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		37C0D1127616471731E1C52A48FE9D07 /* Frameworks */ = {
+		A6C22D1BFC139069EA05358FC63B4F64 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD0BBE84DD5602EBB347AB37196AF382 /* Foundation.framework in Frameworks */,
+				4AA45C178BF3581B24F84AB5715622D2 /* Foundation.framework in Frameworks */,
+				3767D669593338940220EF8A475DA426 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77F9ED8A94B98430C3EABCCFEBD24CAD /* Frameworks */ = {
+		A96ACF3676BB976EA3805D49557DA69A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1748E01246072F9D69E5E17A338778C /* Foundation.framework in Frameworks */,
+				C847A70AB28B6378C182C3AE3F9D7198 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		797FB647987C878E1F10C515F812BF1C /* Frameworks */ = {
+		D12A9F85EE64298963D97766FFEB0AD9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A220C3B6182A678EDB3291FF17EE0087 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A0AE7A34BB2873FB417EC12499EBA2DA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7F28EEC1BDDB3A18F253AF47FB1DB8B5 /* Foundation.framework in Frameworks */,
-				7881DA195DE86F3C10200892927B6219 /* QuartzCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A8FE6E8ECD4552782213FCE9CC9BAD37 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				718A30965A312B01D1FB806CE7F05FA8 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C7F0F2543406C1349571D042E5FEC43F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9B56524A386FF005C2E08B087E52CD86 /* CoreGraphics.framework in Frameworks */,
-				C438F517CF95BF9CE9AE88B1BA23B6DB /* Foundation.framework in Frameworks */,
-				563CC56FFBF19B35B554761B6C2372F2 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F45B90FFB0BF809985A77E97134B51EB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E6FDA8F8EF6AF2DB6CBD44A1C64CFF64 /* Foundation.framework in Frameworks */,
+				F444CC6EE8214E7DAADB4AEED42F26F0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +360,7 @@
 			children = (
 				111CD7FF87FAAFDAB7F91394FB8EE1C3 /* KeychainAccess */,
 				932029C8DFFC094D7C880A81984422CC /* MTStatusBarOverlay */,
-				DEBCEEB5E8A92670C1CA55B8A230736C /* STAlertView */,
+				D837A1742820A1A3E957E02D0140A174 /* STAlertView */,
 				3E3F8A450AD6BA6584B19D49CDE73AC4 /* UIXML */,
 				59DAFDA81766D2CDB427E5AF53AB535E /* WEPopover */,
 				789B7EC33970D5C0D988D369F90C0B04 /* ZKRevealingTableViewCell */,
@@ -371,30 +374,49 @@
 				B2A377AF494D0084259752AF7438A91E /* Keychain.swift */,
 				3DCD84645A6F86D6FAA10B4A2A347A61 /* Support Files */,
 			);
+			name = KeychainAccess;
 			path = KeychainAccess;
 			sourceTree = "<group>";
 		};
 		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A9203A0FF197B8764CD853B6EE3A159E /* iOS */,
+				8F8FEF3140598EAB2B3D56BB84B5389A /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2DA75261FD8EA6D734AD928C2EB1FDCE /* Products */ = {
+		1868CFF443EF21E610324111EAF71CEE /* Pods-KeyChain */ = {
 			isa = PBXGroup;
 			children = (
-				75BF1470F8B61EBF403D2922F1B24CEE /* KeychainAccess.framework */,
-				F02B9AD0444309227F0149E58F5FF337 /* MTStatusBarOverlay.framework */,
-				5EDBBD04EB5D869660FC7D443841DF79 /* Pods.framework */,
-				EF82E8401BEF557ED0297116ABE62E85 /* STAlertView.bundle */,
-				5DC6BCC15057863155DDAC7B40C579E3 /* STAlertView.framework */,
-				06E763F336D2C240ADDDE639DEA68CD3 /* UIXML.framework */,
-				C3699BF087F89C8592F937CB6149CF1C /* WEPopover.framework */,
-				B05743A32FA51AA0358247DA5A450D7A /* ZKRevealingTableViewCell.framework */,
+				89DD6EA93D7226ABFDFCC527C6AEB41B /* Info.plist */,
+				B36E44B2DC03BE40963A705F94853EFB /* Pods-KeyChain.modulemap */,
+				6CD910493622DF5C9F92D62E9BF015D7 /* Pods-KeyChain-acknowledgements.markdown */,
+				7117EA91173D6DF0864C4C70BF346CBA /* Pods-KeyChain-acknowledgements.plist */,
+				E924CBFC4529EC78E2FA45B3ED0CDF14 /* Pods-KeyChain-dummy.m */,
+				B6010B4E95282CD47FF4AF330045B10D /* Pods-KeyChain-frameworks.sh */,
+				72FB5C2FE4AEC0BBB993F11F849D11B5 /* Pods-KeyChain-resources.sh */,
+				61422EA4B950E0CE6DA7FF0CC41857DC /* Pods-KeyChain-umbrella.h */,
+				F2C94FDA8DD4A3BCF670FF51D8DA6EF6 /* Pods-KeyChain.debug.xcconfig */,
+				2D3B2372E6708DC73880071262E143C9 /* Pods-KeyChain.release.xcconfig */,
 			);
-			name = Products;
+			name = "Pods-KeyChain";
+			path = "Target Support Files/Pods-KeyChain";
+			sourceTree = "<group>";
+		};
+		249285AFBF5A29314173B9AB34EF6B1A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B03F83C4F7D0E5AB3DD795567668EBD0 /* Info.plist */,
+				381704A43E9935F591A830B4332982F5 /* ResourceBundle-STAlertView-Info.plist */,
+				C3634E317A06A84B4470F3EA6A6ADFD4 /* STAlertView.modulemap */,
+				4209221B00CCBDEDE81EF04E71CB63D1 /* STAlertView.xcconfig */,
+				41730EF0F805CF5BE5023317F7A56726 /* STAlertView-dummy.m */,
+				12E8D24ADE41AA82DB6B36D66AD612B3 /* STAlertView-prefix.pch */,
+				AE367221C0286C785C545E5F6DCEBF8E /* STAlertView-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/STAlertView";
 			sourceTree = "<group>";
 		};
 		3DCD84645A6F86D6FAA10B4A2A347A61 /* Support Files */ = {
@@ -438,9 +460,10 @@
 				E39CAE4E44701FD943C530FC085B3FBB /* UIXMLFormViewControllerDelegate.h */,
 				C6670A65E9312FB6FC142490F283C871 /* WaitMaskController.h */,
 				F548F5B1A8F37715B8AC3E9A8EABD016 /* WaitMaskController.m */,
-				6430D70600CED4F87BB3E8212A518B47 /* Resources */,
+				EC8C25460BD03B9FFB7738E0512930F7 /* Resources */,
 				C44FE9542A6E373A126CEC499350466D /* Support Files */,
 			);
+			name = UIXML;
 			path = UIXML;
 			sourceTree = "<group>";
 		};
@@ -470,47 +493,48 @@
 				8EC1EDA5C81F5495EC30B3227CF280ED /* WEPopoverParentView.h */,
 				EF5228570193B3565B0962073FDEE0DA /* WETouchableView.h */,
 				F397886A513211302478670459188BA5 /* WETouchableView.m */,
-				C36A62D8F4EFF8C688CA64512CCCC177 /* Resources */,
+				71D5CC4D45AD008B36C1840B792F29E4 /* Resources */,
 				4597E3146189F70CC3DBE7B9BBE83FF0 /* Support Files */,
 			);
+			name = WEPopover;
 			path = WEPopover;
 			sourceTree = "<group>";
 		};
-		6430D70600CED4F87BB3E8212A518B47 /* Resources */ = {
+		71D5CC4D45AD008B36C1840B792F29E4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				97F5BFE904F4E252C5AD7BFD3F2567AA /* back24x24.png */,
-				208B93463A7DF466B97AF1F3222F22A7 /* chevron.png */,
-				A5FBEDD2595334DD949F5027BBB951D2 /* confirm24x24.png */,
-				AB57CCB747AE59B07118C5979AACBA4A /* edit32x32.png */,
-				483DD99C51B3D498E565D05B2FEFE4A1 /* MailDataEntryCell.xib */,
-				AD2198DF472DB53C80CB3B9E4B41535D /* PushDateEntryCell.xib */,
-				CB8906B7C61D03F0DC78490984F31E44 /* PushFormDataEntryCell.xib */,
-				A9F64F7CB5132FD1CFDD5286EF45ACA3 /* PushTextEntryCell.xib */,
-				DC1634BB7871C0161CA0D4566805C97E /* PushWebViewEntryCell.xib */,
-				62F21DA471CC64E05B767C8BBACDB0BF /* SwitchDataEntryCell.xib */,
-				532C13B01C4CC66D87F66C88ED5A1622 /* TextDataEntryCell.xib */,
-				9F9CED0729F9C0DDE320CBCE5AEC7DB3 /* write32x32.png */,
+				A05DF30E2BA110FEBFE192A5E36917D8 /* popoverArrowDown.png */,
+				D32194641BE13809FE9B827947AFE756 /* popoverArrowDown@2x.png */,
+				52D15555E4725520EE9D64FE267472C4 /* popoverArrowDownSimple.png */,
+				7DCDAB4C2B63E0C0144DF0929DB3D6ED /* popoverArrowLeft.png */,
+				6E77D4E1C2DC2F4EE401CDEA6547C05F /* popoverArrowLeft@2x.png */,
+				AB40B8248D29F85DD0C935552A1A50FC /* popoverArrowLeftSimple.png */,
+				5C1941672C1356C09F10A5469230B803 /* popoverArrowRight.png */,
+				DBF31FC60B566AE10D1E694DE5CF268C /* popoverArrowRight@2x.png */,
+				677E79E7E4A5BB4FD1920F66AE77D82C /* popoverArrowRightSimple.png */,
+				A82070BF1DFF28914FFB5BF94CFAF8D8 /* popoverArrowUp.png */,
+				FACEA18DE128DE1AE8768E3A9F0D7025 /* popoverArrowUp@2x.png */,
+				3AF8C2F45DCF56CBC2AB1F9194BBA562 /* popoverArrowUpSimple.png */,
+				48ED9CED24E8B0D10FB8B089B8DC8B62 /* popoverBg.png */,
+				2CB6515F880A678A70BC6266EE798129 /* popoverBg@2x.png */,
+				F026583E2E907FDBD4A1BACED3557FBB /* popoverBgSimple.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		75D98FF52E597A11900E131B6C4E1ADA /* Pods */ = {
+		76DBBD32F04F247B489949FB7DAA8072 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */,
-				79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */,
-				D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */,
-				87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */,
-				894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */,
-				E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */,
-				CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */,
-				2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */,
-				977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */,
-				DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */,
+				BB70344D6CF541CBDF0B53430F2763D0 /* KeychainAccess.framework */,
+				75C61AF0F3A3B8D0D731943AE82F0FF8 /* MTStatusBarOverlay.framework */,
+				76A3ABB6AAB7A9468AB104017AD0F806 /* Pods_KeyChain.framework */,
+				C9F87E3A9D275A0DAE0B392C9BF3D917 /* STAlertView.bundle */,
+				1F305BF472C5D9B63D3842998159CD12 /* STAlertView.framework */,
+				840B5BD3A452005B217DA739EF5AB520 /* UIXML.framework */,
+				0C770857B7C74D8706C96890B964676B /* WEPopover.framework */,
+				5606FED4D7C8FF3F532F2E3E899D4E18 /* ZKRevealingTableViewCell.framework */,
 			);
-			name = Pods;
-			path = "Target Support Files/Pods";
+			name = Products;
 			sourceTree = "<group>";
 		};
 		789B7EC33970D5C0D988D369F90C0B04 /* ZKRevealingTableViewCell */ = {
@@ -520,17 +544,18 @@
 				9DC87DFA3F115D65281900C1F96A4C56 /* ZKRevealingTableViewCell.m */,
 				E1C06CBBB714530F95662D41AD9C7A0B /* Support Files */,
 			);
+			name = ZKRevealingTableViewCell;
 			path = ZKRevealingTableViewCell;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
 				08EFDBB8D61B6BABAF93D15C3D0510E1 /* Pods */,
-				2DA75261FD8EA6D734AD928C2EB1FDCE /* Products */,
-				B7B80995527643776607AFFA75B91E24 /* Targets Support Files */,
+				76DBBD32F04F247B489949FB7DAA8072 /* Products */,
+				904BE9389572BCD5AA144246909771FC /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -548,6 +573,25 @@
 			path = "../Target Support Files/MTStatusBarOverlay";
 			sourceTree = "<group>";
 		};
+		8F8FEF3140598EAB2B3D56BB84B5389A /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3292CC8DBF6352C2BF2B949CB548248F /* CoreGraphics.framework */,
+				ECB56A22A987E846FF65248DA108CAD2 /* Foundation.framework */,
+				E5F748DA8F98E61F788C3488D6BA25DD /* QuartzCore.framework */,
+				FDBA94A94B982885ECCA1662BE8CD7CF /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		904BE9389572BCD5AA144246909771FC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1868CFF443EF21E610324111EAF71CEE /* Pods-KeyChain */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
 		932029C8DFFC094D7C880A81984422CC /* MTStatusBarOverlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,62 +599,8 @@
 				4AA228A49E13CCBA2CE27379ACA5F67A /* MTStatusBarOverlay.m */,
 				82BA290EA4FD3404B2A84CCFDE12674B /* Support Files */,
 			);
+			name = MTStatusBarOverlay;
 			path = MTStatusBarOverlay;
-			sourceTree = "<group>";
-		};
-		A9203A0FF197B8764CD853B6EE3A159E /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				4AE7FD0E16F3FACCFE19068F1E872D9F /* CoreGraphics.framework */,
-				CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */,
-				0DD25CA4A497622D5ABF4C433D79E4DE /* QuartzCore.framework */,
-				ED04AE2201316F6590E7AD9952706C7B /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		B7B80995527643776607AFFA75B91E24 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				75D98FF52E597A11900E131B6C4E1ADA /* Pods */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		C2766D00D62F5EA7857D14E2A740874D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				9D076D9970F3BBE1A94A91DF81330861 /* Info.plist */,
-				101E6FF44DE82D51633601FCC7171284 /* STAlertView.modulemap */,
-				5DB0C4EB97C1B5B9856CAB2F4122231E /* STAlertView.xcconfig */,
-				C14673B72F6E0300BC71FED0474413E7 /* STAlertView-dummy.m */,
-				C54376454238EE106560311D5169F1F0 /* STAlertView-prefix.pch */,
-				1EBC6957F9249C239667E54F542ECD55 /* STAlertView-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/STAlertView";
-			sourceTree = "<group>";
-		};
-		C36A62D8F4EFF8C688CA64512CCCC177 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				810552B0DF5B782943C1A85CE43A085D /* popoverArrowDown.png */,
-				30BCF64743564CD0EFAB711195848E77 /* popoverArrowDown@2x.png */,
-				0D5A4BF7FBC40EF75C7BCFB4E6441610 /* popoverArrowDownSimple.png */,
-				7C700D4530AFBA90CA4F6F98AF8CC62C /* popoverArrowLeft.png */,
-				02BDD6B877E8FB640A5314AECF0F0E5F /* popoverArrowLeft@2x.png */,
-				2674B085AFE483BEC5999482D0622576 /* popoverArrowLeftSimple.png */,
-				920C094075FA8738E855A137ABA3525E /* popoverArrowRight.png */,
-				DFD67B0C50FFF1363DA45842BA8F1D47 /* popoverArrowRight@2x.png */,
-				8D5939C3BE97A9768E27FFB909606823 /* popoverArrowRightSimple.png */,
-				4636855D4A993196D5E2C1530887544F /* popoverArrowUp.png */,
-				E57DE97F0469193A5A5B55E3D45F021E /* popoverArrowUp@2x.png */,
-				8B03AA519E2B90E5492613FC3DB41499 /* popoverArrowUpSimple.png */,
-				EC0CEF3FBEB584F8675BAC64847C0510 /* popoverBg.png */,
-				3AFE1DC4897A75189AD3AB6EB2E28992 /* popoverBg@2x.png */,
-				272B503265B9BA89E94198BE4C67705A /* popoverBgSimple.png */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		C44FE9542A6E373A126CEC499350466D /* Support Files */ = {
@@ -627,13 +617,14 @@
 			path = "../Target Support Files/UIXML";
 			sourceTree = "<group>";
 		};
-		DEBCEEB5E8A92670C1CA55B8A230736C /* STAlertView */ = {
+		D837A1742820A1A3E957E02D0140A174 /* STAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				BEDF91921234847BF8FFC9F968E4ED13 /* STAlertView.h */,
-				F3F5B0714626D8F67E77EB3870F28D78 /* STAlertView.m */,
-				C2766D00D62F5EA7857D14E2A740874D /* Support Files */,
+				40D650E1F8BFF487E48FA3BF46DEFE2E /* STAlertView.h */,
+				C4D69EBC086B92B99C3918AD6819B780 /* STAlertView.m */,
+				249285AFBF5A29314173B9AB34EF6B1A /* Support Files */,
 			);
+			name = STAlertView;
 			path = STAlertView;
 			sourceTree = "<group>";
 		};
@@ -651,173 +642,134 @@
 			path = "../Target Support Files/ZKRevealingTableViewCell";
 			sourceTree = "<group>";
 		};
+		EC8C25460BD03B9FFB7738E0512930F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE0C540052959617113AD86B6A8B2D8A /* back24x24.png */,
+				06EF8901295C969393A0CB5459491C0A /* chevron.png */,
+				B7203BB8D606931070AFF5535B4AF551 /* confirm24x24.png */,
+				BAEDF756F03BCF8F581D4FA856C1EBA7 /* edit32x32.png */,
+				5698ED3E2E7881AB9FD29ED40666185D /* MailDataEntryCell.xib */,
+				59E82DA64DECCD50E2905687814397BA /* PushDateEntryCell.xib */,
+				693F4F84338883AB8F5FF88E24E4B658 /* PushFormDataEntryCell.xib */,
+				3620C3DC95B9449F5D2ED26BC5B138EA /* PushTextEntryCell.xib */,
+				8E54592254C31791481A4D050CBB4D23 /* PushWebViewEntryCell.xib */,
+				CE878D3A73FD2E8F2A6A00F23EC9274E /* SwitchDataEntryCell.xib */,
+				1A6886F740FA0D97B6E76DF9558419CD /* TextDataEntryCell.xib */,
+				59F225E5FC87DD1452A255C55E2CE6FA /* write32x32.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		204B3D6BEDA77D6D888C4AF7235C5370 /* Headers */ = {
+		2F06B8C6D43818862A9872E5B3A3FF40 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				719D49C07FFFEE6E2BF8BBFA1C7D257D /* ZKRevealingTableViewCell-umbrella.h in Headers */,
-				042FCAA991B968DF319288A7B69AFDFB /* ZKRevealingTableViewCell.h in Headers */,
+				D816F7CEFA0AF49EF32680394DBB52C7 /* ZKRevealingTableViewCell-umbrella.h in Headers */,
+				205935DB1B3940901B4913501A8DBAE9 /* ZKRevealingTableViewCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		403FD875D4E229D57EA469B39FF8EE9F /* Headers */ = {
+		31562E5D2F02E1AAE9233183F137BFA8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50D4A66C53A2EFECBD70FC5BA49DC3AD /* UIBarButtonItem+WEPopover.h in Headers */,
-				3C611A7C1F74EB1F264FE5E368FD6594 /* WEPopover-umbrella.h in Headers */,
-				AD61411BBBE71B16DB2360CEF6B10024 /* WEPopoverContainerView.h in Headers */,
-				ADDB6CEC4F0250BA32C1BE82C56476D8 /* WEPopoverController.h in Headers */,
-				35E9B581E24E7EFFF8D4B1A2D6AC4CED /* WEPopoverParentView.h in Headers */,
-				122705533F1BAEB624525D099A7DF83B /* WETouchableView.h in Headers */,
+				A008743A9ED78F5090C40F4F615B46E3 /* MTStatusBarOverlay-umbrella.h in Headers */,
+				E34132E28E525E8A4141B32B54D8DB97 /* MTStatusBarOverlay.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		469CD56DA27229255E81B9015E6423CD /* Headers */ = {
+		88CC89720BA80EF315734C1287C9A25D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C95374B29444BC6C77FC9A0ABA7062D5 /* Pods-umbrella.h in Headers */,
+				1E6BF66203426A903A70F9889FA9E595 /* Pods-KeyChain-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8430A584E8A42592A2347B0EA20425A0 /* Headers */ = {
+		92780D610D883DA6D836D0A81EA8F420 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C178558D34E5049751556A80E6438F6 /* BaseDataEntryCell.h in Headers */,
-				DBE32384F58AFBBC64540DBA79FAB8D1 /* PushControllerDataEntryCell.h in Headers */,
-				B6002D5431CCC4602E66275F4CCC3C66 /* PushDateEntryCell.h in Headers */,
-				C4D84FA5E1AC3E0C894A29E5F9DB9BD5 /* PushFormDataEntryCell.h in Headers */,
-				0B3D4523E9564BB374014B5408390531 /* PushTextEntryCell.h in Headers */,
-				2678DCB76E881510F49241FDED925505 /* PushWebViewEntryCell.h in Headers */,
-				D3E0D9ACBF74365C3CAFADB7898EEB45 /* SegmentedDataEntryCell.h in Headers */,
-				1DBC7AF9FF94E335816C888BAC25292B /* SwitchDataEntryCell.h in Headers */,
-				347E9B6E9260F6E6DAA1FBCD3DA8BF74 /* TextDataEntryCell.h in Headers */,
-				668C471D436F528241FB447ECB375962 /* UIXML-umbrella.h in Headers */,
-				09F32EA68B552BC1533FB5F505339B34 /* UIXML.h in Headers */,
-				2F60CDA62C2D3E58D0B548824EA9CBE1 /* UIXMLFormViewController.h in Headers */,
-				FCC5C7EF983181947E447B827B29BFA1 /* UIXMLFormViewControllerDelegate.h in Headers */,
-				53A8455EC477212C63DC3F8BA3A33E6E /* WaitMaskController.h in Headers */,
+				60F6F77FD5EE5FBDFBD47F60E41019E8 /* UIBarButtonItem+WEPopover.h in Headers */,
+				893528E5D2C58FE7B65E4C4E9EB597A7 /* WEPopover-umbrella.h in Headers */,
+				74B908E43A8BA2B31C7CE4B9D45DA7FA /* WEPopoverContainerView.h in Headers */,
+				433B1D44F4722A1A526536E89E63D16D /* WEPopoverController.h in Headers */,
+				CB30C760058746DA7EF9C0A52E0AAA47 /* WEPopoverParentView.h in Headers */,
+				2692914D5E259FBB7F3CC0AEAD1B6969 /* WETouchableView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9AD5BDD41EEC297DBAF323239E5FDAA1 /* Headers */ = {
+		929E58A1621069C1156058BA80F64574 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55F9FBC65B032F0CBEB48157A3BFD594 /* KeychainAccess-umbrella.h in Headers */,
+				EC8F4187F69E81EB7F47BF901F07E8FC /* BaseDataEntryCell.h in Headers */,
+				1B108B901FB2E4217AC2AB83136B3064 /* PushControllerDataEntryCell.h in Headers */,
+				822B74F38C270E43D355E871D27DC720 /* PushDateEntryCell.h in Headers */,
+				6DCDA560F5B23475B28A94F122B3909A /* PushFormDataEntryCell.h in Headers */,
+				4A480B5D498393CEEA41DA7B74650D28 /* PushTextEntryCell.h in Headers */,
+				00DD5C416ACA4D54B4FC7C4A23B5A6F7 /* PushWebViewEntryCell.h in Headers */,
+				CA1DFBF8F777F747EC24700305D75A41 /* SegmentedDataEntryCell.h in Headers */,
+				A821CC097D6F36624488830B27C8B40F /* SwitchDataEntryCell.h in Headers */,
+				C93D438301C433B82309F4D7723233DE /* TextDataEntryCell.h in Headers */,
+				7DAEBD52FFCDDE91E4AD0F8C620407DF /* UIXML-umbrella.h in Headers */,
+				DEA371A36299B482297D58F05C52A279 /* UIXML.h in Headers */,
+				C0FC077B9CCB3329FD465135CED9BB94 /* UIXMLFormViewController.h in Headers */,
+				A5C48D4604F7AA59C46AC51D7D7F13B4 /* UIXMLFormViewControllerDelegate.h in Headers */,
+				7707C68A829B310D27C887FC046086F0 /* WaitMaskController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C89115DB4A4A078486C74124E35A0576 /* Headers */ = {
+		93DE0E803396B824DE9F75CA3683CEC3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C30F8DE9055F9D0EB13344B82BA59BA /* STAlertView-umbrella.h in Headers */,
-				06BB52E4AF57F2B412DBA74CD1D20F46 /* STAlertView.h in Headers */,
+				BDA750A5542A5D826A35B1BE6A69574A /* KeychainAccess-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E4594EA7E8D4367C1F127F6E092B2CBE /* Headers */ = {
+		B0EC729716931DD22DAA4DFDF8F38CD7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E843DDA3481A1B8DF5F31217DA9DC6 /* MTStatusBarOverlay-umbrella.h in Headers */,
-				2FA8B0C6CA883B72E8CA9211B3041780 /* MTStatusBarOverlay.h in Headers */,
+				B8B2458C298B32B6FF247D669A3AC824 /* STAlertView-umbrella.h in Headers */,
+				1068AC2E5E6C9D584B83E6B1F3AE7795 /* STAlertView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		06FAD94E7BDB37DF16B0960B5C573E05 /* STAlertView */ = {
+		3363AFF0C4BCF9EACBECB11374E0C55B /* STAlertView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B99D0679FB24515125A2C9F347A2261F /* Build configuration list for PBXNativeTarget "STAlertView" */;
+			buildConfigurationList = 78A8DAE7B77A2D04D2EE116501788D73 /* Build configuration list for PBXNativeTarget "STAlertView" */;
 			buildPhases = (
-				57249764F809F75AD7B6A15438E9A4F9 /* Sources */,
-				797FB647987C878E1F10C515F812BF1C /* Frameworks */,
-				79139948254FEA66C90078998008618F /* Resources */,
-				C89115DB4A4A078486C74124E35A0576 /* Headers */,
+				13F1ADDF86A2F693727D33BB48716204 /* Sources */,
+				A6C22D1BFC139069EA05358FC63B4F64 /* Frameworks */,
+				7B4A41F5285E09B8520262106C51DE2D /* Resources */,
+				B0EC729716931DD22DAA4DFDF8F38CD7 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D2E859F2CA8CBC4877C46950C84156BA /* PBXTargetDependency */,
+				41E73E2370E3F8995A5F767124E7B796 /* PBXTargetDependency */,
 			);
 			name = STAlertView;
 			productName = STAlertView;
-			productReference = 5DC6BCC15057863155DDAC7B40C579E3 /* STAlertView.framework */;
+			productReference = 1F305BF472C5D9B63D3842998159CD12 /* STAlertView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2832F3875A3E658E1307918C1F095AA3 /* UIXML */ = {
+		408B6AA66BF1904D594ACCFB0A2E0880 /* MTStatusBarOverlay */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F854673D046DD64CE8F057DA2BC91170 /* Build configuration list for PBXNativeTarget "UIXML" */;
+			buildConfigurationList = 35E50F2A40B302603833717F77308194 /* Build configuration list for PBXNativeTarget "MTStatusBarOverlay" */;
 			buildPhases = (
-				9D73789A3B4611D18F379CBB30D76C94 /* Sources */,
-				77F9ED8A94B98430C3EABCCFEBD24CAD /* Frameworks */,
-				8430A584E8A42592A2347B0EA20425A0 /* Headers */,
-				9032FAA986001741F6E4AABE94388C6B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = UIXML;
-			productName = UIXML;
-			productReference = 06E763F336D2C240ADDDE639DEA68CD3 /* UIXML.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		2FBB03782317FB56AE310BD069B5168F /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 49C808ED8CF296232F48C6B141EB402F /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				532F5A73DE3A8D65F66600F29FE4203A /* Sources */,
-				F45B90FFB0BF809985A77E97134B51EB /* Frameworks */,
-				469CD56DA27229255E81B9015E6423CD /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BBC3F212B90FFC61A22182C8117F95CE /* PBXTargetDependency */,
-				E2EAFAD8F8E10DDD9F2CA5026DF181C0 /* PBXTargetDependency */,
-				88FF11B988AA38488319CFB58F3DD479 /* PBXTargetDependency */,
-				C9A4E42AD6BF10531264472D9A4BAE2C /* PBXTargetDependency */,
-				8EDE8C3DE3184AC1AD9AB54319F64219 /* PBXTargetDependency */,
-				2D9646F8FF442F3B6232420C5A639361 /* PBXTargetDependency */,
-			);
-			name = Pods;
-			productName = Pods;
-			productReference = 5EDBBD04EB5D869660FC7D443841DF79 /* Pods.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		4EF1C028CE3D60A097873B5563A7407D /* ZKRevealingTableViewCell */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A2A16020A1F8590697FEABD2A8E30F8B /* Build configuration list for PBXNativeTarget "ZKRevealingTableViewCell" */;
-			buildPhases = (
-				6FE41BF2AE13560BC24323F61FB2CA49 /* Sources */,
-				A0AE7A34BB2873FB417EC12499EBA2DA /* Frameworks */,
-				204B3D6BEDA77D6D888C4AF7235C5370 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ZKRevealingTableViewCell;
-			productName = ZKRevealingTableViewCell;
-			productReference = B05743A32FA51AA0358247DA5A450D7A /* ZKRevealingTableViewCell.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		690737B2A5D2F7641841C116F5FA181A /* MTStatusBarOverlay */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 55358A891F291DD134E20D1F79761C38 /* Build configuration list for PBXNativeTarget "MTStatusBarOverlay" */;
-			buildPhases = (
-				784CD490C5E156FAB1756CCE802FB1CB /* Sources */,
-				A8FE6E8ECD4552782213FCE9CC9BAD37 /* Frameworks */,
-				E4594EA7E8D4367C1F127F6E092B2CBE /* Headers */,
+				AB24B695E1C32E24B5553CCE8750C869 /* Sources */,
+				D12A9F85EE64298963D97766FFEB0AD9 /* Frameworks */,
+				31562E5D2F02E1AAE9233183F137BFA8 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -825,33 +777,57 @@
 			);
 			name = MTStatusBarOverlay;
 			productName = MTStatusBarOverlay;
-			productReference = F02B9AD0444309227F0149E58F5FF337 /* MTStatusBarOverlay.framework */;
+			productReference = 75C61AF0F3A3B8D0D731943AE82F0FF8 /* MTStatusBarOverlay.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		838A2C6DA366DE138E5FDF1AF19D94C0 /* KeychainAccess */ = {
+		4207B912E5823E540BD2CEF0D2B3EBFE /* Pods-KeyChain */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECE5D705C2612FC8850408E1FD3FD182 /* Build configuration list for PBXNativeTarget "KeychainAccess" */;
+			buildConfigurationList = 113DD14DD9332E622917D84990DDED85 /* Build configuration list for PBXNativeTarget "Pods-KeyChain" */;
 			buildPhases = (
-				BE1974EE4D1CCA01327BF802B589737B /* Sources */,
-				37C0D1127616471731E1C52A48FE9D07 /* Frameworks */,
-				9AD5BDD41EEC297DBAF323239E5FDAA1 /* Headers */,
+				4F7EAF3C91A2A4D35554FF9237E8E0A2 /* Sources */,
+				A96ACF3676BB976EA3805D49557DA69A /* Frameworks */,
+				88CC89720BA80EF315734C1287C9A25D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D49959924A0FD5919A343E549A82659 /* PBXTargetDependency */,
+				C00BA7EC2130FCFB6416D166AEAF16E4 /* PBXTargetDependency */,
+				0EA4EBF9F1CCCCA1300D9B530A99F280 /* PBXTargetDependency */,
+				A852B32BE1E8A04F463C016C10D818CA /* PBXTargetDependency */,
+				5D8F1F2DFF178B0F77EF1B3A7044E788 /* PBXTargetDependency */,
+				BBCE52447E0BFF5711D57BD7F7B4536C /* PBXTargetDependency */,
+			);
+			name = "Pods-KeyChain";
+			productName = "Pods-KeyChain";
+			productReference = 76A3ABB6AAB7A9468AB104017AD0F806 /* Pods_KeyChain.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4FB20506A3F8DC74C07E696E82BDC525 /* UIXML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4709AD5F86D2429A9407E72C849C3A01 /* Build configuration list for PBXNativeTarget "UIXML" */;
+			buildPhases = (
+				9AC29D1671F3E28B2F7C323A084004F7 /* Sources */,
+				785815B9C429A827E5CAF088C9BAE3EE /* Frameworks */,
+				929E58A1621069C1156058BA80F64574 /* Headers */,
+				F499958B308EE21912C3B61194DDB7BB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = KeychainAccess;
-			productName = KeychainAccess;
-			productReference = 75BF1470F8B61EBF403D2922F1B24CEE /* KeychainAccess.framework */;
+			name = UIXML;
+			productName = UIXML;
+			productReference = 840B5BD3A452005B217DA739EF5AB520 /* UIXML.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B4056F6E07F2FAEAA9DC40AB243E771F /* STAlertView-STAlertView */ = {
+		567ED1C8F46773694B327EF5DBD27108 /* STAlertView-STAlertView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AFEDC61080993E5B358480404F9CAAA1 /* Build configuration list for PBXNativeTarget "STAlertView-STAlertView" */;
+			buildConfigurationList = 3AED602166E4578E0B15610C48186BE4 /* Build configuration list for PBXNativeTarget "STAlertView-STAlertView" */;
 			buildPhases = (
-				B14FA3EBF291DF033127E3D081246A88 /* Sources */,
-				378B65B89F5BFCFFAC5A464F6547DCE5 /* Frameworks */,
-				A289A692DB32CA43233B383EC216E533 /* Resources */,
+				FE04774B20C31EDBBFD9F6A2669304DC /* Sources */,
+				83473662FC3D99244EC98576564A258E /* Frameworks */,
+				A8B3C41D2DCDE55BF00EC8435154E4DD /* Resources */,
 			);
 			buildRules = (
 			);
@@ -859,17 +835,17 @@
 			);
 			name = "STAlertView-STAlertView";
 			productName = "STAlertView-STAlertView";
-			productReference = EF82E8401BEF557ED0297116ABE62E85 /* STAlertView.bundle */;
+			productReference = C9F87E3A9D275A0DAE0B392C9BF3D917 /* STAlertView.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		C6B915E1B7089937A8E40C184E238559 /* WEPopover */ = {
+		769EF3910762B5A1E52A03E927159465 /* WEPopover */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 491ED7F245DFFCFCD6A54B8ED99C9C1E /* Build configuration list for PBXNativeTarget "WEPopover" */;
+			buildConfigurationList = 27AE1ED29BC6A3BE6D93445755A50251 /* Build configuration list for PBXNativeTarget "WEPopover" */;
 			buildPhases = (
-				67AD08CB0958F4514C0AC5760AFA7E0D /* Sources */,
-				C7F0F2543406C1349571D042E5FEC43F /* Frameworks */,
-				403FD875D4E229D57EA469B39FF8EE9F /* Headers */,
-				3E974F72470763A1F160B1982148447A /* Resources */,
+				38F472BE1A3ECAD7D3168BFDE0846CFB /* Sources */,
+				806478147B024B0BE6D8299404D3902C /* Frameworks */,
+				92780D610D883DA6D836D0A81EA8F420 /* Headers */,
+				CCF61A1E0C270B1E462A63CD42A58A33 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -877,7 +853,41 @@
 			);
 			name = WEPopover;
 			productName = WEPopover;
-			productReference = C3699BF087F89C8592F937CB6149CF1C /* WEPopover.framework */;
+			productReference = 0C770857B7C74D8706C96890B964676B /* WEPopover.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8040B6068BC55FBCCCD91CC894658D7A /* ZKRevealingTableViewCell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 127D37EE595AFA8206B454D3528FAF50 /* Build configuration list for PBXNativeTarget "ZKRevealingTableViewCell" */;
+			buildPhases = (
+				A04DB11C8BD4C9DAD46072CA31B5E48D /* Sources */,
+				559AE29DD6D1BBC3D7A4751479896A2C /* Frameworks */,
+				2F06B8C6D43818862A9872E5B3A3FF40 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZKRevealingTableViewCell;
+			productName = ZKRevealingTableViewCell;
+			productReference = 5606FED4D7C8FF3F532F2E3E899D4E18 /* ZKRevealingTableViewCell.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8905DB6521F8FDC34752B69DEE3FDEB7 /* KeychainAccess */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FA048BBEA093CDB3F69C5B36929A5AF /* Build configuration list for PBXNativeTarget "KeychainAccess" */;
+			buildPhases = (
+				D26A24617ECAE11F29337DC26BE0E14F /* Sources */,
+				2DDC844C06D46A3907C42C9964BC7434 /* Frameworks */,
+				93DE0E803396B824DE9F75CA3683CEC3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KeychainAccess;
+			productName = KeychainAccess;
+			productReference = BB70344D6CF541CBDF0B53430F2763D0 /* KeychainAccess.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -886,7 +896,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -897,440 +907,228 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 2DA75261FD8EA6D734AD928C2EB1FDCE /* Products */;
+			productRefGroup = 76DBBD32F04F247B489949FB7DAA8072 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				838A2C6DA366DE138E5FDF1AF19D94C0 /* KeychainAccess */,
-				690737B2A5D2F7641841C116F5FA181A /* MTStatusBarOverlay */,
-				2FBB03782317FB56AE310BD069B5168F /* Pods */,
-				06FAD94E7BDB37DF16B0960B5C573E05 /* STAlertView */,
-				B4056F6E07F2FAEAA9DC40AB243E771F /* STAlertView-STAlertView */,
-				2832F3875A3E658E1307918C1F095AA3 /* UIXML */,
-				C6B915E1B7089937A8E40C184E238559 /* WEPopover */,
-				4EF1C028CE3D60A097873B5563A7407D /* ZKRevealingTableViewCell */,
+				8905DB6521F8FDC34752B69DEE3FDEB7 /* KeychainAccess */,
+				408B6AA66BF1904D594ACCFB0A2E0880 /* MTStatusBarOverlay */,
+				4207B912E5823E540BD2CEF0D2B3EBFE /* Pods-KeyChain */,
+				3363AFF0C4BCF9EACBECB11374E0C55B /* STAlertView */,
+				567ED1C8F46773694B327EF5DBD27108 /* STAlertView-STAlertView */,
+				4FB20506A3F8DC74C07E696E82BDC525 /* UIXML */,
+				769EF3910762B5A1E52A03E927159465 /* WEPopover */,
+				8040B6068BC55FBCCCD91CC894658D7A /* ZKRevealingTableViewCell */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3E974F72470763A1F160B1982148447A /* Resources */ = {
+		7B4A41F5285E09B8520262106C51DE2D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03CA098C3046A832FB9D5CD1246A1240 /* popoverArrowDown.png in Resources */,
-				7E4D89EC12BE0D478927007C34D62B1E /* popoverArrowDown@2x.png in Resources */,
-				35C092B8388B4B761E9E4EEFD8C824DA /* popoverArrowDownSimple.png in Resources */,
-				239ACFC884D7378D690D8C73F8671F1C /* popoverArrowLeft.png in Resources */,
-				DDE56FADC1E211CA2B6B4E6DE96E9126 /* popoverArrowLeft@2x.png in Resources */,
-				6F1028FBBDCD04A6E70B97B2266A7A11 /* popoverArrowLeftSimple.png in Resources */,
-				92C41B9AA4249CD05E30D22666BBD2CF /* popoverArrowRight.png in Resources */,
-				B96C0B40C3100511F71D6FFD84A7C420 /* popoverArrowRight@2x.png in Resources */,
-				D30C601F66940A37CD945FD1C07DFBEA /* popoverArrowRightSimple.png in Resources */,
-				83ACEB59427280A04421987C57920526 /* popoverArrowUp.png in Resources */,
-				0EB85129E628965B01CCFAA149CA32C5 /* popoverArrowUp@2x.png in Resources */,
-				E159591DD52B610339704AC8B5E05ED4 /* popoverArrowUpSimple.png in Resources */,
-				7CCE2B534646D57E4B2FAFF1394E112E /* popoverBg.png in Resources */,
-				53858BB5FAF9B8FBB5A54D5A8C35F778 /* popoverBg@2x.png in Resources */,
-				99E6ED5FD241C115AA375AF8DD67C942 /* popoverBgSimple.png in Resources */,
+				6AA98E4FDD469BF24633FD6A13E76E36 /* STAlertView.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		79139948254FEA66C90078998008618F /* Resources */ = {
+		A8B3C41D2DCDE55BF00EC8435154E4DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0F0A0114C27C848E1C5B5C98E73210C /* STAlertView.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9032FAA986001741F6E4AABE94388C6B /* Resources */ = {
+		CCF61A1E0C270B1E462A63CD42A58A33 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				649EA6664B822061513D6E7CA754D4C1 /* back24x24.png in Resources */,
-				5F040D23BB714105330B3D2B042CD794 /* chevron.png in Resources */,
-				D3CCE675A448956657ACC453E8EECFD4 /* confirm24x24.png in Resources */,
-				CC78061815DCAA71D9A9FA9FD8B47F44 /* edit32x32.png in Resources */,
-				34C3CAC27B563586072571D65F82B804 /* MailDataEntryCell.xib in Resources */,
-				6CB2475F25CA851316E8DCBF6E88FD82 /* PushDateEntryCell.xib in Resources */,
-				EBA75C3E15F3A2EBA87F3F87814DC549 /* PushFormDataEntryCell.xib in Resources */,
-				87967F12F6240EE6F74475A76A7EEC6F /* PushTextEntryCell.xib in Resources */,
-				CE10F9042658F70B82E8F6ECDB918B86 /* PushWebViewEntryCell.xib in Resources */,
-				F17A9A045AFFDC474362BED8EEE1E765 /* SwitchDataEntryCell.xib in Resources */,
-				DA86BA2BB7AA2E3442F13596853E560E /* TextDataEntryCell.xib in Resources */,
-				784FF5E83EDCD108D4D1D2EDA754D610 /* write32x32.png in Resources */,
+				43BEE5AD1949D3288BBBB1DFE4BD86DE /* popoverArrowDown.png in Resources */,
+				2C348099617C21391F7C43D4ADE9DE90 /* popoverArrowDown@2x.png in Resources */,
+				D543983BC796E4BD3E3983B5143FF1BE /* popoverArrowDownSimple.png in Resources */,
+				F279450DA82F24BE30323F6E3642A851 /* popoverArrowLeft.png in Resources */,
+				0737433CA4778EC49C1CB1CCCF7A32AB /* popoverArrowLeft@2x.png in Resources */,
+				5643DD20034E5218CCACF404F14B4218 /* popoverArrowLeftSimple.png in Resources */,
+				197EEAE1C303B6138B3BF964FE069845 /* popoverArrowRight.png in Resources */,
+				3DFD3F1E55151120CD7DBA0A118C7295 /* popoverArrowRight@2x.png in Resources */,
+				C6359860D76E70C2252FB528C6996AB4 /* popoverArrowRightSimple.png in Resources */,
+				6202C7F97DF7C71C19FD1EB4CF0715E0 /* popoverArrowUp.png in Resources */,
+				D0AB239C35EFFBB805F56CB446AD38C0 /* popoverArrowUp@2x.png in Resources */,
+				BF1F484661CE04F9B508E293DFD9F822 /* popoverArrowUpSimple.png in Resources */,
+				3F96EC3D3BBC3DEEA8ED438C27DE6086 /* popoverBg.png in Resources */,
+				F6969A6B6023B1231BA3175012EC28B9 /* popoverBg@2x.png in Resources */,
+				0178446B1D206798C0E5041CB9280328 /* popoverBgSimple.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A289A692DB32CA43233B383EC216E533 /* Resources */ = {
+		F499958B308EE21912C3B61194DDB7BB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EF858069249219D39239DC31400BB11 /* back24x24.png in Resources */,
+				9953A257C8EF1A3F428A61BFF9C1239D /* chevron.png in Resources */,
+				6A579F353A8DABB64E1D5D9ED5FF7C48 /* confirm24x24.png in Resources */,
+				3586C086974765B9DE39168BFCE3B31F /* edit32x32.png in Resources */,
+				0026E0998FC71ED47F385DA236C6634F /* MailDataEntryCell.xib in Resources */,
+				427B6D0C97A3FAD637E61736FE45CF27 /* PushDateEntryCell.xib in Resources */,
+				881A9DB64A230B02AB97B97D9F5D5FBF /* PushFormDataEntryCell.xib in Resources */,
+				DDE6EBA38CBFCC07088DE4F76D44E6A0 /* PushTextEntryCell.xib in Resources */,
+				40395CE910B152E087F0559006917171 /* PushWebViewEntryCell.xib in Resources */,
+				3DF9C7A9A8F56780516E5E54C53AC3BE /* SwitchDataEntryCell.xib in Resources */,
+				7CBFAD11C49F6B2DE7A84DCC7478B609 /* TextDataEntryCell.xib in Resources */,
+				D589645372A07EE3A1FC171855CE261A /* write32x32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		532F5A73DE3A8D65F66600F29FE4203A /* Sources */ = {
+		13F1ADDF86A2F693727D33BB48716204 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E74E1AE8FBBDB9E0EAA17265D494167 /* Pods-dummy.m in Sources */,
+				BD4F738A0AC43C4B17B57FFA65DED2E1 /* STAlertView-dummy.m in Sources */,
+				6698DAFF0D72AAC3D2A1792BB8E65F79 /* STAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		57249764F809F75AD7B6A15438E9A4F9 /* Sources */ = {
+		38F472BE1A3ECAD7D3168BFDE0846CFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69FD3FC607095631A68FAA46581C0953 /* STAlertView-dummy.m in Sources */,
-				9D2455A2C11D3B9E3971ED00E1A49BC3 /* STAlertView.m in Sources */,
+				DD86A1D9BC61A0844EF9EDB97F33002D /* UIBarButtonItem+WEPopover.m in Sources */,
+				C923A94EEEFB95BFB497E16D1F8D862C /* WEPopover-dummy.m in Sources */,
+				BE5D982EC4FCAAD552C4E9DD827E21EF /* WEPopoverContainerView.m in Sources */,
+				1EEE103C112BC8315CC666DC64A937CE /* WEPopoverController.m in Sources */,
+				C3F870DAB337C504055D05B0AC885FD2 /* WETouchableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67AD08CB0958F4514C0AC5760AFA7E0D /* Sources */ = {
+		4F7EAF3C91A2A4D35554FF9237E8E0A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				773448A42A961DCBD68A7A28457ED1E1 /* UIBarButtonItem+WEPopover.m in Sources */,
-				30760887617CE8A14F70191588413F49 /* WEPopover-dummy.m in Sources */,
-				78AE14BC9FCE09EEC07EDE8BE517C54D /* WEPopoverContainerView.m in Sources */,
-				BE254B19A6DB6388AF85AC0820E9DAA7 /* WEPopoverController.m in Sources */,
-				1E38FE3165CAEB74310863DEE09A7502 /* WETouchableView.m in Sources */,
+				0D8ED01AE8B6D926C635BE56572B37AF /* Pods-KeyChain-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6FE41BF2AE13560BC24323F61FB2CA49 /* Sources */ = {
+		9AC29D1671F3E28B2F7C323A084004F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2B652E92EA77198D71A780A3089366B /* ZKRevealingTableViewCell-dummy.m in Sources */,
-				5033B528F70646B78AAEA47BAACF6D81 /* ZKRevealingTableViewCell.m in Sources */,
+				8EC655604E8FB897C35F3B77E3D8332F /* BaseDataEntryCell.m in Sources */,
+				A394904AF6A4E21F234AF5287F995972 /* PushControllerDataEntryCell.m in Sources */,
+				B95B44010B1959AE2427596B853B24BC /* PushDateEntryCell.m in Sources */,
+				C9E9E19E7CE334AD5AA28C2EC82CA7E0 /* PushFormDataEntryCell.m in Sources */,
+				42DC725F4CADC1D317E0CC69F7AF03DE /* PushTextEntryCell.m in Sources */,
+				39D63907516B48DFA4EF2C3B86E270C0 /* PushWebViewEntryCell.m in Sources */,
+				4A119672D97E7DE85D32A1117B247372 /* SegmentedDataEntryCell.m in Sources */,
+				819EDB04AC610587DAB0B020D311A719 /* SwitchDataEntryCell.m in Sources */,
+				E83C9B6C8025942E702044B0FFA6D351 /* TextDataEntryCell.m in Sources */,
+				19FC8115A00DA33771F7BE639C68A7FF /* UIXML-dummy.m in Sources */,
+				E584A65912E8DE0868D9C83F2307A62D /* UIXMLFormViewController.m in Sources */,
+				531276C0AA2EC92F146A6E380DB766A4 /* WaitMaskController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		784CD490C5E156FAB1756CCE802FB1CB /* Sources */ = {
+		A04DB11C8BD4C9DAD46072CA31B5E48D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02A168235EE7BEE5F7EE98055721D136 /* MTStatusBarOverlay-dummy.m in Sources */,
-				8025362EDF7F51FFA51B3DB0C3FB4041 /* MTStatusBarOverlay.m in Sources */,
+				C8F299657CCA5C99A5125D1A43486E86 /* ZKRevealingTableViewCell-dummy.m in Sources */,
+				D5043527799682ACB813FAFFF23FEDF2 /* ZKRevealingTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9D73789A3B4611D18F379CBB30D76C94 /* Sources */ = {
+		AB24B695E1C32E24B5553CCE8750C869 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03AAD373AF82AF3B7719D08498C0B124 /* BaseDataEntryCell.m in Sources */,
-				93279A513C898352691FFD2B974EDB24 /* PushControllerDataEntryCell.m in Sources */,
-				AEC717051E559E9EDB49100B27D154E8 /* PushDateEntryCell.m in Sources */,
-				96B8813B6941DB2DB0A056AEEE8017D8 /* PushFormDataEntryCell.m in Sources */,
-				EFFFA5F7CDC30C8EB070E2A0F1E2330D /* PushTextEntryCell.m in Sources */,
-				C20CA3A5FC90D1EB69C2CA79EE815F0E /* PushWebViewEntryCell.m in Sources */,
-				E08535AA15A23631ADE6E2A5C09257D7 /* SegmentedDataEntryCell.m in Sources */,
-				D2D3551BDC6744996424AF78E8F962C1 /* SwitchDataEntryCell.m in Sources */,
-				EE058A4C4A27D99A29D09515A3C594DB /* TextDataEntryCell.m in Sources */,
-				FACA37354B1F097D1CB25C83B60BC1BB /* UIXML-dummy.m in Sources */,
-				3DEC653EB14600E5E1AD55383FE7076F /* UIXMLFormViewController.m in Sources */,
-				5A5B55671731F0FA9D4B2D8E0D3520DC /* WaitMaskController.m in Sources */,
+				AF4CA8195E9E2E6A00146CE3A519B2BD /* MTStatusBarOverlay-dummy.m in Sources */,
+				2E58FEEB63835385EE225C99908EE4AF /* MTStatusBarOverlay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B14FA3EBF291DF033127E3D081246A88 /* Sources */ = {
+		D26A24617ECAE11F29337DC26BE0E14F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A967960EE4C1C1AF8A3FC3555BABDC58 /* Keychain.swift in Sources */,
+				D823270043210DD356225D7700FAF3E4 /* KeychainAccess-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE1974EE4D1CCA01327BF802B589737B /* Sources */ = {
+		FE04774B20C31EDBBFD9F6A2669304DC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E97BE41D443D7641693B53D2AF2244E /* Keychain.swift in Sources */,
-				40A3157EF9DCE6B16FC5F783BC51732B /* KeychainAccess-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2D9646F8FF442F3B6232420C5A639361 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ZKRevealingTableViewCell;
-			target = 4EF1C028CE3D60A097873B5563A7407D /* ZKRevealingTableViewCell */;
-			targetProxy = 9CCDF14C81928761031865510330E65D /* PBXContainerItemProxy */;
-		};
-		88FF11B988AA38488319CFB58F3DD479 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = STAlertView;
-			target = 06FAD94E7BDB37DF16B0960B5C573E05 /* STAlertView */;
-			targetProxy = 27825718DE4B006B816EBFEE4BC5399A /* PBXContainerItemProxy */;
-		};
-		8EDE8C3DE3184AC1AD9AB54319F64219 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = WEPopover;
-			target = C6B915E1B7089937A8E40C184E238559 /* WEPopover */;
-			targetProxy = 61D7E49329131CBC3CD478E3882120FE /* PBXContainerItemProxy */;
-		};
-		BBC3F212B90FFC61A22182C8117F95CE /* PBXTargetDependency */ = {
+		0D49959924A0FD5919A343E549A82659 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = KeychainAccess;
-			target = 838A2C6DA366DE138E5FDF1AF19D94C0 /* KeychainAccess */;
-			targetProxy = E8FE692598A14C10939F916241CBACC5 /* PBXContainerItemProxy */;
+			target = 8905DB6521F8FDC34752B69DEE3FDEB7 /* KeychainAccess */;
+			targetProxy = 3EC971C56F6C7ADA7BBF8020E302B6B6 /* PBXContainerItemProxy */;
 		};
-		C9A4E42AD6BF10531264472D9A4BAE2C /* PBXTargetDependency */ = {
+		0EA4EBF9F1CCCCA1300D9B530A99F280 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = UIXML;
-			target = 2832F3875A3E658E1307918C1F095AA3 /* UIXML */;
-			targetProxy = D2E6642A9615CD2136409A800DD49649 /* PBXContainerItemProxy */;
+			name = STAlertView;
+			target = 3363AFF0C4BCF9EACBECB11374E0C55B /* STAlertView */;
+			targetProxy = 608A33FDE32301BA0625E2A7133BFE04 /* PBXContainerItemProxy */;
 		};
-		D2E859F2CA8CBC4877C46950C84156BA /* PBXTargetDependency */ = {
+		41E73E2370E3F8995A5F767124E7B796 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "STAlertView-STAlertView";
-			target = B4056F6E07F2FAEAA9DC40AB243E771F /* STAlertView-STAlertView */;
-			targetProxy = 88BF980736AB7565D18E818E9A6ACA59 /* PBXContainerItemProxy */;
+			target = 567ED1C8F46773694B327EF5DBD27108 /* STAlertView-STAlertView */;
+			targetProxy = 8C2991F7A5689638050F009E07E5C3C2 /* PBXContainerItemProxy */;
 		};
-		E2EAFAD8F8E10DDD9F2CA5026DF181C0 /* PBXTargetDependency */ = {
+		5D8F1F2DFF178B0F77EF1B3A7044E788 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WEPopover;
+			target = 769EF3910762B5A1E52A03E927159465 /* WEPopover */;
+			targetProxy = 987E4D1D88BE860488439FDC97F01807 /* PBXContainerItemProxy */;
+		};
+		A852B32BE1E8A04F463C016C10D818CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UIXML;
+			target = 4FB20506A3F8DC74C07E696E82BDC525 /* UIXML */;
+			targetProxy = 5B35B4537A2050C37D7472FED19BC183 /* PBXContainerItemProxy */;
+		};
+		BBCE52447E0BFF5711D57BD7F7B4536C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ZKRevealingTableViewCell;
+			target = 8040B6068BC55FBCCCD91CC894658D7A /* ZKRevealingTableViewCell */;
+			targetProxy = AC77C67409F0456B3123E6F75C356144 /* PBXContainerItemProxy */;
+		};
+		C00BA7EC2130FCFB6416D166AEAF16E4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MTStatusBarOverlay;
-			target = 690737B2A5D2F7641841C116F5FA181A /* MTStatusBarOverlay */;
-			targetProxy = D0DF9EAD8460740D0B6353395E654779 /* PBXContainerItemProxy */;
+			target = 408B6AA66BF1904D594ACCFB0A2E0880 /* MTStatusBarOverlay */;
+			targetProxy = E9C40E4A7F17942B350F60AB787D7EB4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		02E9B332E3FE2C49EA7141B3A66FF634 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F2230CF0DA72BCC0A254FD39A8F249C /* ZKRevealingTableViewCell.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ZKRevealingTableViewCell/ZKRevealingTableViewCell-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ZKRevealingTableViewCell/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ZKRevealingTableViewCell/ZKRevealingTableViewCell.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = ZKRevealingTableViewCell;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		051B3907F59A2038A2EEA9B3A2017C5D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE04C8B489F1FBEA886E1644A0AECBDC /* KeychainAccess.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KeychainAccess/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = KeychainAccess;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		455D6809B70F19911D32CCA04CA29BBC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AE57ACDDBBC752C715F825E93F952BD /* MTStatusBarOverlay.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MTStatusBarOverlay/MTStatusBarOverlay-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MTStatusBarOverlay/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MTStatusBarOverlay/MTStatusBarOverlay.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = MTStatusBarOverlay;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		4B03A3125A04AB1B4727875C0372ACF8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE04C8B489F1FBEA886E1644A0AECBDC /* KeychainAccess.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KeychainAccess/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = KeychainAccess;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5CF99FBB66D9B1021B61E8FE82B63B79 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DB0C4EB97C1B5B9856CAB2F4122231E /* STAlertView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/STAlertView/STAlertView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/STAlertView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/STAlertView/STAlertView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = STAlertView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6C9F064902EA2F6DB98D118A1CD26891 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AE57ACDDBBC752C715F825E93F952BD /* MTStatusBarOverlay.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MTStatusBarOverlay/MTStatusBarOverlay-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MTStatusBarOverlay/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MTStatusBarOverlay/MTStatusBarOverlay.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = MTStatusBarOverlay;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		77C8B50595FBC77C2E08281816F4EAD8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DB0C4EB97C1B5B9856CAB2F4122231E /* STAlertView.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/STAlertView/STAlertView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/STAlertView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/STAlertView/STAlertView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = STAlertView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		79D3C51A8050617C15139474124E13F2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C658621755FBC7219B5327128C9D4314 /* WEPopover.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/WEPopover/WEPopover-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/WEPopover/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/WEPopover/WEPopover.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = WEPopover;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8A200DF206B879F719197D322371A391 /* Release */ = {
+		10B30D9D49F50677F71517354A7E029F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EE4667F308F99B397280557187280F5 /* UIXML.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/UIXML/UIXML-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/UIXML/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1341,16 +1139,57 @@
 				PRODUCT_NAME = UIXML;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */ = {
+		176C31B2465F926C611F8A2291CEC37B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D3B2372E6708DC73880071262E143C9 /* Pods-KeyChain.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-KeyChain/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KeyChain/Pods-KeyChain.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_KeyChain;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		34FE9531DA9AF2820790339988D5FF41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1358,17 +1197,506 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D70E3B96B0652E5AD6EDF4E2F1E6B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4209221B00CCBDEDE81EF04E71CB63D1 /* STAlertView.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/STAlertView";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/STAlertView/ResourceBundle-STAlertView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = STAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		463E9C8246BB053D7891EF74E9740B15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4209221B00CCBDEDE81EF04E71CB63D1 /* STAlertView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STAlertView/STAlertView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/STAlertView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/STAlertView/STAlertView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = STAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		51F5C4FBBD800556552AADED2ACD3CC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C658621755FBC7219B5327128C9D4314 /* WEPopover.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/WEPopover/WEPopover-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WEPopover/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/WEPopover/WEPopover.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = WEPopover;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		548C2624DA61532C8013444BAC3D82C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4209221B00CCBDEDE81EF04E71CB63D1 /* STAlertView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STAlertView/STAlertView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/STAlertView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/STAlertView/STAlertView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = STAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5D1EF0EEA9E7592464C2DA715B51F0D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE04C8B489F1FBEA886E1644A0AECBDC /* KeychainAccess.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KeychainAccess/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = KeychainAccess;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		66903B87C3501467FE56DD1635B1A258 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2C94FDA8DD4A3BCF670FF51D8DA6EF6 /* Pods-KeyChain.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-KeyChain/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KeyChain/Pods-KeyChain.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_KeyChain;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		726BDA862A2635295B592E1164EA21E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AE57ACDDBBC752C715F825E93F952BD /* MTStatusBarOverlay.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MTStatusBarOverlay/MTStatusBarOverlay-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MTStatusBarOverlay/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MTStatusBarOverlay/MTStatusBarOverlay.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = MTStatusBarOverlay;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		86D2EB49EB3B2899F46B409C5CB3CBB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C658621755FBC7219B5327128C9D4314 /* WEPopover.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/WEPopover/WEPopover-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WEPopover/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/WEPopover/WEPopover.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = WEPopover;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8EF332157F2A8DD5CD47E36379D47393 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE04C8B489F1FBEA886E1644A0AECBDC /* KeychainAccess.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KeychainAccess/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = KeychainAccess;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9BF886261E82044D512C5FDF607BDEA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F2230CF0DA72BCC0A254FD39A8F249C /* ZKRevealingTableViewCell.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ZKRevealingTableViewCell/ZKRevealingTableViewCell-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ZKRevealingTableViewCell/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ZKRevealingTableViewCell/ZKRevealingTableViewCell.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ZKRevealingTableViewCell;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A3ABB814DD23C51CC523F40D51E901D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE4667F308F99B397280557187280F5 /* UIXML.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UIXML/UIXML-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UIXML/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/UIXML/UIXML.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = UIXML;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B5A94C5655B02B931A538D0DAFB6831D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4209221B00CCBDEDE81EF04E71CB63D1 /* STAlertView.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/STAlertView";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/STAlertView/ResourceBundle-STAlertView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = STAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		B8266CEC321F3F0A419C8AB90A398CFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AE57ACDDBBC752C715F825E93F952BD /* MTStatusBarOverlay.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MTStatusBarOverlay/MTStatusBarOverlay-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MTStatusBarOverlay/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MTStatusBarOverlay/MTStatusBarOverlay.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MTStatusBarOverlay;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BCA850BFAA34D56C4AEC4866279BB7A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F2230CF0DA72BCC0A254FD39A8F249C /* ZKRevealingTableViewCell.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ZKRevealingTableViewCell/ZKRevealingTableViewCell-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ZKRevealingTableViewCell/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ZKRevealingTableViewCell/ZKRevealingTableViewCell.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ZKRevealingTableViewCell;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C104F7F091290C3D1E248192F07FE689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
@@ -1381,291 +1709,92 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
-		};
-		AE07A36C48476EE80787DFAB9888A36B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EE4667F308F99B397280557187280F5 /* UIXML.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/UIXML/UIXML-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/UIXML/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/UIXML/UIXML.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = UIXML;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		AF693BC7C435203CF46C6A10C7149FC8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B22124734E4779F20BD04C5EF208059C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F2230CF0DA72BCC0A254FD39A8F249C /* ZKRevealingTableViewCell.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ZKRevealingTableViewCell/ZKRevealingTableViewCell-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ZKRevealingTableViewCell/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ZKRevealingTableViewCell/ZKRevealingTableViewCell.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = ZKRevealingTableViewCell;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C1746395DC5683A20983A980A302CB0F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DB0C4EB97C1B5B9856CAB2F4122231E /* STAlertView.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = STAlertView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		C4DDDD8C396AF2D777456CE91768444E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D0BA6094DEEFD306CBABEB21B2BC83D2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C658621755FBC7219B5327128C9D4314 /* WEPopover.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/WEPopover/WEPopover-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/WEPopover/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/WEPopover/WEPopover.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = WEPopover;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		F0B2A0E937B4C207E2D482ED93D9C53C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DB0C4EB97C1B5B9856CAB2F4122231E /* STAlertView.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = STAlertView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		113DD14DD9332E622917D84990DDED85 /* Build configuration list for PBXNativeTarget "Pods-KeyChain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66903B87C3501467FE56DD1635B1A258 /* Debug */,
+				176C31B2465F926C611F8A2291CEC37B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		127D37EE595AFA8206B454D3528FAF50 /* Build configuration list for PBXNativeTarget "ZKRevealingTableViewCell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BF886261E82044D512C5FDF607BDEA0 /* Debug */,
+				BCA850BFAA34D56C4AEC4866279BB7A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27AE1ED29BC6A3BE6D93445755A50251 /* Build configuration list for PBXNativeTarget "WEPopover" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51F5C4FBBD800556552AADED2ACD3CC2 /* Debug */,
+				86D2EB49EB3B2899F46B409C5CB3CBB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */,
-				FB45FFD90572718D82AB9092B750F0CA /* Release */,
+				C104F7F091290C3D1E248192F07FE689 /* Debug */,
+				34FE9531DA9AF2820790339988D5FF41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		491ED7F245DFFCFCD6A54B8ED99C9C1E /* Build configuration list for PBXNativeTarget "WEPopover" */ = {
+		35E50F2A40B302603833717F77308194 /* Build configuration list for PBXNativeTarget "MTStatusBarOverlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				79D3C51A8050617C15139474124E13F2 /* Debug */,
-				D0BA6094DEEFD306CBABEB21B2BC83D2 /* Release */,
+				726BDA862A2635295B592E1164EA21E9 /* Debug */,
+				B8266CEC321F3F0A419C8AB90A398CFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		49C808ED8CF296232F48C6B141EB402F /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		3AED602166E4578E0B15610C48186BE4 /* Build configuration list for PBXNativeTarget "STAlertView-STAlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C4DDDD8C396AF2D777456CE91768444E /* Debug */,
-				AF693BC7C435203CF46C6A10C7149FC8 /* Release */,
+				3D70E3B96B0652E5AD6EDF4E2F1E6B17 /* Debug */,
+				B5A94C5655B02B931A538D0DAFB6831D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55358A891F291DD134E20D1F79761C38 /* Build configuration list for PBXNativeTarget "MTStatusBarOverlay" */ = {
+		4709AD5F86D2429A9407E72C849C3A01 /* Build configuration list for PBXNativeTarget "UIXML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6C9F064902EA2F6DB98D118A1CD26891 /* Debug */,
-				455D6809B70F19911D32CCA04CA29BBC /* Release */,
+				A3ABB814DD23C51CC523F40D51E901D1 /* Debug */,
+				10B30D9D49F50677F71517354A7E029F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A2A16020A1F8590697FEABD2A8E30F8B /* Build configuration list for PBXNativeTarget "ZKRevealingTableViewCell" */ = {
+		78A8DAE7B77A2D04D2EE116501788D73 /* Build configuration list for PBXNativeTarget "STAlertView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				02E9B332E3FE2C49EA7141B3A66FF634 /* Debug */,
-				B22124734E4779F20BD04C5EF208059C /* Release */,
+				463E9C8246BB053D7891EF74E9740B15 /* Debug */,
+				548C2624DA61532C8013444BAC3D82C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AFEDC61080993E5B358480404F9CAAA1 /* Build configuration list for PBXNativeTarget "STAlertView-STAlertView" */ = {
+		9FA048BBEA093CDB3F69C5B36929A5AF /* Build configuration list for PBXNativeTarget "KeychainAccess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F0B2A0E937B4C207E2D482ED93D9C53C /* Debug */,
-				C1746395DC5683A20983A980A302CB0F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B99D0679FB24515125A2C9F347A2261F /* Build configuration list for PBXNativeTarget "STAlertView" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5CF99FBB66D9B1021B61E8FE82B63B79 /* Debug */,
-				77C8B50595FBC77C2E08281816F4EAD8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ECE5D705C2612FC8850408E1FD3FD182 /* Build configuration list for PBXNativeTarget "KeychainAccess" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4B03A3125A04AB1B4727875C0372ACF8 /* Debug */,
-				051B3907F59A2038A2EEA9B3A2017C5D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F854673D046DD64CE8F057DA2BC91170 /* Build configuration list for PBXNativeTarget "UIXML" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AE07A36C48476EE80787DFAB9888A36B /* Debug */,
-				8A200DF206B879F719197D322371A391 /* Release */,
+				8EF332157F2A8DD5CD47E36379D47393 /* Debug */,
+				5D1EF0EEA9E7592464C2DA715B51F0D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
