@@ -92,13 +92,38 @@
 
 
 - (BaseDataEntryCell *)tableView:(UITableView *)tableView cellFromType:(NSString *)cellType cellData:(NSDictionary *)cellData {
+    NSString *key = cellData[@"DataKey"];
     
-    BaseDataEntryCell *cell = nil;
+    BaseDataEntryCell *cell = [dataEntryCells objectForKey:key];
     
-	[[NSBundle mainBundle] loadNibNamed:cellType owner:self options:nil];
-		
-    cell = self.dataEntryCell;  self.dataEntryCell = nil;
+    if( cell!= nil ) {
+        return cell;
+    }
+    
+	NSArray *objects = [[NSBundle mainBundle] loadNibNamed:cellType owner:self options:nil];
+	
+    if( self.dataEntryCell != nil ) {
+        cell = self.dataEntryCell;
+        self.dataEntryCell = nil;
         
+        [dataEntryCells setObject:cell forKey:key];
+    }
+    else {
+        
+        cell = objects.firstObject;
+        
+        if( ![cell isKindOfClass:[BaseDataEntryCell class]]) {
+            NSString *msg = [NSString stringWithFormat:@"ERROR: the first class in nib [%@] is not a BaseDataEntryCell instance ... skipped", cellType ];
+            
+            NSLog( @"%@", msg );
+            @throw msg;
+            
+        }
+
+        [dataEntryCells setObject:cell forKey:key];
+        
+    }
+    
     return cell;
     
 }
@@ -174,6 +199,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    dataEntryCells = [[NSMutableDictionary alloc] init];
 	
 }
 

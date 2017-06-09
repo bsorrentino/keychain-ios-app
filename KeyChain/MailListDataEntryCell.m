@@ -10,7 +10,6 @@
 #import "KeyChainAppDelegate.h"
 #import "AttributeInfo.h"
 #import <STAlertView/STAlertView.h>
-#import <AVFoundation/AVAudioPlayer.h>
 
 #define TRACE_ENTER( m ) NSLog( @"enter in [%@]", @#m )
 

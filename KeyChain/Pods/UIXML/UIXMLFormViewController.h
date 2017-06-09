@@ -25,6 +25,7 @@
 	NSString            *__UIXML_WEAK resource;
 	
 	BaseDataEntryCell   *__UIXML_WEAK dataEntryCell;
+    NSMutableDictionary *__UIXML_STRONG dataEntryCells;
 }
 
 @property (UIXML_WEAK, nonatomic,readonly) NSString *resource;

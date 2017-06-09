@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIXMLFormViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PushLinkPreviewCell" id="3Qc-oY-OVg" customClass="PushLinkPreviewCell" customModule="KeyChain" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Qc-oY-OVg" id="jPI-Qv-y0p">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVE-6Q-0Cf">
+                        <rect key="frame" x="14" y="12" width="275" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PVE-6Q-0Cf" firstAttribute="leading" secondItem="jPI-Qv-y0p" secondAttribute="leadingMargin" constant="6" id="Nct-Nh-BWj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="PVE-6Q-0Cf" secondAttribute="trailing" constant="78" id="TE4-x5-IMW"/>
+                    <constraint firstItem="PVE-6Q-0Cf" firstAttribute="centerY" secondItem="jPI-Qv-y0p" secondAttribute="centerY" id="jje-5S-7sw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="_viewController" destination="LHU-w3-amS" id="apV-yD-Nup"/>
+            </connections>
+            <point key="canvasLocation" x="-331" y="-631"/>
+        </tableViewCell>
+        <viewController id="LHU-w3-amS" customClass="PushLinkPreviewController" customModule="KeyChain">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="zrd-4g-FZf"/>
+                <viewControllerLayoutGuide type="bottom" id="VXd-iK-OEL"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="Txk-DR-TJl">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            </view>
+            <point key="canvasLocation" x="-318" y="-180"/>
+        </viewController>
+    </objects>
+</document>
