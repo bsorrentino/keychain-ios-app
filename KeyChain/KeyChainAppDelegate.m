@@ -170,12 +170,6 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
 
 #pragma mark - Application lifecycle
 
-- (void)awakeFromNib {    
-    
-    //RootViewController *rootViewController = (RootViewController *)[navigationController topViewController];
-    //rootViewController.managedObjectContext = self.managedObjectContext;
-}
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     

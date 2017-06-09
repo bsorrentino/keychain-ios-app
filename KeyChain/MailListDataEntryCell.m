@@ -9,8 +9,8 @@
 #import "MailListDataEntryCell.h"
 #import "KeyChainAppDelegate.h"
 #import "AttributeInfo.h"
-#import <STAlertView/STAlertView.h>
-#import <AVFoundation/AVAudioPlayer.h>
+
+@import AVFoundation;
 
 #define TRACE_ENTER( m ) NSLog( @"enter in [%@]", @#m )
 
@@ -67,22 +67,24 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 
 
-@interface MailListDataViewController()
-    @property (nonatomic, strong) STAlertView *mailAlertView;
+@interface MailListDataViewController() {
+    AddEmailPopupController *_addMailPopup;
+}
+    @property (nonatomic, strong) AddEmailPopupController *addMailPopup;
 
 
-- (void)insertNewObject;
-- (PersistentAppDelegate *) appDelegate;
-- (void)filterContent:(NSString*)scope;
-- (NSInteger)numberOfObjectsInSection:(NSInteger)section;
+    - (void)insertNewObject;
+    - (PersistentAppDelegate *) appDelegate;
+    - (void)filterContent:(NSString*)scope;
+    - (NSInteger)numberOfObjectsInSection:(NSInteger)section;
 
-- (void)insertManagedObject:(NSString *)value;
-- (void)deleteManagedObject:(NSIndexPath *)indexPath;
+    - (void)insertManagedObject:(NSString *)value;
+    - (void)deleteManagedObject:(NSIndexPath *)indexPath;
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-- (void)clearCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+    - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+    - (void)clearCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
-- (BOOL)validateInput:(NSString *)input;
+    - (BOOL)validateInput:(NSString *)input;
 @end
 
 
@@ -260,43 +262,27 @@ NSString * const regularExpression = @"(.*)@(.*)";
     
 }
 
+- (AddEmailPopupController *) addMailPopup {
+    
+    if( !_addMailPopup ) {
+        __BLOCKSELF;
+        _addMailPopup = [AddEmailPopupController createPopup];
+        _addMailPopup.onClose = ^(NSString * mailText) {
+            
+            [__self insertManagedObject:mailText];
+        };
+    }
+    return _addMailPopup;
+}
+
+
 - (void) insertNewObject
 {
 
-    __BLOCKSELF;
     
-    NSString *title = NSLocalizedString(@"ListDataEntryCell.alertTitle", @"add new Item");
+    //NSString *title = NSLocalizedString(@"ListDataEntryCell.alertTitle", @"add new Item");
     
-    self.mailAlertView =
-    
-    [[STAlertView alloc] initWithTitle:title message:@"" cancelButtonTitle:@"Cancel" otherButtonTitle:@"Store" cancelButtonBlock:^{
-        NSLog(@"cancel mail");
-        
-    } otherButtonBlock:^(NSString * result){
-        
-        [__self insertManagedObject:result];
-        
-    }];
-
-#if 0
-	UIAlertView *alert = [[UIAlertView alloc] 
-						  initWithTitle: NSLocalizedString(@"ListDataEntryCell.alertTitle", @"add new Item") 
-						  message:nil //NSLocalizedString(@"ListDataEntryCell.alertMessage", @"add item message")
-						  delegate:self
-						  cancelButtonTitle:@"Cancel"
-						  otherButtonTitles:@"OK", nil];
-    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
-        [alert setValue:self.textMail forKey:@"accessoryView"];
-    }
-    else {
-        [alert addSubview:self.textMail];
-    }
-    
-    //CGAffineTransform transform = CGAffineTransformMakeTranslation(0.0, 80.0);
-    //[alert setTransform:transform];
-    
-	[alert show];
-#endif
+    [self.addMailPopup showInViewWithAView:self.view];
     
     
 	
@@ -379,6 +365,12 @@ NSString * const regularExpression = @"(.*)@(.*)";
     // e.g. self.myOutlet = nil;
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+
+    [self setEditing:NO animated:NO];
+    [super viewWillDisappear:animated];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -398,6 +390,9 @@ NSString * const regularExpression = @"(.*)@(.*)";
         
         //[indexPath release]; BUG FIX Issue #6
 
+        if( _addMailPopup  ) {
+            [self.addMailPopup removeAnimate];
+        }
     }
     [super setEditing:editing animated:animated];
 }

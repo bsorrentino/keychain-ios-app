@@ -194,7 +194,7 @@
         
     [UIView animateWithDuration:0.4
                           delay:0.0
-                        options: UIViewAnimationCurveLinear
+                        options: UIViewAnimationOptionCurveLinear
                      animations:^{
                          newView.transform = CGAffineTransformMakeScale(.9, .9);
                      } 
@@ -423,7 +423,7 @@
     
     [UIView animateWithDuration:0.4
                           delay:0.0
-                        options: UIViewAnimationCurveEaseIn
+                        options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          dragView.transform = CGAffineTransformMakeScale(0.2, 0.2);
                      } 
