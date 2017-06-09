@@ -9,7 +9,9 @@ target 'KeyChain' do
     pod 'STAlertView'
     pod 'WEPopover', :podspec => '.'
     pod 'ZKRevealingTableViewCell', :podspec => '.'
-    pod 'UIXML', :podspec => '.'
+    
+    # INCUDED INTO PROJECT
+    #pod 'UIXML', :podspec => '.'
 
     #pod 'KeychainAccess', :git => 'https://github.com/kishikawakatsumi/KeychainAccess.git'
     #pod 'SSKeychain', '~> 0.1.4'

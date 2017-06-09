@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import UIXML
+import UIKit
+
 
 class PushLinkPreviewController : UIViewController {
     var cell : PushLinkPreviewCell?

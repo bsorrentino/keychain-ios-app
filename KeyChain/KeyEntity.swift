@@ -240,7 +240,7 @@ import KeychainAccess
         do {
             
 
-            if let password = NSString(data:data, encoding:String.Encoding.utf8.rawValue) as? String {
+            if let password = NSString(data:data, encoding:String.Encoding.utf8.rawValue) as String? {
                 
                 print("key:\(key) password:\(password)")
                 

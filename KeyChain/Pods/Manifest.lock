@@ -2,7 +2,6 @@ PODS:
   - KeychainAccess (3.0.2)
   - MTStatusBarOverlay (0.9.1)
   - STAlertView (1.0.0)
-  - UIXML (1.2.0)
   - WEPopover (0.1.1)
   - ZKRevealingTableViewCell (0.1.2)
 
@@ -10,13 +9,10 @@ DEPENDENCIES:
   - KeychainAccess (~> 3.0.2)
   - MTStatusBarOverlay (~> 0.9)
   - STAlertView
-  - UIXML (from `.`)
   - WEPopover (from `.`)
   - ZKRevealingTableViewCell (from `.`)
 
 EXTERNAL SOURCES:
-  UIXML:
-    :podspec: .
   WEPopover:
     :podspec: .
   ZKRevealingTableViewCell:
@@ -26,10 +22,9 @@ SPEC CHECKSUMS:
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
   MTStatusBarOverlay: 258a1ee369f4dc4b94107d02cfd7f6b1317c421b
   STAlertView: bfcbdfed87dc7bfb35c04acd5d96aecebb923d48
-  UIXML: 5223d904f6a3c38ca1115e11a54acb0cf7864c45
   WEPopover: 3c23b47c67e61ceab993fa7e3e215d87c723172c
   ZKRevealingTableViewCell: e717212944d9ffe7798866d097c7c0ffe4481128
 
-PODFILE CHECKSUM: 5014393ec5bc9826aaf79bef9decb1b6fb49050b
+PODFILE CHECKSUM: 04e049e3538f9023c1d877464ac31b4936ced7cd
 
 COCOAPODS: 1.2.1
