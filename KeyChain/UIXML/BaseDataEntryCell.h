@@ -34,19 +34,19 @@
 
 }
 
-@property (nonatomic, UIXML_WEAK) NSString *dataKey;
+@property (nonatomic, UIXML_WEAK) NSString * _Nullable dataKey;
 @property (nonatomic) BOOL enabled;
 
--(void)prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData;
+-(void)prepareToAppear:(UIXMLFormViewController* _Nonnull)controller datakey:(NSString* _Nonnull )key label:(NSString*_Nullable)label cellData:(NSDictionary* _Nonnull)cellData;
 
 // Imposta il valore del controllo gestito (TextField, ...)
--(void) setControlValue:(id)value;
+-(void) setControlValue:(id _Nonnull )value;
 
 // Legge il valore dal controllo
--(id) getControlValue;
+-(id _Nonnull ) getControlValue;
 
 // helper for check string
--(BOOL)isStringEmpty:(NSString*)value;
+-(BOOL)isStringEmpty:(NSString*_Nullable)value;
 
 -(CGRect) getRectRelativeToLabel: (CGRect)controlFrame padding:(NSInteger)padding rpadding:(NSInteger)rpadding;
 
@@ -59,7 +59,7 @@
 
 }
 
-@property (nonatomic, UIXML_WEAK, readonly, getter = getResponder) UIResponder *responder;
+@property (nonatomic, UIXML_WEAK, readonly, getter = getResponder) UIResponder * _Nullable  responder;
 
 - (void)registerForKeyboardNotifications;
 - (void)unregisterForKeyboardNotifications;

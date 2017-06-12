@@ -1,35 +1,38 @@
 PODS:
+  - ImageSlideshow (1.3.2):
+    - ImageSlideshow/Core (= 1.3.2)
+  - ImageSlideshow/Core (1.3.2)
   - KeychainAccess (3.0.2)
   - MTStatusBarOverlay (0.9.1)
   - STAlertView (1.0.0)
-  - UIXML (1.2.0)
+  - SwiftLinkPreview (2.0.5)
   - WEPopover (0.1.1)
   - ZKRevealingTableViewCell (0.1.2)
 
 DEPENDENCIES:
+  - ImageSlideshow (~> 1.3.2)
   - KeychainAccess (~> 3.0.2)
   - MTStatusBarOverlay (~> 0.9)
   - STAlertView
-  - UIXML (from `.`)
+  - SwiftLinkPreview (~> 2.0.5)
   - WEPopover (from `.`)
   - ZKRevealingTableViewCell (from `.`)
 
 EXTERNAL SOURCES:
-  UIXML:
-    :podspec: .
   WEPopover:
     :podspec: .
   ZKRevealingTableViewCell:
     :podspec: .
 
 SPEC CHECKSUMS:
+  ImageSlideshow: a68a76fc618ebd2b7481ce355ad67d7097203976
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
   MTStatusBarOverlay: 258a1ee369f4dc4b94107d02cfd7f6b1317c421b
   STAlertView: bfcbdfed87dc7bfb35c04acd5d96aecebb923d48
-  UIXML: 5223d904f6a3c38ca1115e11a54acb0cf7864c45
+  SwiftLinkPreview: be9b78b79b1b31e00c3468b0476f57534985da7d
   WEPopover: 3c23b47c67e61ceab993fa7e3e215d87c723172c
   ZKRevealingTableViewCell: e717212944d9ffe7798866d097c7c0ffe4481128
 
-PODFILE CHECKSUM: 5014393ec5bc9826aaf79bef9decb1b6fb49050b
+PODFILE CHECKSUM: 6e76d0ae19ebe266b6e8d4ec6f58f1e06e18bb86
 
 COCOAPODS: 1.2.1
