@@ -58,6 +58,7 @@
 		5F3F588C1EEB547700D21830 /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F58721EEB547700D21830 /* UIXMLFormViewController.m */; };
 		5F3F588D1EEB547700D21830 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F58751EEB547700D21830 /* WaitMaskController.m */; };
 		5F3F588E1EEB547700D21830 /* write32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F58761EEB547700D21830 /* write32x32.png */; };
+		5F3F5E401EEF3B5B00032B53 /* AddEmailPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C68101DD4876A0086A1B6 /* AddEmailPopupController.swift */; };
 		5F44CC691C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC681C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel */; };
 		5F44CC6F1C4C3EBE007003D6 /* model-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6C1C4C3EBE007003D6 /* model-1.1.xcmappingmodel */; };
 		5F44CC701C4C3EBE007003D6 /* model-1.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6D1C4C3EBE007003D6 /* model-1.2.xcmappingmodel */; };
@@ -92,9 +93,7 @@
 		5FF78F2F12E5A481008EA886 /* logo-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF78F2E12E5A481008EA886 /* logo-64x64.png */; };
 		5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC754F14E5B06800E3E162 /* KeyListViewController.m */; };
 		A012116A142269B2000AA884 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0121169142269B2000AA884 /* AVFoundation.framework */; };
-		A01C68121DD4876A0086A1B6 /* AddEmailPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C68101DD4876A0086A1B6 /* AddEmailPopupController.swift */; };
 		A01C68131DD4876A0086A1B6 /* AddEmailPopupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01C68111DD4876A0086A1B6 /* AddEmailPopupController.xib */; };
-		A01C68151DD4F02D0086A1B6 /* SwiftBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C68141DD4F02D0086A1B6 /* SwiftBadge.swift */; };
 		A02BB725159C4DFA001FD5AA /* back32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB722159C4DFA001FD5AA /* back32x32.png */; };
 		A02BB726159C4DFA001FD5AA /* keychain-desktop-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = A02BB723159C4DFA001FD5AA /* keychain-desktop-512x512.png */; };
 		A02BB72A159C4E38001FD5AA /* UIAlertViewInputSection.m in Sources */ = {isa = PBXBuildFile; fileRef = A02BB729159C4E38001FD5AA /* UIAlertViewInputSection.m */; };
@@ -900,6 +899,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F3F5E401EEF3B5B00032B53 /* AddEmailPopupController.swift in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */,
 				5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */,

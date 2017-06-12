@@ -9,12 +9,8 @@
 #import "MailListDataEntryCell.h"
 #import "KeyChainAppDelegate.h"
 #import "AttributeInfo.h"
-<<<<<<< HEAD
-
-@import AVFoundation;
-=======
 #import <STAlertView/STAlertView.h>
->>>>>>> feature/previewlink
+
 
 #define TRACE_ENTER( m ) NSLog( @"enter in [%@]", @#m )
 
