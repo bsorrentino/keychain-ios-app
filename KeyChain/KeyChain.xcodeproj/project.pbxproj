@@ -914,11 +914,7 @@
 				5F3F587D1EEB547700D21830 /* PushControllerDataEntryCell.m in Sources */,
 				5F44CC6F1C4C3EBE007003D6 /* model-1.1.xcmappingmodel in Sources */,
 				A0FD0E4D14166C32009C7257 /* MailListDataEntryCell.m in Sources */,
-<<<<<<< HEAD
-				A01C68121DD4876A0086A1B6 /* AddEmailPopupController.swift in Sources */,
-=======
 				5F3F588D1EEB547700D21830 /* WaitMaskController.m in Sources */,
->>>>>>> feature/previewlink
 				5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */,
 				5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */,
 				5F44CC701C4C3EBE007003D6 /* model-1.2.xcmappingmodel in Sources */,
@@ -941,11 +937,7 @@
 				5FC65097160933F1003BC18F /* YISplashScreen+Migration.m in Sources */,
 				5F3F588C1EEB547700D21830 /* UIXMLFormViewController.m in Sources */,
 				5FC65098160933F1003BC18F /* YISplashScreenAnimation.m in Sources */,
-<<<<<<< HEAD
-				A01C68151DD4F02D0086A1B6 /* SwiftBadge.swift in Sources */,
-=======
 				5F3F58841EEB547700D21830 /* PushWebViewEntryCell.m in Sources */,
->>>>>>> feature/previewlink
 				5F44CC711C4C3EBE007003D6 /* model-1.3.xcmappingmodel in Sources */,
 				5F30A4841610E3AD005BAE36 /* KeyChain.xcdatamodeld in Sources */,
 				5F44CC691C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel in Sources */,
