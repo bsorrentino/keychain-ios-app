@@ -123,6 +123,10 @@ class PushLinkPreviewCell : PushControllerDataEntryCell {
     }
     */
     
+    override func layoutSubviews() {
+        
+    }
+    
     override func setControlValue(_ value: Any) {
         
         guard let value = value as? String else {

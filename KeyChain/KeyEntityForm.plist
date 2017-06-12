@@ -71,16 +71,13 @@
 				<string>PushLinkPreviewCell</string>
 				<key>DataKey</key>
 				<string>url</string>
-                <!--
 				<key>Label</key>
 				<string>Site</string>
-                -->
                 <key>placeholder</key>
 				<string>&lt;input site url&gt;</string>
 				<key>allowLongGesture</key>
 				<true/>
 			</dict>
-            <!--
 			<dict>
 				<key>CellType</key>
 				<string>PushTextEntryCell</string>
@@ -91,7 +88,6 @@
 				<key>allowLongGesture</key>
 				<true/>
 			</dict>
-            -->
 		</array>
 	</array>
 </array>
