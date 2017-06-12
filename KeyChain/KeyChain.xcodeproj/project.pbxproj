@@ -338,12 +338,12 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				5F3F58511EEB547700D21830 /* UIXML */,
 				5FDEE6791DCCEFE5005BE572 /* KeyChain.entitlements */,
 				A082214C19F4649700FC7BFD /* UIXML.podspec */,
 				A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */,
 				A082214919F45FE300FC7BFD /* WEPopover.podspec */,
 				A02BB72B159C5752001FD5AA /* podfile */,
+				5F3F58511EEB547700D21830 /* UIXML */,
 				5F3486BF160B83D200F2C1A2 /* datamodel */,
 				5FC6508F160933A9003BC18F /* Migration */,
 				5FA71BE815E968DB001AFCCF /* Export */,

@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Qc-oY-OVg" id="jPI-Qv-y0p">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVE-6Q-0Cf">
@@ -33,7 +33,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="_viewController" destination="LHU-w3-amS" id="apV-yD-Nup"/>
+                <outlet property="pushViewController" destination="LHU-w3-amS" id="JFa-Yq-hS2"/>
             </connections>
             <point key="canvasLocation" x="-331" y="-631"/>
         </tableViewCell>
@@ -45,9 +45,67 @@
             <view key="view" contentMode="scaleToFill" id="Txk-DR-TJl">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZN-fC-vUg">
+                        <rect key="frame" x="16" y="40" width="343" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="343" id="wHN-Ip-5M8"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AU3-pA-1O7">
+                        <rect key="frame" x="8" y="424" width="351" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="pj3-od-YNm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cannonical URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMH-ze-aHC">
+                        <rect key="frame" x="8" y="451" width="351" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="ryp-Pg-6ss"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.05810018108" green="0.29413083480000002" blue="0.68018390370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cr-IF-BSA">
+                        <rect key="frame" x="8" y="473" width="351" height="104"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="104" id="DQt-nG-K5Q"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="qMH-ze-aHC" firstAttribute="leading" secondItem="Txk-DR-TJl" secondAttribute="leadingMargin" constant="-8" id="FYt-82-KSB"/>
+                    <constraint firstItem="qMH-ze-aHC" firstAttribute="top" secondItem="AU3-pA-1O7" secondAttribute="bottom" constant="2" id="Hf0-SM-xPx"/>
+                    <constraint firstItem="qMH-ze-aHC" firstAttribute="leading" secondItem="5cr-IF-BSA" secondAttribute="leading" id="JJj-3x-org"/>
+                    <constraint firstItem="qMH-ze-aHC" firstAttribute="leading" secondItem="AU3-pA-1O7" secondAttribute="leading" id="Lzs-yH-Kzy"/>
+                    <constraint firstItem="qMH-ze-aHC" firstAttribute="trailing" secondItem="JZN-fC-vUg" secondAttribute="trailing" id="Uh1-88-PwT"/>
+                    <constraint firstItem="5cr-IF-BSA" firstAttribute="top" secondItem="qMH-ze-aHC" secondAttribute="bottom" constant="2" id="Vgs-is-bjo"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="JZN-fC-vUg" secondAttribute="leading" id="ZHx-q4-2QL"/>
+                    <constraint firstItem="JZN-fC-vUg" firstAttribute="centerX" secondItem="Txk-DR-TJl" secondAttribute="centerX" id="aDO-hn-ZHX"/>
+                    <constraint firstAttribute="bottom" secondItem="qMH-ze-aHC" secondAttribute="bottom" constant="196" id="eDh-wY-jui"/>
+                    <constraint firstItem="qMH-ze-aHC" firstAttribute="trailing" secondItem="5cr-IF-BSA" secondAttribute="trailing" id="eSg-yu-ugQ"/>
+                    <constraint firstItem="qMH-ze-aHC" firstAttribute="trailing" secondItem="AU3-pA-1O7" secondAttribute="trailing" id="hED-Tz-3GA"/>
+                    <constraint firstItem="JZN-fC-vUg" firstAttribute="top" secondItem="zrd-4g-FZf" secondAttribute="bottom" constant="20" id="pby-3j-uJD"/>
+                </constraints>
             </view>
-            <point key="canvasLocation" x="-318" y="-180"/>
+            <connections>
+                <outlet property="labelCanonicalUrl" destination="qMH-ze-aHC" id="2nw-V2-eUC"/>
+                <outlet property="labelDescription" destination="5cr-IF-BSA" id="DN4-Gy-KFY"/>
+                <outlet property="labelTitle" destination="AU3-pA-1O7" id="wHt-H2-DKj"/>
+                <outlet property="textURL" destination="JZN-fC-vUg" id="8rK-rG-Wlr"/>
+            </connections>
+            <point key="canvasLocation" x="-318.5" y="-180.5"/>
         </viewController>
     </objects>
 </document>

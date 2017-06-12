@@ -103,10 +103,9 @@
 	NSArray *objects = [[NSBundle mainBundle] loadNibNamed:cellType owner:self options:nil];
 	
     if( self.dataEntryCell != nil ) {
+        
         cell = self.dataEntryCell;
         self.dataEntryCell = nil;
-        
-        [dataEntryCells setObject:cell forKey:key];
     }
     else {
         
@@ -120,9 +119,10 @@
             
         }
 
-        [dataEntryCells setObject:cell forKey:key];
         
     }
+    
+    [dataEntryCells setObject:cell forKey:key];
     
     return cell;
     
@@ -276,7 +276,7 @@
        
     //NSDictionary *cellData = [tableStructure objectAtIndex:indexPath.row];
 
-	NSLog( @"section[%d] row [%d]", indexPath.section, indexPath.row );
+	NSLog( @"section[%ld] row [%ld]", (long)indexPath.section, (long)indexPath.row );
 
 	NSArray *sectionInfo = [tableStructure objectAtIndex:indexPath.section];
 
@@ -380,7 +380,7 @@
 	
 	if( self.navigationController == nil ) return;
 	
-	NSLog( @"section[%d] row [%d]", indexPath.section, indexPath.row );
+	NSLog( @"section[%ld] row [%ld]", (long)indexPath.section, (long)indexPath.row );
 	
 	NSArray *sectionInfo = [tableStructure objectAtIndex:indexPath.section];
 
