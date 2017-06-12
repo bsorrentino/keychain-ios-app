@@ -4,6 +4,7 @@ platform :ios, "8.0"
 
 target 'KeyChain' do
 
+    pod 'ImageSlideshow', '~> 1.3.2'
     pod 'SwiftLinkPreview', '~> 2.0.5'
     pod 'KeychainAccess', '~> 3.0.2'
     pod 'MTStatusBarOverlay','~> 0.9'

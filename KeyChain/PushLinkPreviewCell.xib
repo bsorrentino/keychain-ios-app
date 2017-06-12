@@ -82,9 +82,14 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ife-O0-dLX" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                        <rect key="frame" x="16" y="124" width="343" height="267"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="ife-O0-dLX" firstAttribute="leading" secondItem="Txk-DR-TJl" secondAttribute="leading" constant="16" id="82k-k4-bTb"/>
                     <constraint firstItem="qMH-ze-aHC" firstAttribute="leading" secondItem="Txk-DR-TJl" secondAttribute="leadingMargin" constant="-8" id="FYt-82-KSB"/>
                     <constraint firstItem="qMH-ze-aHC" firstAttribute="top" secondItem="AU3-pA-1O7" secondAttribute="bottom" constant="2" id="Hf0-SM-xPx"/>
                     <constraint firstItem="qMH-ze-aHC" firstAttribute="leading" secondItem="5cr-IF-BSA" secondAttribute="leading" id="JJj-3x-org"/>
@@ -92,20 +97,52 @@
                     <constraint firstItem="qMH-ze-aHC" firstAttribute="trailing" secondItem="JZN-fC-vUg" secondAttribute="trailing" id="Uh1-88-PwT"/>
                     <constraint firstItem="5cr-IF-BSA" firstAttribute="top" secondItem="qMH-ze-aHC" secondAttribute="bottom" constant="2" id="Vgs-is-bjo"/>
                     <constraint firstAttribute="leadingMargin" secondItem="JZN-fC-vUg" secondAttribute="leading" id="ZHx-q4-2QL"/>
+                    <constraint firstItem="AU3-pA-1O7" firstAttribute="top" secondItem="ife-O0-dLX" secondAttribute="bottom" constant="33" id="ZS4-vZ-iIE"/>
                     <constraint firstItem="JZN-fC-vUg" firstAttribute="centerX" secondItem="Txk-DR-TJl" secondAttribute="centerX" id="aDO-hn-ZHX"/>
                     <constraint firstAttribute="bottom" secondItem="qMH-ze-aHC" secondAttribute="bottom" constant="196" id="eDh-wY-jui"/>
                     <constraint firstItem="qMH-ze-aHC" firstAttribute="trailing" secondItem="5cr-IF-BSA" secondAttribute="trailing" id="eSg-yu-ugQ"/>
                     <constraint firstItem="qMH-ze-aHC" firstAttribute="trailing" secondItem="AU3-pA-1O7" secondAttribute="trailing" id="hED-Tz-3GA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ife-O0-dLX" secondAttribute="trailing" id="p4S-rm-GgX"/>
                     <constraint firstItem="JZN-fC-vUg" firstAttribute="top" secondItem="zrd-4g-FZf" secondAttribute="bottom" constant="20" id="pby-3j-uJD"/>
+                    <constraint firstItem="ife-O0-dLX" firstAttribute="top" secondItem="zrd-4g-FZf" secondAttribute="bottom" constant="104" id="uTF-0M-1Ue"/>
                 </constraints>
             </view>
             <connections>
+                <outlet property="imageSlideshow" destination="ife-O0-dLX" id="MGL-2d-Nx5"/>
                 <outlet property="labelCanonicalUrl" destination="qMH-ze-aHC" id="2nw-V2-eUC"/>
                 <outlet property="labelDescription" destination="5cr-IF-BSA" id="DN4-Gy-KFY"/>
                 <outlet property="labelTitle" destination="AU3-pA-1O7" id="wHt-H2-DKj"/>
+                <outlet property="overlayView" destination="sfs-fS-wRa" id="nIl-gn-j1O"/>
                 <outlet property="textURL" destination="JZN-fC-vUg" id="8rK-rG-Wlr"/>
             </connections>
-            <point key="canvasLocation" x="-318.5" y="-180.5"/>
+            <point key="canvasLocation" x="-449" y="-207"/>
         </viewController>
+        <view alpha="0.59999999999999998" contentMode="scaleToFill" id="sfs-fS-wRa" customClass="OverlayView" customModule="KeyChain" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="kwu-oR-Adk">
+                    <rect key="frame" x="177" y="323.5" width="20" height="20"/>
+                </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqq-vg-Ra5">
+                    <rect key="frame" x="55" y="592" width="264" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="264" id="l5v-aH-da9"/>
+                    </constraints>
+                    <state key="normal" title="CANCEL"/>
+                    <connections>
+                        <action selector="onCancel:" destination="sfs-fS-wRa" eventType="touchUpInside" id="0sn-0F-gCE"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="tqq-vg-Ra5" secondAttribute="bottom" constant="45" id="2Up-vv-eF2"/>
+                <constraint firstItem="kwu-oR-Adk" firstAttribute="centerX" secondItem="sfs-fS-wRa" secondAttribute="centerX" id="BQI-Ye-RZI"/>
+                <constraint firstItem="kwu-oR-Adk" firstAttribute="centerY" secondItem="sfs-fS-wRa" secondAttribute="centerY" id="hfx-Va-yi6"/>
+                <constraint firstItem="tqq-vg-Ra5" firstAttribute="centerX" secondItem="sfs-fS-wRa" secondAttribute="centerX" id="xfP-3J-31e"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="68.5"/>
+        </view>
     </objects>
 </document>
