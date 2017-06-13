@@ -127,10 +127,6 @@
     
 }
 
--(BOOL)isLabelSupported {
-    return YES;
-}
-
 - (void) postEndEditingNotification {
     
     [self updateEditIcon:[self getControlValue]];

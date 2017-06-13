@@ -38,10 +38,6 @@ NSString *const TextDataEntryCellNotification = @"TextDataEntryCell.scrollUpToKe
 
 #pragma mark Inherit from BaseDataEntryCell
 
--(BOOL)isLabelSupported {
-    return YES;
-}
-
 - (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key cellData:(NSDictionary*)cellData{
 	
     [super prepareToAppear:controller datakey:key cellData:cellData];

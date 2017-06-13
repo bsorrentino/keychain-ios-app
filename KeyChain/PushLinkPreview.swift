@@ -110,6 +110,11 @@ class PushLinkPreviewCell : PushControllerDataEntryCell {
    
     @IBOutlet /*weak*/ var pushViewController: PushLinkPreviewController!
 
+    @IBOutlet weak var labelValue: UILabel!
+    
+    override var textLabel: UILabel? {
+        return labelValue
+    }
     /*
     override func awakeFromNib() {
     }
@@ -123,10 +128,17 @@ class PushLinkPreviewCell : PushControllerDataEntryCell {
     }
     */
     
-    override func isLabelSupported() -> Bool {
-        return false
+    override func prepare(toAppear controller: UIXMLFormViewController, datakey key: String, cellData: [AnyHashable : Any]) {
+        
+        super.prepare(toAppear: controller, datakey: key, cellData: cellData)
+        /*
+        if let label = cellData["Label"] as? String {
+            
+            labelValue?.text = label
+            
+        }
+         */
     }
-    
     override func setControlValue(_ value: Any) {
         
         guard let value = value as? String else {

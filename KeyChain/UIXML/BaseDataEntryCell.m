@@ -30,7 +30,7 @@
 }
 
 -(BOOL)isLabelSupported {
-    return NO;
+    return YES;
 }
 
 - (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key cellData:(NSDictionary*)cellData {

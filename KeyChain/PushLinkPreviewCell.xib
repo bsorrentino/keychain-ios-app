@@ -33,6 +33,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="labelValue" destination="PVE-6Q-0Cf" id="Nta-D3-FHH"/>
                 <outlet property="pushViewController" destination="LHU-w3-amS" id="JFa-Yq-hS2"/>
             </connections>
             <point key="canvasLocation" x="-331" y="-631"/>
