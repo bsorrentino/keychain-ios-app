@@ -23,7 +23,7 @@
 
 -(void)prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString *)key label:(NSString*)label cellData:(NSDictionary*)cellData {
 	
-    [super prepareToAppear:controller datakey:key label:label cellData:cellData];
+    [super prepareToAppear:controller datakey:key cellData:cellData];
     // Initialization code
 		
     _segmentKeys = [cellData valueForKey:@"segmentKeys"];

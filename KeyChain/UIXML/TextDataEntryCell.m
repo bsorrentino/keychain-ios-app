@@ -32,23 +32,19 @@ NSString *const TextDataEntryCellNotification = @"TextDataEntryCell.scrollUpToKe
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	// Rect area del textbox
-	/*
-	CGRect rect = CGRectMake(self.textLabel.frame.origin.x + self.textLabel.frame.size.width  + LABEL_CONTROL_PADDING, 
-							 12.0, 
-							 self.contentView.frame.size.width-(self.textLabel.frame.size.width + LABEL_CONTROL_PADDING + self.textLabel.frame.origin.x)-RIGHT_PADDING, 
-							 25.0);
-	*/
-	
 	CGRect rect = [super getRectRelativeToLabel:textField.frame padding:LABEL_CONTROL_PADDING rpadding:RIGHT_PADDING];
 	[textField setFrame:rect];
 }
 
 #pragma mark Inherit from BaseDataEntryCell
 
-- (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData{
+-(BOOL)isLabelSupported {
+    return YES;
+}
+
+- (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key cellData:(NSDictionary*)cellData{
 	
-    [super prepareToAppear:controller datakey:key label:label cellData:cellData];
+    [super prepareToAppear:controller datakey:key cellData:cellData];
     // Initialization code
 	
     NSString *placeholder = [cellData objectForKey:@"placeholder"];

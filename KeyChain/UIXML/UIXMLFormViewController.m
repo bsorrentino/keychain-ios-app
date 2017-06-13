@@ -132,7 +132,7 @@
 
     NSString *dataKey = [cellData objectForKey:@"DataKey"];
 	NSString *cellType = [cellData objectForKey:@"CellType"];
-    NSString * label = [cellData objectForKey:@"Label"];
+    //NSString * label = [cellData objectForKey:@"Label"];
     
     BaseDataEntryCell *cell = (BaseDataEntryCell *)[tableView dequeueReusableCellWithIdentifier:cellType];
 	
@@ -146,7 +146,7 @@
         
     }
     
-    [cell prepareToAppear:self datakey:dataKey label:label cellData:cellData];
+    [cell prepareToAppear:self datakey:dataKey /*label:label*/ cellData:cellData];
     
     return cell;
     

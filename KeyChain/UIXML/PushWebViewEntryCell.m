@@ -380,9 +380,9 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 
 #pragma mark Inherit from BaseDataEntryCell
 
-- (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData{
+- (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key cellData:(NSDictionary*)cellData{
 	
-    [super prepareToAppear:controller datakey:key label:label cellData:cellData];
+    [super prepareToAppear:controller datakey:key cellData:cellData];
         
     // initialization
     NSString *placeholder = [cellData objectForKey:@"placeholder"];

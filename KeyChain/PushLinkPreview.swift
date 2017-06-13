@@ -123,8 +123,8 @@ class PushLinkPreviewCell : PushControllerDataEntryCell {
     }
     */
     
-    override func layoutSubviews() {
-        
+    override func isLabelSupported() -> Bool {
+        return false
     }
     
     override func setControlValue(_ value: Any) {

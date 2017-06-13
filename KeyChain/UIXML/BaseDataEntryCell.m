@@ -11,7 +11,6 @@
 
 @interface BaseDataEntryCell()
 
--(BOOL)isLabelSupported;
 @end
 
 @implementation BaseDataEntryCell
@@ -19,11 +18,6 @@
 @synthesize dataKey;
 
 #pragma - private implementation
-
--(BOOL)isLabelSupported
-{
-    return self.textLabel.text!=nil;
-}
 
 #pragma - public implementation
 
@@ -35,14 +29,25 @@
     return self;
 }
 
-- (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData {
+-(BOOL)isLabelSupported {
+    return NO;
+}
+
+- (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key cellData:(NSDictionary*)cellData {
 	self.selectionStyle = UITableViewCellSelectionStyleNone;
 	self.dataKey = key;
     
-    if (![self isStringEmpty:label] ) {
-        self.textLabel.text = label;
-        self.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15.0];
+    
+    if( [self isLabelSupported] ) {
 
+        NSString *label = cellData[@"Label"];
+        
+        if ( ![self isStringEmpty:label] ) {
+            self.textLabel.text = label;
+            self.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15.0];
+            
+        }
+        
     }
 	
 }
@@ -106,9 +111,11 @@
 #pragma mark inherit from UIView
 
 - (void)layoutSubviews {
-	[super layoutSubviews];
 	
+    [super layoutSubviews];
+
     if( [self isLabelSupported] ) {
+        
         CGFloat size_percentage = .25;
         CGFloat x = 10.0; // self.textLabel.frame.origin.x ;
     
@@ -123,8 +130,6 @@
 }
 
 -(CGRect) getRectRelativeToLabel:(CGRect)controlFrame padding:(NSInteger)padding rpadding:(NSInteger)rpadding {
-
-    //if( [self isLabelSupported] ) return CGRectMake( padding, controlFrame.origin.y, 0.0, controlFrame.size.height );
     
 	return CGRectMake(  self.textLabel.frame.origin.x + self.textLabel.frame.size.width  + padding, 
 						controlFrame.origin.y, 
@@ -235,7 +240,7 @@
 
 - (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData {
 
-    [super prepareToAppear:controller datakey:key label:label cellData:cellData];
+    [super prepareToAppear:controller datakey:key cellData:cellData];
     
     if (![[cellData valueForKey:@"ignoreKeyboard"] boolValue] ) {
         

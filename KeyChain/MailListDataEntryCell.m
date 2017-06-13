@@ -33,9 +33,9 @@ NSString * const regularExpression = @"(.*)@(.*)";
 #pragma - DataEntryCell 
 
 
--(void)prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData
+-(void)prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key cellData:(NSDictionary*)cellData
 {
-    [super prepareToAppear:controller datakey:key label:label cellData:cellData];
+    [super prepareToAppear:controller datakey:key cellData:cellData];
     
 }
 
