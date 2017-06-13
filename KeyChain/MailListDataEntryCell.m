@@ -35,15 +35,6 @@ NSString * const regularExpression = @"(.*)@(.*)";
 -(void)prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key cellData:(NSDictionary*)cellData
 {
     [super prepareToAppear:controller datakey:key cellData:cellData];
-    
-    /*
-    NSString *label = cellData[@"Label"];
-    
-    if( ![super isStringEmpty:label]) {
-        
-        self.textLabel.text = label;
-    }
-    */
 }
 
 

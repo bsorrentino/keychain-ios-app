@@ -24,6 +24,7 @@ class OverlayView : UIView  {
     }
 }
 
+
 class PushLinkPreviewController : UIViewController, UITextFieldDelegate {
     
     var cell : PushLinkPreviewCell?
@@ -38,6 +39,60 @@ class PushLinkPreviewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var labelCanonicalUrl: UILabel!
     
     @IBOutlet var overlayView : OverlayView?
+    @IBOutlet weak var itemSave: UIBarButtonItem!
+
+    @IBOutlet weak var buttonPreview: UIButton!
+    
+    public var url:String? {
+        get {
+            return textURL?.text
+        }
+        set {
+            
+            if( newValue != textURL?.text ) {
+                resetUI()
+                validateInput(text: newValue)
+            }
+            else {
+                validateInput(text: nil) // invalidate input
+            }
+            textURL?.text = newValue
+        }
+    }
+    private weak var currentTask:Cancellable?
+    
+    private func cancelRequest() {
+        currentTask?.cancel()
+        self.overlayView?.removeFromSuperview()
+
+    }
+    private func completeRequest() {
+        if textURL.isFirstResponder {
+            textURL.resignFirstResponder()
+        }
+        self.overlayView?.removeFromSuperview()
+        
+    }
+    
+    private func resetUI() {
+        labelTitle?.text = ""
+        labelDescription?.text = ""
+        labelCanonicalUrl?.text = ""
+        imageSlideshow.setImageInputs([])
+        
+    }
+    
+    private func validateInput( text:String?) {
+        var url:URL?
+        
+        if let text = text {
+            url = slp?.extractURL(text: text)
+        }
+        
+        itemSave.isEnabled = (url != nil )
+        buttonPreview.isEnabled = (url != nil )
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,20 +101,51 @@ class PushLinkPreviewController : UIViewController, UITextFieldDelegate {
         imageSlideshow.slideshowInterval = 5.0
         
         textURL.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        
+        // Add Save Button
+        self.navigationItem.rightBarButtonItem = itemSave
+ 
+        resetUI()
+    }
+
+    @IBAction func save(_ sender: Any) {
+        
+        cancelRequest()
+
+        if let delegate = self.delegate {
+            delegate.postEndEditingNotification()
+        }
+        
+        if textURL.isFirstResponder {
+            textURL.resignFirstResponder()
+        }
+
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func textFieldDidChange(textField: UITextField){
         
-        print("Text changed \(textURL.text!)"  )
+        validateInput(text: textField.text )
+        
+    }
+    
+    @IBAction func preview(){
+    
         
         overlayView?.frame = self.view.frame
         view.addSubview(overlayView!)
         
     
-        let task = slp?.preview(
+        self.currentTask = slp?.preview(
             textURL.text!,
             onSuccess: { result in
-                self.overlayView?.removeFromSuperview()
+                self.completeRequest()
                 
                 if let title = result[.title] as? String {
                     self.labelTitle.text = title;
@@ -92,14 +178,13 @@ class PushLinkPreviewController : UIViewController, UITextFieldDelegate {
         
         }, onError: { error in
            
-            self.overlayView?.removeFromSuperview()
+            self.completeRequest()
 
             print( "\(error)")
         })
         
-        overlayView?.cancelBlock = {
-            task?.cancel();
-            self.overlayView?.removeFromSuperview()
+        overlayView?.cancelBlock = { [weak self] () in
+            self?.cancelRequest()
         }
 
     }
@@ -111,49 +196,44 @@ class PushLinkPreviewCell : PushControllerDataEntryCell {
     @IBOutlet /*weak*/ var pushViewController: PushLinkPreviewController!
 
     @IBOutlet weak var labelValue: UILabel!
+    @IBOutlet weak var textValue: UITextField!
+    @IBOutlet weak var labelValueLeading: NSLayoutConstraint!
     
     override var textLabel: UILabel? {
         return labelValue
     }
-    /*
-    override func awakeFromNib() {
-    }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override func updateConstraints() {
+        let frame = labelValue.frame
+        
+        labelValueLeading.constant = frame.origin.x
+
+        super.updateConstraints()
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    */
-    
+
     override func prepare(toAppear controller: UIXMLFormViewController, datakey key: String, cellData: [AnyHashable : Any]) {
         
         super.prepare(toAppear: controller, datakey: key, cellData: cellData)
-        /*
-        if let label = cellData["Label"] as? String {
+        
+        if let placeholder = cellData["placeholder"] as? String  {
             
-            labelValue?.text = label
-            
+            textValue?.placeholder = placeholder
         }
-         */
     }
+
     override func setControlValue(_ value: Any) {
         
         guard let value = value as? String else {
-            pushViewController.textURL?.text = ""
+            textValue?.text = ""
             return
         }
-        
-        print( value )
-        
-        pushViewController.textURL?.text = value
+                
+        textValue?.text = value
     }
     
     override func getControlValue() -> Any {
         
-        return pushViewController.textURL.text ?? ""
+        return textValue?.text ?? ""
         
     }
     
@@ -161,7 +241,17 @@ class PushLinkPreviewCell : PushControllerDataEntryCell {
         
         pushViewController.delegate = self
         
+        pushViewController.url = getControlValue() as? String
+        
         return pushViewController
         
+    }
+    
+    // MARK: BaseDataEntryCellDelegate
+    
+    override func postEndEditingNotification() {
+        
+        textValue?.text = pushViewController.url
+        super.postEndEditingNotification()
     }
 }

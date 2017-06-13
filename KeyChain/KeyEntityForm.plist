@@ -78,6 +78,7 @@
 				<key>allowLongGesture</key>
 				<true/>
 			</dict>
+            
 			<dict>
 				<key>CellType</key>
 				<string>PushTextEntryCell</string>
@@ -88,6 +89,7 @@
 				<key>allowLongGesture</key>
 				<true/>
 			</dict>
+            
 		</array>
 	</array>
 </array>
