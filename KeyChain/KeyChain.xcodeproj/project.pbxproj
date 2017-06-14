@@ -66,7 +66,6 @@
 		5F544F7413F82E350001A8B5 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F544F7313F82E350001A8B5 /* logo-57x57.png */; };
 		5F6C47811535C4F20092F552 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6C47801535C4F20092F552 /* Security.framework */; };
 		5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F3439143F315500D9C428 /* ExportViewController.m */; };
-		5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6F343B143F49EC00D9C428 /* usb48x48.png */; };
 		5F6F634A14FE4521004C1337 /* DDTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F634914FE4521004C1337 /* DDTableViewManager.m */; };
 		5F7781861BBD1784007B37B5 /* AccountCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7781851BBD1784007B37B5 /* AccountCredential.swift */; };
 		5F82059D15D4109000862BC2 /* swipeR@18x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F82059C15D4109000862BC2 /* swipeR@18x24.png */; };
@@ -79,6 +78,7 @@
 		5FA3A4D012DC780B009BE36C /* KeyEntityFormController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA3A4CE12DC780B009BE36C /* KeyEntityFormController.xib */; };
 		5FA3A50012DC7C8A009BE36C /* KeyEntityForm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */; };
 		5FB1293F15CAFCED007365C5 /* SectionKeyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1293D15CAFCED007365C5 /* SectionKeyListViewController.m */; };
+		5FB538031EF13FE7009B928D /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FB538021EF13FE7009B928D /* assets.xcassets */; };
 		5FC65096160933F1003BC18F /* YISplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC65091160933F1003BC18F /* YISplashScreen.m */; };
 		5FC65097160933F1003BC18F /* YISplashScreen+Migration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC65093160933F1003BC18F /* YISplashScreen+Migration.m */; };
 		5FC65098160933F1003BC18F /* YISplashScreenAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC65095160933F1003BC18F /* YISplashScreenAnimation.m */; };
@@ -221,7 +221,6 @@
 		5F6C47801535C4F20092F552 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5F6F3438143F315500D9C428 /* ExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportViewController.h; sourceTree = "<group>"; };
 		5F6F3439143F315500D9C428 /* ExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportViewController.m; sourceTree = "<group>"; };
-		5F6F343B143F49EC00D9C428 /* usb48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usb48x48.png; sourceTree = "<group>"; };
 		5F6F634814FE4521004C1337 /* DDTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDTableViewManager.h; path = ../DragDrop/DragDrop/DDTableViewManager.h; sourceTree = "<group>"; };
 		5F6F634914FE4521004C1337 /* DDTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDTableViewManager.m; path = ../DragDrop/DragDrop/DDTableViewManager.m; sourceTree = "<group>"; };
 		5F7781841BBD1783007B37B5 /* KeyChain-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeyChain-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -244,6 +243,7 @@
 		5FA3A4FF12DC7C8A009BE36C /* KeyEntityForm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = KeyEntityForm.plist; sourceTree = "<group>"; };
 		5FB1293C15CAFCED007365C5 /* SectionKeyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionKeyListViewController.h; sourceTree = "<group>"; };
 		5FB1293D15CAFCED007365C5 /* SectionKeyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionKeyListViewController.m; sourceTree = "<group>"; };
+		5FB538021EF13FE7009B928D /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
 		5FC65090160933F1003BC18F /* YISplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YISplashScreen.h; sourceTree = "<group>"; };
 		5FC65091160933F1003BC18F /* YISplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YISplashScreen.m; sourceTree = "<group>"; };
 		5FC65092160933F1003BC18F /* YISplashScreen+Migration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YISplashScreen+Migration.h"; sourceTree = "<group>"; };
@@ -343,6 +343,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5FB538021EF13FE7009B928D /* assets.xcassets */,
 				5FDEE6791DCCEFE5005BE572 /* KeyChain.entitlements */,
 				A082214C19F4649700FC7BFD /* UIXML.podspec */,
 				A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */,
@@ -401,7 +402,6 @@
 				5F2718FF15250CEB00C5BBA3 /* InfoViewController.xib */,
 				5F2718FB152508E800C5BBA3 /* info34x34.png */,
 				5FD466F11441A81100A39BEE /* import20x20.png */,
-				5F6F343B143F49EC00D9C428 /* usb48x48.png */,
 				A083A1791435CB9B0032B285 /* changePwd24x24.png */,
 				A0CD69651430C24A00EDE45F /* export20x20.png */,
 				A0759F2014305DBE000701EF /* settings20x20.png */,
@@ -789,7 +789,6 @@
 				5F3F58091EEB068D00D21830 /* PushLinkPreviewCell.xib in Resources */,
 				A083A17A1435CB9B0032B285 /* changePwd24x24.png in Resources */,
 				5F3F58831EEB547700D21830 /* PushTextEntryCell.xib in Resources */,
-				5F6F343C143F49EC00D9C428 /* usb48x48.png in Resources */,
 				5FD466F21441A81100A39BEE /* import20x20.png in Resources */,
 				5F2718FC152508E800C5BBA3 /* info34x34.png in Resources */,
 				5F27190115250CEB00C5BBA3 /* InfoViewController.xib in Resources */,
@@ -798,6 +797,7 @@
 				A02BB726159C4DFA001FD5AA /* keychain-desktop-512x512.png in Resources */,
 				A02BB72C159C5752001FD5AA /* podfile in Resources */,
 				A02BB740159C5829001FD5AA /* popoverArrowDown.png in Resources */,
+				5FB538031EF13FE7009B928D /* assets.xcassets in Resources */,
 				5F3F587C1EEB547700D21830 /* MailDataEntryCell.xib in Resources */,
 				A02BB741159C5829001FD5AA /* popoverArrowDown@2x.png in Resources */,
 				A02BB742159C5829001FD5AA /* popoverArrowDownSimple.png in Resources */,
