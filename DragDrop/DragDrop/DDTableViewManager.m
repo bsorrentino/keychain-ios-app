@@ -563,8 +563,7 @@
 
 - (void)dealloc {
 #if !_USE_ARC    
-    dispatch_release(scrolling_queue);
-    
+    //dispatch_release(scrolling_queue);
 #endif
 }
 
