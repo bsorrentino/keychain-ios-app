@@ -17,7 +17,7 @@ typedef enum iToastGravity {
 	iToastGravityCenter
 }iToastGravity;
 
-enum iToastDuration {
+typedef enum iToastDuration {
 	iToastDurationLong = 10000,
 	iToastDurationShort = 1000,
 	iToastDurationNormal = 3000
