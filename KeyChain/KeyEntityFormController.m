@@ -26,7 +26,9 @@
 
 @implementation KeyEntityFormController
 
-@synthesize toolbar=toolbar_, btnSave=btnSave_, segShowHidePassword=segShowHidePassword_;
+@synthesize toolbar=toolbar_;
+@synthesize btnSave=btnSave_;
+@synthesize segShowHidePassword=segShowHidePassword_;
 @synthesize valid=_valid;
 
 #pragma mark - private implementation
@@ -126,7 +128,7 @@
 	
 	TextDataEntryCell *cell = (TextDataEntryCell*)[self cellForIndexPath:2 section:0];
 		
-	NSLog(@"showHidePassword selectedSegmentIndex=[%d] [%@]", index, cell );
+    NSLog(@"showHidePassword selectedSegmentIndex=[%ld] [%@]", (long)index, cell );
 	
 	cell.textField.secureTextEntry = (index==0);
 	
@@ -255,22 +257,31 @@
 	
 	[super viewDidLoad];
 	
+    /*
 	[self.btnSave setTarget:self];
+    
 	[self.segShowHidePassword addTarget:self action:@selector(showHidePassword:) forControlEvents:UIControlEventValueChanged];
 	
-	//
+	*/
 
 	UIBarButtonItem *leftButton = 
 		[[UIBarButtonItem alloc] initWithTitle:@"Back"
-									 style:UIBarButtonItemStyleBordered
+									 style:UIBarButtonItemStylePlain
 									target:self
 									action:@selector(cancel:)];
-	self.navigationItem.leftBarButtonItem = leftButton;
-	
-	UIBarButtonItem * rightButton = [[UIBarButtonItem alloc] initWithCustomView:self.toolbar];
-	
-	self.navigationItem.rightBarButtonItem = rightButton;
-	
+    self.navigationItem.leftBarButtonItem = leftButton;
+                                             
+	UIBarButtonItem * controls = [[UIBarButtonItem alloc] initWithCustomView:self.toolbar];
+	    
+    self.btnSave =
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save:)];
+    self.btnSave.enabled = NO;
+    
+    [self.navigationItem setRightBarButtonItems:@[
+                            self.btnSave,
+                            controls ]];
+    [self.toolbar setUserInteractionEnabled:YES];
+
 }
 
 
