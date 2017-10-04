@@ -407,8 +407,7 @@
 				5F0F98DB1F853BAE0099F280 /* STAlertView.h */,
 				5F0F98DC1F853BAE0099F280 /* STAlertView.m */,
 			);
-			name = "STAlertView-0.1.0";
-			path = "New Group";
+			path = "STAlertView-0.1.0";
 			sourceTree = "<group>";
 		};
 		5F0FC7D515D522FD00C68EA2 /* Login */ = {
