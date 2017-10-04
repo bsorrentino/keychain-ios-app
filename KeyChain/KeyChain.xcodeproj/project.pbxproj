@@ -21,6 +21,7 @@
 		5F052D9415CBEADA00330214 /* OptionPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F052D9115CBEADA00330214 /* OptionPane.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5F084FBE15B9641400059E26 /* key22x22.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F084FC015B9641400059E26 /* key22x22.png */; };
 		5F084FC315BAF09100059E26 /* KeyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F084FC215BAF09100059E26 /* KeyCell.xib */; };
+		5F0F98DD1F853BAE0099F280 /* STAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F98DC1F853BAE0099F280 /* STAlertView.m */; };
 		5F129E0A12EB607300BF9EF9 /* login32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F129E0912EB607300BF9EF9 /* login32x32.png */; };
 		5F17FB951416AC82007D88F9 /* model-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */; };
 		5F17FB981416E9E4007D88F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F17FB961416E9E4007D88F9 /* Localizable.strings */; };
@@ -138,6 +139,8 @@
 		5F052D9115CBEADA00330214 /* OptionPane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionPane.m; sourceTree = "<group>"; };
 		5F084FBF15B9641400059E26 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/key22x22.png; sourceTree = "<group>"; };
 		5F084FC215BAF09100059E26 /* KeyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyCell.xib; sourceTree = "<group>"; };
+		5F0F98DB1F853BAE0099F280 /* STAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STAlertView.h; path = "STAlertView-0.1.0/STAlertView.h"; sourceTree = SOURCE_ROOT; };
+		5F0F98DC1F853BAE0099F280 /* STAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STAlertView.m; path = "STAlertView-0.1.0/STAlertView.m"; sourceTree = SOURCE_ROOT; };
 		5F129E0912EB607300BF9EF9 /* login32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login32x32.png; sourceTree = "<group>"; };
 		5F17FB941416AC82007D88F9 /* model-1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "model-1.1.xcmappingmodel"; sourceTree = "<group>"; };
 		5F17FB971416E9E4007D88F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -286,6 +289,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5F0F98DA1F853B920099F280 /* STAlertView-0.1.0 */,
 				A02BB72B159C5752001FD5AA /* podfile */,
 				5FA71BE815E968DB001AFCCF /* Export */,
 				5FA71BE915E96913001AFCCF /* Import */,
@@ -392,6 +396,16 @@
 				5F8205A215D41FC600862BC2 /* KeyTableViewCell.m */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		5F0F98DA1F853B920099F280 /* STAlertView-0.1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				5F0F98DB1F853BAE0099F280 /* STAlertView.h */,
+				5F0F98DC1F853BAE0099F280 /* STAlertView.m */,
+			);
+			name = "STAlertView-0.1.0";
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		5F0FC7D515D522FD00C68EA2 /* Login */ = {
@@ -740,6 +754,7 @@
 				5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */,
 				5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */,
 				5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */,
+				5F0F98DD1F853BAE0099F280 /* STAlertView.m in Sources */,
 				5F6F634A14FE4521004C1337 /* DDTableViewManager.m in Sources */,
 				5F27190015250CEB00C5BBA3 /* InfoViewController.m in Sources */,
 				A02BB727159C4DFA001FD5AA /* model-1.2.xcmappingmodel in Sources */,
