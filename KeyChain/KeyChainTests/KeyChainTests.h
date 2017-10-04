@@ -6,10 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+//#import <SenTestingKit/SenTestingKit.h>
 
 
-@interface KeyChainTests : SenTestCase {
+@interface KeyChainTests /*: SenTestCase*/ {
 @private
     
 }
