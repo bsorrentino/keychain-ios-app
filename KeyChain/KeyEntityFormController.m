@@ -8,8 +8,8 @@
 
 #import "KeyEntityFormController.h"
 #import "KeyEntity.h"
-#import "BaseDataEntryCell.h"
-#import "TextDataEntryCell.h"
+#import "UIXML/BaseDataEntryCell.h"
+#import "UIXML/TextDataEntryCell.h"
 #import "KeyChainAppDelegate.h"
 #import "iToast.h"
 

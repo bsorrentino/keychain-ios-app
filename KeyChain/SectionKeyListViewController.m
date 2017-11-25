@@ -11,14 +11,14 @@
 
 #import "KeyListViewController.h"
 #import "KeyEntityFormController.h"
-#import "BaseDataEntryCell.h"
+#import "UIXML/BaseDataEntryCell.h"
 #import "KeyChainAppDelegate.h"
 #import "KeyChainLogin.h"
 #import "ExportViewController.h"
 #import "ImportViewController.h"
 #import "KeyEntity.h"
 
-#import "WaitMaskController.h"
+#import "UIXML/WaitMaskController.h"
 #import "UIAlertViewInputSection.h"
 
 #import <QuartzCore/CAAnimation.h>
@@ -556,7 +556,7 @@ static NSString *SEARCH_CRITERIA =
     if (sectionArray.count > section ) {
         id <NSFetchedResultsSectionInfo> sectionInfo = [sectionArray objectAtIndex:section];	
         
-        NSLog(@"titleForHeaderInSection section:[%d] [%@]", section, sectionInfo.name );
+        NSLog(@"titleForHeaderInSection section:[%ld] [%@]", (long)section, sectionInfo.name );
         
         return sectionInfo.name;
     }
@@ -618,7 +618,7 @@ static NSString *SEARCH_CRITERIA =
     // tell table which section corresponds to section title/index (e.g. "B",1))
 	index = [self.fetchedResultsController.sectionIndexTitles indexOfObject:title];
 	
-	NSLog(@"sectionForSectionIndexTitle title:[%@] index:[%d]", title, index );
+    NSLog(@"sectionForSectionIndexTitle title:[%@] index:[%ld]", title, (long)index );
 	
 	return index;
 }

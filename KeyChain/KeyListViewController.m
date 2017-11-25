@@ -8,14 +8,14 @@
 
 #import "KeyListViewController.h"
 #import "KeyEntityFormController.h"
-#import "BaseDataEntryCell.h"
+#import "UIXML/BaseDataEntryCell.h"
 #import "KeyChainAppDelegate.h"
 #import "KeyChainLogin.h"
 #import "ExportViewController.h"
 #import "ImportViewController.h"
 #import "KeyEntity.h"
 
-#import "WaitMaskController.h"
+#import "UIXML/WaitMaskController.h"
 #import "UIAlertViewInputSection.h"
 
 #import <QuartzCore/CAAnimation.h>
@@ -131,7 +131,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     
     UIAlertView *inputView = [UIAlertViewInputSection alertViewWithBlock: ^(UIAlertViewInputSection *alert, NSInteger buttonIndex) {
        
-        NSLog(@"clickedButtonAtIndex [%d]", buttonIndex );
+        NSLog(@"clickedButtonAtIndex [%ld]", (long)buttonIndex );
         
         if (buttonIndex == 1) {
             NSLog(@"clickedButtonAtIndex groupName=[%@] grouPrefix[%@]", alert.groupName, alert.groupPrefix ); 
@@ -260,7 +260,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
                 self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                     
-                    NSLog(@"clickedButtonAtIndex [%d]", i );
+                    NSLog(@"clickedButtonAtIndex [%ld]", (long)i );
                     
                     switch (i) {
                         case 0: // ADD TO SECTION  
@@ -296,7 +296,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
                 self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                       
-                      NSLog(@"clickedButtonAtIndex [%d]", i );
+                    NSLog(@"clickedButtonAtIndex [%ld]", (long)i );
                       
                       switch (i) {
                           case 0: // REMOVE PREFIX
@@ -343,7 +343,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
             
             self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                   
-                      NSLog(@"clickedButtonAtIndex [%d]", i );
+                NSLog(@"clickedButtonAtIndex [%ld]", (long)i );
                       
                       if (i == 0) // ADD PREFIX 
                       {
@@ -408,7 +408,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
              self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                  
-                 NSLog(@"clickedButtonAtIndex [%d]", i );
+                 NSLog(@"clickedButtonAtIndex [%ld]", (long)i );
                  
                  switch (i) {
                      case 0: // USE CUSTOM PREFIX  
@@ -537,7 +537,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
 
             self.clickedButtonAtIndex = ^( UIActionSheet *as, NSInteger i ){
                   
-                  NSLog(@"clickedButtonAtIndex [%d]", i );
+                NSLog(@"clickedButtonAtIndex [%ld]", (long)i );
                   
                   switch (i) {
                       case 0: // USE CUSTOM PREFIX  
@@ -916,7 +916,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     if (sectionArray.count > section ) {
         id <NSFetchedResultsSectionInfo> sectionInfo = [sectionArray objectAtIndex:section];	
         
-        NSLog(@"titleForHeaderInSection section:[%d] [%@]", section, sectionInfo.name );
+        NSLog(@"titleForHeaderInSection section:[%ld] [%@]", (long)section, sectionInfo.name );
         
         return sectionInfo.name;
     }
@@ -978,7 +978,7 @@ static NSString *SEARCHSECTION_CRITERIA = @"groupPrefix == %@ AND group == YES";
     // tell table which section corresponds to section title/index (e.g. "B",1))
 	index = [self.fetchedResultsController.sectionIndexTitles indexOfObject:title];
 	
-	NSLog(@"sectionForSectionIndexTitle title:[%@] index:[%d]", title, index );
+    NSLog(@"sectionForSectionIndexTitle title:[%@] index:[%ld]", title, (long)index );
 	
 	return index;
 }

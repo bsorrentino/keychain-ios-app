@@ -159,18 +159,18 @@
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"AttributeInfo" inManagedObjectContext:self.managedObjectContext];
     
-    NSLog(@"AttributeInfo entity name [%@] abstract [%d] count[%d]", 
-          entity.name, 
-          [entity isAbstract], 
-          [[entity properties] count]  );
+    NSLog(@"AttributeInfo entity name [%@] abstract [%d] count[%lu]",
+          entity.name,
+          [entity isAbstract],
+          (unsigned long)[[entity properties] count]  );
     
         
     entity = [NSEntityDescription entityForName:@"KeyInfo" inManagedObjectContext:self.managedObjectContext];
     
-    NSLog(@"KeyInfo entity name [%@] abstract [%d] count[%d]", 
-          entity.name, 
-          [entity isAbstract], 
-          [[entity properties] count]  );
+    NSLog(@"KeyInfo entity name [%@] abstract [%d] count[%lu]",
+          entity.name,
+          [entity isAbstract],
+          (unsigned long)[[entity properties] count]  );
 
 }
 
@@ -345,7 +345,7 @@
         
         NSArray *result = [aFetchedResultsController fetchedObjects];
 
-        NSLog(@"findKeyEntityByName fetchedObjects #[%d]", [result count]);
+        NSLog(@"findKeyEntityByName fetchedObjects #[%lu]", (unsigned long)[result count]);
 
         return ( [result count] > 0 ) ? [result lastObject] : nil;
 

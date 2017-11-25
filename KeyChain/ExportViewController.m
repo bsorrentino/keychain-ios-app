@@ -7,7 +7,7 @@
 //
 
 #import "ExportViewController.h"
-#import "WaitMaskController.h"
+#import "UIXML/WaitMaskController.h"
 #import "KeyEntity.h"
 #import "KeyChainAppDelegate.h"
 
@@ -145,7 +145,7 @@
         }
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Export"
-                                                        message:[NSString stringWithFormat:@"Completed\n exported [%d]\n keys!", [items count]]
+                                                        message:[NSString stringWithFormat:@"Completed\n exported [%lu]\n keys!", (unsigned long)[items count]]
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];

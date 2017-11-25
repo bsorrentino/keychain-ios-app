@@ -9,13 +9,13 @@
 #import "RootViewController.h"
 #import "KeyListViewController.h"
 #import "KeyEntityFormController.h"
-#import "BaseDataEntryCell.h"
+#import "UIXML/BaseDataEntryCell.h"
 #import "KeyChainAppDelegate.h"
 #import "KeyChainLogin.h"
 #import "ExportViewController.h"
 #import "ImportViewController.h"
 
-#import "WaitMaskController.h"
+#import "UIXML/WaitMaskController.h"
 
 #import <QuartzCore/CAAnimation.h>
 #import <QuartzCore/CAMediaTimingFunction.h>

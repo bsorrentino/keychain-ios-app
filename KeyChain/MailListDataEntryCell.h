@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PushControllerDataEntryCell.h"
+#import "UIXML/PushControllerDataEntryCell.h"
 
 
 @interface MailListDataViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate,NSFetchedResultsControllerDelegate> {

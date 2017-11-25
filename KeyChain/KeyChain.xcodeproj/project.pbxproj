@@ -840,7 +840,6 @@
 					"\"$(PODS_ROOT)/Headers\"",
 					"\"$(PODS_ROOT)/Headers/SSKeychain\"",
 					"$(PODS_ROOT)/Headers/WEPopover",
-					"../../UIXML/**",
 				);
 				INFOPLIST_FILE = "KeyChain-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -873,7 +872,6 @@
 					"\"$(PODS_ROOT)/Headers\"",
 					"\"$(PODS_ROOT)/Headers/SSKeychain\"",
 					"$(PODS_ROOT)/Headers/WEPopover",
-					"../../UIXML/**",
 				);
 				INFOPLIST_FILE = "KeyChain-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;

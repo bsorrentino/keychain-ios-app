@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIXMLFormViewController.h"
+#import "UIXML/UIXMLFormViewController.h"
 
 @class KeyEntity;
 

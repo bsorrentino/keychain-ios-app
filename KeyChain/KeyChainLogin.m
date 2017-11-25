@@ -56,8 +56,9 @@
 	}
 
 	[self.parent.view setHidden:NO];
-	[self.parent dismissModalViewControllerAnimated:YES];
-	
+	//[self.parent dismissModalViewControllerAnimated:YES];
+    [self.parent dismissViewControllerAnimated:YES completion:nil];
+
 	//[self.parentViewController.view setHidden:NO];
 	//[[self.parentViewController modalViewController] dismissModalViewControllerAnimated:YES];
 	return YES;

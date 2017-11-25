@@ -75,7 +75,7 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
         
         NSArray *sections = [aFetchedResultsController fetchedObjects];
         
-        NSLog(@"number of sections [%d]", [sections count]);
+        NSLog(@"number of sections [%lu]", (unsigned long)[sections count]);
         
         
         if ([sections count]>0) {
@@ -99,8 +99,8 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
                     
                     NSString *groupKey = [ki.mnemonic substringWithRange:r1];
                     
-                    NSLog(@"r1.location [%d] r1.length [%d] [%@]", r1.location, r1.length, groupKey);
-                    NSLog(@"r2.location [%d] r2.length [%d] [%@]", r2.location, r2.length, [ki.mnemonic substringWithRange:r2]);
+                    NSLog(@"r1.location [%lu] r1.length [%lu] [%@]", (unsigned long)r1.location, (unsigned long)r1.length, groupKey);
+                    NSLog(@"r2.location [%lu] r2.length [%lu] [%@]", (unsigned long)r2.location, (unsigned long)r2.length, [ki.mnemonic substringWithRange:r2]);
                     
                     KeyEntity * kk = [delegate findKeyEntityByName:groupKey];
                     
@@ -169,6 +169,7 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
     
     //RootViewController *rootViewController = (RootViewController *)[navigationController topViewController];
     //rootViewController.managedObjectContext = self.managedObjectContext;
+    [super awakeFromNib];
 }
 
 
