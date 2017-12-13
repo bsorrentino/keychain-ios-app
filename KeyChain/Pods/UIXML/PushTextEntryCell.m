@@ -7,6 +7,7 @@
 //
 
 #import "PushTextEntryCell.h"
+#import "NSBundle+UIXML.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define NOTE_MAGIC_NUMBER 7
@@ -107,9 +108,13 @@
 -(UIImage*) imgWrite {
     if( imgWrite_==nil ) {
     
-        NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"write32x32" ofType:@"png"];
-    
-        imgWrite_ = [UIImage imageWithContentsOfFile:resourcePath];
+        NSBundle *bundle = [NSBundle moduleBundle];
+        
+        if( bundle != nil ) {
+            NSString *resourcePath = [bundle pathForResource:@"write32x32" ofType:@"png"];
+            
+            imgWrite_ = [UIImage imageWithContentsOfFile:resourcePath];
+        }
     }
     
     return imgWrite_;
@@ -117,10 +122,15 @@
 }
 -(UIImage*) imgEdit {
     if( imgEdit_==nil ) {
+       
+        NSBundle *bundle = [NSBundle moduleBundle];
         
-        NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"edit32x32" ofType:@"png"];
+        if( bundle != nil ) {
+
+            NSString *resourcePath = [bundle pathForResource:@"edit32x32" ofType:@"png"];
         
-        imgEdit_ = [UIImage imageWithContentsOfFile:resourcePath];
+            imgEdit_ = [UIImage imageWithContentsOfFile:resourcePath];
+        }
     }
     
     return imgEdit_;

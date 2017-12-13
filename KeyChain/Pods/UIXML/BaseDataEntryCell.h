@@ -18,8 +18,6 @@
 // Nome della notifica di fine editing
 #define CELL_ENDEDIT_NOTIFICATION_NAME @"CellEndEdit"
 
-
-
 @class UIXMLFormViewController;
 
 @protocol BaseDataEntryCellDelegate

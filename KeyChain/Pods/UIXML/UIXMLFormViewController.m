@@ -11,6 +11,7 @@
 #import "BaseDataEntryCell.h"
 #import "TextDataEntryCell.h"
 #import "PushControllerDataEntryCell.h"
+#import "NSBundle+UIXML.h"
 
 @interface UIXMLFormViewController(Private) 
 
@@ -103,14 +104,10 @@
     @catch (NSException *exception) {
         
         @try {
-            NSBundle *moduleBundle = [NSBundle bundleWithIdentifier:@"org.cocoapods.UIXML"];
-            
-            NSBundle *bundle =
-            [NSBundle bundleWithURL:
-             [moduleBundle URLForResource:@"UIXML" withExtension:@"bundle"]];
-            
-            if( bundle != nil ) {
-                [bundle loadNibNamed:cellType owner:self options:nil];
+            NSBundle *mBundle = [NSBundle moduleBundle];
+
+            if( mBundle != nil ) {
+                [mBundle loadNibNamed:cellType owner:self options:nil];
             }
         }
         @catch (NSException *exception) {

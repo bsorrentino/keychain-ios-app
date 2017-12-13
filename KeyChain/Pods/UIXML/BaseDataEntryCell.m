@@ -18,6 +18,7 @@
 @implementation BaseDataEntryCell
 
 @synthesize dataKey;
+@synthesize textLabel;
 
 #pragma - private implementation
 
@@ -291,6 +292,23 @@
 }
 
 @end
+
+#pragma mark - NSModule UIXML extension
+
+@implementation NSDictionary (UIXML)
+
++(NSBundle *_Nullable) moduleBundle {
+    
+    NSBundle *moduleBundle = [NSBundle bundleWithIdentifier:@"org.cocoapods.UIXML"];
+    
+    return [NSBundle bundleWithURL:
+            [moduleBundle URLForResource:@"UIXML" withExtension:@"bundle"]];
+    
+}
+
+@end
+
+#pragma mark - NSDictionary CellData extension
 
 @implementation NSDictionary (CellData)
 

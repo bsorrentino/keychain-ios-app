@@ -31,7 +31,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   UIXML:
-    :commit: cd262a4a1357eafc190dcf488675f2276b482bfb
+    :commit: ae87beb5258b0b2840a7da95a4be6502c4848455
     :git: https://github.com/bsorrentino/UIXML.git
 
 SPEC CHECKSUMS:
