@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>ImageSlideshow</string>
+	<string>UIXML</string>
+	<string>SwiftLinkPreview</string>
+	<string>QuartzCore</string>
+	<string>AVFoundation</string>
+	<string>LocalAuthentication</string>
+	<string>XCTest</string>
+	<string>CoreData</string>
+	<string>multiple</string>
+	<string>Security</string>
+	<string>AppKit</string>
+	<string>UIKit</string>
+	<string>Cocoa</string>
+	<string>Foundation</string>
+	<string>objc</string>
+	<string>STAlertView</string>
+	<string>KeychainAccess</string>
+</array>
+</plist>
