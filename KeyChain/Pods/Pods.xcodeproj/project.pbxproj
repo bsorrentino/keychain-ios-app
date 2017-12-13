@@ -213,7 +213,7 @@
 /* Begin PBXFileReference section */
 		013A945CE857482C39C5A67C8FA6B7A0 /* STAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "STAlertView-dummy.m"; sourceTree = "<group>"; };
 		01E1C1683894CF1FB924E277B159D915 /* WEPopover-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WEPopover-umbrella.h"; sourceTree = "<group>"; };
-		0458B21DD9834FECD4EF606E1BDBEA74 /* WEPopover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WEPopover.framework; path = WEPopover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0458B21DD9834FECD4EF606E1BDBEA74 /* WEPopover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WEPopover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0474BE62EE673281B5359336FE7A295C /* ZKRevealingTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZKRevealingTableViewCell-prefix.pch"; sourceTree = "<group>"; };
 		07B2B715825D868266FD87C9363E897C /* popoverArrowDown.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowDown.png; sourceTree = "<group>"; };
 		09168DFAB40D8BB9639CB57A84AEB66D /* chevron.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
@@ -225,9 +225,9 @@
 		1630508A2150D78F12F88582BD898BA7 /* UIXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIXML-dummy.m"; sourceTree = "<group>"; };
 		1996E4BF8C8E20F3458246FE18CD50C6 /* popoverArrowRight.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowRight.png; sourceTree = "<group>"; };
 		1A0661A2B1F0BCE8A1B7A3A6F2FF8BFD /* FullScreenSlideshowViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FullScreenSlideshowViewController.swift; path = ImageSlideshow/Classes/Core/FullScreenSlideshowViewController.swift; sourceTree = "<group>"; };
-		1AA3AAE2A1CE2FA36CC95493CAEE13B7 /* KeychainAccess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = KeychainAccess.modulemap; sourceTree = "<group>"; };
-		1AB50D0E5813A78AE4A380F47022A38D /* ZKRevealingTableViewCell.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ZKRevealingTableViewCell.modulemap; sourceTree = "<group>"; };
-		1B97FD2D3DD5DB469DC6EE7D1F5F21AA /* UIXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UIXML.framework; path = UIXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AA3AAE2A1CE2FA36CC95493CAEE13B7 /* KeychainAccess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = KeychainAccess.modulemap; sourceTree = "<group>"; };
+		1AB50D0E5813A78AE4A380F47022A38D /* ZKRevealingTableViewCell.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ZKRevealingTableViewCell.modulemap; sourceTree = "<group>"; };
+		1B97FD2D3DD5DB469DC6EE7D1F5F21AA /* UIXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DDC0FBD8D9093B8C45B804C8B88B167 /* ZKRevealingTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZKRevealingTableViewCell-dummy.m"; sourceTree = "<group>"; };
 		1E673A95A707C19943C46648039224E6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		205888DEBDA1202729991D913D1C947A /* MTStatusBarOverlay.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MTStatusBarOverlay.xcconfig; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		3FB63B635FED0DBF7E2FA539508D7D6B /* TextDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TextDataEntryCell.m; sourceTree = "<group>"; };
 		3FDE5DD7C81E3AD8E3D5CD8F6F2FD68B /* SwiftLinkPreview-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftLinkPreview-umbrella.h"; sourceTree = "<group>"; };
 		3FE3E9CD97D09A9F1AC001C5CD2CBBB4 /* ImageSlideshowItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageSlideshowItem.swift; path = ImageSlideshow/Classes/Core/ImageSlideshowItem.swift; sourceTree = "<group>"; };
-		43E1405D342E77940F7273E8E9B918A9 /* STAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = STAlertView.modulemap; sourceTree = "<group>"; };
+		43E1405D342E77940F7273E8E9B918A9 /* STAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = STAlertView.modulemap; sourceTree = "<group>"; };
 		471DD134BB48722F95ECCF56FBB6CEA4 /* WEPopover.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WEPopover.xcconfig; sourceTree = "<group>"; };
 		47C069B1FD5DDC3D3C909356FD18F97E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47D1B9D942E75CA539D621EE0BD55C04 /* ZKRevealingTableViewCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZKRevealingTableViewCell.xcconfig; sourceTree = "<group>"; };
@@ -266,17 +266,17 @@
 		4D1E51F3ED7A16743A7C606B4982FCBC /* popoverBgSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverBgSimple.png; sourceTree = "<group>"; };
 		4DDA61CF74A0FB2E1FD92483ED526587 /* TextDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = TextDataEntryCell.xib; sourceTree = "<group>"; };
 		4ED0A54DC4A15BC9C6A4D5E8CEEF8EE8 /* popoverArrowRight@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowRight@2x.png"; sourceTree = "<group>"; };
-		537C6C990FACF5C586B89499A2597FE9 /* UIXML.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = UIXML.modulemap; sourceTree = "<group>"; };
+		537C6C990FACF5C586B89499A2597FE9 /* UIXML.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = UIXML.modulemap; sourceTree = "<group>"; };
 		53AC08D54C8E907BB36032B1A6E3948B /* StringExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = Sources/StringExtension.swift; sourceTree = "<group>"; };
-		5482F4CE5B3D2A3D42CC6C47982246DF /* STAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = STAlertView.bundle; path = STAlertView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		5482F4CE5B3D2A3D42CC6C47982246DF /* STAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STAlertView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		593F8A80A902E20415330A20FE050054 /* KeychainAccess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeychainAccess.xcconfig; sourceTree = "<group>"; };
 		5CBF95B60800924C31A1D30313A532B2 /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SegmentedDataEntryCell.m; sourceTree = "<group>"; };
-		5E7D3165AB9150504C03B482342AF321 /* STAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = STAlertView.framework; path = STAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FBEF5361CEEF48063CA168938A9F54E /* ImageSlideshow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ImageSlideshow.framework; path = ImageSlideshow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		608E5EC0D66C0C274CC4FBF843AE3C92 /* SwiftLinkPreview.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftLinkPreview.modulemap; sourceTree = "<group>"; };
+		5E7D3165AB9150504C03B482342AF321 /* STAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = STAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FBEF5361CEEF48063CA168938A9F54E /* ImageSlideshow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageSlideshow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		608E5EC0D66C0C274CC4FBF843AE3C92 /* SwiftLinkPreview.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftLinkPreview.modulemap; sourceTree = "<group>"; };
 		61422EA4B950E0CE6DA7FF0CC41857DC /* Pods-KeyChain-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KeyChain-umbrella.h"; sourceTree = "<group>"; };
 		64BF756214A9BF8319B5C28E6D20C31A /* WEPopover-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WEPopover-dummy.m"; sourceTree = "<group>"; };
-		664BD54775E7762018690FC1AB765D2A /* SwiftLinkPreview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftLinkPreview.framework; path = SwiftLinkPreview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		664BD54775E7762018690FC1AB765D2A /* SwiftLinkPreview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftLinkPreview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66ECEEE7C7842763E1BCB5EF6A4F4583 /* KeychainAccess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KeychainAccess-dummy.m"; sourceTree = "<group>"; };
 		6A81947445798C99916488CAB724728D /* TextDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TextDataEntryCell.h; sourceTree = "<group>"; };
 		6AABB781434080628CC923B16012E31D /* Cache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cache.swift; path = Sources/Cache.swift; sourceTree = "<group>"; };
@@ -300,27 +300,27 @@
 		829FF96F809066F67E04CB6EED09DE1C /* WEPopoverController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WEPopoverController.h; path = Classes/Popover/WEPopoverController.h; sourceTree = "<group>"; };
 		82FE3D2D55EB702229DB29952C9EB91D /* WETouchableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WETouchableView.m; path = Classes/Popover/WETouchableView.m; sourceTree = "<group>"; };
 		830BD6984BB2771CF4CD3594727A4436 /* WEPopoverContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WEPopoverContainerView.m; path = Classes/Popover/WEPopoverContainerView.m; sourceTree = "<group>"; };
-		8345932946469CA6061152F9785B33E4 /* MTStatusBarOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MTStatusBarOverlay.framework; path = MTStatusBarOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8345932946469CA6061152F9785B33E4 /* MTStatusBarOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MTStatusBarOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		899249F492D9A83A51592EDC07013055 /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+WEPopover.h"; path = "Classes/Popover/UIBarButtonItem+WEPopover.h"; sourceTree = "<group>"; };
 		89DD6EA93D7226ABFDFCC527C6AEB41B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B78B5530058FC4DB93B0850C0056A6E /* ZKRevealingTableViewCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ZKRevealingTableViewCell.framework; path = ZKRevealingTableViewCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B78B5530058FC4DB93B0850C0056A6E /* ZKRevealingTableViewCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZKRevealingTableViewCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9FEB1E7F65CE6FFD7A6E2C5370A71B /* ImageSlideshow-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ImageSlideshow-dummy.m"; sourceTree = "<group>"; };
 		8C9DA8315CEA24000ED7B4902A34DDA9 /* NSDictionary+CellData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CellData.h"; sourceTree = "<group>"; };
 		8E0D406BC7AD8A6BCFA3D89F230DF50F /* STAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = STAlertView.xcconfig; sourceTree = "<group>"; };
-		8EAFAF56F0BA3158F2EA66F871B6848B /* ImageSlideshow.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ImageSlideshow.bundle; path = ImageSlideshow.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EAFAF56F0BA3158F2EA66F871B6848B /* ImageSlideshow.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageSlideshow.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		902C287D31633BEED22BC932D8EEB987 /* PushTextEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushTextEntryCell.h; sourceTree = "<group>"; };
-		927190241F3CF89C56AB9A5F342EB8E7 /* UIXML.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = UIXML.bundle; path = UIXML.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		927190241F3CF89C56AB9A5F342EB8E7 /* UIXML.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIXML.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B99A73744B59184D42E6C1AEE36CB6 /* UIXML-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIXML-Bridging-Header.h"; sourceTree = "<group>"; };
 		92CA572334ED9BC3DCE5D2890AAB0F3E /* STAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STAlertView-prefix.pch"; sourceTree = "<group>"; };
 		93421D995B868115B5910673ADE00762 /* popoverArrowLeft@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowLeft@2x.png"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9569AA322920F6E0EC0FBC5C625C53E0 /* ImageSlideshow.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ImageSlideshow.modulemap; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9569AA322920F6E0EC0FBC5C625C53E0 /* ImageSlideshow.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ImageSlideshow.modulemap; sourceTree = "<group>"; };
 		9705DEC56EEC5EC94B49883EFE85B4C7 /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Lib/KeychainAccess/Keychain.swift; sourceTree = "<group>"; };
 		99717CF0481684E28CEEA2B5F01ECAD3 /* STAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STAlertView.h; path = Pod/Classes/STAlertView.h; sourceTree = "<group>"; };
 		9A249A68F60F5B2D63967285EE22CA86 /* ZKRevealingTableViewCell-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZKRevealingTableViewCell-umbrella.h"; sourceTree = "<group>"; };
 		9A49E7A6F6C48AD3604054AD2800A883 /* WEPopover-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WEPopover-prefix.pch"; sourceTree = "<group>"; };
 		9ADD97F768129010DBCD9D27BB62B26B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B722D17E4BF410476516CCEAB890860 /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeychainAccess.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B722D17E4BF410476516CCEAB890860 /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB370C562F8D158FD14530848B67226 /* PushFormDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PushFormDataEntryCell.xib; sourceTree = "<group>"; };
 		A13D3709E690706DC66087C4CD10A1C1 /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
 		A43DC8E01D85A4400A9862B68BC90A85 /* WETouchableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WETouchableView.h; path = Classes/Popover/WETouchableView.h; sourceTree = "<group>"; };
@@ -332,7 +332,7 @@
 		AD2D36E9A3FE7B92EA4A0FC0BD1E4949 /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SwitchDataEntryCell.h; sourceTree = "<group>"; };
 		B0ECB575F5219ED25A86118A15F99B63 /* PushFormDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushFormDataEntryCell.m; sourceTree = "<group>"; };
 		B2E47994184468AC93CAD8C3931481E1 /* WaitMaskController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WaitMaskController.h; sourceTree = "<group>"; };
-		B36E44B2DC03BE40963A705F94853EFB /* Pods-KeyChain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-KeyChain.modulemap"; sourceTree = "<group>"; };
+		B36E44B2DC03BE40963A705F94853EFB /* Pods-KeyChain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-KeyChain.modulemap"; sourceTree = "<group>"; };
 		B5084C8ABC4EB05A39A71CB10B1420E2 /* STAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STAlertView-umbrella.h"; sourceTree = "<group>"; };
 		B6010B4E95282CD47FF4AF330045B10D /* Pods-KeyChain-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KeyChain-frameworks.sh"; sourceTree = "<group>"; };
 		B8D8A9B381D65CDBF879D3A24B661F65 /* ImageSlideshow-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ImageSlideshow-umbrella.h"; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 		B905FE524C5EDE4F05909EDBD5C63ACB /* ZKRevealingTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZKRevealingTableViewCell.m; path = vendor/ZKRevealingTableViewCell.m; sourceTree = "<group>"; };
 		BAC7AD77A925B0D11D2166020EE1D571 /* SwitchDataEntryCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SwitchDataEntryCell.xib; sourceTree = "<group>"; };
 		BB15A5E3CCBD0D725C3133990A747DE6 /* SwiftLinkPreview.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftLinkPreview.swift; path = Sources/SwiftLinkPreview.swift; sourceTree = "<group>"; };
-		BCFC09C1E3ABD9F443EFA142379565F5 /* WEPopover.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = WEPopover.modulemap; sourceTree = "<group>"; };
+		BCFC09C1E3ABD9F443EFA142379565F5 /* WEPopover.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = WEPopover.modulemap; sourceTree = "<group>"; };
 		C05EB39EF7F5BAA8E8CD47ABA6D90C05 /* UIXML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UIXML.xcconfig; sourceTree = "<group>"; };
 		C31A71F4F4829E61D77BC897C7FCD58E /* PushControllerDataEntryCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PushControllerDataEntryCell.m; sourceTree = "<group>"; };
 		C5138F79E2C3B94D00D57950904B6468 /* popoverArrowDown@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "popoverArrowDown@2x.png"; sourceTree = "<group>"; };
@@ -353,9 +353,9 @@
 		D12FB76F632488E984660C73F6ABE5B4 /* popoverArrowUp.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowUp.png; sourceTree = "<group>"; };
 		D82BD2DEE5A1AAD973B6429C26F219F1 /* SwiftLinkPreview-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftLinkPreview-prefix.pch"; sourceTree = "<group>"; };
 		D8FAEAD995E045E5FB17E496FE26E242 /* Regex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = Sources/Regex.swift; sourceTree = "<group>"; };
-		DD06192EA037459A4D6157215685C4A6 /* MTStatusBarOverlay.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MTStatusBarOverlay.modulemap; sourceTree = "<group>"; };
+		DD06192EA037459A4D6157215685C4A6 /* MTStatusBarOverlay.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MTStatusBarOverlay.modulemap; sourceTree = "<group>"; };
 		DD49FF30D8A889D9751F6629D7881641 /* popoverArrowLeftSimple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = popoverArrowLeftSimple.png; sourceTree = "<group>"; };
-		DF1E6916DE757EC779B3DB57836AC604 /* Pods_KeyChain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KeyChain.framework; path = "Pods-KeyChain.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF1E6916DE757EC779B3DB57836AC604 /* Pods_KeyChain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23CA381D49C9D4425EEBED7AF6815AB /* PushFormDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PushFormDataEntryCell.h; sourceTree = "<group>"; };
 		E260D86F2781A8C1EE8BDE140381F259 /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SegmentedDataEntryCell.h; sourceTree = "<group>"; };
 		E33C6C272CDF8213713D04F978DE1DFD /* KeychainAccess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-umbrella.h"; sourceTree = "<group>"; };
@@ -486,7 +486,6 @@
 				38D5773B583C2D9E345A65314D155F3C /* MTStatusBarOverlay.m */,
 				13F094D5DE81CE9D67C7301B07D572E4 /* Support Files */,
 			);
-			name = MTStatusBarOverlay;
 			path = MTStatusBarOverlay;
 			sourceTree = "<group>";
 		};
@@ -610,7 +609,6 @@
 				295FB7364F6488C4ADD7948AD6A85D61 /* Resources */,
 				C8997768D34228FDCC9FC87103D98510 /* Support Files */,
 			);
-			name = WEPopover;
 			path = WEPopover;
 			sourceTree = "<group>";
 		};
@@ -640,7 +638,6 @@
 				B905FE524C5EDE4F05909EDBD5C63ACB /* ZKRevealingTableViewCell.m */,
 				FBE97F141A16C64878D8DF854F57FC9C /* Support Files */,
 			);
-			name = ZKRevealingTableViewCell;
 			path = ZKRevealingTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -690,7 +687,6 @@
 				9705DEC56EEC5EC94B49883EFE85B4C7 /* Keychain.swift */,
 				AFCC788885E619230A0336AB00474EF5 /* Support Files */,
 			);
-			name = KeychainAccess;
 			path = KeychainAccess;
 			sourceTree = "<group>";
 		};
@@ -734,7 +730,6 @@
 				EE5E32A6DB2C9C09A049BE7DFC5B1A9A /* STAlertView.m */,
 				F7673FE80B69DF5D4E854E31373B330B /* Support Files */,
 			);
-			name = STAlertView;
 			path = STAlertView;
 			sourceTree = "<group>";
 		};
@@ -744,7 +739,6 @@
 				C549C92512FD493DD86F9668B38012F5 /* Core */,
 				10C57B5CF80BDE21FBA70E7179F16164 /* Support Files */,
 			);
-			name = ImageSlideshow;
 			path = ImageSlideshow;
 			sourceTree = "<group>";
 		};
@@ -804,7 +798,6 @@
 				BB15A5E3CCBD0D725C3133990A747DE6 /* SwiftLinkPreview.swift */,
 				8B51D2374E44D4D8A34F4BAC1037C876 /* Support Files */,
 			);
-			name = SwiftLinkPreview;
 			path = SwiftLinkPreview;
 			sourceTree = "<group>";
 		};
@@ -856,7 +849,6 @@
 				331A2066E23F440529BE2B973FF3B7A0 /* Resources */,
 				D0BB577C9ACEDB0F113A233145565F51 /* Support Files */,
 			);
-			name = UIXML;
 			path = UIXML;
 			sourceTree = "<group>";
 		};
@@ -1202,7 +1194,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0920;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1628,7 +1620,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1636,15 +1630,21 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
@@ -1728,7 +1728,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1736,14 +1738,20 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
@@ -1757,6 +1765,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
