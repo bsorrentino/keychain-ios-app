@@ -13,6 +13,6 @@
 	UITextField *__UIXML_WEAK textField;
 }
 
-@property (nonatomic, UIXML_WEAK) IBOutlet UITextField *textField;
+@property (nonatomic, UIXML_WEAK) IBOutlet UITextField *_Nullable textField;
 
 @end

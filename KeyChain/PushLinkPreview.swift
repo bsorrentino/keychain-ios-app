@@ -195,27 +195,25 @@ class PushLinkPreviewCell : PushControllerDataEntryCell {
    
     @IBOutlet /*weak*/ var pushViewController: PushLinkPreviewController!
 
-    @IBOutlet weak var labelValue: UILabel!
     @IBOutlet weak var textValue: UITextField!
     @IBOutlet weak var labelValueLeading: NSLayoutConstraint!
     
-    override var textLabel: UILabel? {
-        return labelValue
-    }
-    
     override func updateConstraints() {
-        let frame = labelValue.frame
+        if let frame = textLabel?.frame {
+
+            labelValueLeading.constant = frame.origin.x
+
+        }
         
-        labelValueLeading.constant = frame.origin.x
 
         super.updateConstraints()
     }
 
-    override func prepare(toAppear controller: UIXMLFormViewController, datakey key: String, cellData: [AnyHashable : Any]) {
+    override func prepare(toAppear controller: UIXMLFormViewController, datakey key: String, cellData: [AnyHashable : Any]?) {
         
         super.prepare(toAppear: controller, datakey: key, cellData: cellData)
         
-        if let placeholder = cellData["placeholder"] as? String  {
+        if let placeholder = cellData!["placeholder"] as? String  {
             
             textValue?.placeholder = placeholder
         }

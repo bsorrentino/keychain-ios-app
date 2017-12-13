@@ -243,9 +243,9 @@
 
 -(void)cellControlDidLoad:(BaseDataEntryCell *)cell cellData:(NSDictionary *)cellData {
 	
-	NSLog(@"[%@].cellControlDidLoad", [cellData objectForKey:@"DataKey"]  );
+	NSLog(@"[%@].cellControlDidLoad", cellData[@"DataKey"]  );
 	
-    NSNumber *allowLongGesture = [cellData objectForKey:@"allowLongGesture"];
+    NSNumber *allowLongGesture = cellData[@"allowLongGesture"];
     
     if ( allowLongGesture!=nil && [allowLongGesture boolValue]) {
         

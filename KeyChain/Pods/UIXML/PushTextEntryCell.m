@@ -18,7 +18,7 @@
     lineColor = 
         [UIColor colorWithRed:202/255.0f green:167/255.0 blue:131/255.0f alpha:1.0];
     //UIColor *lineColor = [UIColor blackColor];
-
+    [super awakeFromNib];
 }
 - (void)drawRect:(CGRect)rect { 
     
@@ -68,7 +68,7 @@
 	contentHeight += offset; 
 	
     // Draw ruled lines CGContextSetRGBStrokeColor(ctx, .8, .8, .8, 1); 
-	for(int i=offset;i < contentHeight;i+=height) { 
+	for(long i=offset;i < contentHeight;i+=height) { 
 		CGPoint lpoints[2] = { CGPointMake(0, i), CGPointMake(rect.size.width, i) };
 		CGContextSetLineWidth(context, .5);
 		CGContextStrokeLineSegments(context, lpoints, 1); 
@@ -92,7 +92,7 @@
 
 - (void)updateEditIcon:(NSString*)value {
 
-	if ([self isStringEmpty:value]) {
+	if ([self.class isNullOrEmpty:value]) {
         self.editIcon.image = self.imgWrite;
 	}
 	else {
@@ -140,7 +140,7 @@
 	
     [self updateEditIcon:value];
     
-	if ([self isStringEmpty:value]) {
+	if ([self.class isNullOrEmpty:value]) {
 		result = @"";
 	}
 	else {
@@ -212,8 +212,11 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
-    self.txtValue.backgroundColor = 
-        [UIColor colorWithRed:251/255.0f green:248/255.0f blue:148/255.0f alpha:1.0];
+    UIColor *color = [UIColor colorWithRed:251/255.0f green:248/255.0f blue:148/255.0f alpha:1.0];
+    self.view.backgroundColor = color;
+
+    self.txtValue.backgroundColor = color;
+    
 	//[self.txtValue.layer setCornerRadius:20.0f];
 	[self.txtValue.layer setMasksToBounds:YES];
 	self.txtValue.delegate = self;
@@ -226,10 +229,12 @@
 - (void) viewWillAppear:(BOOL)animated {
 	// Show Keyboard
     [self.txtValue becomeFirstResponder];
+    [super viewWillAppear:animated];
 }
 - (void) viewWillDisappear:(BOOL)animated {
 	// Hide Keyboard
 	[self.view.window endEditing: YES];
+    [super viewWillDisappear:animated];
 
 }
 

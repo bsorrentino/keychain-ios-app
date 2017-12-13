@@ -1,0 +1,30 @@
+{
+  "name": "UIXML",
+  "version": "1.2.0",
+  "summary": "Generate Form based upon UITableView from .plist file(s)",
+  "description": "Generate Form based upon UITableView from .plist file(s)",
+  "homepage": "https://github.com/bsorrentino/UIXML",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "bsorrentino": "bartolomeo.sorrentino@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/bsorrentino/UIXML.git",
+    "tag": "1.2.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "*.{h,m}",
+  "requires_arc": true,
+  "resource_bundles": {
+    "UIXML": [
+      "*.png",
+      "*.xib"
+    ]
+  },
+  "frameworks": "UIKit"
+}

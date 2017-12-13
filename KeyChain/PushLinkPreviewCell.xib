@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica-Oblique</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIXMLFormViewController"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,17 +21,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Qc-oY-OVg" id="jPI-Qv-y0p">
-                <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVE-6Q-0Cf">
-                        <rect key="frame" x="0.0" y="0.0" width="242" height="21"/>
+                        <rect key="frame" x="0.0" y="0.0" width="241" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="&lt;input url&gt;" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xyo-lx-4n2">
-                        <rect key="frame" x="0.0" y="14" width="75" height="30"/>
+                        <rect key="frame" x="0.0" y="17" width="75" height="24.5"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
@@ -42,9 +47,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="labelValue" destination="PVE-6Q-0Cf" id="Nta-D3-FHH"/>
                 <outlet property="labelValueLeading" destination="n6R-pz-g2n" id="puY-Ac-6dR"/>
                 <outlet property="pushViewController" destination="LHU-w3-amS" id="JFa-Yq-hS2"/>
+                <outlet property="textLabel" destination="PVE-6Q-0Cf" id="rUf-Q0-ziU"/>
                 <outlet property="textValue" destination="Xyo-lx-4n2" id="bHl-eG-DoF"/>
             </connections>
             <point key="canvasLocation" x="-661" y="-721"/>
@@ -59,7 +64,7 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JZN-fC-vUg">
-                        <rect key="frame" x="16" y="64" width="304" height="28.5"/>
+                        <rect key="frame" x="16" y="84" width="304" height="28.5"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="URL"/>
@@ -95,11 +100,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ife-O0-dLX" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                        <rect key="frame" x="16" y="148" width="343" height="243"/>
+                        <rect key="frame" x="16" y="168" width="343" height="223"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mi3-Yb-X00">
-                        <rect key="frame" x="328" y="64.5" width="34" height="28.5"/>
+                        <rect key="frame" x="328" y="84.5" width="34" height="28.5"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="34" id="Aal-RU-8mD"/>

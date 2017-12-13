@@ -13,7 +13,7 @@ target 'KeyChain' do
     pod 'ZKRevealingTableViewCell', :podspec => '.'
     
     # INCUDED INTO PROJECT
-    #pod 'UIXML', :podspec => '.'
+    pod 'UIXML', :git => 'https://github.com/bsorrentino/UIXML.git'
 
     #pod 'KeychainAccess', :git => 'https://github.com/kishikawakatsumi/KeychainAccess.git'
     #pod 'SSKeychain', '~> 0.1.4'
