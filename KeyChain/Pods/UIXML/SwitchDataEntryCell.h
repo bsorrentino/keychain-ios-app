@@ -16,6 +16,5 @@
 	UISwitch *__UIXML_WEAK switchField;
 }
 
-//@property (nonatomic, retain) IBOutlet UILabel *textLabel;
 @property (UIXML_WEAK,nonatomic) IBOutlet UISwitch *switchField;
 @end

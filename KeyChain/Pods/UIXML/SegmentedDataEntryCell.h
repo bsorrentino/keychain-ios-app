@@ -18,7 +18,6 @@
 
 -(void)valueChanged:(id)sender;
 
-@property (UIXML_WEAK,nonatomic) IBOutlet UILabel *textLabel;
 @property (UIXML_WEAK,nonatomic) IBOutlet UISegmentedControl *segmentedField;
 
 @end

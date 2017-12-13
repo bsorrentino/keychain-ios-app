@@ -223,9 +223,10 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
-    [self endEdit:editButton_ hideTextURL:YES];
-    [super viewDidDisappear:animated];
     
+    [self endEdit:editButton_ hideTextURL:YES];
+    
+    [super viewDidDisappear:animated];
 }
 
 
@@ -364,16 +365,31 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 
 #pragma mark Inherit from UIView
 
+- (void)layoutSubviews {
+	[super layoutSubviews];
+	
+	// Rect area del textbox
+	/*
+     CGRect rect = CGRectMake(self.textLabel.frame.origin.x + self.textLabel.frame.size.width  + LABEL_CONTROL_PADDING, 
+     12.0, 
+     self.contentView.frame.size.width-(self.textLabel.frame.size.width + LABEL_CONTROL_PADDING + self.textLabel.frame.origin.x)-RIGHT_PADDING, 
+     25.0);
+     */
+	
+	//CGRect rect = [super getRectRelativeToLabel:self.textValue.frame padding:LABEL_CONTROL_PADDING rpadding:RIGHT_PADDING];
+	//[self.textValue setFrame:rect];
+}
+
 #pragma mark Inherit from BaseDataEntryCell
 
-- (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key cellData:(NSDictionary*)cellData{
+- (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData{
 	
     [super prepareToAppear:controller datakey:key cellData:cellData];
         
     // initialization
     NSString *placeholder = [cellData objectForKey:@"placeholder"];
     
-    if( ![self isStringEmpty:placeholder] ) {
+    if( ![self.class isNullOrEmpty:placeholder] ) {
         
         [self.textValue setPlaceholder:placeholder];
     }
@@ -394,6 +410,15 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
     NSLog(@"PushWebViewEntryCell.setControlValue([%@])", value );
     self.textValue.text = value;
 
+/*    
+	if (![self isStringEmpty:value]) {
+	
+        NSLog(@"PushWebViewEntryCell.setControlValue([%@])", value );
+    
+        self.textValue.text = value;
+
+    }
+*/ 
 }
 
 -(id) getControlValue {
@@ -417,6 +442,62 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 	return viewController;
 }
 
+#pragma mark UITableViewCell
+
+/*
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state.
+    
+}
+*/
+
+
+/*
+ 
+#pragma mark UITextFieldDelegate
+
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)txtField {
+	
+	UITableView * tv = (UITableView *)self.superview;
+	
+	NSIndexPath * indexPath = [tv indexPathForCell: self];
+	
+	[tv scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+	
+	//[indexPath release];
+	
+	return YES;
+	
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)txtField {
+	if( [txtField isFirstResponder] ) {
+		[txtField resignFirstResponder];
+	}
+	return YES;
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)txtField {
+	if( [txtField isFirstResponder] ) {
+		[txtField resignFirstResponder];
+	}
+	return YES;
+	
+}
+ 
+ - (void)textFieldDidEndEditing:(UITextField *)txtField
+{
+ [self postEndEditingNotification];
+}
+ 
+ 
+*/
+
 @end
 
 @implementation UIWebViewEx
@@ -436,7 +517,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 
     [super scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
 }
-
 @end
 
 

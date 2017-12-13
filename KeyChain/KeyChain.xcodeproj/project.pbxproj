@@ -34,30 +34,6 @@
 		5F31B3C01612E8BC00AE69CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F31B3BF1612E8BC00AE69CD /* Default@2x.png */; };
 		5F3F58051EEAF1C100D21830 /* PushLinkPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F58041EEAF1C100D21830 /* PushLinkPreview.swift */; };
 		5F3F58091EEB068D00D21830 /* PushLinkPreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F58081EEB068D00D21830 /* PushLinkPreviewCell.xib */; };
-		5F3F58771EEB547700D21830 /* back24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F58521EEB547700D21830 /* back24x24.png */; };
-		5F3F58781EEB547700D21830 /* BaseDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F58541EEB547700D21830 /* BaseDataEntryCell.m */; };
-		5F3F58791EEB547700D21830 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F58551EEB547700D21830 /* chevron.png */; };
-		5F3F587A1EEB547700D21830 /* confirm24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F58561EEB547700D21830 /* confirm24x24.png */; };
-		5F3F587B1EEB547700D21830 /* edit32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F58571EEB547700D21830 /* edit32x32.png */; };
-		5F3F587C1EEB547700D21830 /* MailDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F58581EEB547700D21830 /* MailDataEntryCell.xib */; };
-		5F3F587D1EEB547700D21830 /* PushControllerDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F585A1EEB547700D21830 /* PushControllerDataEntryCell.m */; };
-		5F3F587E1EEB547700D21830 /* PushDateEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F585C1EEB547700D21830 /* PushDateEntryCell.m */; };
-		5F3F587F1EEB547700D21830 /* PushDateEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F585D1EEB547700D21830 /* PushDateEntryCell.xib */; };
-		5F3F58801EEB547700D21830 /* PushFormDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F585F1EEB547700D21830 /* PushFormDataEntryCell.m */; };
-		5F3F58811EEB547700D21830 /* PushFormDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F58601EEB547700D21830 /* PushFormDataEntryCell.xib */; };
-		5F3F58821EEB547700D21830 /* PushTextEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F58621EEB547700D21830 /* PushTextEntryCell.m */; };
-		5F3F58831EEB547700D21830 /* PushTextEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F58631EEB547700D21830 /* PushTextEntryCell.xib */; };
-		5F3F58841EEB547700D21830 /* PushWebViewEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F58651EEB547700D21830 /* PushWebViewEntryCell.m */; };
-		5F3F58851EEB547700D21830 /* PushWebViewEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F58661EEB547700D21830 /* PushWebViewEntryCell.xib */; };
-		5F3F58861EEB547700D21830 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F58671EEB547700D21830 /* README.md */; };
-		5F3F58871EEB547700D21830 /* SegmentedDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F58691EEB547700D21830 /* SegmentedDataEntryCell.m */; };
-		5F3F58881EEB547700D21830 /* SwitchDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F586B1EEB547700D21830 /* SwitchDataEntryCell.m */; };
-		5F3F58891EEB547700D21830 /* SwitchDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F586C1EEB547700D21830 /* SwitchDataEntryCell.xib */; };
-		5F3F588A1EEB547700D21830 /* TextDataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F586E1EEB547700D21830 /* TextDataEntryCell.m */; };
-		5F3F588B1EEB547700D21830 /* TextDataEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F586F1EEB547700D21830 /* TextDataEntryCell.xib */; };
-		5F3F588C1EEB547700D21830 /* UIXMLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F58721EEB547700D21830 /* UIXMLFormViewController.m */; };
-		5F3F588D1EEB547700D21830 /* WaitMaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F58751EEB547700D21830 /* WaitMaskController.m */; };
-		5F3F588E1EEB547700D21830 /* write32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F3F58761EEB547700D21830 /* write32x32.png */; };
 		5F3F5E401EEF3B5B00032B53 /* AddEmailPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C68101DD4876A0086A1B6 /* AddEmailPopupController.swift */; };
 		5F44CC691C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC681C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel */; };
 		5F44CC6F1C4C3EBE007003D6 /* model-1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CC6C1C4C3EBE007003D6 /* model-1.1.xcmappingmodel */; };
@@ -176,43 +152,6 @@
 		5F3BD072143B352E00001F01 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5F3F58041EEAF1C100D21830 /* PushLinkPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushLinkPreview.swift; sourceTree = "<group>"; };
 		5F3F58081EEB068D00D21830 /* PushLinkPreviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushLinkPreviewCell.xib; sourceTree = "<group>"; };
-		5F3F58521EEB547700D21830 /* back24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back24x24.png; sourceTree = "<group>"; };
-		5F3F58531EEB547700D21830 /* BaseDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDataEntryCell.h; sourceTree = "<group>"; };
-		5F3F58541EEB547700D21830 /* BaseDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDataEntryCell.m; sourceTree = "<group>"; };
-		5F3F58551EEB547700D21830 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
-		5F3F58561EEB547700D21830 /* confirm24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirm24x24.png; sourceTree = "<group>"; };
-		5F3F58571EEB547700D21830 /* edit32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit32x32.png; sourceTree = "<group>"; };
-		5F3F58581EEB547700D21830 /* MailDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailDataEntryCell.xib; sourceTree = "<group>"; };
-		5F3F58591EEB547700D21830 /* PushControllerDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushControllerDataEntryCell.h; sourceTree = "<group>"; };
-		5F3F585A1EEB547700D21830 /* PushControllerDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushControllerDataEntryCell.m; sourceTree = "<group>"; };
-		5F3F585B1EEB547700D21830 /* PushDateEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushDateEntryCell.h; sourceTree = "<group>"; };
-		5F3F585C1EEB547700D21830 /* PushDateEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushDateEntryCell.m; sourceTree = "<group>"; };
-		5F3F585D1EEB547700D21830 /* PushDateEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushDateEntryCell.xib; sourceTree = "<group>"; };
-		5F3F585E1EEB547700D21830 /* PushFormDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushFormDataEntryCell.h; sourceTree = "<group>"; };
-		5F3F585F1EEB547700D21830 /* PushFormDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushFormDataEntryCell.m; sourceTree = "<group>"; };
-		5F3F58601EEB547700D21830 /* PushFormDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushFormDataEntryCell.xib; sourceTree = "<group>"; };
-		5F3F58611EEB547700D21830 /* PushTextEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTextEntryCell.h; sourceTree = "<group>"; };
-		5F3F58621EEB547700D21830 /* PushTextEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTextEntryCell.m; sourceTree = "<group>"; };
-		5F3F58631EEB547700D21830 /* PushTextEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushTextEntryCell.xib; sourceTree = "<group>"; };
-		5F3F58641EEB547700D21830 /* PushWebViewEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushWebViewEntryCell.h; sourceTree = "<group>"; };
-		5F3F58651EEB547700D21830 /* PushWebViewEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushWebViewEntryCell.m; sourceTree = "<group>"; };
-		5F3F58661EEB547700D21830 /* PushWebViewEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushWebViewEntryCell.xib; sourceTree = "<group>"; };
-		5F3F58671EEB547700D21830 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5F3F58681EEB547700D21830 /* SegmentedDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedDataEntryCell.h; sourceTree = "<group>"; };
-		5F3F58691EEB547700D21830 /* SegmentedDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedDataEntryCell.m; sourceTree = "<group>"; };
-		5F3F586A1EEB547700D21830 /* SwitchDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchDataEntryCell.h; sourceTree = "<group>"; };
-		5F3F586B1EEB547700D21830 /* SwitchDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchDataEntryCell.m; sourceTree = "<group>"; };
-		5F3F586C1EEB547700D21830 /* SwitchDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchDataEntryCell.xib; sourceTree = "<group>"; };
-		5F3F586D1EEB547700D21830 /* TextDataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDataEntryCell.h; sourceTree = "<group>"; };
-		5F3F586E1EEB547700D21830 /* TextDataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDataEntryCell.m; sourceTree = "<group>"; };
-		5F3F586F1EEB547700D21830 /* TextDataEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextDataEntryCell.xib; sourceTree = "<group>"; };
-		5F3F58701EEB547700D21830 /* UIXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXML.h; sourceTree = "<group>"; };
-		5F3F58711EEB547700D21830 /* UIXMLFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewController.h; sourceTree = "<group>"; };
-		5F3F58721EEB547700D21830 /* UIXMLFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIXMLFormViewController.m; sourceTree = "<group>"; };
-		5F3F58731EEB547700D21830 /* UIXMLFormViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXMLFormViewControllerDelegate.h; sourceTree = "<group>"; };
-		5F3F58741EEB547700D21830 /* WaitMaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitMaskController.h; sourceTree = "<group>"; };
-		5F3F58751EEB547700D21830 /* WaitMaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitMaskController.m; sourceTree = "<group>"; };
-		5F3F58761EEB547700D21830 /* write32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = write32x32.png; sourceTree = "<group>"; };
 		5F44CC681C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = "KeyChain-1.3.xcdatamodel"; path = "KeyChain.xcdatamodeld/KeyChain-1.3.xcdatamodel"; sourceTree = "<group>"; };
 		5F44CC6C1C4C3EBE007003D6 /* model-1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-1.1.xcmappingmodel"; path = "datamodel/model-1.1.xcmappingmodel"; sourceTree = "<group>"; };
 		5F44CC6D1C4C3EBE007003D6 /* model-1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "model-1.2.xcmappingmodel"; path = "datamodel/model-1.2.xcmappingmodel"; sourceTree = "<group>"; };
@@ -291,7 +230,6 @@
 		A02BB73F159C5829001FD5AA /* popoverBgSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popoverBgSimple.png; path = Pods/WEPopover/popoverBgSimple.png; sourceTree = "<group>"; };
 		A0759F2014305DBE000701EF /* settings20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings20x20.png; sourceTree = "<group>"; };
 		A082214919F45FE300FC7BFD /* WEPopover.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WEPopover.podspec; sourceTree = "<group>"; };
-		A082214C19F4649700FC7BFD /* UIXML.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIXML.podspec; sourceTree = "<group>"; };
 		A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZKRevealingTableViewCell.podspec; sourceTree = "<group>"; };
 		A083A1791435CB9B0032B285 /* changePwd24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changePwd24x24.png; sourceTree = "<group>"; };
 		A0CD69651430C24A00EDE45F /* export20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = export20x20.png; sourceTree = "<group>"; };
@@ -345,11 +283,9 @@
 			children = (
 				5FB538021EF13FE7009B928D /* assets.xcassets */,
 				5FDEE6791DCCEFE5005BE572 /* KeyChain.entitlements */,
-				A082214C19F4649700FC7BFD /* UIXML.podspec */,
 				A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */,
 				A082214919F45FE300FC7BFD /* WEPopover.podspec */,
 				A02BB72B159C5752001FD5AA /* podfile */,
-				5F3F58511EEB547700D21830 /* UIXML */,
 				5F3486BF160B83D200F2C1A2 /* datamodel */,
 				5FC6508F160933A9003BC18F /* Migration */,
 				5FA71BE815E968DB001AFCCF /* Export */,
@@ -489,50 +425,6 @@
 				5F0006D61C312424002BD9EC /* KeyEntity.swift */,
 			);
 			name = datamodel;
-			sourceTree = "<group>";
-		};
-		5F3F58511EEB547700D21830 /* UIXML */ = {
-			isa = PBXGroup;
-			children = (
-				5F3F58521EEB547700D21830 /* back24x24.png */,
-				5F3F58531EEB547700D21830 /* BaseDataEntryCell.h */,
-				5F3F58541EEB547700D21830 /* BaseDataEntryCell.m */,
-				5F3F58551EEB547700D21830 /* chevron.png */,
-				5F3F58561EEB547700D21830 /* confirm24x24.png */,
-				5F3F58571EEB547700D21830 /* edit32x32.png */,
-				5F3F58581EEB547700D21830 /* MailDataEntryCell.xib */,
-				5F3F58591EEB547700D21830 /* PushControllerDataEntryCell.h */,
-				5F3F585A1EEB547700D21830 /* PushControllerDataEntryCell.m */,
-				5F3F585B1EEB547700D21830 /* PushDateEntryCell.h */,
-				5F3F585C1EEB547700D21830 /* PushDateEntryCell.m */,
-				5F3F585D1EEB547700D21830 /* PushDateEntryCell.xib */,
-				5F3F585E1EEB547700D21830 /* PushFormDataEntryCell.h */,
-				5F3F585F1EEB547700D21830 /* PushFormDataEntryCell.m */,
-				5F3F58601EEB547700D21830 /* PushFormDataEntryCell.xib */,
-				5F3F58611EEB547700D21830 /* PushTextEntryCell.h */,
-				5F3F58621EEB547700D21830 /* PushTextEntryCell.m */,
-				5F3F58631EEB547700D21830 /* PushTextEntryCell.xib */,
-				5F3F58641EEB547700D21830 /* PushWebViewEntryCell.h */,
-				5F3F58651EEB547700D21830 /* PushWebViewEntryCell.m */,
-				5F3F58661EEB547700D21830 /* PushWebViewEntryCell.xib */,
-				5F3F58671EEB547700D21830 /* README.md */,
-				5F3F58681EEB547700D21830 /* SegmentedDataEntryCell.h */,
-				5F3F58691EEB547700D21830 /* SegmentedDataEntryCell.m */,
-				5F3F586A1EEB547700D21830 /* SwitchDataEntryCell.h */,
-				5F3F586B1EEB547700D21830 /* SwitchDataEntryCell.m */,
-				5F3F586C1EEB547700D21830 /* SwitchDataEntryCell.xib */,
-				5F3F586D1EEB547700D21830 /* TextDataEntryCell.h */,
-				5F3F586E1EEB547700D21830 /* TextDataEntryCell.m */,
-				5F3F586F1EEB547700D21830 /* TextDataEntryCell.xib */,
-				5F3F58701EEB547700D21830 /* UIXML.h */,
-				5F3F58711EEB547700D21830 /* UIXMLFormViewController.h */,
-				5F3F58721EEB547700D21830 /* UIXMLFormViewController.m */,
-				5F3F58731EEB547700D21830 /* UIXMLFormViewControllerDelegate.h */,
-				5F3F58741EEB547700D21830 /* WaitMaskController.h */,
-				5F3F58751EEB547700D21830 /* WaitMaskController.m */,
-				5F3F58761EEB547700D21830 /* write32x32.png */,
-			);
-			path = UIXML;
 			sourceTree = "<group>";
 		};
 		5F6F634714FE4504004C1337 /* DragDrop */ = {
@@ -726,7 +618,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = SOFTPHONE;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
@@ -775,7 +667,6 @@
 				A01C68131DD4876A0086A1B6 /* AddEmailPopupController.xib in Resources */,
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
-				5F3F587A1EEB547700D21830 /* confirm24x24.png in Resources */,
 				5FA3A4D012DC780B009BE36C /* KeyEntityFormController.xib in Resources */,
 				5FA3A50012DC7C8A009BE36C /* KeyEntityForm.plist in Resources */,
 				5F04E6E512E368C800370F50 /* KeyChainLogin.xib in Resources */,
@@ -788,7 +679,6 @@
 				A0CD69661430C24A00EDE45F /* export20x20.png in Resources */,
 				5F3F58091EEB068D00D21830 /* PushLinkPreviewCell.xib in Resources */,
 				A083A17A1435CB9B0032B285 /* changePwd24x24.png in Resources */,
-				5F3F58831EEB547700D21830 /* PushTextEntryCell.xib in Resources */,
 				5FD466F21441A81100A39BEE /* import20x20.png in Resources */,
 				5F2718FC152508E800C5BBA3 /* info34x34.png in Resources */,
 				5F27190115250CEB00C5BBA3 /* InfoViewController.xib in Resources */,
@@ -798,24 +688,20 @@
 				A02BB72C159C5752001FD5AA /* podfile in Resources */,
 				A02BB740159C5829001FD5AA /* popoverArrowDown.png in Resources */,
 				5FB538031EF13FE7009B928D /* assets.xcassets in Resources */,
-				5F3F587C1EEB547700D21830 /* MailDataEntryCell.xib in Resources */,
 				A02BB741159C5829001FD5AA /* popoverArrowDown@2x.png in Resources */,
 				A02BB742159C5829001FD5AA /* popoverArrowDownSimple.png in Resources */,
 				A02BB743159C5829001FD5AA /* popoverArrowLeft.png in Resources */,
 				A02BB744159C5829001FD5AA /* popoverArrowLeft@2x.png in Resources */,
 				A02BB745159C5829001FD5AA /* popoverArrowLeftSimple.png in Resources */,
-				5F3F587F1EEB547700D21830 /* PushDateEntryCell.xib in Resources */,
 				A02BB746159C5829001FD5AA /* popoverArrowRight.png in Resources */,
 				A02BB747159C5829001FD5AA /* popoverArrowRight@2x.png in Resources */,
 				A02BB748159C5829001FD5AA /* popoverArrowRightSimple.png in Resources */,
-				5F3F587B1EEB547700D21830 /* edit32x32.png in Resources */,
 				A02BB749159C5829001FD5AA /* popoverArrowUp.png in Resources */,
 				A02BB74A159C5829001FD5AA /* popoverArrowUp@2x.png in Resources */,
 				A02BB74B159C5829001FD5AA /* popoverArrowUpSimple.png in Resources */,
 				A02BB74C159C5829001FD5AA /* popoverBg.png in Resources */,
 				A02BB74D159C5829001FD5AA /* popoverBg@2x.png in Resources */,
 				A082215019F4649700FC7BFD /* ZKRevealingTableViewCell.podspec in Resources */,
-				5F3F588E1EEB547700D21830 /* write32x32.png in Resources */,
 				A02BB74E159C5829001FD5AA /* popoverBgSimple.png in Resources */,
 				5F18B47615B6FA7600F7D82A /* lock22x22.png in Resources */,
 				5F18B47815B7016F00F7D82A /* section22x22.png in Resources */,
@@ -824,12 +710,6 @@
 				5FC717E715C6EE6F00836CED /* swipeL@18x24.png in Resources */,
 				A082214A19F45FE300FC7BFD /* WEPopover.podspec in Resources */,
 				5F82059D15D4109000862BC2 /* swipeR@18x24.png in Resources */,
-				5F3F588B1EEB547700D21830 /* TextDataEntryCell.xib in Resources */,
-				5F3F58891EEB547700D21830 /* SwitchDataEntryCell.xib in Resources */,
-				5F3F58851EEB547700D21830 /* PushWebViewEntryCell.xib in Resources */,
-				5F3F58811EEB547700D21830 /* PushFormDataEntryCell.xib in Resources */,
-				5F3F58791EEB547700D21830 /* chevron.png in Resources */,
-				5F3F58771EEB547700D21830 /* back24x24.png in Resources */,
 				5FC6509B16093451003BC18F /* Default-568h@2x.png in Resources */,
 				5FC6509C16093451003BC18F /* YIDefault@2x.png in Resources */,
 				5F31B3BE1612E41500AE69CD /* keychain-desktop1024x1024.png in Resources */,
@@ -853,13 +733,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KeyChain-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4BD0BAB6DBD357FFE29802D0 /* [CP] Embed Pods Frameworks */ = {
@@ -868,9 +751,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KeyChain/Pods-KeyChain-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/MTStatusBarOverlay/MTStatusBarOverlay.framework",
+				"${BUILT_PRODUCTS_DIR}/STAlertView/STAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftLinkPreview/SwiftLinkPreview.framework",
+				"${BUILT_PRODUCTS_DIR}/UIXML/UIXML.framework",
+				"${BUILT_PRODUCTS_DIR}/WEPopover/WEPopover.framework",
+				"${BUILT_PRODUCTS_DIR}/ZKRevealingTableViewCell/ZKRevealingTableViewCell.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MTStatusBarOverlay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/STAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLinkPreview.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIXML.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WEPopover.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZKRevealingTableViewCell.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -904,44 +804,32 @@
 				5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */,
 				5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */,
 				5FA3A4C312DC7730009BE36C /* RootViewController.m in Sources */,
-				5F3F58801EEB547700D21830 /* PushFormDataEntryCell.m in Sources */,
-				5F3F58871EEB547700D21830 /* SegmentedDataEntryCell.m in Sources */,
 				5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */,
 				5F04E6E412E368C800370F50 /* KeyChainLogin.m in Sources */,
 				A0FD0E4614165D8E009C7257 /* AttributeInfo.m in Sources */,
-				5F3F58781EEB547700D21830 /* BaseDataEntryCell.m in Sources */,
-				5F3F58881EEB547700D21830 /* SwitchDataEntryCell.m in Sources */,
-				5F3F587D1EEB547700D21830 /* PushControllerDataEntryCell.m in Sources */,
 				5F44CC6F1C4C3EBE007003D6 /* model-1.1.xcmappingmodel in Sources */,
 				A0FD0E4D14166C32009C7257 /* MailListDataEntryCell.m in Sources */,
-				5F3F588D1EEB547700D21830 /* WaitMaskController.m in Sources */,
 				5F6F343A143F315500D9C428 /* ExportViewController.m in Sources */,
 				5FD466EF1441A5C600A39BEE /* ImportViewController.m in Sources */,
 				5F44CC701C4C3EBE007003D6 /* model-1.2.xcmappingmodel in Sources */,
 				5FFC755014E5B06800E3E162 /* KeyListViewController.m in Sources */,
 				5F6F634A14FE4521004C1337 /* DDTableViewManager.m in Sources */,
 				5F27190015250CEB00C5BBA3 /* InfoViewController.m in Sources */,
-				5F3F587E1EEB547700D21830 /* PushDateEntryCell.m in Sources */,
 				A02BB72A159C4E38001FD5AA /* UIAlertViewInputSection.m in Sources */,
 				5FB1293F15CAFCED007365C5 /* SectionKeyListViewController.m in Sources */,
 				5F052D8A15CBE90900330214 /* iToast.m in Sources */,
-				5F3F58821EEB547700D21830 /* PushTextEntryCell.m in Sources */,
 				5F052D9415CBEADA00330214 /* OptionPane.m in Sources */,
 				5F0006D71C312424002BD9EC /* KeyEntity.swift in Sources */,
 				5F8205A015D4144400862BC2 /* UIPasswordLabel.m in Sources */,
 				5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */,
 				5FC65096160933F1003BC18F /* YISplashScreen.m in Sources */,
 				5F7781861BBD1784007B37B5 /* AccountCredential.swift in Sources */,
-				5F3F58861EEB547700D21830 /* README.md in Sources */,
 				5F3F58051EEAF1C100D21830 /* PushLinkPreview.swift in Sources */,
 				5FC65097160933F1003BC18F /* YISplashScreen+Migration.m in Sources */,
-				5F3F588C1EEB547700D21830 /* UIXMLFormViewController.m in Sources */,
 				5FC65098160933F1003BC18F /* YISplashScreenAnimation.m in Sources */,
-				5F3F58841EEB547700D21830 /* PushWebViewEntryCell.m in Sources */,
 				5F44CC711C4C3EBE007003D6 /* model-1.3.xcmappingmodel in Sources */,
 				5F30A4841610E3AD005BAE36 /* KeyChain.xcdatamodeld in Sources */,
 				5F44CC691C4C3D62007003D6 /* KeyChain-1.3.xcdatamodel in Sources */,
-				5F3F588A1EEB547700D21830 /* TextDataEntryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1146,12 +1034,18 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1183,12 +1077,18 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

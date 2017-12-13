@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,43 +20,69 @@
         <tableViewCell clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PushTextEntryCell" id="2" userLabel="PushTextEntryCell" customClass="PushTextEntryCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2" id="B6e-Tj-req">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2" id="1EM-Mu-UeQ">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="edit32x32.png" id="43">
-                        <rect key="frame" x="290" y="11" width="20" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWS-fW-86B">
+                        <rect key="frame" x="20" y="-0.5" width="42" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="edit32x32.png" translatesAutoresizingMaskIntoConstraints="NO" id="43">
+                        <rect key="frame" x="279" y="11" width="21" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="43" secondAttribute="height" multiplier="1:1" id="9dD-S4-52S"/>
+                        </constraints>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="eWS-fW-86B" firstAttribute="height" secondItem="1EM-Mu-UeQ" secondAttribute="height" id="6Jm-0r-IFc"/>
+                    <constraint firstItem="eWS-fW-86B" firstAttribute="centerY" secondItem="43" secondAttribute="centerY" id="82y-S5-YIT"/>
+                    <constraint firstAttribute="trailing" secondItem="43" secondAttribute="trailing" constant="20" symbolic="YES" id="EzA-iT-Aiz"/>
+                    <constraint firstItem="43" firstAttribute="top" secondItem="1EM-Mu-UeQ" secondAttribute="topMargin" id="RXV-Sc-Y0h"/>
+                    <constraint firstItem="43" firstAttribute="centerY" secondItem="1EM-Mu-UeQ" secondAttribute="centerY" id="iVi-hW-JdB"/>
+                    <constraint firstItem="eWS-fW-86B" firstAttribute="leading" secondItem="1EM-Mu-UeQ" secondAttribute="leading" constant="20" symbolic="YES" id="ntp-1D-mQw"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="editIcon" destination="43" id="44"/>
+                <outlet property="textLabel" destination="eWS-fW-86B" id="r6d-28-MGG"/>
                 <outlet property="viewController" destination="21" id="25"/>
             </connections>
+            <point key="canvasLocation" x="23" y="-34"/>
         </tableViewCell>
         <viewController id="21" customClass="PushTextViewController">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="DDp-3f-tbo"/>
+                <viewControllerLayoutGuide type="bottom" id="hg9-nI-6Rw"/>
+            </layoutGuides>
             <view key="view" contentMode="scaleToFill" id="23">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <textView multipleTouchEnabled="YES" contentMode="scaleToFill" id="37" customClass="UINoteView">
-                        <rect key="frame" x="5" y="6" width="310" height="218"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37" customClass="UINoteView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                     </textView>
                 </subviews>
-                <color key="backgroundColor" red="0.4530233132" green="0.56826801559999995" blue="0.74895397490000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="37" firstAttribute="bottom" secondItem="hg9-nI-6Rw" secondAttribute="top" id="PPB-2W-IgA"/>
+                    <constraint firstItem="37" firstAttribute="leading" secondItem="23" secondAttribute="leading" id="YIj-tM-7wg"/>
+                    <constraint firstAttribute="trailing" secondItem="37" secondAttribute="trailing" id="mSe-zl-bol"/>
+                    <constraint firstItem="37" firstAttribute="top" secondItem="23" secondAttribute="top" id="r6u-mV-ywN"/>
+                </constraints>
             </view>
             <extendedEdge key="edgesForExtendedLayout"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="btnSave" destination="32" id="34"/>
                 <outlet property="txtValue" destination="37" id="38"/>
             </connections>
+            <point key="canvasLocation" x="34.5" y="424.5"/>
         </viewController>
         <barButtonItem systemItem="save" id="32" userLabel="btnSave">
             <connections>
@@ -65,9 +93,4 @@
     <resources>
         <image name="edit32x32.png" width="32" height="32"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>

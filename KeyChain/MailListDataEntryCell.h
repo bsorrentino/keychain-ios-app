@@ -27,13 +27,11 @@
     
 @private 
     MailListDataViewController *listViewController_;
-    UILabel *textLabel_;
     UITextField *textValue_;
 }
 
 @property (nonatomic) IBOutlet MailListDataViewController *listViewController;
 @property (nonatomic) IBOutlet UITextField *textValue;
-@property (nonatomic) IBOutlet UILabel *textLabel;
 @end
 
 
