@@ -16,12 +16,13 @@ DEPENDENCIES:
   - MTStatusBarOverlay (~> 0.9)
   - STAlertView
   - SwiftLinkPreview (~> 2.0.5)
-  - UIXML (from `https://github.com/bsorrentino/UIXML.git`)
+  - UIXML (from `https://github.com/bsorrentino/UIXML.git`, branch `develop`)
   - WEPopover (from `.`)
   - ZKRevealingTableViewCell (from `.`)
 
 EXTERNAL SOURCES:
   UIXML:
+    :branch: develop
     :git: https://github.com/bsorrentino/UIXML.git
   WEPopover:
     :podspec: .
@@ -30,7 +31,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   UIXML:
-    :commit: 14bfa54e661c77e55c2ce1a776e945a7c7ec5772
+    :commit: cd262a4a1357eafc190dcf488675f2276b482bfb
     :git: https://github.com/bsorrentino/UIXML.git
 
 SPEC CHECKSUMS:
@@ -43,6 +44,6 @@ SPEC CHECKSUMS:
   WEPopover: 3c23b47c67e61ceab993fa7e3e215d87c723172c
   ZKRevealingTableViewCell: e717212944d9ffe7798866d097c7c0ffe4481128
 
-PODFILE CHECKSUM: ca56dc10e2401a44cac715865615ecb42b656b3d
+PODFILE CHECKSUM: f042151e42ebd8528fa61b39708a46ef2f6f713e
 
 COCOAPODS: 1.3.1

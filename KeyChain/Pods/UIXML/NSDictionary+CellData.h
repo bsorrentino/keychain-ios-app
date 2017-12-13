@@ -15,6 +15,11 @@
 -(void)getStringForKey:(NSString *_Nonnull)key
              next:(void (^ _Nonnull )(NSString * _Nonnull value))next
          complete:(void (^ _Nonnull )(void))complete;
+-(void)getNumberForKey:(NSString *_Nonnull)key
+                   next:(void (^ _Nonnull )(NSNumber * _Nonnull value))next;
+-(void)getNumberForKey:(NSString *_Nonnull)key
+                  next:(void (^ _Nonnull )(NSNumber * _Nonnull value))next
+              complete:(void (^ _Nonnull )(void))complete;
 -(void)getArrayForKey:(NSString *_Nonnull)key
                   next:(void (^ _Nonnull )(NSArray * _Nonnull value))next;
 

@@ -15,7 +15,11 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIXMLFormViewController"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIXMLFormViewController">
+            <connections>
+                <outlet property="dataEntryCell" destination="3Qc-oY-OVg" id="16j-zE-ZEj"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PushLinkPreviewCell" id="3Qc-oY-OVg" customClass="PushLinkPreviewCell" customModule="KeyChain" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

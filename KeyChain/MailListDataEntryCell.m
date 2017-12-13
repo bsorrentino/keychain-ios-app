@@ -25,7 +25,6 @@ NSString * const regularExpression = @"(.*)@(.*)";
 
 @synthesize listViewController=listViewController_;
 @synthesize textValue=textValue_;
-@synthesize textLabel=textLabel_;
 
 #pragma - private implementation
 

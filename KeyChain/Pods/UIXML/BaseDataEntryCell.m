@@ -298,10 +298,13 @@
                           next:(void (^ _Nonnull )(NSString * _Nonnull value))next
 {
 
-    NSString *value = [self objectForKey:key];
+    id value = self[key];
     
-    if( value != nil && ![BaseDataEntryCell isNullOrEmpty:value]) {
-        
+    if( value != nil &&
+       [value isKindOfClass:[NSString class]] &&
+       ![BaseDataEntryCell isNullOrEmpty:value])
+    {
+
         next( value );
     }
 }
@@ -310,9 +313,12 @@
                    next:(void (^ _Nonnull )(NSString * _Nonnull value))next
                complete:(void (^ _Nonnull )(void))complete
 {
-    NSString *value = [self objectForKey:key];
+    id value = self[key];
     
-    if( value != nil && ![BaseDataEntryCell isNullOrEmpty:value]) {
+    if( value != nil &&
+       [value isKindOfClass:[NSString class]] &&
+       ![BaseDataEntryCell isNullOrEmpty:value])
+    {
         
         next( value );
     }
@@ -323,10 +329,38 @@
 
 }
 
+-(void)getNumberForKey:(NSString *_Nonnull)key
+                  next:(void (^ _Nonnull )(NSNumber * _Nonnull value))next
+{
+    id value = self[key];
+    
+    if( value != nil && [value isKindOfClass:[NSNumber class]]) {
+        
+        next( value );
+    }
+}
+
+-(void)getNumberForKey:(NSString *_Nonnull)key
+                  next:(void (^ _Nonnull )(NSNumber * _Nonnull value))next
+              complete:(void (^ _Nonnull )(void))complete
+{
+    id value = self[key];
+    
+    if( value != nil && [value isKindOfClass:[NSNumber class]] ) {
+        
+        next( value );
+    }
+    else {
+        complete();
+        
+    }
+    
+}
+
 -(void)getArrayForKey:(NSString *_Nonnull)key
                  next:(void (^ _Nonnull )(NSArray * _Nonnull value))next
 {
-    id value = [self objectForKey:key];
+    id value = self[key];
     
     if( value != nil && [value isKindOfClass:[NSArray class] ] ) {
         next( value );

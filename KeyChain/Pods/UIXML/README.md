@@ -1,4 +1,4 @@
 UIXML
 =====
 
-Library to generate UITableView based Form(s) using .plist file(s) 
+Library to generate UITableView based form(s)  form from .plist file(s) 

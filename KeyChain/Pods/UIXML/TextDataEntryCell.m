@@ -51,10 +51,10 @@ NSString *const TextDataEntryCellNotification = @"TextDataEntryCell.scrollUpToKe
     } complete:^{
         [textField setPlaceholder:@""];
     }];
-    [cellData getStringForKey:@"secure" next:^(NSString * _Nonnull value) {
+    [cellData getNumberForKey:@"secure" next:^(NSNumber * _Nonnull value) {
         textField.secureTextEntry = [value boolValue];
     }];
-    [cellData getStringForKey:@"autocorrectionType" next:^(NSString * _Nonnull value) {
+    [cellData getNumberForKey:@"autocorrectionType" next:^(NSNumber * _Nonnull value) {
         textField.autocorrectionType =
             ( [value boolValue] ) ? UITextAutocorrectionTypeYes : UITextAutocorrectionTypeNo;
     }];
@@ -80,12 +80,7 @@ NSString *const TextDataEntryCellNotification = @"TextDataEntryCell.scrollUpToKe
 
 -(void) setControlValue:(id)value
 {
-	if (value==nil) {
-		self.textField.text = @"";
-	}
-	else {
-		self.textField.text = value;
-	}
+    self.textField.text = (value==nil) ? @"" : value;
 }
 
 -(id) getControlValue
