@@ -29,13 +29,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVE-6Q-0Cf">
-                        <rect key="frame" x="0.0" y="0.0" width="241" height="21"/>
+                        <rect key="frame" x="20" y="0.0" width="221" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="&lt;input url&gt;" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xyo-lx-4n2">
-                        <rect key="frame" x="0.0" y="17" width="75" height="24.5"/>
+                        <rect key="frame" x="20" y="17" width="75" height="24.5"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
@@ -43,7 +43,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="PVE-6Q-0Cf" secondAttribute="trailing" constant="92" id="23h-IB-gFW"/>
-                    <constraint firstItem="PVE-6Q-0Cf" firstAttribute="leading" secondItem="jPI-Qv-y0p" secondAttribute="leading" id="n6R-pz-g2n"/>
+                    <constraint firstItem="PVE-6Q-0Cf" firstAttribute="leading" secondItem="jPI-Qv-y0p" secondAttribute="leading" constant="20" symbolic="YES" id="n6R-pz-g2n"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Xyo-lx-4n2" secondAttribute="bottom" constant="-8.5" id="uu6-Tw-evF"/>
                     <constraint firstItem="PVE-6Q-0Cf" firstAttribute="top" secondItem="jPI-Qv-y0p" secondAttribute="top" id="wEB-Nx-lNq"/>
                     <constraint firstItem="Xyo-lx-4n2" firstAttribute="top" secondItem="jPI-Qv-y0p" secondAttribute="topMargin" constant="6" id="yyz-kV-6nw"/>

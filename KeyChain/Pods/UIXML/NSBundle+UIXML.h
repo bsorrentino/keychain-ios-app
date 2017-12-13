@@ -10,6 +10,6 @@
 
 @interface NSBundle (UIXML)
 
-+(NSBundle *_Nullable) moduleBundle ;
+@property (class, readonly, strong) NSBundle *_Nullable moduleBundle;
 
 @end

@@ -295,7 +295,7 @@
 
 #pragma mark - NSModule UIXML extension
 
-@implementation NSDictionary (UIXML)
+@implementation NSBundle (UIXML)
 
 +(NSBundle *_Nullable) moduleBundle {
     
