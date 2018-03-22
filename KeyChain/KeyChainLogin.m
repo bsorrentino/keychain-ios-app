@@ -224,9 +224,7 @@
     
     __block KeyChainLogin *login = [[KeyChainLogin alloc] initWithNibName:@"KeyChainLogin" bundle:nil] ;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [login	doModal:root onLoggedIn:block];
-    });
+    [login	doModal:root onLoggedIn:block];
     
 }
 

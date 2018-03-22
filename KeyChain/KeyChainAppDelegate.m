@@ -238,7 +238,9 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
         [KeyChainLogin	doModal:navigationController onLoggedIn:^{
             
             dispatch_once(&onceToken, ^{
-                [__self.rootViewController.keyListViewController filterReset:YES];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [__self.rootViewController.keyListViewController filterReset:YES];
+                });
             });
         }];
         _alreadyBecomeActive = YES;
