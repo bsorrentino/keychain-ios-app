@@ -150,7 +150,7 @@
             <toolbarItems>
                 <barButtonItem enabled="NO" systemItem="save" id="vCD-fx-jt1">
                     <connections>
-                        <action selector="save:" destination="-2" id="zKu-qB-kOT"/>
+                        <action selector="save:" destination="LHU-w3-amS" id="FBv-Jt-6Ox"/>
                     </connections>
                 </barButtonItem>
             </toolbarItems>
