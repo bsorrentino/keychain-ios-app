@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootViewController">
             <connections>
@@ -21,6 +26,7 @@
         <tableViewController nibName="KeyEntityFormController" id="6" customClass="KeyEntityFormController">
             <extendedEdge key="edgesForExtendedLayout"/>
             <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="116" y="-101"/>
         </tableViewController>
         <searchDisplayController id="15">
             <connections>
@@ -38,6 +44,7 @@
                 <barButtonItem image="settings20x20.png" width="35" id="24" userLabel="Bar Button Item - Settings"/>
                 <barButtonItem tag="22" systemItem="add" id="25"/>
             </items>
+            <point key="canvasLocation" x="1235" y="288"/>
         </toolbar>
         <tableViewController id="35" userLabel="KeyListViewController" customClass="KeyListViewController">
             <extendedEdge key="edgesForExtendedLayout"/>
@@ -47,6 +54,7 @@
                 <outlet property="sectionController" destination="89" id="95"/>
                 <outlet property="view" destination="36" id="40"/>
             </connections>
+            <point key="canvasLocation" x="-490" y="-100"/>
         </tableViewController>
         <view contentMode="scaleToFill" id="31">
             <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
@@ -95,6 +103,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="783" y="479"/>
         </view>
         <viewController id="49" userLabel="Export View Controller" customClass="ExportViewController">
             <view key="view" contentMode="scaleToFill" id="50">
@@ -130,6 +139,7 @@
             <connections>
                 <outlet property="exportToITunesButton" destination="56" id="58"/>
             </connections>
+            <point key="canvasLocation" x="1633" y="-204"/>
         </viewController>
         <tableViewController id="60" userLabel="Import View Controller" customClass="ImportViewController">
             <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="61">
@@ -144,6 +154,7 @@
             <extendedEdge key="edgesForExtendedLayout"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <size key="freeformSize" width="320" height="460"/>
+            <point key="canvasLocation" x="741" y="-205"/>
         </tableViewController>
         <tableViewController id="89" userLabel="SectionKeyListViewController" customClass="SectionKeyListViewController">
             <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="90">
@@ -161,6 +172,7 @@
             <connections>
                 <outlet property="keyEntityFormController" destination="6" id="94"/>
             </connections>
+            <point key="canvasLocation" x="1146" y="-205"/>
         </tableViewController>
     </objects>
     <resources>
@@ -171,9 +183,4 @@
         <image name="settings20x20.png" width="20" height="20"/>
         <image name="usb48x48" width="48" height="48"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>
