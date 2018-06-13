@@ -90,6 +90,15 @@
 				<true/>
 			</dict>
             
+            <dict>
+                <key>DataKey</key>
+                <string>SendLocalNotification</string>
+                <key>Label</key>
+                <string>Send Private Notification</string>
+                <key>CellType</key>
+                <string>SendLocalNotificationCell</string>
+            </dict>
+
 		</array>
 	</array>
 </array>

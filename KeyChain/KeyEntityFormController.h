@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIXMLFormViewController.h"
 
 @class KeyEntity;
 
@@ -29,7 +28,7 @@
 	BOOL _valid;
 
 }
-
+@property (nonatomic, readonly) KeyEntity *entity;
 @property (nonatomic) IBOutlet UIView *toolbar;
 @property (nonatomic) IBOutlet UIBarButtonItem *btnSave;
 @property (nonatomic) IBOutlet UISegmentedControl *segShowHidePassword;

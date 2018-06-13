@@ -47,6 +47,8 @@
 		5F82059D15D4109000862BC2 /* swipeR@18x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F82059C15D4109000862BC2 /* swipeR@18x24.png */; };
 		5F8205A015D4144400862BC2 /* UIPasswordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F82059F15D4144400862BC2 /* UIPasswordLabel.m */; };
 		5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8205A215D41FC600862BC2 /* KeyTableViewCell.m */; };
+		5F93425420D117D4005CFE04 /* SendLocalNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F93425220D117D4005CFE04 /* SendLocalNotificationCell.swift */; };
+		5F93425520D117D4005CFE04 /* SendLocalNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F93425320D117D4005CFE04 /* SendLocalNotificationCell.xib */; };
 		5FA3A4C012DC7730009BE36C /* KeyChainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */; };
 		5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */; };
 		5FA3A4C312DC7730009BE36C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BF12DC7730009BE36C /* RootViewController.m */; };
@@ -170,6 +172,8 @@
 		5F8205A115D41FC600862BC2 /* KeyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyTableViewCell.h; sourceTree = "<group>"; };
 		5F8205A215D41FC600862BC2 /* KeyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyTableViewCell.m; sourceTree = "<group>"; };
 		5F8B67EA14471B7E00A767AE /* KeyListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListDataSource.h; sourceTree = "<group>"; };
+		5F93425220D117D4005CFE04 /* SendLocalNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLocalNotificationCell.swift; sourceTree = "<group>"; };
+		5F93425320D117D4005CFE04 /* SendLocalNotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendLocalNotificationCell.xib; sourceTree = "<group>"; };
 		5FA3A4B812DC7730009BE36C /* KeyChainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainAppDelegate.h; sourceTree = "<group>"; };
 		5FA3A4B912DC7730009BE36C /* KeyChainAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainAppDelegate.m; sourceTree = "<group>"; };
 		5FA3A4BC12DC7730009BE36C /* PersistentAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentAppDelegate.h; sourceTree = "<group>"; };
@@ -391,6 +395,8 @@
 				5F8205A215D41FC600862BC2 /* KeyTableViewCell.m */,
 				5F3F58041EEAF1C100D21830 /* PushLinkPreview.swift */,
 				5F3F58081EEB068D00D21830 /* PushLinkPreviewCell.xib */,
+				5F93425220D117D4005CFE04 /* SendLocalNotificationCell.swift */,
+				5F93425320D117D4005CFE04 /* SendLocalNotificationCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -618,7 +624,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = SOFTPHONE;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
@@ -710,6 +716,7 @@
 				5FC717E715C6EE6F00836CED /* swipeL@18x24.png in Resources */,
 				A082214A19F45FE300FC7BFD /* WEPopover.podspec in Resources */,
 				5F82059D15D4109000862BC2 /* swipeR@18x24.png in Resources */,
+				5F93425520D117D4005CFE04 /* SendLocalNotificationCell.xib in Resources */,
 				5FC6509B16093451003BC18F /* Default-568h@2x.png in Resources */,
 				5FC6509C16093451003BC18F /* YIDefault@2x.png in Resources */,
 				5F31B3BE1612E41500AE69CD /* keychain-desktop1024x1024.png in Resources */,
@@ -821,6 +828,7 @@
 				5F052D9415CBEADA00330214 /* OptionPane.m in Sources */,
 				5F0006D71C312424002BD9EC /* KeyEntity.swift in Sources */,
 				5F8205A015D4144400862BC2 /* UIPasswordLabel.m in Sources */,
+				5F93425420D117D4005CFE04 /* SendLocalNotificationCell.swift in Sources */,
 				5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */,
 				5FC65096160933F1003BC18F /* YISplashScreen.m in Sources */,
 				5F7781861BBD1784007B37B5 /* AccountCredential.swift in Sources */,
@@ -894,7 +902,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "KeyChain-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.keychain;
 				PRODUCT_NAME = KeyChain;
@@ -929,7 +937,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "KeyChain-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.keychain;
 				PRODUCT_NAME = KeyChain;
@@ -1038,11 +1046,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -1062,7 +1072,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1081,11 +1091,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -1104,7 +1116,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

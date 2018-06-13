@@ -30,6 +30,10 @@
 
 #pragma mark - private implementation
 
+- (KeyEntity *)entity {
+    return entity_;
+}
+
 - (BOOL) isPassword:(BaseDataEntryCell *)cell
 {
     return [cell.dataKey compare:@"password"]==NSOrderedSame ;
@@ -328,14 +332,5 @@
     
     // Release any cached data, images, etc that aren't in use.
 }
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
-
 
 @end

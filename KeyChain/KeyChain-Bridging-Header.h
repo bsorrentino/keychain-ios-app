@@ -10,5 +10,6 @@
 #define KeyChain_Bridging_Header_h
 
 @import UIXML;
+#import "KeyEntityFormController.h"
 
 #endif /* KeyChain_Bridging_Header_h */
