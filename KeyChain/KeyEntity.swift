@@ -55,9 +55,13 @@ import KeychainAccess
     var password:String? {
         
         get {
-            let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
+            let key = self.mnemonic.trimmingCharacters(in: .whitespaces)
             
-            let key = self.mnemonic
+            if ( key.count == 0 ) {
+                return ""
+            }
+            
+            let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
             
             if let data =  try! keychain.getString(key) {
                 return data
