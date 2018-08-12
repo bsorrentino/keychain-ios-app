@@ -112,6 +112,11 @@
     [self.keyListViewController insertNewObject:self];
 }
 
+- (void)showSearchBar {
+        
+    [self.keyListViewController.tableView setContentOffset:CGPointZero animated:YES];
+}
+
 
 #pragma mark - RootViewController private methods
 
@@ -191,7 +196,14 @@
                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
                                   target:self 
                                   action:@selector(insertNewObject)];
-    self.navigationItem.leftBarButtonItem = addButton;
+    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                  target:self
+                                  action:@selector(showSearchBar)];
+    self.navigationItem.leftBarButtonItems = @[
+                                       addButton,
+                                       searchButton
+                                       ];
     
 	self.title = NSLocalizedString(@"KeyListViewController.title", @"main title");
     
