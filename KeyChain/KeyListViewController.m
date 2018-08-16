@@ -9,7 +9,6 @@
 #import "KeyListViewController.h"
 #import "KeyEntityFormController.h"
 #import "BaseDataEntryCell.h"
-#import "KeyChainAppDelegate.h"
 #import "KeyChainLogin.h"
 #import "ExportViewController.h"
 #import "ImportViewController.h"

@@ -9,7 +9,6 @@
 #import "KeyEntityFormController.h"
 #import "BaseDataEntryCell.h"
 #import "TextDataEntryCell.h"
-#import "KeyChainAppDelegate.h"
 #import "iToast.h"
 
 @interface KeyEntityFormController( /*Private*/ )

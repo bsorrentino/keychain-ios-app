@@ -7,7 +7,6 @@
 //
 
 #import "MailListDataEntryCell.h"
-#import "KeyChainAppDelegate.h"
 #import "AttributeInfo.h"
 #import <STAlertView/STAlertView.h>
 

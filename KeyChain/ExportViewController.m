@@ -8,7 +8,6 @@
 
 #import "ExportViewController.h"
 #import "WaitMaskController.h"
-#import "KeyChainAppDelegate.h"
 
 @interface ExportViewController(Private)
 
@@ -191,14 +190,6 @@
     [self.exportToITunesButton addTarget:self action:@selector(exportToITunes) forControlEvents:UIControlEventTouchDown];
     
     
-}
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillDisappear:(BOOL)animated

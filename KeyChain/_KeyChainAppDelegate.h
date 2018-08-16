@@ -19,7 +19,7 @@
 //#define __IPHONE_OS_VERSION_MAX_ALLOWED=40200
 //
 //
-@interface KeyChainAppDelegate : PersistentAppDelegate {
+@interface _KeyChainAppDelegate : PersistentAppDelegate {
     
     UIWindow *window;
     UINavigationController *navigationController;
@@ -28,14 +28,12 @@
     AVAudioPlayer *click;
 }
 
-@property (nonatomic) IBOutlet UIWindow *window;
-@property (nonatomic) IBOutlet UINavigationController *navigationController;
+@property (nonatomic,retain) IBOutlet UIWindow *window;
+@property (nonatomic,retain) IBOutlet UINavigationController *navigationController;
 @property (unsafe_unretained, nonatomic) IBOutlet RootViewController *rootViewController;
 
 
 - (void)playClick;
-+ (void)showMessagePopup:(NSString *)message title:(NSString*)title;
-+ (void)showErrorPopup:(NSError *)error;
 
 + (void)processKeysToIdentifySections;
 
