@@ -176,7 +176,6 @@
 		5F8B67EA14471B7E00A767AE /* KeyListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyListDataSource.h; sourceTree = "<group>"; };
 		5F93425220D117D4005CFE04 /* SendLocalNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLocalNotificationCell.swift; sourceTree = "<group>"; };
 		5F93425320D117D4005CFE04 /* SendLocalNotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendLocalNotificationCell.xib; sourceTree = "<group>"; };
-		5FA3A4B812DC7730009BE36C /* _KeyChainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _KeyChainAppDelegate.h; sourceTree = "<group>"; };
 		5FA3A4B912DC7730009BE36C /* _KeyChainAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _KeyChainAppDelegate.m; sourceTree = "<group>"; };
 		5FA3A4BC12DC7730009BE36C /* PersistentAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentAppDelegate.h; sourceTree = "<group>"; };
 		5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentAppDelegate.m; sourceTree = "<group>"; };
@@ -448,7 +447,6 @@
 			isa = PBXGroup;
 			children = (
 				5F7990162125C5B30053284F /* KeyChainAppDelegate.swift */,
-				5FA3A4B812DC7730009BE36C /* _KeyChainAppDelegate.h */,
 				5FA3A4B912DC7730009BE36C /* _KeyChainAppDelegate.m */,
 				5FA3A4BC12DC7730009BE36C /* PersistentAppDelegate.h */,
 				5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */,

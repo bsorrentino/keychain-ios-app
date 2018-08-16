@@ -11,6 +11,7 @@
 
 @import UIXML;
 #import "KeyEntityFormController.h"
-#import "_KeyChainAppDelegate.h"
-
+#import "PersistentAppDelegate.h"
+#import "KeyChainLogin.h"
+#import "RootViewController.h"
 #endif /* KeyChain_Bridging_Header_h */

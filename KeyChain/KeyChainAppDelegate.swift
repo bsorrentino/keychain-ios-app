@@ -11,9 +11,22 @@ import AVFoundation;
 
 //@UIApplicationMain
 //@objc
-class KeyChainAppDelegate : _KeyChainAppDelegate {
+class KeyChainAppDelegate : PersistentAppDelegate {
+    
+    @IBOutlet
+    var  navigationController:UINavigationController!;
+
+    var filterHasBeenReset = false
+    
+    private var _alreadyBecomeActive:Bool = false
 
     private var clickSound:AVAudioPlayer?
+
+    var theRootViewController:RootViewController? {
+        get {
+            return navigationController.viewControllers.first as? RootViewController
+        }
+    }
     
     func playClick() {
         clickSound?.play()
@@ -41,6 +54,37 @@ class KeyChainAppDelegate : _KeyChainAppDelegate {
         return true
     }
 
+    override func applicationDidEnterBackground(_ application: UIApplication) {
+        _alreadyBecomeActive = false;
+        
+        saveContext()
+    }
+
+    override func applicationDidBecomeActive(_ application: UIApplication) {
+        
+        if( _alreadyBecomeActive ) {
+            return
+        }
+        
+        KeyChainLogin.doModal(navigationController) { [unowned self] in 
+            
+            if( !self.filterHasBeenReset ) {
+                if let controller = self.theRootViewController {
+                    
+                    DispatchQueue.main.async {
+                        controller.filterReset(true)
+                    }
+                    self.filterHasBeenReset = true
+
+                }
+            }
+
+        }
+        _alreadyBecomeActive = true;
+
+        
+    }
+    
     /**
      applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
      */

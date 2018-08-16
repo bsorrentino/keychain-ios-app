@@ -12,12 +12,12 @@
 
 @implementation _KeyChainAppDelegate {
     
-    BOOL _alreadyBecomeActive;
+//    BOOL _alreadyBecomeActive;
 }
 
-@synthesize window;
-@synthesize navigationController;
-@synthesize rootViewController;
+//@synthesize window;
+//@synthesize navigationController;
+//@synthesize rootViewController;
 
 #pragma mark class methods
 
@@ -27,7 +27,7 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
 //
 + (void)processKeysToIdentifySections {
 
-    _KeyChainAppDelegate *delegate = (KeyChainAppDelegate *)[[UIApplication sharedApplication] delegate];
+    KeyChainAppDelegate *delegate = (KeyChainAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     @autoreleasepool {
         
@@ -138,20 +138,9 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
 
 #pragma mark - Application lifecycle
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    /*
-     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-     If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
-     */
-    NSLog(@"applicationDidEnterBackground");
-
-    _alreadyBecomeActive = NO;
-    
-    [self saveContext];
-}
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-
+/*
     __BLOCKSELF;
     
     static dispatch_once_t onceToken;
@@ -169,6 +158,7 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
         }];
         _alreadyBecomeActive = YES;
     }
+*/
 }
 
 @end
