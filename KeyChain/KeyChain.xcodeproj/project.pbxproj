@@ -50,7 +50,6 @@
 		5F8205A315D41FC600862BC2 /* KeyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8205A215D41FC600862BC2 /* KeyTableViewCell.m */; };
 		5F93425420D117D4005CFE04 /* SendLocalNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F93425220D117D4005CFE04 /* SendLocalNotificationCell.swift */; };
 		5F93425520D117D4005CFE04 /* SendLocalNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F93425320D117D4005CFE04 /* SendLocalNotificationCell.xib */; };
-		5FA3A4C012DC7730009BE36C /* _KeyChainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4B912DC7730009BE36C /* _KeyChainAppDelegate.m */; };
 		5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BD12DC7730009BE36C /* PersistentAppDelegate.m */; };
 		5FA3A4C312DC7730009BE36C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4BF12DC7730009BE36C /* RootViewController.m */; };
 		5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3A4CD12DC780B009BE36C /* KeyEntityFormController.m */; };
@@ -809,7 +808,6 @@
 			files = (
 				5F3F5E401EEF3B5B00032B53 /* AddEmailPopupController.swift in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				5FA3A4C012DC7730009BE36C /* _KeyChainAppDelegate.m in Sources */,
 				5FA3A4C212DC7730009BE36C /* PersistentAppDelegate.m in Sources */,
 				5FA3A4C312DC7730009BE36C /* RootViewController.m in Sources */,
 				5FA3A4CF12DC780B009BE36C /* KeyEntityFormController.m in Sources */,
