@@ -24,16 +24,12 @@
     UIWindow *window;
     UINavigationController *navigationController;
 
-@private
-    AVAudioPlayer *click;
 }
 
 @property (nonatomic,retain) IBOutlet UIWindow *window;
 @property (nonatomic,retain) IBOutlet UINavigationController *navigationController;
 @property (unsafe_unretained, nonatomic) IBOutlet RootViewController *rootViewController;
 
-
-- (void)playClick;
 
 + (void)processKeysToIdentifySections;
 

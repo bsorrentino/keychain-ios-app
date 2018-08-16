@@ -7,21 +7,48 @@
 //
 
 import Foundation
-import WatchConnectivity
+import AVFoundation;
 
 //@UIApplicationMain
 //@objc
 class KeyChainAppDelegate : _KeyChainAppDelegate {
 
+    private var clickSound:AVAudioPlayer?
+    
+    func playClick() {
+        clickSound?.play()
+
+    }
+    
     override func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        if( !super.application(application, didFinishLaunchingWithOptions: launchOptions) ) {
-            return false
+        if let musicFile = Bundle.init(identifier: "com.apple.UIKit")?.url(forResource: "Tock", withExtension: "aiff") {
+            
+            if let sound = try? AVAudioPlayer( contentsOf: musicFile ) {
+                sound.setVolume( 0.15, fadeDuration: 0.5)
+                self.clickSound = sound
+            }
+
         }
+        
+        checkEntities()
+
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+
                 
         return true
     }
+
+    /**
+     applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
+     */
+    override func applicationWillTerminate(_ application: UIApplication) {
+        saveContext()
+    }
+ 
+    
 
     public static func showMessagePopup( _ message:String, title:String ) {
     
