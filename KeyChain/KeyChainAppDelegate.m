@@ -144,27 +144,46 @@ static  NSString * _REGEXP = @"(\\w+)[-@/](\\w+)";
 }
 
 + (void)showMessagePopup:(NSString *)message title:(NSString*)title {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title 
-                                                        message:message
-                                                       delegate:nil 
-                                              cancelButtonTitle:@"OK" 
-                                              otherButtonTitles:nil];
-        [alert show];
-        
+
+    UIViewController *mainController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:title
+                                 message:message
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   //Handle no, thanks button
+                               }];
+    
+    [alert addAction:okButton];
+    [mainController presentViewController:alert animated:YES completion:nil];
+/*
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+*/
 }
 
 + (void)showErrorPopup:(NSError *)error {
     
-    //NSLog(@"error [%@]", [error userInfo]);
     NSLog(@"error [%@]", error );
     
+    [[self class] showMessagePopup:@"Error" title:error.localizedDescription];
+    
+    /*
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
                                                     message:error.localizedDescription
                                                    delegate:nil 
                                           cancelButtonTitle:@"OK" 
                                           otherButtonTitles:nil];
     [alert show];
+    */
 }
 
 
