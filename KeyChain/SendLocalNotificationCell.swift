@@ -67,6 +67,8 @@ import UserNotifications
                         self.authorizeNotification(granted)
                     }
                 
+                case .provisional:
+                    print( "provisional" )
                 }
             }
 
