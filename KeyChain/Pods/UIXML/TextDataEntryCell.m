@@ -47,15 +47,15 @@ NSString *const TextDataEntryCellNotification = @"TextDataEntryCell.scrollUpToKe
     [super prepareToAppear:controller datakey:key cellData:cellData];
     
     [cellData getStringForKey:@"placeholder" next:^(NSString * _Nonnull value) {
-        [textField setPlaceholder:value];
+        [self->textField setPlaceholder:value];
     } complete:^{
-        [textField setPlaceholder:@""];
+        [self->textField setPlaceholder:@""];
     }];
     [cellData getNumberForKey:@"secure" next:^(NSNumber * _Nonnull value) {
-        textField.secureTextEntry = [value boolValue];
+        self->textField.secureTextEntry = [value boolValue];
     }];
     [cellData getNumberForKey:@"autocorrectionType" next:^(NSNumber * _Nonnull value) {
-        textField.autocorrectionType =
+        self->textField.autocorrectionType =
             ( [value boolValue] ) ? UITextAutocorrectionTypeYes : UITextAutocorrectionTypeNo;
     }];
     [cellData getStringForKey:@"autocapitalizationType" next:^(NSString * _Nonnull value) {
@@ -66,13 +66,13 @@ NSString *const TextDataEntryCellNotification = @"TextDataEntryCell.scrollUpToKe
          UITextAutocapitalizationTypeAllCharacters,
          */
         if( [value compare:@"None" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
-            textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+            self->textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         } else if ( [value compare:@"Words" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
-            textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+            self->textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
         } else if ( [value compare:@"Sentences" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
-            textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+            self->textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
         } else if ( [value compare:@"AllCharacters" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
-            textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+            self->textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
         }
     }];
 		

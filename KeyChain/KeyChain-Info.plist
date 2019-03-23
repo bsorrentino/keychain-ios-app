@@ -35,5 +35,7 @@
 	<string>MainWindow</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
+    <key>NSFaceIDUsageDescription</key>
+    <string>provide access to application</string>
 </dict>
 </plist>
