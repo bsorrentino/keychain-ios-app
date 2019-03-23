@@ -150,13 +150,13 @@ class PushLinkPreviewController : UIViewController, UITextFieldDelegate {
                 if let title = result.title {
                     self.labelTitle.text = title;
                 }
-                if let description = result.description {
+                if let description = result.description  {
                     self.labelDescription.text = description;
                 }
                 if let canonicalUrl = result.canonicalUrl  {
                     self.labelCanonicalUrl.text = canonicalUrl;
                 }
-                if let images = result.images {
+                if let images = result.images  {
                     
                     if let inputImages = try? images.flatMap({ (urlString:String) -> InputSource in
                         

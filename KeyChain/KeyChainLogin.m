@@ -8,8 +8,8 @@
 
 #import "KeyChainLogin.h"
 #import "InfoViewController.h"
-#import "WEPopoverController.h"
-
+//#import "WEPopoverController.h"
+@import WEPopover;
 @import LocalAuthentication;
 
 #define TAG_FOR_LOGIN_BUTTON 5

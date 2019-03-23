@@ -8,7 +8,7 @@
 
 #import "ImportViewController.h"
 #import "PersistentAppDelegate.h"
-#import "WaitMaskController.h"
+//#import "WaitMaskController.h"
 
 @interface ImportViewController(Private)
 

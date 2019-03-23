@@ -6,9 +6,11 @@
 //  Copyright 2011 SOUL. All rights reserved.
 //
 
+@import UIXML ;
+
 #import "KeyEntityFormController.h"
-#import "BaseDataEntryCell.h"
-#import "TextDataEntryCell.h"
+//#import "BaseDataEntryCell.h"
+//#import "TextDataEntryCell.h"
 #import "iToast.h"
 
 @interface KeyEntityFormController( /*Private*/ )
