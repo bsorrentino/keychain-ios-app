@@ -86,7 +86,7 @@ import UserNotifications
             let content = UNMutableNotificationContent()
             content.title = "take a look"
             content.body = passwd
-            content.sound = UNNotificationSound.default()
+            content.sound = UNNotificationSound.default
 
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
                                                             repeats: false)

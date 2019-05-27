@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import KeychainAccess
 
-@objc class StringEncryptionTransformer : ValueTransformer {
+class StringEncryptionTransformer : ValueTransformer {
 
     override class func transformedValueClass() -> AnyClass {
         return Data.self as! AnyClass
@@ -26,7 +26,7 @@ import KeychainAccess
     }
 }
 
-@objc class KeyEntity : NSManagedObject {
+class KeyEntity : NSManagedObject {
     
     @NSManaged var mnemonic:String
     @NSManaged var groupPrefix:String?
@@ -40,7 +40,7 @@ import KeychainAccess
     static let _IS_NEW      = "isNew"
 
     //@TRANSIENT
-    var isNew:Bool {
+    @objc var isNew:Bool {
     
         get {
             let value = (self.primitiveValue(forKey: KeyEntity._IS_NEW)! as AnyObject).boolValue
@@ -52,7 +52,7 @@ import KeychainAccess
     }
     
     //@TRANSIENT
-    var password:String? {
+    @objc var password:String? {
         
         get {
             let key = self.mnemonic.trimmingCharacters(in: .whitespaces)
@@ -98,7 +98,7 @@ import KeychainAccess
 
     //MARK: Grouping section
     
-    func groupByPrefix( _ prefix:String? ) -> Void {
+    @objc func groupByPrefix( _ prefix:String? ) -> Void {
     
         if let p = prefix  {
             self.groupPrefix = p;
@@ -106,7 +106,7 @@ import KeychainAccess
         }
     }
     
-    func detachFromGroup() -> Void {
+    @objc func detachFromGroup() -> Void {
         
         self.groupPrefix = nil;
         self.group = NSNumber(value: false as Bool)
@@ -124,7 +124,7 @@ import KeychainAccess
         return predicate.evaluate(with: key)
     }
     
-    static func getSectionPrefix( _ key:KeyEntity, checkIfIsSectionAware:Bool ) -> NSRange {
+    @objc static func getSectionPrefix( _ key:KeyEntity, checkIfIsSectionAware:Bool ) -> NSRange {
     
         var result = NSMakeRange(NSNotFound, 0)
         
@@ -133,7 +133,7 @@ import KeychainAccess
             do {
                 let pattern = try NSRegularExpression(pattern: _REGEXP, options:.caseInsensitive)
 
-                let length = key.mnemonic.characters.count
+                let length = key.mnemonic.count
                 
                 if let match:NSTextCheckingResult =
                             pattern.firstMatch( in: key.mnemonic,
@@ -141,7 +141,7 @@ import KeychainAccess
                                                         range:NSMakeRange(0, length))
                 {
 
-                    result = match.rangeAt(1)
+                    result = match.range(at: 1)
                             
                 }
 
@@ -158,7 +158,7 @@ import KeychainAccess
     
     }
     
-    static func sectionNameFromPrefix( _ prefix:String?, trim:Bool ) -> String?  {
+    @objc static func sectionNameFromPrefix( _ prefix:String?, trim:Bool ) -> String?  {
         
         guard let p = prefix else {
             return nil;
@@ -175,7 +175,7 @@ import KeychainAccess
             return nil;
         }
         
-        let index = pp.characters.index(before: pp.endIndex)
+        let index = pp.index(before: pp.endIndex)
         
         let result = pp.substring(to: index)
         
@@ -183,7 +183,7 @@ import KeychainAccess
     
     }
 
-    static func createSection(  _ groupKey:String,
+    @objc static func createSection(  _ groupKey:String,
                                 groupPrefix:String,
                                 inContext context:NSManagedObjectContext) -> KeyEntity?
     {
@@ -266,15 +266,15 @@ import KeychainAccess
     
     // MARK: implementation
     
-    func isSection() -> Bool {
+    @objc func isSection() -> Bool {
         return self.groupPrefix != nil && (self.group == nil || self.group?.boolValue == false)
     }
     
-    func isGrouped() -> Bool {
+    @objc func isGrouped() -> Bool {
         return (self.groupPrefix != nil && self.group != nil && self.group!.boolValue)
     }
     
-    func isEqualForImport( _ object:AnyObject? ) -> Bool {
+    @objc func isEqualForImport( _ object:AnyObject? ) -> Bool {
     
         guard let o = object  else {
             return false
@@ -331,7 +331,7 @@ import KeychainAccess
         return E.key != KeyEntity._IS_NEW
     }
     
-    func toDictionary( _ target:NSMutableDictionary? ) -> NSDictionary? {
+    @objc func toDictionary( _ target:NSMutableDictionary? ) -> NSDictionary? {
     
         guard let t = target else {
             return target;
@@ -351,7 +351,7 @@ import KeychainAccess
         return t;
     }
     
-    func fromDictionary(_ source:NSDictionary?) {
+    @objc func fromDictionary(_ source:NSDictionary?) {
     
         guard let s = source else {
             return

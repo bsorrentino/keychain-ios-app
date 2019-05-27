@@ -28,13 +28,13 @@ class KeyChainAppDelegate : PersistentAppDelegate {
         }
     }
     
-    func playClick() {
+    @objc func playClick() {
         clickSound?.play()
 
     }
     
     override func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                              didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         if let musicFile = Bundle.init(identifier: "com.apple.UIKit")?.url(forResource: "Tock", withExtension: "aiff") {
             
@@ -94,7 +94,7 @@ class KeyChainAppDelegate : PersistentAppDelegate {
  
     
 
-    public static func showMessagePopup( _ message:String, title:String ) {
+    @objc public static func showMessagePopup( _ message:String, title:String ) {
     
         
         guard let mainWindow = UIApplication.shared.delegate?.window, let rootController = mainWindow?.rootViewController else {
@@ -109,7 +109,7 @@ class KeyChainAppDelegate : PersistentAppDelegate {
 
     }
 
-    public static func showErrorPopup( _ error:Error ) {
+    @objc public static func showErrorPopup( _ error:Error ) {
 
         showMessagePopup( error.localizedDescription, title:"Error" )
     }

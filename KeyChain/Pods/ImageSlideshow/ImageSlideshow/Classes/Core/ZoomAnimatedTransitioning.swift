@@ -60,7 +60,7 @@ open class ZoomAnimatedTransitioningDelegate: NSObject, UIViewControllerTransiti
         UIApplication.shared.keyWindow?.addGestureRecognizer(gestureRecognizer)
     }
 
-    func handleSwipe(_ gesture: UIPanGestureRecognizer) {
+    @objc func handleSwipe(_ gesture: UIPanGestureRecognizer) {
         guard let referenceSlideshowController = referenceSlideshowController else {
             return
         }
@@ -188,7 +188,7 @@ extension ZoomInAnimator: UIViewControllerAnimatedTransitioning {
         let transitionBackgroundView = UIView(frame: containerView.frame)
         transitionBackgroundView.backgroundColor = toViewController.backgroundColor
         containerView.addSubview(transitionBackgroundView)
-        containerView.sendSubview(toBack: transitionBackgroundView)
+        containerView.sendSubviewToBack(transitionBackgroundView)
 
         let finalFrame = toViewController.view.frame
 
@@ -196,7 +196,7 @@ extension ZoomInAnimator: UIViewControllerAnimatedTransitioning {
         var transitionViewFinalFrame = finalFrame
         if let referenceImageView = referenceImageView {
             transitionView = UIImageView(image: referenceImageView.image)
-            transitionView!.contentMode = UIViewContentMode.scaleAspectFill
+            transitionView!.contentMode = UIView.ContentMode.scaleAspectFill
             transitionView!.clipsToBounds = true
             transitionView!.frame = containerView.convert(referenceImageView.bounds, from: referenceImageView)
             containerView.addSubview(transitionView!)
@@ -215,7 +215,7 @@ extension ZoomInAnimator: UIViewControllerAnimatedTransitioning {
 
         let duration: TimeInterval = transitionDuration(using: transitionContext)
 
-        UIView.animate(withDuration: duration, delay:0, usingSpringWithDamping:0.7, initialSpringVelocity:0, options: UIViewAnimationOptions.curveLinear, animations: {
+        UIView.animate(withDuration: duration, delay:0, usingSpringWithDamping:0.7, initialSpringVelocity:0, options: UIView.AnimationOptions.curveLinear, animations: {
             fromViewController.view.alpha = 0
             transitionView?.frame = transitionViewFinalFrame
             transitionView?.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
@@ -250,7 +250,7 @@ extension ZoomOutAnimator: UIViewControllerAnimatedTransitioning {
         toViewController.view.frame = transitionContext.finalFrame(for: toViewController)
         toViewController.view.alpha = 0
         containerView.addSubview(toViewController.view)
-        containerView.sendSubview(toBack: toViewController.view)
+        containerView.sendSubviewToBack(toViewController.view)
 
         var transitionViewInitialFrame: CGRect
         if let currentSlideshowItem = fromViewController.slideshow.currentSlideshowItem {
@@ -272,7 +272,7 @@ extension ZoomOutAnimator: UIViewControllerAnimatedTransitioning {
             transitionViewFinalFrame = referenceSlideshowViewFrame
 
             // do a frame scaling when AspectFit content mode enabled
-            if fromViewController.slideshow.currentSlideshowItem?.imageView.image != nil && referenceImageView.contentMode == UIViewContentMode.scaleAspectFit {
+            if fromViewController.slideshow.currentSlideshowItem?.imageView.image != nil && referenceImageView.contentMode == UIView.ContentMode.scaleAspectFit {
                 transitionViewFinalFrame = containerView.convert(referenceImageView.aspectToFitFrame(), from: referenceImageView)
             }
 
@@ -287,10 +287,10 @@ extension ZoomOutAnimator: UIViewControllerAnimatedTransitioning {
         let transitionBackgroundView = UIView(frame: containerView.frame)
         transitionBackgroundView.backgroundColor = fromViewController.backgroundColor
         containerView.addSubview(transitionBackgroundView)
-        containerView.sendSubview(toBack: transitionBackgroundView)
+        containerView.sendSubviewToBack(transitionBackgroundView)
 
         let transitionView: UIImageView = UIImageView(image: fromViewController.slideshow.currentSlideshowItem?.imageView.image)
-        transitionView.contentMode = UIViewContentMode.scaleAspectFill
+        transitionView.contentMode = UIView.ContentMode.scaleAspectFill
         transitionView.clipsToBounds = true
         transitionView.frame = transitionViewInitialFrame
         containerView.addSubview(transitionView)
@@ -322,9 +322,9 @@ extension ZoomOutAnimator: UIViewControllerAnimatedTransitioning {
 
         // Working around iOS 10 bug in UIView.animate causing a glitch in interrupted interactive transition 
         if #available(iOS 10.0, *) {
-            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: duration, delay: 0, options: UIViewAnimationOptions(), animations: animations, completion: completion)
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: duration, delay: 0, options: UIView.AnimationOptions(), animations: animations, completion: completion)
         } else {
-            UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions(), animations: animations, completion: completion)
+            UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(), animations: animations, completion: completion)
         }
     }
 }

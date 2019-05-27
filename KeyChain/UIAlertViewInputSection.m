@@ -96,6 +96,7 @@ static UIAlertViewInputSection *currentDelegate;
             
             groupPrefix = trimmed;
             groupName = [KeyEntity sectionNameFromPrefix:groupPrefix trim:NO];
+
         }
         else {
             groupPrefix = [trimmed stringByAppendingString:@"-"];

@@ -232,6 +232,14 @@
 		A02BB73D159C5829001FD5AA /* popoverBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popoverBg.png; path = Pods/WEPopover/popoverBg.png; sourceTree = "<group>"; };
 		A02BB73E159C5829001FD5AA /* popoverBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "popoverBg@2x.png"; path = "Pods/WEPopover/popoverBg@2x.png"; sourceTree = "<group>"; };
 		A02BB73F159C5829001FD5AA /* popoverBgSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popoverBgSimple.png; path = Pods/WEPopover/popoverBgSimple.png; sourceTree = "<group>"; };
+		A04D476D229C0675005EA4A3 /* ImageSlideshow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImageSlideshow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04D476F229C0675005EA4A3 /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04D4771229C0675005EA4A3 /* MTStatusBarOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MTStatusBarOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04D4773229C0675005EA4A3 /* STAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = STAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04D4775229C0675005EA4A3 /* SwiftLinkPreview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftLinkPreview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04D4777229C0675005EA4A3 /* UIXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04D4779229C0675005EA4A3 /* WEPopover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WEPopover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04D477B229C0675005EA4A3 /* ZKRevealingTableViewCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZKRevealingTableViewCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0759F2014305DBE000701EF /* settings20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings20x20.png; sourceTree = "<group>"; };
 		A082214919F45FE300FC7BFD /* WEPopover.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WEPopover.podspec; sourceTree = "<group>"; };
 		A082214D19F4649700FC7BFD /* ZKRevealingTableViewCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZKRevealingTableViewCell.podspec; sourceTree = "<group>"; };
@@ -282,7 +290,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA = {
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
 				5FB538021EF13FE7009B928D /* assets.xcassets */,
@@ -355,6 +363,14 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A04D476D229C0675005EA4A3 /* ImageSlideshow.framework */,
+				A04D476F229C0675005EA4A3 /* KeychainAccess.framework */,
+				A04D4771229C0675005EA4A3 /* MTStatusBarOverlay.framework */,
+				A04D4773229C0675005EA4A3 /* STAlertView.framework */,
+				A04D4775229C0675005EA4A3 /* SwiftLinkPreview.framework */,
+				A04D4777229C0675005EA4A3 /* UIXML.framework */,
+				A04D4779229C0675005EA4A3 /* WEPopover.framework */,
+				A04D477B229C0675005EA4A3 /* ZKRevealingTableViewCell.framework */,
 				5FF268F71B5FAA6C007440E7 /* libcommonCrypto.dylib */,
 				5FEA98E412B981950034ADC1 /* libsqlite3.0.dylib */,
 				5F3BD072143B352E00001F01 /* CoreData.framework */,
@@ -653,7 +669,7 @@
 				German,
 				en,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -896,7 +912,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "KeyChain-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -930,7 +946,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "KeyChain-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};

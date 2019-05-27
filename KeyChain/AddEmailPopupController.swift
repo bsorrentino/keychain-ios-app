@@ -23,9 +23,9 @@ class AddEmailPopupController : UIViewController, UITextFieldDelegate {
         get { return _isOpen }
     }
     
-    var onClose: (( _ url:String? ) -> Void)?
+    @objc var onClose: (( _ url:String? ) -> Void)?
     
-    class func createPopup() -> AddEmailPopupController {
+    @objc class func createPopup() -> AddEmailPopupController {
         
         return  AddEmailPopupController( nibName: "AddEmailPopupController", bundle: nil)
     }
@@ -61,7 +61,7 @@ class AddEmailPopupController : UIViewController, UITextFieldDelegate {
     }
     
   
-    func showInView(aView: UIView!)
+    @objc func showInView(aView: UIView!)
     {
         guard !self._isOpen else {
             return

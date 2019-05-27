@@ -12,11 +12,11 @@ open class FullScreenSlideshowViewController: UIViewController {
     open var slideshow: ImageSlideshow = {
         let slideshow = ImageSlideshow()
         slideshow.zoomEnabled = true
-        slideshow.contentScaleMode = UIViewContentMode.scaleAspectFit
+        slideshow.contentScaleMode = UIView.ContentMode.scaleAspectFit
         slideshow.pageControlPosition = PageControlPosition.insideScrollView
         // turns off the timer
         slideshow.slideshowInterval = 0
-        slideshow.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        slideshow.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
 
         return slideshow
     }()
@@ -63,8 +63,8 @@ open class FullScreenSlideshowViewController: UIViewController {
 
         // close button configuration
         closeButton.frame = CGRect(x: 10, y: 20, width: 40, height: 40)
-        closeButton.setImage(UIImage(named: "Frameworks/ImageSlideshow.framework/ImageSlideshow.bundle/ic_cross_white@2x"), for: UIControlState())
-        closeButton.addTarget(self, action: #selector(FullScreenSlideshowViewController.close), for: UIControlEvents.touchUpInside)
+        closeButton.setImage(UIImage(named: "Frameworks/ImageSlideshow.framework/ImageSlideshow.bundle/ic_cross_white@2x"), for: UIControl.State())
+        closeButton.addTarget(self, action: #selector(FullScreenSlideshowViewController.close), for: UIControl.Event.touchUpInside)
         view.addSubview(closeButton)
     }
 
@@ -85,7 +85,7 @@ open class FullScreenSlideshowViewController: UIViewController {
         slideshow.frame = view.frame
     }
 
-    func close() {
+    @objc func close() {
         // if pageSelected closure set, send call it with current page
         if let pageSelected = pageSelected {
             pageSelected(slideshow.currentPage)

@@ -1641,7 +1641,7 @@ extension CFError {
         let code = CFErrorGetCode(self)
         let userInfo = CFErrorCopyUserInfo(self) as! [NSObject: Any]
 
-        return NSError(domain: domain, code: code, userInfo: userInfo)
+        return NSError(domain: domain, code: code, userInfo: userInfo as! [String : Any])
     }
 }
 

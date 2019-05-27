@@ -9,12 +9,12 @@
 import Foundation
 import KeychainAccess
 
-@objc class AccountCredential : NSObject {
+class AccountCredential : NSObject {
     
     
     static fileprivate var _sharedCredential:AccountCredential?
     
-    static var sharedCredential:AccountCredential {
+    @objc static var sharedCredential:AccountCredential {
         get{
             if let s = _sharedCredential {
                 return s
@@ -25,7 +25,7 @@ import KeychainAccess
     }
     
     
-    var password:String?  {
+    @objc var password:String?  {
         get {
             let keychain = Keychain(service: bundleId)
             
@@ -89,7 +89,7 @@ import KeychainAccess
         
     }
     
-    var bundleVersion:String? {
+    @objc var bundleVersion:String? {
         get {
             return  Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
         }
@@ -98,7 +98,7 @@ import KeychainAccess
     
     // check if currentVersion is different to bundleVersion
     // return YES if are differents
-    func checkAndUpdateCurrentVersion() -> Bool
+    @objc func checkAndUpdateCurrentVersion() -> Bool
     {
         guard let bv = self.bundleVersion else {
             return false

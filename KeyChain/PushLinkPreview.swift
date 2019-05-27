@@ -129,7 +129,7 @@ class PushLinkPreviewController : UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidChange(textField: UITextField){
+    @objc func textFieldDidChange(textField: UITextField){
         
         validateInput(text: textField.text )
         

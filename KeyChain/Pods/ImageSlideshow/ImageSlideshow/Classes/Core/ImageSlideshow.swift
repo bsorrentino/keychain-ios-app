@@ -142,7 +142,7 @@ open class ImageSlideshow: UIView {
     open var preload = ImagePreload.all
 
     /// Content mode of each image in the slideshow
-    open var contentScaleMode: UIViewContentMode = UIViewContentMode.scaleAspectFit {
+    open var contentScaleMode: UIView.ContentMode = UIView.ContentMode.scaleAspectFit {
         didSet {
             for view in slideshowItems {
                 view.imageView.contentMode = contentScaleMode
@@ -348,7 +348,7 @@ open class ImageSlideshow: UIView {
         }
     }
 
-    func slideshowTick(_ timer: Timer) {
+    @objc func slideshowTick(_ timer: Timer) {
         let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
         var nextPage = page + 1
 
