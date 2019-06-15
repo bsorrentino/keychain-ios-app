@@ -16,9 +16,9 @@ class KeyItemListViewController : UITableViewController {
     var items:[KeyItem] = []
 
     var cellView:ViewProvider?
-    
+
     override func viewDidLoad() {
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "keyitem")
+        tableView.register(UINib(nibName: "KeyItemCell", bundle: nil), forCellReuseIdentifier: "keyitem")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,9 +44,11 @@ class KeyItemListViewController : UITableViewController {
         return cell
     
     }
-    /**
-    SWIPE ACTIONS
-     */
+    
+    //
+    // MARK: SWIPE ACTIONS
+    //
+    
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let copy = UIContextualAction( style: .normal, title: "Copy" ) { action, view, completionHandler in
@@ -56,9 +58,18 @@ class KeyItemListViewController : UITableViewController {
         
         let configuration = UISwipeActionsConfiguration(actions: [ copy ])
         
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let configuration = UISwipeActionsConfiguration(actions: [])
+        
         return configuration
     }
 
+    
 }
 
 struct KeyItemList: UIViewControllerRepresentable {
@@ -69,7 +80,7 @@ struct KeyItemList: UIViewControllerRepresentable {
     
     public init( _ items:[KeyItem]/*, cellView:@escaping ViewProvider*/ ) {
         
-        self.controller = KeyItemListViewController(style: .plain)
+        self.controller = KeyItemListViewController()
         
         self.controller.items = items
         //self.controller.cellView = cellView
