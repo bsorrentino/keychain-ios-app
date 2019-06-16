@@ -16,9 +16,24 @@ class KeyItemListViewController : UITableViewController {
     var items:[KeyItem] = []
 
     var cellView:ViewProvider?
+    
+    var resultSearchController:UISearchController?
 
     override func viewDidLoad() {
+        
         tableView.register(UINib(nibName: "KeyItemCell", bundle: nil), forCellReuseIdentifier: "keyitem")
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.searchBar.sizeToFit()
+        
+        searchController.searchBar.barTintColor = tableView.backgroundColor
+        
+        tableView.tableHeaderView = searchController.searchBar
+            
+        resultSearchController = searchController
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,6 +60,22 @@ class KeyItemListViewController : UITableViewController {
     
     }
     
+    
+    //
+    // MARK: TAP ACTIONS
+    //
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let newViewController = KeyItemDetail()
+        self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        
+        let newViewController = KeyItemDetail()
+        self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
+    }
+    
+    
     //
     // MARK: SWIPE ACTIONS
     //
@@ -69,6 +100,15 @@ class KeyItemListViewController : UITableViewController {
         return configuration
     }
 
+    
+}
+
+extension KeyItemListViewController : UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
     
 }
 
@@ -102,16 +142,15 @@ struct KeyItemList: UIViewControllerRepresentable {
 struct ContentView : View {
     
     var items:[KeyItem]
-    /*
+
     var body: some View {
-            List(items) { item in
-                KeyItemRow(item:item)
-                
-            }
-    }
-    */
-    var body: some View {
-        KeyItemList(items)
+        NavigationView {
+            //NavigationButton( destination: KeyItemDetail() ) {
+                KeyItemList(items)
+                    .navigationBarTitle( Text("Key List") )
+
+            //}
+        }
     }
 }
 
