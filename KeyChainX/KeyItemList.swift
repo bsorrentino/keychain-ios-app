@@ -158,9 +158,9 @@ struct ContentView : View {
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
         ContentView(items: [
-            KeyItem( id:"item1", username:"user1", note:""),
-            KeyItem( id:"item2", username:"user2", note:""),
-            KeyItem( id:"item3", username:"user3", note:""),
+            KeyItem( id:"item1", username:"user1"),
+            KeyItem( id:"item2", username:"user2"),
+            KeyItem( id:"item3", username:"user3"),
         ])
     }
 }

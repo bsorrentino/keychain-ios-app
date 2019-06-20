@@ -7,12 +7,30 @@
 //
 
 import SwiftUI
+import Combine
 
-struct KeyItem: Hashable, Codable, Identifiable {
-    var id:String
-    var groupPrefix:String?
-    var grouped:Bool = false
-    var username:String
-    var note:String
+class KeyItem: /*Hashable, Codable,*/ Identifiable, BindableObject {
     
+    var didChange = PassthroughSubject<KeyItem, Never>()
+    
+    var id:String {
+        didSet { didChange.send(self) }
+    }
+    var username:String {
+        didSet { didChange.send(self) }
+    }
+    var groupPrefix:String? {
+        didSet { didChange.send(self) }
+    }
+    var grouped:Bool = false {
+        didSet { didChange.send(self) }
+    }
+    var note:String? {
+        didSet { didChange.send(self) }
+    }
+    
+    init( id:String, username:String ) {
+        self.id = id
+        self.username = username
+    }
 }

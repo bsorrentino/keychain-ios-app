@@ -26,7 +26,7 @@ struct KeyItemRow : View {
 struct KeyItemRow_Previews : PreviewProvider {
     static var previews: some View {
         Group {
-            KeyItemRow( item: KeyItem( id: "the mnemonic item", username: "bsorrentino", note:""))
+            KeyItemRow( item: KeyItem( id: "the mnemonic item", username: "bsorrentino"))
         }.previewLayout(.fixed(width: 300, height: 70))
     }
 }

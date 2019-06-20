@@ -8,13 +8,43 @@
 
 import SwiftUI
 
-struct KeyItemDetail : View {
+class StringFormatter : Formatter {
+    
+}
+
+struct TextFieldAndLabel : View {
+    
+    var label:String;
+    var placeholder:String?
+    
+    @Binding var value:String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Text( label )
+            TextField( $value, placeholder: Text("placeholder") )
+        }
+        
+    }
+}
+
+
+struct KeyItemDetail : View {
+    
+    @State var labelValue = "test"
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                TextFieldAndLabel( label: "Label", value:$labelValue )
+                
+            }
+        }
     }
 }
 
 #if DEBUG
+
 struct KeyItemDetail_Previews : PreviewProvider {
     static var previews: some View {
         KeyItemDetail()
