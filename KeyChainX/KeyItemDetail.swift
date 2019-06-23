@@ -23,6 +23,7 @@ struct TextFieldAndLabel : View {
         VStack(alignment: .leading) {
             Text( label )
             TextField( $value, placeholder: Text("placeholder") )
+            
         }
         
     }
@@ -31,15 +32,32 @@ struct TextFieldAndLabel : View {
 
 struct KeyItemDetail : View {
     
-    @State var labelValue = "test"
+    @ObjectBinding var item:KeyItem
     
     var body: some View {
-        NavigationView {
+        //NavigationView {
             Form {
-                TextFieldAndLabel( label: "Label", value:$labelValue )
-                
-            }
-        }
+                /*
+                Section {
+                    
+                    VStack(alignment: .leading) {
+                        Text( "MNEMONIC" )
+                        Text( item.id )
+                        
+                    }
+                }
+                */
+                Section {
+                    TextFieldAndLabel( label: "Username", value:$item.username )
+                    TextFieldAndLabel( label: "password", value:$item.password )
+                }
+                Section {
+                    TextFieldAndLabel( label: "eMail", value:$item.email )
+                    TextFieldAndLabel( label: "Note", value:$item.note )
+                }
+
+            }.navigationBarTitle( Text("\(item.id.uppercased())"), displayMode: .inline  )
+        //}
     }
 }
 
@@ -47,7 +65,8 @@ struct KeyItemDetail : View {
 
 struct KeyItemDetail_Previews : PreviewProvider {
     static var previews: some View {
-        KeyItemDetail()
+        
+        KeyItemDetail(item: KeyItem( id:"id1", username:"username1"))
     }
 }
 #endif

@@ -65,13 +65,27 @@ class KeyItemListViewController : UITableViewController {
     // MARK: TAP ACTIONS
     //
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let newViewController = KeyItemDetail()
+        
+        guard let index = tableView.indexPathForSelectedRow?.row else {
+            return
+        }
+        
+        let selectedItem = items[index]
+        
+        let newViewController = KeyItemDetail( item: selectedItem )
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
-        let newViewController = KeyItemDetail()
+        guard let index = tableView.indexPathForSelectedRow?.row else {
+            return
+        }
+        
+        let selectedItem = items[index]
+        
+        let newViewController = KeyItemDetail( item: selectedItem )
+
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
     }
     

@@ -9,28 +9,32 @@
 import SwiftUI
 import Combine
 
-class KeyItem: /*Hashable, Codable,*/ Identifiable, BindableObject {
+class KeyItem: /*Hashable, Codable,*/ BindableObject {
     
-    var didChange = PassthroughSubject<KeyItem, Never>()
     
-    var id:String {
-        didSet { didChange.send(self) }
-    }
-    var username:String {
-        didSet { didChange.send(self) }
-    }
-    var groupPrefix:String? {
-        didSet { didChange.send(self) }
-    }
-    var grouped:Bool = false {
-        didSet { didChange.send(self) }
-    }
-    var note:String? {
-        didSet { didChange.send(self) }
-    }
+    var didChange = PassthroughSubject<Void, Never>()
     
+    var id:String
+    var username:String
+    var groupPrefix:String?
+    var grouped:Bool = false
+    var email:String
+    var note:String
+    
+    var password:String {
+        get {
+            return "the password"
+        }
+        set(newValue) {
+            
+        }
+    }
     init( id:String, username:String ) {
         self.id = id
         self.username = username
+        self.email = ""
+        self.note = ""
     }
+    
+    
 }
