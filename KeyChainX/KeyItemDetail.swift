@@ -23,6 +23,9 @@ struct TextFieldAndLabel : View {
         VStack(alignment: .leading) {
             Text( label )
             TextField( $value, placeholder: Text("placeholder") )
+                .padding(.all)
+                .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0), cornerRadius: 5.0)
+
             
         }
         
@@ -54,6 +57,9 @@ struct KeyItemDetail : View {
                 Section {
                     TextFieldAndLabel( label: "eMail", value:$item.email )
                     TextFieldAndLabel( label: "Note", value:$item.note )
+                    //NavigationButton {
+                        
+                    //}
                 }
 
             }.navigationBarTitle( Text("\(item.id.uppercased())"), displayMode: .inline  )
