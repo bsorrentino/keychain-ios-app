@@ -10,6 +10,7 @@
 		A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */; };
 		A0375EA222B69BF000BD4B79 /* KeyItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0375EA122B69BF000BD4B79 /* KeyItemDetail.swift */; };
 		A08AE59222A956C10049096A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A08AE59122A956C10049096A /* KeychainAccess */; };
+		A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */; };
 		A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5622A901AD003B09ED /* AppDelegate.swift */; };
 		A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */; };
 		A0C0DB5C22A901AD003B09ED /* KeyChainX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5A22A901AD003B09ED /* KeyChainX.xcdatamodeld */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemNote.swift; sourceTree = "<group>"; };
 		A0375EA122B69BF000BD4B79 /* KeyItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemDetail.swift; sourceTree = "<group>"; };
+		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
 		A0C0DB5322A901AD003B09ED /* KeyChainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C0DB5622A901AD003B09ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A096B3C522CE4295004E17CC /* UIKIT */ = {
+			isa = PBXGroup;
+			children = (
+				A0EC9E4522B420AD009EB81F /* KeyItemCell.xib */,
+				A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */,
+			);
+			path = UIKIT;
+			sourceTree = "<group>";
+		};
 		A0C0DB4A22A901AD003B09ED = {
 			isa = PBXGroup;
 			children = (
@@ -116,12 +127,12 @@
 		A0C0DB5522A901AD003B09ED /* KeyChainX */ = {
 			isa = PBXGroup;
 			children = (
+				A096B3C522CE4295004E17CC /* UIKIT */,
 				A0C0DB8B22A9454C003B09ED /* KeyItem.swift */,
 				A0C0DB8922A911AB003B09ED /* KeyItemRow.swift */,
 				A0C0DB5622A901AD003B09ED /* AppDelegate.swift */,
 				A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */,
 				A0C0DB5D22A901AD003B09ED /* KeyItemList.swift */,
-				A0EC9E4522B420AD009EB81F /* KeyItemCell.xib */,
 				A0375EA122B69BF000BD4B79 /* KeyItemDetail.swift */,
 				A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */,
 				A0C0DB5F22A901B0003B09ED /* Assets.xcassets */,
@@ -303,6 +314,7 @@
 				A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */,
 				A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */,
 				A0375EA222B69BF000BD4B79 /* KeyItemDetail.swift in Sources */,
+				A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */,
 				A0C0DB5E22A901AD003B09ED /* KeyItemList.swift in Sources */,
 				A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */,
 				A0C0DB8A22A911AB003B09ED /* KeyItemRow.swift in Sources */,
