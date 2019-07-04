@@ -56,10 +56,9 @@ struct KeyItemDetail : View {
                 }
                 Section {
                     TextFieldAndLabel( label: "eMail", value:$item.email )
-                    TextFieldAndLabel( label: "Note", value:$item.note )
-                    //NavigationButton {
-                        
-                    //}
+                    PresentationButton( destination: KeyItemNote( value:$item.note ) ){
+                        Text("Note")
+                    }
                 }
 
             }.navigationBarTitle( Text("\(item.id.uppercased())"), displayMode: .inline  )
