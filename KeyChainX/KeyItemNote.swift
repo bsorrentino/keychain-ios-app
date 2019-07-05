@@ -13,14 +13,18 @@ struct KeyItemNote : View {
     @Binding var value:String
     
     var body: some View {
-        TextField( $value )
+        GeometryReader { geometry in
+            TextField( "note", text: self.$value )
+                .frame( width: geometry.size.width, height: geometry.size.height)
+                .background( Color.yellow)
+        }
     }
 }
 
 #if DEBUG
 struct Note_Previews : PreviewProvider {
     static var previews: some View {
-        KeyItemNote( value: .constant("") )
+        KeyItemNote( value: .constant("TEST") )
     }
 }
 #endif

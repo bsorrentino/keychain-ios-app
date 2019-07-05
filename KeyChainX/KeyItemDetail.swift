@@ -56,7 +56,7 @@ struct KeyItemDetail : View {
                 }
                 Section {
                     TextFieldAndLabel( label: "eMail", value:$item.email )
-                    PresentationButton( destination: KeyItemNote( value:$item.note ) ){
+                    PresentationLink( destination: KeyItemNote( value:$item.note ) ){
                         Text("Note")
                     }
                 }
