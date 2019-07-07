@@ -15,8 +15,11 @@ struct KeyItemNote : View {
     var body: some View {
         GeometryReader { geometry in
             TextField( "note", text: self.$value )
-                .frame( width: geometry.size.width, height: geometry.size.height)
+                .frame( width: geometry.size.width, height: geometry.size.height, alignment: .topLeading)
                 .background( Color.yellow)
+                .lineLimit(30)
+            
+            
         }
     }
 }
