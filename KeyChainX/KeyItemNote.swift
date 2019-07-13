@@ -14,6 +14,7 @@ struct KeyItemNote : View {
     @Binding var value:String
     
     var body: some View {
+        NavigationView {
                 VStack {
                     GeometryReader { geometry in
                         TextField( "note", text: self.$value )
@@ -24,8 +25,8 @@ struct KeyItemNote : View {
                     Button("OK") {
                         self.isPresented?.value = false
                     }
-                }
-        
+            }.navigationBarTitle( Text("Note"), displayMode: .inline  )
+        }
 
     }
 }

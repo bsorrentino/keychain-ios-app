@@ -82,7 +82,7 @@ struct KeyItemDetail : View {
     @State var secretInfo:SecretInfo = .hide
     
     var body: some View {
-        NavigationView {
+        //NavigationView {
             Form {
                 /*
                 Section {
@@ -111,10 +111,12 @@ struct KeyItemDetail : View {
             .navigationBarItems(trailing:
                 HStack {
                     SegmentedControl( selection: $secretInfo ) {
-                        Text(SecretInfo.hide.text).tag(SecretInfo.hide)
-                        Text(SecretInfo.show.text).tag(SecretInfo.show)
+                        Image( systemName: "eye.slash").tag(SecretInfo.hide)
+                        //Text(SecretInfo.hide.text).tag(SecretInfo.hide)
+                        Image( systemName: "eye").tag(SecretInfo.show)
+                        //Text(SecretInfo.show.text).tag(SecretInfo.show)
                     }
-                    Spacer(minLength: 20)
+                    Spacer(minLength: 15)
                     Button( action:{
                         print( "Save" )
                     }, label: {
@@ -123,7 +125,7 @@ struct KeyItemDetail : View {
                     })
                 }
             )
-        }
+        //}
         
     }
 }
