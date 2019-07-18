@@ -9,6 +9,40 @@
 import UIKit
 import CoreData
 
+//
+// Make Sting compliant with Error protocol
+// @see https://www.hackingwithswift.com/example-code/language/how-to-throw-errors-using-strings
+//
+extension String: LocalizedError {
+    public var errorDescription: String? { return self }
+}
+
+// GLOBAL DATA
+// IT IS A CACHE
+struct ApplicationData {
+    
+    static var shared = ApplicationData()
+    
+    var items:Array<KeyItem> = [];
+    var emails:Array<Any> = []
+    
+    private init() {}
+}
+
+// KeyEntity Extension
+extension KeyEntity {
+    
+    func toKeyItem() throws -> KeyItem {
+        
+        guard let id = self.mnemonic, let username = self.username else {
+            throw "Invalid KeyEntity no mnemonic or username defined"
+        }
+        
+        return KeyItem( id:id, username:username )
+    }
+
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.loadContext()
         return true
     }
 
@@ -64,10 +100,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
+            container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+
         })
         return container
     }()
+    
+    // MARK: - Core Data Loading support
+    
+    func loadContext() {
+        
+        let context = persistentContainer.viewContext;
+        
+        do {
+            let request = NSFetchRequest<KeyEntity>(entityName: "KeyItem")
+            
+            let result = try context.fetch(request)
+            
+            ApplicationData.shared.items =  try result.map{ try $0.toKeyItem() }
+            
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
 
+        }
+        
+    }
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {
