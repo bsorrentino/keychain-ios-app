@@ -39,19 +39,42 @@ struct KeyItemList: UIViewControllerRepresentable {
 }
 
 struct ContentView : View {
-    
+
     var items:[KeyItem]
 
     var body: some View {
         NavigationView {
-            //NavigationButton( destination: KeyItemDetail() ) {
-                KeyItemList(items)
-                    .navigationBarTitle( Text("Key List") )
-
-            //}
+            TopView( items:items )
+                .navigationBarTitle( Text("Key List") )
         }
+
     }
 }
+
+struct TopView : View {
+    
+    let form = DynamicNavigationDestinationLink( id:\KeyItem.self ) { data in
+        KeyItemForm( item: data)
+    }
+    
+    var items:[KeyItem]
+    
+    var body: some View {
+        KeyItemList(items)
+            .navigationBarItems(trailing:
+            HStack {
+                Button( action: {
+                    self.form.presentedData?.value =
+                        KeyItem( id:"id1", username: "user1")
+                }, label: {
+                    Image( systemName: "plus" )
+                })
+        })
+    }
+    
+    
+}
+
 
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {

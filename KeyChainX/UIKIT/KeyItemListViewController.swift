@@ -73,7 +73,7 @@ class KeyItemListViewController : UITableViewController {
         
         let selectedItem = items[index]
         
-        let newViewController = KeyItemDetail( item: selectedItem )
+        let newViewController = KeyItemForm( item: selectedItem )
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
     }
     
@@ -85,7 +85,7 @@ class KeyItemListViewController : UITableViewController {
         
         let selectedItem = items[index]
         
-        let newViewController = KeyItemDetail( item: selectedItem )
+        let newViewController = KeyItemForm( item: selectedItem )
         
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
     }

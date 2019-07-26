@@ -9,9 +9,8 @@
 import SwiftUI
 import Combine
 
-class KeyItem: /*Hashable, Codable,*/ BindableObject {
-    
-    
+class KeyItem: /*Codable,*/ BindableObject {
+
     var didChange = PassthroughSubject<Void, Never>()
     
     var id:String
@@ -35,6 +34,17 @@ class KeyItem: /*Hashable, Codable,*/ BindableObject {
         self.email = ""
         self.note = ""
     }
+
     
+}
+
+extension KeyItem : Hashable {
+    static func == (lhs: KeyItem, rhs: KeyItem) -> Bool {
+        lhs.id == rhs.id
+    }
     
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

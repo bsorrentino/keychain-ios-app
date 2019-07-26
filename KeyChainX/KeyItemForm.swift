@@ -76,7 +76,7 @@ extension SecretInfo {
     }
 }
 
-struct KeyItemDetail : View {
+struct KeyItemForm : View {
     
     @ObjectBinding var item:KeyItem
     @State var secretInfo:SecretInfo = .hide
@@ -135,7 +135,7 @@ struct KeyItemDetail : View {
 struct KeyItemDetail_Previews : PreviewProvider {
     static var previews: some View {
         
-        KeyItemDetail(item: KeyItem( id:"id1", username:"username1"))
+        KeyItemForm(item: KeyItem( id:"id1", username:"username1"))
     }
 }
 #endif
