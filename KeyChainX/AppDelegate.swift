@@ -8,7 +8,8 @@
 
 import UIKit
 import CoreData
-
+import SwiftUI
+import Combine
 //
 // Make Sting compliant with Error protocol
 // @see https://www.hackingwithswift.com/example-code/language/how-to-throw-errors-using-strings
@@ -19,14 +20,32 @@ extension String: LocalizedError {
 
 // GLOBAL DATA
 // IT IS A CACHE
-struct ApplicationData {
+class ApplicationData: BindableObject {
     
-    static var shared = ApplicationData()
+    var didChange = PassthroughSubject<Void, Never>()
     
-    var items:Array<KeyItem> = [];
-    var emails:Array<Any> = []
+    var items:Array<KeyItem> = [] {
+        
+        didSet {
+            didChange.send(())
+        }
+    };
+
+    var emails:Array<Any> = [] {
+        didSet {
+            didChange.send(())
+        }
+    }
     
-    private init() {}
+    init() {
+        
+    }
+    
+    convenience init( items:Array<KeyItem> ) {
+        self.init();
+        
+        self.items = items;
+    }
 }
 
 // KeyEntity Extension
@@ -46,7 +65,7 @@ extension KeyEntity {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let applicationData = ApplicationData()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -117,7 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let result = try context.fetch(request)
             
-            ApplicationData.shared.items =  try result.map{ try $0.toKeyItem() }
+            self.applicationData.items =  try result.map{ try $0.toKeyItem() }
             
         } catch {
             // Replace this implementation with code to handle the error appropriately.

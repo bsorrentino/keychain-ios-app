@@ -40,11 +40,9 @@ struct KeyItemList: UIViewControllerRepresentable {
 
 struct ContentView : View {
 
-    var items:[KeyItem]
-
     var body: some View {
         NavigationView {
-            TopView( items:items )
+            TopView()
                 .navigationBarTitle( Text("Key List") )
         }
 
@@ -53,14 +51,15 @@ struct ContentView : View {
 
 struct TopView : View {
     
+    @EnvironmentObject var data:ApplicationData;
+    
     let form = DynamicNavigationDestinationLink( id:\KeyItem.self ) { data in
         KeyItemForm( item: data)
     }
     
-    var items:[KeyItem]
     
     var body: some View {
-        KeyItemList(items)
+        KeyItemList( data.items )
             .navigationBarItems(trailing:
             HStack {
                 Button( action: {
@@ -79,11 +78,12 @@ struct TopView : View {
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        ContentView(items: [
+        ContentView().environmentObject( ApplicationData(items:[
             KeyItem( id:"item1", username:"user1"),
             KeyItem( id:"item2", username:"user2"),
             KeyItem( id:"item3", username:"user3"),
-        ])
+        ]) )
+        
     }
 }
 #endif
