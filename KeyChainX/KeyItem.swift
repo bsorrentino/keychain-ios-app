@@ -9,7 +9,13 @@
 import SwiftUI
 import Combine
 
+//var ITEM_EMPTY = { UUID().uuidString }()
+
 class KeyItem: /*Codable,*/ BindableObject {
+
+    enum State {
+        case neutral, new, updated
+    }
 
     var didChange = PassthroughSubject<Void, Never>()
     
@@ -19,6 +25,7 @@ class KeyItem: /*Codable,*/ BindableObject {
     var grouped:Bool = false
     var email:String
     var note:String
+    var state:State
     
     var password:String {
         get {
@@ -28,13 +35,27 @@ class KeyItem: /*Codable,*/ BindableObject {
             
         }
     }
-    init( id:String, username:String ) {
-        self.id = id
-        self.username = username
+    init( state:State ) {
+        self.state = state;
+        self.id = ""
+        self.username = ""
         self.email = ""
         self.note = ""
+
+    }
+    
+    convenience init( id:String, username:String, email:String = "", note:String = "" ) {
+        self.init( state:.neutral )
+        self.id = id
+        self.username = username
+        self.email = email
+        self.note = note
     }
 
+    static func newItem() -> KeyItem {
+        KeyItem( state:.new )
+    }
+    
     
 }
 

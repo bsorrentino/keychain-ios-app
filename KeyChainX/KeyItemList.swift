@@ -65,7 +65,7 @@ struct TopView : View {
             HStack {
                 Button( action: {
                     self.form.presentedData?.value =
-                        KeyItem( id:"id1", username: "user1")
+                        KeyItem.newItem()
                 }, label: {
                     Image( systemName: "plus" )
                 })

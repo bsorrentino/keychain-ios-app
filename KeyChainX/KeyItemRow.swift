@@ -14,7 +14,7 @@ struct KeyItemRow : View {
     var body: some View {
         VStack(alignment: .leading) {
             Text( item.id.uppercased() )
-            Text( item.grouped ? item.groupPrefix ?? "" : item.username )
+            Text( item.grouped ? (item.groupPrefix ?? "") : item.username )
                 .font(.subheadline)
                 .italic()
                 .color(Color.gray)
