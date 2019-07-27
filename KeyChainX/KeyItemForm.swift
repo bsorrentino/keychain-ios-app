@@ -164,7 +164,7 @@ struct KeyItemForm : View {
                     }
                     Spacer(minLength: 15)
                     Button( action:{
-                        print( "Save" )
+                        print( "Save \(self.username.value)" )
                     }, label: {
                         //Image( systemName: "plus" )
                         Text("save")
