@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 class StringFormatter : Formatter {
     
@@ -26,6 +27,26 @@ struct TextFieldAndLabel : View {
                 .padding(.all)
                 .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0), cornerRadius: 5.0)
 
+            
+        }
+        
+    }
+}
+
+struct TextFieldAndLabel2 : View {
+    
+    var label:String;
+    var title:String?
+    
+    @ObjectBinding var field:FieldChecker<String>
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text( label )
+            TextField( title ?? label, text: $field.value )
+                .padding(.all)
+                .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0), cornerRadius: 5.0)
+                .border( field.errorMessage != nil ? Color.red : Color.clear )
             
         }
         
@@ -65,6 +86,26 @@ struct SecretFieldAndLabel : View {
     }
 }
 
+class FieldChecker<T> : BindableObject {
+    typealias Validator = (T ) -> String?
+    
+    let didChange = PassthroughSubject<Void, Never>()
+    
+    var value:T {
+        didSet {
+            self.errorMessage = self.validate( self.value )
+            self.didChange.send()
+        }
+    }
+    var errorMessage:String?;
+    
+    let validate:Validator
+    
+    init( _ value:T, validator:@escaping Validator  ) {
+        self.validate = validator
+        self.value = value
+    }
+}
 
 extension SecretInfo {
     
@@ -80,7 +121,12 @@ struct KeyItemForm : View {
     
     @ObjectBinding var item:KeyItem
     @State var secretInfo:SecretInfo = .hide
-    
+
+    var username = FieldChecker<String>("") { v in
+        
+        "error"
+    }
+
     var body: some View {
         //NavigationView {
             Form {
@@ -95,7 +141,7 @@ struct KeyItemForm : View {
                 }
                 */
                 Section {
-                    TextFieldAndLabel( label: "Username", value:$item.username )
+                    TextFieldAndLabel2( label: "Username", field: username )
                     SecretFieldAndLabel( label: "Password", value:$item.password, secretInfo:$secretInfo )
                     
                 }
@@ -136,6 +182,8 @@ struct KeyItemDetail_Previews : PreviewProvider {
     static var previews: some View {
         
         KeyItemForm(item: KeyItem( id:"id1", username:"username1"))
+        
+        
     }
 }
 #endif
