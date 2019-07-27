@@ -33,13 +33,61 @@ struct TextFieldAndLabel : View {
     }
 }
 
-struct TextFieldAndLabel2 : View {
+
+class FieldValidator<T> : BindableObject {
+    typealias Validator = (T) -> String?
+    
+    let didChange = PassthroughSubject<Void, Never>()
+    
+    var value:T {
+        willSet {
+            self.doValidate( newValue )
+            bindValue.value = newValue
+        }
+    }
+    var errorMessage:String?
+    
+    let validator:Validator
+    
+    var bindValue:Binding<T>
+    
+    init( _ value:Binding<T>, validator:@escaping Validator  ) {
+        self.validator = validator
+        self.value = value.value
+        self.bindValue = value
+    }
+    
+    func doValidate( _ newValue:T? = nil ) -> Void {
+        if let v = newValue {
+            self.errorMessage = self.validator( v )
+        }
+        else {
+            self.errorMessage = self.validator( self.value )
+        }
+        self.didChange.send()
+    }
+}
+
+
+struct TextFieldAndLabelWithValidator : View {
+    typealias Validator = (String) -> String?
     
     var label:String;
     var title:String?
     
-    @ObjectBinding var field:FieldChecker<String>
+    @ObjectBinding var field:FieldValidator<String>
     
+    init( label:String, value:Binding<String>, validator:@escaping Validator ) {
+        self.label = label;
+        self.title = label;
+        self.field = FieldValidator<String>(value, validator:validator )
+    }
+    init( label:String, title:String, value:Binding<String>, validator:@escaping Validator ) {
+        self.label = label;
+        self.title = title;
+        self.field = FieldValidator<String>(value, validator:validator )
+    }
+
     var body: some View {
         VStack(alignment: .leading) {
             Text( label )
@@ -47,8 +95,11 @@ struct TextFieldAndLabel2 : View {
                 .padding(.all)
                 .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0), cornerRadius: 5.0)
                 .border( field.errorMessage != nil ? Color.red : Color.clear )
-            
+        }.onAppear {
+            self.field.doValidate()
         }
+        
+
         
     }
 }
@@ -85,28 +136,6 @@ struct SecretFieldAndLabel : View {
         
     }
 }
-
-class FieldChecker<T> : BindableObject {
-    typealias Validator = (T ) -> String?
-    
-    let didChange = PassthroughSubject<Void, Never>()
-    
-    var value:T {
-        didSet {
-            self.errorMessage = self.validate( self.value )
-            self.didChange.send()
-        }
-    }
-    var errorMessage:String?;
-    
-    let validate:Validator
-    
-    init( _ value:T, validator:@escaping Validator  ) {
-        self.validate = validator
-        self.value = value
-    }
-}
-
 extension SecretInfo {
     
     var text:String {
@@ -122,26 +151,34 @@ struct KeyItemForm : View {
     @ObjectBinding var item:KeyItem
     @State var secretInfo:SecretInfo = .hide
 
-    var username = FieldChecker<String>("") { v in
-        
-        "error"
-    }
-
     var body: some View {
         //NavigationView {
             Form {
-                /*
-                Section {
-                    
-                    VStack(alignment: .leading) {
-                        Text( "MNEMONIC" )
-                        Text( item.id )
+                
+                if( item.state == KeyItem.State.new ) {
+                    Section {
                         
-                    }
+                        TextFieldAndLabelWithValidator( label: "mnemonic",value: $item.id ) { v in
+                            
+                            if( v.isEmpty ) {
+                                return "mnemonic cannot be empty"
+                            }
+                            
+                            return nil
+                        }                    }
+
                 }
-                */
+
                 Section {
-                    TextFieldAndLabel2( label: "Username", field: username )
+                    TextFieldAndLabelWithValidator( label: "username",value: $item.username ) { v in
+                        
+                        if( v.isEmpty ) {
+                            return "username cannot be empty"
+                        }
+                        
+                        return nil
+                        }
+                    
                     SecretFieldAndLabel( label: "Password", value:$item.password, secretInfo:$secretInfo )
                     
                 }
@@ -164,7 +201,7 @@ struct KeyItemForm : View {
                     }
                     Spacer(minLength: 15)
                     Button( action:{
-                        print( "Save \(self.username.value)" )
+                        print( "Save \(self.item.username)" )
                     }, label: {
                         //Image( systemName: "plus" )
                         Text("save")
