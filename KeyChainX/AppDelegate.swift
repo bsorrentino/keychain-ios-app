@@ -20,7 +20,7 @@ extension String: LocalizedError {
 
 // GLOBAL DATA
 // IT IS A CACHE
-class ApplicationData: BindableObject {
+class ApplicationData: ObservableObject {
     
     var didChange = PassthroughSubject<Void, Never>()
     

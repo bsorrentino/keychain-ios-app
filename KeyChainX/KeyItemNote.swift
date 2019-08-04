@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct KeyItemNote : View {
-    @Environment(\.isPresented) private var isPresented
+    @Environment(\.presentationMode) private var presentationMode
     
     @Binding var value:String
     
@@ -23,7 +23,7 @@ struct KeyItemNote : View {
                             .lineLimit(30)
                     }
                     Button("OK") {
-                        self.isPresented?.value = false
+                        self.presentationMode.value.dismiss()
                     }
             }.navigationBarTitle( Text("Note"), displayMode: .inline  )
         }

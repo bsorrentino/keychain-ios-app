@@ -53,19 +53,11 @@ struct TopView : View {
     
     @EnvironmentObject var data:ApplicationData;
     
-    let form = DynamicNavigationDestinationLink( id:\KeyItem.self ) { data in
-        KeyItemForm( item: data)
-    }
-    
-    
     var body: some View {
         KeyItemList( data.items )
             .navigationBarItems(trailing:
             HStack {
-                Button( action: {
-                    self.form.presentedData?.value =
-                        KeyItem.newItem()
-                }, label: {
+                NavigationLink( destination: KeyItemForm( item: KeyItem.newItem() ), label: {
                     Image( systemName: "plus" )
                 })
         })

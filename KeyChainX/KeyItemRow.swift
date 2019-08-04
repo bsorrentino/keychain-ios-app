@@ -17,7 +17,7 @@ struct KeyItemRow : View {
             Text( item.grouped ? (item.groupPrefix ?? "") : item.username )
                 .font(.subheadline)
                 .italic()
-                .color(Color.gray)
+                .foregroundColor(Color.gray)
         }
     }
 }

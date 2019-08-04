@@ -11,13 +11,13 @@ import Combine
 
 //var ITEM_EMPTY = { UUID().uuidString }()
 
-class KeyItem: /*Codable,*/ BindableObject {
+class KeyItem: /*Codable,*/ ObservableObject {
 
     enum State {
         case neutral, new, updated
     }
 
-    var didChange = PassthroughSubject<Void, Never>()
+    var willChange = PassthroughSubject<Void, Never>()
     
     var id:String
     var username:String

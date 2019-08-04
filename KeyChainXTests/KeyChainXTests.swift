@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import KeyChainX
+//@testable import KeyChainX
 
 class KeyChainXTests: XCTestCase {
 

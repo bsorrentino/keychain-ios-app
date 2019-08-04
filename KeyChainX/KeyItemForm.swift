@@ -25,7 +25,8 @@ struct TextFieldAndLabel : View {
             Text( label )
             TextField( title ?? label, text: $value )
                 .padding(.all)
-                .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0), cornerRadius: 5.0)
+                .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+                .cornerRadius(5.0)
 
             
         }
@@ -34,10 +35,10 @@ struct TextFieldAndLabel : View {
 }
 
 
-class FieldValidator<T> : BindableObject {
+class FieldValidator<T> : ObservableObject {
     typealias Validator = (T) -> String?
     
-    let didChange = PassthroughSubject<Void, Never>()
+    let willChange = PassthroughSubject<Void, Never>()
     
     var value:T {
         willSet {
@@ -64,7 +65,7 @@ class FieldValidator<T> : BindableObject {
         else {
             self.errorMessage = self.validator( self.value )
         }
-        self.didChange.send()
+        self.willChange.send()
     }
 }
 
@@ -75,7 +76,7 @@ struct TextFieldAndLabelWithValidator : View {
     var label:String;
     var title:String?
     
-    @ObjectBinding var field:FieldValidator<String>
+    @ObservedObject var field:FieldValidator<String>
     
     init( label:String, value:Binding<String>, validator:@escaping Validator ) {
         self.label = label;
@@ -93,7 +94,8 @@ struct TextFieldAndLabelWithValidator : View {
             Text( label )
             TextField( title ?? label, text: $field.value )
                 .padding(.all)
-                .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0), cornerRadius: 5.0)
+                .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+                .cornerRadius(5.0)
                 .border( field.errorMessage != nil ? Color.red : Color.clear )
         }.onAppear {
             self.field.doValidate()
@@ -130,8 +132,8 @@ struct SecretFieldAndLabel : View {
                 }
             }
             .padding(.all)
-            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0), cornerRadius: 5.0)
-            
+            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+            .cornerRadius(5.0)
         }
         
     }
@@ -148,13 +150,16 @@ extension SecretInfo {
 
 struct KeyItemForm : View {
     
-    @ObjectBinding var item:KeyItem
+    @ObservedObject var item:KeyItem
     @State var secretInfo:SecretInfo = .hide
+    @State var showNote = false
 
+    
     var body: some View {
         //NavigationView {
             Form {
                 
+
                 if( item.state == KeyItem.State.new ) {
                     Section {
                         
@@ -165,7 +170,9 @@ struct KeyItemForm : View {
                             }
                             
                             return nil
-                        }                    }
+                        }
+                        
+                    }
 
                 }
 
@@ -184,27 +191,31 @@ struct KeyItemForm : View {
                 }
                 Section {
                     TextFieldAndLabel( label: "eMail", value:$item.email )
-                    PresentationLink( destination: KeyItemNote( value:$item.note ) ){
+                    Button(action: {
+                        self.showNote.toggle()
+                    }) {
                         Text("Note")
                     }
+
+                }.sheet( isPresented: $showNote ) { () -> KeyItemNote in
+                    
+                    return KeyItemNote( value:self.$item.note )
                 }
 
             }
             .navigationBarTitle( Text("\(item.id.uppercased())"), displayMode: .inline  )
             .navigationBarItems(trailing:
                 HStack {
-                    SegmentedControl( selection: $secretInfo ) {
+                    Picker( selection: $secretInfo, label: EmptyView() ) {
                         Image( systemName: "eye.slash").tag(SecretInfo.hide)
                         //Text(SecretInfo.hide.text).tag(SecretInfo.hide)
                         Image( systemName: "eye").tag(SecretInfo.show)
                         //Text(SecretInfo.show.text).tag(SecretInfo.show)
-                    }
+                    }.pickerStyle(SegmentedPickerStyle())
+                    
                     Spacer(minLength: 15)
-                    Button( action:{
+                    Button( "save", action: {
                         print( "Save \(self.item.username)" )
-                    }, label: {
-                        //Image( systemName: "plus" )
-                        Text("save")
                     })
                 }
             )
