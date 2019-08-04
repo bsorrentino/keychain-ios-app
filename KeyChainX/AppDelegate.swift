@@ -22,20 +22,11 @@ extension String: LocalizedError {
 // IT IS A CACHE
 class ApplicationData: ObservableObject {
     
-    var didChange = PassthroughSubject<Void, Never>()
+    var willChange = PassthroughSubject<Void, Never>()
     
-    var items:Array<KeyItem> = [] {
-        
-        didSet {
-            didChange.send(())
-        }
-    };
+    @Published var items:Array<KeyItem> = []
 
-    var emails:Array<Any> = [] {
-        didSet {
-            didChange.send(())
-        }
-    }
+    @Published var emails:Array<Any> = [] 
     
     init() {
         

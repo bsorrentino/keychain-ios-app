@@ -14,7 +14,7 @@ import SwiftUI
 class KeyItemListViewController : UITableViewController {
     
     
-    var items:[KeyItem] = []
+    var items:Binding<[KeyItem]>
     
     var cellView:ViewProvider?
     
@@ -36,6 +36,14 @@ class KeyItemListViewController : UITableViewController {
         resultSearchController = searchController
         
     }
+    public init( _ items:Binding<[KeyItem]> ) {
+        self.items = items
+        super.init( style: .grouped)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -46,10 +54,10 @@ class KeyItemListViewController : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "keyitem", for: indexPath)
         
-        let item = items[indexPath.row]
+        let item = items.value[indexPath.row]
         if let viewProvider = self.cellView {
             cell.contentView.addSubview(viewProvider(item))
         }
@@ -71,7 +79,7 @@ class KeyItemListViewController : UITableViewController {
             return
         }
         
-        let selectedItem = items[index]
+        let selectedItem = items.value[index]
         
         let newViewController = KeyItemForm( item: selectedItem )
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
@@ -83,7 +91,7 @@ class KeyItemListViewController : UITableViewController {
             return
         }
         
-        let selectedItem = items[index]
+        let selectedItem = items.value[index]
         
         let newViewController = KeyItemForm( item: selectedItem )
         

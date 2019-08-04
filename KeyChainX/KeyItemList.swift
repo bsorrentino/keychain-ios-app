@@ -17,12 +17,8 @@ struct KeyItemList: UIViewControllerRepresentable {
     
     var controller:KeyItemListViewController
     
-    public init( _ items:[KeyItem]/*, cellView:@escaping ViewProvider*/ ) {
-        
-        self.controller = KeyItemListViewController()
-        
-        self.controller.items = items
-        //self.controller.cellView = cellView
+    public init( _ items:Binding<[KeyItem]>/*, cellView:@escaping ViewProvider*/ ) {        
+        self.controller = KeyItemListViewController( items )
     }
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType {
@@ -54,7 +50,7 @@ struct TopView : View {
     @EnvironmentObject var data:ApplicationData;
     
     var body: some View {
-        KeyItemList( data.items )
+        KeyItemList( $data.items )
             .navigationBarItems(trailing:
             HStack {
                 NavigationLink( destination: KeyItemForm( item: KeyItem.newItem() ), label: {
