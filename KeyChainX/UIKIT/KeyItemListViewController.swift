@@ -13,8 +13,7 @@ import SwiftUI
 
 class KeyItemListViewController : UITableViewController {
     
-    
-    var items:Binding<[KeyItem]>
+    var items:[KeyItem]?
     
     var cellView:ViewProvider?
     
@@ -36,28 +35,25 @@ class KeyItemListViewController : UITableViewController {
         resultSearchController = searchController
         
     }
-    public init( _ items:Binding<[KeyItem]> ) {
-        self.items = items
-        super.init( style: .grouped)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        print( "items.count: \(items?.count ?? 0)")
+        return items?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        print( "item at indexpath \(indexPath.row)" )
+        
+        guard let items = self.items else {
+            return UITableViewCell()
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "keyitem", for: indexPath)
         
-        let item = items.value[indexPath.row]
+        let item = items[indexPath.row]
         if let viewProvider = self.cellView {
             cell.contentView.addSubview(viewProvider(item))
         }
@@ -75,27 +71,29 @@ class KeyItemListViewController : UITableViewController {
     //
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let index = tableView.indexPathForSelectedRow?.row else {
+        guard let items = self.items, let index = tableView.indexPathForSelectedRow?.row else {
             return
         }
         
-        let selectedItem = items.value[index]
+        let selectedItem = items[index]
         
         let newViewController = KeyItemForm( item: selectedItem )
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
+        
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
-        guard let index = tableView.indexPathForSelectedRow?.row else {
+        guard let items = self.items, let index = tableView.indexPathForSelectedRow?.row else {
             return
         }
         
-        let selectedItem = items.value[index]
+        let selectedItem = items[index]
         
         let newViewController = KeyItemForm( item: selectedItem )
         
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
+        
     }
     
     

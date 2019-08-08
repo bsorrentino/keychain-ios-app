@@ -149,11 +149,13 @@ extension SecretInfo {
 }
 
 struct KeyItemForm : View {
+    @Environment(\.presentationMode) var presentationMode
     
+    @EnvironmentObject var appData:ApplicationData;
+
     @ObservedObject var item:KeyItem
     @State var secretInfo:SecretInfo = .hide
     @State var showNote = false
-
     
     var body: some View {
         //NavigationView {
@@ -216,6 +218,13 @@ struct KeyItemForm : View {
                     Spacer(minLength: 15)
                     Button( "save", action: {
                         print( "Save \(self.item.username)" )
+                        
+                        self.appData.items.append(self.item)
+                        self.appData.objectWillChange.send()
+
+                        print( "appData.items.count: \(self.appData.items.count)" )
+                        self.presentationMode.value.dismiss()
+                        
                     })
                 }
             )
@@ -229,7 +238,7 @@ struct KeyItemForm : View {
 struct KeyItemDetail_Previews : PreviewProvider {
     static var previews: some View {
         
-        KeyItemForm(item: KeyItem( id:"id1", username:"username1"))
+        KeyItemForm( item: KeyItem( id:"id1", username:"username1"))
         
         
     }

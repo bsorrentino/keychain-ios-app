@@ -21,21 +21,18 @@ extension String: LocalizedError {
 // GLOBAL DATA
 // IT IS A CACHE
 class ApplicationData: ObservableObject {
+    let objectWillChange = ObservableObjectPublisher()
     
-    var willChange = PassthroughSubject<Void, Never>()
-    
-    @Published var items:Array<KeyItem> = []
+    /*@Published*/ var items:Array<KeyItem> = []
+
 
     @Published var emails:Array<Any> = [] 
     
-    init() {
-        
-    }
     
     convenience init( items:Array<KeyItem> ) {
         self.init();
         
-        self.items = items;
+        self.items = items
     }
 }
 

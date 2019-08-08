@@ -15,22 +15,26 @@ struct KeyItemList: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = KeyItemListViewController
     
-    var controller:KeyItemListViewController
+    var items:Binding<[KeyItem]>
     
-    public init( _ items:Binding<[KeyItem]>/*, cellView:@escaping ViewProvider*/ ) {        
-        self.controller = KeyItemListViewController( items )
-    }
-    
-    func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType {
-        
+    func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType
+    {
         print( "makeUIViewController" )
+        let controller =  KeyItemListViewController(style: .grouped)
+        
+        controller.items = items.value
+        
         return controller
     }
     
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: UIViewControllerRepresentableContext<KeyItemList>) {
-        //
-        print( "updateUIViewController" )
-        self.controller.tableView.reloadData()
+    func updateUIViewController(_ uiViewController: UIViewControllerType,
+                                context: UIViewControllerRepresentableContext<KeyItemList>) {
+        
+        print( "updateUIViewController \(items.value.count)" )
+        
+        uiViewController.items = items.value
+        
+        uiViewController.tableView.reloadData()
     }
 }
 
@@ -50,7 +54,7 @@ struct TopView : View {
     @EnvironmentObject var data:ApplicationData;
     
     var body: some View {
-        KeyItemList( $data.items )
+        KeyItemList( items:$data.items )
             .navigationBarItems(trailing:
             HStack {
                 NavigationLink( destination: KeyItemForm( item: KeyItem.newItem() ), label: {
@@ -66,7 +70,8 @@ struct TopView : View {
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject( ApplicationData(items:[
+        ContentView()
+        .environmentObject( ApplicationData(items:[
             KeyItem( id:"item1", username:"user1"),
             KeyItem( id:"item2", username:"user2"),
             KeyItem( id:"item3", username:"user3"),
