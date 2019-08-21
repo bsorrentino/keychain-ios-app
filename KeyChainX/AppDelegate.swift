@@ -21,9 +21,9 @@ extension String: LocalizedError {
 // GLOBAL DATA
 // IT IS A CACHE
 class ApplicationData: ObservableObject {
-    let objectWillChange = ObservableObjectPublisher()
+    //let objectWillChange = ObservableObjectPublisher()
     
-    /*@Published*/ var items:Array<KeyItem> = []
+    @Published var items:Array<KeyItem> = []
 
 
     @Published var emails:Array<Any> = [] 
@@ -46,6 +46,20 @@ extension KeyEntity {
         }
         
         return KeyItem( id:id, username:username )
+    }
+
+    
+    func from( item: KeyItem ) -> KeyEntity {
+        self.mnemonic = item.id
+        self.username = item.username
+        return self
+    }
+
+    static func fromKeyItem( item: KeyItem, context:NSManagedObjectContext ) throws -> KeyEntity {
+        
+        let result = KeyEntity( context:context )
+
+        return result.from( item:item )
     }
 
 }
@@ -115,6 +129,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Core Data Loading support
     
+    private var cancellable:AnyCancellable?
+    
+    enum CoreDataError :Error {
+        
+        case KeyDoesNotExist( id:String )
+        case DuplicateKey( id:String )
+        case InvalidItem( id:String )
+    }
+    
     func loadContext() {
         
         let context = persistentContainer.viewContext;
@@ -125,6 +148,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let result = try context.fetch(request)
             
             self.applicationData.items =  try result.map{ try $0.toKeyItem() }
+            
+            self.cancellable = self.applicationData.objectWillChange.sink { _ in
+            
+                print( "Changed Value: " )
+                
+                self.applicationData.items
+                    .filter { item in item.state != .neutral }
+                    .forEach { item in
+                        
+                        do {
+                            switch( item.state ) {
+                            case .new:
+                                let record = try KeyEntity.fromKeyItem(item: item, context: context)
+                                context.insert( record )
+                                item.state = .neutral
+                                break
+                            case .updated:
+                                let request = NSFetchRequest<NSFetchRequestResult>()
+                                request.entity =  KeyEntity.entity()
+                                request.predicate = NSPredicate( format: "(mnemonic = %@)", item.id)
+                                let fetchResult = try context.fetch( request )
+                                
+                                if( fetchResult.count == 0 ) {
+                                    throw CoreDataError.KeyDoesNotExist(id: item.id)
+                                    
+                                }
+                                if( fetchResult.count > 1 ) {
+                                    throw CoreDataError.DuplicateKey(id: item.id)
+                                    
+                                }
+                                guard let result = fetchResult[0] as? KeyEntity else {
+                                    throw CoreDataError.InvalidItem(id: item.id)
+                                }
+                                let _ = result.from(item: item)
+                                item.state = .neutral
+                                break
+                            default:
+                                break
+                            }
+                        }
+                        catch {
+                            print( "Error updating Database \(error)" )
+                        }
+                    }
+            
+            }
             
         } catch {
             // Replace this implementation with code to handle the error appropriately.
@@ -139,6 +208,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data Saving support
 
     func saveContext () {
+        
+        /*
+        if let cancellable = self.cancellable {
+            cancellable.cancel()
+        }
+        */
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

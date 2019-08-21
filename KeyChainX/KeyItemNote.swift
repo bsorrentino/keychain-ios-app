@@ -23,7 +23,7 @@ struct KeyItemNote : View {
                             .lineLimit(30)
                     }
                     Button("OK") {
-                        self.presentationMode.value.dismiss()
+                        self.presentationMode.wrappedValue.dismiss()
                     }
             }.navigationBarTitle( Text("Note"), displayMode: .inline  )
         }

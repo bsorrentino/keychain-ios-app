@@ -22,7 +22,7 @@ struct KeyItemList: UIViewControllerRepresentable {
         print( "makeUIViewController" )
         let controller =  KeyItemListViewController(style: .grouped)
         
-        controller.items = items.value
+        controller.items = items.wrappedValue
         
         return controller
     }
@@ -30,9 +30,9 @@ struct KeyItemList: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIViewControllerType,
                                 context: UIViewControllerRepresentableContext<KeyItemList>) {
         
-        print( "updateUIViewController \(items.value.count)" )
+        print( "updateUIViewController \(items.wrappedValue.count)" )
         
-        uiViewController.items = items.value
+        uiViewController.items = items.wrappedValue
         
         uiViewController.tableView.reloadData()
     }

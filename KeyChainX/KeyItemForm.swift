@@ -35,27 +35,29 @@ struct TextFieldAndLabel : View {
 }
 
 
-class FieldValidator<T> : ObservableObject {
+
+class FieldValidator<T> : ObservableObject where T : Hashable {
     typealias Validator = (T) -> String?
     
-    let willChange = PassthroughSubject<Void, Never>()
+    @Binding private var bindValue:T
+
+    @Published var errorMessage:String? = nil
     
-    var value:T {
+    @Published var value:T
+    {
         willSet {
-            self.doValidate( newValue )
-            bindValue.value = newValue
+            self.doValidate(newValue)
+        }
+        didSet {
+            self.bindValue = self.value
         }
     }
-    var errorMessage:String?
-    
-    let validator:Validator
-    
-    var bindValue:Binding<T>
+    private let validator:Validator
     
     init( _ value:Binding<T>, validator:@escaping Validator  ) {
         self.validator = validator
-        self.value = value.value
-        self.bindValue = value
+        self._bindValue = value
+        self.value = value.wrappedValue
     }
     
     func doValidate( _ newValue:T? = nil ) -> Void {
@@ -65,7 +67,6 @@ class FieldValidator<T> : ObservableObject {
         else {
             self.errorMessage = self.validator( self.value )
         }
-        self.willChange.send()
     }
 }
 
@@ -82,11 +83,13 @@ struct TextFieldAndLabelWithValidator : View {
         self.label = label;
         self.title = label;
         self.field = FieldValidator<String>(value, validator:validator )
+        
     }
     init( label:String, title:String, value:Binding<String>, validator:@escaping Validator ) {
         self.label = label;
         self.title = title;
         self.field = FieldValidator<String>(value, validator:validator )
+        
     }
 
     var body: some View {
@@ -97,10 +100,10 @@ struct TextFieldAndLabelWithValidator : View {
                 .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                 .cornerRadius(5.0)
                 .border( field.errorMessage != nil ? Color.red : Color.clear )
-        }.onAppear {
-            self.field.doValidate()
+                .onAppear {
+                    self.field.doValidate()
+                }
         }
-        
 
         
     }
@@ -154,9 +157,13 @@ struct KeyItemForm : View {
     @EnvironmentObject var appData:ApplicationData;
 
     @ObservedObject var item:KeyItem
+    
     @State var secretInfo:SecretInfo = .hide
     @State var showNote = false
     
+    @State var userValid:Bool = false
+    @State var mnemonicValid:Bool = true
+
     var body: some View {
         //NavigationView {
             Form {
@@ -168,9 +175,11 @@ struct KeyItemForm : View {
                         TextFieldAndLabelWithValidator( label: "mnemonic",value: $item.id ) { v in
                             
                             if( v.isEmpty ) {
+                                self.mnemonicValid = false
                                 return "mnemonic cannot be empty"
                             }
                             
+                            self.mnemonicValid = true
                             return nil
                         }
                         
@@ -182,11 +191,13 @@ struct KeyItemForm : View {
                     TextFieldAndLabelWithValidator( label: "username",value: $item.username ) { v in
                         
                         if( v.isEmpty ) {
+                            self.userValid = false
                             return "username cannot be empty"
                         }
                         
+                        self.userValid = true
                         return nil
-                        }
+                    }
                     
                     SecretFieldAndLabel( label: "Password", value:$item.password, secretInfo:$secretInfo )
                     
@@ -218,14 +229,21 @@ struct KeyItemForm : View {
                     Spacer(minLength: 15)
                     Button( "save", action: {
                         print( "Save \(self.item.username)" )
-                        
-                        self.appData.items.append(self.item)
+
+                        if ( self.item.state == .new ) {
+                            self.appData.items.append(self.item)
+                        }
+                        else if ( self.item.state == .neutral ) {
+                            self.item.state = .updated
+                        }
                         self.appData.objectWillChange.send()
 
                         print( "appData.items.count: \(self.appData.items.count)" )
-                        self.presentationMode.value.dismiss()
+                        self.presentationMode.wrappedValue.dismiss()
                         
                     })
+                    .disabled( !( userValid && mnemonicValid) )
+                    
                 }
             )
         //}
