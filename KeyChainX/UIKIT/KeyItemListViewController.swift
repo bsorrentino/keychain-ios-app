@@ -19,10 +19,10 @@ class KeyItemListViewController : UITableViewController {
     
     private var resultSearchController:UISearchController?
     
-    private var viewItems:[KeyItem]?
+    private var items:[KeyItem]?
     
     func reloadData() {
-        self.viewItems = keys?.items.filter{ item -> Bool in
+        self.items = keys?.items.filter{ item -> Bool in
             return item.state != .deleted
         }
         tableView.reloadData()
@@ -51,13 +51,13 @@ class KeyItemListViewController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //print( "items.count: \(items?.count ?? 0)")
-        return viewItems?.count ?? 0
+        return items?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print( "item at indexpath \(indexPath.row)" )
         
-        guard let items = self.viewItems else {
+        guard let items = self.items else {
             return UITableViewCell()
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "keyitem", for: indexPath)
@@ -80,7 +80,7 @@ class KeyItemListViewController : UITableViewController {
     //
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let items = self.viewItems, let index = tableView.indexPathForSelectedRow?.row else {
+        guard let items = self.items, let index = tableView.indexPathForSelectedRow?.row else {
             return
         }
         
@@ -93,7 +93,7 @@ class KeyItemListViewController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
-        guard let items = self.viewItems, let index = tableView.indexPathForSelectedRow?.row else {
+        guard let items = self.items, let index = tableView.indexPathForSelectedRow?.row else {
             return
         }
         
@@ -125,7 +125,7 @@ class KeyItemListViewController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-        guard let items = self.viewItems else {
+        guard let items = self.items else {
             return nil
         }
 
