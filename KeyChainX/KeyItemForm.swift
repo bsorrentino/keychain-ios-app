@@ -154,7 +154,7 @@ extension SecretInfo {
 struct KeyItemForm : View {
     @Environment(\.presentationMode) var presentationMode
     
-    @EnvironmentObject var appData:ApplicationData;
+    @EnvironmentObject var keys:ApplicationKeys;
 
     @ObservedObject var item:KeyItem
     
@@ -231,14 +231,14 @@ struct KeyItemForm : View {
                         print( "Save \(self.item.username)" )
 
                         if ( self.item.state == .new ) {
-                            self.appData.items.append(self.item)
+                            self.keys.items.append(self.item)
                         }
                         else if ( self.item.state == .neutral ) {
                             self.item.state = .updated
                         }
-                        self.appData.objectWillChange.send()
+                        self.keys.objectWillChange.send( self.item )
 
-                        print( "appData.items.count: \(self.appData.items.count)" )
+                        print( "appData.items.count: \(self.keys.items.count)" )
                         self.presentationMode.wrappedValue.dismiss()
                         
                     })

@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             if let appDelegate = self.appDelegate {
                 
-                let view = ContentView().environmentObject( appDelegate.applicationData )
+                let view = ContentView().environmentObject( appDelegate.applicationKeys )
                 window.rootViewController = UIHostingController(rootView: view  )
             }
             self.window = window

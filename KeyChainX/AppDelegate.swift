@@ -20,16 +20,28 @@ extension String: LocalizedError {
 
 // GLOBAL DATA
 // IT IS A CACHE
-class ApplicationData: ObservableObject {
-    //let objectWillChange = ObservableObjectPublisher()
+class ApplicationKeys: ObservableObject {
+    typealias AType = KeyItem
     
-    @Published var items:Array<KeyItem> = []
-
-
-    @Published var emails:Array<Any> = [] 
+    let objectWillChange = PassthroughSubject<AType,Never>()
     
+    var items:Array<KeyItem> = []
     
     convenience init( items:Array<KeyItem> ) {
+        self.init();
+        
+        self.items = items
+    }
+}
+
+class ApplicationMails: ObservableObject {
+    typealias AType = Any
+    
+    let objectWillChange = PassthroughSubject<AType,Never>()
+
+    var items:Array<Any> = []
+    
+    convenience init( items:Array<Any> ) {
         self.init();
         
         self.items = items
@@ -67,7 +79,7 @@ extension KeyEntity {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let applicationData = ApplicationData()
+    let applicationKeys = ApplicationKeys()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -138,6 +150,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case InvalidItem( id:String )
     }
     
+    /**
+        Fetch Single Value
+     */
+    func fetchSingle( entity:NSEntityDescription, predicateFormat:String, key:String  ) throws -> Any {
+        let context = persistentContainer.viewContext;
+
+        let request = NSFetchRequest<NSFetchRequestResult>()
+        request.entity =  entity
+        request.predicate = NSPredicate( format: predicateFormat, key)
+        let fetchResult = try context.fetch( request )
+        
+        if( fetchResult.count == 0 ) {
+            throw CoreDataError.KeyDoesNotExist(id: key)
+            
+        }
+        if( fetchResult.count > 1 ) {
+            throw CoreDataError.DuplicateKey(id: key)
+            
+        }
+        return fetchResult[0]
+    }
+    
+    /**
+        Fetch KeyItem by id
+     */
+    func fetchKeyItemById( item:KeyItem ) throws -> KeyEntity {
+        
+        guard let result = try self.fetchSingle( entity:KeyEntity.entity(),
+                              predicateFormat:"(mnemonic = %@)",
+                              key:item.id) as? KeyEntity else {
+                throw CoreDataError.InvalidItem(id: item.id)
+        }
+        return result
+
+    }
+    
     func loadContext() {
         
         let context = persistentContainer.viewContext;
@@ -147,51 +195,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let result = try context.fetch(request)
             
-            self.applicationData.items =  try result.map{ try $0.toKeyItem() }
+            self.applicationKeys.items =  try result.map{ try $0.toKeyItem() }
             
-            self.cancellable = self.applicationData.objectWillChange.sink { _ in
+            self.cancellable = self.applicationKeys.objectWillChange.sink { item in
             
-                print( "Changed Value: " )
+                print( "Changed Value: \(item)" )
                 
-                self.applicationData.items
-                    .filter { item in item.state != .neutral }
-                    .forEach { item in
-                        
-                        do {
-                            switch( item.state ) {
-                            case .new:
-                                let record = try KeyEntity.fromKeyItem(item: item, context: context)
-                                context.insert( record )
-                                item.state = .neutral
-                                break
-                            case .updated:
-                                let request = NSFetchRequest<NSFetchRequestResult>()
-                                request.entity =  KeyEntity.entity()
-                                request.predicate = NSPredicate( format: "(mnemonic = %@)", item.id)
-                                let fetchResult = try context.fetch( request )
-                                
-                                if( fetchResult.count == 0 ) {
-                                    throw CoreDataError.KeyDoesNotExist(id: item.id)
-                                    
-                                }
-                                if( fetchResult.count > 1 ) {
-                                    throw CoreDataError.DuplicateKey(id: item.id)
-                                    
-                                }
-                                guard let result = fetchResult[0] as? KeyEntity else {
-                                    throw CoreDataError.InvalidItem(id: item.id)
-                                }
-                                let _ = result.from(item: item)
-                                item.state = .neutral
-                                break
-                            default:
-                                break
-                            }
-                        }
-                        catch {
-                            print( "Error updating Database \(error)" )
-                        }
+                do {
+                    switch( item.state ) {
+                    case .new:
+                        let record = try KeyEntity.fromKeyItem(item: item, context: context)
+                        context.insert( record )
+                        item.state = .neutral
+                        break
+                    case .updated:
+                        let result = try self.fetchKeyItemById( item:item )
+                        let _ = result.from(item: item)
+                        item.state = .neutral
+                        break
+                    case .deleted:
+                        let result = try self.fetchKeyItemById( item:item )
+                        let _ = result.from(item: item)
+                        context.delete(result)
+                        break
+                    default:
+                        break
                     }
+                }
+                catch {
+                    print( "Error updating Database \(error)" )
+                }
             
             }
             

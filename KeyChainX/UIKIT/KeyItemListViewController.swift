@@ -13,11 +13,20 @@ import SwiftUI
 
 class KeyItemListViewController : UITableViewController {
     
-    var items:[KeyItem]?
+    var keys:ApplicationKeys?
     
-    var cellView:ViewProvider?
+    private var cellView:ViewProvider?
     
-    var resultSearchController:UISearchController?
+    private var resultSearchController:UISearchController?
+    
+    private var viewItems:[KeyItem]?
+    
+    func reloadData() {
+        self.viewItems = keys?.items.filter{ item -> Bool in
+            return item.state != .deleted
+        }
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         
@@ -41,14 +50,14 @@ class KeyItemListViewController : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print( "items.count: \(items?.count ?? 0)")
-        return items?.count ?? 0
+        //print( "items.count: \(items?.count ?? 0)")
+        return viewItems?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print( "item at indexpath \(indexPath.row)" )
+        //print( "item at indexpath \(indexPath.row)" )
         
-        guard let items = self.items else {
+        guard let items = self.viewItems else {
             return UITableViewCell()
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "keyitem", for: indexPath)
@@ -71,7 +80,7 @@ class KeyItemListViewController : UITableViewController {
     //
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let items = self.items, let index = tableView.indexPathForSelectedRow?.row else {
+        guard let items = self.viewItems, let index = tableView.indexPathForSelectedRow?.row else {
             return
         }
         
@@ -84,7 +93,7 @@ class KeyItemListViewController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
-        guard let items = self.items, let index = tableView.indexPathForSelectedRow?.row else {
+        guard let items = self.viewItems, let index = tableView.indexPathForSelectedRow?.row else {
             return
         }
         
@@ -115,8 +124,24 @@ class KeyItemListViewController : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+
+        guard let items = self.viewItems else {
+            return nil
+        }
+
+        let selectedItem = items[indexPath.row]
+
+
+        let delete = UIContextualAction( style: .destructive, title: "Delete" ) { action, view, completionHandler in
+                
+            selectedItem.state = .deleted
+            self.reloadData()
+            self.keys?.objectWillChange.send( selectedItem )
+            
+            
+        }
         
-        let configuration = UISwipeActionsConfiguration(actions: [])
+        let configuration = UISwipeActionsConfiguration(actions: [delete])
         
         return configuration
     }

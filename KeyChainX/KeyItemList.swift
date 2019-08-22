@@ -15,14 +15,14 @@ struct KeyItemList: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = KeyItemListViewController
     
-    var items:Binding<[KeyItem]>
+    var keys:ApplicationKeys
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType
     {
         print( "makeUIViewController" )
         let controller =  KeyItemListViewController(style: .grouped)
         
-        controller.items = items.wrappedValue
+        controller.keys = keys
         
         return controller
     }
@@ -30,11 +30,9 @@ struct KeyItemList: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIViewControllerType,
                                 context: UIViewControllerRepresentableContext<KeyItemList>) {
         
-        print( "updateUIViewController \(items.wrappedValue.count)" )
+        print( "updateUIViewController \(keys.items.count)" )
         
-        uiViewController.items = items.wrappedValue
-        
-        uiViewController.tableView.reloadData()
+        uiViewController.reloadData()
     }
 }
 
@@ -51,10 +49,10 @@ struct ContentView : View {
 
 struct TopView : View {
     
-    @EnvironmentObject var data:ApplicationData;
-    
+    @EnvironmentObject var keys:ApplicationKeys;
+
     var body: some View {
-        KeyItemList( items:$data.items )
+        KeyItemList( keys:keys)
             .navigationBarItems(trailing:
             HStack {
                 NavigationLink( destination: KeyItemForm( item: KeyItem.newItem() ), label: {
@@ -71,7 +69,7 @@ struct TopView : View {
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
         ContentView()
-        .environmentObject( ApplicationData(items:[
+        .environmentObject( ApplicationKeys(items:[
             KeyItem( id:"item1", username:"user1"),
             KeyItem( id:"item2", username:"user2"),
             KeyItem( id:"item3", username:"user3"),

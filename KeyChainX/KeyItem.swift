@@ -14,7 +14,7 @@ import Combine
 class KeyItem: /*Codable,*/ ObservableObject {
 
     enum State {
-        case neutral, new, updated
+        case neutral, new, updated, deleted
     }
 
     var willChange = PassthroughSubject<Void, Never>()
