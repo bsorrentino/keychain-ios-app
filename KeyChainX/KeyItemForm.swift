@@ -181,7 +181,7 @@ struct KeyItemForm : View {
                             
                             self.mnemonicValid = true
                             return nil
-                        }
+                        }.autocapitalization(.allCharacters)
                         
                     }
 
@@ -198,8 +198,10 @@ struct KeyItemForm : View {
                         self.userValid = true
                         return nil
                     }
-                    
+                    .autocapitalization(.none)
+
                     SecretFieldAndLabel( label: "Password", value:$item.password, secretInfo:$secretInfo )
+                        .autocapitalization(.none)
                     
                 }
                 Section {
