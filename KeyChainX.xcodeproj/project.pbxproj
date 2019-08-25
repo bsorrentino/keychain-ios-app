@@ -10,6 +10,7 @@
 		A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */; };
 		A0375EA222B69BF000BD4B79 /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0375EA122B69BF000BD4B79 /* KeyItemForm.swift */; };
 		A08AE59222A956C10049096A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A08AE59122A956C10049096A /* KeychainAccess */; };
+		A09611502312CA970037E8B9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A096114F2312CA970037E8B9 /* KeychainAccess */; };
 		A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */; };
 		A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5622A901AD003B09ED /* AppDelegate.swift */; };
 		A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */; };
@@ -81,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09611502312CA970037E8B9 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +96,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A096114E2312CA970037E8B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A096B3C522CE4295004E17CC /* UIKIT */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +120,7 @@
 				A0C0DB6F22A901B0003B09ED /* KeyChainXTests */,
 				A0C0DB7A22A901B0003B09ED /* KeyChainXUITests */,
 				A0C0DB5422A901AD003B09ED /* Products */,
+				A096114E2312CA970037E8B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +217,9 @@
 				A0C0DB6E22A901B0003B09ED /* PBXTargetDependency */,
 			);
 			name = KeyChainXTests;
+			packageProductDependencies = (
+				A096114F2312CA970037E8B9 /* KeychainAccess */,
+			);
 			productName = KeyChainXTests;
 			productReference = A0C0DB6C22A901B0003B09ED /* KeyChainXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -491,7 +504,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = bsc.KeyChainX;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeyChainX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -511,7 +524,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = bsc.KeyChainX;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeyChainX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -654,6 +667,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		A08AE59122A956C10049096A /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A08AE59022A956C10049096A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		A096114F2312CA970037E8B9 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A08AE59022A956C10049096A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;

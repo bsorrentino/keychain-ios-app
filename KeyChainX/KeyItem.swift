@@ -27,29 +27,27 @@ class KeyItem: /*Codable,*/ ObservableObject {
     var note:String
     var state:State
     
-    var password:String {
-        get {
-            return "the password"
-        }
-        set(newValue) {
-            
-        }
-    }
+    var password:String
+    
+    
     init( state:State ) {
         self.state = state;
         self.id = ""
         self.username = ""
         self.email = ""
         self.note = ""
+        self.password = ""
 
     }
     
-    convenience init( id:String, username:String, email:String = "", note:String = "" ) {
+    convenience init( id:String, username:String, password:String, email:String = "", note:String = "" ) {
         self.init( state:.neutral )
         self.id = id
         self.username = username
         self.email = email
         self.note = note
+        self.password = password
+        
     }
 
     static func newItem() -> KeyItem {
@@ -69,3 +67,4 @@ extension KeyItem : Hashable {
         hasher.combine(id)
     }
 }
+

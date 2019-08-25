@@ -10,12 +10,133 @@ import UIKit
 import CoreData
 import SwiftUI
 import Combine
+import KeychainAccess
+
 //
 // Make Sting compliant with Error protocol
 // @see https://www.hackingwithswift.com/example-code/language/how-to-throw-errors-using-strings
 //
 extension String: LocalizedError {
     public var errorDescription: String? { return self }
+}
+
+// KeyEntity Extension
+extension KeyEntity {
+    
+    func toKeyItem() throws -> KeyItem {
+        
+        guard let id = self.mnemonic, let username = self.username else {
+            throw "Invalid KeyEntity no mnemonic or username defined"
+        }
+        guard let bundleIdentifier = Bundle.main.bundleIdentifier else {
+            throw "Bundle Identifier Undefined"
+        }
+        
+        let keychain = Keychain(service: bundleIdentifier).accessibility(.whenUnlocked)
+
+        
+        guard let password = try keychain.get(id) else {
+            //throw "password doesn't found for key \(id)"
+            return KeyItem( id:id, username:username, password:Keychain.generatePassword() )
+        }
+        
+        return KeyItem( id:id, username:username, password:password )
+    }
+
+    
+    func from( item: KeyItem ) -> KeyEntity {
+        self.mnemonic = item.id
+        self.username = item.username
+        return self
+    }
+
+    static func fromKeyItem( item: KeyItem, context:NSManagedObjectContext ) throws -> KeyEntity {
+        
+        let result = KeyEntity( context:context )
+
+        return result.from( item:item )
+    }
+
+}
+
+
+enum SavingError :Error {
+    
+    case KeyDoesNotExist( id:String )
+    case DuplicateKey( id:String )
+    case InvalidItem( id:String )
+    case BundleIdentifierUndefined
+}
+
+/**
+    Fetch Single Value
+ */
+func fetchSingle( _ context:NSManagedObjectContext, entity:NSEntityDescription, predicateFormat:String, key:String  ) throws -> Any {
+
+    let request = NSFetchRequest<NSFetchRequestResult>()
+    request.entity =  entity
+    request.predicate = NSPredicate( format: predicateFormat, key)
+    let fetchResult = try context.fetch( request )
+    
+    if( fetchResult.count == 0 ) {
+        throw SavingError.KeyDoesNotExist(id: key)
+        
+    }
+    if( fetchResult.count > 1 ) {
+        throw SavingError.DuplicateKey(id: key)
+        
+    }
+    return fetchResult[0]
+}
+
+
+extension KeyItem  {
+    /**
+        Fetch KeyItem by id
+     */
+    func fetchKeyItemById( _ context:NSManagedObjectContext, item:KeyItem ) throws -> KeyEntity {
+        
+        guard let result = try fetchSingle( context,
+                                            entity:KeyEntity.entity(),
+                                            predicateFormat:"(mnemonic = %@)",
+                                            key:item.id) as? KeyEntity else {
+                throw SavingError.InvalidItem(id: item.id)
+        }
+        return result
+
+    }
+
+    func save( _ context:NSManagedObjectContext ) throws {
+        guard let bundleIdentifier = Bundle.main.bundleIdentifier else {
+            throw SavingError.BundleIdentifierUndefined
+        }
+        
+        let keychain = Keychain(service: bundleIdentifier).accessibility(.whenUnlocked)
+
+        switch( state ) {
+        case .new:
+            let record = try KeyEntity.fromKeyItem(item: self, context: context)
+            context.insert( record )
+            try keychain.set(self.password, key: self.id)
+            state = .neutral
+            break
+        case .updated:
+            let result = try self.fetchKeyItemById( context, item:self )
+            let _ = result.from(item: self)
+            try keychain.set(self.password, key: self.id)
+            state = .neutral
+            break
+        case .deleted:
+            let result = try self.fetchKeyItemById( context, item:self )
+            let _ = result.from(item: self)
+            context.delete(result)
+            try keychain.remove(self.id)
+            break
+        default:
+            break
+        }
+
+    }
 }
 
 // GLOBAL DATA
@@ -48,34 +169,6 @@ class ApplicationMails: ObservableObject {
     }
 }
 
-// KeyEntity Extension
-extension KeyEntity {
-    
-    func toKeyItem() throws -> KeyItem {
-        
-        guard let id = self.mnemonic, let username = self.username else {
-            throw "Invalid KeyEntity no mnemonic or username defined"
-        }
-        
-        return KeyItem( id:id, username:username )
-    }
-
-    
-    func from( item: KeyItem ) -> KeyEntity {
-        self.mnemonic = item.id
-        self.username = item.username
-        return self
-    }
-
-    static func fromKeyItem( item: KeyItem, context:NSManagedObjectContext ) throws -> KeyEntity {
-        
-        let result = KeyEntity( context:context )
-
-        return result.from( item:item )
-    }
-
-}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -85,6 +178,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         self.loadContext()
+
         return true
     }
 
@@ -143,48 +237,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private var cancellable:AnyCancellable?
     
-    enum CoreDataError :Error {
-        
-        case KeyDoesNotExist( id:String )
-        case DuplicateKey( id:String )
-        case InvalidItem( id:String )
-    }
-    
-    /**
-        Fetch Single Value
-     */
-    func fetchSingle( entity:NSEntityDescription, predicateFormat:String, key:String  ) throws -> Any {
-        let context = persistentContainer.viewContext;
-
-        let request = NSFetchRequest<NSFetchRequestResult>()
-        request.entity =  entity
-        request.predicate = NSPredicate( format: predicateFormat, key)
-        let fetchResult = try context.fetch( request )
-        
-        if( fetchResult.count == 0 ) {
-            throw CoreDataError.KeyDoesNotExist(id: key)
-            
-        }
-        if( fetchResult.count > 1 ) {
-            throw CoreDataError.DuplicateKey(id: key)
-            
-        }
-        return fetchResult[0]
-    }
-    
-    /**
-        Fetch KeyItem by id
-     */
-    func fetchKeyItemById( item:KeyItem ) throws -> KeyEntity {
-        
-        guard let result = try self.fetchSingle( entity:KeyEntity.entity(),
-                              predicateFormat:"(mnemonic = %@)",
-                              key:item.id) as? KeyEntity else {
-                throw CoreDataError.InvalidItem(id: item.id)
-        }
-        return result
-
-    }
     
     func loadContext() {
         
@@ -202,25 +254,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print( "Changed Value: \(item)" )
                 
                 do {
-                    switch( item.state ) {
-                    case .new:
-                        let record = try KeyEntity.fromKeyItem(item: item, context: context)
-                        context.insert( record )
-                        item.state = .neutral
-                        break
-                    case .updated:
-                        let result = try self.fetchKeyItemById( item:item )
-                        let _ = result.from(item: item)
-                        item.state = .neutral
-                        break
-                    case .deleted:
-                        let result = try self.fetchKeyItemById( item:item )
-                        let _ = result.from(item: item)
-                        context.delete(result)
-                        break
-                    default:
-                        break
-                    }
+                    
+                    try item.save( context )
                 }
                 catch {
                     print( "Error updating Database \(error)" )

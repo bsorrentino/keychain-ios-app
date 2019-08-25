@@ -23,10 +23,13 @@ struct KeyItemRow : View {
 }
 
 #if DEBUG
+
+import KeychainAccess
+
 struct KeyItemRow_Previews : PreviewProvider {
     static var previews: some View {
         Group {
-            KeyItemRow( item: KeyItem( id: "the mnemonic item", username: "bsorrentino"))
+            KeyItemRow( item: KeyItem( id: "the mnemonic item", username: "bsorrentino", password:Keychain.generatePassword()))
         }.previewLayout(.fixed(width: 300, height: 70))
     }
 }

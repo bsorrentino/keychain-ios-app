@@ -252,11 +252,12 @@ struct KeyItemForm : View {
 }
 
 #if DEBUG
+import KeychainAccess
 
 struct KeyItemDetail_Previews : PreviewProvider {
     static var previews: some View {
         
-        KeyItemForm( item: KeyItem( id:"id1", username:"username1"))
+        KeyItemForm( item: KeyItem( id:"id1", username:"username1", password:Keychain.generatePassword()))
         
         
     }

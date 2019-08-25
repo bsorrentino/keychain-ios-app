@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14865.6" systemVersion="19A512f" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14897.2" systemVersion="19A536g" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="KeyItem" representedClassName="KeyEntity" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String" defaultValueString="nil"/>
         <attribute name="grouped" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
@@ -8,7 +8,11 @@
         <attribute name="url" optional="YES" attributeType="URI" defaultValueString="nil"/>
         <attribute name="username" attributeType="String" defaultValueString="user"/>
     </entity>
+    <entity name="MailEntity" representedClassName="MailEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="KeyItem" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="MailEntity" positionX="-63" positionY="27" width="128" height="58"/>
     </elements>
 </model>

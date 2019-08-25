@@ -66,13 +66,16 @@ struct TopView : View {
 
 
 #if DEBUG
+
+import KeychainAccess
+
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
         ContentView()
         .environmentObject( ApplicationKeys(items:[
-            KeyItem( id:"item1", username:"user1"),
-            KeyItem( id:"item2", username:"user2"),
-            KeyItem( id:"item3", username:"user3"),
+            KeyItem( id:"item1", username:"user1", password:Keychain.generatePassword()),
+            KeyItem( id:"item2", username:"user2", password:Keychain.generatePassword()),
+            KeyItem( id:"item3", username:"user3", password:Keychain.generatePassword()),
         ]) )
         
     }
