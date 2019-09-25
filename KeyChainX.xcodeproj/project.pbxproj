@@ -48,6 +48,7 @@
 		A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemNote.swift; sourceTree = "<group>"; };
 		A0375EA122B69BF000BD4B79 /* KeyItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
 		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
+		A0A19213233BD80000A85A67 /* SwiftUI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftUI.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0C0DB5322A901AD003B09ED /* KeyChainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C0DB5622A901AD003B09ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		A0C0DB4A22A901AD003B09ED = {
 			isa = PBXGroup;
 			children = (
+				A0A19213233BD80000A85A67 /* SwiftUI.playground */,
 				A0E11ED822B4E82F008766C0 /* README.md */,
 				A0C0DB5522A901AD003B09ED /* KeyChainX */,
 				A0C0DB6F22A901B0003B09ED /* KeyChainXTests */,
