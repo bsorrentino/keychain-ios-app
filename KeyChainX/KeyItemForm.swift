@@ -13,8 +13,19 @@ class StringFormatter : Formatter {
     
 }
 
-class Field<T> : ObservableObject where T : Hashable  {
+class FieldValue<T>  where T : Hashable {
     
+    @Binding private var value:T
+    var errorMessage:String? = nil
+    
+    init( _ value:Binding<T> ) {
+        self._value = value
+    }
+    
+    var isValid:Bool {
+         return self.errorMessage == nil
+     }
+
 }
 
 class FieldValidator<T> : ObservableObject where T : Hashable {
