@@ -13,12 +13,15 @@ class StringFormatter : Formatter {
     
 }
 
+class Field<T> : ObservableObject where T : Hashable  {
+    
+}
+
 class FieldValidator<T> : ObservableObject where T : Hashable {
     typealias Validator = (T) -> String?
     
     @Binding private var bindValue:T
-
-    @Published var errorMessage:String? = nil
+    @Binding private var valid:Bool
     
     @Published var value:T
     {
@@ -31,19 +34,29 @@ class FieldValidator<T> : ObservableObject where T : Hashable {
     }
     private let validator:Validator
     
-    init( _ value:Binding<T>, validator:@escaping Validator  ) {
+    var isValid:Bool {
+        return self.valid
+    }
+    
+    var errorMessage:String? {
+        return self.validator( self.value )
+    }
+    
+    init( _ value:Binding<T>, valid:Binding<Bool>, validator:@escaping Validator  ) {
         self.validator = validator
         self._bindValue = value
         self.value = value.wrappedValue
+        self._valid = valid
     }
     
     func doValidate( _ newValue:T? = nil ) -> Void {
-        if let v = newValue {
-            self.errorMessage = self.validator( v )
-        }
-        else {
-            self.errorMessage = self.validator( self.value )
-        }
+                
+        let m =
+            (newValue != nil) ?
+            self.validator( newValue! ) :
+            self.validator( self.value )
+        
+        self.valid =  m == nil
     }
 }
 
@@ -57,21 +70,26 @@ struct TextFieldWithValidator : View {
     
     @ObservedObject var field:FieldValidator<String>
     
-    init( title:String = "", value:Binding<String>, validator:@escaping Validator ) {
+    init( title:String = "", value:Binding<String>, valid:Binding<Bool>, validator:@escaping Validator ) {
         self.title = title;
-        self.field = FieldValidator<String>(value, validator:validator )
+        self.field = FieldValidator<String>(value, valid:valid, validator:validator )
         
     }
 
     var body: some View {
-        TextField( title ?? "", text: $field.value )
-            .padding(.all)
-            .border( field.errorMessage != nil ? Color.red : Color.clear )
-            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
-            //.cornerRadius(5.0)
-            .onAppear {
-                self.field.doValidate()
-            }
+        VStack {
+            TextField( title ?? "", text: $field.value )
+                .padding(.all)
+                .border( field.isValid ? Color.clear : Color.red )
+                .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+                //.cornerRadius(5.0)
+                .onAppear {
+                    self.field.doValidate()
+                }
+                if( !field.isValid  ) {
+                    Text( field.errorMessage ?? "unknown" )
+                }
+        }
     }
 }
 
@@ -115,26 +133,33 @@ struct PasswordField : View {
     
     @ObservedObject var field:FieldValidator<String>
     
-    init( value:Binding<String>, secretInfo:Binding<SecretInfo>, validator:@escaping Validator ) {
-        self.field = FieldValidator<String>(value, validator:validator )
+    init( value:Binding<String>, valid:Binding<Bool>, secretInfo:Binding<SecretInfo>, validator:@escaping Validator ) {
+        self.field = FieldValidator<String>(value, valid:valid, validator:validator )
         self._secretInfo = secretInfo
     }
 
     var body: some View {
-        Group {
-            if( secretInfo == .hide ) {
-                SecureField( "password", text:$field.value)
-            }
-            else {
-                TextField( "password", text:$field.value)
-            }
-        }
-        .padding(.all)
-        .onAppear { self.field.doValidate() }
-        .border( field.errorMessage != nil ? Color.red : Color.clear )
-        .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
-        //.cornerRadius(5.0)
         
+        VStack {
+            Group {
+                if( secretInfo == .hide ) {
+                    SecureField( "password", text:$field.value)
+                }
+                else {
+                    TextField( "password", text:$field.value)
+                }
+            }
+            .padding(.all)
+            .border( field.isValid ? Color.clear : Color.red )
+            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+            //.cornerRadius(5.0)
+            if( !field.isValid  ) {
+                Text( field.errorMessage ?? "unknown" )
+            }
+
+        }
+        .onAppear { self.field.doValidate() }
+
     }
 }
 
@@ -159,7 +184,7 @@ struct KeyItemForm : View {
     @State var secretInfo:SecretInfo = .hide
     @State var showNote = false
     
-    @State var userValid:Bool = false
+    @State var userValid:Bool = true
     @State var mnemonicValid:Bool = true
     @State var passwordValid:Bool = false
 
@@ -173,14 +198,12 @@ struct KeyItemForm : View {
                         
                         VStack(alignment: .leading) {
                             Text("mnemonic")
-                            TextFieldWithValidator( value: $item.id ) { v in
+                            TextFieldWithValidator( value: $item.id, valid:$mnemonicValid ) { v in
                                 
                                 if( v.isEmpty ) {
-                                    self.mnemonicValid = false
                                     return "mnemonic cannot be empty"
                                 }
                                 
-                                self.mnemonicValid = true
                                 return nil
                             }
                             .autocapitalization(.allCharacters)
@@ -193,28 +216,23 @@ struct KeyItemForm : View {
                     
                     VStack(alignment: .leading) {
                         Text("username")
-                        TextFieldWithValidator( value: $item.username ) { v in
+                        TextFieldWithValidator( value: $item.username, valid:$userValid ) { v in
                             
                             if( v.isEmpty ) {
-                                self.userValid = false
                                 return "username cannot be empty"
                             }
                             
-                            self.userValid = true
                             return nil
                         }
                         .autocapitalization(.none)
                     }
-
+                    
                     VStack(alignment: .leading) {
                         Text("Password")
-                        PasswordField( value:$item.password, secretInfo:$secretInfo ) { v in
+                        PasswordField( value:$item.password, valid:$passwordValid, secretInfo:$secretInfo ) { v in
                                 if( v.isEmpty ) {
-                                    self.passwordValid = false
                                     return "password cannot be empty"
                                 }
-                                
-                                self.passwordValid = true
                                 return nil
                         }
                         .autocapitalization(.none)
@@ -267,7 +285,7 @@ struct KeyItemForm : View {
                         self.presentationMode.wrappedValue.dismiss()
                         
                     })
-                    .disabled( !( userValid && mnemonicValid) )
+                    .disabled( !(mnemonicValid && userValid) )
                     
                 }
             )
