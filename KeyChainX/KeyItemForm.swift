@@ -17,7 +17,7 @@ struct FieldChecker {
     var errorMessage:String? = nil
     
     var valid:Bool {
-         return self.errorMessage == nil
+         self.errorMessage == nil
      }
 
 }
@@ -40,11 +40,11 @@ class FieldValidator<T> : ObservableObject where T : Hashable {
     private let validator:Validator
     
     var isValid:Bool {
-        return self.checker.valid
+        self.checker.valid
     }
     
     var errorMessage:String? {
-        return self.checker.errorMessage
+        self.checker.errorMessage
     }
     
     init( _ value:Binding<T>, checker:Binding<FieldChecker>, validator:@escaping Validator  ) {
@@ -67,7 +67,7 @@ class FieldValidator<T> : ObservableObject where T : Hashable {
 // MARK:  FORM FIELD
 
 struct TextFieldWithValidator : View {
-    typealias Validator = (String) -> String?
+    typealias Validator = (String) -> String? // specialize validator for TestField ( T = String )
     
     var title:String?
     
@@ -318,3 +318,4 @@ struct KeyItemDetail_Previews : PreviewProvider {
     }
 }
 #endif
+    
