@@ -97,11 +97,8 @@ struct TextFieldWithValidator : View {
 // MARK: SAMPLE
 class DataItem: /*Codable,*/ ObservableObject {
 
-    @Published var username:String
-    
-    init( username:String ) {
-        self.username = username
-    }
+    @Published var username:String = ""
+    @Published var password:String = ""
 
 }
 
@@ -110,44 +107,54 @@ struct FormVithValidator : View {
 
     @ObservedObject var item:DataItem
     
-    @State var userValid = FieldChecker()
-    
+    @State var usernameValid = FieldChecker()
+    @State var passwordValid = FieldChecker()
+
     var body: some View {
-    //NavigationView {
         Form {
              
              Section {
                  
-                 VStack(alignment: .leading) {
-                     Text("username")
-                     TextFieldWithValidator( value: $item.username, checker:$userValid ) { v in
+                TextFieldWithValidator( title:"username", value: $item.username, checker:$usernameValid ) { v in
                          
                          if( v.isEmpty ) {
                              return "username cannot be empty"
                          }
                          
                          return nil
-                     }
-                     .autocapitalization(.none)
                  }
-                              
-             }
-        }
-        //.offset( y:-30)
+                 .autocapitalization(.none)
+                TextFieldWithValidator( title:"password", value: $item.password, checker:$passwordValid ) { v in
+                         
+                         if( v.isEmpty ) {
+                             return "password cannot be empty"
+                         }
+                         
+                         return nil
+                 }
+                 .autocapitalization(.none)
+            }
+            Section {
+                Button( "Submit" ) {
+                    
+                }
+                .disabled( !(passwordValid.valid && usernameValid.valid) )
+            }
+         }
+
     }
-    //}
 }
 
-let item = DataItem( username:"bsorrentino")
+let item = DataItem()
 
 let window = UIWindow( frame:CGRect(x:0, y:0, width:768, height:1024) )
 
 let vc = UIHostingController(rootView: FormVithValidator( item:item))
 
-vc.preferredContentSize = CGSize( width:768, height:5000)
+UIScreen.main.bounds
+
 window.rootViewController = vc
 window.makeKeyAndVisible()
 // Present the view controller in the Live View window
-PlaygroundPage.current.needsIndefiniteExecution = true
 PlaygroundPage.current.liveView = window
-
+PlaygroundPage.current.needsIndefiniteExecution = true

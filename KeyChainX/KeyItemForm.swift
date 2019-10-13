@@ -75,7 +75,7 @@ struct TextFieldWithValidator : View {
     
     init( title:String = "", value:Binding<String>, checker:Binding<FieldChecker>, validator:@escaping Validator ) {
         self.title = title;
-        self.field = FieldValidator<String>(value, checker:checker, validator:validator )
+        self.field = FieldValidator(value, checker:checker, validator:validator )
         
     }
 
