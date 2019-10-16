@@ -9,6 +9,15 @@
           "revision": "0046db4ab8fd7be31a59e57912dbb96639ad8ce9",
           "version": "3.2.0"
         }
+      },
+      {
+        "package": "FieldValidatorLibrary",
+        "repositoryURL": "https://github.com/bsorrentino/swiftui-fieldvalidator.git",
+        "state": {
+          "branch": "master",
+          "revision": "c2b313ba161caa1a7ec6fb9204899c75ae365a8d",
+          "version": null
+        }
       }
     ]
   },

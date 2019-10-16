@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5FEF845F235481CD0035A1BE /* FieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEF845E235481CD0035A1BE /* FieldValidator.swift */; };
+		5F14E0872357756700586E5F /* FieldValidatorLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 5F14E0862357756700586E5F /* FieldValidatorLibrary */; };
 		A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */; };
 		A0375EA222B69BF000BD4B79 /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0375EA122B69BF000BD4B79 /* KeyItemForm.swift */; };
 		A08AE59222A956C10049096A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A08AE59122A956C10049096A /* KeychainAccess */; };
@@ -46,7 +46,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5FEF845E235481CD0035A1BE /* FieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldValidator.swift; sourceTree = "<group>"; };
 		A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemNote.swift; sourceTree = "<group>"; };
 		A0375EA122B69BF000BD4B79 /* KeyItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
 		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F14E0872357756700586E5F /* FieldValidatorLibrary in Frameworks */,
 				A08AE59222A956C10049096A /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,14 +99,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5FEF845D235481610035A1BE /* FieldValidator */ = {
-			isa = PBXGroup;
-			children = (
-				5FEF845E235481CD0035A1BE /* FieldValidator.swift */,
-			);
-			path = FieldValidator;
-			sourceTree = "<group>";
-		};
 		A096114E2312CA970037E8B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,7 +118,6 @@
 		A0C0DB4A22A901AD003B09ED = {
 			isa = PBXGroup;
 			children = (
-				5FEF845D235481610035A1BE /* FieldValidator */,
 				A0A19213233BD80000A85A67 /* SwiftUI.playground */,
 				A0E11ED822B4E82F008766C0 /* README.md */,
 				A0C0DB5522A901AD003B09ED /* KeyChainX */,
@@ -211,6 +202,7 @@
 			name = KeyChainX;
 			packageProductDependencies = (
 				A08AE59122A956C10049096A /* KeychainAccess */,
+				5F14E0862357756700586E5F /* FieldValidatorLibrary */,
 			);
 			productName = KeyChainX;
 			productReference = A0C0DB5322A901AD003B09ED /* KeyChainX.app */;
@@ -289,6 +281,7 @@
 			mainGroup = A0C0DB4A22A901AD003B09ED;
 			packageReferences = (
 				A08AE59022A956C10049096A /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				5F14E0852357756700586E5F /* XCRemoteSwiftPackageReference "swiftui-fieldvalidator" */,
 			);
 			productRefGroup = A0C0DB5422A901AD003B09ED /* Products */;
 			projectDirPath = "";
@@ -342,7 +335,6 @@
 				A0375EA222B69BF000BD4B79 /* KeyItemForm.swift in Sources */,
 				A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */,
 				A0C0DB5E22A901AD003B09ED /* KeyItemList.swift in Sources */,
-				5FEF845F235481CD0035A1BE /* FieldValidator.swift in Sources */,
 				A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */,
 				A0C0DB8A22A911AB003B09ED /* KeyItemRow.swift in Sources */,
 			);
@@ -669,6 +661,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5F14E0852357756700586E5F /* XCRemoteSwiftPackageReference "swiftui-fieldvalidator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bsorrentino/swiftui-fieldvalidator.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		A08AE59022A956C10049096A /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
@@ -680,6 +680,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5F14E0862357756700586E5F /* FieldValidatorLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F14E0852357756700586E5F /* XCRemoteSwiftPackageReference "swiftui-fieldvalidator" */;
+			productName = FieldValidatorLibrary;
+		};
 		A08AE59122A956C10049096A /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A08AE59022A956C10049096A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
