@@ -28,8 +28,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             
             if let appDelegate = self.appDelegate {
+
+                let view = ContentView()
+                    .environment(\.managedObjectContext, self.managedObjectContext) // CoreData integration
+                    .environmentObject( appDelegate.applicationKeys )
                 
-                let view = ContentView().environmentObject( appDelegate.applicationKeys )
                 window.rootViewController = UIHostingController(rootView: view  )
             }
             self.window = window
