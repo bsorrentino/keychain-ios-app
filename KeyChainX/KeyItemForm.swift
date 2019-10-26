@@ -69,23 +69,35 @@ extension SecretInfo {
     }
 }
 
+struct EmailEntry : View {
+    
+    var mail:MailEntity?
+    
+    var body: some View {
+        
+        HStack {
+            Text( mail?.name ?? "unknown")
+            Button("edit") {}
+        }.tag( mail?.id )
+    }
+
+}
 struct EmailField : View {
     
     @Binding var value:String
     
-    var mails:Array<String> = [
+    @FetchRequest( entity: MailEntity.entity(),
+                   sortDescriptors: [ NSSortDescriptor(keyPath: \MailEntity.name, ascending: true)]
+    ) var mails:FetchedResults<MailEntity>
     
-            "bartolomeo.sorrentino@gmail.com         ",
-            "bartolomeo.sorrentino@soulsoftware.it   "
     
-    ]
-
     var body: some View {
         
         Picker( "", selection: $value ) {
-            ForEach(0 ..< mails.count) {
-                Text(self.mails[$0]).tag(self.mails[$0])
+            List(mails, id: \MailEntity.id) { (mail:MailEntity) in
+                EmailEntry( mail:mail )
             }
+            EmailEntry()
         }
         .padding(.all)
         .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))

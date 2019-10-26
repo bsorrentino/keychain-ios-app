@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5F14E0872357756700586E5F /* FieldValidatorLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 5F14E0862357756700586E5F /* FieldValidatorLibrary */; };
+		5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F22361FD900066E947 /* App+CoreData.swift */; };
+		5F5772F52361FDD50066E947 /* App+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F42361FDD50066E947 /* App+Error.swift */; };
 		A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */; };
 		A0375EA222B69BF000BD4B79 /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0375EA122B69BF000BD4B79 /* KeyItemForm.swift */; };
 		A08AE59222A956C10049096A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A08AE59122A956C10049096A /* KeychainAccess */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F5772F22361FD900066E947 /* App+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+CoreData.swift"; sourceTree = "<group>"; };
+		5F5772F42361FDD50066E947 /* App+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Error.swift"; sourceTree = "<group>"; };
 		A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemNote.swift; sourceTree = "<group>"; };
 		A0375EA122B69BF000BD4B79 /* KeyItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
 		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				A096B3C522CE4295004E17CC /* UIKIT */,
+				5F5772F22361FD900066E947 /* App+CoreData.swift */,
+				5F5772F42361FDD50066E947 /* App+Error.swift */,
 				A0C0DB8B22A9454C003B09ED /* KeyItem.swift */,
 				A0C0DB8922A911AB003B09ED /* KeyItemRow.swift */,
 				A0C0DB5622A901AD003B09ED /* AppDelegate.swift */,
@@ -330,6 +336,8 @@
 			files = (
 				A0C0DB8C22A9454C003B09ED /* KeyItem.swift in Sources */,
 				A0C0DB5C22A901AD003B09ED /* KeyChainX.xcdatamodeld in Sources */,
+				5F5772F52361FDD50066E947 /* App+Error.swift in Sources */,
+				5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */,
 				A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */,
 				A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */,
 				A0375EA222B69BF000BD4B79 /* KeyItemForm.swift in Sources */,
