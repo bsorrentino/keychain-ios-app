@@ -12,6 +12,7 @@
 		5F5772F52361FDD50066E947 /* App+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F42361FDD50066E947 /* App+Error.swift */; };
 		A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */; };
 		A0375EA222B69BF000BD4B79 /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0375EA122B69BF000BD4B79 /* KeyItemForm.swift */; };
+		A071C20323648EAB00891175 /* EmailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* EmailList.swift */; };
 		A08AE59222A956C10049096A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A08AE59122A956C10049096A /* KeychainAccess */; };
 		A09611502312CA970037E8B9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A096114F2312CA970037E8B9 /* KeychainAccess */; };
 		A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */; };
@@ -52,6 +53,7 @@
 		5F5772F42361FDD50066E947 /* App+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Error.swift"; sourceTree = "<group>"; };
 		A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemNote.swift; sourceTree = "<group>"; };
 		A0375EA122B69BF000BD4B79 /* KeyItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
+		A071C20223648EAB00891175 /* EmailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailList.swift; sourceTree = "<group>"; };
 		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
 		A0A19213233BD80000A85A67 /* SwiftUI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftUI.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0C0DB5322A901AD003B09ED /* KeyChainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +155,7 @@
 				A0C0DB5622A901AD003B09ED /* AppDelegate.swift */,
 				A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */,
 				A0C0DB5D22A901AD003B09ED /* KeyItemList.swift */,
+				A071C20223648EAB00891175 /* EmailList.swift */,
 				A0375EA122B69BF000BD4B79 /* KeyItemForm.swift */,
 				A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */,
 				A0C0DB5F22A901B0003B09ED /* Assets.xcassets */,
@@ -336,6 +339,7 @@
 			files = (
 				A0C0DB8C22A9454C003B09ED /* KeyItem.swift in Sources */,
 				A0C0DB5C22A901AD003B09ED /* KeyChainX.xcdatamodeld in Sources */,
+				A071C20323648EAB00891175 /* EmailList.swift in Sources */,
 				5F5772F52361FDD50066E947 /* App+Error.swift in Sources */,
 				5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */,
 				A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */,
