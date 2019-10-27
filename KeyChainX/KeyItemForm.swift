@@ -25,7 +25,7 @@ struct PasswordField : View {
     @ObservedObject var field:FieldValidator<String>
     
     init( value:Binding<String>, checker:Binding<FieldChecker>, secretInfo:Binding<SecretInfo>, validator:@escaping Validator ) {
-        self.field = FieldValidator<String>(value, checker:checker, validator:validator )
+        self.field = FieldValidator(value, checker:checker, validator:validator )
         self._secretInfo = secretInfo
     }
 
