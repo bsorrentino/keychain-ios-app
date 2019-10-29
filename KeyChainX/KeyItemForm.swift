@@ -25,7 +25,7 @@ struct PasswordField : View {
     @ObservedObject var field:FieldValidator<String>
     
     init( value:Binding<String>, checker:Binding<FieldChecker>, secretInfo:Binding<SecretInfo>, validator:@escaping Validator ) {
-        self.field = FieldValidator<String>(value, checker:checker, validator:validator )
+        self.field = FieldValidator(value, checker:checker, validator:validator )
         self._secretInfo = secretInfo
     }
 
@@ -43,7 +43,6 @@ struct PasswordField : View {
             .padding(.all)
             .border( field.isValid ? Color.clear : Color.red )
             .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
-            //.cornerRadius(5.0)
             if( !field.isValid  ) {
                 Text( field.errorMessage ?? "" )
                     .fontWeight(.light)
@@ -54,7 +53,9 @@ struct PasswordField : View {
             }
 
         }
-        .onAppear { self.field.doValidate() }
+        .onAppear {
+            self.field.doValidate()
+        }
 
     }
 }
@@ -69,39 +70,15 @@ extension SecretInfo {
     }
 }
 
-struct EmailEntry : View {
-    
-    var mail:MailEntity?
-    
-    var body: some View {
-        
-        HStack {
-            Text( mail?.name ?? "unknown")
-            Button("edit") {}
-        }.tag( mail?.id )
-    }
-
-}
 struct EmailField : View {
     
     @Binding var value:String
-    
-    @FetchRequest( entity: MailEntity.entity(),
-                   sortDescriptors: [ NSSortDescriptor(keyPath: \MailEntity.name, ascending: true)]
-    ) var mails:FetchedResults<MailEntity>
-    
+
     
     var body: some View {
-        
-        Picker( "", selection: $value ) {
-            List(mails, id: \MailEntity.id) { (mail:MailEntity) in
-                EmailEntry( mail:mail )
+        NavigationLink( destination: EmailList( value: $value) ) {
+                Text(value)
             }
-            EmailEntry()
-        }
-        .padding(.all)
-        .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
-    
     }
 
 }
@@ -122,7 +99,7 @@ struct KeyItemForm : View {
     @State var passwordValid    = FieldChecker()
 
     var body: some View {
-        //NavigationView {
+        NavigationView {
             Form {
                 
 
@@ -222,7 +199,7 @@ struct KeyItemForm : View {
                     
                 }
             )
-        //}
+        } // NavigationView
         
     }
 }
