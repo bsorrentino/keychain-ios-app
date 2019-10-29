@@ -9,25 +9,66 @@
 import SwiftUI
 import FieldValidatorLibrary
 
+
+let __firstpart = "[A-Z0-9a-z]([A-Z0-9a-z._%+-]{0,30}[A-Z0-9a-z])?"
+let __serverpart = "([A-Z0-9a-z]([A-Z0-9a-z-]{0,30}[A-Z0-9a-z])?\\.){1,5}"
+let __emailRegex = "\(__firstpart)@\(__serverpart)[A-Za-z]{2,8}"
+let __emailPredicate = NSPredicate(format: "SELF MATCHES %@", __emailRegex)
+
+extension String {
+    func isEmail() -> Bool {
+        return __emailPredicate.evaluate(with: self)
+    }
+}
+
 struct EmailForm : View {
-    
+    @Environment(\.presentationMode) var presentation
+    @Environment(\.managedObjectContext) var context
     @State var mailValid = FieldChecker()
     @State var result:String = ""
     
+    
     var body: some View {
-        
-       VStack(alignment: .leading) {
-            //Text("mail")
-            TextFieldWithValidator( title: "insert email", value: $result, checker:$mailValid ) { v in
-                   
-                   if( v.isEmpty ) {
-                       return "mail cannot be empty"
-                   }
-                   
-                   return nil
+        NavigationView {
+            VStack(alignment: .center) {
+                TextFieldWithValidator( title: "insert email", value: $result, checker:$mailValid ) { v in
+                       
+                        if( v.isEmpty ) {
+                           return "mail cannot be empty !"
+                        }
+                        if( !v.isEmail() ) {
+                            return "mail is not in correct format !"
+                        }
+                       
+                       return nil
+                }
+                .autocapitalization(.none)
+                .padding( 10 )
+                Button( "Confirm", action: {
+                    self.insert()
+                    self.presentation.wrappedValue.dismiss()
+                })
+                .padding(  50 )
+                .disabled( !mailValid.valid )
             }
+            .navigationBarTitle("Mail Form")
+                .navigationBarItems(leading:
+                    
+                    Image(systemName: "envelope")
+                        .resizable()
+                        .aspectRatio(1, contentMode: .fit)
+                        .frame(width: 30.0, height: 30.0, alignment: .leading)
+
+                )
         }
-       .padding(10.0)
+    }
+    
+    func insert() {
+        let mail = MailEntity(context: self.context)
+        mail.id = self.result
+        mail.name = self.result
+        
+        self.context.insert(mail)
     }
 }
 
@@ -53,7 +94,7 @@ struct EmailList: View {
                 }
                 .onDelete( perform: delete)
             }
-             .navigationBarTitle("email")
+            .navigationBarTitle( Text("email"), displayMode: .inline )
              .navigationBarItems(
                  leading: Button( action: add, label: { Text("Add") } ),
                  trailing: EditButton())
