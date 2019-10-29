@@ -73,7 +73,7 @@ extension SecretInfo {
 struct EmailField : View {
     
     @Binding var value:String
-    
+
     
     var body: some View {
         NavigationLink( destination: EmailList( value: $value) ) {

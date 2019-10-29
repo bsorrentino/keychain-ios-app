@@ -45,6 +45,21 @@ func fetchSingle( _ context:NSManagedObjectContext, entity:NSEntityDescription, 
     return fetchResult[0]
 }
 
+// MARK: CoreData MailEntity Extension
+extension MailEntity {
+    
+    static func fetchAllMail() -> NSFetchRequest<MailEntity> {
+        
+        let request:NSFetchRequest<MailEntity> = MailEntity.fetchRequest()
+        
+        let sortOrder = NSSortDescriptor(keyPath: \MailEntity.name, ascending: true)
+        
+        request.sortDescriptors = [sortOrder]
+        
+        return request
+        
+    }
+}
 // MARK: CoreData KeyEntity Extension
 extension KeyEntity {
     

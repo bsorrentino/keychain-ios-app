@@ -21,102 +21,110 @@ extension String {
     }
 }
 
-struct EmailForm : View {
-    @Environment(\.presentationMode) var presentation
-    @Environment(\.managedObjectContext) var context
-    @State var mailValid = FieldChecker()
-    @State var result:String = ""
-    
-    
-    var body: some View {
-        NavigationView {
-            VStack(alignment: .center) {
-                TextFieldWithValidator( title: "insert email", value: $result, checker:$mailValid ) { v in
-                       
-                        if( v.isEmpty ) {
-                           return "mail cannot be empty !"
-                        }
-                        if( !v.isEmail() ) {
-                            return "mail is not in correct format !"
-                        }
-                       
-                       return nil
-                }
-                .autocapitalization(.none)
-                .padding( 10 )
-                Button( "Confirm", action: {
-                    self.insert()
-                    self.presentation.wrappedValue.dismiss()
-                })
-                .padding(  50 )
-                .disabled( !mailValid.valid )
-            }
-            .navigationBarTitle("Mail Form")
-                .navigationBarItems(leading:
-                    
-                    Image(systemName: "envelope")
-                        .resizable()
-                        .aspectRatio(1, contentMode: .fit)
-                        .frame(width: 30.0, height: 30.0, alignment: .leading)
-
-                )
-        }
-    }
-    
-    func insert() {
-        let mail = MailEntity(context: self.context)
-        mail.id = self.result
-        mail.name = self.result
-        
-        self.context.insert(mail)
-    }
-}
-
 struct EmailList: View {
-    @State private var showModal = false
-    
+
+    @Environment(\.presentationMode) var presentationMode
+
     @Binding var value:String
-    
     @Environment(\.managedObjectContext) var context
     
-    @FetchRequest( entity: MailEntity.entity(),
-                   sortDescriptors: [ NSSortDescriptor(keyPath: \MailEntity.name, ascending: true)]
-    ) var mails:FetchedResults<MailEntity>
+    @FetchRequest( fetchRequest:MailEntity.fetchAllMail() )
+    var mails:FetchedResults<MailEntity>
     
-    
+    @State var mailValid = FieldChecker()
+    @State var newMail:String = ""
+
     var body: some View {
         
         NavigationView {
             
             List {
-                ForEach( mails, id: \MailEntity.id ) { (mail:MailEntity) in
-                    Text( mail.name ?? "unknown")
+                Section(header: Text("New Mail")) {
+                    HStack {
+                        TextFieldWithValidator( title: "insert email", value: $newMail, checker:$mailValid ) { v in
+                               
+                                if( v.isEmpty ) {
+                                   return "mail cannot be empty !"
+                                }
+                                if( !v.isEmail() ) {
+                                    return "mail is not in correct format !"
+                                }
+                               
+                               return nil
+                        }
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                        .font(.body)
+                        
+                        addButton()
+                    }
+                    
+                }.font( .headline )
+                
+                Section(header: Text("Mails")) {
+                    ForEach( mails, id: \MailEntity.id ) { (mail:MailEntity) in
+                        Text( mail.name ?? "unknown")
+                            .font( .body ).onTapGesture(perform: {
+                                self.value = mail.name ?? "unknown"
+                                self.presentationMode.wrappedValue.dismiss()
+                            })
+                        
+                    }
+                    .onDelete( perform: delete)
+                
+
                 }
-                .onDelete( perform: delete)
+                .font( .headline )
             }
             .navigationBarTitle( Text("email"), displayMode: .inline )
-             .navigationBarItems(
-                 leading: Button( action: add, label: { Text("Add") } ),
+            .navigationBarItems(
                  trailing: EditButton())
-         }.sheet(isPresented: $showModal, onDismiss: {
-             print(self.showModal)
-         }) {
-             EmailForm()
          }
     
     }
     
+    func addButton() -> some View {
+        Button( action: {
+              self.insert()
+          }) {
+              Image( systemName: "plus.circle.fill" )
+                .foregroundColor( mailValid.valid ? .green : .accentColor)
+                  .imageScale(.large)
+          }
+          .disabled( !mailValid.valid )
+
+     }
+
+    func insert() {
+        let mail = MailEntity(context: self.context)
+        mail.id = self.newMail
+        mail.name = self.newMail
+        
+        do {
+            try self.context.save()
+        }
+        catch {
+            print( "error inserting new mail \(error)" )
+        }
+        
+        self.newMail = ""
+    }
+
     func delete( at offsets: IndexSet ) {
         if let first = offsets.first {
             let selectMail = mails[ first ]
             
             context.delete(selectMail)
+
+            do {
+                try self.context.save()
+            }
+            catch {
+                print( "error deleting new mail \(error)" )
+            }
         }
     }
     
-    func add() {
-        self.showModal = true
-    }
 }
 
 #if DEBUG
