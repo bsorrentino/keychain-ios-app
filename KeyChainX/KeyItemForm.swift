@@ -17,7 +17,7 @@ enum SecretInfo: Int, Hashable {
 }
 
 
-struct PasswordField : View {
+struct PasswordToggleField : View {
     typealias Validator = (String) -> String?
     
     @Binding var secretInfo:SecretInfo
@@ -40,18 +40,6 @@ struct PasswordField : View {
                     TextField( "password", text:$field.value)
                 }
             }
-            .padding(.all)
-            .border( field.isValid ? Color.clear : Color.red )
-            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
-            if( !field.isValid  ) {
-                Text( field.errorMessage ?? "" )
-                    .fontWeight(.light)
-                    .font(.footnote)
-                    .foregroundColor(Color.red)
-
-
-            }
-
         }
         .onAppear {
             self.field.doValidate()
@@ -98,6 +86,92 @@ struct KeyItemForm : View {
     @State var mnemonicValid    = FieldChecker()
     @State var passwordValid    = FieldChecker()
 
+    func mnemonicInput() -> some View  {
+        
+        VStack(alignment: .leading) {
+            Text("mnemonic")
+            TextFieldWithValidator( value: $item.id, checker:$mnemonicValid ) { v in
+                
+                if( v.isEmpty ) {
+                    return "mnemonic cannot be empty"
+                }
+                
+                return nil
+            }
+            .padding(.all)
+            .border( mnemonicValid.valid ? Color.clear : Color.red )
+            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+            .autocapitalization(.allCharacters)
+    
+            if( !mnemonicValid.valid  ) {
+                Text( mnemonicValid.errorMessage ?? "" )
+                    .fontWeight(.light)
+                    .font(.footnote)
+                    .foregroundColor(Color.red)
+
+            }
+        }
+            
+
+    }
+    
+    func userInput() -> some View {
+        
+        VStack(alignment: .leading) {
+            Text("username")
+            TextFieldWithValidator( value: $item.username, checker:$userValid ) { v in
+                
+                if( v.isEmpty ) {
+                    return "username cannot be empty"
+                }
+                
+                return nil
+            }
+            .padding(.all)
+            .border( userValid.valid ? Color.clear : Color.red )
+            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+            .autocapitalization(.none)
+            
+            if( !userValid.valid  ) {
+                Text( userValid.errorMessage ?? "" )
+                    .fontWeight(.light)
+                    .font(.footnote)
+                    .foregroundColor(Color.red)
+
+            }
+        }
+
+
+    }
+
+    func passwordInput() -> some View {
+        
+        VStack(alignment: .leading) {
+            Text("Password")
+            PasswordToggleField( value:$item.password, checker:$passwordValid, secretInfo:$secretInfo ) { v in
+                    if( v.isEmpty ) {
+                        return "password cannot be empty"
+                    }
+                    return nil
+            }
+            .padding(.all)
+            .border( passwordValid.valid ? Color.clear : Color.red )
+            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+            .autocapitalization(.none)
+            
+            if( !passwordValid.valid  ) {
+                Text( passwordValid.errorMessage ?? "" )
+                    .fontWeight(.light)
+                    .font(.footnote)
+                    .foregroundColor(Color.red)
+
+            }
+
+        }
+
+    }
+
+    
     var body: some View {
         NavigationView {
             Form {
@@ -106,49 +180,20 @@ struct KeyItemForm : View {
                 if( item.state == KeyItem.State.new ) {
                     Section {
                         
-                        VStack(alignment: .leading) {
-                            Text("mnemonic")
-                            TextFieldWithValidator( value: $item.id, checker:$mnemonicValid ) { v in
-                                
-                                if( v.isEmpty ) {
-                                    return "mnemonic cannot be empty"
-                                }
-                                
-                                return nil
-                            }
-                            .autocapitalization(.allCharacters)
-                        }
+                        mnemonicInput()
+                        
                     }
 
                 }
 
                 Section {
                     
-                    VStack(alignment: .leading) {
-                        Text("username")
-                        TextFieldWithValidator( value: $item.username, checker:$userValid ) { v in
-                            
-                            if( v.isEmpty ) {
-                                return "username cannot be empty"
-                            }
-                            
-                            return nil
-                        }
-                        .autocapitalization(.none)
-                    }
+                    userInput()
                     
-                    VStack(alignment: .leading) {
-                        Text("Password")
-                        PasswordField( value:$item.password, checker:$passwordValid, secretInfo:$secretInfo ) { v in
-                                if( v.isEmpty ) {
-                                    return "password cannot be empty"
-                                }
-                                return nil
-                        }
-                        .autocapitalization(.none)
-                    }
-                    
+                    passwordInput()
+                                        
                 }
+                
                 Section {
                     VStack(alignment: .leading ){
                         Text("email")
@@ -160,8 +205,6 @@ struct KeyItemForm : View {
                     }) {
                         Text("Note")
                     }
-
-                    
 
                 }.sheet( isPresented: $showNote ) { () -> KeyItemNote in
                     
