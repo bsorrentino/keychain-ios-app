@@ -65,11 +65,56 @@ struct EmailField : View {
     
     var body: some View {
         NavigationLink( destination: EmailList( value: $value) ) {
-                Text(value)
+            HStack {
+                Image( systemName: "envelope.circle")
+                if( value.isEmpty ) {
+                    Text( "tap to choose email" )
+                        .foregroundColor(.gray)
+                        .italic()
+                }
+                else {
+                    Text(value )
+                }
             }
+        }
     }
 
+    
 }
+
+struct NoteField : View {
+    
+    @Binding var value:String
+
+    func message() -> some View {
+        if( self.value.isEmpty ) {
+            return Text( "tap to insert note" )
+                .foregroundColor(.gray)
+                .italic()
+        }
+        else {
+            return Text(self.value)
+                
+        }
+
+    }
+    var body: some View {
+        NavigationLink( destination: KeyItemNote( value: $value) ) {
+            HStack(alignment: .center) {
+                Image( systemName: "doc.circle")
+                GeometryReader { geometry in
+                    self.message()
+                    .frame(width: geometry.size.width ,
+                           height: geometry.size.height,
+                           alignment: .leading)
+                }
+            }
+        }
+    }
+
+    
+}
+
 
 
 struct KeyItemForm : View {
@@ -80,7 +125,6 @@ struct KeyItemForm : View {
     @ObservedObject var item:KeyItem
     
     @State var secretInfo:SecretInfo = .hide
-    @State var showNote = false
     
     @State var userValid        = FieldChecker()
     @State var mnemonicValid    = FieldChecker()
@@ -195,22 +239,12 @@ struct KeyItemForm : View {
                 }
                 
                 Section {
-                    VStack(alignment: .leading ){
-                        Text("email")
-                        EmailField( value:$item.email )
-                    }
                     
-                    Button(action: {
-                        self.showNote.toggle()
-                    }) {
-                        Text("Note")
-                    }
-
-                }.sheet( isPresented: $showNote ) { () -> KeyItemNote in
+                    EmailField( value:$item.email )
                     
-                    return KeyItemNote( value:self.$item.note )
+                    NoteField( value:$item.note)
+                    
                 }
-
             }
             .navigationBarTitle( Text("\(item.id.uppercased())"), displayMode: .inline  )
             .navigationBarItems(trailing:
