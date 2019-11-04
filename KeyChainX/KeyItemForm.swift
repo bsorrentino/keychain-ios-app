@@ -132,7 +132,18 @@ struct KeyItemForm : View {
     func mnemonicInput() -> some View  {
         
         VStack(alignment: .leading) {
-            Text("mnemonic")
+            HStack {
+                Text("mnemonic")
+                if( !mnemonicValid.valid  ) {
+                    Spacer()
+                    Text( mnemonicValid.errorMessage ?? "" )
+                        .fontWeight(.light)
+                        .font(.footnote)
+                        .foregroundColor(Color.red)
+
+                }
+
+            }
             TextFieldWithValidator( value: $item.id, checker:$mnemonicValid ) { v in
                 
                 if( v.isEmpty ) {
@@ -142,17 +153,10 @@ struct KeyItemForm : View {
                 return nil
             }
             .padding(.all)
-            .border( mnemonicValid.valid ? Color.clear : Color.red )
+            .border( mnemonicValid.valid ? Color.clear : Color.red , width: 0.5)
             .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
             .autocapitalization(.allCharacters)
     
-            if( !mnemonicValid.valid  ) {
-                Text( mnemonicValid.errorMessage ?? "" )
-                    .fontWeight(.light)
-                    .font(.footnote)
-                    .foregroundColor(Color.red)
-
-            }
         }
             
 
@@ -161,7 +165,18 @@ struct KeyItemForm : View {
     func userInput() -> some View {
         
         VStack(alignment: .leading) {
-            Text("username")
+            HStack {
+                Text("username")
+                if( !userValid.valid  ) {
+                    Spacer()
+                    Text( userValid.errorMessage ?? "" )
+                        .fontWeight(.light)
+                        .font(.footnote)
+                        .foregroundColor(Color.red)
+
+                }
+
+            }
             TextFieldWithValidator( value: $item.username, checker:$userValid ) { v in
                 
                 if( v.isEmpty ) {
@@ -171,17 +186,10 @@ struct KeyItemForm : View {
                 return nil
             }
             .padding(.all)
-            .border( userValid.valid ? Color.clear : Color.red )
+            .border( userValid.valid ? Color.clear : Color.red , width: 0.5)
             .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
             .autocapitalization(.none)
             
-            if( !userValid.valid  ) {
-                Text( userValid.errorMessage ?? "" )
-                    .fontWeight(.light)
-                    .font(.footnote)
-                    .foregroundColor(Color.red)
-
-            }
         }
 
 
@@ -190,7 +198,18 @@ struct KeyItemForm : View {
     func passwordInput() -> some View {
         
         VStack(alignment: .leading) {
-            Text("Password")
+            HStack {
+                Text("Password")
+                if( !passwordValid.valid  ) {
+                    Spacer()
+                    Text( passwordValid.errorMessage ?? "" )
+                        .fontWeight(.light)
+                        .font(.footnote)
+                        .foregroundColor(Color.red)
+
+                }
+
+            }
             PasswordToggleField( value:$item.password, checker:$passwordValid, secretInfo:$secretInfo ) { v in
                     if( v.isEmpty ) {
                         return "password cannot be empty"
@@ -198,17 +217,10 @@ struct KeyItemForm : View {
                     return nil
             }
             .padding(.all)
-            .border( passwordValid.valid ? Color.clear : Color.red )
+            .border( passwordValid.valid ? Color.clear : Color.red , width: 0.5)
             .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
             .autocapitalization(.none)
             
-            if( !passwordValid.valid  ) {
-                Text( passwordValid.errorMessage ?? "" )
-                    .fontWeight(.light)
-                    .font(.footnote)
-                    .foregroundColor(Color.red)
-
-            }
 
         }
 
@@ -216,7 +228,7 @@ struct KeyItemForm : View {
 
     
     var body: some View {
-        NavigationView {
+        //NavigationView {
             Form {
                 
 
@@ -275,7 +287,7 @@ struct KeyItemForm : View {
                     
                 }
             )
-        } // NavigationView
+        //} // NavigationView
         
     }
 }

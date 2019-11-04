@@ -35,7 +35,7 @@ struct EmailList: View {
 
     var body: some View {
         
-        NavigationView {
+        //NavigationView {
             
             List {
                 Section(header: Text("New Mail")) {
@@ -78,7 +78,7 @@ struct EmailList: View {
             .navigationBarTitle( Text("email"), displayMode: .inline )
             .navigationBarItems(
                  trailing: EditButton())
-         }
+         //}
     
     }
     
