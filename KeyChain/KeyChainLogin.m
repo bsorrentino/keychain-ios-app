@@ -8,8 +8,8 @@
 
 #import "KeyChainLogin.h"
 #import "InfoViewController.h"
-#import "WEPopoverController.h"
-
+//#import "WEPopoverController.h"
+@import WEPopover;
 @import LocalAuthentication;
 
 #define TAG_FOR_LOGIN_BUTTON 5
@@ -224,9 +224,7 @@
     
     __block KeyChainLogin *login = [[KeyChainLogin alloc] initWithNibName:@"KeyChainLogin" bundle:nil] ;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [login	doModal:root onLoggedIn:block];
-    });
+    [login	doModal:root onLoggedIn:block];
     
 }
 

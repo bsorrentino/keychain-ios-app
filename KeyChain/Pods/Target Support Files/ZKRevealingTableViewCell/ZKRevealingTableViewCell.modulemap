@@ -1,6 +1,0 @@
-framework module ZKRevealingTableViewCell {
-  umbrella header "ZKRevealingTableViewCell-umbrella.h"
-
-  export *
-  module * { export * }
-}

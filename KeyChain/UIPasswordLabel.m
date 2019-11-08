@@ -10,10 +10,6 @@
 
 @implementation UIPasswordLabel
 
-- (void)awakeFromNib
-{
-}
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

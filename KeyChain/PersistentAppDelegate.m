@@ -25,6 +25,7 @@
 
 @implementation PersistentAppDelegate
 
+@synthesize window;
 @synthesize managedObjectContext, managedObjectModel, persistentStoreCoordinator;
 
 #pragma - Private implementation

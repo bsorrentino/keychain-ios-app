@@ -21,8 +21,6 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	CGRect rect = [super getRectRelativeToLabel:txtValue.frame padding:LABEL_CONTROL_PADDING rpadding:RIGHT_PADDING];
-	[self.txtValue setFrame:rect];
 }
 
 
@@ -45,26 +43,20 @@
 	return viewController;
 }
 
-- (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData{
+- (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key cellData:(NSDictionary*)cellData{
 	
-    [super prepareToAppear:controller datakey:key label:label cellData:cellData];
+    [super prepareToAppear:controller datakey:key cellData:cellData];
     // Initialization code
-    NSString *placeholder = [cellData objectForKey:@"placeholder"];
     
-    if( ![self isStringEmpty:placeholder] ) {
-        
-        [txtValue setPlaceholder:placeholder];
-    }
+    [cellData getStringForKey:@"placeholder" next:^(NSString * _Nonnull value) {
+        [txtValue setPlaceholder:value];
+    }];
 
-    NSString *format = [cellData objectForKey:@"format"];
-    
-    if( ![self isStringEmpty:format] ) {
-        
-        [self.dateFormatter setDateFormat:format];
-    }
-    else {
+    [cellData getStringForKey:@"format" next:^(NSString * _Nonnull value) {
+        [self.dateFormatter setDateFormat:value];
+    } complete:^{
         [self.dateFormatter setDateStyle:kCFDateFormatterMediumStyle];
-    }
+    }];
 		
 }
 

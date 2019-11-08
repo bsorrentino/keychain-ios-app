@@ -43,7 +43,8 @@
 				<string>Password</string>
 				<key>placeholder</key>
 				<string>&lt;input password&gt;</string>
-                <key>allowLongGesture</key><true/>
+				<key>allowLongGesture</key>
+				<true/>
 			</dict>
 		</array>
 	</array>
@@ -62,19 +63,22 @@
 				<string>Email</string>
 				<key>placeholder</key>
 				<string>&lt;input mail&gt;</string>
-                <key>allowLongGesture</key><true/>
+				<key>allowLongGesture</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>CellType</key>
-				<string>PushWebViewEntryCell</string>
+				<string>PushLinkPreviewCell</string>
 				<key>DataKey</key>
 				<string>url</string>
 				<key>Label</key>
 				<string>Site</string>
-				<key>placeholder</key>
+                <key>placeholder</key>
 				<string>&lt;input site url&gt;</string>
-                <key>allowLongGesture</key><true/>
+				<key>allowLongGesture</key>
+				<true/>
 			</dict>
+            
 			<dict>
 				<key>CellType</key>
 				<string>PushTextEntryCell</string>
@@ -82,8 +86,19 @@
 				<string>note</string>
 				<key>Label</key>
 				<string>Note</string>
-                <key>allowLongGesture</key><true/>
+				<key>allowLongGesture</key>
+				<true/>
 			</dict>
+            
+            <dict>
+                <key>DataKey</key>
+                <string>SendLocalNotification</string>
+                <key>Label</key>
+                <string>Send Private Notification</string>
+                <key>CellType</key>
+                <string>SendLocalNotificationCell</string>
+            </dict>
+
 		</array>
 	</array>
 </array>

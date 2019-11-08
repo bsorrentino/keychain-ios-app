@@ -6,10 +6,11 @@
 //  Copyright 2011 SOUL. All rights reserved.
 //
 
+@import UIXML ;
+
 #import "KeyEntityFormController.h"
-#import "BaseDataEntryCell.h"
-#import "TextDataEntryCell.h"
-#import "KeyChainAppDelegate.h"
+//#import "BaseDataEntryCell.h"
+//#import "TextDataEntryCell.h"
 #import "iToast.h"
 
 @interface KeyEntityFormController( /*Private*/ )
@@ -29,6 +30,10 @@
 @synthesize valid=_valid;
 
 #pragma mark - private implementation
+
+- (KeyEntity *)entity {
+    return entity_;
+}
 
 - (BOOL) isPassword:(BaseDataEntryCell *)cell
 {
@@ -243,9 +248,9 @@
 
 -(void)cellControlDidLoad:(BaseDataEntryCell *)cell cellData:(NSDictionary *)cellData {
 	
-	NSLog(@"[%@].cellControlDidLoad", [cellData objectForKey:@"DataKey"]  );
+	NSLog(@"[%@].cellControlDidLoad", cellData[@"DataKey"]  );
 	
-    NSNumber *allowLongGesture = [cellData objectForKey:@"allowLongGesture"];
+    NSNumber *allowLongGesture = cellData[@"allowLongGesture"];
     
     if ( allowLongGesture!=nil && [allowLongGesture boolValue]) {
         
@@ -328,14 +333,5 @@
     
     // Release any cached data, images, etc that aren't in use.
 }
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
-
 
 @end

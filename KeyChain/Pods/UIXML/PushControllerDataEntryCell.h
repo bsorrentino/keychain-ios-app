@@ -17,8 +17,8 @@
 	UIXMLFormViewController *__UIXML_WEAK _owner;
 }
 
-@property (UIXML_WEAK, readonly) UIXMLFormViewController *owner;
+@property (UIXML_WEAK, readonly) UIXMLFormViewController * _Nullable owner;
 
--(UIViewController *)viewController:(NSDictionary*)cellData;
+-(UIViewController * _Nullable)viewController:(NSDictionary* _Nonnull )cellData;
 	
 @end

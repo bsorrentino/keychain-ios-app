@@ -3,6 +3,20 @@
 //  ZZGridView
 //
 //
+//
+//
+//  Due ATS (App Transport Security), a new feature in iOS 9 that checks the authenticity of a URL before
+//  connecting to it,  We have disabled it entirely.
+//  This can be done by adding the following code to the app's info.plist file:
+//
+//  <key>NSAppTransportSecurity</key>
+//  <dict>
+//      <key>NSAllowsArbitraryLoads</key>
+//      <true/>
+//  </dict>
+//
+// @see https://stackoverflow.com/a/32532310/521197
+//
 
 #import <UIKit/UIKit.h>
 #import "UIXML.h"

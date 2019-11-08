@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PushControllerDataEntryCell.h"
+
+@import UIXML ;
+//#import "PushControllerDataEntryCell.h"
 
 
 @interface MailListDataViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate,NSFetchedResultsControllerDelegate> {
@@ -27,13 +29,11 @@
     
 @private 
     MailListDataViewController *listViewController_;
-    UILabel *textLabel_;
     UITextField *textValue_;
 }
 
 @property (nonatomic) IBOutlet MailListDataViewController *listViewController;
 @property (nonatomic) IBOutlet UITextField *textValue;
-@property (nonatomic) IBOutlet UILabel *textLabel;
 @end
 
 

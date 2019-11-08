@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIXML.h"
+#import "NSDictionary+CellData.h"
 
 // cell controls padding
 #define LABEL_CONTROL_PADDING 5
@@ -16,8 +17,6 @@
 
 // Nome della notifica di fine editing
 #define CELL_ENDEDIT_NOTIFICATION_NAME @"CellEndEdit"
-
-
 
 @class UIXMLFormViewController;
 
@@ -34,23 +33,25 @@
 
 }
 
-@property (nonatomic, UIXML_WEAK) NSString *dataKey;
+@property (nonatomic, UIXML_WEAK) IBOutlet UILabel *_Nullable textLabel;
+@property (nonatomic, UIXML_WEAK) NSString * _Nullable dataKey;
 @property (nonatomic) BOOL enabled;
 
--(void)prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData;
+-(void)prepareToAppear:(UIXMLFormViewController * _Nonnull)controller datakey:(NSString* _Nonnull)key cellData:(NSDictionary*_Nullable)cellData;
 
 // Imposta il valore del controllo gestito (TextField, ...)
--(void) setControlValue:(id)value;
+-(void) setControlValue:(id _Nonnull )value;
 
 // Legge il valore dal controllo
--(id) getControlValue;
+-(id _Nullable ) getControlValue;
 
 // helper for check string
--(BOOL)isStringEmpty:(NSString*)value;
++(BOOL)isNullOrEmpty:(NSString*_Nullable)value;
 
--(CGRect) getRectRelativeToLabel: (CGRect)controlFrame padding:(NSInteger)padding rpadding:(NSInteger)rpadding;
+-(void)prepareLabelToAppear:(NSDictionary*_Nonnull)cellData;
 
-
+-(void)processLabelConfig:(NSDictionary*_Nonnull)cellData
+                   dataView:(UIView *_Nullable)view;
 @end
 
 
@@ -59,7 +60,7 @@
 
 }
 
-@property (nonatomic, UIXML_WEAK, readonly, getter = getResponder) UIResponder *responder;
+@property (nonatomic, UIXML_WEAK, readonly, getter = getResponder) UIResponder * _Nullable  responder;
 
 - (void)registerForKeyboardNotifications;
 - (void)unregisterForKeyboardNotifications;

@@ -17,6 +17,7 @@ NSString *const TextDataEntryCellNotification = @"TextDataEntryCell.scrollUpToKe
 @implementation TextDataEntryCell
 
 @synthesize textField;
+@synthesize textLabel;
 
 #pragma mark - BaseDataEntryCellWithResponder implementation
 
@@ -32,84 +33,54 @@ NSString *const TextDataEntryCellNotification = @"TextDataEntryCell.scrollUpToKe
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	// Rect area del textbox
-	/*
-	CGRect rect = CGRectMake(self.textLabel.frame.origin.x + self.textLabel.frame.size.width  + LABEL_CONTROL_PADDING, 
-							 12.0, 
-							 self.contentView.frame.size.width-(self.textLabel.frame.size.width + LABEL_CONTROL_PADDING + self.textLabel.frame.origin.x)-RIGHT_PADDING, 
-							 25.0);
-	*/
-	
-	CGRect rect = [super getRectRelativeToLabel:textField.frame padding:LABEL_CONTROL_PADDING rpadding:RIGHT_PADDING];
-	[textField setFrame:rect];
 }
 
 #pragma mark Inherit from BaseDataEntryCell
 
-- (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData{
-	
-    [super prepareToAppear:controller datakey:key label:label cellData:cellData];
-    // Initialization code
-	
-    NSString *placeholder = [cellData objectForKey:@"placeholder"];
-    
-    if( ![self isStringEmpty:placeholder] ) {
-        
-        [textField setPlaceholder:placeholder];
-    }
+-(void)prepareLabelToAppear:(NSDictionary*_Nonnull)cellData
+{
+    [self processLabelConfig:cellData dataView:self.textField];
+}
 
-    NSNumber * isSecure = [cellData objectForKey:@"secure"];
-    if( isSecure != nil ) {
-        textField.secureTextEntry = [isSecure boolValue];
-        
-    }
+- (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key cellData:(NSDictionary*)cellData{
+	
+    [super prepareToAppear:controller datakey:key cellData:cellData];
     
-    NSNumber * autocorrectionType = (NSNumber *)[cellData objectForKey:@"autocorrectionType"];
-    
-    if( autocorrectionType!=nil ) {
-        
-        textField.autocorrectionType = ( [autocorrectionType boolValue] ) ? UITextAutocorrectionTypeYes : UITextAutocorrectionTypeNo;
-            
-    }
-
-    NSString *autocapitalizationType = (NSString*)[cellData objectForKey:@"autocapitalizationType"];
-    
-    if( ![self isStringEmpty:autocapitalizationType] ) {
+    [cellData getStringForKey:@"placeholder" next:^(NSString * _Nonnull value) {
+        [self->textField setPlaceholder:value];
+    } complete:^{
+        [self->textField setPlaceholder:@""];
+    }];
+    [cellData getNumberForKey:@"secure" next:^(NSNumber * _Nonnull value) {
+        self->textField.secureTextEntry = [value boolValue];
+    }];
+    [cellData getNumberForKey:@"autocorrectionType" next:^(NSNumber * _Nonnull value) {
+        self->textField.autocorrectionType =
+            ( [value boolValue] ) ? UITextAutocorrectionTypeYes : UITextAutocorrectionTypeNo;
+    }];
+    [cellData getStringForKey:@"autocapitalizationType" next:^(NSString * _Nonnull value) {
         /*
-        UITextAutocapitalizationTypeNone,
-        UITextAutocapitalizationTypeWords,
-        UITextAutocapitalizationTypeSentences,
-        UITextAutocapitalizationTypeAllCharacters,
-        */
-        if( [autocapitalizationType compare:@"None" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
-
-            textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-            
-        } else if ( [autocapitalizationType compare:@"Words" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
-
-            textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
-
-        } else if ( [autocapitalizationType compare:@"Sentences" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
-
-            textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
-            
-        } else if ( [autocapitalizationType compare:@"AllCharacters" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
-        
-            textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-            
+         UITextAutocapitalizationTypeNone,
+         UITextAutocapitalizationTypeWords,
+         UITextAutocapitalizationTypeSentences,
+         UITextAutocapitalizationTypeAllCharacters,
+         */
+        if( [value compare:@"None" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
+            self->textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        } else if ( [value compare:@"Words" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
+            self->textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+        } else if ( [value compare:@"Sentences" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
+            self->textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+        } else if ( [value compare:@"AllCharacters" options:NSCaseInsensitiveSearch]==NSOrderedSame ) {
+            self->textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
         }
-    }
+    }];
 		
 }
 
 -(void) setControlValue:(id)value
 {
-	if (value==nil) {
-		self.textField.text = @"";
-	}
-	else {
-		self.textField.text = value;
-	}
+    self.textField.text = (value==nil) ? @"" : value;
 }
 
 -(id) getControlValue

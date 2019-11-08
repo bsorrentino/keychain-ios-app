@@ -20,9 +20,9 @@
 	[super postEndEditingNotification];
 }
 
--(void)prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString *)key label:(NSString*)label cellData:(NSDictionary*)cellData {
+-(void)prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString *)key cellData:(NSDictionary*)cellData {
 	
-    [super prepareToAppear:controller datakey:key label:label cellData:cellData];
+    [super prepareToAppear:controller datakey:key cellData:cellData];
     // Initialization code
     [switchField addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
 

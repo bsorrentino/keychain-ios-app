@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
-#import "UIXMLFormViewControllerDelegate.h"
-#import "KeyEntityFormController.h"
+//#import <CoreData/CoreData.h>
+//#import "UIXMLFormViewControllerDelegate.h"
+//#import "KeyEntityFormController.h"
 #import "KeyListDataSource.h"
 
 @class KeyEntityFormController;
@@ -34,7 +34,7 @@
 -(IBAction)export:(id)sender;
 -(IBAction)import:(id)sender;
 
-
+- (void)filterReset:(BOOL)reloadData;
 @end
 
 

@@ -46,7 +46,7 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
     
     CGRect rc = self.webView.frame;
     
-    rc.origin.y = self.view.frame.origin.y + addressViewRC.size.height + 20;
+    rc.origin.y = self.view.frame.origin.y + addressViewRC.size.height;
     rc.size.height = self.view.frame.size.height - addressViewheight;
     [self.webView setFrame:rc];    
     
@@ -223,8 +223,10 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
+    
     [self endEdit:editButton_ hideTextURL:YES];
     
+    [super viewDidDisappear:animated];
 }
 
 
@@ -242,8 +244,6 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 
     CGRect addressViewRC = self.addressView.frame;
     addressViewRC.size.height = 0;
-    addressViewRC.origin.y += 20;
-    
     [self.addressView setFrame: addressViewRC];
     
     
@@ -384,12 +384,12 @@ static /*const*/ NSString * DEFAULT_URL = @"about:blank";
 
 - (void) prepareToAppear:(UIXMLFormViewController*)controller datakey:(NSString*)key label:(NSString*)label cellData:(NSDictionary*)cellData{
 	
-    [super prepareToAppear:controller datakey:key label:label cellData:cellData];
+    [super prepareToAppear:controller datakey:key cellData:cellData];
         
     // initialization
     NSString *placeholder = [cellData objectForKey:@"placeholder"];
     
-    if( ![self isStringEmpty:placeholder] ) {
+    if( ![self.class isNullOrEmpty:placeholder] ) {
         
         [self.textValue setPlaceholder:placeholder];
     }

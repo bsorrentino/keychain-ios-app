@@ -10,23 +10,23 @@ import Foundation
 import CoreData
 import KeychainAccess
 
-@objc class StringEncryptionTransformer : NSValueTransformer {
+class StringEncryptionTransformer : ValueTransformer {
 
     override class func transformedValueClass() -> AnyClass {
-        return NSData.self as AnyClass
+        return Data.self as! AnyClass
     }
-    override func transformedValue(value: AnyObject?) -> AnyObject? // by default returns value
+    override func transformedValue(_ value: Any?) -> Any? // by default returns value
     {
         return value
     }
     
-    override func reverseTransformedValue(value: AnyObject?) -> AnyObject? // by default raises an exception if +allowsReverseTransformation
+    override func reverseTransformedValue(_ value: Any?) -> Any? // by default raises an exception if +allowsReverseTransformation
     {
         return value
     }
 }
 
-@objc class KeyEntity : NSManagedObject {
+class KeyEntity : NSManagedObject {
     
     @NSManaged var mnemonic:String
     @NSManaged var groupPrefix:String?
@@ -40,24 +40,28 @@ import KeychainAccess
     static let _IS_NEW      = "isNew"
 
     //@TRANSIENT
-    var isNew:Bool {
+    @objc var isNew:Bool {
     
         get {
-            let value = self.primitiveValueForKey(KeyEntity._IS_NEW)!.boolValue
+            let value = (self.primitiveValue(forKey: KeyEntity._IS_NEW)! as AnyObject).boolValue
             
-            return value;
+            return value!;
             
         }
     
     }
     
     //@TRANSIENT
-    var password:String? {
+    @objc var password:String? {
         
         get {
-            let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
+            let key = self.mnemonic.trimmingCharacters(in: .whitespaces)
             
-            let key = self.mnemonic
+            if ( key.count == 0 ) {
+                return ""
+            }
+            
+            let keychain = Keychain(service: AccountCredential.sharedCredential.bundleId)
             
             if let data =  try! keychain.getString(key) {
                 return data
@@ -73,7 +77,7 @@ import KeychainAccess
                 let key = self.mnemonic
                 
                 try! keychain
-                    .accessibility(.WhenUnlocked)
+                    .accessibility(.whenUnlocked)
                     .set(v, key: key)
             }
         }
@@ -82,9 +86,9 @@ import KeychainAccess
     var sectionId:String? {
     
         get {
-            if let k = self.valueForKey(KeyEntity._MNEMONIC) {
+            if let k = self.value(forKey: KeyEntity._MNEMONIC) {
             
-                return k.substringWithRange(NSMakeRange(0,1))
+                return (k as AnyObject).substring(with: NSMakeRange(0,1))
             }
             
             return nil
@@ -94,18 +98,18 @@ import KeychainAccess
 
     //MARK: Grouping section
     
-    func groupByPrefix( prefix:String? ) -> Void {
+    @objc func groupByPrefix( _ prefix:String? ) -> Void {
     
         if let p = prefix  {
             self.groupPrefix = p;
-            self.group = NSNumber(bool: true)
+            self.group = NSNumber(value: true as Bool)
         }
     }
     
-    func detachFromGroup() -> Void {
+    @objc func detachFromGroup() -> Void {
         
         self.groupPrefix = nil;
-        self.group = NSNumber(bool: false)
+        self.group = NSNumber(value: false as Bool)
     
     }
     
@@ -113,31 +117,31 @@ import KeychainAccess
     
     static let _REGEXP = "(\\w+[-@/])(\\w+)"
     
-    static func isSectionAware( key:KeyEntity ) -> Bool {
+    static func isSectionAware( _ key:KeyEntity ) -> Bool {
         
         let predicate = NSPredicate(format: "SELF.mnemonic MATCHES %@", _REGEXP)
         
-        return predicate.evaluateWithObject(key)
+        return predicate.evaluate(with: key)
     }
     
-    static func getSectionPrefix( key:KeyEntity, checkIfIsSectionAware:Bool ) -> NSRange {
+    @objc static func getSectionPrefix( _ key:KeyEntity, checkIfIsSectionAware:Bool ) -> NSRange {
     
         var result = NSMakeRange(NSNotFound, 0)
         
         if( !checkIfIsSectionAware || KeyEntity.isSectionAware(key) ) {
         
             do {
-                let pattern = try NSRegularExpression(pattern: _REGEXP, options:.CaseInsensitive)
+                let pattern = try NSRegularExpression(pattern: _REGEXP, options:.caseInsensitive)
 
-                let length = key.mnemonic.characters.count
+                let length = key.mnemonic.count
                 
                 if let match:NSTextCheckingResult =
-                            pattern.firstMatchInString( key.mnemonic,
-                                                        options:.ReportCompletion,
+                            pattern.firstMatch( in: key.mnemonic,
+                                                        options:.reportCompletion,
                                                         range:NSMakeRange(0, length))
                 {
 
-                    result = match.rangeAtIndex(1)
+                    result = match.range(at: 1)
                             
                 }
 
@@ -154,7 +158,7 @@ import KeychainAccess
     
     }
     
-    static func sectionNameFromPrefix( prefix:String?, trim:Bool ) -> String?  {
+    @objc static func sectionNameFromPrefix( _ prefix:String?, trim:Bool ) -> String?  {
         
         guard let p = prefix else {
             return nil;
@@ -164,27 +168,27 @@ import KeychainAccess
         
         if( trim ) {
             
-            pp = p.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            pp = p.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if( pp.isEmpty ) {
             return nil;
         }
         
-        let index = pp.endIndex.predecessor()
+        let index = pp.index(before: pp.endIndex)
         
-        let result = pp.substringToIndex(index)
+        let result = pp.substring(to: index)
         
         return result;
     
     }
 
-    static func createSection(  groupKey:String,
+    @objc static func createSection(  _ groupKey:String,
                                 groupPrefix:String,
                                 inContext context:NSManagedObjectContext) -> KeyEntity?
     {
     
-        guard let entity = NSEntityDescription.entityForName("KeyInfo", inManagedObjectContext:context) else {
+        guard let entity = NSEntityDescription.entity(forEntityName: "KeyInfo", in:context) else {
             return nil
         }
 
@@ -192,14 +196,14 @@ import KeychainAccess
             return nil
         }
             
-        guard let cloned = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext:context) as? KeyEntity else {
+        guard let cloned = NSEntityDescription.insertNewObject(forEntityName: entityName, into:context) as? KeyEntity else {
             return nil
         }
         
         cloned.setValue("nil", forKey: "password")
         cloned.setValue("nil", forKey: "username")
     
-        cloned.group = NSNumber(bool: false)
+        cloned.group = NSNumber(value: false as Bool)
         cloned.mnemonic = groupKey;
         cloned.groupPrefix = groupPrefix;
 
@@ -207,13 +211,13 @@ import KeychainAccess
     }
     
     // Copy all passwords to KeyChain and invalidate related password fields
-    static func copyPasswordsToKeychain( context:NSManagedObjectContext ) {
+    static func copyPasswordsToKeychain( _ context:NSManagedObjectContext ) {
         
-        let fetchRequest = NSFetchRequest(entityName: "KeyInfo")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "KeyInfo")
                 
         do {
 
-            if let result = try context.executeFetchRequest(fetchRequest) as? [KeyEntity] {
+            if let result = try context.fetch(fetchRequest) as? [KeyEntity] {
              
                 result.forEach({ (kk:KeyEntity) -> () in
 
@@ -229,23 +233,24 @@ import KeychainAccess
     }
     
     // Copy single password to KeyChain and invalidate related password field
-    static func copyPasswordToKeychain( kk:KeyEntity ) {
+    static func copyPasswordToKeychain( _ kk:KeyEntity ) {
         
         
-        guard   let data = kk.valueForKey("password") as? NSData,
-            let key = kk.valueForKey("mnemonic") as? String else {
+        guard   let data = kk.value(forKey: "password") as? Data,
+            let key = kk.value(forKey: "mnemonic") as? String else {
                 return
         }
 
         do {
             
 
-            if let password = NSString(data:data, encoding:NSUTF8StringEncoding) as? String {
+            if let password = NSString(data:data, encoding:String.Encoding.utf8.rawValue) as String? {
                 
                 print("key:\(key) password:\(password)")
                 
                 try Keychain(service: AccountCredential.sharedCredential.bundleId)
-                    .accessibility(.WhenUnlocked)
+                    //.accessibility(.whenUnlocked)
+                    .accessibility(.afterFirstUnlock)
                     .set(data, key: key)
                 
             }
@@ -261,15 +266,15 @@ import KeychainAccess
     
     // MARK: implementation
     
-    func isSection() -> Bool {
+    @objc func isSection() -> Bool {
         return self.groupPrefix != nil && (self.group == nil || self.group?.boolValue == false)
     }
     
-    func isGrouped() -> Bool {
+    @objc func isGrouped() -> Bool {
         return (self.groupPrefix != nil && self.group != nil && self.group!.boolValue)
     }
     
-    func isEqualForImport( object:AnyObject? ) -> Bool {
+    @objc func isEqualForImport( _ object:AnyObject? ) -> Bool {
     
         guard let o = object  else {
             return false
@@ -287,7 +292,7 @@ import KeychainAccess
     
             let d = o as! NSDictionary
             
-            k1 = d.valueForKey(KeyEntity._MNEMONIC) as? String
+            k1 = d.value(forKey: KeyEntity._MNEMONIC) as? String
     
         }
         else if( o is String ) {
@@ -306,14 +311,14 @@ import KeychainAccess
     
     override func awakeFromFetch() {
     
-        self.setPrimitiveValue(NSNumber(bool:false), forKey:KeyEntity._IS_NEW)
+        self.setPrimitiveValue(NSNumber(value: false as Bool), forKey:KeyEntity._IS_NEW)
     
     }
     
     
     override func didSave() {
         
-        self.setPrimitiveValue(NSNumber(bool:false), forKey:KeyEntity._IS_NEW)
+        self.setPrimitiveValue(NSNumber(value: false as Bool), forKey:KeyEntity._IS_NEW)
     }
     
     //MARK: Serialization
@@ -326,7 +331,7 @@ import KeychainAccess
         return E.key != KeyEntity._IS_NEW
     }
     
-    func toDictionary( target:NSMutableDictionary? ) -> NSDictionary? {
+    @objc func toDictionary( _ target:NSMutableDictionary? ) -> NSDictionary? {
     
         guard let t = target else {
             return target;
@@ -334,11 +339,11 @@ import KeychainAccess
     
         self.entity.attributesByName
             .filter( filterPredicate )
-            .sort( sortPredicate )
+            .sorted( by: sortPredicate )
             .forEach { (key:String, _:NSAttributeDescription) -> () in
             
-                    if let v = self.valueForKey(key) {
-                        t.setObject(v, forKey: key)
+                    if let v = self.value(forKey: key) {
+                        t.setObject(v, forKey: key as NSCopying)
                     }
                 }
             
@@ -346,7 +351,7 @@ import KeychainAccess
         return t;
     }
     
-    func fromDictionary(source:NSDictionary?) {
+    @objc func fromDictionary(_ source:NSDictionary?) {
     
         guard let s = source else {
             return
@@ -354,10 +359,10 @@ import KeychainAccess
     
         self.entity.attributesByName
             .filter( filterPredicate )
-            .sort( sortPredicate )
+            .sorted( by: sortPredicate )
             .forEach { (key:String, _:NSAttributeDescription) -> () in
         
-                if let value = s.valueForKey(key) {
+                if let value = s.value(forKey: key) {
                     self.setValue(value, forKey: key)
                 }
             

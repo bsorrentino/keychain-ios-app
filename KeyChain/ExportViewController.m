@@ -5,10 +5,10 @@
 //  Created by softphone on 07/10/11.
 //  Copyright 2011 SOFTPHONE. All rights reserved.
 //
+@import UIXML;
 
 #import "ExportViewController.h"
-#import "WaitMaskController.h"
-#import "KeyChainAppDelegate.h"
+//1v1#import "WaitMaskController.h"
 
 @interface ExportViewController(Private)
 
@@ -191,14 +191,6 @@
     [self.exportToITunesButton addTarget:self action:@selector(exportToITunes) forControlEvents:UIControlEventTouchDown];
     
     
-}
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillDisappear:(BOOL)animated

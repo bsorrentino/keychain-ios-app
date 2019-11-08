@@ -1,9 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIXMLFormViewController">
             <connections>
@@ -14,25 +23,44 @@
         <tableViewCell clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="TextDataEntryCell" id="2" customClass="TextDataEntryCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2" id="5rQ-gp-t3D">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2" id="3KJ-28-lxS">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField clearsContextBeforeDrawing="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="" minimumFontSize="17" clearButtonMode="whileEditing" id="17">
-                        <rect key="frame" x="124" y="10" width="185" height="22"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <textField clearsContextBeforeDrawing="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="text data entry" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="17">
+                        <rect key="frame" x="84" y="-1" width="236" height="44"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="236" id="ybw-x5-Re2"/>
+                        </constraints>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                         <connections>
                             <outlet property="delegate" destination="2" id="19"/>
                         </connections>
                     </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udF-1T-c8w">
+                        <rect key="frame" x="20" y="-0.5" width="56" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="17" firstAttribute="centerY" secondItem="3KJ-28-lxS" secondAttribute="centerY" id="0UJ-Zf-L8p"/>
+                    <constraint firstAttribute="trailing" secondItem="17" secondAttribute="trailing" id="5o9-uZ-Xhi"/>
+                    <constraint firstItem="udF-1T-c8w" firstAttribute="centerY" secondItem="3KJ-28-lxS" secondAttribute="centerY" id="5oG-pZ-u1x"/>
+                    <constraint firstItem="udF-1T-c8w" firstAttribute="leading" secondItem="3KJ-28-lxS" secondAttribute="leading" constant="20" symbolic="YES" id="681-gZ-e2B"/>
+                    <constraint firstItem="17" firstAttribute="height" secondItem="3KJ-28-lxS" secondAttribute="height" id="69K-fC-tFp"/>
+                    <constraint firstItem="17" firstAttribute="leading" secondItem="udF-1T-c8w" secondAttribute="trailing" constant="8" symbolic="YES" id="PCE-F9-Yeh"/>
+                    <constraint firstItem="udF-1T-c8w" firstAttribute="height" secondItem="3KJ-28-lxS" secondAttribute="height" id="bAA-8r-2Dh"/>
+                </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="textField" destination="17" id="18"/>
+                <outlet property="textLabel" destination="udF-1T-c8w" id="4s7-9N-HfC"/>
             </connections>
         </tableViewCell>
     </objects>
