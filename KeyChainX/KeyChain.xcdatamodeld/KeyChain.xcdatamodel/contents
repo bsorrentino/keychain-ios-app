@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19C32e" minimumToolsVersion="Xcode 11.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AttributeInfo" representedClassName="MailEntity">
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO"/>
+        <attribute name="value" optional="YES" attributeType="String"/>
+        <userInfo/>
+    </entity>
+    <entity name="KeyInfo" representedClassName="KeyEntity">
+        <attribute name="expire" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="group" optional="YES" attributeType="Boolean" usesScalarValueType="NO"/>
+        <attribute name="groupPrefix" optional="YES" attributeType="String"/>
+        <attribute name="isNew" optional="YES" transient="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="NO"/>
+        <attribute name="mail" optional="YES" attributeType="String" regularExpressionString="(.*)@(.*)"/>
+        <attribute name="mnemonic" attributeType="String" indexed="YES"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" transient="YES" attributeType="String" valueTransformerName="StringEncryptionTransformer" minValueString="1"/>
+        <attribute name="sectionId" optional="YES" transient="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <attribute name="username" attributeType="String" minValueString="1"/>
+        <userInfo/>
+    </entity>
+    <entity name="UserInfo" representedClassName="UserEntity">
+        <attribute name="password" attributeType="String"/>
+        <userInfo/>
+    </entity>
+    <fetchRequest name="fetchByName" entity="KeyInfo" predicateString="mnemonic BEGINSWITH &quot;%@&quot;"/>
+    <elements>
+        <element name="KeyInfo" positionX="81" positionY="36" width="128" height="208"/>
+        <element name="UserInfo" positionX="315" positionY="39" width="128" height="58"/>
+        <element name="AttributeInfo" positionX="169" positionY="-93" width="128" height="73"/>
+    </elements>
+</model>
