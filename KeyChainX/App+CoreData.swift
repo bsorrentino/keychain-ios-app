@@ -52,7 +52,7 @@ extension MailEntity {
         
         let request:NSFetchRequest<MailEntity> = MailEntity.fetchRequest()
         
-        let sortOrder = NSSortDescriptor(keyPath: \MailEntity.name, ascending: true)
+        let sortOrder = NSSortDescriptor(keyPath: \MailEntity.value, ascending: true)
         
         request.sortDescriptors = [sortOrder]
         
@@ -162,7 +162,7 @@ struct KeyItemPublisher : Combine.Publisher {
             subscriber.receive(subscription: Subscriptions.empty)
             
             do {
-                let request = NSFetchRequest<KeyEntity>(entityName: "KeyItem")
+                let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
                 
                 let result = try context.fetch(request)
 

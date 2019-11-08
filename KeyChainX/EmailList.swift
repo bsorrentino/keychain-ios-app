@@ -40,6 +40,7 @@ struct EmailList: View {
             
             List {
                 Section(header: Text("New Mail")) {
+                    
                     HStack {
                         TextFieldWithValidator( title: "insert email", value: $newMail, checker:$mailValid ) { v in
                                
@@ -59,13 +60,15 @@ struct EmailList: View {
                         addButton()
                     }
                     
-                }.font( .headline )
+                }
+                .font( .headline )
+                
                 
                 Section(header: Text("Mails")) {
-                    ForEach( mails, id: \MailEntity.id ) { (mail:MailEntity) in
-                        Text( mail.name ?? "unknown")
+                    ForEach( mails, id: \MailEntity.value ) { (mail:MailEntity) in
+                        Text( mail.value ?? "unknown")
                             .font( .body ).onTapGesture(perform: {
-                                self.value = mail.name ?? "unknown"
+                                self.value = mail.value ?? "unknown"
                                 self.presentationMode.wrappedValue.dismiss()
                             })
                         
@@ -97,8 +100,7 @@ struct EmailList: View {
 
     func insert() {
         let mail = MailEntity(context: self.context)
-        mail.id = self.newMail
-        mail.name = self.newMail
+        mail.value = self.newMail
         
         do {
             try self.context.save()
