@@ -117,31 +117,31 @@ struct NoteField : View {
 
 
 
-struct KeyItemForm : View {
+struct KeyEntityForm : View {
     @Environment(\.presentationMode) var presentationMode
     
     @Environment(\.managedObjectContext) var managedObjectContext
 
-    @ObservedObject var item:KeyEntity
+    @ObservedObject var item:KeyItem
     
     @State var secretInfo:SecretInfo = .hide
     
-    @State var userValid        = FieldChecker()
-    @State var mnemonicValid    = FieldChecker()
-    @State var passwordValid    = FieldChecker()
-
-    init( item:KeyEntity ) {
-        self.item = item
+    init() {
+        self.item = KeyItem()
     }
-    
+
+    init( entity:KeyEntity ) {
+        self.item = KeyItem( entity:entity )
+    }
+
     func mnemonicInput() -> some View  {
         
         VStack(alignment: .leading) {
             HStack {
                 Text("mnemonic")
-                if( !mnemonicValid.valid  ) {
+                if( !item.mnemonicCheck.valid  ) {
                     Spacer()
-                    Text( mnemonicValid.errorMessage ?? "" )
+                    Text( item.mnemonicCheck.errorMessage ?? "" )
                         .fontWeight(.light)
                         .font(.footnote)
                         .foregroundColor(Color.red)
@@ -149,7 +149,7 @@ struct KeyItemForm : View {
                 }
 
             }
-            TextFieldWithValidator( value: $item.mnemonic, checker:$mnemonicValid ) { v in
+            TextFieldWithValidator( value: $item.mnemonic, checker:$item.mnemonicCheck ) { v in
                 
                 if( v.isEmpty ) {
                     return "mnemonic cannot be empty"
@@ -158,7 +158,7 @@ struct KeyItemForm : View {
                 return nil
             }
             .padding(.all)
-            .border( mnemonicValid.valid ? Color.clear : Color.red , width: 0.5)
+            .border( item.mnemonicCheck.valid ? Color.clear : Color.red , width: 0.5)
             .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
             .autocapitalization(.allCharacters)
     
@@ -172,9 +172,9 @@ struct KeyItemForm : View {
         VStack(alignment: .leading) {
             HStack {
                 Text("username")
-                if( !userValid.valid  ) {
+                if( !item.usernameCheck.valid  ) {
                     Spacer()
-                    Text( userValid.errorMessage ?? "" )
+                    Text( item.usernameCheck.errorMessage ?? "" )
                         .fontWeight(.light)
                         .font(.footnote)
                         .foregroundColor(Color.red)
@@ -182,7 +182,7 @@ struct KeyItemForm : View {
                 }
 
             }
-            TextFieldWithValidator( value: $item.username, checker:$userValid ) { v in
+            TextFieldWithValidator( value: $item.username, checker:$item.usernameCheck ) { v in
                 
                 if( v.isEmpty ) {
                     return "username cannot be empty"
@@ -191,7 +191,7 @@ struct KeyItemForm : View {
                 return nil
             }
             .padding(.all)
-            .border( userValid.valid ? Color.clear : Color.red , width: 0.5)
+            .border( item.usernameCheck.valid ? Color.clear : Color.red , width: 0.5)
             .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
             .autocapitalization(.none)
             
@@ -205,9 +205,9 @@ struct KeyItemForm : View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Password")
-                if( !passwordValid.valid  ) {
+                if( !item.passwordCheck.valid  ) {
                     Spacer()
-                    Text( passwordValid.errorMessage ?? "" )
+                    Text( item.passwordCheck.errorMessage ?? "" )
                         .fontWeight(.light)
                         .font(.footnote)
                         .foregroundColor(Color.red)
@@ -215,14 +215,14 @@ struct KeyItemForm : View {
                 }
 
             }
-            PasswordToggleField( value:$item.password, checker:$passwordValid, secretInfo:$secretInfo ) { v in
+            PasswordToggleField( value:$item.password, checker:$item.passwordCheck, secretInfo:$secretInfo ) { v in
                     if( v.isEmpty ) {
                         return "password cannot be empty"
                     }
                     return nil
             }
             .padding(.all)
-            .border( passwordValid.valid ? Color.clear : Color.red , width: 0.5)
+            .border( item.passwordCheck.valid ? Color.clear : Color.red , width: 0.5)
             .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
             .autocapitalization(.none)
             
@@ -233,11 +233,11 @@ struct KeyItemForm : View {
 
     
     var body: some View {
-        //NavigationView {
+        NavigationView {
             Form {
                 
 
-                if( item.isInserted ) {
+                if( item.isNew ) {
                     Section {
                         
                         mnemonicInput()
@@ -274,25 +274,28 @@ struct KeyItemForm : View {
                     
                     Spacer(minLength: 15)
                     Button( "save", action: {
-                        print( "Save \(self.item.username)" )
+                        print( "Save\n mnemonic: \(self.item.mnemonic)\n username: \(self.item.username)" )
                         
-                        self.managedObjectContext.insert(self.item)
-
                         do {
-                            try self.managedObjectContext.save()
+                            try self.item.save( context: self.managedObjectContext )
                         }
                         catch {
-                            print( "error deleting new key \(error)" )
+                            if( self.item.isNew ) {
+                                print( "error inserting new key \(error)" )
+                            }
+                            else {
+                                print( "error updating new key \(error)" )
+                            }
                         }
-
+                        
                         self.presentationMode.wrappedValue.dismiss()
                         
                     })
-                    .disabled( !(mnemonicValid.valid && userValid.valid) )
+                        .disabled( !item.checkIsValid )
                     
                 }
             )
-        //} // NavigationView
+        } // NavigationView
         
     }
 }
@@ -303,7 +306,7 @@ import KeychainAccess
 struct KeyItemDetail_Previews : PreviewProvider {
     static var previews: some View {
         
-        KeyItemForm( item: KeyEntity() )
+        KeyEntityForm()
         
         
     }

@@ -24,13 +24,15 @@ struct KeyItemList: UIViewControllerRepresentable {
         
         let controller =  KeyItemListViewController(context: managedObjectContext)
         
-        controller.reloadData()
+        //controller.reloadData()
         
         return controller
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType,
                                 context: UIViewControllerRepresentableContext<KeyItemList>) {
+        
+        print( "updateUIViewController" )
         
         uiViewController.reloadData()
     }
@@ -42,10 +44,27 @@ class KeyItemListViewController : UITableViewController {
     
     private var resultSearchController:UISearchController?
     
-    private var items:[KeyEntity]?
+    private var allkeys:[KeyEntity]?
+    private var filteredKeys:[KeyEntity]?
+
+    private var keys:[KeyEntity]? {
+        get {
+            return isFiltering ? filteredKeys : allkeys
+        }
+        set {
+            if isFiltering {
+                filteredKeys = newValue
+            }
+            else {
+                allkeys = newValue
+            }
+        }
+    }
     
     private var managedObjectContext: NSManagedObjectContext
     
+    private let searchController = UISearchController(searchResultsController: nil)
+
     init( context:NSManagedObjectContext ) {
         self.managedObjectContext = context
         super.init( style: .grouped )
@@ -56,18 +75,18 @@ class KeyItemListViewController : UITableViewController {
     }
     
     func reloadData() {
-        fetchKeysByPredicate()
-        tableView.reloadData()
+        
+        reloadDataFromManagedObjectContext( predicate:searchPredicate() )
     }
     
     override func viewDidLoad() {
         tableView.register(UINib(nibName: "KeyItemCell", bundle: nil), forCellReuseIdentifier: "keyitem")
         
-        let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.obscuresBackgroundDuringPresentation = false   
+        // Search Bar
+        searchController.searchBar.placeholder = "search keys"
         searchController.searchBar.sizeToFit()
-        
         searchController.searchBar.barTintColor = tableView.backgroundColor
         
         tableView.tableHeaderView = searchController.searchBar
@@ -76,19 +95,22 @@ class KeyItemListViewController : UITableViewController {
         
     }
     
+    //
+    // MARK: DATA SOURCE
+    //
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print( "items.count: \(items?.count ?? 0)")
-        return items?.count ?? 0
+        return keys?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print( "item at indexpath \(indexPath.row)" )
         
-        guard let items = self.items else {
+        guard let items = self.keys else {
             return UITableViewCell()
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "keyitem", for: indexPath)
@@ -108,26 +130,26 @@ class KeyItemListViewController : UITableViewController {
     //
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let items = self.items, let index = tableView.indexPathForSelectedRow?.row else {
+        guard let keys = self.keys, let index = tableView.indexPathForSelectedRow?.row else {
             return
         }
         
-        let selectedItem = items[index]
+        let selectedItem = keys[index]
         
-        let newViewController = KeyItemForm( item: selectedItem )
+        let newViewController = KeyEntityForm( entity: selectedItem )
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
         
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
-        guard let items = self.items, let index = tableView.indexPathForSelectedRow?.row else {
+        guard let keys = self.keys, let index = tableView.indexPathForSelectedRow?.row else {
             return
         }
         
-        let selectedItem = items[index]
+        let selectedItem = keys[index]
         
-        let newViewController = KeyItemForm( item: selectedItem )
+        let newViewController = KeyEntityForm( entity: selectedItem )
         
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
         
@@ -153,17 +175,16 @@ class KeyItemListViewController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-        guard let items = self.items else {
+        guard let keys = self.keys else {
             return nil
         }
 
-        let selectedItem = items[indexPath.row]
+        let selectedItem = keys[indexPath.row]
 
 
         let delete = UIContextualAction( style: .destructive, title: "Delete" ) { action, view, completionHandler in
 
             self.delete(item: selectedItem)
-            self.reloadData()
             
             
         }
@@ -176,10 +197,35 @@ class KeyItemListViewController : UITableViewController {
     
 }
 
+
+let SEARCHTEXT_CRITERIA = "(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@)"
+
 // MARK: Search Extension
 extension KeyItemListViewController : UISearchResultsUpdating {
+  
+    // create the Predicate coherent with UI state
+    func searchPredicate() -> NSPredicate? {
+        
+        if searchController.isActive , let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            return NSPredicate(format: SEARCHTEXT_CRITERIA, searchText, searchText.uppercased())
+        }
+        
+        return nil
+
+    }
+    
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
+    }
     
     func updateSearchResults(for searchController: UISearchController) {
+        
+        print( "updateSearchResults\nisActive:\(searchController.isActive)\nisFiltering:\(isFiltering)" )
+        reloadDataFromManagedObjectContext( predicate: searchPredicate() )
         
     }
     
@@ -203,7 +249,7 @@ extension KeyItemListViewController  {
     }
 
     
-    func fetchKeysByPredicate( _ predicate: NSPredicate? = nil )  {
+    func reloadDataFromManagedObjectContext( predicate:NSPredicate? )  {
         
         let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
 
@@ -214,14 +260,17 @@ extension KeyItemListViewController  {
         request.predicate = predicate
 
         do {
+            
             let result = try self.managedObjectContext.fetch(request)
-            self.items = result
-         
+            self.keys = result
+
         }
         catch {
             print( "error fetching keys \(error)" )
-            self.items = []
+            self.keys = []
         }
+
+        tableView.reloadData()
     }
     
 }
