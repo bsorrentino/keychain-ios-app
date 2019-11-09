@@ -24,13 +24,15 @@ struct KeyItemList: UIViewControllerRepresentable {
         
         let controller =  KeyItemListViewController(context: managedObjectContext)
         
-        controller.reloadData()
+        //controller.reloadData()
         
         return controller
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType,
                                 context: UIViewControllerRepresentableContext<KeyItemList>) {
+        
+        print( "updateUIViewController" )
         
         uiViewController.reloadData()
     }
@@ -74,7 +76,7 @@ class KeyItemListViewController : UITableViewController {
     
     func reloadData() {
         
-        reloadDataFromManagedObjectContext( predicate:nil )
+        reloadDataFromManagedObjectContext( predicate:searchPredicate() )
     }
     
     override func viewDidLoad() {
@@ -134,7 +136,7 @@ class KeyItemListViewController : UITableViewController {
         
         let selectedItem = keys[index]
         
-        let newViewController = KeyEntityForm( key: selectedItem )
+        let newViewController = KeyEntityForm( entity: selectedItem )
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
         
     }
@@ -147,7 +149,7 @@ class KeyItemListViewController : UITableViewController {
         
         let selectedItem = keys[index]
         
-        let newViewController = KeyEntityForm( key: selectedItem )
+        let newViewController = KeyEntityForm( entity: selectedItem )
         
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
         
@@ -201,6 +203,17 @@ let SEARCHTEXT_CRITERIA = "(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@)"
 // MARK: Search Extension
 extension KeyItemListViewController : UISearchResultsUpdating {
   
+    // create the Predicate coherent with UI state
+    func searchPredicate() -> NSPredicate? {
+        
+        if searchController.isActive , let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            return NSPredicate(format: SEARCHTEXT_CRITERIA, searchText, searchText.uppercased())
+        }
+        
+        return nil
+
+    }
+    
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }
@@ -211,28 +224,8 @@ extension KeyItemListViewController : UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         
-         print( "updateSearchResults isFiltering \(isFiltering)" )
-        
-        if searchController.isActive {
-            
-        
-            if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-
-                print( "updateSearchResults isActive \(searchController.isActive) filter \(searchText)" )
-
-                let predicate = NSPredicate(format: SEARCHTEXT_CRITERIA, searchText, searchText.uppercased())
-             
-                reloadDataFromManagedObjectContext( predicate: predicate )
-            }
-        }
-        else {
-
-            print( "updateSearchResults isActive \(searchController.isActive) reset" )
-
-            //reloadDataFromManagedObjectContext( predicate: nil )
-            //tableView.reloadData()
-
-        }
+        print( "updateSearchResults\nisActive:\(searchController.isActive)\nisFiltering:\(isFiltering)" )
+        reloadDataFromManagedObjectContext( predicate: searchPredicate() )
         
     }
     

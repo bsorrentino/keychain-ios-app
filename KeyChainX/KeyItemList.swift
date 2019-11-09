@@ -27,7 +27,7 @@ struct TopView : View {
     func showForm() -> some View {
         VStack{
             if formActive {
-                KeyEntityForm( key: KeyEntity( context:managedObjectContext ) )
+                KeyEntityForm()
             } else {
                 EmptyView()
             }

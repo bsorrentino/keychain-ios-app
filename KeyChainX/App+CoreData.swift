@@ -11,6 +11,7 @@ import CoreData
 import SwiftUI
 import Combine
 import KeychainAccess
+import FieldValidatorLibrary
 
 
 // MARK: CoreData extension
@@ -45,6 +46,87 @@ func fetchSingle( _ context:NSManagedObjectContext, entity:NSEntityDescription, 
     return fetchResult[0]
 }
 
+//
+// MARK: DISCONNECTED KEYENTITY OBJECT
+//
+
+ 
+class KeyItem : ObservableObject {
+
+    private var entity:KeyEntity?
+    
+    @Published var mnemonic: String
+    @Published var username: String
+    @Published var password: String
+    @Published var mail: String
+    @Published var note: String
+
+    //@Published var url: String?
+    //@Published var expire: Date?
+    //@Published var sectionId: String?
+    //@Published var group: NSNumber?
+    //@Published var groupPrefix: String?
+
+    @Published var mnemonicCheck = FieldChecker()
+    @Published var usernameCheck = FieldChecker()
+    @Published var passwordCheck = FieldChecker()
+    @Published var mailCheck = FieldChecker()
+    @Published var noteCheck = FieldChecker()
+
+    var isNew:Bool { return entity == nil  }
+
+    var checkIsValid:Bool {
+        return  mnemonicCheck.valid &&
+                usernameCheck.valid &&
+                passwordCheck.valid
+    }
+    
+    init() {
+        self.mnemonic = ""
+        self.username = ""
+        self.password = ""
+        self.mail = ""
+        self.note = ""
+        
+        self.entity = nil
+    }
+    
+    init( entity: KeyEntity ) {
+        self.mnemonic = entity.mnemonic
+        self.username = entity.username
+        self.password = entity.password
+        self.mail = entity.mail ?? ""
+        self.note = entity.note ?? ""
+
+        self.entity = entity
+    }
+
+    private func copyTo( entity: KeyEntity ) -> KeyEntity {
+        entity.mnemonic = self.mnemonic
+        entity.username = self.username
+        entity.password = self.password
+        entity.mail = self.mail
+        entity.note = self.note
+        
+        return entity
+    }
+
+    func save( context:NSManagedObjectContext ) throws {
+        
+        if let entity = self.entity {
+            let _ = self.copyTo(entity: entity )
+        }
+        else {
+            let newEntity = KeyEntity( context: context );
+            context.insert( self.copyTo(entity: newEntity) )
+        }
+        
+        try context.save()
+
+    }
+    
+}
+
 #if false
 struct KeyItemPublisher : Combine.Publisher {
     typealias Output = KeyItem
@@ -66,8 +148,8 @@ struct KeyItemPublisher : Combine.Publisher {
 
                 try result.forEach { e in
                     
-                    let key = try e.toKeyItem()
-                    let _ = subscriber.receive(key)
+                    let item = try e.toKeyItem()
+                    let _ = subscriber.receive(item)
                 }
                 
                 subscriber.receive(completion: Subscribers.Completion.finished )
