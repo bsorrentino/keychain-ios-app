@@ -117,12 +117,12 @@ struct NoteField : View {
 
 
 
-struct KeyItemForm : View {
+struct KeyEntityForm : View {
     @Environment(\.presentationMode) var presentationMode
     
     @Environment(\.managedObjectContext) var managedObjectContext
 
-    @ObservedObject var item:KeyEntity
+    @ObservedObject var key:KeyEntity
     
     @State var secretInfo:SecretInfo = .hide
     
@@ -130,8 +130,8 @@ struct KeyItemForm : View {
     @State var mnemonicValid    = FieldChecker()
     @State var passwordValid    = FieldChecker()
 
-    init( item:KeyEntity ) {
-        self.item = item
+    init( key:KeyEntity ) {
+        self.key = key
     }
     
     func mnemonicInput() -> some View  {
@@ -149,7 +149,7 @@ struct KeyItemForm : View {
                 }
 
             }
-            TextFieldWithValidator( value: $item.mnemonic, checker:$mnemonicValid ) { v in
+            TextFieldWithValidator( value: $key.mnemonic, checker:$mnemonicValid ) { v in
                 
                 if( v.isEmpty ) {
                     return "mnemonic cannot be empty"
@@ -182,7 +182,7 @@ struct KeyItemForm : View {
                 }
 
             }
-            TextFieldWithValidator( value: $item.username, checker:$userValid ) { v in
+            TextFieldWithValidator( value: $key.username, checker:$userValid ) { v in
                 
                 if( v.isEmpty ) {
                     return "username cannot be empty"
@@ -215,7 +215,7 @@ struct KeyItemForm : View {
                 }
 
             }
-            PasswordToggleField( value:$item.password, checker:$passwordValid, secretInfo:$secretInfo ) { v in
+            PasswordToggleField( value:$key.password, checker:$passwordValid, secretInfo:$secretInfo ) { v in
                     if( v.isEmpty ) {
                         return "password cannot be empty"
                     }
@@ -233,11 +233,11 @@ struct KeyItemForm : View {
 
     
     var body: some View {
-        //NavigationView {
+        NavigationView {
             Form {
                 
 
-                if( item.isInserted ) {
+                if( key.isInserted ) {
                     Section {
                         
                         mnemonicInput()
@@ -256,13 +256,13 @@ struct KeyItemForm : View {
                 
                 Section {
                     
-                    EmailField( value:$item.mail )
+                    EmailField( value:$key.mail )
                     
-                    NoteField( value:$item.note)
+                    NoteField( value:$key.note)
                     
                 }
             }
-            .navigationBarTitle( Text("\(item.mnemonic.uppercased())"), displayMode: .inline  )
+            .navigationBarTitle( Text("\(key.mnemonic.uppercased())"), displayMode: .inline  )
             .navigationBarItems(trailing:
                 HStack {
                     Picker( selection: $secretInfo, label: EmptyView() ) {
@@ -274,17 +274,17 @@ struct KeyItemForm : View {
                     
                     Spacer(minLength: 15)
                     Button( "save", action: {
-                        print( "Save \(self.item.username)" )
+                        print( "Save\n mnemonic: \(self.key.mnemonic)\n username: \(self.key.username)" )
                         
-                        self.managedObjectContext.insert(self.item)
+                        //self.managedObjectContext.insert(self.item)
 
                         do {
                             try self.managedObjectContext.save()
                         }
                         catch {
-                            print( "error deleting new key \(error)" )
+                            print( "error inserting new key \(error)" )
                         }
-
+                        
                         self.presentationMode.wrappedValue.dismiss()
                         
                     })
@@ -292,7 +292,7 @@ struct KeyItemForm : View {
                     
                 }
             )
-        //} // NavigationView
+        } // NavigationView
         
     }
 }
@@ -303,7 +303,7 @@ import KeychainAccess
 struct KeyItemDetail_Previews : PreviewProvider {
     static var previews: some View {
         
-        KeyItemForm( item: KeyEntity() )
+        KeyEntityForm( key: KeyEntity() )
         
         
     }

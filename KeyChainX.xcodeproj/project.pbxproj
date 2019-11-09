@@ -13,7 +13,6 @@
 		5F5772F52361FDD50066E947 /* App+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F42361FDD50066E947 /* App+Error.swift */; };
 		6E280649B15E964AE945A6E6 /* Pods_KeyChainXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31B2C432B3C9BA54E403FC3 /* Pods_KeyChainXTests.framework */; };
 		A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */; };
-		A0375EA222B69BF000BD4B79 /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0375EA122B69BF000BD4B79 /* KeyItemForm.swift */; };
 		A071C20323648EAB00891175 /* EmailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* EmailList.swift */; };
 		A08AE59222A956C10049096A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A08AE59122A956C10049096A /* KeychainAccess */; };
 		A09611502312CA970037E8B9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A096114F2312CA970037E8B9 /* KeychainAccess */; };
@@ -34,6 +33,7 @@
 		A0EE95702375F7AF00002E6F /* KeyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956C2375F7AF00002E6F /* KeyEntity+CoreDataProperties.swift */; };
 		A0EE95712375F7AF00002E6F /* MailEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */; };
 		A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */; };
+		A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE95742377385800002E6F /* KeyItemForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,6 @@
 		835BCF138F6DFD3C0DB12FD3 /* Pods-KeyChainX-KeyChainXUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainX-KeyChainXUITests.debug.xcconfig"; path = "Target Support Files/Pods-KeyChainX-KeyChainXUITests/Pods-KeyChainX-KeyChainXUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		84C93619E7420165BBA05FCE /* Pods-KeyChainXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainXTests.debug.xcconfig"; path = "Target Support Files/Pods-KeyChainXTests/Pods-KeyChainXTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemNote.swift; sourceTree = "<group>"; };
-		A0375EA122B69BF000BD4B79 /* KeyItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
 		A071C20223648EAB00891175 /* EmailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailList.swift; sourceTree = "<group>"; };
 		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
 		A0C0DB5322A901AD003B09ED /* KeyChainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +87,7 @@
 		A0EE956C2375F7AF00002E6F /* KeyEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MailEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Helpers.swift"; sourceTree = "<group>"; };
+		A0EE95742377385800002E6F /* KeyItemForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
 		C31B2C432B3C9BA54E403FC3 /* Pods_KeyChainXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6349C10B88AA1FB1F3098F9 /* Pods-KeyChainX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainX.release.xcconfig"; path = "Target Support Files/Pods-KeyChainX/Pods-KeyChainX.release.xcconfig"; sourceTree = "<group>"; };
 		F178F759DBE68FDCF076EB74 /* Pods-KeyChainX-KeyChainXUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainX-KeyChainXUITests.release.xcconfig"; path = "Target Support Files/Pods-KeyChainX-KeyChainXUITests/Pods-KeyChainX-KeyChainXUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,8 +188,8 @@
 				A0C0DB5622A901AD003B09ED /* AppDelegate.swift */,
 				A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */,
 				A0C0DB5D22A901AD003B09ED /* KeyItemList.swift */,
+				A0EE95742377385800002E6F /* KeyItemForm.swift */,
 				A071C20223648EAB00891175 /* EmailList.swift */,
-				A0375EA122B69BF000BD4B79 /* KeyItemForm.swift */,
 				A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */,
 				A0C0DB5F22A901B0003B09ED /* Assets.xcassets */,
 				A0C0DB6422A901B0003B09ED /* LaunchScreen.storyboard */,
@@ -496,8 +496,8 @@
 				A0EE956F2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift in Sources */,
 				A0EE956E2375F7AF00002E6F /* KeyEntity+CoreDataClass.swift in Sources */,
 				A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */,
+				A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */,
 				A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */,
-				A0375EA222B69BF000BD4B79 /* KeyItemForm.swift in Sources */,
 				A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */,
 				A0C0DB5E22A901AD003B09ED /* KeyItemList.swift in Sources */,
 				A0EE95502375F38400002E6F /* KeyChain.xcdatamodeld in Sources */,

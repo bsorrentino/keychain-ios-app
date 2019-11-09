@@ -66,8 +66,8 @@ struct KeyItemPublisher : Combine.Publisher {
 
                 try result.forEach { e in
                     
-                    let item = try e.toKeyItem()
-                    let _ = subscriber.receive(item)
+                    let key = try e.toKeyItem()
+                    let _ = subscriber.receive(key)
                 }
                 
                 subscriber.receive(completion: Subscribers.Completion.finished )
