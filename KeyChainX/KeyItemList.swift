@@ -11,31 +11,6 @@ import SwiftUI
 typealias ViewProvider = (( KeyItem ) -> UIView );
 
 
-struct KeyItemList: UIViewControllerRepresentable {
-    
-    typealias UIViewControllerType = KeyItemListViewController
-    
-    var keys:ApplicationKeys
-    
-    func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType
-    {
-        print( "makeUIViewController" )
-        let controller =  KeyItemListViewController(style: .grouped)
-        
-        controller.keys = keys
-        
-        return controller
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewControllerType,
-                                context: UIViewControllerRepresentableContext<KeyItemList>) {
-        
-        print( "updateUIViewController \(keys.items.count)" )
-        
-        uiViewController.reloadData()
-    }
-}
-
 struct ContentView : View {
 
     var body: some View {
