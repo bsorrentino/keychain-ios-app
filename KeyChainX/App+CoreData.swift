@@ -45,109 +45,7 @@ func fetchSingle( _ context:NSManagedObjectContext, entity:NSEntityDescription, 
     return fetchResult[0]
 }
 
-// MARK: CoreData MailEntity Extension
-extension MailEntity {
-    
-    static func fetchAllMail() -> NSFetchRequest<MailEntity> {
-        
-        let request:NSFetchRequest<MailEntity> = MailEntity.fetchRequest()
-        
-        let sortOrder = NSSortDescriptor(keyPath: \MailEntity.value, ascending: true)
-        
-        request.sortDescriptors = [sortOrder]
-        
-        return request
-        
-    }
-}
-// MARK: CoreData KeyEntity Extension
-extension KeyEntity {
-    
-    func toKeyItem() throws -> KeyItem {
-        
-        guard let id = self.mnemonic, let username = self.username else {
-            throw "Invalid KeyEntity no mnemonic or username defined"
-        }
-        guard let bundleIdentifier = Bundle.main.bundleIdentifier else {
-            throw "Bundle Identifier Undefined"
-        }
-        
-        let keychain = Keychain(service: bundleIdentifier).accessibility(.whenUnlocked)
-
-        
-        guard let password = try keychain.get(id) else {
-            //throw "password doesn't found for key \(id)"
-            return KeyItem( id:id, username:username, password:Keychain.generatePassword() )
-        }
-        
-        return KeyItem( id:id, username:username, password:password )
-    }
-
-    
-    func from( item: KeyItem ) -> KeyEntity {
-        self.mnemonic = item.id
-        self.username = item.username
-        return self
-    }
-
-    static func fromKeyItem( item: KeyItem, context:NSManagedObjectContext ) throws -> KeyEntity {
-        
-        let result = KeyEntity( context:context )
-
-        return result.from( item:item )
-    }
-
-}
-
-extension KeyItem  {
-    /**
-        Fetch KeyItem by id
-     */
-    func fetchKeyItemById( _ context:NSManagedObjectContext, item:KeyItem ) throws -> KeyEntity {
-        
-        guard let result = try fetchSingle( context,
-                                            entity:KeyEntity.entity(),
-                                            predicateFormat:"(mnemonic = %@)",
-                                            key:item.id) as? KeyEntity else {
-                throw SavingError.InvalidItem(id: item.id)
-        }
-        return result
-
-    }
-
-    func save( _ context:NSManagedObjectContext ) throws {
-        guard let bundleIdentifier = Bundle.main.bundleIdentifier else {
-            throw SavingError.BundleIdentifierUndefined
-        }
-        
-        let keychain = Keychain(service: bundleIdentifier).accessibility(.whenUnlocked)
-
-        switch( state ) {
-        case .new:
-            let record = try KeyEntity.fromKeyItem(item: self, context: context)
-            context.insert( record )
-            try keychain.set(self.password, key: self.id)
-            state = .neutral
-            break
-        case .updated:
-            let result = try self.fetchKeyItemById( context, item:self )
-            let _ = result.from(item: self)
-            try keychain.set(self.password, key: self.id)
-            state = .neutral
-            break
-        case .deleted:
-            let result = try self.fetchKeyItemById( context, item:self )
-            let _ = result.from(item: self)
-            context.delete(result)
-            try keychain.remove(self.id)
-            break
-        default:
-            break
-        }
-
-    }
-}
-
+#if false
 struct KeyItemPublisher : Combine.Publisher {
     typealias Output = KeyItem
     
@@ -185,12 +83,8 @@ struct KeyItemPublisher : Combine.Publisher {
     }
     
 }
+#endif
 
-extension AppDelegate {
-    
-    
-
-}
 
 
 extension SceneDelegate {

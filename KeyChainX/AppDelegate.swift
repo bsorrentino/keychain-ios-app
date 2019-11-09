@@ -15,46 +15,12 @@ import KeychainAccess
 
 
 
-// GLOBAL DATA
-// IT IS A CACHE
-class ApplicationKeys: ObservableObject {
-    typealias AType = KeyItem
-    
-    let objectWillChange = PassthroughSubject<AType,Never>()
-    
-    var items:Array<KeyItem> = []
-    
-    convenience init( items:Array<KeyItem> ) {
-        self.init();
-        
-        self.items = items
-    }
-}
-
-class ApplicationMails: ObservableObject {
-    typealias AType = Any
-    
-    let objectWillChange = PassthroughSubject<AType,Never>()
-
-    var items:Array<Any> = []
-    
-    convenience init( items:Array<Any> ) {
-        self.init();
-        
-        self.items = items
-    }
-}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    let applicationKeys = ApplicationKeys()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        self.loadContext()
-
         return true
     }
 
@@ -108,40 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-    
-    // MARK: - Core Data Loading support
-    
-    private var cancellable:AnyCancellable?
-    
-    
-    func loadContext() {
-        
-        let context = persistentContainer.viewContext;
-        
-        let _ =
-        KeyItemPublisher( context: context )
-            .collect()
-            .sink( receiveCompletion: { err in
-                print( "error fetching KeyEntity \(err)")
-            }) { items in
-                self.applicationKeys.items = items
-            }
-                            
-        self.cancellable = self.applicationKeys.objectWillChange.sink { item in
-        
-            print( "Changed Value: \(item)" )
-            
-            do {
-                try item.save( context )
-            }
-            catch {
-                print( "Error updating Database \(error)" )
-            }
-        
-        }
-            
-        
-    }
     
     // MARK: - Core Data Saving support
 

@@ -13,3 +13,21 @@ import CoreData
 public class KeyEntity: NSManagedObject {
 
 }
+
+
+extension MailEntity {
+    
+    static func fetchAllMail() -> NSFetchRequest<MailEntity> {
+        
+        let request:NSFetchRequest<MailEntity> = MailEntity.fetchRequest()
+        
+        let sortOrder = NSSortDescriptor(keyPath: \MailEntity.value, ascending: true)
+        
+        request.sortDescriptors = [sortOrder]
+        
+        return request
+        
+    }
+}
+
+

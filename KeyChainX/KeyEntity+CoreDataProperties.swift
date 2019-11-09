@@ -17,13 +17,13 @@ extension KeyEntity {
     }
 
     @NSManaged public var expire: Date?
-    @NSManaged public var password: String?
-    @NSManaged public var mail: String?
-    @NSManaged public var note: String?
-    @NSManaged public var mnemonic: String?
+    @NSManaged public var password: String
+    @NSManaged public var mail: String
+    @NSManaged public var note: String
+    @NSManaged public var mnemonic: String
     @NSManaged public var isNew: NSNumber?
     @NSManaged public var sectionId: String?
-    @NSManaged public var username: String?
+    @NSManaged public var username: String
     @NSManaged public var group: NSNumber?
     @NSManaged public var groupPrefix: String?
     @NSManaged public var url: String?

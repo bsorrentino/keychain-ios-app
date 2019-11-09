@@ -9,29 +9,28 @@
 import Foundation
 import UIKit
 import SwiftUI
-
+import CoreData
 
 // MARK: SwiftUI Bidge
 struct KeyItemList: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = KeyItemListViewController
     
-    var keys:ApplicationKeys
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType
     {
         print( "makeUIViewController" )
-        let controller =  KeyItemListViewController(style: .grouped)
         
-        controller.keys = keys
+        let controller =  KeyItemListViewController(context: managedObjectContext)
+        
+        controller.reloadData()
         
         return controller
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType,
                                 context: UIViewControllerRepresentableContext<KeyItemList>) {
-        
-        print( "updateUIViewController \(keys.items.count)" )
         
         uiViewController.reloadData()
     }
@@ -41,18 +40,23 @@ struct KeyItemList: UIViewControllerRepresentable {
 
 class KeyItemListViewController : UITableViewController {
     
-    var keys:ApplicationKeys?
-    
-    private var cellView:ViewProvider?
-    
     private var resultSearchController:UISearchController?
     
-    private var items:[KeyItem]?
+    private var items:[KeyEntity]?
+    
+    private var managedObjectContext: NSManagedObjectContext
+    
+    init( context:NSManagedObjectContext ) {
+        self.managedObjectContext = context
+        super.init( style: .grouped )
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     func reloadData() {
-        self.items = keys?.items.filter{ item -> Bool in
-            return item.state != .deleted
-        }
+        fetchKeysByPredicate()
         tableView.reloadData()
     }
     
@@ -90,12 +94,9 @@ class KeyItemListViewController : UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "keyitem", for: indexPath)
         
         let item = items[indexPath.row]
-        if let viewProvider = self.cellView {
-            cell.contentView.addSubview(viewProvider(item))
-        }
         
-        cell.textLabel?.text = item.id.uppercased()
-        cell.detailTextLabel?.text = item.grouped ? item.groupPrefix ?? "" : item.username
+        cell.textLabel?.text = item.mnemonic.uppercased()
+        cell.detailTextLabel?.text = item.isGrouped() ? item.groupPrefix ?? "" : item.username
         
         return cell
         
@@ -160,10 +161,9 @@ class KeyItemListViewController : UITableViewController {
 
 
         let delete = UIContextualAction( style: .destructive, title: "Delete" ) { action, view, completionHandler in
-                
-            selectedItem.state = .deleted
+
+            self.delete(item: selectedItem)
             self.reloadData()
-            self.keys?.objectWillChange.send( selectedItem )
             
             
         }
@@ -176,6 +176,7 @@ class KeyItemListViewController : UITableViewController {
     
 }
 
+// MARK: Search Extension
 extension KeyItemListViewController : UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -184,4 +185,45 @@ extension KeyItemListViewController : UISearchResultsUpdating {
     
     
 }
+
+// MARK: Core Data Extension
+extension KeyItemListViewController  {
+    
+    func delete( item:KeyEntity ) {
+
+        self.managedObjectContext.delete(item)
+
+        do {
+            try self.managedObjectContext.save()
+        }
+        catch {
+            print( "error deleting new key \(error)" )
+        }
+
+    }
+
+    
+    func fetchKeysByPredicate( _ predicate: NSPredicate? = nil )  {
+        
+        let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
+
+        let sortOrder = NSSortDescriptor(keyPath: \KeyEntity.mnemonic, ascending: true)
+        
+        request.sortDescriptors = [sortOrder]
+        
+        request.predicate = predicate
+
+        do {
+            let result = try self.managedObjectContext.fetch(request)
+            self.items = result
+         
+        }
+        catch {
+            print( "error fetching keys \(error)" )
+            self.items = []
+        }
+    }
+    
+}
+
 

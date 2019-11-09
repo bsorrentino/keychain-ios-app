@@ -120,9 +120,9 @@ struct NoteField : View {
 struct KeyItemForm : View {
     @Environment(\.presentationMode) var presentationMode
     
-    @EnvironmentObject var keys:ApplicationKeys;
+    @Environment(\.managedObjectContext) var managedObjectContext
 
-    @ObservedObject var item:KeyItem
+    @ObservedObject var item:KeyEntity
     
     @State var secretInfo:SecretInfo = .hide
     
@@ -130,6 +130,10 @@ struct KeyItemForm : View {
     @State var mnemonicValid    = FieldChecker()
     @State var passwordValid    = FieldChecker()
 
+    init( item:KeyEntity ) {
+        self.item = item
+    }
+    
     func mnemonicInput() -> some View  {
         
         VStack(alignment: .leading) {
@@ -145,7 +149,7 @@ struct KeyItemForm : View {
                 }
 
             }
-            TextFieldWithValidator( value: $item.id, checker:$mnemonicValid ) { v in
+            TextFieldWithValidator( value: $item.mnemonic, checker:$mnemonicValid ) { v in
                 
                 if( v.isEmpty ) {
                     return "mnemonic cannot be empty"
@@ -233,7 +237,7 @@ struct KeyItemForm : View {
             Form {
                 
 
-                if( item.state == KeyItem.State.new ) {
+                if( item.isInserted ) {
                     Section {
                         
                         mnemonicInput()
@@ -252,13 +256,13 @@ struct KeyItemForm : View {
                 
                 Section {
                     
-                    EmailField( value:$item.email )
+                    EmailField( value:$item.mail )
                     
                     NoteField( value:$item.note)
                     
                 }
             }
-            .navigationBarTitle( Text("\(item.id.uppercased())"), displayMode: .inline  )
+            .navigationBarTitle( Text("\(item.mnemonic.uppercased())"), displayMode: .inline  )
             .navigationBarItems(trailing:
                 HStack {
                     Picker( selection: $secretInfo, label: EmptyView() ) {
@@ -271,16 +275,16 @@ struct KeyItemForm : View {
                     Spacer(minLength: 15)
                     Button( "save", action: {
                         print( "Save \(self.item.username)" )
+                        
+                        self.managedObjectContext.insert(self.item)
 
-                        if ( self.item.state == .new ) {
-                            self.keys.items.append(self.item)
+                        do {
+                            try self.managedObjectContext.save()
                         }
-                        else if ( self.item.state == .neutral ) {
-                            self.item.state = .updated
+                        catch {
+                            print( "error deleting new key \(error)" )
                         }
-                        self.keys.objectWillChange.send( self.item )
 
-                        print( "appData.items.count: \(self.keys.items.count)" )
                         self.presentationMode.wrappedValue.dismiss()
                         
                     })
@@ -299,7 +303,7 @@ import KeychainAccess
 struct KeyItemDetail_Previews : PreviewProvider {
     static var previews: some View {
         
-        KeyItemForm( item: KeyItem( id:"id1", username:"username1", password:Keychain.generatePassword()))
+        KeyItemForm( item: KeyEntity() )
         
         
     }

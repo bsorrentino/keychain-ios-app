@@ -8,9 +8,6 @@
 
 import SwiftUI
 
-typealias ViewProvider = (( KeyItem ) -> UIView );
-
-
 struct ContentView : View {
 
     var body: some View {
@@ -23,14 +20,13 @@ struct ContentView : View {
 }
 
 struct TopView : View {
-    
-    @EnvironmentObject var keys:ApplicationKeys;
+    @Environment(\.managedObjectContext) var managedObjectContext
 
     var body: some View {
-        KeyItemList( keys:keys)
+        KeyItemList()
             .navigationBarItems(trailing:
             HStack {
-                NavigationLink( destination: KeyItemForm( item: KeyItem.newItem() ), label: {
+                NavigationLink( destination: KeyItemForm( item: KeyEntity( context: managedObjectContext) ), label: {
                     Image( systemName: "plus" )
                 })
         })
@@ -47,11 +43,6 @@ import KeychainAccess
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
         ContentView()
-        .environmentObject( ApplicationKeys(items:[
-            KeyItem( id:"item1", username:"user1", password:Keychain.generatePassword()),
-            KeyItem( id:"item2", username:"user2", password:Keychain.generatePassword()),
-            KeyItem( id:"item3", username:"user3", password:Keychain.generatePassword()),
-        ]) )
         
     }
 }
