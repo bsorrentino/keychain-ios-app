@@ -17,7 +17,6 @@ extension KeyEntity {
     }
 
     @NSManaged public var expire: Date?
-    @NSManaged public var password: String
     @NSManaged public var mail: String?
     @NSManaged public var note: String?
     @NSManaged public var mnemonic: String
@@ -26,6 +25,9 @@ extension KeyEntity {
     @NSManaged public var group: NSNumber?
     @NSManaged public var groupPrefix: String?
     @NSManaged public var url: String?
+
+    @available(*, deprecated, message: "no longer used it will be inserted in keychain")
+    @NSManaged public var password: String
 
     @available(*, deprecated, message: "no longer used use NSManagedObject.isInserted instead")
     @NSManaged public var isNew: NSNumber? // deprecated

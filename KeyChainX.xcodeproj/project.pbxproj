@@ -11,11 +11,11 @@
 		3852AA669660FC7B3127E477 /* Pods_KeyChainX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1181120449DF4D493ABB8B /* Pods_KeyChainX.framework */; };
 		5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F22361FD900066E947 /* App+CoreData.swift */; };
 		5F5772F52361FDD50066E947 /* App+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F42361FDD50066E947 /* App+Error.swift */; };
+		5F9ABB3C2379828000AC052A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5F9ABB3B2379828000AC052A /* KeychainAccess */; };
+		5F9ABB3E237983A800AC052A /* App+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ABB3D237983A800AC052A /* App+Keychain.swift */; };
 		6E280649B15E964AE945A6E6 /* Pods_KeyChainXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31B2C432B3C9BA54E403FC3 /* Pods_KeyChainXTests.framework */; };
 		A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */; };
 		A071C20323648EAB00891175 /* EmailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* EmailList.swift */; };
-		A08AE59222A956C10049096A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A08AE59122A956C10049096A /* KeychainAccess */; };
-		A09611502312CA970037E8B9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A096114F2312CA970037E8B9 /* KeychainAccess */; };
 		A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */; };
 		A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5622A901AD003B09ED /* AppDelegate.swift */; };
 		A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */; };
@@ -58,6 +58,7 @@
 		2666A952EEB7EFD5E100B504 /* Pods-KeyChainXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainXTests.release.xcconfig"; path = "Target Support Files/Pods-KeyChainXTests/Pods-KeyChainXTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F5772F22361FD900066E947 /* App+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+CoreData.swift"; sourceTree = "<group>"; };
 		5F5772F42361FDD50066E947 /* App+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Error.swift"; sourceTree = "<group>"; };
+		5F9ABB3D237983A800AC052A /* App+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Keychain.swift"; sourceTree = "<group>"; };
 		7A1181120449DF4D493ABB8B /* Pods_KeyChainX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BD245632F6CD51B530A2686 /* Pods_KeyChainX_KeyChainXUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainX_KeyChainXUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		835BCF138F6DFD3C0DB12FD3 /* Pods-KeyChainX-KeyChainXUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainX-KeyChainXUITests.debug.xcconfig"; path = "Target Support Files/Pods-KeyChainX-KeyChainXUITests/Pods-KeyChainX-KeyChainXUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A08AE59222A956C10049096A /* KeychainAccess in Frameworks */,
+				5F9ABB3C2379828000AC052A /* KeychainAccess in Frameworks */,
 				3852AA669660FC7B3127E477 /* Pods_KeyChainX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,7 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09611502312CA970037E8B9 /* KeychainAccess in Frameworks */,
 				6E280649B15E964AE945A6E6 /* Pods_KeyChainXTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +185,7 @@
 				A096B3C522CE4295004E17CC /* UIKIT */,
 				5F5772F22361FD900066E947 /* App+CoreData.swift */,
 				5F5772F42361FDD50066E947 /* App+Error.swift */,
+				5F9ABB3D237983A800AC052A /* App+Keychain.swift */,
 				A0C0DB5622A901AD003B09ED /* AppDelegate.swift */,
 				A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */,
 				A0C0DB5D22A901AD003B09ED /* KeyItemList.swift */,
@@ -257,7 +258,7 @@
 			);
 			name = KeyChainX;
 			packageProductDependencies = (
-				A08AE59122A956C10049096A /* KeychainAccess */,
+				5F9ABB3B2379828000AC052A /* KeychainAccess */,
 			);
 			productName = KeyChainX;
 			productReference = A0C0DB5322A901AD003B09ED /* KeyChainX.app */;
@@ -279,7 +280,6 @@
 			);
 			name = KeyChainXTests;
 			packageProductDependencies = (
-				A096114F2312CA970037E8B9 /* KeychainAccess */,
 			);
 			productName = KeyChainXTests;
 			productReference = A0C0DB6C22A901B0003B09ED /* KeyChainXTests.xctest */;
@@ -338,7 +338,7 @@
 			);
 			mainGroup = A0C0DB4A22A901AD003B09ED;
 			packageReferences = (
-				A08AE59022A956C10049096A /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				5F9ABB3A2379828000AC052A /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = A0C0DB5422A901AD003B09ED /* Products */;
 			projectDirPath = "";
@@ -493,6 +493,7 @@
 				5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */,
 				A0EE95702375F7AF00002E6F /* KeyEntity+CoreDataProperties.swift in Sources */,
 				A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */,
+				5F9ABB3E237983A800AC052A /* App+Keychain.swift in Sources */,
 				A0EE956F2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift in Sources */,
 				A0EE956E2375F7AF00002E6F /* KeyEntity+CoreDataClass.swift in Sources */,
 				A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */,
@@ -833,25 +834,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A08AE59022A956C10049096A /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+		5F9ABB3A2379828000AC052A /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.0;
+				minimumVersion = 4.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A08AE59122A956C10049096A /* KeychainAccess */ = {
+		5F9ABB3B2379828000AC052A /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A08AE59022A956C10049096A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
-			productName = KeychainAccess;
-		};
-		A096114F2312CA970037E8B9 /* KeychainAccess */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A08AE59022A956C10049096A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			package = 5F9ABB3A2379828000AC052A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -94,17 +94,18 @@ class KeyItem : ObservableObject {
     init( entity: KeyEntity ) {
         self.mnemonic = entity.mnemonic
         self.username = entity.username
-        self.password = entity.password
         self.mail = entity.mail ?? ""
         self.note = entity.note ?? ""
+        self.password = getPasswordFromKeychain(key: entity.mnemonic )
 
         self.entity = entity
+
+
     }
 
     private func copyTo( entity: KeyEntity ) -> KeyEntity {
         entity.mnemonic = self.mnemonic
         entity.username = self.username
-        entity.password = self.password
         entity.mail = self.mail
         entity.note = self.note
         
@@ -120,11 +121,25 @@ class KeyItem : ObservableObject {
             let newEntity = KeyEntity( context: context );
             context.insert( self.copyTo(entity: newEntity) )
         }
+
+        setPasswordToKeychain(key: self.mnemonic, password: self.password)
         
         try context.save()
 
     }
     
+}
+
+
+extension SceneDelegate {
+    
+    var  managedObjectContext:NSManagedObjectContext {
+        guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
+            fatalError("Unable to read managed object context.")
+        }
+        return context
+    }
+
 }
 
 #if false
@@ -168,15 +183,4 @@ struct KeyItemPublisher : Combine.Publisher {
 #endif
 
 
-
-extension SceneDelegate {
-    
-    var  managedObjectContext:NSManagedObjectContext {        
-        guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
-            fatalError("Unable to read managed object context.")
-        }
-        return context
-    }
-
-}
 
