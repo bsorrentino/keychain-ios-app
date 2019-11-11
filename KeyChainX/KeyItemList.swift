@@ -8,18 +8,18 @@
 
 import SwiftUI
 
-struct ContentView : View {
+struct KeyItemListContentView : View {
 
     var body: some View {
         NavigationView {
-            TopView()
+            KeyItemListTopView()
                 .navigationBarTitle( Text("Key List") )
         }
 
     }
 }
 
-struct TopView : View {
+struct KeyItemListTopView : View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
     @State private var formActive = false
@@ -54,9 +54,9 @@ struct TopView : View {
 
 import KeychainAccess
 
-struct ContentView_Previews : PreviewProvider {
+struct KeyItemListContentView_Previews : PreviewProvider {
     static var previews: some View {
-        ContentView()
+        KeyItemListContentView()
         
     }
 }

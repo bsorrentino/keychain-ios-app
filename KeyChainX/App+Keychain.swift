@@ -13,21 +13,22 @@ class AppKeychain {
     
     // MARK: - Properties
 
-    public static var shared: Keychain? = {
-        
-        if let bundleID = Bundle.main.bundleIdentifier {
-            return Keychain(service: bundleID)
-        }
-        
-        return nil
+    public static var shared: Keychain = {
+        return Keychain()
     }()
+
+    /*
+    public static var sharedForUser: Keychain = {
+        return Keychain(accessGroup: "userinfo")
+    }()
+    */
     
 }
 
 // MARK: PASSWORD HELPER
 func getPasswordFromKeychain( key:String ) -> String {
     do {
-        if let password = try AppKeychain.shared?.getString( key ) {
+        if let password = try AppKeychain.shared.getString( key ) {
             return  password
         }
     }
@@ -40,7 +41,7 @@ func getPasswordFromKeychain( key:String ) -> String {
 
 func setPasswordToKeychain( key:String, password:String )  -> Void {
     do {
-        try AppKeychain.shared?.set( password, key: key )
+        try AppKeychain.shared.set( password, key: key )
     }
     catch {
         print( "ERROR: setting element \(key) to keychain.\n\(error)" )
