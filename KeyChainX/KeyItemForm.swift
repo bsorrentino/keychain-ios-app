@@ -62,7 +62,6 @@ struct EmailField : View {
     
     @Binding var value:String
 
-    
     var body: some View {
         NavigationLink( destination: EmailList( value: $value) ) {
             HStack {
@@ -76,6 +75,7 @@ struct EmailField : View {
                     Text(value )
                 }
             }
+            .padding(EdgeInsets( top: 20, leading: 0, bottom: 20, trailing: 0))
         }
     }
 
@@ -98,8 +98,11 @@ struct NoteField : View {
         }
 
     }
+    
     var body: some View {
+        
         NavigationLink( destination: KeyItemNote( value: $value) ) {
+            
             HStack(alignment: .center) {
                 Image( systemName: "doc.circle")
                 GeometryReader { geometry in
@@ -109,6 +112,7 @@ struct NoteField : View {
                            alignment: .leading)
                 }
             }
+            .padding(EdgeInsets( top: 20, leading: 0, bottom: 20, trailing: 0))
         }
     }
 
@@ -125,6 +129,9 @@ struct KeyEntityForm : View {
     @ObservedObject var item:KeyItem
     
     @State var secretInfo:SecretInfo = .hide
+    
+    private let bg = Color(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, opacity: 0.2)
+                    //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     
     init() {
         self.item = KeyItem()
@@ -149,6 +156,7 @@ struct KeyEntityForm : View {
                 }
 
             }
+            
             TextFieldWithValidator( value: $item.mnemonic, checker:$item.mnemonicCheck ) { v in
                 
                 if( v.isEmpty ) {
@@ -159,7 +167,7 @@ struct KeyEntityForm : View {
             }
             .padding(.all)
             .border( item.mnemonicCheck.valid ? Color.clear : Color.red , width: 0.5)
-            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+            .background( bg )
             .autocapitalization(.allCharacters)
     
         }
@@ -182,6 +190,7 @@ struct KeyEntityForm : View {
                 }
 
             }
+            
             TextFieldWithValidator( value: $item.username, checker:$item.usernameCheck ) { v in
                 
                 if( v.isEmpty ) {
@@ -192,7 +201,7 @@ struct KeyEntityForm : View {
             }
             .padding(.all)
             .border( item.usernameCheck.valid ? Color.clear : Color.red , width: 0.5)
-            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+            .background(bg)
             .autocapitalization(.none)
             
         }
@@ -215,6 +224,7 @@ struct KeyEntityForm : View {
                 }
 
             }
+            
             PasswordToggleField( value:$item.password, checker:$item.passwordCheck, secretInfo:$secretInfo ) { v in
                     if( v.isEmpty ) {
                         return "password cannot be empty"
@@ -223,7 +233,7 @@ struct KeyEntityForm : View {
             }
             .padding(.all)
             .border( item.passwordCheck.valid ? Color.clear : Color.red , width: 0.5)
-            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
+            .background(bg)
             .autocapitalization(.none)
             
 
@@ -262,7 +272,7 @@ struct KeyEntityForm : View {
                     
                 }
             }
-            .navigationBarTitle( Text("\(item.mnemonic.uppercased())"), displayMode: .inline  )
+            .navigationBarTitle( Text( item.mnemonic.uppercased()), displayMode: .inline  )
             .navigationBarItems(trailing:
                 HStack {
                     Picker( selection: $secretInfo, label: EmptyView() ) {
@@ -273,6 +283,7 @@ struct KeyEntityForm : View {
                     }.pickerStyle(SegmentedPickerStyle())
                     
                     Spacer(minLength: 15)
+                    
                     Button( "save", action: {
                         print( "Save\n mnemonic: \(self.item.mnemonic)\n username: \(self.item.username)" )
                         
