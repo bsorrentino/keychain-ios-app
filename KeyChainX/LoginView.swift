@@ -21,8 +21,8 @@ struct LoginView: View {
     @State var confirmPasswordChecker   = FieldChecker()
 
     private func getPassword() throws -> String? {
-        let result = try AppKeychain.shared.getString("mypassword");
-        return result;
+        let result = AppKeychain.shared.getPassword(key: "mypassword");
+        return result?.password;
     }
 
     private func dismiss() {
@@ -30,7 +30,8 @@ struct LoginView: View {
     }
 
     private func savePasswordAndDismiss() {
-        AppKeychain.shared["mypassword"] = password
+        AppKeychain.shared.setPassword(  key: "mypassword",
+                                    password: password )
         dismiss()
     }
 

@@ -92,14 +92,21 @@ class KeyItem : ObservableObject {
     }
     
     init( entity: KeyEntity ) {
-        self.mnemonic = entity.mnemonic
-        self.username = entity.username
-        self.mail = entity.mail ?? ""
-        self.note = entity.note ?? ""
-        self.password = getPasswordFromKeychain(key: entity.mnemonic )
+        self.mnemonic   = entity.mnemonic
+        self.username   = entity.username
+        self.mail       = entity.mail ?? ""
+        
+        if let data = AppKeychain.shared.getPassword(key: entity.mnemonic) {
+            self.note = data.comment ?? ""
+            self.password = data.password
+        }
+        else {
+            self.note = ""
+            self.password = ""
+
+        }
 
         self.entity = entity
-
 
     }
 
@@ -122,7 +129,9 @@ class KeyItem : ObservableObject {
             context.insert( self.copyTo(entity: newEntity) )
         }
 
-        setPasswordToKeychain(key: self.mnemonic, password: self.password)
+        AppKeychain.shared.setPassword(     key: self.mnemonic,
+                                       password: self.password,
+                                        comment: self.note)
         
         try context.save()
 
