@@ -34,10 +34,10 @@ struct PasswordToggleField : View {
         VStack {
             Group {
                 if( secretInfo == .hide ) {
-                    SecureField( "password", text:$field.value)
+                    SecureField( "give me the password", text:$field.value)
                 }
                 else {
-                    TextField( "password", text:$field.value)
+                    TextField( "give me the password", text:$field.value)
                 }
             }
         }
@@ -130,8 +130,11 @@ struct KeyEntityForm : View {
     
     @State var secretInfo:SecretInfo = .hide
     
+    @State private var pickUsernameFromMail = false
+    
     private let bg = Color(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, opacity: 0.2)
                     //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
+    private let strikeWidth:CGFloat = 0.5
     
     init() {
         self.item = KeyItem()
@@ -157,7 +160,9 @@ struct KeyEntityForm : View {
 
             }
             
-            TextFieldWithValidator( value: $item.mnemonic, checker:$item.mnemonicCheck ) { v in
+            TextFieldWithValidator( title: "give me the unique name of key",
+                                    value: $item.mnemonic,
+                                    checker:$item.mnemonicCheck ) { v in
                 
                 if( v.isEmpty ) {
                     return "mnemonic cannot be empty"
@@ -165,11 +170,14 @@ struct KeyEntityForm : View {
                 
                 return nil
             }
-            .padding(.all)
-            .border( item.mnemonicCheck.valid ? Color.clear : Color.red , width: 0.5)
-            .background( bg )
             .autocapitalization(.allCharacters)
-    
+            .padding(10.0)
+            .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: strikeWidth)
+                    .foregroundColor(item.mnemonicCheck.valid ? Color.black : Color.red)
+            )
+
         }
             
 
@@ -191,19 +199,45 @@ struct KeyEntityForm : View {
 
             }
             
-            TextFieldWithValidator( value: $item.username, checker:$item.usernameCheck ) { v in
-                
-                if( v.isEmpty ) {
-                    return "username cannot be empty"
+            HStack {
+                TextFieldWithValidator( title:"give me the username ?",
+                                        value: $item.username,
+                                        checker:$item.usernameCheck ) { v in
+                    
+                    if( v.isEmpty ) {
+                        return "username cannot be empty"
+                    }
+                    
+                    //print( "validate username \(v) - \(self.pickUsernameFromMail)")
+                    
+                    if( self.pickUsernameFromMail ) {
+                        self.item.mail = v
+                    }
+                    return nil
                 }
-                
-                return nil
+                //.padding(.all)
+                //.border( Color.black )
+                //.background(bg)
+                .autocapitalization(.none)
+                NavigationLink( destination: EmailList( value: $item.username), isActive:$pickUsernameFromMail  ) {
+                        EmptyView()
+                }
+                .frame( width:0, height:0)
+                Button( action: {
+                    self.pickUsernameFromMail = true
+                }) {
+                    Image( systemName: "envelope.circle")
+                }
+
+
             }
-            .padding(.all)
-            .border( item.usernameCheck.valid ? Color.clear : Color.red , width: 0.5)
-            .background(bg)
-            .autocapitalization(.none)
-            
+            .padding( 10.0 )
+            .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: strikeWidth)
+                    .foregroundColor(item.usernameCheck.valid ? Color.black : Color.red)
+            )
+
         }
 
 
@@ -212,6 +246,7 @@ struct KeyEntityForm : View {
     func passwordInput() -> some View {
         
         VStack(alignment: .leading) {
+            
             HStack {
                 Text("Password")
                 if( !item.passwordCheck.valid  ) {
@@ -225,17 +260,23 @@ struct KeyEntityForm : View {
 
             }
             
-            PasswordToggleField( value:$item.password, checker:$item.passwordCheck, secretInfo:$secretInfo ) { v in
+       
+            PasswordToggleField( value:$item.password,
+                                 checker:$item.passwordCheck,
+                                 secretInfo:$secretInfo ) { v in
                     if( v.isEmpty ) {
                         return "password cannot be empty"
                     }
                     return nil
             }
-            .padding(.all)
-            .border( item.passwordCheck.valid ? Color.clear : Color.red , width: 0.5)
-            .background(bg)
             .autocapitalization(.none)
-            
+            .padding( 10.0 )
+            .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: strikeWidth )
+                    .foregroundColor(item.usernameCheck.valid ? Color.black : Color.red)
+            )
+
 
         }
 
