@@ -219,7 +219,7 @@ struct KeyEntityForm : View {
                 //.border( Color.black )
                 //.background(bg)
                 .autocapitalization(.none)
-                NavigationLink( destination: EmailList( value: $item.username), isActive:$pickUsernameFromMail  ) {
+                NavigationLink( destination: EmailList( value: $item.username_mail_setter), isActive:$pickUsernameFromMail  ) {
                         EmptyView()
                 }
                 .frame( width:0, height:0)
@@ -343,7 +343,7 @@ struct KeyEntityForm : View {
                         self.presentationMode.wrappedValue.dismiss()
                         
                     })
-                        .disabled( !item.checkIsValid )
+                    .disabled( !item.checkIsValid )
                     
                 }
             )

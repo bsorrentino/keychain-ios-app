@@ -61,11 +61,12 @@ class KeyItem : ObservableObject {
     @Published var mail: String
     @Published var note: String
 
-    //@Published var url: String?
-    //@Published var expire: Date?
-    //@Published var sectionId: String?
-    //@Published var group: NSNumber?
-    //@Published var groupPrefix: String?
+    @Published var username_mail_setter: String = "" {
+        didSet {
+            username = username_mail_setter
+            mail = username_mail_setter
+        }
+    }
 
     @Published var mnemonicCheck = FieldChecker()
     @Published var usernameCheck = FieldChecker()

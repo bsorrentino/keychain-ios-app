@@ -20,6 +20,8 @@ struct LoginView: View {
     @State var confirmPassword:String = ""
     @State var confirmPasswordChecker   = FieldChecker()
 
+    private let strikeWidth:CGFloat = 0.5
+    
     private func getPassword() throws -> String? {
         let result = AppKeychain.shared.getPassword(key: "mypassword");
         return result?.password;
@@ -66,11 +68,13 @@ struct LoginView: View {
                                         
                     return nil
             }
-            .padding()
-            .border( passwordChecker.valid ? Color.clear : Color.red )
-            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
             .autocapitalization(.none)
-            
+            .padding( 10.0 )
+            .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: strikeWidth )
+                    .foregroundColor(passwordChecker.valid ? Color.black : Color.red))
+
 
         }
 
@@ -88,11 +92,13 @@ struct LoginView: View {
                                                             
                     return nil
             }
-            .padding()
-            .border( passwordChecker.valid ? Color.clear : Color.red )
-            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
             .autocapitalization(.none)
-            
+            .padding( 10.0 )
+            .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: strikeWidth )
+                    .foregroundColor(passwordChecker.valid ? Color.black : Color.red))
+
 
         }
     }
@@ -111,10 +117,13 @@ struct LoginView: View {
                     }
                     return nil
             }
-            .padding()
-            .border( confirmPasswordChecker.valid ? Color.clear : Color.red )
-            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
             .autocapitalization(.none)
+            .padding( 10.0 )
+            .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: strikeWidth )
+                    .foregroundColor(confirmPasswordChecker.valid ? Color.black : Color.red))
+
             
 
         }
