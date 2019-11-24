@@ -65,6 +65,8 @@ class KeyItemListViewController : UITableViewController {
     
     private let searchController = UISearchController(searchResultsController: nil)
 
+    private var didSelectWhileSearchWasActive = false
+
     init( context:NSManagedObjectContext ) {
         self.managedObjectContext = context
         super.init( style: .grouped )
@@ -88,11 +90,24 @@ class KeyItemListViewController : UITableViewController {
         searchController.searchBar.placeholder = "search keys"
         searchController.searchBar.sizeToFit()
         searchController.searchBar.barTintColor = tableView.backgroundColor
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.delegate = self
         
         tableView.tableHeaderView = searchController.searchBar
         
         resultSearchController = searchController
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    
+        if didSelectWhileSearchWasActive {
+            searchController.isActive = true
+        }
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
     }
     
     //
@@ -124,7 +139,7 @@ class KeyItemListViewController : UITableViewController {
         
     }
     
-    
+     
     //
     // MARK: TAP ACTIONS
     //
@@ -139,6 +154,11 @@ class KeyItemListViewController : UITableViewController {
         let newViewController = KeyEntityForm( entity: selectedItem )
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
         
+        if searchController.isActive {
+            didSelectWhileSearchWasActive = true
+            searchController.dismiss(animated: false )
+        }
+
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -197,6 +217,15 @@ class KeyItemListViewController : UITableViewController {
     
 }
 
+// MARK: Search Extension
+
+extension KeyItemListViewController : UISearchBarDelegate {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.didSelectWhileSearchWasActive = false
+    }
+}
 
 let SEARCHTEXT_CRITERIA = "(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@)"
 
@@ -225,6 +254,7 @@ extension KeyItemListViewController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         
         print( "updateSearchResults\nisActive:\(searchController.isActive)\nisFiltering:\(isFiltering)" )
+        
         reloadDataFromManagedObjectContext( predicate: searchPredicate() )
         
     }
@@ -250,6 +280,8 @@ extension KeyItemListViewController  {
 
     
     func reloadDataFromManagedObjectContext( predicate:NSPredicate? )  {
+        
+        if didSelectWhileSearchWasActive { return } // No reload is required because we are coming back from detail screen
         
         let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
 
