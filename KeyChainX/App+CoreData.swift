@@ -13,6 +13,13 @@ import Combine
 import KeychainAccess
 import FieldValidatorLibrary
 
+// MARK: Search Criterias
+
+let IS_SECTION_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
+let IS_GROUPED_CRITERIA = "(groupPrefix != nil AND group != nil AND group == YES)"
+let SEARCHTEXT_CRITERIA = "(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@)"
+
+
 
 // MARK: CoreData extension
 
@@ -44,6 +51,19 @@ func fetchSingle( _ context:NSManagedObjectContext, entity:NSEntityDescription, 
         
     }
     return fetchResult[0]
+}
+
+/**
+ 
+ */
+func fetchSections( _ context:NSManagedObjectContext  ) throws -> [KeyEntity] {
+
+    let request = NSFetchRequest<NSFetchRequestResult>()
+    request.entity =  KeyEntity.entity()
+    request.predicate = NSPredicate( format: IS_SECTION_CRITERIA )
+    let fetchResult = try context.fetch( request )
+    
+    return fetchResult as! [KeyEntity]
 }
 
 //
