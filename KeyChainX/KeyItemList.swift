@@ -13,7 +13,7 @@ struct KeyItemListContentView : View {
     var body: some View {
         NavigationView {
             KeyItemListTopView()
-                .navigationBarTitle( Text("Key List") )
+                .navigationBarTitle( Text("Key List"), displayMode: .inline )
         }
 
     }
