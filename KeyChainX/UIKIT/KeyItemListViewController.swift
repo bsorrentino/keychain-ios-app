@@ -197,9 +197,6 @@ class KeyItemListViewController : UITableViewController {
     
 }
 
-
-let SEARCHTEXT_CRITERIA = "(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@)"
-
 // MARK: Search Extension
 extension KeyItemListViewController : UISearchResultsUpdating {
   
