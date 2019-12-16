@@ -38,6 +38,13 @@ struct KeyItemList: UIViewControllerRepresentable {
     }
 }
 
+// MARK: GROUP CELL
+
+class GroupTableViewCell : UITableViewCell {
+    
+    @IBOutlet weak var title: UILabel!
+}
+
 // MARK: UIKIT
 
 class KeyItemListViewController : UITableViewController {
@@ -83,7 +90,8 @@ class KeyItemListViewController : UITableViewController {
     
     override func viewDidLoad() {
         tableView.register(UINib(nibName: "KeyItemCell", bundle: nil), forCellReuseIdentifier: "keyitem")
-        
+        tableView.register(UINib(nibName: "KeyGroupCell", bundle: nil), forCellReuseIdentifier: "keygroup")
+
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false   
         // Search Bar
@@ -128,9 +136,23 @@ class KeyItemListViewController : UITableViewController {
         guard let items = self.keys else {
             return UITableViewCell()
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "keyitem", for: indexPath)
         
         let item = items[indexPath.row]
+
+        if( item.isGroup() ) {
+
+            guard let group = tableView.dequeueReusableCell(withIdentifier: "keygroup", for: indexPath) as? GroupTableViewCell else {
+                
+                return UITableViewCell()
+            }
+
+            group.title.text = item.groupPrefix
+            
+            return group
+
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "keyitem", for: indexPath)
         
         cell.textLabel?.text = item.mnemonic.uppercased()
         cell.detailTextLabel?.text = item.isGrouped() ? item.groupPrefix ?? "" : item.username
