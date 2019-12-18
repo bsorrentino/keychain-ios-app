@@ -21,6 +21,31 @@ extension String {
     }
 }
 
+struct EmailField : View {
+    
+    @Binding var value:String
+
+    var body: some View {
+        NavigationLink( destination: EmailList( value: $value) ) {
+            HStack {
+                Image( systemName: "envelope.circle")
+                if( value.isEmpty ) {
+                    Text( "tap to choose email" )
+                        .foregroundColor(.gray)
+                        .italic()
+                }
+                else {
+                    Text(value )
+                }
+            }
+            .padding(EdgeInsets( top: 20, leading: 0, bottom: 20, trailing: 0))
+        }
+    }
+
+    
+}
+
+
 struct EmailList: View {
 
     @Environment(\.presentationMode) var presentationMode

@@ -18,7 +18,7 @@
 		5F9ABB3E237983A800AC052A /* App+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ABB3D237983A800AC052A /* App+Keychain.swift */; };
 		6E280649B15E964AE945A6E6 /* Pods_KeyChainXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31B2C432B3C9BA54E403FC3 /* Pods_KeyChainXTests.framework */; };
 		A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */; };
-		A071C20323648EAB00891175 /* EmailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* EmailList.swift */; };
+		A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* KeyItemForm+Email.swift */; };
 		A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */; };
 		A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5622A901AD003B09ED /* AppDelegate.swift */; };
 		A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */; };
@@ -71,7 +71,7 @@
 		835BCF138F6DFD3C0DB12FD3 /* Pods-KeyChainX-KeyChainXUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainX-KeyChainXUITests.debug.xcconfig"; path = "Target Support Files/Pods-KeyChainX-KeyChainXUITests/Pods-KeyChainX-KeyChainXUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		84C93619E7420165BBA05FCE /* Pods-KeyChainXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainXTests.debug.xcconfig"; path = "Target Support Files/Pods-KeyChainXTests/Pods-KeyChainXTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemNote.swift; sourceTree = "<group>"; };
-		A071C20223648EAB00891175 /* EmailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailList.swift; sourceTree = "<group>"; };
+		A071C20223648EAB00891175 /* KeyItemForm+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Email.swift"; sourceTree = "<group>"; };
 		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
 		A0C0DB5322A901AD003B09ED /* KeyChainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C0DB5622A901AD003B09ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 				5F30CFA22379F0BE00FD7485 /* LoginView.swift */,
 				A0C0DB5D22A901AD003B09ED /* KeyItemList.swift */,
 				A0EE95742377385800002E6F /* KeyItemForm.swift */,
-				A071C20223648EAB00891175 /* EmailList.swift */,
+				A071C20223648EAB00891175 /* KeyItemForm+Email.swift */,
 				A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */,
 				A0C0DB5F22A901B0003B09ED /* Assets.xcassets */,
 				A0C0DB6422A901B0003B09ED /* LaunchScreen.storyboard */,
@@ -500,7 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A071C20323648EAB00891175 /* EmailList.swift in Sources */,
+				A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */,
 				5F5772F52361FDD50066E947 /* App+Error.swift in Sources */,
 				5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */,
 				A0EE95702375F7AF00002E6F /* KeyEntity+CoreDataProperties.swift in Sources */,
