@@ -15,7 +15,7 @@ import FieldValidatorLibrary
 
 // MARK: Search Criterias
 
-let IS_SECTION_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
+let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
 let IS_GROUPED_CRITERIA = "(groupPrefix != nil AND group != nil AND group == YES)"
 let SEARCHTEXT_CRITERIA = "(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@)"
 
@@ -53,19 +53,6 @@ func fetchSingle( _ context:NSManagedObjectContext, entity:NSEntityDescription, 
     return fetchResult[0]
 }
 
-/**
- 
- */
-func fetchSections( _ context:NSManagedObjectContext  ) throws -> [KeyEntity] {
-
-    let request = NSFetchRequest<NSFetchRequestResult>()
-    request.entity =  KeyEntity.entity()
-    request.predicate = NSPredicate( format: IS_SECTION_CRITERIA )
-    let fetchResult = try context.fetch( request )
-    
-    return fetchResult as! [KeyEntity]
-}
-
 //
 // MARK: DISCONNECTED KEYENTITY OBJECT
 //
@@ -80,6 +67,8 @@ class KeyItem : ObservableObject {
     @Published var password: String
     @Published var mail: String
     @Published var note: String
+    @Published var groupPrefix: String?
+    @Published var group: Bool
 
     @Published var username_mail_setter: String = "" {
         didSet {
@@ -94,8 +83,13 @@ class KeyItem : ObservableObject {
     @Published var mailCheck = FieldChecker()
     @Published var noteCheck = FieldChecker()
 
+    
     var isNew:Bool { return entity == nil  }
 
+    var isGroup:Bool { return entity?.isGroup() ?? false }
+    
+    var isGrouped:Bool { return entity?.isGrouped() ?? false }
+    
     var checkIsValid:Bool {
         return  mnemonicCheck.valid &&
                 usernameCheck.valid &&
@@ -108,14 +102,16 @@ class KeyItem : ObservableObject {
         self.password = ""
         self.mail = ""
         self.note = ""
-        
+        self.group = false
         self.entity = nil
     }
     
     init( entity: KeyEntity ) {
-        self.mnemonic   = entity.mnemonic
-        self.username   = entity.username
-        self.mail       = entity.mail ?? ""
+        self.mnemonic       = entity.mnemonic
+        self.username       = entity.username
+        self.mail           = entity.mail ?? ""
+        self.group          = entity.group?.boolValue ?? false
+        self.groupPrefix    = entity.groupPrefix
         
         if let data = AppKeychain.shared.getPassword(key: entity.mnemonic) {
             self.note = data.comment ?? ""

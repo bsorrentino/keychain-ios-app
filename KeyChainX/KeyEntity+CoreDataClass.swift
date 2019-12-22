@@ -11,6 +11,21 @@ import CoreData
 
 @objc(KeyEntity)
 public class KeyEntity: NSManagedObject {
+    /**
+     
+     */
+    static func fetchGroups() -> NSFetchRequest<KeyEntity> {
+
+        let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
+        
+        request.predicate = NSPredicate( format: IS_GROUP_CRITERIA )
+
+        let sortOrder = NSSortDescriptor(keyPath: \KeyEntity.groupPrefix, ascending: true)
+        
+        request.sortDescriptors = [sortOrder]
+
+        return request
+    }
 
 }
 

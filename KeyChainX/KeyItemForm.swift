@@ -265,13 +265,13 @@ struct KeyEntityForm : View {
                 
 
                 if( item.isNew ) {
+                    
                     Section {
-                        
                         mnemonicInput()
-                        
                     }
 
                 }
+
 
                 Section {
                     
@@ -283,6 +283,8 @@ struct KeyEntityForm : View {
                 
                 Section {
                     
+                    GroupField( value:$item.groupPrefix )
+
                     EmailField( value:$item.mail )
                     
                     NoteField( value:$item.note)
