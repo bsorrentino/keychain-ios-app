@@ -50,10 +50,13 @@ struct GroupList: View {
     @State var groupValid = FieldChecker()
     @State var newGroup:String = ""
 
+    private var selectableGroups: [KeyEntity] {
+        groups.filter { e -> Bool in
+            e.groupPrefix != value
+        }
+    }
     var body: some View {
         
-        //NavigationView {
-            
             List {
                 Section(header: Text("New Group")) {
                     
@@ -78,7 +81,7 @@ struct GroupList: View {
                 
                 
                 Section(header: Text("Group(s)")) {
-                    ForEach( groups, id: \KeyEntity.self ) { (group:KeyEntity) in
+                    ForEach( selectableGroups, id: \KeyEntity.self ) { (group:KeyEntity) in
                         Text( group.groupPrefix ?? "unknown")
                             .font( .body ).onTapGesture(perform: {
                                 self.value = group.groupPrefix ?? "unknown"
@@ -95,7 +98,6 @@ struct GroupList: View {
             .navigationBarTitle( Text("group"), displayMode: .inline )
             .navigationBarItems(
                  trailing: EditButton())
-         //}
     
     }
     
@@ -112,14 +114,17 @@ struct GroupList: View {
      }
 
     func insert() {
-        let mail = MailEntity(context: self.context)
-        mail.value = self.newGroup
+        let group = KeyEntity(context: self.context)
+        group.mnemonic      = self.newGroup
+        group.username      = self.newGroup
+        group.groupPrefix   = self.newGroup
+        group.group         = false
         
         do {
             try self.context.save()
         }
         catch {
-            print( "error inserting new mail \(error)" )
+            print( "error inserting new group \(error)" )
         }
         
         self.newGroup = ""
@@ -127,15 +132,15 @@ struct GroupList: View {
 
     func delete( at offsets: IndexSet ) {
         if let first = offsets.first {
-            let selectMail = groups[ first ]
+            let selectGroup = groups[ first ]
             
-            context.delete(selectMail)
+            context.delete(selectGroup)
 
             do {
                 try self.context.save()
             }
             catch {
-                print( "error deleting new mail \(error)" )
+                print( "error deleting new group \(error)" )
             }
         }
     }

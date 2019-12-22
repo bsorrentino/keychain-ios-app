@@ -272,7 +272,6 @@ struct KeyEntityForm : View {
 
                 }
 
-
                 Section {
                     
                     userInput()
