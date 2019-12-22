@@ -67,8 +67,12 @@ class KeyItem : ObservableObject {
     @Published var password: String
     @Published var mail: String
     @Published var note: String
-    @Published var groupPrefix: String?
-    @Published var group: Bool
+    var group: Bool
+    @Published var groupPrefix: String? {
+        didSet {
+            group = groupPrefix != nil
+        }
+    }
 
     @Published var username_mail_setter: String = "" {
         didSet {

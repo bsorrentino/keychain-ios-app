@@ -11,6 +11,16 @@ import CoreData
 
 @objc(KeyEntity)
 public class KeyEntity: NSManagedObject {
+    
+    static func createGroup( context: NSManagedObjectContext, groupPrefix:String) -> KeyEntity {
+        let group = KeyEntity(context: context)
+        group.mnemonic      = groupPrefix
+        group.username      = groupPrefix
+        group.groupPrefix   = groupPrefix
+        group.group         = false
+
+        return group
+    }
     /**
      
      */

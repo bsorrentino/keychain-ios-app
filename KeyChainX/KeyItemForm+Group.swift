@@ -52,7 +52,8 @@ struct GroupList: View {
 
     private var selectableGroups: [KeyEntity] {
         groups.filter { e -> Bool in
-            e.groupPrefix != value
+            guard let prefix = e.groupPrefix else { return false }
+            return prefix != value
         }
     }
     var body: some View {
@@ -82,9 +83,9 @@ struct GroupList: View {
                 
                 Section(header: Text("Group(s)")) {
                     ForEach( selectableGroups, id: \KeyEntity.self ) { (group:KeyEntity) in
-                        Text( group.groupPrefix ?? "unknown")
+                        Text( group.groupPrefix! )
                             .font( .body ).onTapGesture(perform: {
-                                self.value = group.groupPrefix ?? "unknown"
+                                self.value = group.groupPrefix!
                                 self.presentationMode.wrappedValue.dismiss()
                             })
                         
@@ -114,11 +115,8 @@ struct GroupList: View {
      }
 
     func insert() {
-        let group = KeyEntity(context: self.context)
-        group.mnemonic      = self.newGroup
-        group.username      = self.newGroup
-        group.groupPrefix   = self.newGroup
-        group.group         = false
+        // 
+        let _ = KeyEntity.createGroup(context: self.context, groupPrefix: self.newGroup)
         
         do {
             try self.context.save()
