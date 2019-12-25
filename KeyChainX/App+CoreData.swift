@@ -16,7 +16,6 @@ import FieldValidatorLibrary
 // MARK: Search Criterias
 
 let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
-let IS_GROUPED_CRITERIA = "(groupPrefix != nil AND group != nil AND group == YES)"
 let SEARCHTEXT_CRITERIA = "(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@)"
 
 
@@ -67,12 +66,12 @@ class KeyItem : ObservableObject {
     @Published var password: String
     @Published var mail: String
     @Published var note: String
-    var group: Bool
     @Published var groupPrefix: String? {
         didSet {
             group = groupPrefix != nil
         }
     }
+    var group: Bool?
 
     @Published var username_mail_setter: String = "" {
         didSet {
@@ -106,7 +105,7 @@ class KeyItem : ObservableObject {
         self.password = ""
         self.mail = ""
         self.note = ""
-        self.group = false
+        self.group = nil
         self.entity = nil
     }
     
@@ -114,7 +113,7 @@ class KeyItem : ObservableObject {
         self.mnemonic       = entity.mnemonic
         self.username       = entity.username
         self.mail           = entity.mail ?? ""
-        self.group          = entity.group?.boolValue ?? false
+        self.group          = entity.group?.boolValue
         self.groupPrefix    = entity.groupPrefix
         
         if let data = AppKeychain.shared.getPassword(key: entity.mnemonic) {
@@ -124,7 +123,6 @@ class KeyItem : ObservableObject {
         else {
             self.note = ""
             self.password = ""
-
         }
 
         self.entity = entity
@@ -132,10 +130,14 @@ class KeyItem : ObservableObject {
     }
 
     private func copyTo( entity: KeyEntity ) -> KeyEntity {
-        entity.mnemonic = self.mnemonic
-        entity.username = self.username
-        entity.mail = self.mail
-        entity.note = self.note
+        entity.mnemonic     = self.mnemonic
+        entity.username     = self.username
+        entity.mail         = self.mail
+        entity.note         = self.note
+        entity.groupPrefix  = self.groupPrefix
+        if let group = self.group {
+            entity.group = NSNumber( value: group )
+        }
         
         return entity
     }

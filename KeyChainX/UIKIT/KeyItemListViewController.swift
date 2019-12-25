@@ -130,6 +130,10 @@ class KeyItemListViewController : UITableViewController {
         return keys?.count ?? 0
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 88
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print( "item at indexpath \(indexPath.row)" )
         
@@ -173,12 +177,20 @@ class KeyItemListViewController : UITableViewController {
         
         let selectedItem = keys[index]
         
-        let newViewController = KeyEntityForm( entity: selectedItem )
-        self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
-        
-        if searchController.isActive {
-            didSelectWhileSearchWasActive = true
-            searchController.dismiss(animated: false )
+        if( selectedItem.isGroup() ) {
+
+            let newViewController = KeyGroupList( selectedGroup: selectedItem )
+            self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
+
+        }
+        else {
+            let newViewController = KeyEntityForm( entity: selectedItem )
+            self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
+
+            if searchController.isActive {
+                didSelectWhileSearchWasActive = true
+                searchController.dismiss(animated: false )
+            }
         }
 
     }
@@ -309,7 +321,15 @@ extension KeyItemListViewController  {
         
         request.sortDescriptors = [sortOrder]
         
-        request.predicate = predicate
+        let not_grouped = NSCompoundPredicate( notPredicateWithSubpredicate: NSPredicate( format: "group != nil AND group == YES"))
+        
+        if let p = predicate {
+            request.predicate =
+                NSCompoundPredicate( type: .and, subpredicates: [ not_grouped, p] )
+        }
+        else {
+            request.predicate = not_grouped
+        }
 
         do {
             

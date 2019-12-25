@@ -16,8 +16,9 @@
 		5F66FB6123A7D890005131D4 /* KeyGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */; };
 		5F9ABB3C2379828000AC052A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5F9ABB3B2379828000AC052A /* KeychainAccess */; };
 		5F9ABB3E237983A800AC052A /* App+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ABB3D237983A800AC052A /* App+Keychain.swift */; };
+		5FFAAD2923B414E200AE78EE /* KeyGroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */; };
 		6E280649B15E964AE945A6E6 /* Pods_KeyChainXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31B2C432B3C9BA54E403FC3 /* Pods_KeyChainXTests.framework */; };
-		A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */; };
+		A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */; };
 		A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */; };
 		A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* KeyItemForm+Email.swift */; };
 		A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */; };
@@ -67,11 +68,12 @@
 		5F5772F42361FDD50066E947 /* App+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Error.swift"; sourceTree = "<group>"; };
 		5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyGroupCell.xib; sourceTree = "<group>"; };
 		5F9ABB3D237983A800AC052A /* App+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Keychain.swift"; sourceTree = "<group>"; };
+		5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyGroupListViewController.swift; sourceTree = "<group>"; };
 		7A1181120449DF4D493ABB8B /* Pods_KeyChainX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BD245632F6CD51B530A2686 /* Pods_KeyChainX_KeyChainXUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainX_KeyChainXUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		835BCF138F6DFD3C0DB12FD3 /* Pods-KeyChainX-KeyChainXUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainX-KeyChainXUITests.debug.xcconfig"; path = "Target Support Files/Pods-KeyChainX-KeyChainXUITests/Pods-KeyChainX-KeyChainXUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		84C93619E7420165BBA05FCE /* Pods-KeyChainXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainXTests.debug.xcconfig"; path = "Target Support Files/Pods-KeyChainXTests/Pods-KeyChainXTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemNote.swift; sourceTree = "<group>"; };
+		A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Note.swift"; sourceTree = "<group>"; };
 		A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "KeyItemForm+Group.swift"; path = "KeyChainX/KeyItemForm+Group.swift"; sourceTree = SOURCE_ROOT; };
 		A071C20223648EAB00891175 /* KeyItemForm+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Email.swift"; sourceTree = "<group>"; };
 		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				A0EC9E4522B420AD009EB81F /* KeyItemCell.xib */,
 				5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */,
 				A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */,
+				5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */,
 			);
 			path = UIKIT;
 			sourceTree = "<group>";
@@ -204,7 +207,7 @@
 				A0EE95742377385800002E6F /* KeyItemForm.swift */,
 				A071C20223648EAB00891175 /* KeyItemForm+Email.swift */,
 				A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */,
-				A00DEC8422CE2FEE00B850CF /* KeyItemNote.swift */,
+				A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */,
 				A0C0DB5F22A901B0003B09ED /* Assets.xcassets */,
 				A0C0DB6422A901B0003B09ED /* LaunchScreen.storyboard */,
 				A0C0DB6722A901B0003B09ED /* Info.plist */,
@@ -511,11 +514,12 @@
 				5F9ABB3E237983A800AC052A /* App+Keychain.swift in Sources */,
 				A0EE956F2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift in Sources */,
 				A0EE956E2375F7AF00002E6F /* KeyEntity+CoreDataClass.swift in Sources */,
+				5FFAAD2923B414E200AE78EE /* KeyGroupListViewController.swift in Sources */,
 				A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */,
 				A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */,
 				A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */,
 				5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */,
-				A00DEC8522CE2FEE00B850CF /* KeyItemNote.swift in Sources */,
+				A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */,
 				A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */,
 				A0C0DB5E22A901AD003B09ED /* KeyItemList.swift in Sources */,
 				5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */,

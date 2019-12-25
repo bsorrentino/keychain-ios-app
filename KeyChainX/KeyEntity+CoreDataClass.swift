@@ -24,7 +24,7 @@ public class KeyEntity: NSManagedObject {
     /**
      
      */
-    static func fetchGroups() -> NSFetchRequest<KeyEntity> {
+    static func fetchGroups( ) -> NSFetchRequest<KeyEntity> {
 
         let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
         

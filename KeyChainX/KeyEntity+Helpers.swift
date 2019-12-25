@@ -12,10 +12,9 @@ import Foundation
 extension KeyEntity {
 
     func isGroup() -> Bool  {
-        guard let _ = self.groupPrefix,  self.group?.boolValue ?? false else {
-            return false
-            
-        }
+        if( self.groupPrefix == nil ) { return false }
+        if(self.group != nil && self.group!.boolValue) { return false }
+
         return true
     }
 
