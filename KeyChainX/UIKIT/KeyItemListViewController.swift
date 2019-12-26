@@ -20,11 +20,9 @@ struct KeyItemList: UIViewControllerRepresentable {
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType
     {
-        print( "makeUIViewController" )
+        //print( "makeUIViewController" )
         
         let controller =  KeyItemListViewController(context: managedObjectContext)
-        
-        //controller.reloadData()
         
         return controller
     }
@@ -32,7 +30,7 @@ struct KeyItemList: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIViewControllerType,
                                 context: UIViewControllerRepresentableContext<KeyItemList>) {
         
-        print( "updateUIViewController" )
+        //print( "updateUIViewController" )
         
         uiViewController.reloadData()
     }
@@ -81,11 +79,6 @@ class KeyItemListViewController : UITableViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func reloadData() {
-        
-        reloadDataFromManagedObjectContext( predicate:searchPredicate() )
     }
     
     override func viewDidLoad() {
@@ -237,9 +230,7 @@ class KeyItemListViewController : UITableViewController {
 
 
         let delete = UIContextualAction( style: .destructive, title: "Delete" ) { action, view, completionHandler in
-
-            self.delete(item: selectedItem)
-            
+            self.performDelete(item: selectedItem, completionHandler: completionHandler)
             
         }
         
@@ -294,18 +285,53 @@ extension KeyItemListViewController : UISearchResultsUpdating {
     
 }
 
+// MARK: Custom Action(s)
+extension KeyItemListViewController  {
+    
+    func reloadData() {
+        
+        reloadDataFromManagedObjectContext( predicate:searchPredicate() )
+    }
+    
+
+    func performDelete( item:KeyEntity, completionHandler: @escaping (Bool) -> Void) {
+        
+        let alert = UIAlertController(title: "Delete key",
+                                                message:"Are you sure ?",
+                                                preferredStyle: .alert)
+        
+        let yes = UIAlertAction(title:"Yes", style: .destructive ) { action in
+           let result = self.delete(item: item)
+           
+           if( result ) {
+               self.reloadData()
+           }
+           completionHandler(result)
+        }
+        alert.addAction(yes)
+        alert.addAction(UIAlertAction(title:"No", style: .cancel, handler: nil))
+
+        
+        self.present(alert, animated: true)
+
+    }
+    
+}
+
 // MARK: Core Data Extension
 extension KeyItemListViewController  {
     
-    func delete( item:KeyEntity ) {
+    func delete( item:KeyEntity ) -> Bool {
 
         self.managedObjectContext.delete(item)
 
         do {
             try self.managedObjectContext.save()
+            return true
         }
         catch {
             print( "error deleting new key \(error)" )
+            return false
         }
 
     }

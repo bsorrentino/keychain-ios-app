@@ -53,11 +53,6 @@ class KeyGroupListViewController : UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func reloadData() {
-        
-        reloadDataFromManagedObjectContext()
-    }
-    
     override func viewDidLoad() {
         tableView.register(UINib(nibName: "KeyItemCell", bundle: nil), forCellReuseIdentifier: "keyitem")
     }
@@ -94,7 +89,6 @@ class KeyGroupListViewController : UITableViewController {
         
     }
     
-     
     //
     // MARK: TAP ACTIONS
     //
@@ -132,12 +126,17 @@ class KeyGroupListViewController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let copy = UIContextualAction( style: .normal, title: "Copy" ) { action, view, completionHandler in
-            
-            completionHandler(true)
+        guard let keys = self.keys else {
+            return nil
+        }
+
+        let selectedItem = keys[indexPath.row]
+
+        let ungroup = UIContextualAction( style: .destructive, title: "ungroup" ) { action, view, completionHandler in
+            self.performUngroup( item: selectedItem, completionHandler: completionHandler)
         }
         
-        let configuration = UISwipeActionsConfiguration(actions: [ copy ])
+        let configuration = UISwipeActionsConfiguration(actions: [ ungroup ])
         
         configuration.performsFirstActionWithFullSwipe = true
         return configuration
@@ -153,32 +152,100 @@ class KeyGroupListViewController : UITableViewController {
 
 
         let delete = UIContextualAction( style: .destructive, title: "Delete" ) { action, view, completionHandler in
-
-            self.delete(item: selectedItem)
-            
-            
+            self.performDelete( item: selectedItem, completionHandler: completionHandler)
         }
         
         let configuration = UISwipeActionsConfiguration(actions: [delete])
         
         return configuration
     }
+
+}
+
+// MARK: Custom Action(s)
+extension KeyGroupListViewController  {
     
+    func reloadData() {
+        
+        reloadDataFromManagedObjectContext()
+    }
     
+    func performDelete( item:KeyEntity, completionHandler: @escaping (Bool) -> Void) {
+        
+        let alert = UIAlertController(title: "Delete key",
+                                                message:"Are you sure ?",
+                                                preferredStyle: .alert)
+        
+        let yes = UIAlertAction(title:"Yes", style: .destructive ) { action in
+           let result = self.delete(item: item)
+           
+           if( result ) {
+               self.reloadData()
+           }
+           completionHandler(result)
+        }
+        alert.addAction(yes)
+        alert.addAction(UIAlertAction(title:"No", style: .cancel, handler: nil))
+
+        
+        self.present(alert, animated: true)
+
+    }
+    
+    func performUngroup( item:KeyEntity, completionHandler: @escaping (Bool) -> Void) {
+        
+        let alert = UIAlertController(title: "Ungroup key",
+                                                message:"Are you sure ?",
+                                                preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title:"Yes", style: .destructive ) { action in
+            let result = self.ungroup(item: item)
+            
+            if( result ) {
+                self.reloadData()
+            }
+            completionHandler(result)
+        })
+        alert.addAction(UIAlertAction(title:"No", style: .cancel, handler: nil))
+
+        
+        self.present(alert, animated: true)
+
+    }
+
 }
 
 // MARK: Core Data Extension
 extension KeyGroupListViewController  {
     
-    func delete( item:KeyEntity ) {
-
-        self.managedObjectContext.delete(item)
+    func ungroup( item:KeyEntity ) -> Bool{
 
         do {
+            item.groupPrefix = nil
+            item.group = NSNumber(booleanLiteral: false)
+
             try self.managedObjectContext.save()
+            
+            return true
         }
         catch {
-            print( "error deleting new key \(error)" )
+            print( "error ungrouping  key \(error)" )
+            return false
+        }
+
+    }
+    
+    func delete( item:KeyEntity ) -> Bool {
+
+        do {
+            self.managedObjectContext.delete(item)
+
+            try self.managedObjectContext.save()
+            
+            return true
+        }
+        catch {
+            print( "error deleting key \(error)" )
+            return false
         }
 
     }
