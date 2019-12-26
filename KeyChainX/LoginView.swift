@@ -6,6 +6,7 @@
 //  Copyright © 2019 Bartolomeo Sorrentino. All rights reserved.
 //
 
+import LocalAuthentication
 import SwiftUI
 import Combine
 import FieldValidatorLibrary
@@ -20,8 +21,45 @@ struct LoginView: View {
     @State var confirmPassword:String = ""
     @State var confirmPasswordChecker   = FieldChecker()
 
+    //@State private var showingAlert = false
+    //@State private var authenticationError:String = ""
+    
     private let strikeWidth:CGFloat = 0.5
     
+    private var  context = LAContext()
+
+    private var isBiometricAvailable:Bool {
+        var error: NSError?
+        
+        let support =  context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+        
+        return support
+
+    }
+    
+    private func authenticate() {
+        
+        var error: NSError?
+        
+        if( context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)) {
+            
+            let reason = "We need to unlock application"
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
+                DispatchQueue.main.async {
+                    if success {
+                        self.dismiss()
+                    }
+                    else {
+                        print( "error authenticate using biometric \(error?.localizedDescription ?? "")")
+                    }
+                }
+            }
+        }
+        else {
+            // NO BIOMETRICS AVAILABLE
+        }
+    }
     private func getPassword() throws -> String? {
         let result = AppKeychain.shared.getPassword(key: "mypassword");
         return result?.password;
@@ -45,9 +83,12 @@ struct LoginView: View {
     func passwordInput() -> some View {
         
         VStack(alignment: .leading) {
-            SecureFieldWithValidator( title:"give me password",
-                                      value:$password,
-                                      checker:$passwordChecker ) { v in
+            SecureFieldWithValidator(
+                title:"give me password",
+                value:$password,
+                checker:$passwordChecker,
+                onCommit: dismiss)   { v in
+                    
                     if( v.isEmpty ) {
                         return "password cannot be empty"
                     }
@@ -144,6 +185,27 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
+                
+                if isBiometricAvailable {
+                   
+                    Button( action: {
+                        self.authenticate()
+                    }) {
+                         VStack {
+                            Image( systemName: "faceid" )
+                                .resizable()
+                                .frame(width: 100.0, height: 100.0, alignment: .center)
+                            Text( "Use FaceID for authenticate")
+                        }
+                    }
+//                    .alert(isPresented: $showingAlert) {
+//                        Alert(  title: Text("Autheticazione Failed"),
+//                                message: Text(authenticationError),
+//                                dismissButton: .default(Text("Got it!")))
+//                    }
+                    
+                }
+                else {
                 if isPasswordHasBeenInserted {
 
                     HStack(alignment: .center, spacing: 10) {
@@ -171,6 +233,9 @@ struct LoginView: View {
                         .disabled( !(passwordChecker.valid && confirmPasswordChecker.valid) )
                     }.padding(.top, 10)
                 }
+                }
+
+                
             }.padding( EdgeInsets( top:0, leading:10, bottom:0, trailing:10  ))
             
                     

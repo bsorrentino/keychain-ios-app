@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
 
             let view = ContentView()
-                .environment(\.managedObjectContext, self.managedObjectContext) // CoreData integration
+                .environment(\.managedObjectContext, self.managedObjectContext) // CoreData integrations
             
             window.rootViewController = UIHostingController(rootView: view  )
 

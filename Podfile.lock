@@ -1,5 +1,5 @@
 PODS:
-  - FieldValidatorLibrary (1.0.0)
+  - FieldValidatorLibrary (1.1.0)
 
 DEPENDENCIES:
   - FieldValidatorLibrary (from `https://github.com/bsorrentino/swiftui-fieldvalidator.git`)
@@ -10,11 +10,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   FieldValidatorLibrary:
-    :commit: db726a3f6455430d74416b52b427e8eeb85889ff
+    :commit: 6265968d34ad85b283b44752165d65a0e524936d
     :git: https://github.com/bsorrentino/swiftui-fieldvalidator.git
 
 SPEC CHECKSUMS:
-  FieldValidatorLibrary: f2f5b56701f8584f798e4ade3b38ebf765e58b87
+  FieldValidatorLibrary: 799b3bce398793ce59a1f0cca6f0f650ff6b1b06
 
 PODFILE CHECKSUM: 9e9d4573eefee41107edc6b0babde8f0e7fcd48e
 
