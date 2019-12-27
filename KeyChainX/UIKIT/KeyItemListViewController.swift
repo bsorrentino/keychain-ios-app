@@ -45,7 +45,7 @@ class GroupTableViewCell : UITableViewCell {
 
 // MARK: UIKIT
 
-class KeyItemListViewController : UITableViewController {
+class KeyItemListViewController : KeyBaseListViewController {
     
     private var resultSearchController:UISearchController?
     
@@ -66,21 +66,23 @@ class KeyItemListViewController : UITableViewController {
         }
     }
     
-    private var managedObjectContext: NSManagedObjectContext
-    
     private let searchController = UISearchController(searchResultsController: nil)
 
     private var didSelectWhileSearchWasActive = false
 
-    init( context:NSManagedObjectContext ) {
-        self.managedObjectContext = context
-        super.init( style: .grouped )
+    override init( context:NSManagedObjectContext ) {
+        super.init( context:context )
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func reloadData() {
+        
+        reloadDataFromManagedObjectContext( predicate:searchPredicate() )
+    }
+
     override func viewDidLoad() {
         tableView.register(UINib(nibName: "KeyItemCell", bundle: nil), forCellReuseIdentifier: "keyitem")
         tableView.register(UINib(nibName: "KeyGroupCell", bundle: nil), forCellReuseIdentifier: "keygroup")
@@ -121,10 +123,6 @@ class KeyItemListViewController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return keys?.count ?? 0
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 88
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -285,57 +283,9 @@ extension KeyItemListViewController : UISearchResultsUpdating {
     
 }
 
-// MARK: Custom Action(s)
-extension KeyItemListViewController  {
-    
-    func reloadData() {
-        
-        reloadDataFromManagedObjectContext( predicate:searchPredicate() )
-    }
-    
-
-    func performDelete( item:KeyEntity, completionHandler: @escaping (Bool) -> Void) {
-        
-        let alert = UIAlertController(title: "Delete key",
-                                                message:"Are you sure ?",
-                                                preferredStyle: .alert)
-        
-        let yes = UIAlertAction(title:"Yes", style: .destructive ) { action in
-           let result = self.delete(item: item)
-           
-           if( result ) {
-               self.reloadData()
-           }
-           completionHandler(result)
-        }
-        alert.addAction(yes)
-        alert.addAction(UIAlertAction(title:"No", style: .cancel, handler: nil))
-
-        
-        self.present(alert, animated: true)
-
-    }
-    
-}
-
 // MARK: Core Data Extension
 extension KeyItemListViewController  {
     
-    func delete( item:KeyEntity ) -> Bool {
-
-        self.managedObjectContext.delete(item)
-
-        do {
-            try self.managedObjectContext.save()
-            return true
-        }
-        catch {
-            print( "error deleting new key \(error)" )
-            return false
-        }
-
-    }
-
     
     func reloadDataFromManagedObjectContext( predicate:NSPredicate? )  {
         

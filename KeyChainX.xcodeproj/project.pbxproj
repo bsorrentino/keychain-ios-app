@@ -21,6 +21,7 @@
 		A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */; };
 		A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */; };
 		A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* KeyItemForm+Email.swift */; };
+		A0818D6423B6A91C00823F43 /* KeyBaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */; };
 		A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */; };
 		A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5622A901AD003B09ED /* AppDelegate.swift */; };
 		A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */; };
@@ -76,6 +77,7 @@
 		A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Note.swift"; sourceTree = "<group>"; };
 		A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "KeyItemForm+Group.swift"; path = "KeyChainX/KeyItemForm+Group.swift"; sourceTree = SOURCE_ROOT; };
 		A071C20223648EAB00891175 /* KeyItemForm+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Email.swift"; sourceTree = "<group>"; };
+		A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBaseListViewController.swift; sourceTree = "<group>"; };
 		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
 		A0C0DB5322A901AD003B09ED /* KeyChainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C0DB5622A901AD003B09ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				A0EC9E4522B420AD009EB81F /* KeyItemCell.xib */,
 				5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */,
+				A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */,
 				A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */,
 				5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */,
 			);
@@ -519,6 +522,7 @@
 				A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */,
 				A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */,
 				5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */,
+				A0818D6423B6A91C00823F43 /* KeyBaseListViewController.swift in Sources */,
 				A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */,
 				A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */,
 				A0C0DB5E22A901AD003B09ED /* KeyItemList.swift in Sources */,
