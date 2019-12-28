@@ -10,6 +10,14 @@ import Foundation
 import UIKit
 import CoreData
 
+// MARK: GROUP CELL
+
+class GroupTableViewCell : UITableViewCell {
+    
+    @IBOutlet weak var title: UILabel!
+}
+
+// MARK: BASE LIST VIEW CONTROLLER
 
 class KeyBaseListViewController : UITableViewController {
     
@@ -24,9 +32,10 @@ class KeyBaseListViewController : UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MUST BE OVERRIDE
     func reloadData() { fatalError("not implemented") }
-    
 
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 88
     }

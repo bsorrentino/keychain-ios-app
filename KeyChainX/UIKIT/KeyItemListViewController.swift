@@ -36,12 +36,6 @@ struct KeyItemList: UIViewControllerRepresentable {
     }
 }
 
-// MARK: GROUP CELL
-
-class GroupTableViewCell : UITableViewCell {
-    
-    @IBOutlet weak var title: UILabel!
-}
 
 // MARK: UIKIT
 

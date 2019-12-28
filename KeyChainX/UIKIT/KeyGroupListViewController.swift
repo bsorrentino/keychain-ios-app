@@ -149,13 +149,14 @@ class KeyGroupListViewController : KeyBaseListViewController {
         let selectedItem = keys[indexPath.row]
 
 
-        let delete = UIContextualAction( style: .destructive, title: "Delete" ) { action, view, completionHandler in
+        let delete = UIContextualAction( style: .destructive, title: "delete" ) { action, view, completionHandler in
             self.performDelete( item: selectedItem, completionHandler: completionHandler)
         }
 
         let ungroup = UIContextualAction( style: .normal, title: "ungroup" ) { action, view, completionHandler in
             self.performUngroup( item: selectedItem, completionHandler: completionHandler)
         }
+        ungroup.backgroundColor = UIColor.blue
 
         let configuration = UISwipeActionsConfiguration(actions: [ungroup, delete])
         
