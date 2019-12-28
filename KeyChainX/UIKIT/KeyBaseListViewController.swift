@@ -25,7 +25,7 @@ class KeyBaseListViewController : UITableViewController {
 
     init( context:NSManagedObjectContext ) {
         self.managedObjectContext = context
-        super.init( style: .grouped )
+        super.init( style: .plain )
     }
     
     required init?(coder: NSCoder) {

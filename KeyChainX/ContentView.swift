@@ -20,20 +20,29 @@ struct ContentView: View {
             KeyItemListContentView()
                 .tabItem {
                     VStack {
-                        Image("first")
-                        Text("first")
+                        Image(systemName: "list.dash")
+                        Text("Key list")
                     }
                 }
                 .tag(0)
-            Text("Second View")
+            BackupKeysView()
                 .font(.title)
                 .tabItem {
                     VStack {
-                        Image("second")
-                        Text("Second")
+                        Image(systemName: "arrow.down.doc")
+                        Text("Backup keys")
                     }
                 }
                 .tag(1)
+            RestoreKeysView()
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "arrow.up.doc")
+                        Text("Restore keys")
+                    }
+                }
+                .tag(2)
         }
         .sheet(isPresented: $showLogin) {
             LoginView()

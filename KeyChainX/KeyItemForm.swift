@@ -165,7 +165,7 @@ struct KeyEntityForm : View {
                 Button( action: {
                     self.pickUsernameFromMail = true
                 }) {
-                    Image( systemName: "envelope.circle")
+                    Image( systemName: "envelope.circle").foregroundColor(Color.black)
                 }
 
 

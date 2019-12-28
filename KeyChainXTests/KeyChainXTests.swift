@@ -20,6 +20,20 @@ class KeyChainXTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func testURL() {
+        
+        let url = URL(fileURLWithPath: "file://myfolder/backoup-0000000.plist")
+        
+        XCTAssertNotNil(url)
+        XCTAssertEqual(url.path, "/file:/myfolder/backoup-0000000.plist")
+        
+        let lpc = url.lastPathComponent
+        
+        XCTAssertEqual( lpc, "backoup-0000000.plist")
+        XCTAssertTrue( lpc.hasSuffix(".plist") )
+        
+    }
+    
     func testRetrieveInternetCredential() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
