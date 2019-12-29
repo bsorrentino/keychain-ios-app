@@ -10,9 +10,15 @@ import SwiftUI
 
 
 
-struct FileManagerView: View {
+struct FileManagerView<Content> : View where Content : View {
     
     typealias Result = (urls:[URL], error:Error? )
+    
+    private var content:(URL) -> Content
+    
+    init( @ViewBuilder _ content: @escaping (URL) -> Content ) {
+        self.content = content
+    }
     
     func backupUrls() -> Result {
         
@@ -26,15 +32,14 @@ struct FileManagerView: View {
             let urls = try FileManager.default.contentsOfDirectory(at: path,
                                                includingPropertiesForKeys: nil,
                                                options: [.skipsHiddenFiles, .skipsSubdirectoryDescendants] )
+#if targetEnvironment(simulator) && false
+            let result = [ URL(fileURLWithPath: "file://test.plist") ]
+#else
             let result = urls
-                .map { url -> URL in
-                    print(url);
-                    return url
-                }
                 .filter { (url) -> Bool in
                     return url.isFileURL && url.lastPathComponent.hasSuffix(".plist")
                 }
-                                                    
+#endif
             return ( urls:result, error:nil )
             
         }
@@ -44,6 +49,7 @@ struct FileManagerView: View {
         }
     }
 
+    
     var body: some View {
         
         let result = backupUrls()
@@ -60,11 +66,12 @@ struct FileManagerView: View {
                 else {
                     List {
                         ForEach( result.urls, id: \URL.self ) { url in
-                            Text( url.lastPathComponent )
+                            self.content(url)
                         }
                     }
                 }
             }
         }
     }
+    
 }

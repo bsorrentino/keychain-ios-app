@@ -53,6 +53,34 @@ func fetchSingle( _ context:NSManagedObjectContext, entity:NSEntityDescription, 
 }
 
 //
+// @see https://www.avanderlee.com/swift/nsbatchdeleterequest-core-data/
+//
+func deleteAll( into context:NSManagedObjectContext ) throws {
+    
+    let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: KeyEntity.fetchRequest())
+    
+    batchDeleteRequest.resultType = .resultTypeObjectIDs
+
+    let result = try context.execute(batchDeleteRequest) as! NSBatchDeleteResult
+    
+    let objectIDs = result.result as! [NSManagedObjectID]
+    
+    print("#deleted \(objectIDs.count)")
+    
+    let changes: [AnyHashable: Any] = [NSDeletedObjectsKey: objectIDs]
+    
+    NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
+}
+
+
+func backupData( to FileName:String, from context:NSManagedObjectContext ) throws {
+    
+    
+}
+
+
+
+//
 // MARK: DISCONNECTED KEYENTITY OBJECT
 //
 
@@ -129,6 +157,85 @@ class KeyItem : ObservableObject {
 
     }
 
+    convenience init( dictionary: NSDictionary ) throws {
+        self.init()
+        
+        var isGroup = false
+        
+        if let groupPrefix = dictionary["groupPrefix"] as? String {
+            self.groupPrefix  = groupPrefix
+            
+        }
+
+        if let group = dictionary["group"] as? NSNumber {
+          self.group = group.boolValue
+            
+           isGroup = !group.boolValue
+        }
+        else {
+            self.group = false
+            print("group \(dictionary["group"] ?? "nil" ) \(dictionary["groupPrefix"]  ?? "nil")" )
+        }
+        
+        
+        self.mnemonic = dictionary["mnemonic"] as! String
+
+    
+        if( isGroup  ) {
+            self.password = ""
+            self.username = ""
+        }
+        else {
+            
+            guard let password = dictionary["password"] else {
+                throw "Passwrd not set!"
+            }
+            
+            if password is Data {
+            
+                guard let value = String( data: password as! Data, encoding: .utf8) else {
+                    throw "Password is invalid!"
+                }
+                
+                self.password = value.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            } else if( password is String ) {
+
+                self.password = (password as! String).trimmingCharacters(in: .whitespacesAndNewlines)
+
+            }
+            else {
+                throw "Password is wrong type!"
+            }
+
+            self.username       = dictionary["username"] as! String
+
+        }
+
+        self.mail           = dictionary["mail"] as? String ?? ""
+        self.note           = dictionary["note"] as? String ?? ""
+
+    }
+    
+    func toDictionary() -> Dictionary<String,Any?> {
+        
+        var group:NSNumber?
+        
+        if let groupValue = self.group {
+            group = NSNumber( value: groupValue )
+        }
+        
+        return [
+            "mnemonic": self.mnemonic,
+            "username": self.username,
+            "password": self.password,
+            "mail":self.mail,
+            "note":self.note,
+            "groupPrefix":self.groupPrefix,
+            "group":group
+         ]
+    }
+
     private func copyTo( entity: KeyEntity ) -> KeyEntity {
         entity.mnemonic     = self.mnemonic
         entity.username     = self.username
@@ -142,7 +249,7 @@ class KeyItem : ObservableObject {
         return entity
     }
 
-    func save( context:NSManagedObjectContext ) throws {
+    func insert( into context:NSManagedObjectContext ) {
         
         if let entity = self.entity {
             let _ = self.copyTo(entity: entity )
@@ -156,8 +263,6 @@ class KeyItem : ObservableObject {
                                        password: self.password,
                                         comment: self.note)
         
-        try context.save()
-
     }
     
 }

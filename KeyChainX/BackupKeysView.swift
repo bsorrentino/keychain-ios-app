@@ -13,11 +13,14 @@ import SwiftUI
 struct BackupKeysView: View {
     var body: some View {
         NavigationView {
-            FileManagerView()
-                .navigationBarTitle( Text("Backup"), displayMode: .large)
+            FileManagerView { (url) in
+                Text( url.lastPathComponent )
+            }
+            .navigationBarTitle( Text("Backup"), displayMode: .large)
         }
     }
 }
+
 
 struct BackupKeysView_Previews: PreviewProvider {
     static var previews: some View {
