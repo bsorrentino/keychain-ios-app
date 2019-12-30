@@ -217,21 +217,21 @@ class KeyItem : ObservableObject, Codable {
             self.username = id
         }
         else {
-            if( !values.contains(.password)) {
-                
-            }
-            if let passwordData = try? values.decode(Data.self, forKey: .password) {
-                guard let passwordValue = String( data: passwordData, encoding: .ascii) else {
+        
+            var passwordValue:String
+            
+            if let data = try? values.decode(Data.self, forKey: .password) {
+                guard let value = String( data: data, encoding: .ascii) else {
                     throw "password is not a valid data format!"
                 }
-                self.password = passwordValue
+                passwordValue = value
             }
             else {
-                self.password = try values.decode(String.self, forKey: .password)
+               passwordValue = try values.decode(String.self, forKey: .password)
             }
+            self.password = passwordValue.trimmingCharacters(in: .whitespacesAndNewlines)
             self.username = try values.decode(String.self, forKey: .username)
         }
-        
         
         self.mail = try values.decodeIfPresent(String.self, forKey: .mail) ?? ""
         self.note = try values.decodeIfPresent(String.self, forKey: .note) ?? ""
