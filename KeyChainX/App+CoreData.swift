@@ -16,7 +16,6 @@ import FieldValidatorLibrary
 // MARK: Search Criterias
 
 let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
-let SEARCHTEXT_CRITERIA = "(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@)"
 
 // MARK: CoreData extension
 
@@ -84,7 +83,7 @@ func backupData( to FileName:String, from context:NSManagedObjectContext ) throw
  
 class KeyItem : ObservableObject, Codable {
     enum CodingKeys: String, CodingKey {
-        case mnemonic, username, password, mail, note, groupPrefix, group, expire
+        case mnemonic, username, password, mail, note, groupPrefix, group, expire, url
     }
     
     private var entity:KeyEntity?
@@ -95,6 +94,7 @@ class KeyItem : ObservableObject, Codable {
     @Published var mail: String
     @Published var note: String
     @Published var expire:Date?
+    @Published var url:String?
     @Published var groupPrefix: String? {
         didSet {
             group = groupPrefix != nil
@@ -143,6 +143,7 @@ class KeyItem : ObservableObject, Codable {
         self.group          = entity.group.boolValue
         self.groupPrefix    = entity.groupPrefix
         self.expire         = entity.expire
+        self.url            = entity.url
 
         if let data = AppKeychain.shared.getPassword(key: entity.mnemonic) {
             self.note = data.comment ?? ""
@@ -158,22 +159,26 @@ class KeyItem : ObservableObject, Codable {
     }
     
     
+    
     // Decodable
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-
-        if( !values.contains(.mnemonic) ) {
+        
+        guard let id = try values.decodeIfPresent(String.self, forKey: .mnemonic), ( values.contains(.groupPrefix) || values.contains(.password) ) else {
+            
+            print( "invalid item \(try values.decodeIfPresent(String.self, forKey: .mnemonic) ?? "undefined" )" )
+            for key in values.allKeys {
+                print( "contains \(key.stringValue)")
+            }
+            
             self.mnemonic = ""
             self.username = ""
             self.password = ""
             self.mail = ""
             self.note = ""
+            
             return
         }
-        
-        let id = try values.decode(String.self, forKey: .mnemonic)
-        
-        print( id )
         
         self.mnemonic = id
         
@@ -212,7 +217,9 @@ class KeyItem : ObservableObject, Codable {
             self.username = id
         }
         else {
-            
+            if( !values.contains(.password)) {
+                
+            }
             if let passwordData = try? values.decode(Data.self, forKey: .password) {
                 guard let passwordValue = String( data: passwordData, encoding: .ascii) else {
                     throw "password is not a valid data format!"
@@ -230,6 +237,7 @@ class KeyItem : ObservableObject, Codable {
         self.note = try values.decodeIfPresent(String.self, forKey: .note) ?? ""
 
         self.expire = try values.decodeIfPresent(Date.self, forKey: .expire) ?? Date()
+        self.url = try values.decodeIfPresent(String.self, forKey: .url)
 
     }
 
@@ -247,6 +255,7 @@ class KeyItem : ObservableObject, Codable {
         try container.encodeIfPresent(self.mail, forKey: .mail)
         try container.encodeIfPresent(self.note, forKey: .note)
         try container.encodeIfPresent(self.expire, forKey: .expire)
+        try container.encodeIfPresent(self.url, forKey: .url)
     }
 
     
@@ -258,7 +267,8 @@ class KeyItem : ObservableObject, Codable {
         entity.groupPrefix  = self.groupPrefix
         entity.group = NSNumber( value: group )
         entity.expire       = self.expire
-        
+        entity.url          = self.url
+
         return entity
     }
 

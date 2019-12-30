@@ -74,7 +74,7 @@ class KeyItemListViewController : KeyBaseListViewController {
     
     override func reloadData() {
         
-        reloadDataFromManagedObjectContext( predicate:searchPredicate() )
+        reloadDataFromManagedObjectContext( with: searchPredicate() )
     }
 
     override func viewDidLoad() {
@@ -251,7 +251,10 @@ extension KeyItemListViewController : UISearchResultsUpdating {
     func searchPredicate() -> NSPredicate? {
         
         if searchController.isActive , let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            return NSPredicate(format: SEARCHTEXT_CRITERIA, searchText, searchText.uppercased())
+            
+            let search_criteria = "mnemonic CONTAINS[c] %@ OR groupPrefix CONTAINS[c] %@"
+
+            return NSPredicate(format: search_criteria, searchText, searchText)
         }
         
         return nil
@@ -270,7 +273,7 @@ extension KeyItemListViewController : UISearchResultsUpdating {
         
         print( "updateSearchResults\nisActive:\(searchController.isActive)\nisFiltering:\(isFiltering)" )
         
-        reloadDataFromManagedObjectContext( predicate: searchPredicate() )
+        reloadDataFromManagedObjectContext( with: searchPredicate() )
         
     }
     
@@ -281,7 +284,7 @@ extension KeyItemListViewController : UISearchResultsUpdating {
 extension KeyItemListViewController  {
     
     
-    func reloadDataFromManagedObjectContext( predicate:NSPredicate? )  {
+    func reloadDataFromManagedObjectContext( with predicate:NSPredicate? )  {
         
         if didSelectWhileSearchWasActive { return } // No reload is required because we are coming back from detail screen
         
@@ -292,10 +295,12 @@ extension KeyItemListViewController  {
         request.sortDescriptors = [sortOrder]
         
         let not_grouped = NSCompoundPredicate( notPredicateWithSubpredicate: NSPredicate( format: "group != nil AND group == YES"))
-        
+
         if let p = predicate {
-            request.predicate =
-                NSCompoundPredicate( type: .and, subpredicates: [ not_grouped, p] )
+
+            let group = NSCompoundPredicate( type: .and, subpredicates: [ NSPredicate( format: "groupPrefix != nil "), not_grouped ])
+
+            request.predicate = NSCompoundPredicate( type: .and, subpredicates: [ NSCompoundPredicate( notPredicateWithSubpredicate: group), p] )
         }
         else {
             request.predicate = not_grouped

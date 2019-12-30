@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Xcode 11.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D49f" minimumToolsVersion="Xcode 11.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AttributeInfo" representedClassName="MailEntity">
         <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO"/>
         <attribute name="value" optional="YES" attributeType="String"/>
@@ -12,7 +12,6 @@
         <attribute name="mail" optional="YES" attributeType="String"/>
         <attribute name="mnemonic" attributeType="String" minValueString="1"/>
         <attribute name="note" optional="YES" attributeType="String"/>
-        <attribute name="password" optional="YES" transient="YES" attributeType="String" valueTransformerName="StringEncryptionTransformer" minValueString="1"/>
         <attribute name="sectionId" optional="YES" transient="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
         <attribute name="username" attributeType="String" minValueString="1"/>
@@ -28,7 +27,7 @@
     <fetchRequest name="fetchByName" entity="KeyInfo" predicateString="mnemonic BEGINSWITH &quot;%@&quot;"/>
     <elements>
         <element name="AttributeInfo" positionX="169" positionY="-93" width="128" height="73"/>
-        <element name="KeyInfo" positionX="81" positionY="36" width="128" height="193"/>
+        <element name="KeyInfo" positionX="81" positionY="36" width="128" height="178"/>
         <element name="UserInfo" positionX="315" positionY="39" width="128" height="58"/>
     </elements>
 </model>

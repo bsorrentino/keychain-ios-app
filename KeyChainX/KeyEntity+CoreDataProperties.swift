@@ -26,7 +26,4 @@ extension KeyEntity {
     @NSManaged public var groupPrefix: String?
     @NSManaged public var url: String?
 
-    @available(*, deprecated, message: "no longer used it will be inserted in keychain")
-    @NSManaged public var password: String
-
 }

@@ -58,7 +58,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSFaceIDUsageDescription</key>
-    <string>We need to unlock application</string>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>NSFaceIDUsageDescription</key>
+	<string>We need to unlock application</string>
 </dict>
 </plist>
