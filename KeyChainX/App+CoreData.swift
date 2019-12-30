@@ -18,8 +18,6 @@ import FieldValidatorLibrary
 let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
 let SEARCHTEXT_CRITERIA = "(mnemonic BEGINSWITH %@ OR mnemonic BEGINSWITH %@)"
 
-
-
 // MARK: CoreData extension
 
 enum SavingError :Error {
@@ -29,7 +27,6 @@ enum SavingError :Error {
     case InvalidItem( id:String )
     case BundleIdentifierUndefined
 }
-
 
 /**
     Fetch Single Value
@@ -85,8 +82,11 @@ func backupData( to FileName:String, from context:NSManagedObjectContext ) throw
 //
 
  
-class KeyItem : ObservableObject {
-
+class KeyItem : ObservableObject, Codable {
+    enum CodingKeys: String, CodingKey {
+        case mnemonic, username, password, mail, note, groupPrefix, group, expire
+    }
+    
     private var entity:KeyEntity?
     
     @Published var mnemonic: String
@@ -94,12 +94,13 @@ class KeyItem : ObservableObject {
     @Published var password: String
     @Published var mail: String
     @Published var note: String
+    @Published var expire:Date?
     @Published var groupPrefix: String? {
         didSet {
             group = groupPrefix != nil
         }
     }
-    var group: Bool?
+    var group = false
 
     @Published var username_mail_setter: String = "" {
         didSet {
@@ -133,17 +134,16 @@ class KeyItem : ObservableObject {
         self.password = ""
         self.mail = ""
         self.note = ""
-        self.group = nil
-        self.entity = nil
     }
     
     init( entity: KeyEntity ) {
         self.mnemonic       = entity.mnemonic
         self.username       = entity.username
         self.mail           = entity.mail ?? ""
-        self.group          = entity.group?.boolValue
+        self.group          = entity.group.boolValue
         self.groupPrefix    = entity.groupPrefix
-        
+        self.expire         = entity.expire
+
         if let data = AppKeychain.shared.getPassword(key: entity.mnemonic) {
             self.note = data.comment ?? ""
             self.password = data.password
@@ -152,99 +152,112 @@ class KeyItem : ObservableObject {
             self.note = ""
             self.password = ""
         }
-
+        
         self.entity = entity
 
     }
+    
+    
+    // Decodable
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
 
-    convenience init( dictionary: NSDictionary ) throws {
-        self.init()
+        if( !values.contains(.mnemonic) ) {
+            self.mnemonic = ""
+            self.username = ""
+            self.password = ""
+            self.mail = ""
+            self.note = ""
+            return
+        }
+        
+        let id = try values.decode(String.self, forKey: .mnemonic)
+        
+        print( id )
+        
+        self.mnemonic = id
         
         var isGroup = false
-        
-        if let groupPrefix = dictionary["groupPrefix"] as? String {
-            self.groupPrefix  = groupPrefix
-            
-        }
 
-        if let group = dictionary["group"] as? NSNumber {
-          self.group = group.boolValue
+        if values.contains(.groupPrefix) { // Remove suffix '-'
             
-           isGroup = !group.boolValue
+            let prefix =  try values.decode(String.self, forKey: .groupPrefix)
+            
+            if let regex = try? NSRegularExpression(pattern: "[-]$", options: .caseInsensitive) {
+                self.groupPrefix = regex.stringByReplacingMatches(in: prefix,
+                                                                options: [],
+                                                                range:NSRange(prefix.startIndex..., in: prefix),
+                                                                withTemplate: "")
+            }
+            else {
+                self.groupPrefix  = prefix
+            }
+            isGroup = true
+        }
+        
+        if values.contains(.group) {
+            
+            let flag = try values.decode(Int.self, forKey: .group)
+            
+            self.group = Bool(truncating: NSNumber(value: flag))
+            
+            isGroup = !self.group
         }
         else {
             self.group = false
-            print("group \(dictionary["group"] ?? "nil" ) \(dictionary["groupPrefix"]  ?? "nil")" )
         }
         
-        
-        self.mnemonic = dictionary["mnemonic"] as! String
-
-    
-        if( isGroup  ) {
+        if( isGroup ) {
             self.password = ""
-            self.username = ""
+            self.username = id
         }
         else {
             
-            guard let password = dictionary["password"] else {
-                throw "Passwrd not set!"
-            }
-            
-            if password is Data {
-            
-                guard let value = String( data: password as! Data, encoding: .utf8) else {
-                    throw "Password is invalid!"
+            if let passwordData = try? values.decode(Data.self, forKey: .password) {
+                guard let passwordValue = String( data: passwordData, encoding: .ascii) else {
+                    throw "password is not a valid data format!"
                 }
-                
-                self.password = value.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            } else if( password is String ) {
-
-                self.password = (password as! String).trimmingCharacters(in: .whitespacesAndNewlines)
-
+                self.password = passwordValue
             }
             else {
-                throw "Password is wrong type!"
+                self.password = try values.decode(String.self, forKey: .password)
             }
-
-            self.username       = dictionary["username"] as! String
-
+            self.username = try values.decode(String.self, forKey: .username)
         }
+        
+        
+        self.mail = try values.decodeIfPresent(String.self, forKey: .mail) ?? ""
+        self.note = try values.decodeIfPresent(String.self, forKey: .note) ?? ""
 
-        self.mail           = dictionary["mail"] as? String ?? ""
-        self.note           = dictionary["note"] as? String ?? ""
+        self.expire = try values.decodeIfPresent(Date.self, forKey: .expire) ?? Date()
 
     }
+
+    // Encodable
+    func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(self.mnemonic, forKey: .mnemonic)
+        try container.encode(self.group, forKey: .group)
+
+        try container.encodeIfPresent(self.username, forKey: .username)
+        try container.encodeIfPresent(self.password, forKey: .password)
+        try container.encodeIfPresent(self.groupPrefix, forKey: .groupPrefix)
+        try container.encodeIfPresent(self.mail, forKey: .mail)
+        try container.encodeIfPresent(self.note, forKey: .note)
+        try container.encodeIfPresent(self.expire, forKey: .expire)
+    }
+
     
-    func toDictionary() -> Dictionary<String,Any?> {
-        
-        var group:NSNumber?
-        
-        if let groupValue = self.group {
-            group = NSNumber( value: groupValue )
-        }
-        
-        return [
-            "mnemonic": self.mnemonic,
-            "username": self.username,
-            "password": self.password,
-            "mail":self.mail,
-            "note":self.note,
-            "groupPrefix":self.groupPrefix,
-            "group":group
-         ]
-    }
-
     private func copyTo( entity: KeyEntity ) -> KeyEntity {
         entity.mnemonic     = self.mnemonic
         entity.username     = self.username
         entity.mail         = self.mail
         entity.note         = self.note
         entity.groupPrefix  = self.groupPrefix
-        if let group = self.group {
-            entity.group = NSNumber( value: group )
-        }
+        entity.group = NSNumber( value: group )
+        entity.expire       = self.expire
         
         return entity
     }

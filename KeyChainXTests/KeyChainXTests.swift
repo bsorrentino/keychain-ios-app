@@ -20,6 +20,43 @@ class KeyChainXTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func testRegExp() {
+        
+        if let regex = try? NSRegularExpression(pattern: "[-]$", options: .caseInsensitive) {
+
+        
+            var myString = "APPLE-"
+            var modString = regex.stringByReplacingMatches(in: myString,
+                                                            options: [],
+                                                            range:NSRange(myString.startIndex..., in: myString),
+                                                            withTemplate: "")
+            XCTAssertEqual(modString, "APPLE")
+            
+                
+            myString = "-AP-PLE-"
+            modString = regex.stringByReplacingMatches(in: myString,
+                                                            options: [],
+                                                            range:NSRange(myString.startIndex..., in: myString),
+                                                            withTemplate: "")
+            XCTAssertEqual(modString, "-AP-PLE")
+
+            myString = "APPLE"
+            modString = regex.stringByReplacingMatches(in: myString,
+                                                            options: [],
+                                                            range:NSRange(myString.startIndex..., in: myString),
+                                                            withTemplate: "")
+            XCTAssertEqual(modString, "APPLE")
+
+
+        }
+        else {
+            XCTFail("regexp is invalid!")
+        }
+        
+        
+        print( )
+
+    }
     func testURL() {
         
         let url = URL(fileURLWithPath: "file://myfolder/backoup-0000000.plist")

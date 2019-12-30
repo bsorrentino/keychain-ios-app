@@ -135,7 +135,7 @@ class KeyItemListViewController : KeyBaseListViewController {
                 return UITableViewCell()
             }
 
-            group.title.text = item.groupPrefix
+            group.title.text = item.mnemonic.uppercased()
             
             return group
 

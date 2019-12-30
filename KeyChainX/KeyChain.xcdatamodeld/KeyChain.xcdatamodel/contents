@@ -7,11 +7,10 @@
     </entity>
     <entity name="KeyInfo" representedClassName="KeyEntity">
         <attribute name="expire" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="group" optional="YES" attributeType="Boolean" usesScalarValueType="NO"/>
+        <attribute name="group" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO"/>
         <attribute name="groupPrefix" optional="YES" attributeType="String"/>
-        <attribute name="isNew" optional="YES" transient="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="NO"/>
         <attribute name="mail" optional="YES" attributeType="String"/>
-        <attribute name="mnemonic" attributeType="String"/>
+        <attribute name="mnemonic" attributeType="String" minValueString="1"/>
         <attribute name="note" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" transient="YES" attributeType="String" valueTransformerName="StringEncryptionTransformer" minValueString="1"/>
         <attribute name="sectionId" optional="YES" transient="YES" attributeType="String"/>
@@ -29,7 +28,7 @@
     <fetchRequest name="fetchByName" entity="KeyInfo" predicateString="mnemonic BEGINSWITH &quot;%@&quot;"/>
     <elements>
         <element name="AttributeInfo" positionX="169" positionY="-93" width="128" height="73"/>
-        <element name="KeyInfo" positionX="81" positionY="36" width="128" height="208"/>
+        <element name="KeyInfo" positionX="81" positionY="36" width="128" height="193"/>
         <element name="UserInfo" positionX="315" positionY="39" width="128" height="58"/>
     </elements>
 </model>

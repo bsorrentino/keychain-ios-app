@@ -83,7 +83,7 @@ struct GroupList: View {
                 
                 Section(header: Text("Group(s)")) {
                     ForEach( selectableGroups, id: \KeyEntity.self ) { (group:KeyEntity) in
-                        Text( group.groupPrefix! )
+                        Text( group.mnemonic )
                             .font( .body ).onTapGesture(perform: {
                                 self.value = group.groupPrefix!
                                 self.presentationMode.wrappedValue.dismiss()

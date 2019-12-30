@@ -69,57 +69,43 @@ struct RestoreKeysView: View {
     func restoreFrom(  ) {
         
         do {
-
-            let array = try NSArray( contentsOf: data.url!, error: () )
-    
-            print( "# object to import: \(array.count) " )
+            typealias Keys = [KeyItem]
             
             try backupData(to: "backup", from: managedObjectContext)
                         
             try deleteAll( into: managedObjectContext )
-        
-            array.filter { (elem) in
-                guard let dict = elem as? NSDictionary else {
-                    return false
-                }
-                
-                if let _ = dict["version"] as? String {
-                    return false
-                }
-                
-                return true
-                
-            }
-            .forEach { (elem) in
-                
-                if let dict = elem as? NSDictionary {
-                    
-                    do {
-                        
-                        let item = try KeyItem( dictionary: dict )
-                    
-                        print(
-                            """
-                            
-                            mnemonic:       \(item.mnemonic)
-                            groupPrefix:    \(item.groupPrefix ?? "nil")
-                            group:          \(item.group ?? false)
-                            
-                            """)
-                        item.insert(into: managedObjectContext)
-                        
-                    }
-                    catch {
-                        print( "ERROR \(error)" )
-                    }
-                }
-            }
             
+            let content = try Data(contentsOf: data.url!)
+            let decoder = PropertyListDecoder()
+            let array = try decoder.decode(Keys.self, from: content)
+
+            print( "# object to import: \(array.count) " )
+
+            array.filter { (item) in
+                !item.mnemonic.isEmpty
+            }
+            .forEach { (item) in
+                
+                print(
+                    """
+                    
+                    mnemonic:       \(item.mnemonic)
+                    groupPrefix:    \(item.groupPrefix ?? "nil")
+                    group:          \(item.group)
+                    
+                    """)
+                
+                item.insert(into: managedObjectContext)
+                        
+            }
+
             try managedObjectContext.save()
         }
         catch {
             
+            print( error )
             self.data.error = error
+            self.data.showingError = true
             
         }
     }

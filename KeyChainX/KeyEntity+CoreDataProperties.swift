@@ -22,14 +22,11 @@ extension KeyEntity {
     @NSManaged public var mnemonic: String
     @NSManaged public var sectionId: String?
     @NSManaged public var username: String
-    @NSManaged public var group: NSNumber?
+    @NSManaged public var group: NSNumber
     @NSManaged public var groupPrefix: String?
     @NSManaged public var url: String?
 
     @available(*, deprecated, message: "no longer used it will be inserted in keychain")
     @NSManaged public var password: String
-
-    @available(*, deprecated, message: "no longer used use NSManagedObject.isInserted instead")
-    @NSManaged public var isNew: NSNumber? // deprecated
 
 }
