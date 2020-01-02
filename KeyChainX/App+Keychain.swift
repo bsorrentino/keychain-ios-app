@@ -28,61 +28,41 @@ extension EnvironmentValues {
     }
 }
 
-// MARK: Application Keychain
 
-class AppKeychain {
+// MARK: Application Keychain extensions
+
+let appKeychain = Keychain()
+
+extension UIApplication  {
     
-    struct Data {
-        var password:String
-        var comment:String?
+    var keychain:Keychain {
+        appKeychain
     }
     
-    let keychain:Keychain
-    
-    // MARK: - Properties
-
-    public static var shared: AppKeychain = {
-        return AppKeychain()
-    }()
-
-    init() {
-        self.keychain = Keychain()
-    }
- 
-    func removeAll() throws {
-        try keychain.removeAll()
-    }
-    
-    public func setPassword( key:String, password:String, comment:String = "" )  -> Void {
-        do {
-            try keychain
-                .comment(comment)
-                .set( password, key: key )
-        }
-        catch {
-            print( "ERROR: setting element \(key) to keychain.\n\(error)" )
-        }
-    }
-
-    func getPassword( key:String )  -> Data? {
-        
-        var result:Data ;
-        
-        do {
+    func getSecrets( key:String ) throws  -> ( password:String, note:String? )  {
             
-            if let password = try keychain.getString( key ) {
-                
-                result = Data(password: password)
-                result.comment = keychain[attributes: key]?.comment ?? ""
-
-                return result;
-            }
+        guard let value = try keychain.getString( key ) else {
+            throw "no password founf for key \(key)"
+        }
             
+        return (password:value, note:keychain[attributes: key]?.comment)
+            
+    }
+    
+    func setSecrets( key:String, password:String, note:String? ) throws  {
+            
+        if let note = note {
+            try keychain.comment(note).set( password, key: key )
         }
-        catch {
-            print( "ERROR: getting element \(key) from keychain.\n\(error)" )
+        else {
+            try keychain.set( password, key: key )
         }
-        return nil
+
+    }
+    
+    func removeSecrets( key: String ) throws {
+        try keychain.remove(key)
+
     }
 
 }
