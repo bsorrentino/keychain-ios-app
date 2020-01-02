@@ -8,56 +8,61 @@
 
 import Foundation
 import KeychainAccess
- 
-class AppKeychain {
-    
-    struct Data {
-        var password:String
-        var comment:String?
-    }
-    
-    let keychain:Keychain
-    
-    // MARK: - Properties
+import SwiftUI
 
-    public static var shared: AppKeychain = {
-        return AppKeychain()
-    }()
+// MARK: Custom @Environment Keychain key
+// @see https://medium.com/@SergDort/custom-environment-keys-in-swiftui-49f54a13d140
 
-    init() {
-        self.keychain = Keychain()
-    }
- 
-    public func setPassword( key:String, password:String, comment:String = "" )  -> Void {
-        do {
-            try keychain
-                .comment(comment)
-                .set( password, key: key )
+struct UserPreferencesKeychainKey: EnvironmentKey {
+    static let defaultValue: Keychain = Keychain(service: "keychainx.userpreferences")
+}
+
+extension EnvironmentValues {
+    var UserPreferencesKeychain: Keychain {
+        get {
+            return self[UserPreferencesKeychainKey.self]
         }
-        catch {
-            print( "ERROR: setting element \(key) to keychain.\n\(error)" )
+        set {
+            self[UserPreferencesKeychainKey.self] = newValue
         }
     }
+}
 
-    func getPassword( key:String )  -> Data? {
-        
-        var result:Data ;
-        
-        do {
+
+// MARK: Application Keychain extensions
+
+let appKeychain = Keychain()
+
+extension UIApplication  {
+    
+    var keychain:Keychain {
+        appKeychain
+    }
+    
+    func getSecrets( key:String ) throws  -> ( password:String, note:String? )  {
             
-            if let password = try keychain.getString( key ) {
-                
-                result = Data(password: password)
-                result.comment = keychain[attributes: key]?.comment ?? ""
-
-                return result;
-            }
+        guard let value = try keychain.getString( key ) else {
+            throw "no password founf for key \(key)"
+        }
             
+        return (password:value, note:keychain[attributes: key]?.comment)
+            
+    }
+    
+    func setSecrets( key:String, password:String, note:String? ) throws  {
+            
+        if let note = note {
+            try keychain.comment(note).set( password, key: key )
         }
-        catch {
-            print( "ERROR: getting element \(key) from keychain.\n\(error)" )
+        else {
+            try keychain.set( password, key: key )
         }
-        return nil
+
+    }
+    
+    func removeSecrets( key: String ) throws {
+        try keychain.remove(key)
+
     }
 
 }

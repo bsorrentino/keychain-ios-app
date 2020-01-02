@@ -269,7 +269,7 @@ struct KeyEntityForm : View {
                         print( "Save\n mnemonic: \(self.item.mnemonic)\n username: \(self.item.username)" )
                         
                         do {
-                            self.item.insert( into: self.managedObjectContext )
+                            try self.item.insert( into: self.managedObjectContext )
                             try self.managedObjectContext.save()
                         }
                         catch {

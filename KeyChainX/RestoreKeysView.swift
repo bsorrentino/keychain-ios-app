@@ -71,9 +71,9 @@ struct RestoreKeysView: View {
         do {
             typealias Keys = [KeyItem]
             
-            try backupData(to: "backup", from: managedObjectContext)
+            try UIApplication.shared.backupData(to: "backup")
                         
-            try deleteAll( into: managedObjectContext )
+            try UIApplication.shared.deleteAllWithMerge()
             
             let content = try Data(contentsOf: data.url!)
             let decoder = PropertyListDecoder()
@@ -81,7 +81,7 @@ struct RestoreKeysView: View {
 
             print( "# object to import: \(array.count) " )
 
-            array.filter { (item) in
+            try array.filter { (item) in
                 !item.mnemonic.isEmpty
             }
             .forEach { (item) in
@@ -95,7 +95,7 @@ struct RestoreKeysView: View {
                     
                     """)
                 
-                item.insert(into: managedObjectContext)
+                try item.insert(into: managedObjectContext)
                         
             }
 
