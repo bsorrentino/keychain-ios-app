@@ -14,7 +14,8 @@ import FieldValidatorLibrary
 
 struct LoginView: View {
     @Environment(\.presentationMode) private var isPresented
-    
+    @Environment(\.UserPreferencesKeychain) private var userPreferencesKeychain
+
     @State var password:String = ""
     @State var passwordChecker   = FieldChecker()
 
@@ -61,8 +62,19 @@ struct LoginView: View {
         }
     }
     private func getPassword() throws -> String? {
-        let result = AppKeychain.shared.getPassword(key: "mypassword");
-        return result?.password;
+        
+        do {
+            
+            if let password = try userPreferencesKeychain.getString( "password" ) {
+                return password
+            }
+            
+        }
+        catch {
+            print( "ERROR: getting element 'password'' from keychain.\n\(error)" )
+        }
+        return nil
+
     }
 
     private func dismiss() {
@@ -70,8 +82,16 @@ struct LoginView: View {
     }
 
     private func savePasswordAndDismiss() {
-        AppKeychain.shared.setPassword(  key: "mypassword",
-                                    password: password )
+        
+        do {
+            try userPreferencesKeychain
+                .comment("keychainx user password")
+                .set( password, key: "password" )
+        }
+        catch {
+            print( "ERROR: setting 'password' to keychain.\n\(error)" )
+        }
+
         dismiss()
     }
 

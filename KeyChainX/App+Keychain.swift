@@ -8,7 +8,28 @@
 
 import Foundation
 import KeychainAccess
- 
+import SwiftUI
+
+// MARK: Custom @Environment Keychain key
+// @see https://medium.com/@SergDort/custom-environment-keys-in-swiftui-49f54a13d140
+
+struct UserPreferencesKeychainKey: EnvironmentKey {
+    static let defaultValue: Keychain = Keychain(service: "keychainx.userpreferences")
+}
+
+extension EnvironmentValues {
+    var UserPreferencesKeychain: Keychain {
+        get {
+            return self[UserPreferencesKeychainKey.self]
+        }
+        set {
+            self[UserPreferencesKeychainKey.self] = newValue
+        }
+    }
+}
+
+// MARK: Application Keychain
+
 class AppKeychain {
     
     struct Data {
@@ -28,6 +49,10 @@ class AppKeychain {
         self.keychain = Keychain()
     }
  
+    func removeAll() throws {
+        try keychain.removeAll()
+    }
+    
     public func setPassword( key:String, password:String, comment:String = "" )  -> Void {
         do {
             try keychain
