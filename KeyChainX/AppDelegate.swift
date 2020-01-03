@@ -33,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         
         print( "> applicationWillTerminate" )
+        
+        application.managedObjectContextDestroy()
+
     }
 
     // MARK: UISceneSession Lifecycle
@@ -52,8 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
         
         print( "> didDiscardSceneSessions")
-
-        application.managedObjectContextDestroy()
     }
 
     // MARK: - Core Data stack
@@ -66,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentCloudKitContainer(name: "KeyChain")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores() { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -79,11 +80,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  * The store could not be migrated to the current model version.
                  Check the error message to determine what the actual problem was.
                  */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                
+                //fatalError("Unresolved error \(error), \(error.userInfo)")
+                print( "Unresolved error \(error), \(error.userInfo)" )
             }
             container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
 
-        })
+        }
         return container
     }()
     
