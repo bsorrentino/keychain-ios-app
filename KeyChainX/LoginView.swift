@@ -80,6 +80,17 @@ struct LoginView: View {
     private func dismiss() {
         self.isPresented.wrappedValue.dismiss()
     }
+    
+    private func submit() {
+        #if targetEnvironment(simulator)
+          // Simulator!
+            dismiss()
+        #else
+            if( passwordChecker.valid ) {
+                dismiss()
+            }
+        #endif
+    }
 
     private func savePasswordAndDismiss() {
         
@@ -107,7 +118,7 @@ struct LoginView: View {
                 title:"give me password",
                 value:$password,
                 checker:$passwordChecker,
-                onCommit: dismiss)   { v in
+                onCommit: submit)   { v in
                     
                     if( v.isEmpty ) {
                         return "password cannot be empty"
