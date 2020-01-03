@@ -45,8 +45,8 @@ class KeyItem : ObservableObject, Codable {
     @Published var password: String
     @Published var mail: String
     @Published var note: String
+    @Published var url:String
     @Published var expire:Date?
-    @Published var url:String?
     @Published var groupPrefix: String? {
         didSet {
             group = groupPrefix != nil
@@ -64,8 +64,6 @@ class KeyItem : ObservableObject, Codable {
     @Published var mnemonicCheck = FieldChecker()
     @Published var usernameCheck = FieldChecker()
     @Published var passwordCheck = FieldChecker()
-    @Published var mailCheck = FieldChecker()
-    @Published var noteCheck = FieldChecker()
 
     
     var isNew:Bool { return entity == nil  }
@@ -86,6 +84,7 @@ class KeyItem : ObservableObject, Codable {
         self.password = ""
         self.mail = ""
         self.note = ""
+        self.url = ""
     }
     
     init( entity: KeyEntity ) {
@@ -95,7 +94,7 @@ class KeyItem : ObservableObject, Codable {
         self.group          = entity.group.boolValue
         self.groupPrefix    = entity.groupPrefix
         self.expire         = entity.expire
-        self.url            = entity.url
+        self.url            = entity.url ?? ""
 
         if let data = try? UIApplication.shared.getSecrets(key: entity.mnemonic) {
             self.note = data.note ?? ""
@@ -128,6 +127,7 @@ class KeyItem : ObservableObject, Codable {
             self.password = ""
             self.mail = ""
             self.note = ""
+            self.url = ""
             
             return
         }
@@ -189,7 +189,7 @@ class KeyItem : ObservableObject, Codable {
         self.note = try values.decodeIfPresent(String.self, forKey: .note) ?? ""
 
         self.expire = try values.decodeIfPresent(Date.self, forKey: .expire) ?? Date()
-        self.url = try values.decodeIfPresent(String.self, forKey: .url)
+        self.url = try values.decodeIfPresent(String.self, forKey: .url) ?? ""
 
     }
 

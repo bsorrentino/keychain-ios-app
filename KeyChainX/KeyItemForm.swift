@@ -249,6 +249,8 @@ struct KeyEntityForm : View {
 
                     EmailField( value:$item.mail )
                     
+                    UrlField( value:$item.url )
+
                     NoteField( value:$item.note)
                     
                 }

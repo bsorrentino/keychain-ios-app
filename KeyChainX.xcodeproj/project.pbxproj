@@ -12,6 +12,7 @@
 		5F01277523B776CC0033E2B9 /* BackupKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01277423B776CC0033E2B9 /* BackupKeysView.swift */; };
 		5F01277723B776EE0033E2B9 /* RestoreKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01277623B776EE0033E2B9 /* RestoreKeysView.swift */; };
 		5F01277923B7C05D0033E2B9 /* FileManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01277823B7C05D0033E2B9 /* FileManagerView.swift */; };
+		5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28680B23BF8A3600A1E62D /* WebView.swift */; };
 		5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30CFA22379F0BE00FD7485 /* LoginView.swift */; };
 		5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30CFA42379F52100FD7485 /* ContentView.swift */; };
 		5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F22361FD900066E947 /* App+CoreData.swift */; };
@@ -20,6 +21,7 @@
 		5F66FB6123A7D890005131D4 /* KeyGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */; };
 		5F9ABB3C2379828000AC052A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5F9ABB3B2379828000AC052A /* KeychainAccess */; };
 		5F9ABB3E237983A800AC052A /* App+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ABB3D237983A800AC052A /* App+Keychain.swift */; };
+		5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */; };
 		5FFAAD2923B414E200AE78EE /* KeyGroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */; };
 		5FFE284123B9480400EAB103 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FFE284023B9480400EAB103 /* CryptoSwift */; };
 		6E280649B15E964AE945A6E6 /* Pods_KeyChainXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31B2C432B3C9BA54E403FC3 /* Pods_KeyChainXTests.framework */; };
@@ -70,6 +72,7 @@
 		5F01277423B776CC0033E2B9 /* BackupKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupKeysView.swift; sourceTree = "<group>"; };
 		5F01277623B776EE0033E2B9 /* RestoreKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreKeysView.swift; sourceTree = "<group>"; };
 		5F01277823B7C05D0033E2B9 /* FileManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerView.swift; sourceTree = "<group>"; };
+		5F28680B23BF8A3600A1E62D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		5F30CFA22379F0BE00FD7485 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5F30CFA42379F52100FD7485 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F30CFA6237A192600FD7485 /* KeyChainX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeyChainX.entitlements; sourceTree = "<group>"; };
@@ -78,6 +81,7 @@
 		5F59284F23B924F5004EC296 /* App+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Version.swift"; sourceTree = "<group>"; };
 		5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyGroupCell.xib; sourceTree = "<group>"; };
 		5F9ABB3D237983A800AC052A /* App+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Keychain.swift"; sourceTree = "<group>"; };
+		5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Url.swift"; sourceTree = "<group>"; };
 		5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyGroupListViewController.swift; sourceTree = "<group>"; };
 		7A1181120449DF4D493ABB8B /* Pods_KeyChainX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BD245632F6CD51B530A2686 /* Pods_KeyChainX_KeyChainXUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainX_KeyChainXUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +181,7 @@
 				A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */,
 				A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */,
 				5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */,
+				5F28680B23BF8A3600A1E62D /* WebView.swift */,
 			);
 			path = UIKIT;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				A071C20223648EAB00891175 /* KeyItemForm+Email.swift */,
 				A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */,
 				A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */,
+				5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */,
 				A0C0DB5F22A901B0003B09ED /* Assets.xcassets */,
 				A0C0DB6422A901B0003B09ED /* LaunchScreen.storyboard */,
 				A0C0DB6722A901B0003B09ED /* Info.plist */,
@@ -549,6 +555,8 @@
 				5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */,
 				A0EE95502375F38400002E6F /* KeyChain.xcdatamodeld in Sources */,
 				A0EE95712375F7AF00002E6F /* MailEntity+CoreDataClass.swift in Sources */,
+				5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */,
+				5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */,
 				A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
