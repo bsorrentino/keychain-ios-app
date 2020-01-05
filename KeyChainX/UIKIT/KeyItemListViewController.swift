@@ -41,31 +41,18 @@ struct KeyItemList: UIViewControllerRepresentable {
 
 class KeyItemListViewController : KeyBaseListViewController {
     
+    typealias Values = (sections:[String]?, values:[String:[KeyEntity]])
+    
     private var resultSearchController:UISearchController?
     
-    private var allkeys:[KeyEntity]?
-    private var filteredKeys:[KeyEntity]?
-
-    private var keys:[KeyEntity]? {
-        get {
-            return isFiltering ? filteredKeys : allkeys
-        }
-        set {
-            if isFiltering {
-                filteredKeys = newValue
-            }
-            else {
-                allkeys = newValue
-            }
-        }
-    }
+    private var keys:Values?
     
     private let searchController = UISearchController(searchResultsController: nil)
 
     private var didSelectWhileSearchWasActive = false
 
-    override init( context:NSManagedObjectContext ) {
-        super.init( context:context )
+    init( context:NSManagedObjectContext ) {
+        super.init( context:context, style: .grouped )
     }
     
     required init?(coder: NSCoder) {
@@ -111,18 +98,37 @@ class KeyItemListViewController : KeyBaseListViewController {
     // MARK: DATA SOURCE
     //
 
+    private func valuesFromSection( _ section: Int ) -> [KeyEntity]? {
+        if let v = keys?.sections?[section] {
+            return keys?.values[v]
+        }
+        
+        return keys?.values.first?.value
+        
+    }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return keys?.sections?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return keys?.count ?? 0
+        return valuesFromSection(section)?.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return keys?.sections?[section]
+    }
+    
+    // MARK: Indexed
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return keys?.sections
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print( "item at indexpath \(indexPath.row)" )
-        
-        guard let items = self.keys else {
+                
+        guard let items = valuesFromSection(indexPath.section) else {
             return UITableViewCell()
         }
         
@@ -156,11 +162,11 @@ class KeyItemListViewController : KeyBaseListViewController {
     //
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let keys = self.keys, let index = tableView.indexPathForSelectedRow?.row else {
+        guard let keys = valuesFromSection(indexPath.section) else {
             return
         }
         
-        let selectedItem = keys[index]
+        let selectedItem = keys[indexPath.row]
         
         if( selectedItem.isGroup() ) {
 
@@ -182,11 +188,11 @@ class KeyItemListViewController : KeyBaseListViewController {
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
-        guard let keys = self.keys, let index = tableView.indexPathForSelectedRow?.row else {
+        guard let keys = valuesFromSection(indexPath.section) else {
             return
         }
         
-        let selectedItem = keys[index]
+        let selectedItem = keys[indexPath.row]
         
         let newViewController = KeyEntityForm( entity: selectedItem )
         
@@ -214,7 +220,7 @@ class KeyItemListViewController : KeyBaseListViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-        guard let keys = self.keys else {
+        guard let keys = valuesFromSection(indexPath.section) else {
             return nil
         }
 
@@ -296,25 +302,46 @@ extension KeyItemListViewController  {
         
         let not_grouped = NSCompoundPredicate( notPredicateWithSubpredicate: NSPredicate( format: "group != nil AND group == YES"))
 
-        if let p = predicate {
+        if let p = predicate { // FILTER ACTIVE
 
             let group = NSCompoundPredicate( type: .and, subpredicates: [ NSPredicate( format: "groupPrefix != nil "), not_grouped ])
 
             request.predicate = NSCompoundPredicate( type: .and, subpredicates: [ NSCompoundPredicate( notPredicateWithSubpredicate: group), p] )
         }
-        else {
+        else { // FILTER NOT ACTIVE
             request.predicate = not_grouped
         }
 
         do {
             
             let result = try self.managedObjectContext.fetch(request)
-            self.keys = result
+         
+            if( predicate == nil ) {
 
+                var sectionMap = [String:[KeyEntity]]()
+                
+                for key in result {
+                    let prefix = String(key.mnemonic.prefix(1))
+                    
+                    if var values = sectionMap[prefix]  {
+                        values.append( key )
+                        sectionMap[prefix] = values
+                    }
+                    else {
+                        sectionMap[prefix] = [key]
+                    }
+                    
+                 }
+                 
+                self.keys = ( sections:sectionMap.keys.sorted().map( { v in v.uppercased() }  ), values:sectionMap )
+
+            } else {
+                self.keys = ( nil, values:["all":result])
+            }
         }
         catch {
             print( "error fetching keys \(error)" )
-            self.keys = []
+            self.keys = nil
         }
 
         tableView.reloadData()
