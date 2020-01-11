@@ -9,38 +9,6 @@
 import SwiftUI
 
 
-struct MultilineTextView: UIViewRepresentable {
-    @Binding var text: String
-
-    func makeUIView(context: Context) -> UITextView {
-        let view = UITextView()
-        view.isScrollEnabled = true
-        view.isEditable = true
-        view.isUserInteractionEnabled = true
-        view.backgroundColor = .yellow
-        
-        NotificationCenter.default.addObserver(forName: UITextView.textDidChangeNotification,
-                                               object: nil,
-                                               queue: nil) { (notification) in
-                                                
-                                                guard view == notification.object as? UITextView else {
-                                                    return
-                                                }
-
-                                                self.text = view.text
-        }
-        return view
-    }
-
-    func updateUIView(_ uiView: UITextView, context: Context) {
-        uiView.text = text
-    }
-    
-    func textDidChangeNotification(_ notif: Notification) {
-    }
-
-
-}
 
 struct NoteField : View {
     
@@ -86,19 +54,20 @@ struct KeyItemNote : View {
     @Binding var value:String
     
     var body: some View {
-        //NavigationView {
+        
                 VStack {
                     GeometryReader { geometry in
-                        MultilineTextView( text: self.$value )
+                        NoteTextView( text: self.$value )
                             .frame( width: geometry.size.width,
                                     height: geometry.size.height,
                                     alignment: .topLeading)
                     }
-                    Button("OK") {
-                        self.presentationMode.wrappedValue.dismiss()
+                    
                     }
-            //}.navigationBarTitle( Text("Note"), displayMode: .inline  )
-        }
+                    .navigationBarTitle( Text("Note"), displayMode: .inline  )
+                    .navigationBarItems(trailing: Button("done") {
+                        self.presentationMode.wrappedValue.dismiss()
+                    })
 
     }
 }
@@ -106,7 +75,9 @@ struct KeyItemNote : View {
 #if DEBUG
 struct Note_Previews : PreviewProvider {
     static var previews: some View {
-        KeyItemNote( value: .constant("TEST") )
+        NavigationView {
+            KeyItemNote( value: .constant("TEST") )
+        }
     }
 }
 #endif

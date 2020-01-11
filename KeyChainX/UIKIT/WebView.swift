@@ -41,13 +41,13 @@ struct WebView : UIViewRepresentable {
         }
     }
     
-    func makeCoordinator() -> Coordinator {
-        Coordinator(owner: self)
+    func makeCoordinator() -> WebViewCoordinator {
+        WebViewCoordinator(owner: self)
     }
        
 }
 
-class Coordinator :NSObject,  WKNavigationDelegate {
+class WebViewCoordinator :NSObject,  WKNavigationDelegate {
 
     //MARK:- WKNavigationDelegate
     var owner:WebView
