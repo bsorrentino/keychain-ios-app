@@ -15,61 +15,68 @@ class UINoteTextView : UITextView {
     
     let lineColor = UIColor( red:202/255.0, green:167/255.0, blue:131/255.0, alpha:1.0 )
     
-    convenience init( useFont font:UIFont ) {
-        self.init()
-        self.isScrollEnabled = true
+    override init( frame: CGRect, textContainer: NSTextContainer? ) {
+        super.init( frame: frame, textContainer: textContainer )
+        
+        self.isScrollEnabled = false
         self.isEditable = true
         self.isUserInteractionEnabled = true
         self.backgroundColor = .yellow
-
-        self.font = font
         
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
+    private func drawVerticalGuideLine( _ rect: CGRect, in context: CGContext ) {
+        let line = ( offset:CGFloat(24.0), space:CGFloat(2.5))
 
+        let x = rect.origin.x + rect.size.width - line.offset
+        
+        let startPoint  = CGPoint(x:x, y:rect.origin.y )
+        let endPoint    = CGPoint(x:x, y:rect.origin.y + rect.size.height)
+
+        context.setLineWidth(1)
+
+        context.beginPath()
+
+        context.move( to: startPoint)
+        context.addLine(to: endPoint)
+
+        let startPoint1 = CGPoint( x:startPoint.x + line.space, y:startPoint.y )
+        let endPoint1 = CGPoint( x:endPoint.x + line.space, y:endPoint.y )
+
+        context.move( to: startPoint1)
+        context.addLine(to: endPoint1)
+
+        context.setStrokeColor( lineColor.cgColor )
+
+        context.drawPath(using: .stroke)
+    }
+    
+    private func textHeight() -> CGFloat  {
+               let fontForMetric = self.font ??  UIFont.systemFont( ofSize: UIFont.systemFontSize )
+                 // Get the height of a single text line
+               let boundingRect = "ABC".boundingRect(    with: self.contentSize,
+                                                          options: [.usesLineFragmentOrigin, .usesFontLeading],
+                                                          attributes: [NSAttributedString.Key.font: fontForMetric ],
+                                                          context: nil )
+              
+               return boundingRect.height
+    }
+    
     override func draw(_ rect: CGRect) {
         
         guard let context = UIGraphicsGetCurrentContext() else {
             return
         }
-        let line_offset:CGFloat = 24.0
-
-        let startPoint  = CGPoint(x:line_offset, y:rect.origin.y)
-        let endPoint    = CGPoint(x:line_offset, y:rect.origin.y + rect.size.height)
-          
 
         context.setShouldAntialias(false)
           
-        context.setStrokeColor( lineColor.cgColor )
-          
-        context.setLineWidth(1)
-          
-        context.beginPath()
+        drawVerticalGuideLine( rect, in: context)
         
-        context.move( to: startPoint)
-        context.addLine(to: endPoint)
-        
-        let startPoint1 = CGPoint( x:startPoint.x + 2.0, y:startPoint.y )
-        let endPoint1 = CGPoint( x:endPoint.x + 2.0, y:endPoint.y )
-
-        context.move( to: startPoint1)
-        context.addLine(to: endPoint1)
-          
-        context.drawPath(using: .stroke)
-        
-        let _font =  self.font ??  UIFont.systemFont( ofSize: UIFont.systemFontSize )
-        
-        let _text = self.text ?? "ABC"
-          // Get the height of a single text line
-        let boundingRect = _text.boundingRect(    with: self.contentSize,
-                                                   options: [.usesLineFragmentOrigin, .usesFontLeading],
-                                                   attributes: [NSAttributedString.Key.font: _font ],
-                                                   context: nil )
-       
-        let height = boundingRect.height
+        let height = self.textHeight()
       
         for i in stride(from: height + NOTE_MAGIC_NUMBER, through: self.bounds.height, by: height ) {
             
@@ -98,7 +105,9 @@ struct NoteTextView: UIViewRepresentable {
     @Binding var text: String
 
     func makeUIView(context: Context) -> UINoteTextView {
-        let view = UINoteTextView( useFont: UIFont.systemFont(ofSize: 20) )
+        let view = UINoteTextView()
+        
+        view.font = UIFont.systemFont( ofSize: 20 )
         
         view.delegate = context.coordinator
         
@@ -115,3 +124,12 @@ struct NoteTextView: UIViewRepresentable {
 
 
 }
+
+
+#if DEBUG
+struct NoteTextView_Previews : PreviewProvider {
+    static var previews: some View {
+        NoteTextView( text: .constant("TEST") )
+    }
+}
+#endif
