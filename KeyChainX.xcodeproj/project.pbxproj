@@ -47,6 +47,7 @@
 		A0EE95712375F7AF00002E6F /* MailEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */; };
 		A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */; };
 		A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE95742377385800002E6F /* KeyItemForm.swift */; };
+		A0F3C39A23CA34F8004B3DC1 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3C39923CA34F8004B3DC1 /* NoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MailEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Helpers.swift"; sourceTree = "<group>"; };
 		A0EE95742377385800002E6F /* KeyItemForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
+		A0F3C39923CA34F8004B3DC1 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		C31B2C432B3C9BA54E403FC3 /* Pods_KeyChainXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6349C10B88AA1FB1F3098F9 /* Pods-KeyChainX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainX.release.xcconfig"; path = "Target Support Files/Pods-KeyChainX/Pods-KeyChainX.release.xcconfig"; sourceTree = "<group>"; };
 		F178F759DBE68FDCF076EB74 /* Pods-KeyChainX-KeyChainXUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainX-KeyChainXUITests.release.xcconfig"; path = "Target Support Files/Pods-KeyChainX-KeyChainXUITests/Pods-KeyChainX-KeyChainXUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */,
 				5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */,
 				5F28680B23BF8A3600A1E62D /* WebView.swift */,
+				A0F3C39923CA34F8004B3DC1 /* NoteView.swift */,
 			);
 			path = UIKIT;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				A0EE95712375F7AF00002E6F /* MailEntity+CoreDataClass.swift in Sources */,
 				5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */,
 				5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */,
+				A0F3C39A23CA34F8004B3DC1 /* NoteView.swift in Sources */,
 				A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
