@@ -35,7 +35,7 @@ struct KeyGroupList: UIViewControllerRepresentable {
 
 // MARK: UIKIT
 
-class KeyGroupListViewController : KeyBaseListViewController {
+class KeyGroupListViewController : KeyBaseListViewController, UITableViewDataSource {
     
     private var keys:[KeyEntity]?
     
@@ -44,6 +44,9 @@ class KeyGroupListViewController : KeyBaseListViewController {
     init( context:NSManagedObjectContext, selectedGroup:KeyEntity  ) {
         self.selectedGroup = selectedGroup
         super.init( context:context )
+        
+        self.tableView.dataSource = self
+
     }
     
     required init?(coder: NSCoder) {
@@ -56,22 +59,23 @@ class KeyGroupListViewController : KeyBaseListViewController {
     }
 
     override func viewDidLoad() {
-        tableView.register(UINib(nibName: "KeyItemCell", bundle: nil), forCellReuseIdentifier: "keyitem")
+        super.viewDidLoad()
+        self.tableView.register(UINib(nibName: "KeyItemCell", bundle: nil), forCellReuseIdentifier: "keyitem")
     }
         
     //
     // MARK: DATA SOURCE
     //
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return keys?.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let items = self.keys else {
             return UITableViewCell()
         }
@@ -90,7 +94,7 @@ class KeyGroupListViewController : KeyBaseListViewController {
     //
     // MARK: TAP ACTIONS
     //
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let keys = self.keys, let index = tableView.indexPathForSelectedRow?.row else {
             return
@@ -140,7 +144,7 @@ class KeyGroupListViewController : KeyBaseListViewController {
 //        return configuration
 //    }
     
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
         guard let keys = self.keys else {
             return nil

@@ -23,7 +23,8 @@ struct KeyItemListTopView : View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
     @State private var formActive = false
-    
+    @State private var isSearching = false
+
     func showForm() -> some View {
         VStack{
             if formActive {
@@ -34,7 +35,7 @@ struct KeyItemListTopView : View {
         }
     }
     var body: some View {
-        KeyItemList()
+        KeyItemList( isSearching: $isSearching)
             .navigationBarItems(trailing:
             HStack {
                 NavigationLink( destination: showForm(), isActive: $formActive ) { EmptyView() }
@@ -42,7 +43,7 @@ struct KeyItemListTopView : View {
                     self.formActive = true
                 }) {
                     Image( systemName: "plus" )
-                }
+                }.disabled( isSearching )
         })
     }
     

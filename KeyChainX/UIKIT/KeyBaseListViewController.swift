@@ -19,26 +19,46 @@ class GroupTableViewCell : UITableViewCell {
 
 // MARK: BASE LIST VIEW CONTROLLER
 
-class KeyBaseListViewController : UITableViewController {
+class KeyBaseListViewController : UIViewController, UITableViewDelegate {
     
     internal var managedObjectContext: NSManagedObjectContext
 
+    internal var tableView:UITableView
+    
     init( context:NSManagedObjectContext,  style: UITableView.Style = .plain) {
+        
         self.managedObjectContext = context
-        super.init( style: style )
+        
+        self.tableView = UITableView(frame: .zero, style: style)
+
+        super.init( nibName: nil, bundle: nil )
+        
+        self.tableView.delegate = self
+
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let w: CGFloat = self.view.frame.width
+        let h: CGFloat = self.view.frame.height
+
+        self.tableView.frame = CGRect(x: 0, y: 0, width: w, height: h - 130)
+        
+        self.view.addSubview(self.tableView)
+    }
+    
     // MUST BE OVERRIDE
     func reloadData() { fatalError("not implemented") }
-
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 88
     }
+    
     
 
 }

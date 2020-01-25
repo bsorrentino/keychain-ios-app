@@ -18,11 +18,13 @@ struct KeyItemList: UIViewControllerRepresentable {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
+    @Binding var isSearching:Bool
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType
     {
         //print( "makeUIViewController" )
         
-        let controller =  KeyItemListViewController(context: managedObjectContext)
+        let controller =  KeyItemListViewController(context: managedObjectContext, isSearching: $isSearching)
         
         return controller
     }
@@ -39,7 +41,7 @@ struct KeyItemList: UIViewControllerRepresentable {
 
 // MARK: UIKIT
 
-class KeyItemListViewController : KeyBaseListViewController {
+class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSource {
     
     typealias Values = (sections:[String]?, values:[String:[KeyEntity]])
     
@@ -50,9 +52,16 @@ class KeyItemListViewController : KeyBaseListViewController {
     private let searchController = UISearchController(searchResultsController: nil)
 
     private var didSelectWhileSearchWasActive = false
+    
+    private var isSearching: Binding<Bool>
 
-    init( context:NSManagedObjectContext ) {
+    init( context:NSManagedObjectContext, isSearching: Binding<Bool> ) {
+        
+        self.isSearching = isSearching
+
         super.init( context:context, style: .grouped )
+        
+        self.tableView.dataSource = self
     }
     
     required init?(coder: NSCoder) {
@@ -65,6 +74,9 @@ class KeyItemListViewController : KeyBaseListViewController {
     }
 
     override func viewDidLoad() {
+
+       super.viewDidLoad()
+
         tableView.register(UINib(nibName: "KeyItemCell", bundle: nil), forCellReuseIdentifier: "keyitem")
         tableView.register(UINib(nibName: "KeyGroupCell", bundle: nil), forCellReuseIdentifier: "keygroup")
 
@@ -77,21 +89,29 @@ class KeyItemListViewController : KeyBaseListViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.delegate = self
         
-        tableView.tableHeaderView = searchController.searchBar
+        //tableView.tableHeaderView = searchController.searchBar
         
         resultSearchController = searchController
+        
+        view.addSubview(searchController.searchBar)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
     
+        if( searchController.isActive ) {
+            searchController.searchBar.isHidden = false
+        }
         if didSelectWhileSearchWasActive {
             searchController.isActive = true
         }
         
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
+        if( searchController.isActive ) {
+            searchController.searchBar.isHidden = true
+        }
     }
     
     //
@@ -107,25 +127,25 @@ class KeyItemListViewController : KeyBaseListViewController {
         
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return keys?.sections?.count ?? 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return valuesFromSection(section)?.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return keys?.sections?[section]
     }
     
     // MARK: Indexed
     
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return keys?.sections
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print( "item at indexpath \(indexPath.row)" )
                 
         guard let items = valuesFromSection(indexPath.section) else {
@@ -160,7 +180,7 @@ class KeyItemListViewController : KeyBaseListViewController {
     //
     // MARK: TAP ACTIONS
     //
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let keys = valuesFromSection(indexPath.section) else {
             return
@@ -186,7 +206,7 @@ class KeyItemListViewController : KeyBaseListViewController {
 
     }
     
-    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
         guard let keys = valuesFromSection(indexPath.section) else {
             return
@@ -205,7 +225,7 @@ class KeyItemListViewController : KeyBaseListViewController {
     // MARK: SWIPE ACTIONS
     //
     
-    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let copy = UIContextualAction( style: .normal, title: "Copy" ) { action, view, completionHandler in
             
@@ -218,7 +238,7 @@ class KeyItemListViewController : KeyBaseListViewController {
         return configuration
     }
     
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
         guard let keys = valuesFromSection(indexPath.section) else {
             return nil
@@ -280,6 +300,8 @@ extension KeyItemListViewController : UISearchResultsUpdating {
         print( "updateSearchResults\nisActive:\(searchController.isActive)\nisFiltering:\(isFiltering)" )
         
         reloadDataFromManagedObjectContext( with: searchPredicate() )
+        
+        self.isSearching.wrappedValue = searchController.isActive
         
     }
     
