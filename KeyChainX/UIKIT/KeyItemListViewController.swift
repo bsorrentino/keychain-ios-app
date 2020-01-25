@@ -99,21 +99,12 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
     
     override func viewWillAppear(_ animated: Bool) {
     
-        if( searchController.isActive ) {
-            searchController.searchBar.isHidden = false
-        }
         if didSelectWhileSearchWasActive {
             searchController.isActive = true
         }
         
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        if( searchController.isActive ) {
-            searchController.searchBar.isHidden = true
-        }
-    }
-    
+        
     //
     // MARK: DATA SOURCE
     //
