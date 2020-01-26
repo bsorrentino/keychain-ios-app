@@ -17,7 +17,7 @@ struct  UrlField : View {
     var body: some View {
         NavigationLink( destination: UrlView( value: $value) ) {
             HStack {
-                Image( systemName: "link.circle")
+                Image( systemName: "link.circle").resizable().frame(width: 20, height: 20, alignment: .leading)
                 if( value.isEmpty ) {
                     Text( "tap to choose url" )
                         .foregroundColor(.gray)

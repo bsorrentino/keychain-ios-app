@@ -32,7 +32,7 @@ struct NoteField : View {
         NavigationLink( destination: KeyItemNote( value: $value) ) {
             
             HStack(alignment: .center) {
-                Image( systemName: "doc.circle")
+                Image( systemName: "doc.circle").resizable().frame(width: 20, height: 20, alignment: .leading)
                 GeometryReader { geometry in
                     self.message()
                     .frame(width: geometry.size.width ,

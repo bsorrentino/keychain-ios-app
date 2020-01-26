@@ -29,6 +29,7 @@ struct EmailField : View {
         NavigationLink( destination: EmailList( value: $value) ) {
             HStack {
                 Image( systemName: "envelope.circle")
+                    .resizable().frame(width: 20, height: 20, alignment: .leading)
                 if( value.isEmpty ) {
                     Text( "tap to choose email" )
                         .foregroundColor(.gray)

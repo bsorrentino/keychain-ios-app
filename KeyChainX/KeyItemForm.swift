@@ -10,55 +10,19 @@ import SwiftUI
 import Combine
 import FieldValidatorLibrary
 
-enum SecretInfo: Int, Hashable {
+enum SecretState: Int, Hashable {
     
     case hide
     case show
-}
 
-
-struct PasswordToggleField : View {
-    typealias Validator = (String) -> String?
-    
-    @Binding var secretInfo:SecretInfo
-    
-    @ObservedObject var field:FieldValidator<String>
-    
-    init( value:Binding<String>, checker:Binding<FieldChecker>, secretInfo:Binding<SecretInfo>, validator:@escaping Validator ) {
-        self.field = FieldValidator(value, checker:checker, validator:validator )
-        self._secretInfo = secretInfo
-    }
-
-    var body: some View {
-        
-        VStack {
-            Group {
-                if( secretInfo == .hide ) {
-                    SecureField( "give me the password", text:$field.value)
-                }
-                else {
-                    TextField( "give me the password", text:$field.value)
-                }
-            }
-        }
-        .onAppear {
-            self.field.doValidate()
-        }
-
-    }
-}
-
-extension SecretInfo {
-    
     var text:String {
         switch( self ) {
-        case .hide: return "***"
-        case .show: return "abc"
+            case .hide: return "***"
+            case .show: return "abc"
         }
     }
+
 }
-
-
 
 struct KeyEntityForm : View {
     @Environment(\.presentationMode) var presentationMode
@@ -67,7 +31,7 @@ struct KeyEntityForm : View {
 
     @ObservedObject var item:KeyItem
     
-    @State var secretInfo:SecretInfo = .hide
+    @State var secretState:SecretState = .hide
     
     @State private var pickUsernameFromMail = false
     
@@ -83,6 +47,43 @@ struct KeyEntityForm : View {
         self.item = KeyItem( entity:entity )
     }
 
+    func secretStatePicker() -> some View {
+        
+        Picker( selection: $secretState, label: EmptyView() ) {
+            Image( systemName: "eye.slash").tag(SecretState.hide)
+            //Text(SecretInfo.hide.text).tag(SecretInfo.hide)
+            Image( systemName: "eye").tag(SecretState.show)
+            //Text(SecretInfo.show.text).tag(SecretInfo.show)
+        }
+        .pickerStyle(SegmentedPickerStyle())
+
+    }
+    
+    func saveButton() -> some View {
+        
+        Button( "save", action: {
+            print( "Save\n mnemonic: \(self.item.mnemonic)\n username: \(self.item.username)" )
+            
+            do {
+                try self.item.insert( into: self.managedObjectContext )
+                try self.managedObjectContext.save()
+            }
+            catch {
+                if( self.item.isNew ) {
+                    print( "error inserting new key \(error)" )
+                }
+                else {
+                    print( "error updating new key \(error)" )
+                }
+            }
+            
+            self.presentationMode.wrappedValue.dismiss()
+            
+        })
+        .disabled( !item.checkIsValid )
+    }
+    
+    
     func mnemonicInput() -> some View  {
         
         VStack(alignment: .leading) {
@@ -122,7 +123,7 @@ struct KeyEntityForm : View {
 
     }
     
-    func userInput() -> some View {
+    func usernameInput() -> some View {
         
         VStack(alignment: .leading) {
             HStack {
@@ -165,7 +166,9 @@ struct KeyEntityForm : View {
                 Button( action: {
                     self.pickUsernameFromMail = true
                 }) {
-                    Image( systemName: "envelope.circle").foregroundColor(Color.black)
+                    Image( systemName: "envelope.circle")
+                        .resizable().frame(width: 20, height: 20, alignment: .center)
+                        .foregroundColor(Color.black)
                 }
 
 
@@ -182,46 +185,6 @@ struct KeyEntityForm : View {
 
     }
 
-    func passwordInput() -> some View {
-        
-        VStack(alignment: .leading) {
-            
-            HStack {
-                Text("Password")
-                if( !item.passwordCheck.valid  ) {
-                    Spacer()
-                    Text( item.passwordCheck.errorMessage ?? "" )
-                        .fontWeight(.light)
-                        .font(.footnote)
-                        .foregroundColor(Color.red)
-
-                }
-
-            }
-            
-       
-            PasswordToggleField( value:$item.password,
-                                 checker:$item.passwordCheck,
-                                 secretInfo:$secretInfo ) { v in
-                    if( v.isEmpty ) {
-                        return "password cannot be empty"
-                    }
-                    return nil
-            }
-            .autocapitalization(.none)
-            .padding( 10.0 )
-            .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: strikeWidth )
-                    .foregroundColor(item.usernameCheck.valid ? Color.black : Color.red)
-            )
-
-
-        }
-
-    }
-
-    
     var body: some View {
         NavigationView {
             Form {
@@ -237,9 +200,9 @@ struct KeyEntityForm : View {
 
                 Section {
                     
-                    userInput()
+                    usernameInput()
                     
-                    passwordInput()
+                    PasswordField(value: $item.password, passwordCheck: $item.passwordCheck)
                                         
                 }
                 
@@ -258,36 +221,13 @@ struct KeyEntityForm : View {
             .navigationBarTitle( Text( item.mnemonic.uppercased()), displayMode: .inline  )
             .navigationBarItems(trailing:
                 HStack {
-                    Picker( selection: $secretInfo, label: EmptyView() ) {
-                        Image( systemName: "eye.slash").tag(SecretInfo.hide)
-                        //Text(SecretInfo.hide.text).tag(SecretInfo.hide)
-                        Image( systemName: "eye").tag(SecretInfo.show)
-                        //Text(SecretInfo.show.text).tag(SecretInfo.show)
-                    }.pickerStyle(SegmentedPickerStyle())
                     
-                    Spacer(minLength: 15)
+                    // secretStatePicker()
                     
-                    Button( "save", action: {
-                        print( "Save\n mnemonic: \(self.item.mnemonic)\n username: \(self.item.username)" )
-                        
-                        do {
-                            try self.item.insert( into: self.managedObjectContext )
-                            try self.managedObjectContext.save()
-                        }
-                        catch {
-                            if( self.item.isNew ) {
-                                print( "error inserting new key \(error)" )
-                            }
-                            else {
-                                print( "error updating new key \(error)" )
-                            }
-                        }
-                        
-                        self.presentationMode.wrappedValue.dismiss()
-                        
-                    })
-                    .disabled( !item.checkIsValid )
+                    // Spacer(minLength: 15)
                     
+                    saveButton()
+
                 }
             )
         } // NavigationView
