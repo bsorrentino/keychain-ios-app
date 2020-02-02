@@ -173,7 +173,7 @@ struct LoginView: View {
                                       value:$password,
                                       checker:$passwordChecker ) { v in
                     if( v.isEmpty ) {
-                        return "password cannot be empty ☹️"
+                        return "password cannot be empty! ☹️"
                     }
                                                             
                     return nil
