@@ -6,7 +6,7 @@ target 'KeyChainX' do
   use_frameworks!
 
   # Pods for KeyChainX
-  pod 'FieldValidatorLibrary', :git => 'https://github.com/bsorrentino/swiftui-fieldvalidator.git'
+  pod 'FieldValidatorLibrary', :git => 'https://github.com/bsorrentino/swiftui-fieldvalidator.git', branch: 'develop'
 
   target 'KeyChainXTests' do
     inherit! :search_paths
