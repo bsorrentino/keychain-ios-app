@@ -48,6 +48,9 @@ struct LoginView: View {
         NavigationView {
             VStack(alignment: .center) {
                     
+                Text( "KEYCHAIN" ).font(.title).fontWeight(.bold)
+                Text( UIApplication.appVersion ?? "").font(.headline).fontWeight(.thin)
+                
                 if self.isBiometricAvailable && self.hidePassword {
 
                     Button( action: {
