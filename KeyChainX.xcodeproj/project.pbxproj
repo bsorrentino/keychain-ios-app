@@ -95,7 +95,7 @@
 		A071C20223648EAB00891175 /* KeyItemForm+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Email.swift"; sourceTree = "<group>"; };
 		A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBaseListViewController.swift; sourceTree = "<group>"; };
 		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
-		A0C0DB5322A901AD003B09ED /* KeyChainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C0DB5322A901AD003B09ED /* KeychainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeychainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C0DB5622A901AD003B09ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A0C0DB5D22A901AD003B09ED /* KeyItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemList.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 		A0C0DB5422A901AD003B09ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0C0DB5322A901AD003B09ED /* KeyChainX.app */,
+				A0C0DB5322A901AD003B09ED /* KeychainX.app */,
 				A0C0DB6C22A901B0003B09ED /* KeyChainXTests.xctest */,
 				A0C0DB7722A901B0003B09ED /* KeyChainXUITests.xctest */,
 			);
@@ -308,7 +308,7 @@
 				5FFE284023B9480400EAB103 /* CryptoSwift */,
 			);
 			productName = KeyChainX;
-			productReference = A0C0DB5322A901AD003B09ED /* KeyChainX.app */;
+			productReference = A0C0DB5322A901AD003B09ED /* KeychainX.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A0C0DB6B22A901B0003B09ED /* KeyChainXTests */ = {
@@ -741,8 +741,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeyChainX;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeychainX;
+				PRODUCT_NAME = KeychainX;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -763,8 +763,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeyChainX;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeychainX;
+				PRODUCT_NAME = KeychainX;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
