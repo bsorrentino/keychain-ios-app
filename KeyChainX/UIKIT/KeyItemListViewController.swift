@@ -259,6 +259,12 @@ extension KeyItemListViewController : UISearchBarDelegate {
         
         self.didSelectWhileSearchWasActive = false
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        self.didSelectWhileSearchWasActive = false
+
+    }
 }
 
 // MARK: Search Extension
