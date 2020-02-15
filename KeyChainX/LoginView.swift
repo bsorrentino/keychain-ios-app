@@ -51,6 +51,7 @@ struct LoginView: View {
                 Text( "KEYCHAIN" ).font(.title).fontWeight(.bold)
                 Text( UIApplication.appVersion ?? "").font(.headline).fontWeight(.thin)
                 
+                Spacer()
                 if self.isBiometricAvailable && self.hidePassword {
 
                     Button( action: {
@@ -79,7 +80,6 @@ struct LoginView: View {
                     
                 }
                 else {
-                    Spacer()
                     
                     if self.isPasswordHasBeenInserted {
 
@@ -117,9 +117,8 @@ struct LoginView: View {
                             .disabled( !(self.passwordChecker.valid && self.confirmPasswordChecker.valid) )
                         }
                     }
-
-                    Spacer()
                 }
+                Spacer()
 
                     
             }.padding( EdgeInsets( top:0, leading:10, bottom:0, trailing:10  ))
