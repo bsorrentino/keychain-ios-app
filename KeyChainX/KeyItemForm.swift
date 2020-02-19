@@ -26,9 +26,9 @@ enum SecretState: Int, Hashable {
 
 struct KeyEntityForm : View {
     @Environment(\.presentationMode) var presentationMode
-    
     @Environment(\.managedObjectContext) var managedObjectContext
-
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     @ObservedObject var item:KeyItem
     
     @State var secretState:SecretState = .hide
@@ -168,7 +168,7 @@ struct KeyEntityForm : View {
                 }) {
                     Image( systemName: "envelope.circle")
                         .resizable().frame(width: 20, height: 20, alignment: .center)
-                        .foregroundColor(Color.black)
+                        .foregroundColor( colorScheme == .dark ? Color.white : Color.black )
                 }
 
 
@@ -240,10 +240,16 @@ import KeychainAccess
 
 struct KeyItemDetail_Previews : PreviewProvider {
     static var previews: some View {
+        // @see https://www.hackingwithswift.com/quick-start/swiftui/how-to-preview-your-layout-in-light-and-dark-mode
         
-        KeyEntityForm()
         
-        
+        Group {
+            KeyEntityForm()
+               .environment(\.colorScheme, .light)
+
+            KeyEntityForm()
+               .environment(\.colorScheme, .dark)
+         }
     }
 }
 #endif

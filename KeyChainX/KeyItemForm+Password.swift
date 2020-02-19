@@ -42,6 +42,7 @@ private struct PasswordToggleField : View {
 }
 
 struct PasswordField : View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
 
     @Binding var value:String
     @Binding var passwordCheck:FieldChecker
@@ -86,7 +87,7 @@ struct PasswordField : View {
                             Image( systemName: "eye")
                         }
                     }
-                    .foregroundColor(Color.black)
+                    .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                  }
 
             }
