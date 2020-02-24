@@ -28,7 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             
-
             let view = ContentView( loginStates: loginStates )
                 .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext) // CoreData integrations
             
