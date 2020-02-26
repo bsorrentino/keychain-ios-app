@@ -34,6 +34,7 @@ struct KeyItemListTopView : View {
             }
         }
     }
+    
     var body: some View {
         KeyItemList( isSearching: $isSearching)
             .navigationBarItems(trailing:

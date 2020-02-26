@@ -10,10 +10,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showLogin = true
+    @ObservedObject var loginStates:LoginView.States
     
     @State private var selection = 0
  
+    
     var body: some View {
         TabView(selection: $selection){
             
@@ -44,7 +45,7 @@ struct ContentView: View {
                 }
                 .tag(2)
         }
-        .sheet(isPresented: $showLogin) {
+        .sheet(isPresented: $loginStates.show) {
             LoginView()
         }
     }
@@ -52,6 +53,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView( )
+        ContentView( loginStates: LoginView.States() )
     }
 }

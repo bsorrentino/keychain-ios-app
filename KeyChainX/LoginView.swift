@@ -13,7 +13,13 @@ import FieldValidatorLibrary
 
 private let strikeWidth:CGFloat = 0.5
 
+
 struct LoginView: View {
+    
+    class States : ObservableObject {
+        @Published var show = true
+    }
+
     @Environment(\.presentationMode) private var isPresented
     @Environment(\.UserPreferencesKeychain) private var userPreferencesKeychain
 
