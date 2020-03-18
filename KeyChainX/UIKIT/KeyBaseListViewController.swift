@@ -21,17 +21,15 @@ class GroupTableViewCell : UITableViewCell {
 
 class KeyBaseListViewController : UIViewController, UITableViewDelegate {
     
-    let SIZE_OF_SEARCH_BOX = CGFloat(120) // suppose the searchbox's hight until I'll find the right solution
-    
     internal var managedObjectContext: NSManagedObjectContext
 
     internal var tableView:UITableView
     
-    init( context:NSManagedObjectContext,  style: UITableView.Style = .plain) {
+    init( context:NSManagedObjectContext, frame tableViewFrame:CGRect = .zero, style: UITableView.Style = .plain) {
         
         self.managedObjectContext = context
         
-        self.tableView = UITableView(frame: .zero, style: style)
+        self.tableView = UITableView(frame: tableViewFrame, style: style)
 
         super.init( nibName: nil, bundle: nil )
         
@@ -49,7 +47,7 @@ class KeyBaseListViewController : UIViewController, UITableViewDelegate {
         let w: CGFloat = self.view.frame.width
         let h: CGFloat = self.view.frame.height
 
-        self.tableView.frame = CGRect(x: 0, y: 0, width: w, height: h - SIZE_OF_SEARCH_BOX)
+        self.tableView.frame = CGRect(x: 0, y: 0, width: w, height: h)
         
         self.view.addSubview(self.tableView)
     }

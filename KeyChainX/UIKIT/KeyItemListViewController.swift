@@ -95,10 +95,18 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
         
         view.addSubview(searchController.searchBar)
         
+        // Update site of TableView avoiding to be under search box
+    
+        var frame = tableView.frame
+        
+        frame.origin.y += searchController.searchBar.frame.size.height
+        
+        tableView.frame = frame
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    
+
         if didSelectWhileSearchWasActive {
             searchController.isActive = true
         }
