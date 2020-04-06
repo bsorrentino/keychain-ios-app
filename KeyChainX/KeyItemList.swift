@@ -43,7 +43,8 @@ struct KeyItemListTopView : View {
                 Button( action: {
                     self.formActive = true
                 }) {
-                    Image( systemName: "plus" )
+                    Text("Add")
+                    //Image( systemName: "plus" )
                 }.disabled( isSearching )
         })
     }
