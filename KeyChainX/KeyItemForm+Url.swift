@@ -54,7 +54,7 @@ struct UrlView: View {
     
     var body: some View {
 
-        VStack( spacing: 10.0 ) {
+        VStack( spacing: 2.0 ) {
             
             TextFieldWithValidator( title: "insert url",
                                     value: $value,
@@ -70,14 +70,18 @@ struct UrlView: View {
                    
                    return nil
             }
+            .textFieldStyle(RoundedBorderTextFieldStyle())
             .autocapitalization(.none)
             .disableAutocorrection(true)
             .font(.body)
+            //.border(Color.black, width: 0.5)
+            
+            
             
             WebView( url: URL( string: value), reload:$urlReload )
             
         }
-        .padding()
+        //.padding()
         .navigationBarTitle( Text("url"), displayMode: .inline )
         .navigationBarItems(trailing: saveButton() )
 
