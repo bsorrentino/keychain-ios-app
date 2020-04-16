@@ -95,6 +95,9 @@ struct RestoreKeysView: View {
                     
                     """)
                 
+                if( item.password.isEmpty ) {
+                    print( "password for item \(item.mnemonic) not valid!")
+                }
                 try item.insert(into: managedObjectContext)
                         
             }
