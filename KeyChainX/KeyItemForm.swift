@@ -189,7 +189,6 @@ struct KeyEntityForm : View {
         NavigationView {
             Form {
                 
-
                 if( item.isNew ) {
                     
                     Section {
@@ -199,7 +198,7 @@ struct KeyEntityForm : View {
                 }
 
                 Section {
-                    
+                                
                     usernameInput()
                     
                     PasswordField(value: $item.password, passwordCheck: $item.passwordCheck)

@@ -47,15 +47,17 @@ struct PasswordField : View {
     @Binding var value:String
     @Binding var passwordCheck:FieldChecker
     @State var hidden:Bool = true
-    
+    @State var copied:Bool = false
+
     private let strikeWidth:CGFloat = 0.5
+    
     
     var body: some View {
         
          VStack(alignment: .leading) {
              
              HStack {
-                 Text("Password")
+                Text("Password")
                  if( !passwordCheck.valid  ) {
                      Spacer()
                      Text( passwordCheck.errorMessage ?? "" )
@@ -76,7 +78,9 @@ struct PasswordField : View {
                      return nil
                 }
                 .autocapitalization(.none)
+                
                 Button( action: {
+                    print("toggle hidden!")
                     self.hidden.toggle()
                  }) {
                     Group {
@@ -89,6 +93,8 @@ struct PasswordField : View {
                     }
                     .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                  }
+                ButtonCopyToClipboard
+                
 
             }
              .padding( 10.0 )
@@ -98,6 +104,39 @@ struct PasswordField : View {
              )
 
 
-         }
+        }.buttonStyle(PlainButtonStyle())
+        
+    }
+}
+
+// MARK: -
+// MARK: Clipboard
+extension PasswordField {
+    
+    var ButtonCopyToClipboard:some View {
+        
+        Button( action: {
+            withAnimation( Animation.default.speed(0.1) ) {
+                print("copy to clipboard!")
+                UIPasteboard.general.string = self.value
+                self.copied = true
+            }
+            withAnimation( Animation.default.delay(0.1)) {
+                 self.copied = false
+            }
+        
+         }) {
+
+            Group {
+                if( self.copied ) {
+                    Image( systemName: "doc.on.clipboard").colorInvert()
+                }
+                else {
+                    Image( systemName: "doc.on.clipboard")
+                        
+                }
+            }.foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+        }.disabled( !passwordCheck.valid )
+
     }
 }
