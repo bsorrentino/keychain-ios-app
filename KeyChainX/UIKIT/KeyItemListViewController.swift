@@ -20,12 +20,16 @@ struct KeyItemList: UIViewControllerRepresentable {
 
     @Binding var isSearching:Bool
     
+    var geometry:CGSize;
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType
     {
         //print( "makeUIViewController" )
         
         let controller =
             KeyItemListViewController(context: managedObjectContext, isSearching: $isSearching)
+        
+        controller.geometry = geometry
         
         return controller
     }
@@ -55,6 +59,8 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
     private var didSelectWhileSearchWasActive = false
     
     private var isSearching: Binding<Bool>
+    
+    var geometry:CGSize = CGSize()
     
     init( context:NSManagedObjectContext, isSearching: Binding<Bool> ) {
         
@@ -95,16 +101,26 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
         resultSearchController = searchController
         
         view.addSubview(searchController.searchBar)
+
         
-        // Update site of TableView avoiding to be under search box
+        // Update contentInset to have a right scrolling
+        
+        //        print( view.frame )
+        //        print( geometry )
         let searchBarHeight = searchController.searchBar.frame.size.height
-        let tabViewHeight = CGFloat(135) // magic number
+        let tabViewHeight = view.frame.height - geometry.height - searchBarHeight
+        let contentInset = UIEdgeInsets(
+            top: searchBarHeight,
+            left: 0,
+            bottom: tabViewHeight,
+            right: 0
+        )
+
+        //self.edgesForExtendedLayout = UIRectEdge()
+        //self.extendedLayoutIncludesOpaqueBars = false
         
-        self.edgesForExtendedLayout = UIRectEdge()
-        self.extendedLayoutIncludesOpaqueBars = false
-        
-        self.tableView.contentInset = UIEdgeInsets( top: searchBarHeight, left: 0, bottom: tabViewHeight, right: 0)
-        self.tableView.scrollIndicatorInsets = self.tableView.contentInset
+        self.tableView.contentInset = contentInset
+        self.tableView.scrollIndicatorInsets = contentInset
         //self.tableView.contentInsetAdjustmentBehavior = .always
 
         

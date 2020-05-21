@@ -36,17 +36,21 @@ struct KeyItemListTopView : View {
     }
     
     var body: some View {
-        KeyItemList( isSearching: $isSearching)
-            .navigationBarItems(trailing:
-            HStack {
-                NavigationLink( destination: showForm(), isActive: $formActive ) { EmptyView() }
-                Button( action: {
-                    self.formActive = true
-                }) {
-                    Text("Add")
-                    //Image( systemName: "plus" )
-                }.disabled( isSearching )
-        })
+        GeometryReader { geometry in
+
+            KeyItemList( isSearching: self.$isSearching, geometry: geometry.size)
+                .navigationBarItems(trailing:
+                    HStack {
+                        NavigationLink( destination: self.showForm(), isActive: self.$formActive ) { EmptyView() }
+                        Button( action: {
+                            self.formActive = true
+                        }) {
+                            Text("Add")
+                            //Image( systemName: "plus" )
+                        }.disabled( self.isSearching )
+                    })
+
+        }
     }
     
     
