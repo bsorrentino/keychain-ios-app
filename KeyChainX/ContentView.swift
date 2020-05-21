@@ -16,38 +16,39 @@ struct ContentView: View {
  
     
     var body: some View {
-        TabView(selection: $selection){
-            
-            KeyItemListContentView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "list.dash")
-                        Text("Key list")
+            TabView(selection: self.$selection) {
+                
+                KeyItemListContentView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "list.dash")
+                            Text("Key list")
+                        }
                     }
-                }
                 .tag(0)
-//            BackupKeysView()
-//                .font(.title)
-//                .tabItem {
-//                    VStack {
-//                        Image(systemName: "arrow.down.doc")
-//                        Text("Backup keys")
-//                    }
-//                }
-//                .tag(1)
-            RestoreKeysView()
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "arrow.up.doc")
-                        Text("Restore keys")
+    //            BackupKeysView()
+    //                .font(.title)
+    //                .tabItem {
+    //                    VStack {
+    //                        Image(systemName: "arrow.down.doc")
+    //                        Text("Backup keys")
+    //                    }
+    //                }
+    //                .tag(1)
+                RestoreKeysView()
+                    .font(.title)
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "arrow.up.doc")
+                            Text("Restore keys")
+                        }
                     }
-                }
-                .tag(2)
-        }
-        .sheet(isPresented: $loginStates.show) {
-            LoginView()
-        }
+                    .tag(2)
+
+            }
+            .sheet(isPresented: $loginStates.show) {
+                LoginView()
+            }
     }
 }
 

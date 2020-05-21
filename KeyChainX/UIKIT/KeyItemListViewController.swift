@@ -17,14 +17,15 @@ struct KeyItemList: UIViewControllerRepresentable {
     typealias UIViewControllerType = KeyItemListViewController
     
     @Environment(\.managedObjectContext) var managedObjectContext
-    
+
     @Binding var isSearching:Bool
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType
     {
         //print( "makeUIViewController" )
         
-        let controller =  KeyItemListViewController(context: managedObjectContext, isSearching: $isSearching)
+        let controller =
+            KeyItemListViewController(context: managedObjectContext, isSearching: $isSearching)
         
         return controller
     }
@@ -54,7 +55,7 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
     private var didSelectWhileSearchWasActive = false
     
     private var isSearching: Binding<Bool>
-
+    
     init( context:NSManagedObjectContext, isSearching: Binding<Bool> ) {
         
         self.isSearching = isSearching
@@ -96,12 +97,16 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
         view.addSubview(searchController.searchBar)
         
         // Update site of TableView avoiding to be under search box
-    
-        var frame = tableView.frame
+        let searchBarHeight = searchController.searchBar.frame.size.height
+        let tabViewHeight = CGFloat(135) // magic number
         
-        frame.origin.y += searchController.searchBar.frame.size.height
+        self.edgesForExtendedLayout = UIRectEdge()
+        self.extendedLayoutIncludesOpaqueBars = false
         
-        tableView.frame = frame
+        self.tableView.contentInset = UIEdgeInsets( top: searchBarHeight, left: 0, bottom: tabViewHeight, right: 0)
+        self.tableView.scrollIndicatorInsets = self.tableView.contentInset
+        //self.tableView.contentInsetAdjustmentBehavior = .always
+
         
     }
     

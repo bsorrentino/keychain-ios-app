@@ -34,7 +34,7 @@ class KeyBaseListViewController : UIViewController, UITableViewDelegate {
         super.init( nibName: nil, bundle: nil )
         
         self.tableView.delegate = self
-
+        
     }
     
     required init?(coder: NSCoder) {
@@ -50,6 +50,7 @@ class KeyBaseListViewController : UIViewController, UITableViewDelegate {
         self.tableView.frame = CGRect(x: 0, y: 0, width: w, height: h)
         
         self.view.addSubview(self.tableView)
+        
     }
     
     // MUST BE OVERRIDE
