@@ -75,6 +75,7 @@
 		5F01277623B776EE0033E2B9 /* RestoreKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreKeysView.swift; sourceTree = "<group>"; };
 		5F01277823B7C05D0033E2B9 /* FileManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerView.swift; sourceTree = "<group>"; };
 		5F28680B23BF8A3600A1E62D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		5F2B152124D3502B00983F68 /* KeyChain v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain v2.xcdatamodel"; sourceTree = "<group>"; };
 		5F30CFA22379F0BE00FD7485 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5F30CFA42379F52100FD7485 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F30CFA6237A192600FD7485 /* KeyChainX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeyChainX.entitlements; sourceTree = "<group>"; };
@@ -792,7 +793,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeyChainX.app/KeyChainX";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeychainX.app/KeychainX";
 			};
 			name = Debug;
 		};
@@ -814,7 +815,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeyChainX.app/KeyChainX";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeychainX.app/KeychainX";
 			};
 			name = Release;
 		};
@@ -937,6 +938,7 @@
 		A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5F2B152124D3502B00983F68 /* KeyChain v2.xcdatamodel */,
 				A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */,
 			);
 			currentVersion = A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */;
