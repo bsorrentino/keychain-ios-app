@@ -54,7 +54,8 @@ struct EmailList: View {
     @Binding var value:String
     @Environment(\.managedObjectContext) var context
     
-    @FetchRequest( fetchRequest:MailEntity.fetchAllMail() )
+    //@FetchRequest( fetchRequest:MailEntity.fetchAllMail() )
+    @FetchRequest( fetchRequest:MailEntity.fetchRequest() )
     var mails:FetchedResults<MailEntity>
     
     @State var mailValid = FieldChecker()
