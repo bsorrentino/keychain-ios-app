@@ -1,8 +1,9 @@
 //
 //  KeyEntity+CoreDataProperties.swift
-//  
+//  KeyChainX
 //
-//  Created by Bartolomeo Sorrentino on 08/11/2019.
+//  Created by softphone on 05/08/2020.
+//  Copyright © 2020 Bartolomeo Sorrentino. All rights reserved.
 //
 //
 
@@ -17,13 +18,30 @@ extension KeyEntity {
     }
 
     @NSManaged public var expire: Date?
-    @NSManaged public var mail: String?
-    //@NSManaged public var note: String?
-    @NSManaged public var mnemonic: String
-    @NSManaged public var sectionId: String?
-    @NSManaged public var username: String
     @NSManaged public var group: NSNumber
     @NSManaged public var groupPrefix: String?
+    @NSManaged public var mail: String?
+    @NSManaged public var mnemonic: String
+    @NSManaged public var sectionId: String?
     @NSManaged public var url: String?
+    @NSManaged public var username: String
+    @NSManaged public var linkedTo: NSSet?
+
+}
+
+// MARK: Generated accessors for linkedTo
+extension KeyEntity {
+
+    @objc(addLinkedToObject:)
+    @NSManaged public func addToLinkedTo(_ value: KeyEntity)
+
+    @objc(removeLinkedToObject:)
+    @NSManaged public func removeFromLinkedTo(_ value: KeyEntity)
+
+    @objc(addLinkedTo:)
+    @NSManaged public func addToLinkedTo(_ values: NSSet)
+
+    @objc(removeLinkedTo:)
+    @NSManaged public func removeFromLinkedTo(_ values: NSSet)
 
 }

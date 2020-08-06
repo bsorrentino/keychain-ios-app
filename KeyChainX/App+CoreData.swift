@@ -15,8 +15,6 @@ import FieldValidatorLibrary
 
 // MARK: Search Criterias
 
-let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
-
 // MARK: CoreData extension
 
 enum SavingError :Error {

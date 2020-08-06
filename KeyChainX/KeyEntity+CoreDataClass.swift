@@ -1,13 +1,18 @@
 //
 //  KeyEntity+CoreDataClass.swift
-//  
+//  KeyChainX
 //
-//  Created by Bartolomeo Sorrentino on 08/11/2019.
+//  Created by softphone on 05/08/2020.
+//  Copyright © 2020 Bartolomeo Sorrentino. All rights reserved.
 //
 //
 
 import Foundation
 import CoreData
+
+// MARK: Search Criterias
+
+let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
 
 @objc(KeyEntity)
 public class KeyEntity: NSManagedObject {
@@ -38,21 +43,3 @@ public class KeyEntity: NSManagedObject {
     }
 
 }
-
-
-extension MailEntity {
-    
-    static func fetchAllMail() -> NSFetchRequest<MailEntity> {
-        
-        let request:NSFetchRequest<MailEntity> = MailEntity.fetchRequest()
-        
-        let sortOrder = NSSortDescriptor(keyPath: \MailEntity.value, ascending: true)
-        
-        request.sortDescriptors = [sortOrder]
-        
-        return request
-        
-    }
-}
-
-
