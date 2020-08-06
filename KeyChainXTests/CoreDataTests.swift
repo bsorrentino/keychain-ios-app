@@ -44,6 +44,19 @@ class CoreDataTests: XCTestCase {
         return result
     }
     
+    func insert( inContext context:NSManagedObjectContext, fillKey:( KeyEntity ) -> Void  ) throws -> KeyEntity {
+        let k = NSEntityDescription.insertNewObject(  forEntityName: "KeyInfo", into: context) as! KeyEntity
+
+        k.group = 0
+        k.username = "Me"
+
+        fillKey( k )
+        
+        context.insert(k)
+        
+        return k
+
+    }
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -53,16 +66,23 @@ class CoreDataTests: XCTestCase {
             return
         }
         
-        
-        do {
-            let k = NSEntityDescription.insertNewObject(  forEntityName: "KeyInfo", into: context) as! KeyEntity
-
-            //let k = KeyEntity( context:context,  )
-            k.mnemonic = "A1"
-            k.group = 0
-            k.username = "Me"
-            context.insert(k)
             
+        do {
+    
+            let a1 = try self.insert( inContext: context ) {k in
+                k.mnemonic = "A1"
+            }
+            let _ = try self.insert( inContext: context ) {k in
+                k.mnemonic = "A2"
+            }
+            let _ = try self.insert( inContext: context ) {k in
+                k.mnemonic = "A1.1"
+                k.addToLinkedTo(a1)
+            }
+            let _ = try self.insert( inContext: context ) {k in
+                k.mnemonic = "A3.1"
+            }
+
             try context.save()
         }
         catch let error as NSError {
@@ -106,12 +126,34 @@ class CoreDataTests: XCTestCase {
             let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
             let result = try context.fetch( request )
 
+            XCTAssertEqual(result.count, 4, "number of fetched keys are not what expected!")
             
             result.forEach { (k) in
-             
                 print( "mnemonic: \(k.mnemonic)")
             }
             
+            let mnemomic = "A1.1"
+            guard let a11 = result.filter({ k in k.mnemonic == mnemomic}).first else {
+                XCTFail( "menemonic \(mnemomic) not found" )
+                return;
+            }
+            
+            guard let linked_2_a11 = a11.linkedTo else {
+                XCTFail( "linked item  \(mnemomic) is null" )
+                return;
+            }
+            
+            XCTAssertEqual(linked_2_a11.count, 1, "tehere are no linked keys to \(mnemomic)")
+            
+            guard let linked = linked_2_a11.allObjects[0] as? KeyEntity else  {
+                XCTFail( "first linked item to \(mnemomic) is not vaild" )
+                return;
+            }
+            
+            XCTAssertEqual(linked.mnemonic, "A1", "the linked item to \(mnemomic) is not correct")
+            
+            print( linked )
+
         }
         catch let error as NSError {
             XCTFail("fail fetching KeyEntity error \(error.userInfo)" )
