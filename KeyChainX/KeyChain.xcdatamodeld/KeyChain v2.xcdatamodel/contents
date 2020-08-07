@@ -14,7 +14,8 @@
         <attribute name="sectionId" optional="YES" transient="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
         <attribute name="username" attributeType="String" minValueString="1"/>
-        <relationship name="linkedTo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="KeyInfo" inverseName="linkedTo" inverseEntity="KeyInfo"/>
+        <relationship name="linkedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KeyInfo" inverseName="linkedTo" inverseEntity="KeyInfo"/>
+        <relationship name="linkedTo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="KeyInfo" inverseName="linkedBy" inverseEntity="KeyInfo"/>
         <fetchIndex name="byMnemonicIndex">
             <fetchIndexElement property="mnemonic" type="Binary" order="ascending"/>
         </fetchIndex>
@@ -23,6 +24,6 @@
     <fetchRequest name="fetchByName" entity="KeyInfo" predicateString="mnemonic BEGINSWITH &quot;%@&quot;"/>
     <elements>
         <element name="AttributeInfo" positionX="169" positionY="-93" width="128" height="73"/>
-        <element name="KeyInfo" positionX="81" positionY="36" width="128" height="178"/>
+        <element name="KeyInfo" positionX="81" positionY="36" width="128" height="193"/>
     </elements>
 </model>

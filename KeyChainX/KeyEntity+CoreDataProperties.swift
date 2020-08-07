@@ -1,9 +1,8 @@
 //
 //  KeyEntity+CoreDataProperties.swift
-//  KeyChainX
+//  
 //
-//  Created by softphone on 05/08/2020.
-//  Copyright © 2020 Bartolomeo Sorrentino. All rights reserved.
+//  Created by softphone on 07/08/2020.
 //
 //
 
@@ -25,7 +24,8 @@ extension KeyEntity {
     @NSManaged public var sectionId: String?
     @NSManaged public var url: String?
     @NSManaged public var username: String
-    @NSManaged public var linkedTo: NSSet?
+    @NSManaged public var linkedTo: Set<KeyEntity>?
+    @NSManaged public var linkedBy: KeyEntity?
 
 }
 
@@ -39,9 +39,9 @@ extension KeyEntity {
     @NSManaged public func removeFromLinkedTo(_ value: KeyEntity)
 
     @objc(addLinkedTo:)
-    @NSManaged public func addToLinkedTo(_ values: NSSet)
+    @NSManaged public func addToLinkedTo(_ values: Set<KeyEntity>)
 
     @objc(removeLinkedTo:)
-    @NSManaged public func removeFromLinkedTo(_ values: NSSet)
+    @NSManaged public func removeFromLinkedTo(_ values: Set<KeyEntity>)
 
 }

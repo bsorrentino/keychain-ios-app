@@ -151,7 +151,9 @@ class CoreDataTests: XCTestCase {
             XCTAssertEqual(linkedTo.count, 2, "tehere are no linked keys to \(mnemomic)")
             
             linkedTo.forEach { lk in
-                print( "linked key of \(mnemomic): \(lk)")
+                print( "linked key of \(mnemomic): \(lk.mnemonic) - \(lk.linkedBy?.mnemonic ?? "nil")")
+                
+                XCTAssertEqual(lk.linkedBy?.mnemonic, mnemomic)
             }
             
             

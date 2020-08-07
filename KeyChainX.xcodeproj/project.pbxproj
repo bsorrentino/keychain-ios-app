@@ -18,8 +18,8 @@
 		5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F22361FD900066E947 /* App+CoreData.swift */; };
 		5F5772F52361FDD50066E947 /* App+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F42361FDD50066E947 /* App+Error.swift */; };
 		5F59285023B924F5004EC296 /* App+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59284F23B924F5004EC296 /* App+Version.swift */; };
+		5F5F0ECD24DD87E3006D9390 /* KeyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F0ECC24DD87E3006D9390 /* KeyEntity+CoreDataProperties.swift */; };
 		5F5F558624DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */; };
-		5F5F558824DB5D2700D5A4D1 /* KeyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F558524DB5D2700D5A4D1 /* KeyEntity+CoreDataProperties.swift */; };
 		5F5F559024DC1DDF00D5A4D1 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */; };
 		5F66FB6123A7D890005131D4 /* KeyGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */; };
 		5F9ABB3C2379828000AC052A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5F9ABB3B2379828000AC052A /* KeychainAccess */; };
@@ -83,8 +83,8 @@
 		5F5772F22361FD900066E947 /* App+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+CoreData.swift"; sourceTree = "<group>"; };
 		5F5772F42361FDD50066E947 /* App+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Error.swift"; sourceTree = "<group>"; };
 		5F59284F23B924F5004EC296 /* App+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Version.swift"; sourceTree = "<group>"; };
+		5F5F0ECC24DD87E3006D9390 /* KeyEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "KeyEntity+CoreDataProperties.swift"; path = "/Users/softphone/WORKSPACES/GITHUB/IOS/keychain-ios-app/KeyChainX/KeyEntity+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		5F5F558524DB5D2700D5A4D1 /* KeyEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyGroupCell.xib; sourceTree = "<group>"; };
 		5F9ABB3D237983A800AC052A /* App+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Keychain.swift"; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */,
-				5F5F558524DB5D2700D5A4D1 /* KeyEntity+CoreDataProperties.swift */,
+				5F5F0ECC24DD87E3006D9390 /* KeyEntity+CoreDataProperties.swift */,
 				A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */,
 				A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */,
 				A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */,
@@ -545,6 +545,7 @@
 				5F5772F52361FDD50066E947 /* App+Error.swift in Sources */,
 				5F01277523B776CC0033E2B9 /* BackupKeysView.swift in Sources */,
 				5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */,
+				5F5F0ECD24DD87E3006D9390 /* KeyEntity+CoreDataProperties.swift in Sources */,
 				A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */,
 				5F01277923B7C05D0033E2B9 /* FileManagerView.swift in Sources */,
 				5F9ABB3E237983A800AC052A /* App+Keychain.swift in Sources */,
@@ -560,7 +561,6 @@
 				A047651E23DDABE2005B8547 /* KeyItemForm+Password.swift in Sources */,
 				A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */,
 				A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */,
-				5F5F558824DB5D2700D5A4D1 /* KeyEntity+CoreDataProperties.swift in Sources */,
 				A0C0DB5E22A901AD003B09ED /* KeyItemList.swift in Sources */,
 				5F5F558624DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift in Sources */,
 				5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */,

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/softphone/WORKSPACES/GITHUB/IOS/keychain-ios-app/KeyChainX/KeyEntity+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:KeyChainX.xcodeproj">
    </FileRef>
    <FileRef
