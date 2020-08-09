@@ -87,19 +87,19 @@ struct KeyEntityForm : View {
     func mnemonicInput() -> some View  {
         
         VStack(alignment: .leading) {
-            HStack {
-                Text("mnemonic")
-                if( !item.mnemonicCheck.valid  ) {
-                    Spacer()
-                    Text( item.mnemonicCheck.errorMessage ?? "" )
-                        .fontWeight(.light)
-                        .font(.footnote)
-                        .foregroundColor(Color.red)
-
-                }
-
-            }
-            
+//            HStack {
+//                Text("mnemonic")
+//                if( !item.mnemonicCheck.valid  ) {
+//                    Spacer()
+//                    Text( item.mnemonicCheck.errorMessage ?? "" )
+//                        .fontWeight(.light)
+//                        .font(.footnote)
+//                        .foregroundColor(Color.red)
+//
+//                }
+//
+//            }
+//
             TextFieldWithValidator( title: "give me the unique name of key",
                                     value: $item.mnemonic,
                                     checker:$item.mnemonicCheck ) { v in
@@ -112,11 +112,11 @@ struct KeyEntityForm : View {
             }
             .autocapitalization(.allCharacters)
             .padding(10.0)
-            .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: strikeWidth)
-                    .foregroundColor(item.mnemonicCheck.valid ? Color.black : Color.red)
-            )
+//            .overlay(
+//                    RoundedRectangle(cornerRadius: 10)
+//                        .stroke(lineWidth: strikeWidth)
+//                    .foregroundColor(item.mnemonicCheck.valid ? Color.black : Color.red)
+//            )
 
         }
             
@@ -191,13 +191,13 @@ struct KeyEntityForm : View {
                 
                 if( item.isNew ) {
                     
-                    Section {
+                    Section(header: Text("MNEMONIC"), footer: EmptyView() ) {
                         mnemonicInput()
                     }
 
                 }
 
-                Section {
+                Section( header: Text("CREDENTIALS")) {
                                 
                     usernameInput()
                     
@@ -205,7 +205,7 @@ struct KeyEntityForm : View {
                                         
                 }
                 
-                Section {
+                Section( header: Text("Other")) {
                     
                     GroupField( value:$item.groupPrefix )
 
