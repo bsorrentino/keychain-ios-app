@@ -119,6 +119,49 @@ class CoreDataTests: XCTestCase {
 
     }
 
+    func testCompatibility() {
+
+        guard let container = self.container else {
+            XCTFail( "NSPersistentCloudKitContainer is not valid"  )
+            return
+        }
+        
+        let persistentStoreDescriptions = container.persistentStoreDescriptions
+        
+        XCTAssertFalse( persistentStoreDescriptions.isEmpty, "persistentStoreDescriptions is empty" )
+        
+//        container.persistentStoreDescriptions.forEach { persistentStoreDescription in
+//            print( "persistentStoreDescription.url = \(String(describing: persistentStoreDescription.url))")
+//        }
+
+        XCTAssertTrue( container.persistentStoreDescriptions.count == 1, "persistentStoreDescriptions is greater than 1" )
+
+        let persistentStoreDescription = container.persistentStoreDescriptions[0]
+        
+        guard let url = persistentStoreDescription.url else {
+            XCTFail( "NSPersistentCloudKitContainer.url is null"  )
+            return
+        }
+        
+        print( "URL: \(url)" )
+        
+        let stores = container.persistentStoreCoordinator.persistentStores
+        
+        XCTAssertTrue( stores.count == 1, "persistentStores count \(stores.count) doesn't match with 1" )
+        
+        let store = stores[0]
+        
+        guard let metadata = stores[0].metadata else {
+            XCTFail( "store \(String(describing: store.identifier))  has not valid metadata!"  )
+            return
+        }
+        
+        let isCompatible = container.managedObjectModel.isConfiguration(withName: nil, compatibleWithStoreMetadata: metadata)
+        
+        XCTAssertTrue( isCompatible, "model is not compatible!" )
+    }
+    
+    
     func testCoreData() {
         
         guard let context = self.container?.viewContext else {
