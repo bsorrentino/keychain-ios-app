@@ -45,7 +45,7 @@ struct RestoreKeysView: View {
                     }.padding(0.0)
                 //}
             }
-            .navigationBarTitle( Text("Backup"), displayMode: .large)
+            .navigationBarTitle( Text("Restore"), displayMode: .large)
             .actionSheet(isPresented: $data.showingSheet) {
                 ActionSheet(title: Text("Modality"),
                             message: Text("How want to restore keys"),
