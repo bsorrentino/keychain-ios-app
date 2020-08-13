@@ -21,7 +21,6 @@ extension KeyEntity {
     @NSManaged public var groupPrefix: String?
     @NSManaged public var mail: String?
     @NSManaged public var mnemonic: String
-    @NSManaged public var sectionId: String?
     @NSManaged public var url: String?
     @NSManaged public var username: String
     @NSManaged public var linkedTo: Set<KeyEntity>?

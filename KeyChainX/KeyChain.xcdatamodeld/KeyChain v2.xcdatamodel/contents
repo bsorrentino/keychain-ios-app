@@ -11,7 +11,6 @@
         <attribute name="groupPrefix" optional="YES" attributeType="String"/>
         <attribute name="mail" optional="YES" attributeType="String"/>
         <attribute name="mnemonic" attributeType="String" minValueString="1"/>
-        <attribute name="sectionId" optional="YES" transient="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
         <attribute name="username" attributeType="String" minValueString="1"/>
         <relationship name="linkedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="KeyInfo" inverseName="linkedTo" inverseEntity="KeyInfo"/>
@@ -24,6 +23,6 @@
     <fetchRequest name="fetchByName" entity="KeyInfo" predicateString="mnemonic BEGINSWITH &quot;%@&quot;"/>
     <elements>
         <element name="AttributeInfo" positionX="169" positionY="-93" width="128" height="73"/>
-        <element name="KeyInfo" positionX="81" positionY="36" width="128" height="193"/>
+        <element name="KeyInfo" positionX="81" positionY="36" width="128" height="178"/>
     </elements>
 </model>

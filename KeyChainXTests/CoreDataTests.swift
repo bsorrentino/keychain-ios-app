@@ -10,6 +10,16 @@ import XCTest
 import CoreData
 @testable import KeychainX
 
+enum Keys : String {
+    
+    case A1 = "A1"
+    case A1_1 = "A1.1"
+    case A1_2 = "A1.2"
+
+    case A2 = "A2"
+    case A2_1 = "A2.1"
+}
+
 class CoreDataTests: XCTestCase {
     
     var container:NSPersistentCloudKitContainer? {
@@ -70,22 +80,22 @@ class CoreDataTests: XCTestCase {
         do {
 
             let a11 = try self.insert( inContext: context ) {k in
-                k.mnemonic = "A1.1"
+                k.mnemonic = Keys.A1_1.rawValue
             }
             let a12 = try self.insert( inContext: context ) {k in
-                k.mnemonic = "A1.2"
+                k.mnemonic = Keys.A1_2.rawValue
                 
             }
             let _ = try self.insert( inContext: context ) {k in
-                k.mnemonic = "A1"
+                k.mnemonic = Keys.A1.rawValue
                 k.addToLinkedTo(a11)
                 k.addToLinkedTo(a12)
             }
             let _ = try self.insert( inContext: context ) {k in
-                k.mnemonic = "A2.1"
+                k.mnemonic = Keys.A2_1.rawValue
             }
             let _ = try self.insert( inContext: context ) {k in
-                k.mnemonic = "A2"
+                k.mnemonic = Keys.A2.rawValue
             }
 
             try context.save()
@@ -112,7 +122,11 @@ class CoreDataTests: XCTestCase {
             result.forEach { k in
                 
                 switch( k.mnemonic ) {
-                case "A1.1", "A1.2", "A2.1", "A1", "A2":
+                case    Keys.A1.rawValue,
+                        Keys.A1_1.rawValue,
+                        Keys.A1_2.rawValue,
+                        Keys.A2.rawValue,
+                        Keys.A2.rawValue:
                     context.delete(k)
                 default:
                     print( "skip deletion: \(k.mnemonic)" )
@@ -215,6 +229,36 @@ class CoreDataTests: XCTestCase {
         }
 
 
+    }
+    
+    func testEncode() {
+        guard let context = self.container?.viewContext else {
+            XCTFail()
+            return
+        }
+        
+        do {
+
+            let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
+            let result = try context.fetch( request )
+
+            let array = result.map { k  in  k }
+            
+            let encoder = JSONEncoder()
+            
+            let jsonData = try encoder.encode(array)
+
+            let jsonString = String(data: jsonData, encoding: .utf8)
+            
+            print("JSON String : " + jsonString!)
+            
+            
+        }
+        catch let error as NSError {
+            XCTFail("fail fetching KeyEntity error \(error.userInfo)" )
+        }
+
+        
     }
 
 }

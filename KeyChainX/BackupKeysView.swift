@@ -11,7 +11,12 @@ import SwiftUI
 
 
 struct BackupKeysView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
     
+    @FetchRequest(
+        entity: KeyEntity.entity(),
+        sortDescriptors: []
+    ) var keyResults: FetchedResults<KeyEntity>
     
     var body: some View {
         NavigationView {
@@ -33,6 +38,13 @@ struct BackupKeysView: View {
     }
     
     func backup() {
+        
+        let _ = JSONEncoder()
+        
+        keyResults.forEach { key in
+            
+        }
+        
     }
 }
 

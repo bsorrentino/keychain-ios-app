@@ -14,32 +14,30 @@ import CoreData
 
 let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
 
+extension CodingUserInfoKey {
+    static let context = CodingUserInfoKey( rawValue: "context")
+}
+
+
 @objc(KeyEntity)
-public class KeyEntity: NSManagedObject {
+public class KeyEntity: NSManagedObject /*Codable*/ {
     
-    static func createGroup( context: NSManagedObjectContext, groupPrefix:String) -> KeyEntity {
-        let group = KeyEntity(context: context)
-        group.mnemonic      = groupPrefix
-        group.username      = groupPrefix
-        group.groupPrefix   = groupPrefix
-        group.group         = false
-
-        return group
+    convenience init( context: NSManagedObjectContext ) {
+        self.init(context: context)
     }
-    /**
-     
-     */
-    static func fetchGroups( ) -> NSFetchRequest<KeyEntity> {
+    
+//    required public init( from decoder: Decoder ) throws {
+//            
+//        guard   let contextKey = CodingUserInfoKey.context,
+//                let managedObjectContext = decoder.userInfo[contextKey] as? NSManagedObjectContext,
+//                let entity = NSEntityDescription.entity(forEntityName: "KeyInfo", in: managedObjectContext)
+//            else {
+//                throw "error decoding Key"
+//            }
+//        super.init( entity: entity, insertInto: managedObjectContext)
+//
+//        try KeyEntity.decode(from: decoder, in: self)
+//    }
 
-        let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
-        
-        request.predicate = NSPredicate( format: IS_GROUP_CRITERIA )
-
-        let sortOrder = NSSortDescriptor(keyPath: \KeyEntity.groupPrefix, ascending: true)
-        
-        request.sortDescriptors = [sortOrder]
-
-        return request
-    }
-
+    
 }
