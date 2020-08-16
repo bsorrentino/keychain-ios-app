@@ -35,14 +35,26 @@ let appKeychain = Keychain()
 
 extension UIApplication  {
     
+    typealias Secret = ( password:String, note:String? )
+    
     var keychain:Keychain {
         appKeychain
     }
     
-    func getSecrets( key:String ) throws  -> ( password:String, note:String? )  {
+    func getSecretIfPresent( key:String ) throws  -> Secret?  {
             
         guard let value = try keychain.getString( key ) else {
-            throw "no password founf for key \(key)"
+            return nil
+        }
+            
+        return (password:value, note:keychain[attributes: key]?.comment)
+            
+    }
+
+    func getSecrets( key:String ) throws  -> Secret  {
+            
+        guard let value = try keychain.getString( key ) else {
+            throw "no password found for key \(key)"
         }
             
         return (password:value, note:keychain[attributes: key]?.comment)

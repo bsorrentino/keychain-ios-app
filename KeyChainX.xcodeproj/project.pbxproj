@@ -23,6 +23,7 @@
 		5F5F559024DC1DDF00D5A4D1 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */; };
 		5F66FB6123A7D890005131D4 /* KeyGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */; };
 		5F7C0E8224E940B400B41F20 /* KeyEntity+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C0E8124E940B400B41F20 /* KeyEntity+Codable.swift */; };
+		5F7C0E8824E9A5A500B41F20 /* KeyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */; };
 		5F9ABB3C2379828000AC052A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5F9ABB3B2379828000AC052A /* KeychainAccess */; };
 		5F9ABB3E237983A800AC052A /* App+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ABB3D237983A800AC052A /* App+Keychain.swift */; };
 		5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */; };
@@ -89,6 +90,7 @@
 		5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyGroupCell.xib; sourceTree = "<group>"; };
 		5F7C0E8124E940B400B41F20 /* KeyEntity+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Codable.swift"; sourceTree = "<group>"; };
+		5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItem.swift; sourceTree = "<group>"; };
 		5F9ABB3D237983A800AC052A /* App+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Keychain.swift"; sourceTree = "<group>"; };
 		5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Url.swift"; sourceTree = "<group>"; };
 		5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyGroupListViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				5F5F0ECC24DD87E3006D9390 /* KeyEntity+CoreDataProperties.swift */,
 				5F7C0E8124E940B400B41F20 /* KeyEntity+Codable.swift */,
 				A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */,
+				5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */,
 				A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */,
 				A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */,
 				A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */,
@@ -555,6 +558,7 @@
 				A0EE956F2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift in Sources */,
 				5F59285023B924F5004EC296 /* App+Version.swift in Sources */,
 				5F01277723B776EE0033E2B9 /* RestoreKeysView.swift in Sources */,
+				5F7C0E8824E9A5A500B41F20 /* KeyItem.swift in Sources */,
 				5FFAAD2923B414E200AE78EE /* KeyGroupListViewController.swift in Sources */,
 				A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */,
 				A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */,

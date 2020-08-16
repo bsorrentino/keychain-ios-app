@@ -6,7 +6,7 @@
 //  Copyright © 2020 Bartolomeo Sorrentino. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 
@@ -19,6 +19,12 @@ extension KeyEntity : Encodable {
 
         try values.encode( self.mnemonic, forKey: .mnemonic)
         try values.encode( self.username, forKey: .username)
+        
+        if let data = try UIApplication.shared.getSecretIfPresent(key: self.mnemonic) {
+            try values.encode( data.note ?? "", forKey: .note)
+            try values.encode( data.password, forKey: .password)
+        }
+        
         try values.encode( Bool(exactly: self.group), forKey: .group)
 
         try values.encodeIfPresent(self.groupPrefix, forKey: .groupPrefix)
@@ -34,46 +40,18 @@ extension KeyEntity : Encodable {
 }
 
 enum CodingKeys : String, CodingKey {
-    case mnemonic = "mnemonic"
-    case group = "group"
-    case groupPrefix = "groupPrefix"
-    case mail = "mail"
-    case url = "url"
-    case username = "username"
-    case linkedTo = "linkedTo"
-    case linkedBy = "linkedBy"
-    case expire = "expire"
+    case mnemonic
+    case group
+    case groupPrefix
+    case mail
+    case url
+    case username
+    case password
+    case linkedTo
+    case linkedBy
+    case expire
+    case note
 
 }
 
-struct KeyEntityDecoded : Decodable {
-    
-    var mnemonic: String
-    var username: String
-    var group: Bool
-    var groupPrefix: String?
-    var mail: String?
-    var url: String?
-    var expire: Date?
-    var linkedTo: Set<String>?
-    var linkedBy: String?
-
-    init( from decoder: Decoder ) throws {
-        
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-                  
-        self.mnemonic = try values.decode( String.self, forKey: .mnemonic )
-        self.username = try values.decode( String.self, forKey: .username )
-        self.group = try values.decode( Bool.self, forKey: .group );
-        
-        // Optional
-        self.groupPrefix  = try values.decodeIfPresent( String.self, forKey: .groupPrefix )
-        self.mail         = try values.decodeIfPresent( String.self, forKey: .mail )
-        self.url          = try values.decodeIfPresent( String.self, forKey: .url )
-        self.linkedTo     = try values.decodeIfPresent( Set<String>.self, forKey: .linkedTo )
-        self.linkedBy     = try values.decodeIfPresent( String.self, forKey: .linkedBy )
-
-    }
-    
-}
 

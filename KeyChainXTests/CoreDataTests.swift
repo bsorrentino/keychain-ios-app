@@ -126,8 +126,9 @@ class CoreDataTests: XCTestCase {
                         Keys.A1_1.rawValue,
                         Keys.A1_2.rawValue,
                         Keys.A2.rawValue,
-                        Keys.A2.rawValue:
+                        Keys.A2_1.rawValue:
                     context.delete(k)
+                    break;
                 default:
                     print( "skip deletion: \(k.mnemonic)" )
                 }
@@ -265,7 +266,7 @@ class CoreDataTests: XCTestCase {
 
             let decoder = JSONDecoder()
             
-            let keys =  try decoder.decode(Array<KeyEntityDecoded>.self, from: jsonData!) as [KeyEntityDecoded]
+            let keys =  try decoder.decode(Array<KeyItem>.self, from: jsonData!) as [KeyItem]
 
             keys.forEach { ke in
                 print( ke )
