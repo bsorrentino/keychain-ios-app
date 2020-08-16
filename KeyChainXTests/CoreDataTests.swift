@@ -230,14 +230,17 @@ class CoreDataTests: XCTestCase {
 
 
     }
-    
-    func testEncode() {
+
+    func testCoding() {
         guard let context = self.container?.viewContext else {
             XCTFail()
             return
         }
         
-        do {
+        
+        var jsonData:Data?
+        
+        do { // Test Encoder
 
             let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
             let result = try context.fetch( request )
@@ -246,13 +249,28 @@ class CoreDataTests: XCTestCase {
             
             let encoder = JSONEncoder()
             
-            let jsonData = try encoder.encode(array)
+            jsonData = try encoder.encode(array)
 
-            let jsonString = String(data: jsonData, encoding: .utf8)
+            let jsonString = String(data: jsonData!, encoding: .utf8)
             
             print("JSON String : " + jsonString!)
             
             
+        }
+        catch let error as NSError {
+            XCTFail("fail fetching KeyEntity error \(error.userInfo)" )
+        }
+        
+        do { // Test Decoder
+
+            let decoder = JSONDecoder()
+            
+            let keys =  try decoder.decode(Array<KeyEntityDecoded>.self, from: jsonData!) as [KeyEntityDecoded]
+
+            keys.forEach { ke in
+                print( ke )
+            }
+
         }
         catch let error as NSError {
             XCTFail("fail fetching KeyEntity error \(error.userInfo)" )
