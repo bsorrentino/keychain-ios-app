@@ -100,7 +100,7 @@ struct KeyEntityForm : View {
             }
             .autocapitalization(.allCharacters)
             .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
-            .overlay( ValidatorMessageInline( message: item.mnemonicCheck.errorMessage ?? "" )
+            .overlay( ValidatorMessageInline( message: item.mnemonicCheck.errorMessage )
                 ,alignment: .bottom)
 
         }
