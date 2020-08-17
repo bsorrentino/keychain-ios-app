@@ -10,22 +10,31 @@ import XCTest
 import CoreData
 @testable import KeychainX
 
-enum Keys : String {
-    
-    case A1 = "A1"
-    case A1_1 = "A1.1"
-    case A1_2 = "A1.2"
-
-    case A2 = "A2"
-    case A2_1 = "A2.1"
-}
-
 class CoreDataTests: XCTestCase {
-    
-    var container:NSPersistentCloudKitContainer? {
-        var result:NSPersistentCloudKitContainer? = nil
+    let key1 = "A1"
+    let key1_1 = "A1.1"
+    let key1_2 = "A1.2"
+    let key2 = "A2"
+    let key2_1 = "A2.1"
+    let keyCount = 5
+
+    var container:NSPersistentContainer? {
+        //var result:NSPersistentCloudKitContainer? = nil
+        var result:NSPersistentContainer? = nil
+
+        let objectModelName = "KeyChain"
+        guard let objectModelUrl = Bundle.main.url(forResource: objectModelName, withExtension: "momd") else {
+            XCTFail("model '\(objectModelName)' not found!")
+            return nil
+        }
         
-        let container = NSPersistentCloudKitContainer(name: "KeyChain")
+        guard let dataModel = NSManagedObjectModel( contentsOf: objectModelUrl) else {
+            XCTFail("error creating objevt model from url '\(objectModelUrl)'!")
+            return nil
+        }
+        
+        //let container = NSPersistentCloudKitContainer(name: "KeyChain_test")
+        let container = NSPersistentContainer(name: "KeyChain_test", managedObjectModel: dataModel)
         container.loadPersistentStores() { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -79,24 +88,15 @@ class CoreDataTests: XCTestCase {
 
         do {
 
-            let a11 = try self.insert( inContext: context ) {k in
-                k.mnemonic = Keys.A1_1.rawValue
-            }
-            let a12 = try self.insert( inContext: context ) {k in
-                k.mnemonic = Keys.A1_2.rawValue
-                
-            }
+            let a11 = try self.insert( inContext: context ) {k in k.mnemonic = key1_1 }
+            let a12 = try self.insert( inContext: context ) {k in k.mnemonic = key1_2 }
             let _ = try self.insert( inContext: context ) {k in
-                k.mnemonic = Keys.A1.rawValue
+                k.mnemonic = key1
                 k.addToLinkedTo(a11)
                 k.addToLinkedTo(a12)
             }
-            let _ = try self.insert( inContext: context ) {k in
-                k.mnemonic = Keys.A2_1.rawValue
-            }
-            let _ = try self.insert( inContext: context ) {k in
-                k.mnemonic = Keys.A2.rawValue
-            }
+            let _ = try self.insert( inContext: context ) {k in k.mnemonic = key2_1 }
+            let _ = try self.insert( inContext: context ) {k in k.mnemonic = key2 }
 
             try context.save()
         }
@@ -120,19 +120,8 @@ class CoreDataTests: XCTestCase {
             let result = try context.fetch( request )
 
             result.forEach { k in
-                
-                switch( k.mnemonic ) {
-                case    Keys.A1.rawValue,
-                        Keys.A1_1.rawValue,
-                        Keys.A1_2.rawValue,
-                        Keys.A2.rawValue,
-                        Keys.A2_1.rawValue:
-                    context.delete(k)
-                    break;
-                default:
-                    print( "skip deletion: \(k.mnemonic)" )
-                }
-                
+                print( "delete key \(k.mnemonic)")
+                context.delete(k)
             }
 
             try context.save()
@@ -232,7 +221,7 @@ class CoreDataTests: XCTestCase {
 
     }
 
-    func testCoding() {
+    func testCodable() {
         guard let context = self.container?.viewContext else {
             XCTFail()
             return
@@ -243,12 +232,12 @@ class CoreDataTests: XCTestCase {
         
         do { // Test Encoder
 
+            let encoder = JSONEncoder()
+            
             let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
             let result = try context.fetch( request )
 
             let array = result.map { k  in  k }
-            
-            let encoder = JSONEncoder()
             
             jsonData = try encoder.encode(array)
 
@@ -268,8 +257,10 @@ class CoreDataTests: XCTestCase {
             
             let keys =  try decoder.decode(Array<KeyItem>.self, from: jsonData!) as [KeyItem]
 
+            XCTAssertEqual( keys.count, keyCount , "decode keys count \(keys.count) is different of expected \(keyCount) " )
+            
             keys.forEach { ke in
-                print( ke )
+                print( ke.mnemonic )
             }
 
         }
