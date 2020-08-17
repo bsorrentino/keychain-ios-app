@@ -54,20 +54,8 @@ struct PasswordField : View {
     
     var body: some View {
         
-         VStack(alignment: .leading) {
+         //VStack(alignment: .leading) {
              
-             HStack {
-                Text("Password")
-                 if( !passwordCheck.valid  ) {
-                     Spacer()
-                     Text( passwordCheck.errorMessage ?? "" )
-                         .fontWeight(.light)
-                         .font(.footnote)
-                         .foregroundColor(Color.red)
-
-                 }
-
-             }
             HStack {
                 PasswordToggleField( value:$value,
                                   checker:$passwordCheck,
@@ -97,14 +85,13 @@ struct PasswordField : View {
                 
 
             }
-             .padding( 10.0 )
-             .overlay( RoundedRectangle(cornerRadius: 10)
-                         .stroke(lineWidth: strikeWidth )
-                         .foregroundColor(passwordCheck.valid ? Color.black : Color.red)
+            .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
+             .overlay(
+                 ValidatorMessageInline( message:passwordCheck.errorMessage ), alignment: .bottom
              )
 
 
-        }.buttonStyle(PlainButtonStyle())
+        //}.buttonStyle(PlainButtonStyle())
         
     }
 }

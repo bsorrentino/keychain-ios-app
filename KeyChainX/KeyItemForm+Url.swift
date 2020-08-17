@@ -70,12 +70,17 @@ struct UrlView: View {
                    
                    return nil
             }
-            .textFieldStyle(RoundedBorderTextFieldStyle())
+            //.textFieldStyle(RoundedBorderTextFieldStyle())
             .autocapitalization(.none)
             .disableAutocorrection(true)
+            .textContentType(.URL)
             .font(.body)
-            //.border(Color.black, width: 0.5)
-            
+            .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
+            .overlay(
+                ValidatorMessageInline( message:urlValid.errorMessage ), alignment: .bottom
+            )
+
+            Divider()
             
             
             WebView( url: URL( string: value), reload:$urlReload )
