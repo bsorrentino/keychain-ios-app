@@ -25,7 +25,7 @@ extension KeyEntity : Encodable {
             try values.encode( data.password, forKey: .password)
         }
         
-        try values.encode( Bool(exactly: self.group), forKey: .group)
+        try values.encode( self.group.boolValue, forKey: .group)
 
         try values.encodeIfPresent(self.groupPrefix, forKey: .groupPrefix)
         try values.encodeIfPresent(self.mail, forKey: .mail)

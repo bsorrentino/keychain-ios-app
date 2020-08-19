@@ -34,7 +34,6 @@ extension EnvironmentValues {
 let appKeychain = Keychain()
 
 extension UIApplication  {
-    
     typealias Secret = ( password:String, note:String? )
     
     var keychain:Keychain {
@@ -42,15 +41,15 @@ extension UIApplication  {
     }
     
     func getSecretIfPresent( key:String ) throws  -> Secret?  {
-            
-        guard let value = try keychain.getString( key ) else {
-            return nil
-        }
-            
-        return (password:value, note:keychain[attributes: key]?.comment)
-            
+             
+         guard let value = try keychain.getString( key ) else {
+             return nil
+         }
+             
+         return (password:value, note:keychain[attributes: key]?.comment)
+             
     }
-
+    
     func getSecrets( key:String ) throws  -> Secret  {
             
         guard let value = try keychain.getString( key ) else {
@@ -62,11 +61,11 @@ extension UIApplication  {
     }
     
     func setSecrets( key:String, password:String, note:String? ) throws  {
-            
+        
         if let note = note {
             try keychain.comment(note).set( password, key: key )
         }
-        else {
+        else  {
             try keychain.set( password, key: key )
         }
 
