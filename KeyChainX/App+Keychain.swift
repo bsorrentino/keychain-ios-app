@@ -61,11 +61,11 @@ extension UIApplication  {
     }
     
     func setSecrets( key:String, password:String, note:String? ) throws  {
-            
+        
         if let note = note {
             try keychain.comment(note).set( password, key: key )
         }
-        else {
+        else  {
             try keychain.set( password, key: key )
         }
 

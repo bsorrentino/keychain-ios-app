@@ -26,15 +26,15 @@ struct ContentView: View {
                         }
                     }
                 .tag(0)
-    //            BackupKeysView()
-    //                .font(.title)
-    //                .tabItem {
-    //                    VStack {
-    //                        Image(systemName: "arrow.down.doc")
-    //                        Text("Backup keys")
-    //                    }
-    //                }
-    //                .tag(1)
+                BackupKeysView()
+                    .font(.title)
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "arrow.down.doc")
+                            Text("Backup keys")
+                        }
+                    }
+                    .tag(1)
                 RestoreKeysView()
                     .font(.title)
                     .tabItem {
