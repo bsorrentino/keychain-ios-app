@@ -30,9 +30,6 @@ extension KeyEntity : Encodable {
         try values.encodeIfPresent(self.groupPrefix, forKey: .groupPrefix)
         try values.encodeIfPresent(self.mail, forKey: .mail)
         try values.encodeIfPresent(self.url, forKey: .url)
-        
-        try values.encodeIfPresent(self.linkedBy?.mnemonic, forKey: .linkedBy)
-        try values.encodeIfPresent(self.linkedTo?.map({ k in k.mnemonic }), forKey: .linkedTo)
 
     }
 

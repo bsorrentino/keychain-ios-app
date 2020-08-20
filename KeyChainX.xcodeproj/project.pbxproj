@@ -969,7 +969,7 @@
 				5F2B152124D3502B00983F68 /* KeyChain v2.xcdatamodel */,
 				A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */,
 			);
-			currentVersion = 5F2B152124D3502B00983F68 /* KeyChain v2.xcdatamodel */;
+			currentVersion = A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */;
 			path = KeyChain.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

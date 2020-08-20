@@ -78,11 +78,6 @@ class KeyItem : ObservableObject, Decodable {
         self.groupPrefix    = entity.groupPrefix
         self.expire         = entity.expire
         self.url            = entity.url ?? ""
-        self.linkedBy       = entity.linkedBy?.mnemonic
-        
-        if let linkedTo = entity.linkedTo?.map({ k in k.mnemonic }) {
-             self.linkedTo = Set(linkedTo)
-        }
        
         
         if let data = try? UIApplication.getSecretIfPresent(key: entity.mnemonic) {
