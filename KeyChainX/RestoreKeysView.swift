@@ -12,11 +12,13 @@ import SwiftUI
 struct RestoreKeysView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
-    @State var showingSheet = false
-    @State var showingError = false
-    @State var selectedURL:URL?
-    @State var error:Error?
-
+    
+    @State private var showingSheet = false
+    @State private var alertItem:AlertItem?
+    @State private var showReportView = false
+    
+    @ObservedObject var restoreInfo = KeysProcessingReport()
+    
     var body: some View {
         NavigationView {
             FileManagerView { (url) in
@@ -26,8 +28,9 @@ struct RestoreKeysView: View {
                             .font(.system(size: 25 ))
                         Spacer()
                         Button( action: {
-                            self.selectedURL = url
+                            self.restoreInfo.url = url
                             self.showingSheet = true
+                            
                         }) {
                             VStack {
                                 Text("restore")
@@ -37,26 +40,28 @@ struct RestoreKeysView: View {
                             .padding( 10.0 )
                         }
                         .background(Color.secondary)
+                        .actionSheet(isPresented: self.$showingSheet) {
+                            ActionSheet(title: Text("Modality"),
+                                        message: Text("How want to restore keys"),
+                                        buttons: [
+                                            //.default(Text("Add missing")) {},
+                                            .destructive(Text("Replace All")) {
+                                                self.prepareRestore()
+                                            },
+                                            .cancel(Text("Dismiss"))
+                                            ])
+                        }
+                        .alert(item: self.$alertItem) { item in makeAlert(item:item) }
                         
                     }.padding(0.0)
                 //}
             }
             .navigationBarTitle( Text("Restore"), displayMode: .large)
-            .actionSheet(isPresented: $showingSheet) {
-                ActionSheet(title: Text("Modality"),
-                            message: Text("How want to restore keys"),
-                            buttons: [
-                                //.default(Text("Add missing")) {},
-                                .destructive(Text("Replace All")) {
-                                    self.restore()
-                                },
-                                .cancel(Text("Dismiss"))
-                                ])
-            }
-            .alert(isPresented: $showingError) {
-                Alert(title: Text("Error Restoring Data"),
-                      message: Text( error?.localizedDescription ?? "Unknown" ),
-                      dismissButton: .default(Text("OK")))
+            .sheet( isPresented: self.$showReportView) {
+                ProcessingReportView( processingInfo: self.restoreInfo).onAppear( perform: {
+                    self.performRestore()
+                })
+
             }
 
         }
@@ -64,15 +69,30 @@ struct RestoreKeysView: View {
 
     typealias Keys = Array<KeyItem>
     
-    func restore() {
+    private func prepareRestore() {
         
-        guard let url = selectedURL else {
+        do {
+            try UIApplication.deleteAllWithMerge( context: managedObjectContext )
+            
+            showReportView = true
+        }
+        catch {
+            
+            self.alertItem = makeAlertItem( error:"Error Deleting Data [\(error)]" )
+        }
+    }
+    
+    private func performRestore() {
+        
+        self.restoreInfo.reset()
+
+        guard let url = self.restoreInfo.url else {
+            self.restoreInfo.terminated = true
             return
         }
-
+        
         do {
-            try deleteAllWithMerge( context: managedObjectContext )
-            
+
             let content = try Data(contentsOf: url)
 
             var keys:Keys?
@@ -88,7 +108,7 @@ struct RestoreKeysView: View {
 
                 print( "# object to import: \(keys.count) " )
 
-                try keys.forEach { item in
+                keys.forEach { item in
                     
 //                    print(
 //                        """
@@ -99,12 +119,19 @@ struct RestoreKeysView: View {
 //
 //                        """)
 //
-                    if( item.password.isEmpty ) {
+                    if( item.password.isEmpty && item.group ) {
                         print( "password for item \(item.mnemonic) not valid!")
                     }
                     
-                    try item.insert(into: managedObjectContext)
-                            
+                    do {
+                        restoreInfo.processed += 1
+                        
+                        try item.insert(into: managedObjectContext)
+                    }
+                    catch {
+                        
+                        restoreInfo.errors.append( error )
+                    }
                 }
 
                 try managedObjectContext.save()
@@ -113,10 +140,12 @@ struct RestoreKeysView: View {
 
         }
         catch {
-            print( "restore error \(error)" )
-            self.error = error
-            self.showingError = true
+            
+            self.alertItem = makeAlertItem( error:"Error Restoring Data [\(error)]" )
         }
+        
+        restoreInfo.terminated = true
+           
     }
     
     func restoreJSON( from content:Data ) throws -> Keys {

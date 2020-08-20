@@ -7,8 +7,8 @@
 //
 
 import XCTest
-//@testable import KeyChainX
 import KeychainAccess
+@testable import KeychainX
 
 class KeyChainXTests: XCTestCase {
 
@@ -103,5 +103,6 @@ class KeyChainXTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
 
 }

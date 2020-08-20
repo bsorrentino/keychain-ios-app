@@ -25,6 +25,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // @see https://stackoverflow.com/a/56862325/521197
         // Use a UIHostingController as window root view controller
+        
+        
+        #if !NO_UNIT_TEST
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             
@@ -36,6 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+        #endif
     
         // Use a UIHostingController as window root view controller
         //let window = UIWindow(frame: UIScreen.main.bounds)

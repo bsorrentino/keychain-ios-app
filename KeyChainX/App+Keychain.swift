@@ -35,44 +35,40 @@ let appKeychain = Keychain()
 
 extension UIApplication  {
     typealias Secret = ( password:String, note:String? )
-    
-    var keychain:Keychain {
-        appKeychain
-    }
-    
-    func getSecretIfPresent( key:String ) throws  -> Secret?  {
+
+    static func getSecretIfPresent( key:String ) throws  -> Secret?  {
              
-         guard let value = try keychain.getString( key ) else {
+         guard let value = try appKeychain.getString( key ) else {
              return nil
          }
              
-         return (password:value, note:keychain[attributes: key]?.comment)
+         return (password:value, note:appKeychain[attributes: key]?.comment)
              
     }
     
-    func getSecrets( key:String ) throws  -> Secret  {
+    static func getSecret( key:String ) throws  -> Secret  {
             
-        guard let value = try keychain.getString( key ) else {
-            throw "no password founf for key \(key)"
+        guard let value = try appKeychain.getString( key ) else {
+            throw "no password found for key \(key)"
         }
             
-        return (password:value, note:keychain[attributes: key]?.comment)
+        return (password:value, note:appKeychain[attributes: key]?.comment)
             
     }
     
-    func setSecrets( key:String, password:String, note:String? ) throws  {
+    static func setSecret( key:String, password:String, note:String? ) throws  {
         
         if let note = note {
-            try keychain.comment(note).set( password, key: key )
+            try appKeychain.comment(note).set( password, key: key )
         }
         else  {
-            try keychain.set( password, key: key )
+            try appKeychain.set( password, key: key )
         }
 
     }
     
-    func removeSecrets( key: String ) throws {
-        try keychain.remove(key)
+    static func removeSecret( key: String ) throws {
+        try appKeychain.remove(key)
 
     }
 

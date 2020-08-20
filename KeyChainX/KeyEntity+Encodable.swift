@@ -20,7 +20,7 @@ extension KeyEntity : Encodable {
         try values.encode( self.mnemonic, forKey: .mnemonic)
         try values.encode( self.username, forKey: .username)
         
-        if let data = try UIApplication.shared.getSecretIfPresent(key: self.mnemonic) {
+        if let data = try UIApplication.getSecretIfPresent(key: self.mnemonic) {
             try values.encode( data.note ?? "", forKey: .note)
             try values.encode( data.password, forKey: .password)
         }
@@ -30,7 +30,7 @@ extension KeyEntity : Encodable {
         try values.encodeIfPresent(self.groupPrefix, forKey: .groupPrefix)
         try values.encodeIfPresent(self.mail, forKey: .mail)
         try values.encodeIfPresent(self.url, forKey: .url)
-        
+
     }
 
 
@@ -44,6 +44,8 @@ enum CodingKeys : String, CodingKey {
     case url
     case username
     case password
+    case linkedTo
+    case linkedBy
     case expire
     case note
 

@@ -15,8 +15,6 @@ import FieldValidatorLibrary
 
 // MARK: Search Criterias
 
-let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
-
 // MARK: CoreData extension
 
 enum SavingError :Error {
@@ -32,7 +30,7 @@ enum SavingError :Error {
 // MARK: DISCONNECTED KEYENTITY OBJECT
 //
 
- 
+#if false
 class KeyItem : ObservableObject, Decodable {
     
     private var entity:KeyEntity?
@@ -204,7 +202,7 @@ class KeyItem : ObservableObject, Decodable {
     }
     
 }
-
+#endif
 
 extension UIApplication {
     
@@ -274,7 +272,7 @@ extension UIApplication {
                 }
                 
                 do {
-                    try removeSecrets(key: keyDeleted.mnemonic )
+                    try UIApplication.removeSecret(key: keyDeleted.mnemonic )
                     print( "secrets \(keyDeleted.mnemonic) removed!")
                 }
                 catch {
@@ -285,7 +283,7 @@ extension UIApplication {
     }
         
     
-    // Core Data Saving support
+    // MARK: Core Data Saving support
     private func saveContext () {
         let context = managedObjectContext
 
@@ -301,11 +299,13 @@ extension UIApplication {
         }
     }
 
-    /**
-        Fetch Single Value
-     */
-    func fetchSingle( entity:NSEntityDescription, predicateFormat:String, key:String  ) throws -> Any {
-        let context = managedObjectContext
+    // MARK: Fetch Single Value
+    static func fetchSingle<T : NSManagedObject>(
+        context:NSManagedObjectContext,
+        entity:NSEntityDescription,
+        predicateFormat:String,
+        key:String  ) throws -> T
+    {
 
         let request = NSFetchRequest<NSFetchRequestResult>()
         request.entity =  entity
@@ -320,7 +320,30 @@ extension UIApplication {
             throw SavingError.DuplicateKey(id: key)
             
         }
-        return fetchResult[0]
+        return fetchResult.first as! T
+    }
+    
+    // MARK: Fetch Single Value if Present
+    static func fetchSingleIfPresent<T : NSManagedObject>(
+        context:NSManagedObjectContext,
+        entity:NSEntityDescription,
+        predicateFormat:String,
+        key:String  ) throws -> T?
+    {
+
+        let request = NSFetchRequest<NSFetchRequestResult>()
+        request.entity =  entity
+        request.predicate = NSPredicate( format: predicateFormat, key)
+        let fetchResult = try context.fetch( request )
+        
+        if( fetchResult.count == 0 ) {
+            return nil
+        }
+        if( fetchResult.count > 1 ) {
+            throw SavingError.DuplicateKey(id: key)
+            
+        }
+        return fetchResult.first as? T
     }
 
 //    func deleteAll() throws -> Int {
@@ -335,26 +358,27 @@ extension UIApplication {
 //        return result.result as! Int
 //    }
 
+    //
+    // @see https://www.avanderlee.com/swift/nsbatchdeleterequest-core-data/
+    //
+    static func deleteAllWithMerge( context:NSManagedObjectContext ) throws {
+
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: KeyEntity.fetchRequest())
+        
+        batchDeleteRequest.resultType = .resultTypeObjectIDs
+
+        let result = try context.execute(batchDeleteRequest) as! NSBatchDeleteResult
+        
+        let objectIDs = result.result as! [NSManagedObjectID]
+        
+        let changes: [AnyHashable: Any] = [NSDeletedObjectsKey: objectIDs]
+        
+        NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
+    }
 
 }
 
-//
-// @see https://www.avanderlee.com/swift/nsbatchdeleterequest-core-data/
-//
-func deleteAllWithMerge( context:NSManagedObjectContext ) throws {
 
-    let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: KeyEntity.fetchRequest())
-    
-    batchDeleteRequest.resultType = .resultTypeObjectIDs
-
-    let result = try context.execute(batchDeleteRequest) as! NSBatchDeleteResult
-    
-    let objectIDs = result.result as! [NSManagedObjectID]
-    
-    let changes: [AnyHashable: Any] = [NSDeletedObjectsKey: objectIDs]
-    
-    NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
-}
 
 
 #if false
