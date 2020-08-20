@@ -23,24 +23,6 @@ extension KeyEntity {
     @NSManaged public var mnemonic: String
     @NSManaged public var url: String?
     @NSManaged public var username: String
-    @NSManaged public var linkedTo: Set<KeyEntity>?
-    @NSManaged public var linkedBy: KeyEntity?
 
 }
 
-// MARK: Generated accessors for linkedTo
-extension KeyEntity {
-
-    @objc(addLinkedToObject:)
-    @NSManaged public func addToLinkedTo(_ value: KeyEntity)
-
-    @objc(removeLinkedToObject:)
-    @NSManaged public func removeFromLinkedTo(_ value: KeyEntity)
-
-    @objc(addLinkedTo:)
-    @NSManaged public func addToLinkedTo(_ values: Set<KeyEntity>)
-
-    @objc(removeLinkedTo:)
-    @NSManaged public func removeFromLinkedTo(_ values: Set<KeyEntity>)
-
-}

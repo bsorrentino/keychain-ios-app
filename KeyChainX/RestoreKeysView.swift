@@ -99,7 +99,7 @@ struct RestoreKeysView: View {
 //
 //                        """)
 //
-                    if( item.password.isEmpty && !item.group ) {
+                    if( item.password.isEmpty && item.group ) {
                         print( "password for item \(item.mnemonic) not valid!")
                     }
                     
