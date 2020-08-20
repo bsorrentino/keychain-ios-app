@@ -31,10 +31,8 @@ struct BackupKeysView: View {
             }.sheet(isPresented: $showReportView, onDismiss:  {
                 
             }) {
-                BackupReportView( backupInfo: self.backupInfo ).onAppear( perform: {
-                    if let url = self.backupInfo.url {
-                        self.performBackup( to:url )
-                    }
+                ProcessingReportView( processingInfo: self.backupInfo ).onAppear( perform: {
+                        self.performBackup()
                 })
             }
             .navigationBarTitle( Text("Backup"), displayMode: .large)
@@ -72,7 +70,7 @@ struct BackupKeysView: View {
     
     private func prepareBackup()  {
         guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            alertItem = AlertItem( title: "Weeor", message:"Document Directory doesn't exist",
+            alertItem = makeAlertItem( error:"Document Directory doesn't exist",
                  primaryButton: .cancel({
                      self.backupInfo.terminated = true
                  }))
@@ -87,7 +85,7 @@ struct BackupKeysView: View {
         
         if( FileManager.default.fileExists( atPath: backupInfo.url!.path ) ) {
             
-            alertItem = AlertItem( title: "Overwrite", message:"File Already Exists. Do you want overwrite ?",
+            alertItem = AlertItem( title: Text("Overwrite"), message:Text("File Already Exists. Do you want overwrite ?"),
                 primaryButton: .destructive( Text("Overwrite"), action: {
                     self.showReportView = true
                 }),
@@ -100,10 +98,15 @@ struct BackupKeysView: View {
         
     }
     
-    private func performBackup( to url: URL )  {
+    private func performBackup( )  {
 
         backupInfo.reset()
 
+        guard let url = self.backupInfo.url else {
+            backupInfo.terminated = true
+            return
+        }
+        
         let encoder = JSONEncoder()
         
         do {
@@ -130,39 +133,11 @@ struct BackupKeysView: View {
 }
 
 
-struct BackupReportView : View {
-    @Environment(\.presentationMode) var presentation
-    
-    @ObservedObject var backupInfo:KeysProcessingReport
-    
-    var body: some View {
-        
-        VStack {
-            
-            HStack {
-                Text("Processed:")
-                Text( String(backupInfo.processed) )
-            }
-            HStack {
-                Text("Errors:")
-                Text( String(backupInfo.errors.count) )
-            }
-            
-            Button( action: {
-                self.presentation.wrappedValue.dismiss()
-            }) {
-                Text("Close")
-            }.disabled( !backupInfo.terminated )
-        }
-    }
-}
+
 
 struct BackupKeysView_Previews: PreviewProvider {
     static var previews: some View {
         
-        Group {
-            BackupKeysView()
-            BackupReportView( backupInfo: KeysProcessingReport() )
-        }
+        BackupKeysView()
     }
 }

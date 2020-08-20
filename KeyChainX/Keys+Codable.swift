@@ -31,3 +31,47 @@ class KeysProcessingReport : ObservableObject {
     }
 }
 
+
+struct ProcessingReportView : View {
+    @Environment(\.presentationMode) var presentation
+    
+    @ObservedObject var processingInfo:KeysProcessingReport
+    
+    var body: some View {
+        
+        VStack(spacing:10) {
+            Text("Report").font(.title).padding()
+            
+            Spacer()
+            
+            HStack {
+                Text("Processed:")
+                Text( String(processingInfo.processed) )
+            }.padding()
+            
+            HStack {
+                Text("Errors:").foregroundColor(Color.red)
+                Text( String(processingInfo.errors.count) )
+            }.padding()
+            
+            Divider()
+            
+            Button( action: {
+                self.presentation.wrappedValue.dismiss()
+            }) {
+                Text("Close")
+            }
+            .disabled( !processingInfo.terminated )
+            .padding()
+            
+            Spacer()
+        }
+    }
+}
+
+struct ProcessingReportView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        ProcessingReportView( processingInfo: KeysProcessingReport() )
+    }
+}

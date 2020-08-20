@@ -71,10 +71,10 @@ struct KeyEntityForm : View {
             }
             catch {
                 if( self.item.isNew ) {
-                    self.alertItem = AlertItem( title:"Error", message: "error inserting new key \(error)" )
+                    self.alertItem = makeAlertItem( error:"error inserting new key \(error)" )
                 }
                 else {
-                    self.alertItem = AlertItem( title:"Error", message: "error updating new key \(error)" )
+                    self.alertItem = makeAlertItem( error:"error updating new key \(error)")
                 }
             }
             
