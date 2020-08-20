@@ -71,8 +71,8 @@ struct RestoreKeysView: View {
         }
 
         do {
-            try deleteAllWithMerge( context: managedObjectContext )
-            
+            try UIApplication.deleteAllWithMerge( context: managedObjectContext )
+
             let content = try Data(contentsOf: url)
 
             var keys:Keys?
@@ -99,7 +99,7 @@ struct RestoreKeysView: View {
 //
 //                        """)
 //
-                    if( item.password.isEmpty ) {
+                    if( item.password.isEmpty && !item.group ) {
                         print( "password for item \(item.mnemonic) not valid!")
                     }
                     

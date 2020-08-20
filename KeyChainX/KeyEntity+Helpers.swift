@@ -9,6 +9,9 @@
 import Foundation
 import CoreData
 
+let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
+
+
 // MARK: Key Entity Helper
 extension KeyEntity {
 

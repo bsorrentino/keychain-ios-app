@@ -34,6 +34,7 @@ struct KeyEntityForm : View {
     @State var secretState:SecretState = .hide
     
     @State private var pickUsernameFromMail = false
+    @State private var alertItem:AlertItem?
     
     private let bg = Color(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, opacity: 0.2)
                     //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
@@ -70,10 +71,10 @@ struct KeyEntityForm : View {
             }
             catch {
                 if( self.item.isNew ) {
-                    print( "error inserting new key \(error)" )
+                    self.alertItem = AlertItem( title:"Error", message: "error inserting new key \(error)" )
                 }
                 else {
-                    print( "error updating new key \(error)" )
+                    self.alertItem = AlertItem( title:"Error", message: "error updating new key \(error)" )
                 }
             }
             
@@ -81,6 +82,7 @@ struct KeyEntityForm : View {
             
         })
         .disabled( !item.checkIsValid )
+        .alert(item: $alertItem) { item  in makeAlert(item:item) }
     }
     
     

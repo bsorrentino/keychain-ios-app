@@ -14,38 +14,46 @@ struct BackupKeysView: View {
     
     @FetchRequest(
         entity: KeyEntity.entity(),
-        sortDescriptors: []
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \KeyEntity.mnemonic, ascending: false )
+        ]
     ) var keyFethedResults: FetchedResults<KeyEntity>
     
-    @State private var showModal = false
+    @State private var showReportView = false
+    @State private var alertItem:AlertItem?
     
-    @ObservedObject var reportInfo = KeysProcessingReport()
+    @ObservedObject var backupInfo = KeysProcessingReport()
     
     var body: some View {
         NavigationView {
             FileManagerView { (url) in
                 Text( url.lastPathComponent )
-            }.sheet(isPresented: $showModal, onDismiss:  {
+            }.sheet(isPresented: $showReportView, onDismiss:  {
                 
             }) {
-                BackupReportView( info: self.reportInfo ).onAppear( perform: { self.backup() } )
+                BackupReportView( backupInfo: self.backupInfo ).onAppear( perform: {
+                    if let url = self.backupInfo.url {
+                        self.performBackup( to:url )
+                    }
+                })
             }
             .navigationBarTitle( Text("Backup"), displayMode: .large)
             .navigationBarItems(trailing:
                 VStack {
-                    Button( action: { self.showModal = true}) {
+                    Button( action: { self.prepareBackup()}) {
                         HStack {
                             Text( "Run" )
                             Image( systemName:"arrow.down.doc.fill" )
                         }
                     }
-                })
+            }).alert( item: $alertItem ) { item in makeAlert(item:item) }
+ 
         }
     }
     
     private func encodeKey( encoder:JSONEncoder, k:KeyEntity ) -> KeyEntity? {
         
-        reportInfo.processed += 1
+        backupInfo.processed += 1
         
         do {
             let _ = try encoder.encode(k)
@@ -55,104 +63,77 @@ struct BackupKeysView: View {
         }
         catch  {
                 
-            reportInfo.errors.append(error)
+            backupInfo.errors.append(error)
             
             return nil
         }
 
     }
     
-    private func backup() {
+    private func prepareBackup()  {
         guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-             reportInfo.errors.append( "Document Directory doesn't exist" )
-             reportInfo.terminated = true
-             return
+            alertItem = AlertItem( title: "Weeor", message:"Document Directory doesn't exist",
+                 primaryButton: .cancel({
+                     self.backupInfo.terminated = true
+                 }))
+            return
+
          }
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+
+        backupInfo.url = path.appendingPathComponent("backup-\(formatter.string(from: Date()))").appendingPathExtension("json")
+        
+        if( FileManager.default.fileExists( atPath: backupInfo.url!.path ) ) {
+            
+            alertItem = AlertItem( title: "Overwrite", message:"File Already Exists. Do you want overwrite ?",
+                primaryButton: .destructive( Text("Overwrite"), action: {
+                    self.showReportView = true
+                }),
+                secondaryButton: .cancel({
+                    print("backup aborted")}))
+        }
+        else {
+            self.showReportView = true
+        }
+        
+    }
+    
+    private func performBackup( to url: URL )  {
+
+        backupInfo.reset()
 
         let encoder = JSONEncoder()
         
-        let keys = keyFethedResults
-            .map( { k in encodeKey(encoder: encoder, k: k ) } )
-            .filter({ data in data != nil} )
-           
         do {
-            
-            let allEncodedData = try encoder.encode( keys )
-
-            restore(from: allEncodedData)
-
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
-
-            let url = path.appendingPathComponent("backup-\(formatter.string(from: Date()))").appendingPathExtension("json")
-            
             print( "backup file: \(url)")
             
+            let keys = keyFethedResults
+                .map( { k in encodeKey(encoder: encoder, k: k ) } )
+                .filter({ data in data != nil} )
+            let allEncodedData = try encoder.encode( keys )
+
             try allEncodedData.write(to: url )
             
-            print( String( data:allEncodedData, encoding: .utf8 ) ?? "{}" )
+            //print( String( data:allEncodedData, encoding: .utf8 ) ?? "{}" )
             
         }
         catch {
-            reportInfo.errors.append(error)
+            backupInfo.errors.append(error)
         }
         
-        reportInfo.terminated = true
-        
-    }
-
-    private func decodeKey( decoder:JSONDecoder, from data:Data ) -> KeyItem? {
-        
-        //reportInfo.processed += 1
-        
-        do {
-            let data = try decoder.decode(String.self, from: data)
-            
-            return try decoder.decode(KeyItem.self, from: data.data(using: .utf8)!)
-        }
-        catch  {
-                
-            //reportInfo.errors.append(error)
-            print( "error \(error)")
-            return nil
-        }
-
-    }
-
-    private func restore( from encodedData: Data) {
-        
-        let decoder = JSONDecoder()
-        
-        do {
-            
-            let allDecodedData = try decoder.decode( Array<KeyItem>.self, from: encodedData )
-
-            print( "restore \(allDecodedData)")
-            
-            /*
-            allDecodedData
-                .map { data in decodeKey(decoder: decoder, from: data) }
-                .filter { k in k != nil }
-                .forEach { k in print( "\(k?.mnemonic ?? "undefined")" ) }
-            */
-                
-        }
-        catch {
-            print( "restore error: \(error)" )
-            //reportInfo.errors.append(error)
-        }
-        
-        reportInfo.terminated = true
+        backupInfo.terminated = true
         
     }
     
-
 }
+
 
 struct BackupReportView : View {
     @Environment(\.presentationMode) var presentation
     
-    @ObservedObject var info:KeysProcessingReport
+    @ObservedObject var backupInfo:KeysProcessingReport
     
     var body: some View {
         
@@ -160,18 +141,18 @@ struct BackupReportView : View {
             
             HStack {
                 Text("Processed:")
-                Text( String(info.processed) )
+                Text( String(backupInfo.processed) )
             }
             HStack {
                 Text("Errors:")
-                Text( String(info.errors.count) )
+                Text( String(backupInfo.errors.count) )
             }
             
             Button( action: {
                 self.presentation.wrappedValue.dismiss()
             }) {
                 Text("Close")
-            }.disabled( !info.terminated )
+            }.disabled( !backupInfo.terminated )
         }
     }
 }
@@ -181,7 +162,7 @@ struct BackupKeysView_Previews: PreviewProvider {
         
         Group {
             BackupKeysView()
-            BackupReportView( info: KeysProcessingReport() )
+            BackupReportView( backupInfo: KeysProcessingReport() )
         }
     }
 }

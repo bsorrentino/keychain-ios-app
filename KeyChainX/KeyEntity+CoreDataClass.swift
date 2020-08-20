@@ -12,13 +12,8 @@ import CoreData
 
 // MARK: Search Criterias
 
-let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
-
 @objc(KeyEntity)
 public class KeyEntity: NSManagedObject {
 
     
-    convenience init( context: NSManagedObjectContext ) {
-        self.init(context: context)
-    }
 }

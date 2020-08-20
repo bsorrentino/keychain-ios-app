@@ -85,7 +85,7 @@ class KeyItem : ObservableObject, Decodable {
         }
        
         
-        if let data = try? UIApplication.shared.getSecretIfPresent(key: entity.mnemonic) {
+        if let data = try? UIApplication.getSecretIfPresent(key: entity.mnemonic) {
             self.note = data.note ?? ""
             self.password = data.password
         }
@@ -104,55 +104,30 @@ class KeyItem : ObservableObject, Decodable {
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        let mnemonic = try values.decode(String.self, forKey: .mnemonic)
-        
-        self.mnemonic = mnemonic
-        
-        var isGroup = false
+        self.mnemonic = try values.decode(String.self, forKey: .mnemonic)
+        self.username = try values.decode(String.self, forKey: .username)
+        let passwordValue = try values.decode(String.self, forKey: .password)
+        self.password = passwordValue.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        if values.contains(.groupPrefix) { // Remove suffix '-'
-            isGroup = true
-
-            let prefix =  try values.decode(String.self, forKey: .groupPrefix)
+        if let prefix = try values.decodeIfPresent(String.self, forKey: .groupPrefix) {
             
             let regex = try NSRegularExpression(pattern: "[-]$", options: .caseInsensitive)
-                self.groupPrefix = regex.stringByReplacingMatches(in: prefix,
-                                                                options: [],
-                                                                range:NSRange(prefix.startIndex..., in: prefix),
-                                                                withTemplate: "")
+            self.groupPrefix = regex.stringByReplacingMatches(in: prefix,
+                                                            options: [],
+                                                            range:NSRange(prefix.startIndex..., in: prefix),
+                                                            withTemplate: "")
         }
         
-        if values.contains(.group) {
-            
-            let group = try values.decode(Bool.self, forKey: .group)
-            
-            self.group = group
-            
-            isGroup = !group
-        }
-        else {
-            self.group = false
-        }
-        
-        if( isGroup ) {
-            self.password = ""
-            self.username = mnemonic
-        }
-        else {
-        
-            let passwordValue = try values.decode(String.self, forKey: .password)
-            self.password = passwordValue.trimmingCharacters(in: .whitespacesAndNewlines)
-            self.username = try values.decode(String.self, forKey: .username)
-        }
-        
-        self.mail = try values.decodeIfPresent(String.self, forKey: .mail) ?? ""
-        self.note = try values.decodeIfPresent(String.self, forKey: .note) ?? ""
+        self.group      = try values.decodeIfPresent(Bool.self, forKey: .group) ?? false
+                        
+        self.mail       = try values.decodeIfPresent(String.self, forKey: .mail) ?? ""
+        self.note       = try values.decodeIfPresent(String.self, forKey: .note) ?? ""
 
-        self.expire = try values.decodeIfPresent(Date.self, forKey: .expire)
-        self.url = try values.decodeIfPresent(String.self, forKey: .url) ?? ""
+        self.expire     = try values.decodeIfPresent(Date.self, forKey: .expire)
+        self.url        = try values.decodeIfPresent(String.self, forKey: .url) ?? ""
         
-        self.linkedTo     = try values.decodeIfPresent( Set<String>.self, forKey: .linkedTo )
-        self.linkedBy     = try values.decodeIfPresent( String.self, forKey: .linkedBy )
+        self.linkedTo   = try values.decodeIfPresent( Set<String>.self, forKey: .linkedTo )
+        self.linkedBy   = try values.decodeIfPresent( String.self, forKey: .linkedBy )
 
 
     }
@@ -162,7 +137,7 @@ class KeyItem : ObservableObject, Decodable {
         entity.username     = self.username
         entity.mail         = self.mail
         entity.groupPrefix  = self.groupPrefix
-        entity.group = NSNumber( value: group )
+        entity.group        = NSNumber( value: group )
         entity.expire       = self.expire
         entity.url          = self.url
 
@@ -170,14 +145,21 @@ class KeyItem : ObservableObject, Decodable {
     }
 
     func insert( into context:NSManagedObjectContext ) throws {
+         
+        try UIApplication.setSecret( key: self.mnemonic, password:self.password, note:self.note)
         
-        try UIApplication.shared.setSecrets( key: self.mnemonic, password:self.password, note:self.note)
-        
-        if let entity = self.entity {
+        if let entity = self.entity { // Update
             let _ = self.copyTo(entity: entity )
         }
-        else {
+        else { // Create
+            // Check Duplicate
+            if let _ = try UIApplication.fetchSingleIfPresent(context: context, entity: KeyEntity.entity(), predicateFormat: "mnemonic == %@", key: self.mnemonic) {
+                
+                throw SavingError.DuplicateKey(id: self.mnemonic)
+            }
+            
             let newEntity = KeyEntity( context: context );
+
             context.insert( self.copyTo(entity: newEntity) )
         }
 
