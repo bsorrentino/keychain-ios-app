@@ -41,6 +41,16 @@ class KeyBaseListViewController : UIViewController, UITableViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func applyContentInsets( _ contentInsets: UIEdgeInsets ) {
+        
+        //self.edgesForExtendedLayout = UIRectEdge()
+        //self.extendedLayoutIncludesOpaqueBars = false
+        self.tableView.contentInset = contentInsets
+        self.tableView.scrollIndicatorInsets = contentInsets
+        //self.tableView.contentInsetAdjustmentBehavior = .always
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
