@@ -19,10 +19,14 @@ struct KeyGroupList: UIViewControllerRepresentable {
     @Environment(\.managedObjectContext) var managedObjectContext
     var selectedGroup:KeyEntity
     
+    var contentInsets:UIEdgeInsets?;
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyGroupList>) -> UIViewControllerType
     {
         let controller =  KeyGroupListViewController(context: managedObjectContext, selectedGroup: selectedGroup)
 
+        controller.contentInsets = contentInsets
+        
         return controller
     }
 
@@ -40,6 +44,8 @@ class KeyGroupListViewController : KeyBaseListViewController, UITableViewDataSou
     private var keys:[KeyEntity]?
     
     private var selectedGroup:KeyEntity
+    
+    var contentInsets:UIEdgeInsets?
     
     init( context:NSManagedObjectContext, selectedGroup:KeyEntity  ) {
         self.selectedGroup = selectedGroup
@@ -60,7 +66,15 @@ class KeyGroupListViewController : KeyBaseListViewController, UITableViewDataSou
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.register(UINib(nibName: "KeyItemCell", bundle: nil), forCellReuseIdentifier: "keyitem")
+        
+        if let contentInsets = self.contentInsets {
+            
+            print( contentInsets )
+
+            applyContentInsets(contentInsets)
+        }
     }
         
     //
