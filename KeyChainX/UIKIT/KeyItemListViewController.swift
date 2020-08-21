@@ -96,33 +96,22 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.delegate = self
         
-        //tableView.tableHeaderView = searchController.searchBar
-        
         resultSearchController = searchController
         
-        view.addSubview(searchController.searchBar)
-
+        //view.addSubview(searchController.searchBar)
+        self.tableView.tableHeaderView = searchController.searchBar
         
         // Update contentInset to have a right scrolling
-        
-        //        print( view.frame )
-        //        print( geometry )
-        let searchBarHeight = searchController.searchBar.frame.size.height
-        let tabViewHeight = view.frame.height - geometry.height - searchBarHeight
-        let contentInset = UIEdgeInsets(
-            top: searchBarHeight,
-            left: 0,
-            bottom: tabViewHeight,
-            right: 0
-        )
-
-        //self.edgesForExtendedLayout = UIRectEdge()
-        //self.extendedLayoutIncludesOpaqueBars = false
-        
-        self.tableView.contentInset = contentInset
-        self.tableView.scrollIndicatorInsets = contentInset
-        //self.tableView.contentInsetAdjustmentBehavior = .always
-
+//        let searchBarHeight = searchController.searchBar.frame.size.height
+//        let tabViewHeight = tableView.frame.height - geometry.height - searchBarHeight
+//        let contentInset = UIEdgeInsets(
+//            top: searchBarHeight,
+//            left: 0,
+//            bottom: tabViewHeight,
+//            right: 0
+//        )
+//
+//        super.applyContentInsets(contentInset)
         
     }
     
@@ -210,11 +199,20 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
         
         if( selectedItem.isGroup() ) {
 
-            let newViewController = KeyGroupList( selectedGroup: selectedItem )
+            let tabViewHeight = tableView.frame.height - geometry.height
+            let contentInsets = UIEdgeInsets(
+                top: 0,
+                left: 0,
+                bottom: tabViewHeight,
+                right: 0
+            )
+
+            let newViewController = KeyGroupList( selectedGroup: selectedItem, contentInsets: contentInsets )
             self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
 
         }
         else {
+
             let newViewController = KeyEntityForm( entity: selectedItem )
             self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
 
@@ -281,23 +279,7 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
 }
 
 // MARK: Search Extension
-
-extension KeyItemListViewController : UISearchBarDelegate {
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
-        self.didSelectWhileSearchWasActive = false
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-        self.didSelectWhileSearchWasActive = false
-
-    }
-}
-
-// MARK: Search Extension
-extension KeyItemListViewController : UISearchResultsUpdating {
+extension KeyItemListViewController : UISearchResultsUpdating, UISearchBarDelegate  {
   
     // create the Predicate coherent with UI state
     func searchPredicate() -> NSPredicate? {
@@ -331,7 +313,17 @@ extension KeyItemListViewController : UISearchResultsUpdating {
         
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.didSelectWhileSearchWasActive = false
+    }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        self.didSelectWhileSearchWasActive = false
+
+    }
+
 }
 
 // MARK: Core Data Extension
@@ -340,7 +332,10 @@ extension KeyItemListViewController  {
     
     func reloadDataFromManagedObjectContext( with predicate:NSPredicate? )  {
         
-        if didSelectWhileSearchWasActive { return } // No reload is required because we are coming back from detail screen
+        // No reload is required because we are coming back from detail screen
+        guard !didSelectWhileSearchWasActive else {
+            return
+        }
         
         let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
 
