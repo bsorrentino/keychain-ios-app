@@ -11,12 +11,27 @@ import UIKit
 import SwiftUI
 import CoreData
 
+
+struct KeyGroupListView : View {
+    var selectedGroup:KeyEntity
+    
+    var contentInsets:UIEdgeInsets?;
+
+    var body: some View {
+        KeyGroupList( selectedGroup: selectedGroup, contentInsets: contentInsets)
+            .navigationBarTitle( Text(selectedGroup.mnemonic), displayMode: .inline )
+
+    }
+}
+
+
 // MARK: SwiftUI Bidge
 struct KeyGroupList: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = KeyGroupListViewController
 
     @Environment(\.managedObjectContext) var managedObjectContext
+    
     var selectedGroup:KeyEntity
     
     var contentInsets:UIEdgeInsets?;
@@ -66,6 +81,8 @@ class KeyGroupListViewController : KeyBaseListViewController, UITableViewDataSou
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = selectedGroup.mnemonic
         
         self.tableView.register(UINib(nibName: "KeyItemCell", bundle: nil), forCellReuseIdentifier: "keyitem")
         

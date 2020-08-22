@@ -13,7 +13,9 @@ import CoreData
 extension KeyEntity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<KeyEntity> {
-        return NSFetchRequest<KeyEntity>(entityName: "KeyInfo")
+        let request =  NSFetchRequest<KeyEntity>(entityName: "KeyInfo")
+        request.sortDescriptors = [ NSSortDescriptor( key:"mnemonic", ascending: false)]
+        return request
     }
 
     @NSManaged public var expire: Date?

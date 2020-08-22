@@ -12,12 +12,8 @@ import SwiftUI
 struct BackupKeysView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
-    @FetchRequest(
-        entity: KeyEntity.entity(),
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \KeyEntity.mnemonic, ascending: false )
-        ]
-    ) var keyFethedResults: FetchedResults<KeyEntity>
+    @FetchRequest( fetchRequest: KeyEntity.fetchRequest() )
+    var keyFethedResults: FetchedResults<KeyEntity>
     
     @State private var showReportView = false
     @State private var alertItem:AlertItem?

@@ -98,8 +98,8 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
         
         resultSearchController = searchController
         
-        //view.addSubview(searchController.searchBar)
-        self.tableView.tableHeaderView = searchController.searchBar
+        view.addSubview(searchController.searchBar)
+        //self.tableView.tableHeaderView = searchController.searchBar
         
         // Update contentInset to have a right scrolling
 //        let searchBarHeight = searchController.searchBar.frame.size.height
@@ -207,7 +207,7 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
                 right: 0
             )
 
-            let newViewController = KeyGroupList( selectedGroup: selectedItem, contentInsets: contentInsets )
+            let newViewController = KeyGroupListView( selectedGroup: selectedItem, contentInsets: contentInsets )
             self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
 
         }

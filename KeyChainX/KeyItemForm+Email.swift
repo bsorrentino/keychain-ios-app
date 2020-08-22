@@ -55,7 +55,7 @@ struct EmailList: View {
     @Environment(\.managedObjectContext) var context
     
     //@FetchRequest( fetchRequest:MailEntity.fetchAllMail() )
-    @FetchRequest( fetchRequest:MailEntity.fetchRequest() )
+    @FetchRequest( fetchRequest:MailEntity.fetchRequest())
     var mails:FetchedResults<MailEntity>
     
     @State var mailValid = FieldChecker()
@@ -69,13 +69,13 @@ struct EmailList: View {
                 Section(header: Text("New Mail")) {
                     
                     HStack {
-                        TextFieldWithValidator( title: "insert email", value: $newMail, checker:$mailValid ) { v in
+                        MailFieldWithValidator( title: "insert email", value: $newMail, checker:$mailValid ) { v in
                                
                                 if( v.isEmpty ) {
                                    return "mail cannot be empty !"
                                 }
                                 if( !v.isEmail() ) {
-                                    return "mail is not in correct format !"
+                                    return "mail is not in correct format"
                                 }
                                
                                return nil
@@ -83,7 +83,11 @@ struct EmailList: View {
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .font(.body)
-                        
+                        .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
+                        .overlay(
+                            ValidatorMessageInline( message:mailValid.errorMessage ), alignment: .bottom
+                        )
+
                         addButton()
                     }
                     
@@ -151,6 +155,45 @@ struct EmailList: View {
             catch {
                 print( "error deleting new mail \(error)" )
             }
+        }
+    }
+    
+}
+
+public struct MailFieldWithValidator : View {
+    // specialize validator for TestField ( T = String )
+    public typealias Validator = (String) -> String?
+
+    var title:String?
+    var onCommit:() -> Void = {}
+
+    @ObservedObject var field:FieldValidator<String>
+
+    public init( title:String = "",
+              value:Binding<String>,
+              checker:Binding<FieldChecker>,
+              onCommit: @escaping () -> Void,
+              validator:@escaping Validator ) {
+        self.title = title;
+        self.field = FieldValidator(value, checker:checker, validator:validator )
+        self.onCommit = onCommit
+    }
+
+    public init( title:String = "", value:Binding<String>, checker:Binding<FieldChecker>, validator:@escaping Validator ) {
+        self.init( title:title, value:value, checker:checker, onCommit:{}, validator:validator)
+    }
+
+    public var body: some View {
+        VStack {
+            TextField( title ?? "", text: $field.value, onCommit: {
+                if( self.field.isValid ) {
+                    self.onCommit()
+                 }
+                
+            })
+//            .onAppear { // run validation on appear
+//                self.field.doValidate()
+//            }
         }
     }
     

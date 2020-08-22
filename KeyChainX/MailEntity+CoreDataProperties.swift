@@ -13,7 +13,9 @@ import CoreData
 extension MailEntity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<MailEntity> {
-        return NSFetchRequest<MailEntity>(entityName: "AttributeInfo")
+        let request =  NSFetchRequest<MailEntity>(entityName: "AttributeInfo")
+        request.sortDescriptors =  [ NSSortDescriptor(key: "value", ascending:true) ]
+        return request
     }
 
     @NSManaged public var type: NSNumber?
