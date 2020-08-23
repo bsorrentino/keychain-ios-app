@@ -49,6 +49,8 @@ struct EmailField : View {
 
 struct EmailList: View {
 
+    typealias MailFieldWithValidator = TextFieldWithValidator
+    
     @Environment(\.presentationMode) var presentationMode
 
     @Binding var value:String
@@ -61,6 +63,8 @@ struct EmailList: View {
     @State var mailValid = FieldChecker()
     @State var newMail:String = ""
 
+    var validateChecks = 0
+    
     var body: some View {
         
         //NavigationView {
@@ -70,7 +74,7 @@ struct EmailList: View {
                     
                     HStack {
                         MailFieldWithValidator( title: "insert email", value: $newMail, checker:$mailValid ) { v in
-                               
+                            
                                 if( v.isEmpty ) {
                                    return "mail cannot be empty !"
                                 }
@@ -83,9 +87,9 @@ struct EmailList: View {
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .font(.body)
-                        .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
+                        .padding( mailValid.padding )
                         .overlay(
-                            ValidatorMessageInline( message:mailValid.errorMessage ), alignment: .bottom
+                            ValidatorMessageInline( message:mailValid.errorMessageOrNilAtBeginning ), alignment: .bottom
                         )
 
                         addButton()
@@ -160,44 +164,6 @@ struct EmailList: View {
     
 }
 
-public struct MailFieldWithValidator : View {
-    // specialize validator for TestField ( T = String )
-    public typealias Validator = (String) -> String?
-
-    var title:String?
-    var onCommit:() -> Void = {}
-
-    @ObservedObject var field:FieldValidator<String>
-
-    public init( title:String = "",
-              value:Binding<String>,
-              checker:Binding<FieldChecker>,
-              onCommit: @escaping () -> Void,
-              validator:@escaping Validator ) {
-        self.title = title;
-        self.field = FieldValidator(value, checker:checker, validator:validator )
-        self.onCommit = onCommit
-    }
-
-    public init( title:String = "", value:Binding<String>, checker:Binding<FieldChecker>, validator:@escaping Validator ) {
-        self.init( title:title, value:value, checker:checker, onCommit:{}, validator:validator)
-    }
-
-    public var body: some View {
-        VStack {
-            TextField( title ?? "", text: $field.value, onCommit: {
-                if( self.field.isValid ) {
-                    self.onCommit()
-                 }
-                
-            })
-//            .onAppear { // run validation on appear
-//                self.field.doValidate()
-//            }
-        }
-    }
-    
-}
 
 #if DEBUG
 struct EmailList_Previews: PreviewProvider {

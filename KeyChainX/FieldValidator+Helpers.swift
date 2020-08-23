@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import FieldValidatorLibrary
 
 struct ValidatorMessageInline: View {
     
@@ -26,5 +27,16 @@ struct ValidatorMessageInline: View {
             }
             
         }
+    }
+}
+
+
+extension FieldChecker {
+    var padding:EdgeInsets {
+        ( !self.valid && !self.isFirstCheck ) ? .init(top:5, leading: 0, bottom: 25, trailing: 0) : .init()
+    }
+    
+    var errorMessageOrNilAtBeginning:String?  {
+        self.isFirstCheck ? nil : errorMessage
     }
 }

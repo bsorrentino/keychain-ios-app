@@ -34,7 +34,7 @@
 		A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */; };
 		A040E4B224EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */; };
 		A047651E23DDABE2005B8547 /* KeyItemForm+Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */; };
-		A0533DC424EAE6C4009C784B /* FieldValidator+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC324EAE6C4009C784B /* FieldValidator+Overlay.swift */; };
+		A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */; };
 		A0533DC824EAF590009C784B /* KeyEntity+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */; };
 		A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* KeyItemForm+Email.swift */; };
 		A0818D6423B6A91C00823F43 /* KeyBaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */; };
@@ -106,7 +106,7 @@
 		A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "KeyItemForm+Group.swift"; path = "KeyChainX/KeyItemForm+Group.swift"; sourceTree = SOURCE_ROOT; };
 		A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Password.swift"; sourceTree = "<group>"; };
-		A0533DC324EAE6C4009C784B /* FieldValidator+Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FieldValidator+Overlay.swift"; sourceTree = "<group>"; };
+		A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FieldValidator+Helpers.swift"; sourceTree = "<group>"; };
 		A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Encodable.swift"; sourceTree = "<group>"; };
 		A071C20223648EAB00891175 /* KeyItemForm+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Email.swift"; sourceTree = "<group>"; };
 		A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBaseListViewController.swift; sourceTree = "<group>"; };
@@ -247,7 +247,7 @@
 				5F01277423B776CC0033E2B9 /* BackupKeysView.swift */,
 				5F01277623B776EE0033E2B9 /* RestoreKeysView.swift */,
 				A0C0DB5D22A901AD003B09ED /* KeyItemList.swift */,
-				A0533DC324EAE6C4009C784B /* FieldValidator+Overlay.swift */,
+				A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */,
 				A0EE95742377385800002E6F /* KeyItemForm.swift */,
 				A071C20223648EAB00891175 /* KeyItemForm+Email.swift */,
 				A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */,
@@ -573,7 +573,7 @@
 				5FFAAD2923B414E200AE78EE /* KeyGroupListViewController.swift in Sources */,
 				A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */,
 				A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */,
-				A0533DC424EAE6C4009C784B /* FieldValidator+Overlay.swift in Sources */,
+				A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */,
 				A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */,
 				5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */,
 				A0818D6423B6A91C00823F43 /* KeyBaseListViewController.swift in Sources */,
