@@ -39,6 +39,8 @@
 		A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* KeyItemForm+Email.swift */; };
 		A0818D6423B6A91C00823F43 /* KeyBaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */; };
 		A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */; };
+		A0BE3F8325225F14002A86A7 /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE3F8225225F14002A86A7 /* KeyItemList.swift */; };
+		A0BE3F8425225F14002A86A7 /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE3F8225225F14002A86A7 /* KeyItemList.swift */; };
 		A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5622A901AD003B09ED /* AppDelegate.swift */; };
 		A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */; };
 		A0C0DB5E22A901AD003B09ED /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5D22A901AD003B09ED /* KeyItemList.swift */; };
@@ -55,6 +57,8 @@
 		A0C1D2B22521F36500737766 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C1D2B02521F36500737766 /* Main.storyboard */; };
 		A0C1D2BE2521F36500737766 /* MacKeyChainXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2BD2521F36500737766 /* MacKeyChainXTests.swift */; };
 		A0C1D2C92521F36500737766 /* MacKeyChainXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2C82521F36500737766 /* MacKeyChainXUITests.swift */; };
+		A0C1D2E725225DE000737766 /* KeyItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2E625225DE000737766 /* KeyItemRow.swift */; };
+		A0C1D2E825225DE000737766 /* KeyItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2E625225DE000737766 /* KeyItemRow.swift */; };
 		A0E11ED922B4E82F008766C0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A0E11ED822B4E82F008766C0 /* README.md */; };
 		A0EC9E4622B420AD009EB81F /* KeyItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EC9E4522B420AD009EB81F /* KeyItemCell.xib */; };
 		A0EE95502375F38400002E6F /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */; };
@@ -133,6 +137,7 @@
 		A071C20223648EAB00891175 /* KeyItemForm+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Email.swift"; sourceTree = "<group>"; };
 		A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBaseListViewController.swift; sourceTree = "<group>"; };
 		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
+		A0BE3F8225225F14002A86A7 /* KeyItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemList.swift; sourceTree = "<group>"; };
 		A0C0DB5322A901AD003B09ED /* KeychainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeychainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C0DB5622A901AD003B09ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +167,7 @@
 		A0C1D2C42521F36500737766 /* MacKeyChainXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacKeyChainXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C1D2C82521F36500737766 /* MacKeyChainXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacKeyChainXUITests.swift; sourceTree = "<group>"; };
 		A0C1D2CA2521F36500737766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0C1D2E625225DE000737766 /* KeyItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemRow.swift; sourceTree = "<group>"; };
 		A0E11ED822B4E82F008766C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A0EC9E4522B420AD009EB81F /* KeyItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyItemCell.xib; sourceTree = "<group>"; };
 		A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KeyChain.xcdatamodel; sourceTree = "<group>"; };
@@ -358,6 +364,8 @@
 			isa = PBXGroup;
 			children = (
 				A0C1D2A42521F36400737766 /* AppDelegate.swift */,
+				A0C1D2E625225DE000737766 /* KeyItemRow.swift */,
+				A0BE3F8225225F14002A86A7 /* KeyItemList.swift */,
 				A0C1D2A62521F36400737766 /* ContentView.swift */,
 				A0C1D2AB2521F36500737766 /* Assets.xcassets */,
 				A0C1D2B02521F36500737766 /* Main.storyboard */,
@@ -538,7 +546,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Bartolomeo Sorrentino";
 				TargetAttributes = {
 					A0C0DB5222A901AD003B09ED = {
@@ -815,6 +823,8 @@
 				A0C1D2AA2521F36400737766 /* MacKeyChainX.xcdatamodeld in Sources */,
 				A0C1D2A72521F36400737766 /* ContentView.swift in Sources */,
 				A0C1D2A52521F36400737766 /* AppDelegate.swift in Sources */,
+				A0C1D2E725225DE000737766 /* KeyItemRow.swift in Sources */,
+				A0BE3F8325225F14002A86A7 /* KeyItemList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,6 +841,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C1D2C92521F36500737766 /* MacKeyChainXUITests.swift in Sources */,
+				A0BE3F8425225F14002A86A7 /* KeyItemList.swift in Sources */,
+				A0C1D2E825225DE000737766 /* KeyItemRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -905,6 +917,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -965,6 +978,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1136,6 +1150,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = MacKeyChainX/MacKeyChainX.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MacKeyChainX/Preview Content\"";
@@ -1162,6 +1177,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = MacKeyChainX/MacKeyChainX.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MacKeyChainX/Preview Content\"";
