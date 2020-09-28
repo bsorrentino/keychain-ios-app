@@ -47,6 +47,14 @@
 		A0C0DB6622A901B0003B09ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C0DB6422A901B0003B09ED /* LaunchScreen.storyboard */; };
 		A0C0DB7122A901B0003B09ED /* KeyChainXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB7022A901B0003B09ED /* KeyChainXTests.swift */; };
 		A0C0DB7C22A901B0003B09ED /* KeyChainXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB7B22A901B0003B09ED /* KeyChainXUITests.swift */; };
+		A0C1D2A52521F36400737766 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2A42521F36400737766 /* AppDelegate.swift */; };
+		A0C1D2A72521F36400737766 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2A62521F36400737766 /* ContentView.swift */; };
+		A0C1D2AA2521F36400737766 /* MacKeyChainX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2A82521F36400737766 /* MacKeyChainX.xcdatamodeld */; };
+		A0C1D2AC2521F36500737766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C1D2AB2521F36500737766 /* Assets.xcassets */; };
+		A0C1D2AF2521F36500737766 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C1D2AE2521F36500737766 /* Preview Assets.xcassets */; };
+		A0C1D2B22521F36500737766 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C1D2B02521F36500737766 /* Main.storyboard */; };
+		A0C1D2BE2521F36500737766 /* MacKeyChainXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2BD2521F36500737766 /* MacKeyChainXTests.swift */; };
+		A0C1D2C92521F36500737766 /* MacKeyChainXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2C82521F36500737766 /* MacKeyChainXUITests.swift */; };
 		A0E11ED922B4E82F008766C0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A0E11ED822B4E82F008766C0 /* README.md */; };
 		A0EC9E4622B420AD009EB81F /* KeyItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EC9E4522B420AD009EB81F /* KeyItemCell.xib */; };
 		A0EE95502375F38400002E6F /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */; };
@@ -71,6 +79,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = A0C0DB5222A901AD003B09ED;
 			remoteInfo = KeyChainX;
+		};
+		A0C1D2BA2521F36500737766 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0C0DB4B22A901AD003B09ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0C1D2A12521F36400737766;
+			remoteInfo = MacKeyChainX;
+		};
+		A0C1D2C52521F36500737766 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0C0DB4B22A901AD003B09ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0C1D2A12521F36400737766;
+			remoteInfo = MacKeyChainX;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -125,6 +147,21 @@
 		A0C0DB7722A901B0003B09ED /* KeyChainXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyChainXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C0DB7B22A901B0003B09ED /* KeyChainXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainXUITests.swift; sourceTree = "<group>"; };
 		A0C0DB7D22A901B0003B09ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0C1D2A22521F36400737766 /* MacKeyChainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacKeyChainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C1D2A42521F36400737766 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0C1D2A62521F36400737766 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A0C1D2A92521F36400737766 /* MacKeyChainX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MacKeyChainX.xcdatamodel; sourceTree = "<group>"; };
+		A0C1D2AB2521F36500737766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0C1D2AE2521F36500737766 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A0C1D2B12521F36500737766 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0C1D2B32521F36500737766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0C1D2B42521F36500737766 /* MacKeyChainX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacKeyChainX.entitlements; sourceTree = "<group>"; };
+		A0C1D2B92521F36500737766 /* MacKeyChainXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacKeyChainXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C1D2BD2521F36500737766 /* MacKeyChainXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacKeyChainXTests.swift; sourceTree = "<group>"; };
+		A0C1D2BF2521F36500737766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0C1D2C42521F36500737766 /* MacKeyChainXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacKeyChainXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C1D2C82521F36500737766 /* MacKeyChainXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacKeyChainXUITests.swift; sourceTree = "<group>"; };
+		A0C1D2CA2521F36500737766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0E11ED822B4E82F008766C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A0EC9E4522B420AD009EB81F /* KeyItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyItemCell.xib; sourceTree = "<group>"; };
 		A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KeyChain.xcdatamodel; sourceTree = "<group>"; };
@@ -162,6 +199,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				2060E9761C4279743114CB58 /* Pods_KeyChainX_KeyChainXUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D29F2521F36400737766 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2B62521F36500737766 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2C12521F36500737766 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +270,9 @@
 				A0C0DB5522A901AD003B09ED /* KeyChainX */,
 				A0C0DB6F22A901B0003B09ED /* KeyChainXTests */,
 				A0C0DB7A22A901B0003B09ED /* KeyChainXUITests */,
+				A0C1D2A32521F36400737766 /* MacKeyChainX */,
+				A0C1D2BC2521F36500737766 /* MacKeyChainXTests */,
+				A0C1D2C72521F36500737766 /* MacKeyChainXUITests */,
 				A0C0DB5422A901AD003B09ED /* Products */,
 				A096114E2312CA970037E8B9 /* Frameworks */,
 				8801AE7CE7F6693FA73B66BD /* Pods */,
@@ -224,6 +285,9 @@
 				A0C0DB5322A901AD003B09ED /* KeychainX.app */,
 				A0C0DB6C22A901B0003B09ED /* KeyChainXTests.xctest */,
 				A0C0DB7722A901B0003B09ED /* KeyChainXUITests.xctest */,
+				A0C1D2A22521F36400737766 /* MacKeyChainX.app */,
+				A0C1D2B92521F36500737766 /* MacKeyChainXTests.xctest */,
+				A0C1D2C42521F36500737766 /* MacKeyChainXUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,6 +352,47 @@
 				A0C0DB7D22A901B0003B09ED /* Info.plist */,
 			);
 			path = KeyChainXUITests;
+			sourceTree = "<group>";
+		};
+		A0C1D2A32521F36400737766 /* MacKeyChainX */ = {
+			isa = PBXGroup;
+			children = (
+				A0C1D2A42521F36400737766 /* AppDelegate.swift */,
+				A0C1D2A62521F36400737766 /* ContentView.swift */,
+				A0C1D2AB2521F36500737766 /* Assets.xcassets */,
+				A0C1D2B02521F36500737766 /* Main.storyboard */,
+				A0C1D2B32521F36500737766 /* Info.plist */,
+				A0C1D2B42521F36500737766 /* MacKeyChainX.entitlements */,
+				A0C1D2A82521F36400737766 /* MacKeyChainX.xcdatamodeld */,
+				A0C1D2AD2521F36500737766 /* Preview Content */,
+			);
+			path = MacKeyChainX;
+			sourceTree = "<group>";
+		};
+		A0C1D2AD2521F36500737766 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A0C1D2AE2521F36500737766 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A0C1D2BC2521F36500737766 /* MacKeyChainXTests */ = {
+			isa = PBXGroup;
+			children = (
+				A0C1D2BD2521F36500737766 /* MacKeyChainXTests.swift */,
+				A0C1D2BF2521F36500737766 /* Info.plist */,
+			);
+			path = MacKeyChainXTests;
+			sourceTree = "<group>";
+		};
+		A0C1D2C72521F36500737766 /* MacKeyChainXUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A0C1D2C82521F36500737766 /* MacKeyChainXUITests.swift */,
+				A0C1D2CA2521F36500737766 /* Info.plist */,
+			);
+			path = MacKeyChainXUITests;
 			sourceTree = "<group>";
 		};
 		A0EE95512375F73F00002E6F /* datamodel */ = {
@@ -373,13 +478,66 @@
 			productReference = A0C0DB7722A901B0003B09ED /* KeyChainXUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		A0C1D2A12521F36400737766 /* MacKeyChainX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0C1D2D12521F36500737766 /* Build configuration list for PBXNativeTarget "MacKeyChainX" */;
+			buildPhases = (
+				A0C1D29E2521F36400737766 /* Sources */,
+				A0C1D29F2521F36400737766 /* Frameworks */,
+				A0C1D2A02521F36400737766 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacKeyChainX;
+			productName = MacKeyChainX;
+			productReference = A0C1D2A22521F36400737766 /* MacKeyChainX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A0C1D2B82521F36500737766 /* MacKeyChainXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0C1D2D22521F36500737766 /* Build configuration list for PBXNativeTarget "MacKeyChainXTests" */;
+			buildPhases = (
+				A0C1D2B52521F36500737766 /* Sources */,
+				A0C1D2B62521F36500737766 /* Frameworks */,
+				A0C1D2B72521F36500737766 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0C1D2BB2521F36500737766 /* PBXTargetDependency */,
+			);
+			name = MacKeyChainXTests;
+			productName = MacKeyChainXTests;
+			productReference = A0C1D2B92521F36500737766 /* MacKeyChainXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A0C1D2C32521F36500737766 /* MacKeyChainXUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0C1D2D32521F36500737766 /* Build configuration list for PBXNativeTarget "MacKeyChainXUITests" */;
+			buildPhases = (
+				A0C1D2C02521F36500737766 /* Sources */,
+				A0C1D2C12521F36500737766 /* Frameworks */,
+				A0C1D2C22521F36500737766 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0C1D2C62521F36500737766 /* PBXTargetDependency */,
+			);
+			name = MacKeyChainXUITests;
+			productName = MacKeyChainXUITests;
+			productReference = A0C1D2C42521F36500737766 /* MacKeyChainXUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A0C0DB4B22A901AD003B09ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Bartolomeo Sorrentino";
 				TargetAttributes = {
@@ -393,6 +551,17 @@
 					A0C0DB7622A901B0003B09ED = {
 						CreatedOnToolsVersion = 11.0;
 						TestTargetID = A0C0DB5222A901AD003B09ED;
+					};
+					A0C1D2A12521F36400737766 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					A0C1D2B82521F36500737766 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = A0C1D2A12521F36400737766;
+					};
+					A0C1D2C32521F36500737766 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = A0C1D2A12521F36400737766;
 					};
 				};
 			};
@@ -416,6 +585,9 @@
 				A0C0DB5222A901AD003B09ED /* KeyChainX */,
 				A0C0DB6B22A901B0003B09ED /* KeyChainXTests */,
 				A0C0DB7622A901B0003B09ED /* KeyChainXUITests */,
+				A0C1D2A12521F36400737766 /* MacKeyChainX */,
+				A0C1D2B82521F36500737766 /* MacKeyChainXTests */,
+				A0C1D2C32521F36500737766 /* MacKeyChainXUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -442,6 +614,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A0C0DB7522A901B0003B09ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2A02521F36400737766 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0C1D2B22521F36500737766 /* Main.storyboard in Resources */,
+				A0C1D2AF2521F36500737766 /* Preview Assets.xcassets in Resources */,
+				A0C1D2AC2521F36500737766 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2B72521F36500737766 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2C22521F36500737766 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -612,6 +808,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0C1D29E2521F36400737766 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0C1D2AA2521F36400737766 /* MacKeyChainX.xcdatamodeld in Sources */,
+				A0C1D2A72521F36400737766 /* ContentView.swift in Sources */,
+				A0C1D2A52521F36400737766 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2B52521F36500737766 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0C1D2BE2521F36500737766 /* MacKeyChainXTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2C02521F36500737766 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0C1D2C92521F36500737766 /* MacKeyChainXUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -625,6 +847,16 @@
 			target = A0C0DB5222A901AD003B09ED /* KeyChainX */;
 			targetProxy = A0C0DB7822A901B0003B09ED /* PBXContainerItemProxy */;
 		};
+		A0C1D2BB2521F36500737766 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0C1D2A12521F36400737766 /* MacKeyChainX */;
+			targetProxy = A0C1D2BA2521F36500737766 /* PBXContainerItemProxy */;
+		};
+		A0C1D2C62521F36500737766 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0C1D2A12521F36400737766 /* MacKeyChainX */;
+			targetProxy = A0C1D2C52521F36500737766 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -634,6 +866,14 @@
 				A0C0DB6522A901B0003B09ED /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A0C1D2B02521F36500737766 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0C1D2B12521F36500737766 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -889,6 +1129,152 @@
 			};
 			name = Release;
 		};
+		A0C1D2CB2521F36500737766 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = MacKeyChainX/MacKeyChainX.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"MacKeyChainX/Preview Content\"";
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MacKeyChainX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A0C1D2CC2521F36500737766 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = MacKeyChainX/MacKeyChainX.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"MacKeyChainX/Preview Content\"";
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MacKeyChainX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A0C1D2CD2521F36500737766 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				INFOPLIST_FILE = MacKeyChainXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacKeyChainX.app/Contents/MacOS/MacKeyChainX";
+			};
+			name = Debug;
+		};
+		A0C1D2CE2521F36500737766 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				INFOPLIST_FILE = MacKeyChainXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacKeyChainX.app/Contents/MacOS/MacKeyChainX";
+			};
+			name = Release;
+		};
+		A0C1D2CF2521F36500737766 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				INFOPLIST_FILE = MacKeyChainXUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MacKeyChainX;
+			};
+			name = Debug;
+		};
+		A0C1D2D02521F36500737766 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				INFOPLIST_FILE = MacKeyChainXUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MacKeyChainX;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -928,6 +1314,33 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A0C1D2D12521F36500737766 /* Build configuration list for PBXNativeTarget "MacKeyChainX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0C1D2CB2521F36500737766 /* Debug */,
+				A0C1D2CC2521F36500737766 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0C1D2D22521F36500737766 /* Build configuration list for PBXNativeTarget "MacKeyChainXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0C1D2CD2521F36500737766 /* Debug */,
+				A0C1D2CE2521F36500737766 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0C1D2D32521F36500737766 /* Build configuration list for PBXNativeTarget "MacKeyChainXUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0C1D2CF2521F36500737766 /* Debug */,
+				A0C1D2D02521F36500737766 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -963,6 +1376,16 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
+		A0C1D2A82521F36400737766 /* MacKeyChainX.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A0C1D2A92521F36400737766 /* MacKeyChainX.xcdatamodel */,
+			);
+			currentVersion = A0C1D2A92521F36400737766 /* MacKeyChainX.xcdatamodel */;
+			path = MacKeyChainX.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
