@@ -16,10 +16,9 @@ struct KeyItemList: View {
     var body: some View {
         List {
           ForEach( keyFethedResults) { key in
-                Text("")
-            }
+            KeyItemRow( key:key )
+          }
         }
-
     }
 }
 

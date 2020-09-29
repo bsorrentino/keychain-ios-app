@@ -9,13 +9,19 @@
 import SwiftUI
 
 struct KeyItemRow: View {
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    var key:KeyEntity
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text( key.mnemonic )
     }
 }
 
 struct KeyItemRow_Previews: PreviewProvider {
+    
     static var previews: some View {
-        KeyItemRow()
+        KeyItemRow( key:KeyEntity() )
     }
 }
