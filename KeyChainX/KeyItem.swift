@@ -80,7 +80,7 @@ class KeyItem : ObservableObject, Decodable {
         self.url            = entity.url ?? ""
        
         
-        if let data = try? UIApplication.getSecretIfPresent(key: entity.mnemonic) {
+        if let data = try? SharedServices.getSecretIfPresent( forKey: entity.mnemonic) {
             self.note = data.note ?? ""
             self.password = data.password
         }
@@ -141,7 +141,7 @@ class KeyItem : ObservableObject, Decodable {
 
     func insert( into context:NSManagedObjectContext ) throws {
          
-        try UIApplication.setSecret( key: self.mnemonic, password:self.password, note:self.note)
+        try SharedServices.setSecret( forKey: self.mnemonic, withPassword:self.password, note:self.note)
         
         if let entity = self.entity { // Update
             let _ = self.copyTo(entity: entity )

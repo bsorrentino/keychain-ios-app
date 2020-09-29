@@ -80,29 +80,29 @@ class CoreDataTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
         
-        guard let context = self.container?.viewContext else {
-            XCTFail()
-            return
-        }
-
-
-        do {
-
-            let a11 = try self.insert( inContext: context ) {k in k.mnemonic = key1_1 }
-            let a12 = try self.insert( inContext: context ) {k in k.mnemonic = key1_2 }
-            let _ = try self.insert( inContext: context ) {k in
-                k.mnemonic = key1
-                k.addToLinkedTo(a11)
-                k.addToLinkedTo(a12)
-            }
-            let _ = try self.insert( inContext: context ) {k in k.mnemonic = key2_1 }
-            let _ = try self.insert( inContext: context ) {k in k.mnemonic = key2 }
-
-            try context.save()
-        }
-        catch let error as NSError {
-            XCTFail("fail inserting KeyEntity. Error: \(error.userInfo)" )
-        }
+//        guard let context = self.container?.viewContext else {
+//            XCTFail()
+//            return
+//        }
+//
+//
+//        do {
+//
+//            let a11 = try self.insert( inContext: context ) {k in k.mnemonic = key1_1 }
+//            let a12 = try self.insert( inContext: context ) {k in k.mnemonic = key1_2 }
+//            let _ = try self.insert( inContext: context ) {k in
+//                k.mnemonic = key1
+//                k.addToLinkedTo(a11)
+//                k.addToLinkedTo(a12)
+//            }
+//            let _ = try self.insert( inContext: context ) {k in k.mnemonic = key2_1 }
+//            let _ = try self.insert( inContext: context ) {k in k.mnemonic = key2 }
+//
+//            try context.save()
+//        }
+//        catch let error as NSError {
+//            XCTFail("fail inserting KeyEntity. Error: \(error.userInfo)" )
+//        }
 
 
     }
@@ -175,51 +175,47 @@ class CoreDataTests: XCTestCase {
     }
     
     
-    func testCoreData() {
-        
-        guard let context = self.container?.viewContext else {
-            XCTFail()
-            return
-        }
-        
-        do {
-
-            let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
-            let result = try context.fetch( request )
-
-//            XCTAssertEqual(result.count, 5, "number of fetched keys are not what expected!")
-            
-//            result.forEach { (k) in
-//                print( "mnemonic: \(k.mnemonic)")
+//    func testCoreData() {
+//
+//        guard let context = self.container?.viewContext else {
+//            XCTFail()
+//            return
+//        }
+//
+//        do {
+//
+//
+//            let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
+//            let result = try context.fetch( request )
+//
+//
+//            let mnemomic = "A1"
+//            guard let k = result.filter({ k in k.mnemonic == mnemomic}).first else {
+//                XCTFail( "menemonic \(mnemomic) not found" )
+//                return;
 //            }
-            
-            let mnemomic = "A1"
-            guard let k = result.filter({ k in k.mnemonic == mnemomic}).first else {
-                XCTFail( "menemonic \(mnemomic) not found" )
-                return;
-            }
-            
-            guard let linkedTo = k.linkedTo else {
-                XCTFail( "linked item  \(mnemomic) is null" )
-                return;
-            }
-            
-            XCTAssertEqual(linkedTo.count, 2, "tehere are no linked keys to \(mnemomic)")
-            
-            linkedTo.forEach { lk in
-                print( "linked key of \(mnemomic): \(lk.mnemonic) - \(lk.linkedBy?.mnemonic ?? "nil")")
-                
-                XCTAssertEqual(lk.linkedBy?.mnemonic, mnemomic)
-            }
-            
-            
-        }
-        catch let error as NSError {
-            XCTFail("fail fetching KeyEntity error \(error.userInfo)" )
-        }
-
-
-    }
+//
+//            guard let linkedTo = k.linkedTo else {
+//                XCTFail( "linked item  \(mnemomic) is null" )
+//                return;
+//            }
+//
+//            XCTAssertEqual(linkedTo.count, 2, "tehere are no linked keys to \(mnemomic)")
+//
+//            linkedTo.forEach { lk in
+//                print( "linked key of \(mnemomic): \(lk.mnemonic) - \(lk.linkedBy?.mnemonic ?? "nil")")
+//
+//                XCTAssertEqual(lk.linkedBy?.mnemonic, mnemomic)
+//            }
+//
+//
+//        }
+//        catch let error as NSError {
+//            XCTFail("fail fetching KeyEntity error \(error.userInfo)" )
+//        }
+//
+//
+//    }
 
     func testCodable() {
         guard let context = self.container?.viewContext else {

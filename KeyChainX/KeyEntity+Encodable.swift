@@ -20,7 +20,7 @@ extension KeyEntity : Encodable {
         try values.encode( self.mnemonic, forKey: .mnemonic)
         try values.encode( self.username, forKey: .username)
         
-        if let data = try UIApplication.getSecretIfPresent(key: self.mnemonic) {
+        if let data = try SharedServices.getSecretIfPresent(forKey: self.mnemonic) {
             try values.encode( data.note ?? "", forKey: .note)
             try values.encode( data.password, forKey: .password)
         }

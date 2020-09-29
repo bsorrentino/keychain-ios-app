@@ -272,7 +272,7 @@ extension UIApplication {
                 }
                 
                 do {
-                    try UIApplication.removeSecret(key: keyDeleted.mnemonic )
+                    try SharedServices.removeSecret(key: keyDeleted.mnemonic )
                     print( "secrets \(keyDeleted.mnemonic) removed!")
                 }
                 catch {
