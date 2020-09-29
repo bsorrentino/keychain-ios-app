@@ -44,6 +44,13 @@
 		A086C3AB252325AA001EF95E /* SharedServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086C3AA252325AA001EF95E /* SharedServices.swift */; };
 		A086C3AC252325AA001EF95E /* SharedServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086C3AA252325AA001EF95E /* SharedServices.swift */; };
 		A086C3B3252327C9001EF95E /* App+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F42361FDD50066E947 /* App+Error.swift */; };
+		A086C3CB25232D1F001EF95E /* KeyEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */; };
+		A086C3D225232D26001EF95E /* KeyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */; };
+		A086C3E025232D43001EF95E /* KeyEntity+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */; };
+		A086C3E725232D48001EF95E /* KeyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */; };
+		A086C3EE25232D5A001EF95E /* MailEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */; };
+		A086C3F525232D62001EF95E /* MailEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */; };
+		A086C402252331C3001EF95E /* KeyEntity+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */; };
 		A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */; };
 		A0BE3F8325225F14002A86A7 /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE3F8225225F14002A86A7 /* KeyItemList.swift */; };
 		A0BE3F8425225F14002A86A7 /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE3F8225225F14002A86A7 /* KeyItemList.swift */; };
@@ -123,7 +130,6 @@
 		5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyGroupCell.xib; sourceTree = "<group>"; };
-		5F7C0E8124E940B400B41F20 /* KeyEntity+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Encodable.swift"; sourceTree = "<group>"; };
 		5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItem.swift; sourceTree = "<group>"; };
 		5F9ABB3D237983A800AC052A /* App+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Keychain.swift"; sourceTree = "<group>"; };
 		5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Url.swift"; sourceTree = "<group>"; };
@@ -434,7 +440,6 @@
 			children = (
 				5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */,
 				A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */,
-				5F7C0E8124E940B400B41F20 /* KeyEntity+Encodable.swift */,
 				A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */,
 				5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */,
 				A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */,
@@ -850,11 +855,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A086C3B3252327C9001EF95E /* App+Error.swift in Sources */,
+				A086C3F525232D62001EF95E /* MailEntity+CoreDataProperties.swift in Sources */,
+				A086C402252331C3001EF95E /* KeyEntity+Encodable.swift in Sources */,
 				A0C1D2AA2521F36400737766 /* MacKeyChainX.xcdatamodeld in Sources */,
+				A086C3E725232D48001EF95E /* KeyItem.swift in Sources */,
+				A086C3CB25232D1F001EF95E /* KeyEntity+CoreDataClass.swift in Sources */,
+				A086C3D225232D26001EF95E /* KeyEntity+CoreDataProperties.swift in Sources */,
 				A0C1D2A72521F36400737766 /* ContentView.swift in Sources */,
 				A086C3AC252325AA001EF95E /* SharedServices.swift in Sources */,
+				A086C3EE25232D5A001EF95E /* MailEntity+CoreDataClass.swift in Sources */,
 				A0C1D2A52521F36400737766 /* AppDelegate.swift in Sources */,
 				A086C39425231B79001EF95E /* KeyChain.xcdatamodeld in Sources */,
+				A086C3E025232D43001EF95E /* KeyEntity+Helpers.swift in Sources */,
 				A086C39B25232187001EF95E /* App+Keychain.swift in Sources */,
 				A0C1D2E725225DE000737766 /* KeyItemRow.swift in Sources */,
 				A0BE3F8325225F14002A86A7 /* KeyItemList.swift in Sources */,
