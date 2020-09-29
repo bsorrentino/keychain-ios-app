@@ -9,8 +9,17 @@
 import SwiftUI
 
 struct KeyItemList: View {
+
+    @FetchRequest( fetchRequest: KeyEntity.fetchRequest() )
+    var keyFethedResults: FetchedResults<KeyEntity>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+          ForEach( keyFethedResults) { key in
+                Text("")
+            }
+        }
+
     }
 }
 

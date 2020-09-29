@@ -75,6 +75,8 @@
 		A0D796AB25236E3A00A5CBAB /* FieldValidatorLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = A0D796AA25236E3A00A5CBAB /* FieldValidatorLibrary */; };
 		A0D796B32523711000A5CBAB /* Shared+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D796B22523711000A5CBAB /* Shared+CoreData.swift */; };
 		A0D796C0252371C500A5CBAB /* Shared+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D796B22523711000A5CBAB /* Shared+CoreData.swift */; };
+		A0D796DA2523A92D00A5CBAB /* KeyEntity+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */; };
+		A0D796EB2523A9CD00A5CBAB /* KeyEntity+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */; };
 		A0E11ED922B4E82F008766C0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A0E11ED822B4E82F008766C0 /* README.md */; };
 		A0EC9E4622B420AD009EB81F /* KeyItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EC9E4522B420AD009EB81F /* KeyItemCell.xib */; };
 		A0EE95502375F38400002E6F /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */; };
@@ -185,6 +187,7 @@
 		A0C1D2CA2521F36500737766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0C1D2E625225DE000737766 /* KeyItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemRow.swift; sourceTree = "<group>"; };
 		A0D796B22523711000A5CBAB /* Shared+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+CoreData.swift"; sourceTree = "<group>"; };
+		A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Identifiable.swift"; sourceTree = "<group>"; };
 		A0E11ED822B4E82F008766C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A0EC9E4522B420AD009EB81F /* KeyItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyItemCell.xib; sourceTree = "<group>"; };
 		A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KeyChain.xcdatamodel; sourceTree = "<group>"; };
@@ -451,6 +454,7 @@
 				A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */,
 				A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */,
 				A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */,
+				A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */,
 			);
 			name = datamodel;
 			sourceTree = "<group>";
@@ -820,6 +824,7 @@
 				A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */,
 				A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */,
 				A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */,
+				A0D796DA2523A92D00A5CBAB /* KeyEntity+Identifiable.swift in Sources */,
 				5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */,
 				A0818D6423B6A91C00823F43 /* KeyBaseListViewController.swift in Sources */,
 				A047651E23DDABE2005B8547 /* KeyItemForm+Password.swift in Sources */,
@@ -869,6 +874,7 @@
 				A0C1D2AA2521F36400737766 /* MacKeyChainX.xcdatamodeld in Sources */,
 				A086C3E725232D48001EF95E /* KeyItem.swift in Sources */,
 				A086C3CB25232D1F001EF95E /* KeyEntity+CoreDataClass.swift in Sources */,
+				A0D796EB2523A9CD00A5CBAB /* KeyEntity+Identifiable.swift in Sources */,
 				A086C3D225232D26001EF95E /* KeyEntity+CoreDataProperties.swift in Sources */,
 				A0C1D2A72521F36400737766 /* ContentView.swift in Sources */,
 				A086C3AC252325AA001EF95E /* Shared.swift in Sources */,

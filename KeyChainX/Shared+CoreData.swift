@@ -9,8 +9,6 @@
 import Foundation
 import CoreData
 
-// MARK: CoreData extension
-
 enum SavingError :Error {
     
     case KeyDoesNotExist( id:String )
@@ -19,6 +17,8 @@ enum SavingError :Error {
     case BundleIdentifierUndefined
 }
 
+
+// MARK: CoreData extension
 
 extension Shared {
     
@@ -99,5 +99,75 @@ extension Shared {
         NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
     }
 
+
+}
+
+
+// MARK: AppDelegate extension
+extension AppDelegate {
+    
+    var  managedObjectContext:NSManagedObjectContext {
+        return self.persistentContainer.viewContext
+    }
+
+    func startObservingManagedObjectContextObjectsDidChangeEvent() {
+        // Add Observer
+        let objectContextObjectsDidChangeEvent = NSNotification.Name.NSManagedObjectContextObjectsDidChange
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(managedObjectContextObjectsDidChange),
+                                               name: objectContextObjectsDidChangeEvent,
+                                               object: managedObjectContext)
+     
+//        notificationCenter.addObserver(self, selector: #selector(managedObjectContextWillSave), name: NSManagedObjectContextWillSaveNotification, object: managedObjectContext)
+//        notificationCenter.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSManagedObjectContextDidSaveNotification, object: managedObjectContext)
+    }
+
+    func stopObservingManagegObjectContextObjectsDidChangeEvent() {
+            // Add Observer
+        let objectContextObjectsDidChangeEvent = NSNotification.Name.NSManagedObjectContextObjectsDidChange
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(managedObjectContextObjectsDidChange),
+                                               name: objectContextObjectsDidChangeEvent,
+                                               object: managedObjectContext)
+     
+    //        notificationCenter.addObserver(self, selector: #selector(managedObjectContextWillSave), name: NSManagedObjectContextWillSaveNotification, object: managedObjectContext)
+    //        notificationCenter.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSManagedObjectContextDidSaveNotification, object: managedObjectContext)
+    }
+
+    @objc private func managedObjectContextObjectsDidChange(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+
+        if let inserts = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject>, inserts.count > 0 {
+            print( "object inserted # \(inserts.count)" )
+        }
+
+        if let updates = userInfo[NSUpdatedObjectsKey] as? Set<NSManagedObject>, updates.count > 0 {
+            print( "object updated # \(updates.count)" )
+        }
+
+        if let deletes = userInfo[NSDeletedObjectsKey] as? Set<NSManagedObject>, deletes.count > 0 {
+            print( "object deleted # \(deletes.count)" )
+            
+            for object in deletes {
+                
+                guard let keyDeleted = object as? KeyEntity else {
+                    print( "obejct \(object) is not a KeyEntity")
+                    continue
+                }
+                
+                do {
+                    try Shared.removeSecret(key: keyDeleted.mnemonic )
+                    print( "secrets \(keyDeleted.mnemonic) removed!")
+                }
+                catch {
+                    print( "error removing password from entity \(keyDeleted)\n\(error)" )
+                }
+            }
+        }
+    }
+        
+    
 
 }

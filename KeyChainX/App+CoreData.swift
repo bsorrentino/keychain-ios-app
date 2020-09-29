@@ -13,9 +13,17 @@ import Combine
 import KeychainAccess
 import FieldValidatorLibrary
 
-//
-// MARK: DISCONNECTED KEYENTITY OBJECT
-//
+
+extension UIApplication {
+    
+    var  managedObjectContext:NSManagedObjectContext {
+        guard let context = (delegate as? AppDelegate)?.persistentContainer.viewContext else {
+            fatalError("Unable to read managed object context.")
+        }
+        return context
+    }
+
+}
 
 #if false
 class KeyItem : ObservableObject, Decodable {
@@ -190,105 +198,6 @@ class KeyItem : ObservableObject, Decodable {
     
 }
 #endif
-
-extension UIApplication {
-    
-    var  managedObjectContext:NSManagedObjectContext {
-        guard let context = (delegate as? AppDelegate)?.persistentContainer.viewContext else {
-            fatalError("Unable to read managed object context.")
-        }
-        return context
-    }
-    
-    
-    func managedObjectContextInit() {
-        startObservingManagedObjectContextObjectsDidChangeEvent()
-    }
-    
-    func managedObjectContextDestroy() {
-        
-        saveContext()
-        stopObservingManagegObjectContextObjectsDidChangeEvent()
-    }
-
-    private func startObservingManagedObjectContextObjectsDidChangeEvent() {
-        // Add Observer
-        let objectContextObjectsDidChangeEvent = NSNotification.Name.NSManagedObjectContextObjectsDidChange
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(managedObjectContextObjectsDidChange),
-                                               name: objectContextObjectsDidChangeEvent,
-                                               object: managedObjectContext)
-     
-//        notificationCenter.addObserver(self, selector: #selector(managedObjectContextWillSave), name: NSManagedObjectContextWillSaveNotification, object: managedObjectContext)
-//        notificationCenter.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSManagedObjectContextDidSaveNotification, object: managedObjectContext)
-    }
-
-    private func stopObservingManagegObjectContextObjectsDidChangeEvent() {
-            // Add Observer
-            let objectContextObjectsDidChangeEvent = NSNotification.Name.NSManagedObjectContextObjectsDidChange
-            
-            NotificationCenter.default.addObserver(self,
-                                                   selector: #selector(managedObjectContextObjectsDidChange),
-                                                   name: objectContextObjectsDidChangeEvent,
-                                                   object: managedObjectContext)
-         
-    //        notificationCenter.addObserver(self, selector: #selector(managedObjectContextWillSave), name: NSManagedObjectContextWillSaveNotification, object: managedObjectContext)
-    //        notificationCenter.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSManagedObjectContextDidSaveNotification, object: managedObjectContext)
-    }
-
-    @objc private func managedObjectContextObjectsDidChange(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else { return }
-
-        if let inserts = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject>, inserts.count > 0 {
-            print( "object inserted # \(inserts.count)" )
-        }
-
-        if let updates = userInfo[NSUpdatedObjectsKey] as? Set<NSManagedObject>, updates.count > 0 {
-            print( "object updated # \(updates.count)" )
-        }
-
-        if let deletes = userInfo[NSDeletedObjectsKey] as? Set<NSManagedObject>, deletes.count > 0 {
-            print( "object deleted # \(deletes.count)" )
-            
-            for object in deletes {
-                
-                guard let keyDeleted = object as? KeyEntity else {
-                    print( "obejct \(object) is not a KeyEntity")
-                    continue
-                }
-                
-                do {
-                    try SharedServices.removeSecret(key: keyDeleted.mnemonic )
-                    print( "secrets \(keyDeleted.mnemonic) removed!")
-                }
-                catch {
-                    print( "error removing password from entity \(keyDeleted)\n\(error)" )
-                }
-            }
-        }
-    }
-        
-    
-    // MARK: Core Data Saving support
-    private func saveContext () {
-        let context = managedObjectContext
-
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-
-}
-
-
 
 
 #if false
