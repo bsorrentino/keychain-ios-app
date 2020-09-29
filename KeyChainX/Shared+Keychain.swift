@@ -33,7 +33,7 @@ extension EnvironmentValues {
 
 let appKeychain = Keychain()
 
-extension SharedServices  {
+extension Shared  {
     typealias Secret = ( password:String, note:String? )
 
     static func getSecretIfPresent( forKey key:String ) throws  -> Secret?  {

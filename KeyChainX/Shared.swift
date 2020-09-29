@@ -8,7 +8,9 @@
 
 import Foundation
 
-class SharedServices {
+// MARK: Shared namespace
+
+class Shared {
     
     
 }

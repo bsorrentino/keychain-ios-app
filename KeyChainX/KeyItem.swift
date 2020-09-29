@@ -80,7 +80,7 @@ class KeyItem : ObservableObject, Decodable {
         self.url            = entity.url ?? ""
        
         
-        if let data = try? SharedServices.getSecretIfPresent( forKey: entity.mnemonic) {
+        if let data = try? Shared.getSecretIfPresent( forKey: entity.mnemonic) {
             self.note = data.note ?? ""
             self.password = data.password
         }
@@ -141,14 +141,14 @@ class KeyItem : ObservableObject, Decodable {
 
     func insert( into context:NSManagedObjectContext ) throws {
          
-        try SharedServices.setSecret( forKey: self.mnemonic, withPassword:self.password, note:self.note)
+        try Shared.setSecret( forKey: self.mnemonic, withPassword:self.password, note:self.note)
         
         if let entity = self.entity { // Update
             let _ = self.copyTo(entity: entity )
         }
         else { // Create
             // Check Duplicate
-            if let _ = try UIApplication.fetchSingleIfPresent(context: context, entity: KeyEntity.entity(), predicateFormat: "mnemonic == %@", key: self.mnemonic) {
+            if let _ = try Shared.fetchSingleIfPresent(context: context, entity: KeyEntity.entity(), predicateFormat: "mnemonic == %@", key: self.mnemonic) {
                 
                 throw SavingError.DuplicateKey(id: self.mnemonic)
             }
