@@ -24,6 +24,9 @@ struct KeyItemList: View {
 
 struct KeyItemList_Previews: PreviewProvider {
     static var previews: some View {
-        KeyItemList()
+        
+        let context = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        return KeyItemList().environment(\.managedObjectContext, context)
     }
 }

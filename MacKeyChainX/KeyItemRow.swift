@@ -22,6 +22,17 @@ struct KeyItemRow: View {
 struct KeyItemRow_Previews: PreviewProvider {
     
     static var previews: some View {
-        KeyItemRow( key:KeyEntity() )
+        
+        let context = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let key = { () -> KeyEntity in
+            
+            let key = KeyEntity( entity:KeyEntity.entity(), insertInto: context )
+            
+            key.mnemonic = "KEY1"
+            
+            return key
+        }
+        return KeyItemRow( key:key() )
     }
 }
