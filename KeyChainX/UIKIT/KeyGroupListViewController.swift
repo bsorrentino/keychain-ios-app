@@ -133,7 +133,7 @@ class KeyGroupListViewController : KeyBaseListViewController, UITableViewDataSou
         
         let selectedItem = keys[index]
         
-        let newViewController = KeyEntityForm( entity: selectedItem )
+        let newViewController = KeyEntityForm( item: KeyItem( entity: selectedItem) )
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
 
     }

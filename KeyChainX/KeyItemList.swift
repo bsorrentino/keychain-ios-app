@@ -29,7 +29,7 @@ struct KeyItemListTopView : View {
     func showForm() -> some View {
         VStack{
             if formActive {
-                KeyEntityForm()
+                KeyEntityForm(item:KeyItem())
             } else {
                 EmptyView()
             }
@@ -42,7 +42,7 @@ struct KeyItemListTopView : View {
             KeyItemList( isSearching: self.$isSearching, geometry: geometry.size)
                 .navigationBarItems(trailing:
                     HStack {
-                        NavigationLink( destination: KeyEntityForm(), isActive: self.$formActive ) { EmptyView() }
+                        NavigationLink( destination: KeyEntityForm(item:KeyItem()), isActive: self.$formActive ) { EmptyView() }
                         Button( action: {
                             self.formActive = true
                         }) {

@@ -213,7 +213,7 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
         }
         else {
 
-            let newViewController = KeyEntityForm( entity: selectedItem )
+            let newViewController = KeyEntityForm( item: KeyItem(entity: selectedItem) )
             self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
 
             if searchController.isActive {
@@ -232,7 +232,7 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
         
         let selectedItem = keys[indexPath.row]
         
-        let newViewController = KeyEntityForm( entity: selectedItem )
+        let newViewController = KeyEntityForm( item: KeyItem(entity: selectedItem) )
         
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
         

@@ -66,7 +66,7 @@ class KeyItem : ObservableObject, Decodable {
         self.password = ""
         self.mail = ""
         self.note = ""
-        self.url = ""
+        self.url = ""        
     }
     
     init( entity: KeyEntity ) {
@@ -91,6 +91,15 @@ class KeyItem : ObservableObject, Decodable {
         
         self.entity = entity
 
+    }
+    
+    func reset() {
+        self.mnemonic = ""
+        self.username = ""
+        self.password = ""
+        self.mail = ""
+        self.note = ""
+        self.url = ""
     }
     
     // MARK: -
