@@ -14,6 +14,7 @@ let NOTE_MAGIC_NUMBER = CGFloat(7.5)
 class UINoteTextView : UITextView {
     
     let lineColor = UIColor( red:202/255.0, green:167/255.0, blue:131/255.0, alpha:1.0 )
+    private var observer:NSObjectProtocol?
     
     override init( frame: CGRect, textContainer: NSTextContainer? ) {
         super.init( frame: frame, textContainer: textContainer )
@@ -22,11 +23,28 @@ class UINoteTextView : UITextView {
         self.isEditable = true
         self.isUserInteractionEnabled = true
         self.backgroundColor = .yellow
+        self.isScrollEnabled = true
+        self.showsVerticalScrollIndicator = true
         
+        self.observer = NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidShowNotification,
+                                               object: nil,
+                                               queue: .main)
+            { (notification) in
+                self.setNeedsDisplay()
+            }
+
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+
+    deinit {
+        // perform the deinitialization
+
+        if let observer = self.observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
 
     private func drawVerticalGuideLine( _ rect: CGRect, in context: CGContext ) {
@@ -67,6 +85,7 @@ class UINoteTextView : UITextView {
     }
     
     override func draw(_ rect: CGRect) {
+        print( "draw \(rect)")
         
         guard let context = UIGraphicsGetCurrentContext() else {
             return
@@ -114,7 +133,7 @@ struct NoteTextView: UIViewRepresentable {
         return view
     }
 
-    func updateUIView(_ uiView: UINoteTextView, context: Context) {
+    func updateUIView(_ uiView: UINoteTextView, context: Context) {        
         uiView.text = text
     }
 
@@ -127,9 +146,13 @@ struct NoteTextView: UIViewRepresentable {
 
 
 #if DEBUG
+
 struct NoteTextView_Previews : PreviewProvider {
     static var previews: some View {
         NoteTextView( text: .constant("TEST") )
+            .navigationBarTitle( Text("Note"), displayMode: .inline  )
+            .navigationBarItems(trailing: Button("done") {
+            })
     }
 }
 #endif

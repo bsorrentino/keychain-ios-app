@@ -37,6 +37,8 @@
 		A047651E23DDABE2005B8547 /* KeyItemForm+Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */; };
 		A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */; };
 		A0533DC824EAF590009C784B /* KeyEntity+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */; };
+		A0550B40257E372000DF5F99 /* FieldValidatorLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = A0550B3F257E372000DF5F99 /* FieldValidatorLibrary */; };
+		A0550B48257E6D7E00DF5F99 /* KeyboardGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0550B47257E6D7E00DF5F99 /* KeyboardGeometry.swift */; };
 		A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* KeyItemForm+Email.swift */; };
 		A0818D6423B6A91C00823F43 /* KeyBaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */; };
 		A086C39425231B79001EF95E /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */; };
@@ -151,6 +153,7 @@
 		A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Password.swift"; sourceTree = "<group>"; };
 		A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FieldValidator+Helpers.swift"; sourceTree = "<group>"; };
 		A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Encodable.swift"; sourceTree = "<group>"; };
+		A0550B47257E6D7E00DF5F99 /* KeyboardGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGeometry.swift; sourceTree = "<group>"; };
 		A071C20223648EAB00891175 /* KeyItemForm+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Email.swift"; sourceTree = "<group>"; };
 		A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBaseListViewController.swift; sourceTree = "<group>"; };
 		A086C3AA252325AA001EF95E /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
@@ -233,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0550B40257E372000DF5F99 /* FieldValidatorLibrary in Frameworks */,
 				A086C3A3252321C4001EF95E /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +369,7 @@
 				A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */,
 				A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */,
 				5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */,
+				A0550B47257E6D7E00DF5F99 /* KeyboardGeometry.swift */,
 				A0C0DB5F22A901B0003B09ED /* Assets.xcassets */,
 				A0C0DB6422A901B0003B09ED /* LaunchScreen.storyboard */,
 				A0C0DB6722A901B0003B09ED /* Info.plist */,
@@ -542,6 +547,7 @@
 			name = MacKeyChainX;
 			packageProductDependencies = (
 				A086C3A2252321C4001EF95E /* KeychainAccess */,
+				A0550B3F257E372000DF5F99 /* FieldValidatorLibrary */,
 			);
 			productName = MacKeyChainX;
 			productReference = A0C1D2A22521F36400737766 /* MacKeyChainX.app */;
@@ -837,6 +843,7 @@
 				A0EE95502375F38400002E6F /* KeyChain.xcdatamodeld in Sources */,
 				A0533DC824EAF590009C784B /* KeyEntity+Encodable.swift in Sources */,
 				A0EE95712375F7AF00002E6F /* MailEntity+CoreDataClass.swift in Sources */,
+				A0550B48257E6D7E00DF5F99 /* KeyboardGeometry.swift in Sources */,
 				A0D796B32523711000A5CBAB /* Shared+CoreData.swift in Sources */,
 				A086C3AB252325AA001EF95E /* Shared.swift in Sources */,
 				5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */,
@@ -1462,6 +1469,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5FFE283F23B9480400EAB103 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
+		};
+		A0550B3F257E372000DF5F99 /* FieldValidatorLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F9987AE25387BEB004F43DF /* XCRemoteSwiftPackageReference "swiftui-fieldvalidator" */;
+			productName = FieldValidatorLibrary;
 		};
 		A086C3A2252321C4001EF95E /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
