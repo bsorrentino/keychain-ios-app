@@ -18,7 +18,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        let contentView = ContentView().environment(\.managedObjectContext, persistentContainer.viewContext)
+        
+        let appleInterfaceStyle = UserDefaults.standard.string(forKey: "AppleInterfaceStyle")
+       
+        let colorScheme = ( appleInterfaceStyle == "Dark" )  ? ColorScheme.dark :  ColorScheme.light
+        
+        print( "colorScheme: \(colorScheme)" )
+        
+        let contentView = ContentView()
+            .environment(\.managedObjectContext, persistentContainer.viewContext)
+            .environment(\.colorScheme, colorScheme)
 
         startObservingManagedObjectContextObjectsDidChangeEvent()
         
