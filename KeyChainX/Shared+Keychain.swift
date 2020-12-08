@@ -33,10 +33,10 @@ extension EnvironmentValues {
 
 let appKeychain = Keychain()
 
-extension UIApplication  {
+extension Shared  {
     typealias Secret = ( password:String, note:String? )
 
-    static func getSecretIfPresent( key:String ) throws  -> Secret?  {
+    static func getSecretIfPresent( forKey key:String ) throws  -> Secret?  {
              
          guard let value = try appKeychain.getString( key ) else {
              return nil
@@ -46,7 +46,7 @@ extension UIApplication  {
              
     }
     
-    static func getSecret( key:String ) throws  -> Secret  {
+    static func getSecret( forKey key:String ) throws  -> Secret  {
             
         guard let value = try appKeychain.getString( key ) else {
             throw "no password found for key \(key)"
@@ -56,7 +56,7 @@ extension UIApplication  {
             
     }
     
-    static func setSecret( key:String, password:String, note:String? ) throws  {
+    static func setSecret( forKey key:String, withPassword password:String, note:String? ) throws  {
         
         if let note = note {
             try appKeychain.comment(note).set( password, key: key )

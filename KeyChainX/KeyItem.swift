@@ -66,7 +66,7 @@ class KeyItem : ObservableObject, Decodable {
         self.password = ""
         self.mail = ""
         self.note = ""
-        self.url = ""
+        self.url = ""        
     }
     
     init( entity: KeyEntity ) {
@@ -80,7 +80,7 @@ class KeyItem : ObservableObject, Decodable {
         self.url            = entity.url ?? ""
        
         
-        if let data = try? UIApplication.getSecretIfPresent(key: entity.mnemonic) {
+        if let data = try? Shared.getSecretIfPresent( forKey: entity.mnemonic) {
             self.note = data.note ?? ""
             self.password = data.password
         }
@@ -91,6 +91,15 @@ class KeyItem : ObservableObject, Decodable {
         
         self.entity = entity
 
+    }
+    
+    func reset() {
+        self.mnemonic = ""
+        self.username = ""
+        self.password = ""
+        self.mail = ""
+        self.note = ""
+        self.url = ""
     }
     
     // MARK: -
@@ -141,14 +150,14 @@ class KeyItem : ObservableObject, Decodable {
 
     func insert( into context:NSManagedObjectContext ) throws {
          
-        try UIApplication.setSecret( key: self.mnemonic, password:self.password, note:self.note)
+        try Shared.setSecret( forKey: self.mnemonic, withPassword:self.password, note:self.note)
         
         if let entity = self.entity { // Update
             let _ = self.copyTo(entity: entity )
         }
         else { // Create
             // Check Duplicate
-            if let _ = try UIApplication.fetchSingleIfPresent(context: context, entity: KeyEntity.entity(), predicateFormat: "mnemonic == %@", key: self.mnemonic) {
+            if let _ = try Shared.fetchSingleIfPresent(context: context, entity: KeyEntity.entity(), predicateFormat: "mnemonic == %@", key: self.mnemonic) {
                 
                 throw SavingError.DuplicateKey(id: self.mnemonic)
             }

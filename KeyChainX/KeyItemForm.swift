@@ -40,12 +40,8 @@ struct KeyEntityForm : View {
                     //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     private let strikeWidth:CGFloat = 0.5
     
-    init() {
-        self.item = KeyItem()
-    }
-
-    init( entity:KeyEntity ) {
-        self.item = KeyItem( entity:entity )
+    init( item:KeyItem ) {
+        self.item = item
     }
 
     func secretStatePicker() -> some View {
@@ -79,6 +75,7 @@ struct KeyEntityForm : View {
             }
             
             self.presentationMode.wrappedValue.dismiss()
+            
             
         })
         .disabled( !item.checkIsValid )
@@ -194,7 +191,7 @@ struct KeyEntityForm : View {
 
                 }
             )
-        } // NavigationView
+        }.onAppear(  perform: { if( item.isNew ) { item.reset() } } ) // NavigationView
         
     }
 }
@@ -208,10 +205,10 @@ struct KeyItemDetail_Previews : PreviewProvider {
         
         
         Group {
-            KeyEntityForm()
+            KeyEntityForm( item:KeyItem() )
                .environment(\.colorScheme, .light)
 
-            KeyEntityForm()
+            KeyEntityForm( item:KeyItem() )
                .environment(\.colorScheme, .dark)
          }
     }

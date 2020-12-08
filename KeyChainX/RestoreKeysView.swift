@@ -72,7 +72,7 @@ struct RestoreKeysView: View {
     private func prepareRestore() {
         
         do {
-            try UIApplication.deleteAllWithMerge( context: managedObjectContext )
+            try Shared.deleteAllWithMerge( context: managedObjectContext )
             
             showReportView = true
         }
