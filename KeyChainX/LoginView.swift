@@ -13,7 +13,13 @@ import FieldValidatorLibrary
 
 private let strikeWidth:CGFloat = 0.5
 
+
 struct LoginView: View {
+    
+    class States : ObservableObject {
+        @Published var show = true
+    }
+
     @Environment(\.presentationMode) private var isPresented
     @Environment(\.UserPreferencesKeychain) private var userPreferencesKeychain
 
@@ -100,8 +106,8 @@ struct LoginView: View {
                     }
                     else {
 
-                        self.passwordInput1()
-                        self.passwordInput2()
+                        self.passwordChooseInput()
+                        self.passwordConfirmInput()
                         Divider()
                         self.checkError {
                             ( self.passwordChecker.valid ) ? self.confirmPasswordChecker : self.passwordChecker
@@ -121,10 +127,11 @@ struct LoginView: View {
                 Spacer()
 
                     
-            }.padding( EdgeInsets( top:0, leading:10, bottom:0, trailing:10  ))
+                }.padding( EdgeInsets( top:0, leading:10, bottom:0, trailing:10  ))
 
                     
-        }.navigationBarTitle( Text("Login"), displayMode: .large)
+            }.navigationBarTitle( Text("Login"), displayMode: .large)
+        .highPriorityGesture( DragGesture() ) // DISABLE DRAG GESTURE
     }
         
     func passwordInput() -> some View {
@@ -168,61 +175,67 @@ struct LoginView: View {
 
     }
     
-    func passwordInput1() -> some View {
-        
-        VStack(alignment: .leading) {
-            SecureFieldWithValidator( title:"write password",
-                                      value:$password,
-                                      checker:$passwordChecker ) { v in
-                    if( v.isEmpty ) {
-                        return "password cannot be empty! ☹️"
-                    }
-                                                            
-                    return nil
-            }
-            .autocapitalization(.none)
-            .multilineTextAlignment(.center)
-            .padding( 20.0 )
-//            .overlay( RoundedRectangle(cornerRadius: 10)
-//                        .stroke(lineWidth: strikeWidth )
-//                        .foregroundColor(passwordChecker.valid ? Color.black : Color.red))
-
-
-        }
-    }
-
-    func passwordInput2() -> some View {
-        
-        VStack(alignment: .leading) {
-            SecureFieldWithValidator( title: "confirm password",
-                                      value:$confirmPassword,
-                                      checker:$confirmPasswordChecker ) { v in
-                    if( v.isEmpty ) {
-                        return "password cannot be empty! ☹️"
-                    }
-                    if( self.password.compare(v) != .orderedSame) {
-                        return "password doesn't match! 🤔"
-                    }
-                    return nil
-            }
-            .autocapitalization(.none)
-            .multilineTextAlignment(.center)
-            .padding( 30.0 )
-//            .overlay( RoundedRectangle(cornerRadius: 10)
-//                        .stroke(lineWidth: strikeWidth )
-//                        .foregroundColor(confirmPasswordChecker.valid ? Color.black : Color.red))
-
-            
-
-        }
-
-    }
-
-
 }
 
+//
+// MARK: -
+// MARK: FIRST TIME PASSWORD
+//
+
+extension LoginView {
+    
+        func passwordChooseInput() -> some View {
+            
+            VStack(alignment: .leading) {
+                SecureFieldWithValidator( title:"write password",
+                                          value:$password,
+                                          checker:$passwordChecker ) { v in
+                        if( v.isEmpty ) {
+                            return "password cannot be empty! ☹️"
+                        }
+                                                                
+                        return nil
+                }
+                .autocapitalization(.none)
+                .multilineTextAlignment(.center)
+                .padding( 20.0 )
+    //            .overlay( RoundedRectangle(cornerRadius: 10)
+    //                        .stroke(lineWidth: strikeWidth )
+    //                        .foregroundColor(passwordChecker.valid ? Color.black : Color.red))
+
+
+            }
+        }
+
+        func passwordConfirmInput() -> some View {
+            
+            VStack(alignment: .leading) {
+                SecureFieldWithValidator( title: "confirm password",
+                                          value:$confirmPassword,
+                                          checker:$confirmPasswordChecker ) { v in
+                        if( v.isEmpty ) {
+                            return "password cannot be empty! ☹️"
+                        }
+                        if( self.password.compare(v) != .orderedSame) {
+                            return "password doesn't match! 🤔"
+                        }
+                        return nil
+                }
+                .autocapitalization(.none)
+                .multilineTextAlignment(.center)
+                .padding( 30.0 )
+    //            .overlay( RoundedRectangle(cornerRadius: 10)
+    //                        .stroke(lineWidth: strikeWidth )
+    //                        .foregroundColor(confirmPasswordChecker.valid ? Color.black : Color.red))
+
+                
+
+            }
+    }
+}
 
 //
+// MARK: -
 // MARK: BIOMETRIC AUTHC
 //
 
@@ -264,6 +277,7 @@ extension LoginView {
 }
 
 //
+// MARK: -
 // MARK: PASSWORD AUTHC
 //
 

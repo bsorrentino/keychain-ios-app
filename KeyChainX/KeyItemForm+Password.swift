@@ -42,29 +42,20 @@ private struct PasswordToggleField : View {
 }
 
 struct PasswordField : View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
 
     @Binding var value:String
     @Binding var passwordCheck:FieldChecker
     @State var hidden:Bool = true
-    
+    @State var copied:Bool = false
+
     private let strikeWidth:CGFloat = 0.5
+    
     
     var body: some View {
         
-         VStack(alignment: .leading) {
+         //VStack(alignment: .leading) {
              
-             HStack {
-                 Text("Password")
-                 if( !passwordCheck.valid  ) {
-                     Spacer()
-                     Text( passwordCheck.errorMessage ?? "" )
-                         .fontWeight(.light)
-                         .font(.footnote)
-                         .foregroundColor(Color.red)
-
-                 }
-
-             }
             HStack {
                 PasswordToggleField( value:$value,
                                   checker:$passwordCheck,
@@ -75,7 +66,9 @@ struct PasswordField : View {
                      return nil
                 }
                 .autocapitalization(.none)
+                
                 Button( action: {
+                    print("toggle hidden!")
                     self.hidden.toggle()
                  }) {
                     Group {
@@ -86,17 +79,51 @@ struct PasswordField : View {
                             Image( systemName: "eye")
                         }
                     }
-                    .foregroundColor(Color.black)
+                    .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                  }
+                ButtonCopyToClipboard
+                
 
             }
-             .padding( 10.0 )
-             .overlay( RoundedRectangle(cornerRadius: 10)
-                         .stroke(lineWidth: strikeWidth )
-                         .foregroundColor(passwordCheck.valid ? Color.black : Color.red)
+            .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
+             .overlay(
+                 ValidatorMessageInline( message:passwordCheck.errorMessage ), alignment: .bottom
              )
 
 
-         }
+        //}.buttonStyle(PlainButtonStyle())
+        
+    }
+}
+
+// MARK: -
+// MARK: Clipboard
+extension PasswordField {
+    
+    var ButtonCopyToClipboard:some View {
+        
+        Button( action: {
+            withAnimation( Animation.default.speed(0.1) ) {
+                print("copy to clipboard!")
+                UIPasteboard.general.string = self.value
+                self.copied = true
+            }
+            withAnimation( Animation.default.delay(0.1)) {
+                 self.copied = false
+            }
+        
+         }) {
+
+            Group {
+                if( self.copied ) {
+                    Image( systemName: "doc.on.clipboard").colorInvert()
+                }
+                else {
+                    Image( systemName: "doc.on.clipboard")
+                        
+                }
+            }.foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+        }.disabled( !passwordCheck.valid )
+
     }
 }

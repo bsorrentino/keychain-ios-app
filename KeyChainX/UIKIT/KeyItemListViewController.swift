@@ -17,14 +17,19 @@ struct KeyItemList: UIViewControllerRepresentable {
     typealias UIViewControllerType = KeyItemListViewController
     
     @Environment(\.managedObjectContext) var managedObjectContext
-    
+
     @Binding var isSearching:Bool
+    
+    var geometry:CGSize;
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType
     {
         //print( "makeUIViewController" )
         
-        let controller =  KeyItemListViewController(context: managedObjectContext, isSearching: $isSearching)
+        let controller =
+            KeyItemListViewController(context: managedObjectContext, isSearching: $isSearching)
+        
+        controller.geometry = geometry
         
         return controller
     }
@@ -54,7 +59,9 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
     private var didSelectWhileSearchWasActive = false
     
     private var isSearching: Binding<Bool>
-
+    
+    var geometry:CGSize = CGSize()
+    
     init( context:NSManagedObjectContext, isSearching: Binding<Bool> ) {
         
         self.isSearching = isSearching
@@ -89,16 +96,27 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.delegate = self
         
-        //tableView.tableHeaderView = searchController.searchBar
-        
         resultSearchController = searchController
         
         view.addSubview(searchController.searchBar)
+        //self.tableView.tableHeaderView = searchController.searchBar
+        
+        // Update contentInset to have a right scrolling
+//        let searchBarHeight = searchController.searchBar.frame.size.height
+//        let tabViewHeight = tableView.frame.height - geometry.height - searchBarHeight
+//        let contentInset = UIEdgeInsets(
+//            top: searchBarHeight,
+//            left: 0,
+//            bottom: tabViewHeight,
+//            right: 0
+//        )
+//
+//        super.applyContentInsets(contentInset)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    
+
         if didSelectWhileSearchWasActive {
             searchController.isActive = true
         }
@@ -181,12 +199,21 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
         
         if( selectedItem.isGroup() ) {
 
-            let newViewController = KeyGroupList( selectedGroup: selectedItem )
+            let tabViewHeight = tableView.frame.height - geometry.height
+            let contentInsets = UIEdgeInsets(
+                top: 0,
+                left: 0,
+                bottom: tabViewHeight,
+                right: 0
+            )
+
+            let newViewController = KeyGroupListView( selectedGroup: selectedItem, contentInsets: contentInsets )
             self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
 
         }
         else {
-            let newViewController = KeyEntityForm( entity: selectedItem )
+
+            let newViewController = KeyEntityForm( item: KeyItem(entity: selectedItem) )
             self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
 
             if searchController.isActive {
@@ -205,7 +232,7 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
         
         let selectedItem = keys[indexPath.row]
         
-        let newViewController = KeyEntityForm( entity: selectedItem )
+        let newViewController = KeyEntityForm( item: KeyItem(entity: selectedItem) )
         
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
         
@@ -252,17 +279,7 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
 }
 
 // MARK: Search Extension
-
-extension KeyItemListViewController : UISearchBarDelegate {
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
-        self.didSelectWhileSearchWasActive = false
-    }
-}
-
-// MARK: Search Extension
-extension KeyItemListViewController : UISearchResultsUpdating {
+extension KeyItemListViewController : UISearchResultsUpdating, UISearchBarDelegate  {
   
     // create the Predicate coherent with UI state
     func searchPredicate() -> NSPredicate? {
@@ -296,7 +313,17 @@ extension KeyItemListViewController : UISearchResultsUpdating {
         
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.didSelectWhileSearchWasActive = false
+    }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        self.didSelectWhileSearchWasActive = false
+
+    }
+
 }
 
 // MARK: Core Data Extension
@@ -305,7 +332,10 @@ extension KeyItemListViewController  {
     
     func reloadDataFromManagedObjectContext( with predicate:NSPredicate? )  {
         
-        if didSelectWhileSearchWasActive { return } // No reload is required because we are coming back from detail screen
+        // No reload is required because we are coming back from detail screen
+        guard !didSelectWhileSearchWasActive else {
+            return
+        }
         
         let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
 

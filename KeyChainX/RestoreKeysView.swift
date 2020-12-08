@@ -8,18 +8,16 @@
 
 import SwiftUI
 
-class ViewData : ObservableObject {
-    
-    @Published var showingError = false
-    @Published var showingSheet = false
-    var error:Error?
-    var url:URL?
-}
 
 struct RestoreKeysView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
-    @ObservedObject private var data = ViewData()
+    
+    @State private var showingSheet = false
+    @State private var alertItem:AlertItem?
+    @State private var showReportView = false
+    
+    @ObservedObject var restoreInfo = KeysProcessingReport()
     
     var body: some View {
         NavigationView {
@@ -30,8 +28,9 @@ struct RestoreKeysView: View {
                             .font(.system(size: 25 ))
                         Spacer()
                         Button( action: {
-                            self.data.url = url
-                            self.data.showingSheet = true
+                            self.restoreInfo.url = url
+                            self.showingSheet = true
+                            
                         }) {
                             VStack {
                                 Text("restore")
@@ -41,73 +40,127 @@ struct RestoreKeysView: View {
                             .padding( 10.0 )
                         }
                         .background(Color.secondary)
+                        .actionSheet(isPresented: self.$showingSheet) {
+                            ActionSheet(title: Text("Modality"),
+                                        message: Text("How want to restore keys"),
+                                        buttons: [
+                                            //.default(Text("Add missing")) {},
+                                            .destructive(Text("Replace All")) {
+                                                self.prepareRestore()
+                                            },
+                                            .cancel(Text("Dismiss"))
+                                            ])
+                        }
+                        .alert(item: self.$alertItem) { item in makeAlert(item:item) }
                         
                     }.padding(0.0)
                 //}
             }
-            .navigationBarTitle( Text("Backup"), displayMode: .large)
-            .actionSheet(isPresented: $data.showingSheet) {
-                ActionSheet(title: Text("Modality"),
-                            message: Text("How want to restore keys"),
-                            buttons: [
-                                //.default(Text("Add missing")) {},
-                                .destructive(Text("Replace All")) {
-                                    self.restoreFrom()
-                                },
-                                .cancel(Text("Dismiss"))
-                                ])
-            }
-            .alert(isPresented: $data.showingError) {
-                Alert(title: Text("Error Restoring Data"),
-                      message: Text( self.data.error?.localizedDescription ?? "Unknown" ),
-                      dismissButton: .default(Text("OK")))
+            .navigationBarTitle( Text("Restore"), displayMode: .large)
+            .sheet( isPresented: self.$showReportView) {
+                ProcessingReportView( processingInfo: self.restoreInfo).onAppear( perform: {
+                    self.performRestore()
+                })
+
             }
 
         }
     }
+
+    typealias Keys = Array<KeyItem>
     
-    func restoreFrom(  ) {
+    private func prepareRestore() {
         
         do {
-            typealias Keys = [KeyItem]
+            try Shared.deleteAllWithMerge( context: managedObjectContext )
             
-            try UIApplication.shared.backupData(to: "backup")
-                        
-            try UIApplication.shared.deleteAllWithMerge()
-            
-            let content = try Data(contentsOf: data.url!)
-            let decoder = PropertyListDecoder()
-            let array = try decoder.decode(Keys.self, from: content)
-
-            print( "# object to import: \(array.count) " )
-
-            try array.filter { (item) in
-                !item.mnemonic.isEmpty
-            }
-            .forEach { (item) in
-                
-                print(
-                    """
-                    
-                    mnemonic:       \(item.mnemonic)
-                    groupPrefix:    \(item.groupPrefix ?? "nil")
-                    group:          \(item.group)
-                    
-                    """)
-                
-                try item.insert(into: managedObjectContext)
-                        
-            }
-
-            try managedObjectContext.save()
+            showReportView = true
         }
         catch {
             
-            print( error )
-            self.data.error = error
-            self.data.showingError = true
-            
+            self.alertItem = makeAlertItem( error:"Error Deleting Data [\(error)]" )
         }
+    }
+    
+    private func performRestore() {
+        
+        self.restoreInfo.reset()
+
+        guard let url = self.restoreInfo.url else {
+            self.restoreInfo.terminated = true
+            return
+        }
+        
+        do {
+
+            let content = try Data(contentsOf: url)
+
+            var keys:Keys?
+            
+            if( url.isJSON() ) {
+                keys = try restoreJSON( from:content )
+            }
+            else if( url.isPLIST() ) {
+                keys = try restorePLIST( from:content )
+            }
+            
+            if let keys = keys  {
+
+                print( "# object to import: \(keys.count) " )
+
+                keys.forEach { item in
+                    
+//                    print(
+//                        """
+//
+//                        mnemonic:       \(item.mnemonic)
+//                        groupPrefix:    \(item.groupPrefix ?? "nil")
+//                        group:          \(item.group)
+//
+//                        """)
+//
+                    if( item.password.isEmpty && item.group ) {
+                        print( "password for item \(item.mnemonic) not valid!")
+                    }
+                    
+                    do {
+                        restoreInfo.processed += 1
+                        
+                        try item.insert(into: managedObjectContext)
+                    }
+                    catch {
+                        
+                        restoreInfo.errors.append( error )
+                    }
+                }
+
+                try managedObjectContext.save()
+
+            }
+
+        }
+        catch {
+            
+            self.alertItem = makeAlertItem( error:"Error Restoring Data [\(error)]" )
+        }
+        
+        restoreInfo.terminated = true
+           
+    }
+    
+    func restoreJSON( from content:Data ) throws -> Keys {
+
+        let decoder = JSONDecoder()
+
+        return try decoder.decode( Keys.self, from: content )
+
+    }
+    
+    func restorePLIST( from content:Data ) throws -> Keys  {
+        
+        let decoder = PropertyListDecoder()
+       return try decoder.decode(Keys.self, from: content)
+
     }
 }
 

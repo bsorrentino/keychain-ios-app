@@ -11,6 +11,7 @@ import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    let loginStates:LoginView.States = LoginView.States()
     var window: UIWindow?
 
     var appDelegate:AppDelegate? {
@@ -24,11 +25,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // @see https://stackoverflow.com/a/56862325/521197
         // Use a UIHostingController as window root view controller
+        
+        
+        #if !NO_UNIT_TEST
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             
-
-            let view = ContentView()
+            let view = ContentView( loginStates: loginStates )
                 .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext) // CoreData integrations
             
             window.rootViewController = UIHostingController(rootView: view  )
@@ -36,6 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+        #endif
     
         // Use a UIHostingController as window root view controller
         //let window = UIWindow(frame: UIScreen.main.bounds)
@@ -63,8 +67,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
-
+        
         print( "> sceneWillResignActive" )
+
+        self.loginStates.show = true
+
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {

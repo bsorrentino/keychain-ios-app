@@ -11,18 +11,37 @@ import UIKit
 import SwiftUI
 import CoreData
 
+
+struct KeyGroupListView : View {
+    var selectedGroup:KeyEntity
+    
+    var contentInsets:UIEdgeInsets?;
+
+    var body: some View {
+        KeyGroupList( selectedGroup: selectedGroup, contentInsets: contentInsets)
+            .navigationBarTitle( Text(selectedGroup.mnemonic), displayMode: .inline )
+
+    }
+}
+
+
 // MARK: SwiftUI Bidge
 struct KeyGroupList: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = KeyGroupListViewController
 
     @Environment(\.managedObjectContext) var managedObjectContext
+    
     var selectedGroup:KeyEntity
+    
+    var contentInsets:UIEdgeInsets?;
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyGroupList>) -> UIViewControllerType
     {
         let controller =  KeyGroupListViewController(context: managedObjectContext, selectedGroup: selectedGroup)
 
+        controller.contentInsets = contentInsets
+        
         return controller
     }
 
@@ -40,6 +59,8 @@ class KeyGroupListViewController : KeyBaseListViewController, UITableViewDataSou
     private var keys:[KeyEntity]?
     
     private var selectedGroup:KeyEntity
+    
+    var contentInsets:UIEdgeInsets?
     
     init( context:NSManagedObjectContext, selectedGroup:KeyEntity  ) {
         self.selectedGroup = selectedGroup
@@ -60,7 +81,17 @@ class KeyGroupListViewController : KeyBaseListViewController, UITableViewDataSou
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = selectedGroup.mnemonic
+        
         self.tableView.register(UINib(nibName: "KeyItemCell", bundle: nil), forCellReuseIdentifier: "keyitem")
+        
+        if let contentInsets = self.contentInsets {
+            
+            print( contentInsets )
+
+            applyContentInsets(contentInsets)
+        }
     }
         
     //
@@ -102,7 +133,7 @@ class KeyGroupListViewController : KeyBaseListViewController, UITableViewDataSou
         
         let selectedItem = keys[index]
         
-        let newViewController = KeyEntityForm( entity: selectedItem )
+        let newViewController = KeyEntityForm( item: KeyItem( entity: selectedItem) )
         self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
 
     }

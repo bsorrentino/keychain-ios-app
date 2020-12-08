@@ -25,26 +25,33 @@ struct KeyItemListTopView : View {
     @State private var formActive = false
     @State private var isSearching = false
 
+    @available(*, deprecated, message: "no longer need")
     func showForm() -> some View {
         VStack{
             if formActive {
-                KeyEntityForm()
+                KeyEntityForm(item:KeyItem())
             } else {
                 EmptyView()
             }
         }
     }
+    
     var body: some View {
-        KeyItemList( isSearching: $isSearching)
-            .navigationBarItems(trailing:
-            HStack {
-                NavigationLink( destination: showForm(), isActive: $formActive ) { EmptyView() }
-                Button( action: {
-                    self.formActive = true
-                }) {
-                    Image( systemName: "plus" )
-                }.disabled( isSearching )
-        })
+        GeometryReader { geometry in
+
+            KeyItemList( isSearching: self.$isSearching, geometry: geometry.size)
+                .navigationBarItems(trailing:
+                    HStack {
+                        NavigationLink( destination: KeyEntityForm(item:KeyItem()), isActive: self.$formActive ) { EmptyView() }
+                        Button( action: {
+                            self.formActive = true
+                        }) {
+                            Text("Add")
+                            //Image( systemName: "plus" )
+                        }.disabled( self.isSearching )
+                    })
+
+        }
     }
     
     

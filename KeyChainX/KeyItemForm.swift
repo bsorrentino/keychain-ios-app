@@ -26,25 +26,22 @@ enum SecretState: Int, Hashable {
 
 struct KeyEntityForm : View {
     @Environment(\.presentationMode) var presentationMode
-    
     @Environment(\.managedObjectContext) var managedObjectContext
-
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     @ObservedObject var item:KeyItem
     
     @State var secretState:SecretState = .hide
     
     @State private var pickUsernameFromMail = false
+    @State private var alertItem:AlertItem?
     
     private let bg = Color(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, opacity: 0.2)
                     //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     private let strikeWidth:CGFloat = 0.5
     
-    init() {
-        self.item = KeyItem()
-    }
-
-    init( entity:KeyEntity ) {
-        self.item = KeyItem( entity:entity )
+    init( item:KeyItem ) {
+        self.item = item
     }
 
     func secretStatePicker() -> some View {
@@ -70,53 +67,40 @@ struct KeyEntityForm : View {
             }
             catch {
                 if( self.item.isNew ) {
-                    print( "error inserting new key \(error)" )
+                    self.alertItem = makeAlertItem( error:"error inserting new key \(error)" )
                 }
                 else {
-                    print( "error updating new key \(error)" )
+                    self.alertItem = makeAlertItem( error:"error updating new key \(error)")
                 }
             }
             
             self.presentationMode.wrappedValue.dismiss()
             
+            
         })
         .disabled( !item.checkIsValid )
+        .alert(item: $alertItem) { item  in makeAlert(item:item) }
     }
     
     
     func mnemonicInput() -> some View  {
         
         VStack(alignment: .leading) {
-            HStack {
-                Text("mnemonic")
-                if( !item.mnemonicCheck.valid  ) {
-                    Spacer()
-                    Text( item.mnemonicCheck.errorMessage ?? "" )
-                        .fontWeight(.light)
-                        .font(.footnote)
-                        .foregroundColor(Color.red)
-
-                }
-
-            }
-            
             TextFieldWithValidator( title: "give me the unique name of key",
                                     value: $item.mnemonic,
                                     checker:$item.mnemonicCheck ) { v in
                 
                 if( v.isEmpty ) {
+                    
                     return "mnemonic cannot be empty"
                 }
                 
                 return nil
             }
             .autocapitalization(.allCharacters)
-            .padding(10.0)
-            .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: strikeWidth)
-                    .foregroundColor(item.mnemonicCheck.valid ? Color.black : Color.red)
-            )
+            .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
+            .overlay( ValidatorMessageInline( message: item.mnemonicCheck.errorMessage )
+                ,alignment: .bottom)
 
         }
             
@@ -125,63 +109,41 @@ struct KeyEntityForm : View {
     
     func usernameInput() -> some View {
         
-        VStack(alignment: .leading) {
-            HStack {
-                Text("username")
-                if( !item.usernameCheck.valid  ) {
-                    Spacer()
-                    Text( item.usernameCheck.errorMessage ?? "" )
-                        .fontWeight(.light)
-                        .font(.footnote)
-                        .foregroundColor(Color.red)
-
+        HStack {
+            TextFieldWithValidator( title:"give me the username ?",
+                                    value: $item.username,
+                                    checker:$item.usernameCheck ) { v in
+                
+                if( v.isEmpty ) {
+                    return "username cannot be empty"
                 }
-
+                
+                //print( "validate username \(v) - \(self.pickUsernameFromMail)")
+                
+                if( self.pickUsernameFromMail ) {
+                    self.item.mail = v
+                }
+                return nil
             }
-            
-            HStack {
-                TextFieldWithValidator( title:"give me the username ?",
-                                        value: $item.username,
-                                        checker:$item.usernameCheck ) { v in
-                    
-                    if( v.isEmpty ) {
-                        return "username cannot be empty"
-                    }
-                    
-                    //print( "validate username \(v) - \(self.pickUsernameFromMail)")
-                    
-                    if( self.pickUsernameFromMail ) {
-                        self.item.mail = v
-                    }
-                    return nil
-                }
-                //.padding(.all)
-                //.border( Color.black )
-                //.background(bg)
-                .autocapitalization(.none)
-                NavigationLink( destination: EmailList( value: $item.username_mail_setter), isActive:$pickUsernameFromMail  ) {
-                        EmptyView()
-                }
-                .frame( width:0, height:0)
-                Button( action: {
-                    self.pickUsernameFromMail = true
-                }) {
-                    Image( systemName: "envelope.circle")
-                        .resizable().frame(width: 20, height: 20, alignment: .center)
-                        .foregroundColor(Color.black)
-                }
-
-
+            .autocapitalization(.none)
+            NavigationLink( destination: EmailList( value: $item.username_mail_setter), isActive:$pickUsernameFromMail  ) {
+                    EmptyView()
             }
-            .padding( 10.0 )
-            .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: strikeWidth)
-                    .foregroundColor(item.usernameCheck.valid ? Color.black : Color.red)
-            )
+            .frame( width:0, height:0)
+            Button( action: {
+                self.pickUsernameFromMail = true
+            }) {
+                Image( systemName: "envelope.circle")
+                    .resizable().frame(width: 20, height: 20, alignment: .center)
+                    .foregroundColor( colorScheme == .dark ? Color.white : Color.black )
+            }
+
 
         }
-
+        .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
+        .overlay(
+            ValidatorMessageInline( message:item.usernameCheck.errorMessage ), alignment: .bottom
+        )
 
     }
 
@@ -189,24 +151,23 @@ struct KeyEntityForm : View {
         NavigationView {
             Form {
                 
-
                 if( item.isNew ) {
                     
-                    Section {
+                    Section(header: Text("MNEMONIC"), footer: EmptyView() ) {
                         mnemonicInput()
                     }
 
                 }
 
-                Section {
-                    
+                Section( header: Text("CREDENTIALS")) {
+                                
                     usernameInput()
                     
                     PasswordField(value: $item.password, passwordCheck: $item.passwordCheck)
                                         
                 }
                 
-                Section {
+                Section( header: Text("Other")) {
                     
                     GroupField( value:$item.groupPrefix )
 
@@ -230,7 +191,7 @@ struct KeyEntityForm : View {
 
                 }
             )
-        } // NavigationView
+        }.onAppear(  perform: { if( item.isNew ) { item.reset() } } ) // NavigationView
         
     }
 }
@@ -240,10 +201,16 @@ import KeychainAccess
 
 struct KeyItemDetail_Previews : PreviewProvider {
     static var previews: some View {
+        // @see https://www.hackingwithswift.com/quick-start/swiftui/how-to-preview-your-layout-in-light-and-dark-mode
         
-        KeyEntityForm()
         
-        
+        Group {
+            KeyEntityForm( item:KeyItem() )
+               .environment(\.colorScheme, .light)
+
+            KeyEntityForm( item:KeyItem() )
+               .environment(\.colorScheme, .dark)
+         }
     }
 }
 #endif

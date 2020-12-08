@@ -49,17 +49,22 @@ struct EmailField : View {
 
 struct EmailList: View {
 
+    typealias MailFieldWithValidator = TextFieldWithValidator
+    
     @Environment(\.presentationMode) var presentationMode
 
     @Binding var value:String
     @Environment(\.managedObjectContext) var context
     
-    @FetchRequest( fetchRequest:MailEntity.fetchAllMail() )
+    //@FetchRequest( fetchRequest:MailEntity.fetchAllMail() )
+    @FetchRequest( fetchRequest:MailEntity.fetchRequest())
     var mails:FetchedResults<MailEntity>
     
     @State var mailValid = FieldChecker()
     @State var newMail:String = ""
 
+    var validateChecks = 0
+    
     var body: some View {
         
         //NavigationView {
@@ -68,13 +73,13 @@ struct EmailList: View {
                 Section(header: Text("New Mail")) {
                     
                     HStack {
-                        TextFieldWithValidator( title: "insert email", value: $newMail, checker:$mailValid ) { v in
-                               
+                        MailFieldWithValidator( title: "insert email", value: $newMail, checker:$mailValid ) { v in
+                            
                                 if( v.isEmpty ) {
                                    return "mail cannot be empty !"
                                 }
                                 if( !v.isEmail() ) {
-                                    return "mail is not in correct format !"
+                                    return "mail is not in correct format"
                                 }
                                
                                return nil
@@ -82,7 +87,11 @@ struct EmailList: View {
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .font(.body)
-                        
+                        .padding( mailValid.padding )
+                        .overlay(
+                            ValidatorMessageInline( message:mailValid.errorMessageOrNilAtBeginning ), alignment: .bottom
+                        )
+
                         addButton()
                     }
                     
@@ -154,6 +163,7 @@ struct EmailList: View {
     }
     
 }
+
 
 #if DEBUG
 struct EmailList_Previews: PreviewProvider {

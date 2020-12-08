@@ -16,21 +16,47 @@
 		5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30CFA22379F0BE00FD7485 /* LoginView.swift */; };
 		5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30CFA42379F52100FD7485 /* ContentView.swift */; };
 		5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F22361FD900066E947 /* App+CoreData.swift */; };
-		5F5772F52361FDD50066E947 /* App+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F42361FDD50066E947 /* App+Error.swift */; };
+		5F5772F52361FDD50066E947 /* Shared+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F42361FDD50066E947 /* Shared+Error.swift */; };
 		5F59285023B924F5004EC296 /* App+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59284F23B924F5004EC296 /* App+Version.swift */; };
+		5F5F558624DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */; };
+		5F5F559024DC1DDF00D5A4D1 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */; };
 		5F66FB6123A7D890005131D4 /* KeyGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */; };
+		5F7C0E8824E9A5A500B41F20 /* KeyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */; };
+		5F9987B025387BEB004F43DF /* FieldValidatorLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 5F9987AF25387BEB004F43DF /* FieldValidatorLibrary */; };
 		5F9ABB3C2379828000AC052A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5F9ABB3B2379828000AC052A /* KeychainAccess */; };
-		5F9ABB3E237983A800AC052A /* App+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ABB3D237983A800AC052A /* App+Keychain.swift */; };
+		5F9ABB3E237983A800AC052A /* Shared+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */; };
 		5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */; };
 		5FFAAD2923B414E200AE78EE /* KeyGroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */; };
 		5FFE284123B9480400EAB103 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FFE284023B9480400EAB103 /* CryptoSwift */; };
 		6E280649B15E964AE945A6E6 /* Pods_KeyChainXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31B2C432B3C9BA54E403FC3 /* Pods_KeyChainXTests.framework */; };
 		A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */; };
+		A01F46A324EEBDB3005717DC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F46A224EEBDB3005717DC /* AlertView.swift */; };
+		A021E22924ED6AE700A455D2 /* Keys+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A021E22824ED6AE700A455D2 /* Keys+Codable.swift */; };
 		A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */; };
+		A040E4B224EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */; };
 		A047651E23DDABE2005B8547 /* KeyItemForm+Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */; };
+		A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */; };
+		A0533DC824EAF590009C784B /* KeyEntity+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */; };
+		A0550B40257E372000DF5F99 /* FieldValidatorLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = A0550B3F257E372000DF5F99 /* FieldValidatorLibrary */; };
+		A0550B48257E6D7E00DF5F99 /* KeyboardGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0550B47257E6D7E00DF5F99 /* KeyboardGeometry.swift */; };
 		A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* KeyItemForm+Email.swift */; };
 		A0818D6423B6A91C00823F43 /* KeyBaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */; };
+		A086C39425231B79001EF95E /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */; };
+		A086C39B25232187001EF95E /* Shared+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */; };
+		A086C3A3252321C4001EF95E /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A086C3A2252321C4001EF95E /* KeychainAccess */; };
+		A086C3AB252325AA001EF95E /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086C3AA252325AA001EF95E /* Shared.swift */; };
+		A086C3AC252325AA001EF95E /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086C3AA252325AA001EF95E /* Shared.swift */; };
+		A086C3B3252327C9001EF95E /* Shared+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F42361FDD50066E947 /* Shared+Error.swift */; };
+		A086C3CB25232D1F001EF95E /* KeyEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */; };
+		A086C3D225232D26001EF95E /* KeyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */; };
+		A086C3E025232D43001EF95E /* KeyEntity+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */; };
+		A086C3E725232D48001EF95E /* KeyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */; };
+		A086C3EE25232D5A001EF95E /* MailEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */; };
+		A086C3F525232D62001EF95E /* MailEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */; };
+		A086C402252331C3001EF95E /* KeyEntity+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */; };
 		A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */; };
+		A0BE3F8325225F14002A86A7 /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE3F8225225F14002A86A7 /* KeyItemList.swift */; };
+		A0BE3F8425225F14002A86A7 /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE3F8225225F14002A86A7 /* KeyItemList.swift */; };
 		A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5622A901AD003B09ED /* AppDelegate.swift */; };
 		A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */; };
 		A0C0DB5E22A901AD003B09ED /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5D22A901AD003B09ED /* KeyItemList.swift */; };
@@ -39,12 +65,24 @@
 		A0C0DB6622A901B0003B09ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C0DB6422A901B0003B09ED /* LaunchScreen.storyboard */; };
 		A0C0DB7122A901B0003B09ED /* KeyChainXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB7022A901B0003B09ED /* KeyChainXTests.swift */; };
 		A0C0DB7C22A901B0003B09ED /* KeyChainXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB7B22A901B0003B09ED /* KeyChainXUITests.swift */; };
+		A0C1D2A52521F36400737766 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2A42521F36400737766 /* AppDelegate.swift */; };
+		A0C1D2A72521F36400737766 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2A62521F36400737766 /* ContentView.swift */; };
+		A0C1D2AA2521F36400737766 /* MacKeyChainX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2A82521F36400737766 /* MacKeyChainX.xcdatamodeld */; };
+		A0C1D2AC2521F36500737766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C1D2AB2521F36500737766 /* Assets.xcassets */; };
+		A0C1D2AF2521F36500737766 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C1D2AE2521F36500737766 /* Preview Assets.xcassets */; };
+		A0C1D2B22521F36500737766 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C1D2B02521F36500737766 /* Main.storyboard */; };
+		A0C1D2BE2521F36500737766 /* MacKeyChainXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2BD2521F36500737766 /* MacKeyChainXTests.swift */; };
+		A0C1D2C92521F36500737766 /* MacKeyChainXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2C82521F36500737766 /* MacKeyChainXUITests.swift */; };
+		A0C1D2E725225DE000737766 /* KeyItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2E625225DE000737766 /* KeyItemRow.swift */; };
+		A0C1D2E825225DE000737766 /* KeyItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2E625225DE000737766 /* KeyItemRow.swift */; };
+		A0D796B32523711000A5CBAB /* Shared+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D796B22523711000A5CBAB /* Shared+CoreData.swift */; };
+		A0D796C0252371C500A5CBAB /* Shared+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D796B22523711000A5CBAB /* Shared+CoreData.swift */; };
+		A0D796DA2523A92D00A5CBAB /* KeyEntity+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */; };
+		A0D796EB2523A9CD00A5CBAB /* KeyEntity+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */; };
 		A0E11ED922B4E82F008766C0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A0E11ED822B4E82F008766C0 /* README.md */; };
 		A0EC9E4622B420AD009EB81F /* KeyItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EC9E4522B420AD009EB81F /* KeyItemCell.xib */; };
 		A0EE95502375F38400002E6F /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */; };
-		A0EE956E2375F7AF00002E6F /* KeyEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956A2375F7AF00002E6F /* KeyEntity+CoreDataClass.swift */; };
 		A0EE956F2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */; };
-		A0EE95702375F7AF00002E6F /* KeyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956C2375F7AF00002E6F /* KeyEntity+CoreDataProperties.swift */; };
 		A0EE95712375F7AF00002E6F /* MailEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */; };
 		A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */; };
 		A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE95742377385800002E6F /* KeyItemForm.swift */; };
@@ -66,6 +104,20 @@
 			remoteGlobalIDString = A0C0DB5222A901AD003B09ED;
 			remoteInfo = KeyChainX;
 		};
+		A0C1D2BA2521F36500737766 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0C0DB4B22A901AD003B09ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0C1D2A12521F36400737766;
+			remoteInfo = MacKeyChainX;
+		};
+		A0C1D2C52521F36500737766 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0C0DB4B22A901AD003B09ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0C1D2A12521F36400737766;
+			remoteInfo = MacKeyChainX;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -75,14 +127,18 @@
 		5F01277623B776EE0033E2B9 /* RestoreKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreKeysView.swift; sourceTree = "<group>"; };
 		5F01277823B7C05D0033E2B9 /* FileManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerView.swift; sourceTree = "<group>"; };
 		5F28680B23BF8A3600A1E62D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		5F2B152124D3502B00983F68 /* KeyChain v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain v2.xcdatamodel"; sourceTree = "<group>"; };
 		5F30CFA22379F0BE00FD7485 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5F30CFA42379F52100FD7485 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F30CFA6237A192600FD7485 /* KeyChainX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeyChainX.entitlements; sourceTree = "<group>"; };
 		5F5772F22361FD900066E947 /* App+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+CoreData.swift"; sourceTree = "<group>"; };
-		5F5772F42361FDD50066E947 /* App+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Error.swift"; sourceTree = "<group>"; };
+		5F5772F42361FDD50066E947 /* Shared+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+Error.swift"; sourceTree = "<group>"; };
 		5F59284F23B924F5004EC296 /* App+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Version.swift"; sourceTree = "<group>"; };
+		5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyGroupCell.xib; sourceTree = "<group>"; };
-		5F9ABB3D237983A800AC052A /* App+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Keychain.swift"; sourceTree = "<group>"; };
+		5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItem.swift; sourceTree = "<group>"; };
+		5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+Keychain.swift"; sourceTree = "<group>"; };
 		5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Url.swift"; sourceTree = "<group>"; };
 		5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyGroupListViewController.swift; sourceTree = "<group>"; };
 		7A1181120449DF4D493ABB8B /* Pods_KeyChainX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,11 +146,19 @@
 		835BCF138F6DFD3C0DB12FD3 /* Pods-KeyChainX-KeyChainXUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainX-KeyChainXUITests.debug.xcconfig"; path = "Target Support Files/Pods-KeyChainX-KeyChainXUITests/Pods-KeyChainX-KeyChainXUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		84C93619E7420165BBA05FCE /* Pods-KeyChainXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainXTests.debug.xcconfig"; path = "Target Support Files/Pods-KeyChainXTests/Pods-KeyChainXTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Note.swift"; sourceTree = "<group>"; };
+		A01F46A224EEBDB3005717DC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		A021E22824ED6AE700A455D2 /* Keys+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keys+Codable.swift"; sourceTree = "<group>"; };
 		A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "KeyItemForm+Group.swift"; path = "KeyChainX/KeyItemForm+Group.swift"; sourceTree = SOURCE_ROOT; };
+		A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Password.swift"; sourceTree = "<group>"; };
+		A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FieldValidator+Helpers.swift"; sourceTree = "<group>"; };
+		A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Encodable.swift"; sourceTree = "<group>"; };
+		A0550B47257E6D7E00DF5F99 /* KeyboardGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGeometry.swift; sourceTree = "<group>"; };
 		A071C20223648EAB00891175 /* KeyItemForm+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Email.swift"; sourceTree = "<group>"; };
 		A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBaseListViewController.swift; sourceTree = "<group>"; };
+		A086C3AA252325AA001EF95E /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
+		A0BE3F8225225F14002A86A7 /* KeyItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemList.swift; sourceTree = "<group>"; };
 		A0C0DB5322A901AD003B09ED /* KeychainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeychainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C0DB5622A901AD003B09ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,12 +173,28 @@
 		A0C0DB7722A901B0003B09ED /* KeyChainXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyChainXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C0DB7B22A901B0003B09ED /* KeyChainXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainXUITests.swift; sourceTree = "<group>"; };
 		A0C0DB7D22A901B0003B09ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0C1D2A22521F36400737766 /* MacKeyChainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacKeyChainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C1D2A42521F36400737766 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0C1D2A62521F36400737766 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A0C1D2A92521F36400737766 /* MacKeyChainX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MacKeyChainX.xcdatamodel; sourceTree = "<group>"; };
+		A0C1D2AB2521F36500737766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0C1D2AE2521F36500737766 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A0C1D2B12521F36500737766 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0C1D2B32521F36500737766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0C1D2B42521F36500737766 /* MacKeyChainX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacKeyChainX.entitlements; sourceTree = "<group>"; };
+		A0C1D2B92521F36500737766 /* MacKeyChainXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacKeyChainXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C1D2BD2521F36500737766 /* MacKeyChainXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacKeyChainXTests.swift; sourceTree = "<group>"; };
+		A0C1D2BF2521F36500737766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0C1D2C42521F36500737766 /* MacKeyChainXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacKeyChainXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C1D2C82521F36500737766 /* MacKeyChainXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacKeyChainXUITests.swift; sourceTree = "<group>"; };
+		A0C1D2CA2521F36500737766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0C1D2E625225DE000737766 /* KeyItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemRow.swift; sourceTree = "<group>"; };
+		A0D796B22523711000A5CBAB /* Shared+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+CoreData.swift"; sourceTree = "<group>"; };
+		A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Identifiable.swift"; sourceTree = "<group>"; };
 		A0E11ED822B4E82F008766C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A0EC9E4522B420AD009EB81F /* KeyItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyItemCell.xib; sourceTree = "<group>"; };
 		A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KeyChain.xcdatamodel; sourceTree = "<group>"; };
-		A0EE956A2375F7AF00002E6F /* KeyEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MailEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A0EE956C2375F7AF00002E6F /* KeyEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MailEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Helpers.swift"; sourceTree = "<group>"; };
 		A0EE95742377385800002E6F /* KeyItemForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
@@ -129,6 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F9987B025387BEB004F43DF /* FieldValidatorLibrary in Frameworks */,
 				5F9ABB3C2379828000AC052A /* KeychainAccess in Frameworks */,
 				3852AA669660FC7B3127E477 /* Pods_KeyChainX.framework in Frameworks */,
 				5FFE284123B9480400EAB103 /* CryptoSwift in Frameworks */,
@@ -151,6 +232,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A0C1D29F2521F36400737766 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0550B40257E372000DF5F99 /* FieldValidatorLibrary in Frameworks */,
+				A086C3A3252321C4001EF95E /* KeychainAccess in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2B62521F36500737766 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2C12521F36500737766 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -165,6 +269,26 @@
 				2666A952EEB7EFD5E100B504 /* Pods-KeyChainXTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A086C39325231B69001EF95E /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				A086C3BA25232808001EF95E /* datamodel */,
+				A086C3AA252325AA001EF95E /* Shared.swift */,
+				A0D796B22523711000A5CBAB /* Shared+CoreData.swift */,
+				5F5772F42361FDD50066E947 /* Shared+Error.swift */,
+				5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */,
+			);
+			name = shared;
+			sourceTree = "<group>";
+		};
+		A086C3BA25232808001EF95E /* datamodel */ = {
+			isa = PBXGroup;
+			children = (
+				A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */,
+			);
+			name = datamodel;
 			sourceTree = "<group>";
 		};
 		A096114E2312CA970037E8B9 /* Frameworks */ = {
@@ -198,6 +322,9 @@
 				A0C0DB5522A901AD003B09ED /* KeyChainX */,
 				A0C0DB6F22A901B0003B09ED /* KeyChainXTests */,
 				A0C0DB7A22A901B0003B09ED /* KeyChainXUITests */,
+				A0C1D2A32521F36400737766 /* MacKeyChainX */,
+				A0C1D2BC2521F36500737766 /* MacKeyChainXTests */,
+				A0C1D2C72521F36500737766 /* MacKeyChainXUITests */,
 				A0C0DB5422A901AD003B09ED /* Products */,
 				A096114E2312CA970037E8B9 /* Frameworks */,
 				8801AE7CE7F6693FA73B66BD /* Pods */,
@@ -210,6 +337,9 @@
 				A0C0DB5322A901AD003B09ED /* KeychainX.app */,
 				A0C0DB6C22A901B0003B09ED /* KeyChainXTests.xctest */,
 				A0C0DB7722A901B0003B09ED /* KeyChainXUITests.xctest */,
+				A0C1D2A22521F36400737766 /* MacKeyChainX.app */,
+				A0C1D2B92521F36500737766 /* MacKeyChainXTests.xctest */,
+				A0C1D2C42521F36500737766 /* MacKeyChainXUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,26 +347,29 @@
 		A0C0DB5522A901AD003B09ED /* KeyChainX */ = {
 			isa = PBXGroup;
 			children = (
+				A086C39325231B69001EF95E /* shared */,
 				A0EE95512375F73F00002E6F /* datamodel */,
 				A096B3C522CE4295004E17CC /* UIKIT */,
 				5F5772F22361FD900066E947 /* App+CoreData.swift */,
-				5F5772F42361FDD50066E947 /* App+Error.swift */,
-				5F9ABB3D237983A800AC052A /* App+Keychain.swift */,
 				5F59284F23B924F5004EC296 /* App+Version.swift */,
 				A0C0DB5622A901AD003B09ED /* AppDelegate.swift */,
 				A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */,
+				A01F46A224EEBDB3005717DC /* AlertView.swift */,
 				5F30CFA42379F52100FD7485 /* ContentView.swift */,
 				5F30CFA22379F0BE00FD7485 /* LoginView.swift */,
+				A021E22824ED6AE700A455D2 /* Keys+Codable.swift */,
 				5F01277823B7C05D0033E2B9 /* FileManagerView.swift */,
 				5F01277423B776CC0033E2B9 /* BackupKeysView.swift */,
 				5F01277623B776EE0033E2B9 /* RestoreKeysView.swift */,
 				A0C0DB5D22A901AD003B09ED /* KeyItemList.swift */,
+				A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */,
 				A0EE95742377385800002E6F /* KeyItemForm.swift */,
 				A071C20223648EAB00891175 /* KeyItemForm+Email.swift */,
 				A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */,
 				A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */,
 				A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */,
 				5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */,
+				A0550B47257E6D7E00DF5F99 /* KeyboardGeometry.swift */,
 				A0C0DB5F22A901B0003B09ED /* Assets.xcassets */,
 				A0C0DB6422A901B0003B09ED /* LaunchScreen.storyboard */,
 				A0C0DB6722A901B0003B09ED /* Info.plist */,
@@ -258,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				A0C0DB7022A901B0003B09ED /* KeyChainXTests.swift */,
+				5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */,
 				A0C0DB7222A901B0003B09ED /* Info.plist */,
 			);
 			path = KeyChainXTests;
@@ -272,15 +406,60 @@
 			path = KeyChainXUITests;
 			sourceTree = "<group>";
 		};
+		A0C1D2A32521F36400737766 /* MacKeyChainX */ = {
+			isa = PBXGroup;
+			children = (
+				A0C1D2A42521F36400737766 /* AppDelegate.swift */,
+				A0C1D2E625225DE000737766 /* KeyItemRow.swift */,
+				A0BE3F8225225F14002A86A7 /* KeyItemList.swift */,
+				A0C1D2A62521F36400737766 /* ContentView.swift */,
+				A0C1D2AB2521F36500737766 /* Assets.xcassets */,
+				A0C1D2B02521F36500737766 /* Main.storyboard */,
+				A0C1D2B32521F36500737766 /* Info.plist */,
+				A0C1D2B42521F36500737766 /* MacKeyChainX.entitlements */,
+				A0C1D2A82521F36400737766 /* MacKeyChainX.xcdatamodeld */,
+				A0C1D2AD2521F36500737766 /* Preview Content */,
+			);
+			path = MacKeyChainX;
+			sourceTree = "<group>";
+		};
+		A0C1D2AD2521F36500737766 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A0C1D2AE2521F36500737766 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A0C1D2BC2521F36500737766 /* MacKeyChainXTests */ = {
+			isa = PBXGroup;
+			children = (
+				A0C1D2BD2521F36500737766 /* MacKeyChainXTests.swift */,
+				A0C1D2BF2521F36500737766 /* Info.plist */,
+			);
+			path = MacKeyChainXTests;
+			sourceTree = "<group>";
+		};
+		A0C1D2C72521F36500737766 /* MacKeyChainXUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A0C1D2C82521F36500737766 /* MacKeyChainXUITests.swift */,
+				A0C1D2CA2521F36500737766 /* Info.plist */,
+			);
+			path = MacKeyChainXUITests;
+			sourceTree = "<group>";
+		};
 		A0EE95512375F73F00002E6F /* datamodel */ = {
 			isa = PBXGroup;
 			children = (
-				A0EE956A2375F7AF00002E6F /* KeyEntity+CoreDataClass.swift */,
-				A0EE956C2375F7AF00002E6F /* KeyEntity+CoreDataProperties.swift */,
+				5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */,
+				A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */,
 				A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */,
+				5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */,
+				A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */,
 				A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */,
 				A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */,
-				A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */,
+				A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */,
 			);
 			name = datamodel;
 			sourceTree = "<group>";
@@ -306,6 +485,7 @@
 			packageProductDependencies = (
 				5F9ABB3B2379828000AC052A /* KeychainAccess */,
 				5FFE284023B9480400EAB103 /* CryptoSwift */,
+				5F9987AF25387BEB004F43DF /* FieldValidatorLibrary */,
 			);
 			productName = KeyChainX;
 			productReference = A0C0DB5322A901AD003B09ED /* KeychainX.app */;
@@ -352,14 +532,71 @@
 			productReference = A0C0DB7722A901B0003B09ED /* KeyChainXUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		A0C1D2A12521F36400737766 /* MacKeyChainX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0C1D2D12521F36500737766 /* Build configuration list for PBXNativeTarget "MacKeyChainX" */;
+			buildPhases = (
+				A0C1D29E2521F36400737766 /* Sources */,
+				A0C1D29F2521F36400737766 /* Frameworks */,
+				A0C1D2A02521F36400737766 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacKeyChainX;
+			packageProductDependencies = (
+				A086C3A2252321C4001EF95E /* KeychainAccess */,
+				A0550B3F257E372000DF5F99 /* FieldValidatorLibrary */,
+			);
+			productName = MacKeyChainX;
+			productReference = A0C1D2A22521F36400737766 /* MacKeyChainX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A0C1D2B82521F36500737766 /* MacKeyChainXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0C1D2D22521F36500737766 /* Build configuration list for PBXNativeTarget "MacKeyChainXTests" */;
+			buildPhases = (
+				A0C1D2B52521F36500737766 /* Sources */,
+				A0C1D2B62521F36500737766 /* Frameworks */,
+				A0C1D2B72521F36500737766 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0C1D2BB2521F36500737766 /* PBXTargetDependency */,
+			);
+			name = MacKeyChainXTests;
+			productName = MacKeyChainXTests;
+			productReference = A0C1D2B92521F36500737766 /* MacKeyChainXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A0C1D2C32521F36500737766 /* MacKeyChainXUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0C1D2D32521F36500737766 /* Build configuration list for PBXNativeTarget "MacKeyChainXUITests" */;
+			buildPhases = (
+				A0C1D2C02521F36500737766 /* Sources */,
+				A0C1D2C12521F36500737766 /* Frameworks */,
+				A0C1D2C22521F36500737766 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0C1D2C62521F36500737766 /* PBXTargetDependency */,
+			);
+			name = MacKeyChainXUITests;
+			productName = MacKeyChainXUITests;
+			productReference = A0C1D2C42521F36500737766 /* MacKeyChainXUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A0C0DB4B22A901AD003B09ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Bartolomeo Sorrentino";
 				TargetAttributes = {
 					A0C0DB5222A901AD003B09ED = {
@@ -372,6 +609,17 @@
 					A0C0DB7622A901B0003B09ED = {
 						CreatedOnToolsVersion = 11.0;
 						TestTargetID = A0C0DB5222A901AD003B09ED;
+					};
+					A0C1D2A12521F36400737766 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					A0C1D2B82521F36500737766 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = A0C1D2A12521F36400737766;
+					};
+					A0C1D2C32521F36500737766 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = A0C1D2A12521F36400737766;
 					};
 				};
 			};
@@ -387,6 +635,7 @@
 			packageReferences = (
 				5F9ABB3A2379828000AC052A /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				5FFE283F23B9480400EAB103 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				5F9987AE25387BEB004F43DF /* XCRemoteSwiftPackageReference "swiftui-fieldvalidator" */,
 			);
 			productRefGroup = A0C0DB5422A901AD003B09ED /* Products */;
 			projectDirPath = "";
@@ -395,6 +644,9 @@
 				A0C0DB5222A901AD003B09ED /* KeyChainX */,
 				A0C0DB6B22A901B0003B09ED /* KeyChainXTests */,
 				A0C0DB7622A901B0003B09ED /* KeyChainXUITests */,
+				A0C1D2A12521F36400737766 /* MacKeyChainX */,
+				A0C1D2B82521F36500737766 /* MacKeyChainXTests */,
+				A0C1D2C32521F36500737766 /* MacKeyChainXUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -421,6 +673,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A0C0DB7522A901B0003B09ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2A02521F36400737766 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0C1D2B22521F36500737766 /* Main.storyboard in Resources */,
+				A0C1D2AF2521F36500737766 /* Preview Assets.xcassets in Resources */,
+				A0C1D2AC2521F36500737766 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2B72521F36500737766 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2C22521F36500737766 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -538,34 +814,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */,
-				5F5772F52361FDD50066E947 /* App+Error.swift in Sources */,
+				5F5772F52361FDD50066E947 /* Shared+Error.swift in Sources */,
 				5F01277523B776CC0033E2B9 /* BackupKeysView.swift in Sources */,
 				5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */,
-				A0EE95702375F7AF00002E6F /* KeyEntity+CoreDataProperties.swift in Sources */,
 				A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */,
 				5F01277923B7C05D0033E2B9 /* FileManagerView.swift in Sources */,
-				5F9ABB3E237983A800AC052A /* App+Keychain.swift in Sources */,
+				5F9ABB3E237983A800AC052A /* Shared+Keychain.swift in Sources */,
+				A021E22924ED6AE700A455D2 /* Keys+Codable.swift in Sources */,
 				A0EE956F2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift in Sources */,
-				A0EE956E2375F7AF00002E6F /* KeyEntity+CoreDataClass.swift in Sources */,
 				5F59285023B924F5004EC296 /* App+Version.swift in Sources */,
 				5F01277723B776EE0033E2B9 /* RestoreKeysView.swift in Sources */,
+				5F7C0E8824E9A5A500B41F20 /* KeyItem.swift in Sources */,
 				5FFAAD2923B414E200AE78EE /* KeyGroupListViewController.swift in Sources */,
 				A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */,
 				A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */,
+				A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */,
 				A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */,
+				A0D796DA2523A92D00A5CBAB /* KeyEntity+Identifiable.swift in Sources */,
 				5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */,
 				A0818D6423B6A91C00823F43 /* KeyBaseListViewController.swift in Sources */,
 				A047651E23DDABE2005B8547 /* KeyItemForm+Password.swift in Sources */,
 				A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */,
 				A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */,
 				A0C0DB5E22A901AD003B09ED /* KeyItemList.swift in Sources */,
+				A040E4B224EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift in Sources */,
+				5F5F558624DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift in Sources */,
 				5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */,
 				A0EE95502375F38400002E6F /* KeyChain.xcdatamodeld in Sources */,
+				A0533DC824EAF590009C784B /* KeyEntity+Encodable.swift in Sources */,
 				A0EE95712375F7AF00002E6F /* MailEntity+CoreDataClass.swift in Sources */,
+				A0550B48257E6D7E00DF5F99 /* KeyboardGeometry.swift in Sources */,
+				A0D796B32523711000A5CBAB /* Shared+CoreData.swift in Sources */,
+				A086C3AB252325AA001EF95E /* Shared.swift in Sources */,
 				5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */,
 				5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */,
 				A0F3C39A23CA34F8004B3DC1 /* NoteView.swift in Sources */,
 				A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */,
+				A01F46A324EEBDB3005717DC /* AlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +858,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F5F559024DC1DDF00D5A4D1 /* CoreDataTests.swift in Sources */,
 				A0C0DB7122A901B0003B09ED /* KeyChainXTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,6 +868,49 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C0DB7C22A901B0003B09ED /* KeyChainXUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D29E2521F36400737766 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A086C3B3252327C9001EF95E /* Shared+Error.swift in Sources */,
+				A086C3F525232D62001EF95E /* MailEntity+CoreDataProperties.swift in Sources */,
+				A086C402252331C3001EF95E /* KeyEntity+Encodable.swift in Sources */,
+				A0C1D2AA2521F36400737766 /* MacKeyChainX.xcdatamodeld in Sources */,
+				A086C3E725232D48001EF95E /* KeyItem.swift in Sources */,
+				A086C3CB25232D1F001EF95E /* KeyEntity+CoreDataClass.swift in Sources */,
+				A0D796EB2523A9CD00A5CBAB /* KeyEntity+Identifiable.swift in Sources */,
+				A086C3D225232D26001EF95E /* KeyEntity+CoreDataProperties.swift in Sources */,
+				A0C1D2A72521F36400737766 /* ContentView.swift in Sources */,
+				A086C3AC252325AA001EF95E /* Shared.swift in Sources */,
+				A086C3EE25232D5A001EF95E /* MailEntity+CoreDataClass.swift in Sources */,
+				A0C1D2A52521F36400737766 /* AppDelegate.swift in Sources */,
+				A086C39425231B79001EF95E /* KeyChain.xcdatamodeld in Sources */,
+				A086C3E025232D43001EF95E /* KeyEntity+Helpers.swift in Sources */,
+				A086C39B25232187001EF95E /* Shared+Keychain.swift in Sources */,
+				A0D796C0252371C500A5CBAB /* Shared+CoreData.swift in Sources */,
+				A0C1D2E725225DE000737766 /* KeyItemRow.swift in Sources */,
+				A0BE3F8325225F14002A86A7 /* KeyItemList.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2B52521F36500737766 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0C1D2BE2521F36500737766 /* MacKeyChainXTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0C1D2C02521F36500737766 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0C1D2C92521F36500737766 /* MacKeyChainXUITests.swift in Sources */,
+				A0BE3F8425225F14002A86A7 /* KeyItemList.swift in Sources */,
+				A0C1D2E825225DE000737766 /* KeyItemRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +927,16 @@
 			target = A0C0DB5222A901AD003B09ED /* KeyChainX */;
 			targetProxy = A0C0DB7822A901B0003B09ED /* PBXContainerItemProxy */;
 		};
+		A0C1D2BB2521F36500737766 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0C1D2A12521F36400737766 /* MacKeyChainX */;
+			targetProxy = A0C1D2BA2521F36500737766 /* PBXContainerItemProxy */;
+		};
+		A0C1D2C62521F36500737766 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0C1D2A12521F36400737766 /* MacKeyChainX */;
+			targetProxy = A0C1D2C52521F36500737766 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -607,6 +946,14 @@
 				A0C0DB6522A901B0003B09ED /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A0C1D2B02521F36500737766 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0C1D2B12521F36500737766 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -638,6 +985,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -698,6 +1046,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -742,6 +1091,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeychainX;
 				PRODUCT_NAME = KeychainX;
 				SWIFT_VERSION = 5.0;
@@ -765,6 +1115,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeychainX;
 				PRODUCT_NAME = KeychainX;
 				SWIFT_VERSION = 5.0;
@@ -780,6 +1131,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48J595L9BX;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = KeyChainXTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -790,7 +1142,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeyChainX.app/KeyChainX";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeychainX.app/KeychainX";
 			};
 			name = Debug;
 		};
@@ -802,6 +1154,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48J595L9BX;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = KeyChainXTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -812,7 +1165,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeyChainX.app/KeyChainX";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeychainX.app/KeychainX";
 			};
 			name = Release;
 		};
@@ -858,6 +1211,154 @@
 			};
 			name = Release;
 		};
+		A0C1D2CB2521F36500737766 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = MacKeyChainX/MacKeyChainX.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"MacKeyChainX/Preview Content\"";
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MacKeyChainX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A0C1D2CC2521F36500737766 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = MacKeyChainX/MacKeyChainX.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"MacKeyChainX/Preview Content\"";
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MacKeyChainX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A0C1D2CD2521F36500737766 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				INFOPLIST_FILE = MacKeyChainXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacKeyChainX.app/Contents/MacOS/MacKeyChainX";
+			};
+			name = Debug;
+		};
+		A0C1D2CE2521F36500737766 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				INFOPLIST_FILE = MacKeyChainXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacKeyChainX.app/Contents/MacOS/MacKeyChainX";
+			};
+			name = Release;
+		};
+		A0C1D2CF2521F36500737766 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				INFOPLIST_FILE = MacKeyChainXUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MacKeyChainX;
+			};
+			name = Debug;
+		};
+		A0C1D2D02521F36500737766 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				INFOPLIST_FILE = MacKeyChainXUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MacKeyChainX;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -897,9 +1398,44 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A0C1D2D12521F36500737766 /* Build configuration list for PBXNativeTarget "MacKeyChainX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0C1D2CB2521F36500737766 /* Debug */,
+				A0C1D2CC2521F36500737766 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0C1D2D22521F36500737766 /* Build configuration list for PBXNativeTarget "MacKeyChainXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0C1D2CD2521F36500737766 /* Debug */,
+				A0C1D2CE2521F36500737766 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0C1D2D32521F36500737766 /* Build configuration list for PBXNativeTarget "MacKeyChainXUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0C1D2CF2521F36500737766 /* Debug */,
+				A0C1D2D02521F36500737766 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5F9987AE25387BEB004F43DF /* XCRemoteSwiftPackageReference "swiftui-fieldvalidator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bsorrentino/swiftui-fieldvalidator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
 		5F9ABB3A2379828000AC052A /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
@@ -919,6 +1455,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5F9987AF25387BEB004F43DF /* FieldValidatorLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F9987AE25387BEB004F43DF /* XCRemoteSwiftPackageReference "swiftui-fieldvalidator" */;
+			productName = FieldValidatorLibrary;
+		};
 		5F9ABB3B2379828000AC052A /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5F9ABB3A2379828000AC052A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
@@ -929,12 +1470,33 @@
 			package = 5FFE283F23B9480400EAB103 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
 		};
+		A0550B3F257E372000DF5F99 /* FieldValidatorLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F9987AE25387BEB004F43DF /* XCRemoteSwiftPackageReference "swiftui-fieldvalidator" */;
+			productName = FieldValidatorLibrary;
+		};
+		A086C3A2252321C4001EF95E /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F9ABB3A2379828000AC052A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
+		A0C1D2A82521F36400737766 /* MacKeyChainX.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A0C1D2A92521F36400737766 /* MacKeyChainX.xcdatamodel */,
+			);
+			currentVersion = A0C1D2A92521F36400737766 /* MacKeyChainX.xcdatamodel */;
+			path = MacKeyChainX.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5F2B152124D3502B00983F68 /* KeyChain v2.xcdatamodel */,
 				A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */,
 			);
 			currentVersion = A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */;

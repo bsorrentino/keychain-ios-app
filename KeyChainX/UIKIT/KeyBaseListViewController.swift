@@ -25,31 +25,42 @@ class KeyBaseListViewController : UIViewController, UITableViewDelegate {
 
     internal var tableView:UITableView
     
-    init( context:NSManagedObjectContext,  style: UITableView.Style = .plain) {
+    init( context:NSManagedObjectContext, frame tableViewFrame:CGRect = .zero, style: UITableView.Style = .plain) {
         
         self.managedObjectContext = context
         
-        self.tableView = UITableView(frame: .zero, style: style)
+        self.tableView = UITableView(frame: tableViewFrame, style: style)
 
         super.init( nibName: nil, bundle: nil )
         
         self.tableView.delegate = self
-
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func applyContentInsets( _ contentInsets: UIEdgeInsets ) {
+        
+        //self.edgesForExtendedLayout = UIRectEdge()
+        //self.extendedLayoutIncludesOpaqueBars = false
+        self.tableView.contentInset = contentInsets
+        self.tableView.scrollIndicatorInsets = contentInsets
+        //self.tableView.contentInsetAdjustmentBehavior = .always
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let w: CGFloat = self.view.frame.width
         let h: CGFloat = self.view.frame.height
 
-        self.tableView.frame = CGRect(x: 0, y: 0, width: w, height: h - 130)
+        self.tableView.frame = CGRect(x: 0, y: 0, width: w, height: h)
         
         self.view.addSubview(self.tableView)
+        
     }
     
     // MUST BE OVERRIDE
