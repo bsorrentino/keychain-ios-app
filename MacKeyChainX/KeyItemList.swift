@@ -36,10 +36,10 @@ struct KeyItemListTopbar: View {
             } ) {
                 Image(systemName: "plus.circle")
             }
-            .padding(2)
+            
             .buttonStyle(BlueButtonStyle(colorScheme:colorScheme))
 
-        }
+        }.padding(5)
     }
 }
 
@@ -59,7 +59,7 @@ struct KeyItemList: View {
                 KeyItemRow( key:key )
               }
             }
-        }
+        }.frame(minWidth: 700, minHeight: 300)
     }
 }
 

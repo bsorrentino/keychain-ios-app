@@ -15,6 +15,9 @@
 		5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28680B23BF8A3600A1E62D /* WebView.swift */; };
 		5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30CFA22379F0BE00FD7485 /* LoginView.swift */; };
 		5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30CFA42379F52100FD7485 /* ContentView.swift */; };
+		5F34E545257F9201007417F3 /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34E544257F9201007417F3 /* KeyItemForm.swift */; };
+		5F34E553257F966F007417F3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F34E552257F966F007417F3 /* CloudKit.framework */; };
+		5F34E555257F9690007417F3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F34E554257F9690007417F3 /* CloudKit.framework */; };
 		5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F22361FD900066E947 /* App+CoreData.swift */; };
 		5F5772F52361FDD50066E947 /* Shared+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F42361FDD50066E947 /* Shared+Error.swift */; };
 		5F59285023B924F5004EC296 /* App+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59284F23B924F5004EC296 /* App+Version.swift */; };
@@ -131,6 +134,10 @@
 		5F30CFA22379F0BE00FD7485 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5F30CFA42379F52100FD7485 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F30CFA6237A192600FD7485 /* KeyChainX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeyChainX.entitlements; sourceTree = "<group>"; };
+		5F34E544257F9201007417F3 /* KeyItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
+		5F34E552257F966F007417F3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		5F34E554257F9690007417F3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		5F34E55C257FEDEA007417F3 /* KeyChain v1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain v1.1.xcdatamodel"; sourceTree = "<group>"; };
 		5F5772F22361FD900066E947 /* App+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+CoreData.swift"; sourceTree = "<group>"; };
 		5F5772F42361FDD50066E947 /* Shared+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+Error.swift"; sourceTree = "<group>"; };
 		5F59284F23B924F5004EC296 /* App+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Version.swift"; sourceTree = "<group>"; };
@@ -209,6 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F34E553257F966F007417F3 /* CloudKit.framework in Frameworks */,
 				5F9987B025387BEB004F43DF /* FieldValidatorLibrary in Frameworks */,
 				5F9ABB3C2379828000AC052A /* KeychainAccess in Frameworks */,
 				3852AA669660FC7B3127E477 /* Pods_KeyChainX.framework in Frameworks */,
@@ -236,6 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F34E555257F9690007417F3 /* CloudKit.framework in Frameworks */,
 				A0550B40257E372000DF5F99 /* FieldValidatorLibrary in Frameworks */,
 				A086C3A3252321C4001EF95E /* KeychainAccess in Frameworks */,
 			);
@@ -294,6 +303,8 @@
 		A096114E2312CA970037E8B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F34E554257F9690007417F3 /* CloudKit.framework */,
+				5F34E552257F966F007417F3 /* CloudKit.framework */,
 				7A1181120449DF4D493ABB8B /* Pods_KeyChainX.framework */,
 				7BD245632F6CD51B530A2686 /* Pods_KeyChainX_KeyChainXUITests.framework */,
 				C31B2C432B3C9BA54E403FC3 /* Pods_KeyChainXTests.framework */,
@@ -412,6 +423,7 @@
 				A0C1D2A42521F36400737766 /* AppDelegate.swift */,
 				A0C1D2E625225DE000737766 /* KeyItemRow.swift */,
 				A0BE3F8225225F14002A86A7 /* KeyItemList.swift */,
+				5F34E544257F9201007417F3 /* KeyItemForm.swift */,
 				A0C1D2A62521F36400737766 /* ContentView.swift */,
 				A0C1D2AB2521F36500737766 /* Assets.xcassets */,
 				A0C1D2B02521F36500737766 /* Main.storyboard */,
@@ -889,6 +901,7 @@
 				A0C1D2A52521F36400737766 /* AppDelegate.swift in Sources */,
 				A086C39425231B79001EF95E /* KeyChain.xcdatamodeld in Sources */,
 				A086C3E025232D43001EF95E /* KeyEntity+Helpers.swift in Sources */,
+				5F34E545257F9201007417F3 /* KeyItemForm.swift in Sources */,
 				A086C39B25232187001EF95E /* Shared+Keychain.swift in Sources */,
 				A0D796C0252371C500A5CBAB /* Shared+CoreData.swift in Sources */,
 				A0C1D2E725225DE000737766 /* KeyItemRow.swift in Sources */,
@@ -1496,10 +1509,11 @@
 		A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5F34E55C257FEDEA007417F3 /* KeyChain v1.1.xcdatamodel */,
 				5F2B152124D3502B00983F68 /* KeyChain v2.xcdatamodel */,
 				A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */,
 			);
-			currentVersion = A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */;
+			currentVersion = 5F34E55C257FEDEA007417F3 /* KeyChain v1.1.xcdatamodel */;
 			path = KeyChain.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

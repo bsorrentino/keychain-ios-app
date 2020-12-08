@@ -15,7 +15,12 @@ struct KeyItemRow: View {
     var key:KeyEntity
     
     var body: some View {
-        Text( key.mnemonic )
+        HStack {
+            Text( key.mnemonic ).frame(minWidth: 150, alignment: .leading)
+            Text( key.username).frame(width: 250,alignment: .leading)
+            Text( key.mail ?? "").frame(width: 250, alignment: .leading)
+            Text( key.url ?? "").frame(width: 250, alignment: .center)
+        }.padding(5)
     }
 }
 
@@ -29,8 +34,11 @@ struct KeyItemRow_Previews: PreviewProvider {
             
             let key = KeyEntity( entity:KeyEntity.entity(), insertInto: context )
             
-            key.mnemonic = "KEY1"
-            
+            key.mnemonic = "mnemonic"
+            key.username = "bartolomeo.sorrentino@soulsoftware.it"
+            key.mail = "bartolomeo.sorrentino@soulsoftware.it"
+            key.url = "http://usernamesite.com"
+
             return key
         }
         return KeyItemRow( key:key() )
