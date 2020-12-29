@@ -109,30 +109,31 @@ struct KeyEntityForm : View {
     
     func usernameInput() -> some View {
         
-        HStack {
-            TextFieldWithValidator( title:"give me the username ?",
-                                    value: $item.username,
-                                    checker:$item.usernameCheck ) { v in
+        HStack{
+            ZStack {
                 
-                if( v.isEmpty ) {
-                    return "username cannot be empty"
+                TextFieldWithValidator( title:"give me the username ?",
+                                        value: $item.username,
+                                        checker:$item.usernameCheck ) { v in
+                    
+                    if( v.isEmpty ) {
+                        return "username cannot be empty"
+                    }
+                    
+                    //print( "validate username \(v) - \(self.pickUsernameFromMail)")
+                    
+                    if( self.pickUsernameFromMail ) {
+                        self.item.mail = v
+                    }
+                    return nil
                 }
-                
-                //print( "validate username \(v) - \(self.pickUsernameFromMail)")
-                
-                if( self.pickUsernameFromMail ) {
-                    self.item.mail = v
+                .autocapitalization(.none)
+                NavigationLink( destination: EmailList( value: $item.username_mail_setter), isActive:$pickUsernameFromMail  ) {
+                       EmptyView()
                 }
-                return nil
+                .hidden()
             }
-            .autocapitalization(.none)
-            NavigationLink( destination: EmailList( value: $item.username_mail_setter), isActive:$pickUsernameFromMail  ) {
-                    EmptyView()
-            }
-            .frame( width:0, height:0)
-            Button( action: {
-                self.pickUsernameFromMail = true
-            }) {
+            Button( action: { self.pickUsernameFromMail = true}) {
                 Image( systemName: "envelope.circle")
                     .resizable().frame(width: 20, height: 20, alignment: .center)
                     .foregroundColor( colorScheme == .dark ? Color.white : Color.black )
