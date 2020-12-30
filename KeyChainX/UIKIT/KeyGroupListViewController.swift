@@ -16,9 +16,10 @@ struct KeyGroupListView : View {
     var selectedGroup:KeyEntity
     
     var contentInsets:UIEdgeInsets?;
-
+    var provideFormOnSelection:FormSupplierType
+    
     var body: some View {
-        KeyGroupList( selectedGroup: selectedGroup, contentInsets: contentInsets)
+        KeyGroupList( selectedGroup: selectedGroup, contentInsets: contentInsets, provideFormOnSelection:provideFormOnSelection)
             .navigationBarTitle( Text(selectedGroup.mnemonic), displayMode: .inline )
 
     }
@@ -35,10 +36,11 @@ struct KeyGroupList: UIViewControllerRepresentable {
     var selectedGroup:KeyEntity
     
     var contentInsets:UIEdgeInsets?;
-    
+    var provideFormOnSelection:FormSupplierType
+
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyGroupList>) -> UIViewControllerType
     {
-        let controller =  KeyGroupListViewController(context: managedObjectContext, selectedGroup: selectedGroup)
+        let controller =  KeyGroupListViewController(context: managedObjectContext, selectedGroup: selectedGroup, provideFormOnSelection:provideFormOnSelection)
 
         controller.contentInsets = contentInsets
         
@@ -62,9 +64,9 @@ class KeyGroupListViewController : KeyBaseListViewController, UITableViewDataSou
     
     var contentInsets:UIEdgeInsets?
     
-    init( context:NSManagedObjectContext, selectedGroup:KeyEntity  ) {
+    init( context:NSManagedObjectContext, selectedGroup:KeyEntity, provideFormOnSelection:@escaping FormSupplierType  ) {
         self.selectedGroup = selectedGroup
-        super.init( context:context )
+        super.init( context:context, provideFormOnSelection:provideFormOnSelection )
         
         self.tableView.dataSource = self
 
@@ -133,8 +135,9 @@ class KeyGroupListViewController : KeyBaseListViewController, UITableViewDataSou
         
         let selectedItem = keys[index]
         
-        let newViewController = KeyEntityForm( item: KeyItem( entity: selectedItem) )
-        self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
+        let selectedItemForm = self.provideFormOnSelection( selectedItem )
+
+        self.navigationController?.pushViewController( UIHostingController(rootView: selectedItemForm), animated: true)
 
     }
     

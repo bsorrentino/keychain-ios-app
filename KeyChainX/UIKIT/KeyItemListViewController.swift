@@ -6,28 +6,32 @@
 //  Copyright © 2019 Bartolomeo Sorrentino. All rights reserved.
 //
 
+
+
 import Foundation
 import UIKit
 import SwiftUI
 import CoreData
 
+
+
 // MARK: SwiftUI Bidge
 struct KeyItemList: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = KeyItemListViewController
-    
+
     @Environment(\.managedObjectContext) var managedObjectContext
 
     @Binding var isSearching:Bool
-    
     var geometry:CGSize;
+    var provideFormOnSelection:FormSupplierType
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType
     {
         //print( "makeUIViewController" )
         
         let controller =
-            KeyItemListViewController(context: managedObjectContext, isSearching: $isSearching)
+            KeyItemListViewController(context: managedObjectContext, isSearching: $isSearching, provideFormOnSelection:provideFormOnSelection )
         
         controller.geometry = geometry
         
@@ -59,14 +63,14 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
     private var didSelectWhileSearchWasActive = false
     
     private var isSearching: Binding<Bool>
-    
+
     var geometry:CGSize = CGSize()
     
-    init( context:NSManagedObjectContext, isSearching: Binding<Bool> ) {
+    init( context:NSManagedObjectContext, isSearching: Binding<Bool>, provideFormOnSelection:@escaping FormSupplierType ) {
         
         self.isSearching = isSearching
 
-        super.init( context:context, style: .grouped )
+        super.init( context:context, style: .grouped, provideFormOnSelection:provideFormOnSelection )
         
         self.tableView.dataSource = self
     }
@@ -207,14 +211,15 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
                 right: 0
             )
 
-            let newViewController = KeyGroupListView( selectedGroup: selectedItem, contentInsets: contentInsets )
+            let newViewController = KeyGroupListView( selectedGroup: selectedItem, contentInsets: contentInsets, provideFormOnSelection:provideFormOnSelection )
             self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
 
         }
         else {
 
-            let newViewController = KeyEntityForm( item: KeyItem(entity: selectedItem) )
-            self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
+            let selectedItemForm = self.provideFormOnSelection( selectedItem )
+            
+            self.navigationController?.pushViewController( UIHostingController(rootView: selectedItemForm), animated: true)
 
             if searchController.isActive {
                 didSelectWhileSearchWasActive = true
@@ -232,9 +237,9 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
         
         let selectedItem = keys[indexPath.row]
         
-        let newViewController = KeyEntityForm( item: KeyItem(entity: selectedItem) )
+        let selectedItemForm = self.provideFormOnSelection( selectedItem )
         
-        self.navigationController?.pushViewController( UIHostingController(rootView: newViewController), animated: true)
+        self.navigationController?.pushViewController( UIHostingController(rootView: selectedItemForm), animated: true)
         
     }
     

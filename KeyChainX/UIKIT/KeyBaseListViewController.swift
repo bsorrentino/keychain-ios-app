@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import CoreData
 
+typealias FormSupplierType = ( KeyEntity ) -> KeyEntityForm
+
 // MARK: GROUP CELL
 
 class GroupTableViewCell : UITableViewCell {
@@ -24,11 +26,13 @@ class KeyBaseListViewController : UIViewController, UITableViewDelegate {
     internal var managedObjectContext: NSManagedObjectContext
 
     internal var tableView:UITableView
-    
-    init( context:NSManagedObjectContext, frame tableViewFrame:CGRect = .zero, style: UITableView.Style = .plain) {
+
+    var provideFormOnSelection:FormSupplierType
+
+    init( context:NSManagedObjectContext, frame tableViewFrame:CGRect = .zero, style: UITableView.Style = .plain, provideFormOnSelection:@escaping FormSupplierType) {
         
         self.managedObjectContext = context
-        
+        self.provideFormOnSelection = provideFormOnSelection
         self.tableView = UITableView(frame: tableViewFrame, style: style)
 
         super.init( nibName: nil, bundle: nil )

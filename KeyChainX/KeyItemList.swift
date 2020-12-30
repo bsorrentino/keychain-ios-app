@@ -24,7 +24,10 @@ struct KeyItemListTopView : View {
 
     @State private var formActive = false
     @State private var isSearching = false
-    @State var keyListId:Int = 0
+    // Id of KeyItemList view. when change the view is forced to be updated
+    // @see https://stackoverflow.com/a/65095862
+    // @see https://swiftui-lab.com/swiftui-id/
+    @State var keyItemListId:Int = 0
     @StateObject private var newItem = KeyItem()
     
 //    @available(*, deprecated, message: "no longer need")
@@ -41,19 +44,21 @@ struct KeyItemListTopView : View {
     var body: some View {
         GeometryReader { geometry in
 
-            KeyItemList( isSearching: self.$isSearching, geometry: geometry.size)
-                .id( keyListId )
-                .navigationBarItems(trailing:
-                    HStack {
-                        NavigationLink( destination: KeyEntityForm(item:newItem, parentId:$keyListId),
-                                        isActive: $formActive ) {
-                            EmptyView()
-                        }
-                        Button( action: { formActive.toggle() }) {
-                            Text("Add")
-                            //Image( systemName: "plus" )
-                        }.disabled( self.isSearching )
-                    })
+            KeyItemList( isSearching: self.$isSearching, geometry: geometry.size) { selectedItem in
+                KeyEntityForm(item:KeyItem( entity: selectedItem), parentId:$keyItemListId)
+            }
+            .id( keyItemListId ) //
+            .navigationBarItems(trailing:
+                HStack {
+                    NavigationLink( destination: KeyEntityForm(item:newItem, parentId:$keyItemListId),
+                                    isActive: $formActive ) {
+                        EmptyView()
+                    }
+                    Button( action: { formActive.toggle() }) {
+                        Text("Add")
+                        //Image( systemName: "plus" )
+                    }.disabled( self.isSearching )
+                })
 
         }
     }
