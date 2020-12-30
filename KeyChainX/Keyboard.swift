@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+func hideKeyboard() {
+    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+}
+
 class KeyboardGeometryReader: ObservableObject {
     @Published private(set) var size = CGSize()
 

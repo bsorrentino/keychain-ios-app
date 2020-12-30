@@ -25,25 +25,21 @@ enum SecretState: Int, Hashable {
 }
 
 struct KeyEntityForm : View {
-    @Environment(\.presentationMode) var presentationMode
-    @Environment(\.managedObjectContext) var managedObjectContext
-    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @Environment(\.presentationMode)        var presentationMode
+    @Environment(\.managedObjectContext)    var managedObjectContext
+    @Environment(\.colorScheme)             var colorScheme: ColorScheme
+    
+    @State          var secretState:SecretState = .hide
+    @State private  var pickUsernameFromMail    = false
+    @State private  var alertItem:AlertItem?
     
     @ObservedObject var item:KeyItem
-    
-    @State var secretState:SecretState = .hide
-    
-    @State private var pickUsernameFromMail = false
-    @State private var alertItem:AlertItem?
+    var parentId:Binding<Int>?
     
     private let bg = Color(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, opacity: 0.2)
                     //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     private let strikeWidth:CGFloat = 0.5
     
-    init( item:KeyItem ) {
-        self.item = item
-    }
-
     func secretStatePicker() -> some View {
         
         Picker( selection: $secretState, label: EmptyView() ) {
@@ -74,6 +70,7 @@ struct KeyEntityForm : View {
                 }
             }
             
+            parentId?.wrappedValue += 1 // force view refresh
             self.presentationMode.wrappedValue.dismiss()
             
             
@@ -133,7 +130,11 @@ struct KeyEntityForm : View {
                 }
                 .hidden()
             }
-            Button( action: { self.pickUsernameFromMail = true}) {
+            Button( action: {
+                hideKeyboard()
+                self.pickUsernameFromMail = true
+                
+            }) {
                 Image( systemName: "envelope.circle")
                     .resizable().frame(width: 20, height: 20, alignment: .center)
                     .foregroundColor( colorScheme == .dark ? Color.white : Color.black )

@@ -114,7 +114,7 @@ extension AppDelegate {
         // Add Observer
         let objectContextObjectsDidChangeEvent = NSNotification.Name.NSManagedObjectContextObjectsDidChange
         
-        NotificationCenter.default.addObserver(self,
+        let _ = NotificationCenter.default.addObserver(self,
                                                selector: #selector(managedObjectContextObjectsDidChange),
                                                name: objectContextObjectsDidChangeEvent,
                                                object: managedObjectContext)
@@ -124,16 +124,7 @@ extension AppDelegate {
     }
 
     func stopObservingManagegObjectContextObjectsDidChangeEvent() {
-            // Add Observer
-        let objectContextObjectsDidChangeEvent = NSNotification.Name.NSManagedObjectContextObjectsDidChange
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(managedObjectContextObjectsDidChange),
-                                               name: objectContextObjectsDidChangeEvent,
-                                               object: managedObjectContext)
-     
-    //        notificationCenter.addObserver(self, selector: #selector(managedObjectContextWillSave), name: NSManagedObjectContextWillSaveNotification, object: managedObjectContext)
-    //        notificationCenter.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSManagedObjectContextDidSaveNotification, object: managedObjectContext)
     }
 
     @objc private func managedObjectContextObjectsDidChange(notification: NSNotification) {
