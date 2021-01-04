@@ -10,6 +10,8 @@ import XCTest
 import KeychainAccess
 @testable import KeychainX
 
+
+
 class KeyChainXTests: XCTestCase {
 
     override func setUp() {
@@ -57,6 +59,7 @@ class KeyChainXTests: XCTestCase {
         print( )
 
     }
+    
     func testURL() {
         
         let url = URL(fileURLWithPath: "file://myfolder/backoup-0000000.plist")
@@ -69,6 +72,50 @@ class KeyChainXTests: XCTestCase {
         XCTAssertEqual( lpc, "backoup-0000000.plist")
         XCTAssertTrue( lpc.hasSuffix(".plist") )
         
+        
+        let urlRegEx = "^(https?://)?((?:www\\.)?(?:[-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(?:/[-\\w@\\+\\.~#\\?&/=%]*)?)$"
+        
+        let test1 = {
+    
+            let urlMatches = "https://www.google.com".groups( for: urlRegEx)
+            XCTAssertNotNil( urlMatches )
+            XCTAssertEqual( 1, urlMatches.count )
+            
+            if(urlMatches.count > 0 ) {
+
+                urlMatches[0].forEach { token in print( "test1: '\(token)'" )}
+
+                XCTAssertEqual( 3, urlMatches[0].count )
+            }
+        }
+        
+        let test2 = {
+            
+            let urlMatches = "www.google.com".groups( for: urlRegEx )
+            XCTAssertNotNil( urlMatches )
+            XCTAssertEqual( 1, urlMatches.count )
+            
+            if(urlMatches.count > 0 ) {
+
+                urlMatches[0].forEach { token in print( "test2: '\(token)'" ) }
+
+                XCTAssertEqual( 3, urlMatches[0].count )
+            }
+            
+        }
+
+        
+        let test3 = {
+            
+            let urlMatches = "//www.google.com".groups( for: urlRegEx)
+            XCTAssertNotNil( urlMatches )
+            XCTAssertEqual( 0, urlMatches.count )
+
+        }
+        
+        test1()
+        test2()
+        test3()
     }
     
     func testRetrieveInternetCredential() {
