@@ -58,10 +58,7 @@ struct KeyEntityForm : View {
                 }
             )
             .onAppear {
-                if( item.isNew ) {
-                    item.reset()
-                }
-                else {
+                if( !item.isNew ) {
                     
                     if( !item.url.isEmpty ) {
                         
@@ -151,6 +148,12 @@ extension KeyEntityForm {
             do {
                 try self.item.insert( into: self.managedObjectContext )
                 try self.managedObjectContext.save()
+
+                parentId?.wrappedValue += 1 // force view refresh
+
+                if( self.item.isNew ) {
+                    self.item.reset()
+                }
             }
             catch {
                 if( self.item.isNew ) {
@@ -161,7 +164,7 @@ extension KeyEntityForm {
                 }
             }
             
-            parentId?.wrappedValue += 1 // force view refresh
+            
             self.presentationMode.wrappedValue.dismiss()
             
             

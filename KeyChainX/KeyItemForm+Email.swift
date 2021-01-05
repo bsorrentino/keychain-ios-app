@@ -86,6 +86,8 @@ struct EmailList: View {
                         }
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
+                        .textContentType(.emailAddress)
+                        .keyboardType(.emailAddress)
                         .font(.body)
                         .padding( mailValid.padding )
                         .overlay(
