@@ -2,7 +2,7 @@
   "applinks": {
       "details": [
            {
-             "appIDs": [ "ABCDE12345.org.bsc.KeychainX", "ABCDE12345.org.bsc.MacKeyChainX" ],
+             "appIDs": [ "48J595L9BX.org.bsc.KeychainX", "48J595L9BX.org.bsc.MacKeyChainX" ],
              "components": [
                {
                   "/": "/*",
@@ -13,7 +13,7 @@
        ]
    },
    "webcredentials": {
-      "apps": [ "ABCDE12345.org.bsc.KeychainX", "ABCDE12345.org.bsc.MacKeyChainX" ]
+      "apps": [ "48J595L9BX.org.bsc.KeychainX", "48J595L9BX.org.bsc.MacKeyChainX" ]
    },
     "appclips": {
         "apps": []
