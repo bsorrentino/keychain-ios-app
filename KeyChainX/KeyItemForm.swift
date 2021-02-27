@@ -19,7 +19,8 @@ struct KeyEntityForm : View {
     @State          var secretState:SecretState = .hide
     @State private  var pickUsernameFromMail    = false
     @State private  var alertItem:AlertItem?
-    
+    @State private  var isShared:Bool = false
+
     @ObservedObject var item:KeyItem
     var parentId:Binding<Int>?
     
@@ -28,6 +29,7 @@ struct KeyEntityForm : View {
     private let strikeWidth:CGFloat = 0.5
     
 
+    
     var body: some View {
         NavigationView {
             Form {
@@ -37,10 +39,17 @@ struct KeyEntityForm : View {
                         mnemonicInput()
                     }
                 }
-                
-                Section( header: Text("Credentials")) {
+                Section( header: HStack {
+                        Text("Credentials")
+                        Divider()
+                        Spacer()
+                        Text("shared")
+                    Toggle( "shared", isOn: $isShared ).labelsHidden()
+                })
+                {
                     usernameInput()
                     PasswordField(value: $item.password, passwordCheck: $item.passwordCheck)
+                    
                 }
                 Section( header: Text("Other")) {
                     GroupField( value:$item.groupPrefix )
