@@ -127,7 +127,7 @@ class KeyChainXTests: XCTestCase {
         }
        let expectation = self.expectation(description: "getInternetPassword")
         
-        let keychain = Keychain(server: "https://www.google.com", protocolType: .https)
+        let keychain = Keychain(server: "https://github.com", protocolType: .https)
                // .authenticationPrompt("Authenticate to login to server")
                // .accessibility(.whenPasscodeSetThisDeviceOnly, authenticationPolicy: .userPresence)
         
