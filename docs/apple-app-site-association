@@ -1,0 +1,21 @@
+{
+  "applinks": {
+      "details": [
+           {
+             "appIDs": [ "ABCDE12345.org.bsc.KeychainX", "ABCDE12345.org.bsc.MacKeyChainX" ],
+             "components": [
+               {
+                  "/": "/*",
+                  "comment": "Matches any URL"
+               }
+             ]
+           }
+       ]
+   },
+   "webcredentials": {
+      "apps": [ "ABCDE12345.org.bsc.KeychainX", "ABCDE12345.org.bsc.MacKeyChainX" ]
+   },
+    "appclips": {
+        "apps": []
+    }
+}

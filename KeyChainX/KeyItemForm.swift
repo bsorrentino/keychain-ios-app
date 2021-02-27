@@ -10,19 +10,6 @@ import SwiftUI
 import Combine
 import FieldValidatorLibrary
 
-enum SecretState: Int, Hashable {
-    
-    case hide
-    case show
-
-    var text:String {
-        switch( self ) {
-            case .hide: return "***"
-            case .show: return "abc"
-        }
-    }
-
-}
 
 struct KeyEntityForm : View {
     @Environment(\.presentationMode)        var presentationMode
@@ -40,6 +27,99 @@ struct KeyEntityForm : View {
                     //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     private let strikeWidth:CGFloat = 0.5
     
+
+    var body: some View {
+        NavigationView {
+            Form {
+                
+                if( item.isNew ) {
+                    Section(header: Text("Mnemonic"), footer: EmptyView() ) {
+                        mnemonicInput()
+                    }
+                }
+                
+                Section( header: Text("Credentials")) {
+                    usernameInput()
+                    PasswordField(value: $item.password, passwordCheck: $item.passwordCheck)
+                }
+                Section( header: Text("Other")) {
+                    GroupField( value:$item.groupPrefix )
+                    EmailField( value:$item.mail )
+                    UrlField( value:$item.url )
+                    NoteField( value:$item.note)
+                }
+            }
+            .navigationBarTitle( Text( item.mnemonic.uppercased()), displayMode: .inline  )
+            .navigationBarItems(trailing:
+                HStack {
+                    // secretStatePicker()
+                    // Spacer(minLength: 15)
+                    saveButton()
+                }
+            )
+            .onAppear {
+                if( !item.isNew ) {
+                    
+                    if( !item.url.isEmpty ) {
+                        
+                        if let url = URL(string: item.url), let scheme = url.scheme, scheme == "https"  {
+                            
+                            let keychain = Keychain(server: item.url, protocolType: .https)
+                            if let password = try? keychain.get(item.username) {
+                                print( "password for site \(url.absoluteString) and user \(item.username) is \(password)")
+                            }
+                            else {
+                                keychain.getSharedPassword(item.username) { (password, error) -> () in
+                                        if password != nil {
+                                            // If found password in the Shared Web Credentials,
+                                            // then log into the server
+                                            // and save the password to the Keychain
+
+                                            print( "password for site \(url.absoluteString) and user \(item.username) is \(String(describing: password))")
+                                        } else {
+                                            // If not found password either in the Keychain also Shared Web Credentials,
+                                            // prompt for username and password
+
+                                            // Log into server
+
+                                            // If the login is successful,
+                                            // save the credentials to both the Keychain and the Shared Web Credentials.
+                                            print( "password for site \(url.absoluteString) and user \(item.username) not found!\n\(error ?? "")")
+                                        }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+                
+            }
+        } // NavigationView
+        
+    }
+}
+
+
+//
+// MARK: - Show / hide Secrets
+// MARK: -
+//
+enum SecretState: Int, Hashable {
+    
+    case hide
+    case show
+
+    var text:String {
+        switch( self ) {
+            case .hide: return "***"
+            case .show: return "abc"
+        }
+    }
+
+}
+
+extension KeyEntityForm {
+    
     func secretStatePicker() -> some View {
         
         Picker( selection: $secretState, label: EmptyView() ) {
@@ -51,6 +131,14 @@ struct KeyEntityForm : View {
         .pickerStyle(SegmentedPickerStyle())
 
     }
+}
+
+//
+// MARK: - Controls
+// MARK: -
+//
+extension KeyEntityForm {
+    
     
     func saveButton() -> some View {
         
@@ -60,6 +148,12 @@ struct KeyEntityForm : View {
             do {
                 try self.item.insert( into: self.managedObjectContext )
                 try self.managedObjectContext.save()
+
+                parentId?.wrappedValue += 1 // force view refresh
+
+                if( self.item.isNew ) {
+                    self.item.reset()
+                }
             }
             catch {
                 if( self.item.isNew ) {
@@ -70,7 +164,7 @@ struct KeyEntityForm : View {
                 }
             }
             
-            parentId?.wrappedValue += 1 // force view refresh
+            
             self.presentationMode.wrappedValue.dismiss()
             
             
@@ -149,54 +243,12 @@ struct KeyEntityForm : View {
 
     }
 
-    var body: some View {
-        NavigationView {
-            Form {
-                
-                if( item.isNew ) {
-                    
-                    Section(header: Text("MNEMONIC"), footer: EmptyView() ) {
-                        mnemonicInput()
-                    }
-
-                }
-
-                Section( header: Text("CREDENTIALS")) {
-                                
-                    usernameInput()
-                    
-                    PasswordField(value: $item.password, passwordCheck: $item.passwordCheck)
-                                        
-                }
-                
-                Section( header: Text("Other")) {
-                    
-                    GroupField( value:$item.groupPrefix )
-
-                    EmailField( value:$item.mail )
-                    
-                    UrlField( value:$item.url )
-
-                    NoteField( value:$item.note)
-                    
-                }
-            }
-            .navigationBarTitle( Text( item.mnemonic.uppercased()), displayMode: .inline  )
-            .navigationBarItems(trailing:
-                HStack {
-                    
-                    // secretStatePicker()
-                    
-                    // Spacer(minLength: 15)
-                    
-                    saveButton()
-
-                }
-            )
-        }.onAppear(  perform: { if( item.isNew ) { item.reset() } } ) // NavigationView
-        
-    }
 }
+
+//
+// MARK: - Preview
+// MARK: -
+//
 
 #if DEBUG
 import KeychainAccess

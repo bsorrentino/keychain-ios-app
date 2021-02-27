@@ -9,7 +9,27 @@
 import SwiftUI
 import FieldValidatorLibrary
 import WebKit
-  
+
+
+
+fileprivate let urlRegEx = "^(https?://)?((?:www\\.)?(?:[-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(?:/[-\\w@\\+\\.~#\\?&/=%]*)?)$"
+
+func parseUrl( _ url:String ) -> [String] {
+    
+    let result = url.groups( for:urlRegEx  )
+    
+    guard result.count == 1 && result[0].count == 3  else {
+        return []
+    }
+    
+    return result[0]
+}
+
+func isUrl( _ url:String ) -> Bool {
+    
+    return url.range(of: urlRegEx, options: .regularExpression) != nil
+}
+
 struct  UrlField : View {
     
     @Binding var value:String
@@ -34,23 +54,19 @@ struct  UrlField : View {
 }
 
 
-let __urlRegEx = "^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$"
-let __urlPredicate = NSPredicate(format: "SELF MATCHES %@", __urlRegEx)
-
-extension String {
-    func isUrl() -> Bool {
-        return __urlPredicate.evaluate(with: self)
-    }
-}
-
 struct UrlView: View {
 
     @Environment(\.presentationMode) var presentationMode
 
-    @Binding var value:String
+    @Binding var value:String {
+        
+        willSet {
+        }
+    }
     
     @State var urlValid = FieldChecker()
     @State var urlReload = false
+    
     
     var body: some View {
 
@@ -64,16 +80,18 @@ struct UrlView: View {
                     if( v.isEmpty ) {
                        return "url cannot be empty !"
                     }
-                    if( !v.isUrl() ) {
+                    
+                    if( !isUrl(v) ) {
                         return "url is not in correct format !"
                     }
-                   
-                   return nil
+                    
+                    return nil
             }
             //.textFieldStyle(RoundedBorderTextFieldStyle())
             .autocapitalization(.none)
             .disableAutocorrection(true)
             .textContentType(.URL)
+            .keyboardType(.URL)
             .font(.body)
             .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
             .overlay(
@@ -102,7 +120,13 @@ struct UrlView: View {
 
     }
     
-    private func openUrl() {        
+    private func openUrl() {
+        let capuredGroups = parseUrl(value)
+        
+        if( capuredGroups.count == 3  &&  capuredGroups[1].isEmpty ) {
+            self.value = "https://\(capuredGroups[2])"
+        }
+
         urlReload = urlValid.valid
     }
 }

@@ -57,6 +57,9 @@
 		A086C3EE25232D5A001EF95E /* MailEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */; };
 		A086C3F525232D62001EF95E /* MailEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */; };
 		A086C402252331C3001EF95E /* KeyEntity+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */; };
+		A089548B25A3778400B17CE4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A089548A25A3778400B17CE4 /* String+Extension.swift */; };
+		A089548C25A3778400B17CE4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A089548A25A3778400B17CE4 /* String+Extension.swift */; };
+		A089549325A3793F00B17CE4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A089548A25A3778400B17CE4 /* String+Extension.swift */; };
 		A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */; };
 		A0BE3F8325225F14002A86A7 /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE3F8225225F14002A86A7 /* KeyItemList.swift */; };
 		A0BE3F8425225F14002A86A7 /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE3F8225225F14002A86A7 /* KeyItemList.swift */; };
@@ -164,6 +167,7 @@
 		A071C20223648EAB00891175 /* KeyItemForm+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Email.swift"; sourceTree = "<group>"; };
 		A0818D6323B6A91C00823F43 /* KeyBaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBaseListViewController.swift; sourceTree = "<group>"; };
 		A086C3AA252325AA001EF95E /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		A089548A25A3778400B17CE4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		A096B3C622CE42D7004E17CC /* KeyItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemListViewController.swift; sourceTree = "<group>"; };
 		A0BE3F8225225F14002A86A7 /* KeyItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemList.swift; sourceTree = "<group>"; };
 		A0C0DB5322A901AD003B09ED /* KeychainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeychainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +292,7 @@
 				A0D796B22523711000A5CBAB /* Shared+CoreData.swift */,
 				5F5772F42361FDD50066E947 /* Shared+Error.swift */,
 				5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */,
+				A089548A25A3778400B17CE4 /* String+Extension.swift */,
 			);
 			name = shared;
 			sourceTree = "<group>";
@@ -844,6 +849,7 @@
 				A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */,
 				A0D796DA2523A92D00A5CBAB /* KeyEntity+Identifiable.swift in Sources */,
 				5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */,
+				A089548B25A3778400B17CE4 /* String+Extension.swift in Sources */,
 				A0818D6423B6A91C00823F43 /* KeyBaseListViewController.swift in Sources */,
 				A047651E23DDABE2005B8547 /* KeyItemForm+Password.swift in Sources */,
 				A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */,
@@ -870,6 +876,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A089549325A3793F00B17CE4 /* String+Extension.swift in Sources */,
 				5F5F559024DC1DDF00D5A4D1 /* CoreDataTests.swift in Sources */,
 				A0C0DB7122A901B0003B09ED /* KeyChainXTests.swift in Sources */,
 			);
@@ -895,6 +902,7 @@
 				A086C3CB25232D1F001EF95E /* KeyEntity+CoreDataClass.swift in Sources */,
 				A0D796EB2523A9CD00A5CBAB /* KeyEntity+Identifiable.swift in Sources */,
 				A086C3D225232D26001EF95E /* KeyEntity+CoreDataProperties.swift in Sources */,
+				A089548C25A3778400B17CE4 /* String+Extension.swift in Sources */,
 				A0C1D2A72521F36400737766 /* ContentView.swift in Sources */,
 				A086C3AC252325AA001EF95E /* Shared.swift in Sources */,
 				A086C3EE25232D5A001EF95E /* MailEntity+CoreDataClass.swift in Sources */,
