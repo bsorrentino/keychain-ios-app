@@ -5,7 +5,11 @@
 	<key>aps-environment</key>
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
-	<array/>
+	<array>
+		<string>webcredentials:www.google.com</string>
+		<string>webcredentials:www.google.it</string>
+		<string>webcredentials:github.com</string>
+	</array>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
 		<string>iCloud.KeyChainX</string>

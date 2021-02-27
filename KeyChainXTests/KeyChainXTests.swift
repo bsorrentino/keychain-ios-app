@@ -121,16 +121,20 @@ class KeyChainXTests: XCTestCase {
     func testRetrieveInternetCredential() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
+        Keychain.requestSharedWebCredential { (credentials, error) -> () in
+            print( credentials )
+            print( error ?? "success" )
+        }
        let expectation = self.expectation(description: "getInternetPassword")
         
-        let keychain = Keychain(server: "https://www.soulsoftware.it", protocolType: .https)
-                .authenticationPrompt("Authenticate to login to server")
-                .accessibility(.whenPasscodeSetThisDeviceOnly, authenticationPolicy: .userPresence)
+        let keychain = Keychain(server: "https://www.google.com", protocolType: .https)
+               // .authenticationPrompt("Authenticate to login to server")
+               // .accessibility(.whenPasscodeSetThisDeviceOnly, authenticationPolicy: .userPresence)
         
         print("\(keychain)")
         
         keychain.getSharedPassword("bsorrentino") { (password, error) in
+            print( "password: \(password ?? "unknown")")
             XCTAssertNil(password)
             XCTAssertNotNil(error)
             if let error = error {
