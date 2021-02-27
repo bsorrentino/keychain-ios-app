@@ -80,7 +80,7 @@ class KeyItem : ObservableObject, Decodable {
         self.url            = entity.url ?? ""
        
         
-        if let data = try? Shared.getSecretIfPresent( forKey: entity.mnemonic) {
+        if let data = try? Shared.getSecret( forKey: entity.mnemonic) {
             self.note = data.note ?? ""
             self.password = data.password
         }

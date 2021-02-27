@@ -31,12 +31,39 @@ extension EnvironmentValues {
 
 // MARK: Application Keychain extensions
 
+let sharedKeyChain = Keychain( service: "org.bsc.KeyChainX.shared")
 let appKeychain = Keychain()
 
 extension Shared  {
     typealias Secret = ( password:String, note:String? )
 
-    static func getSecretIfPresent( forKey key:String ) throws  -> Secret?  {
+    static func getSharedSecret( forKey key:String ) throws -> Secret? {
+        
+         guard let value = try sharedKeyChain.getString( key ) else {
+             return nil
+         }
+             
+         return (password:value, note:appKeychain[attributes: key]?.comment)
+             
+    }
+    
+    static func setSharedSecret( forKey key:String, withPassword password:String, note:String? ) throws  {
+        
+        if let note = note {
+            try sharedKeyChain.comment(note).set( password, key: key )
+        }
+        else  {
+            try sharedKeyChain.set( password, key: key )
+        }
+
+    }
+    
+    static func removeSharedSecret( key: String ) throws {
+        try sharedKeyChain.remove(key)
+    }
+
+
+    static func getSecret( forKey key:String ) throws  -> Secret?  {
              
          guard let value = try appKeychain.getString( key ) else {
              return nil
@@ -45,17 +72,7 @@ extension Shared  {
          return (password:value, note:appKeychain[attributes: key]?.comment)
              
     }
-    
-    static func getSecret( forKey key:String ) throws  -> Secret  {
-            
-        guard let value = try appKeychain.getString( key ) else {
-            throw "no password found for key \(key)"
-        }
-            
-        return (password:value, note:appKeychain[attributes: key]?.comment)
-            
-    }
-    
+        
     static func setSecret( forKey key:String, withPassword password:String, note:String? ) throws  {
         
         if let note = note {

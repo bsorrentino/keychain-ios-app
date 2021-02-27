@@ -19,6 +19,8 @@
 		<string>CloudKit</string>
 	</array>
 	<key>keychain-access-groups</key>
-	<array/>
+	<array>
+		<string>$(AppIdentifierPrefix)org.bsc.KeychainX.shared</string>
+	</array>
 </dict>
 </plist>
