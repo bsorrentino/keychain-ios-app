@@ -149,7 +149,7 @@ extension AppDelegate {
                 }
                 
                 do {
-                    try Shared.removeSecret(key: keyDeleted.mnemonic )
+                    try Shared.appSecrets.removeSecret(key: keyDeleted.mnemonic )
                     print( "secrets \(keyDeleted.mnemonic) removed!")
                 }
                 catch {

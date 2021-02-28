@@ -71,33 +71,30 @@ struct KeyEntityForm : View {
                     
                     if( !item.url.isEmpty ) {
                         
-                        if let url = URL(string: item.url), let scheme = url.scheme, scheme == "https"  {
+                        Shared.getWebSharedPassword(forUsername: item.username, fromUrl: item.url) { result in
                             
-                            let keychain = Keychain(server: item.url, protocolType: .https)
-                            if let password = try? keychain.get(item.username) {
-                                print( "password for site \(url.absoluteString) and user \(item.username) is \(password)")
-                            }
-                            else {
-                                keychain.getSharedPassword(item.username) { (password, error) -> () in
-                                        if password != nil {
-                                            // If found password in the Shared Web Credentials,
-                                            // then log into the server
-                                            // and save the password to the Keychain
+                            switch result {
+                            case .success(let password):
+                                if password != nil {
+                                    // If found password in the Shared Web Credentials,
+                                    // then log into the server
+                                    // and save the password to the Keychain
 
-                                            print( "password for site \(url.absoluteString) and user \(item.username) is \(String(describing: password))")
-                                        } else {
-                                            // If not found password either in the Keychain also Shared Web Credentials,
-                                            // prompt for username and password
+                                    print( "password for site \(item.url) and user \(item.username) is \(String(describing: password))")
+                                } else {
+                                    // If not found password either in the Keychain also Shared Web Credentials,
+                                    // prompt for username and password
 
-                                            // Log into server
+                                    // Log into server
 
-                                            // If the login is successful,
-                                            // save the credentials to both the Keychain and the Shared Web Credentials.
-                                            print( "password for site \(url.absoluteString) and user \(item.username) not found!\n\(error ?? "")")
-                                        }
+                                    // If the login is successful,
+                                    // save the credentials to both the Keychain and the Shared Web Credentials.
+                                    print( "password for site \(item.url) and user \(item.username) not found!")
                                 }
+
+                            case .failure(let error):
+                                print(error.localizedDescription)
                             }
-                            
                         }
                     }
                 }

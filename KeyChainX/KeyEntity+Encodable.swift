@@ -19,7 +19,7 @@ extension KeyEntity : Encodable {
         try values.encode( self.mnemonic, forKey: .mnemonic)
         try values.encode( self.username, forKey: .username)
         
-        if let data = try Shared.getSecret(forKey: self.mnemonic) {
+        if let data = try Shared.appSecrets.getSecret(forKey: self.mnemonic) {
             try values.encode( data.note ?? "", forKey: .note)
             try values.encode( data.password, forKey: .password)
         }

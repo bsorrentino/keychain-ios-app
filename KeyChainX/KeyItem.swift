@@ -80,7 +80,7 @@ class KeyItem : ObservableObject, Decodable {
         self.url            = entity.url ?? ""
        
         
-        if let data = try? Shared.getSecret( forKey: entity.mnemonic) {
+        if let data = try? Shared.appSecrets.getSecret( forKey: entity.mnemonic) {
             self.note = data.note ?? ""
             self.password = data.password
         }
@@ -150,7 +150,7 @@ class KeyItem : ObservableObject, Decodable {
 
     func insert( into context:NSManagedObjectContext ) throws {
          
-        try Shared.setSecret( forKey: self.mnemonic, withPassword:self.password, note:self.note)
+        try Shared.appSecrets.setSecret( forKey: self.mnemonic, secret:( password:self.password, note:self.note) )
         
         if let entity = self.entity { // Update
             let _ = self.copyTo(entity: entity )
