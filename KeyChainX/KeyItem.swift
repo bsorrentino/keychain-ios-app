@@ -28,6 +28,9 @@ class KeyItem : ObservableObject, Decodable {
             group = groupPrefix != nil
         }
     }
+    @Published var shared:Bool
+
+    
     var group = false
     var linkedTo: Set<String>?
     var linkedBy: String?
@@ -66,21 +69,28 @@ class KeyItem : ObservableObject, Decodable {
         self.password = ""
         self.mail = ""
         self.note = ""
-        self.url = ""        
+        self.url = ""
+        self.shared = false
     }
     
     init( entity: KeyEntity ) {
         
-        self.mnemonic       = entity.mnemonic
+        let key = entity.mnemonic
+        let shared = Shared.sharedSecrets.containsSecret(withKey: key)
+        
+        self.mnemonic       = key
         self.username       = entity.username
         self.mail           = entity.mail ?? ""
         self.group          = entity.group.boolValue
         self.groupPrefix    = entity.groupPrefix
         self.expire         = entity.expire
         self.url            = entity.url ?? ""
-       
+        self.shared         = shared
         
-        if let data = try? Shared.appSecrets.getSecret( forKey: entity.mnemonic) {
+        if let data = (shared) ?
+            try? Shared.sharedSecrets.getSecret( forKey: key) :
+            try? Shared.appSecrets.getSecret( forKey: key)
+        {
             self.note = data.note ?? ""
             self.password = data.password
         }
@@ -93,22 +103,14 @@ class KeyItem : ObservableObject, Decodable {
 
     }
     
-    func reset() {
-        self.mnemonic = ""
-        self.username = ""
-        self.password = ""
-        self.mail = ""
-        self.note = ""
-        self.url = ""
-    }
-    
     // MARK: -
     // MARK: Decodable
     // MARK: -
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        let key = try values.decode(String.self, forKey: .mnemonic)
         
-        self.mnemonic = try values.decode(String.self, forKey: .mnemonic)
+        self.mnemonic = key
         self.username = try values.decode(String.self, forKey: .username)
         let passwordValue = try values.decode(String.self, forKey: .password)
         self.password = passwordValue.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -133,8 +135,20 @@ class KeyItem : ObservableObject, Decodable {
         self.linkedTo   = try values.decodeIfPresent( Set<String>.self, forKey: .linkedTo )
         self.linkedBy   = try values.decodeIfPresent( String.self, forKey: .linkedBy )
 
-
+        //self.shared =    try values.decodeIfPresent(Bool.self, forKey: .shared) ?? false
+        self.shared = Shared.sharedSecrets.containsSecret(withKey: key)
     }
+
+    func reset() {
+        self.mnemonic = ""
+        self.username = ""
+        self.password = ""
+        self.mail = ""
+        self.note = ""
+        self.url = ""
+        self.shared = false
+    }
+    
     
     private func copyTo( entity: KeyEntity ) -> KeyEntity {
         entity.mnemonic     = self.mnemonic
@@ -149,8 +163,25 @@ class KeyItem : ObservableObject, Decodable {
     }
 
     func insert( into context:NSManagedObjectContext ) throws {
-         
-        try Shared.appSecrets.setSecret( forKey: self.mnemonic, secret:( password:self.password, note:self.note) )
+        
+        let secret = ( password:self.password, note:self.note)
+        
+        if( self.isNew ) {
+            if( self.shared ) {
+                try Shared.sharedSecrets.setSecret( forKey: self.mnemonic, secret: secret )
+            }
+            else {
+                try Shared.appSecrets.setSecret( forKey: self.mnemonic, secret: secret )
+            }
+        }
+        else {
+            if( self.shared ) {
+                try Shared.sharedSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: Shared.appSecrets)
+            }
+            else {
+                try Shared.appSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: Shared.sharedSecrets)
+            }
+        }
         
         if let entity = self.entity { // Update
             let _ = self.copyTo(entity: entity )

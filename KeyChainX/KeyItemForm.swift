@@ -19,7 +19,6 @@ struct KeyEntityForm : View {
     @State          var secretState:SecretState = .hide
     @State private  var pickUsernameFromMail    = false
     @State private  var alertItem:AlertItem?
-    @State private  var isShared:Bool = false
 
     @ObservedObject var item:KeyItem
     var parentId:Binding<Int>?
@@ -44,7 +43,7 @@ struct KeyEntityForm : View {
                         Divider()
                         Spacer()
                         Text("shared")
-                    Toggle( "shared", isOn: $isShared ).labelsHidden()
+                    Toggle( "shared", isOn: $item.shared ).labelsHidden()
                 })
                 {
                     usernameInput()
@@ -93,7 +92,7 @@ struct KeyEntityForm : View {
                                 }
 
                             case .failure(let error):
-                                print(error.localizedDescription)
+                                print( "WARN: getWebSharedPassword()\n\(error.localizedDescription)")
                             }
                         }
                     }
@@ -151,27 +150,32 @@ extension KeyEntityForm {
         Button( "save", action: {
             print( "Save\n mnemonic: \(self.item.mnemonic)\n username: \(self.item.username)" )
             
-            do {
-                try self.item.insert( into: self.managedObjectContext )
-                try self.managedObjectContext.save()
+            _ = saveItem().sink(
+                receiveCompletion: {
+                    switch $0  {
+                    case .failure(let error):
+                        let op = (self.item.isNew) ? "inserting": "updating"
+                        self.alertItem = makeAlertItem( error:"error \(op) new key \(error)",
+                                                        primaryButton: .destructive( Text("Abort")) {
+                                                            self.presentationMode.wrappedValue.dismiss()
+                                                        },
+                                                        secondaryButton: .cancel() )
+                    case .finished:
+                        parentId?.wrappedValue += 1 // force view refresh
 
-                parentId?.wrappedValue += 1 // force view refresh
+                        if( self.item.isNew ) {
+                            self.item.reset()
+                        }
+                        
+                        self.presentationMode.wrappedValue.dismiss()
 
-                if( self.item.isNew ) {
-                    self.item.reset()
-                }
-            }
-            catch {
-                if( self.item.isNew ) {
-                    self.alertItem = makeAlertItem( error:"error inserting new key \(error)" )
-                }
-                else {
-                    self.alertItem = makeAlertItem( error:"error updating new key \(error)")
-                }
-            }
-            
-            
-            self.presentationMode.wrappedValue.dismiss()
+                    }
+                },
+                receiveValue: {}
+            )
+
+                    
+           
             
             
         })
@@ -249,6 +253,31 @@ extension KeyEntityForm {
 
     }
 
+}
+
+//
+// MARK: - Actions
+// MARK: -
+//
+extension KeyEntityForm {
+
+    
+    fileprivate func saveItem() -> Future<Void,Error> {
+        
+        return Future { promise in
+            
+            do {
+                try self.item.insert( into: self.managedObjectContext )
+                try self.managedObjectContext.save()
+
+                promise(.success(()))
+            }
+            catch {
+                promise(.failure(error))
+            }
+
+        }
+    }
 }
 
 //

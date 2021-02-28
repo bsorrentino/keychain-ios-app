@@ -40,6 +40,10 @@ class SecretsManager {
         self.keychain = keychain
     }
 
+    func containsSecret( withKey key:String ) -> Bool {
+        return self.keychain[key] != nil
+    }
+    
     func getSecret( forKey key:String ) throws -> Secret? {
         
         guard let value = try self.keychain.getString( key ) else {
@@ -76,7 +80,7 @@ extension SecretsManager {
     
     typealias ErrorHandler = (Error) -> Void
 
-    func swapSecret( toManager manager:SecretsManager, forKey key:String, onRemoveError: ErrorHandler?  ) throws {
+    func swapSecret( toManager manager:SecretsManager, forKey key:String, onRemoveError: ErrorHandler? = nil ) throws {
         
         if let prevSecret = try getSecret(forKey: key) {
 
@@ -94,7 +98,7 @@ extension SecretsManager {
         }
     }
  
-    func setSecret( forKey key:String, secret:Secret, removeFromManager manager:SecretsManager, onRemoveError: ErrorHandler?  ) throws {
+    func setSecret( forKey key:String, secret:Secret, removeFromManager manager:SecretsManager, onRemoveError: ErrorHandler? = nil  ) throws {
         
         try setSecret( forKey: key, secret: secret )
         

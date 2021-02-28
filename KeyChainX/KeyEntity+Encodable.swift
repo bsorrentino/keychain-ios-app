@@ -30,6 +30,7 @@ extension KeyEntity : Encodable {
         try values.encodeIfPresent(self.mail, forKey: .mail)
         try values.encodeIfPresent(self.url, forKey: .url)
 
+        //try values.encode( self.shared.boolValue, forKey: .shared)
     }
 
 
@@ -47,6 +48,7 @@ enum CodingKeys : String, CodingKey {
     case linkedBy
     case expire
     case note
+    //case shared
 
 }
 
