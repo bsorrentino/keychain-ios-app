@@ -154,6 +154,7 @@ extension KeyEntityForm {
                 receiveCompletion: {
                     switch $0  {
                     case .failure(let error):
+                        
                         let op = (self.item.isNew) ? "inserting": "updating"
                         self.alertItem = makeAlertItem( error:"error \(op) new key \(error)",
                                                         primaryButton: .destructive( Text("Abort")) {
@@ -273,6 +274,7 @@ extension KeyEntityForm {
                 promise(.success(()))
             }
             catch {
+                print( "ERROR: saveItem()\n\(error)")
                 promise(.failure(error))
             }
 

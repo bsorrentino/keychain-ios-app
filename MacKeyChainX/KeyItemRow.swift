@@ -20,7 +20,20 @@ struct KeyItemRow: View {
             Text( key.username).frame(width: 250,alignment: .leading)
             Text( key.mail ?? "").frame(width: 250, alignment: .leading)
             Text( key.url ?? "").frame(width: 250, alignment: .center)
+            Text( getSharedPassword( withKey: key.mnemonic ) ?? "NONE"  )
         }.padding(5)
+    }
+    
+    func getSharedPassword( withKey key:String ) -> String? {
+        
+        do {
+            let secret = try Shared.sharedSecrets.getSecret(forKey: key )
+            return secret?.password
+        }
+        catch {
+            print( "WARN: getSharedPassword( withKey: )\n\(error)" )
+            return nil;
+        }
     }
 }
 

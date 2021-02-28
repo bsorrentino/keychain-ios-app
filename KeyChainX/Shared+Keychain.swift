@@ -119,10 +119,19 @@ extension SecretsManager {
 
 extension Shared  {
 
-    static let sharedSecrets = SecretsManager( delegateTo:Keychain( service: "org.bsc.KeyChainX.shared") )
+    static let sharedSecrets = SecretsManager( delegateTo:Keychain( service: "org.bsc.KeyChainX.shared", accessGroup: "48J595L9BX.org.bsc.KeyChainX.shared")
+                                                .label("keychainx shared (bsorrentino)")
+                                                .synchronizable(true)
+                                                .accessibility(.whenUnlocked) )
     static let appSecrets = SecretsManager( delegateTo:Keychain() )
     
     static func getWebSharedPassword( forUsername username:String, fromUrl textUrl:String, completionHandler handler: @escaping (Result<String?,Error>) -> Void  ) {
+        
+        #if os(macOS)
+        
+        handler( .success(nil) )
+        
+        #else
         
         if let url = URL(string: textUrl), let scheme = url.scheme, scheme == "https"  {
             
@@ -162,6 +171,7 @@ extension Shared  {
             }
             
         }
+        #endif
     }
     
 }
