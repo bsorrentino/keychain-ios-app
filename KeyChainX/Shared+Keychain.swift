@@ -119,7 +119,7 @@ extension SecretsManager {
 
 extension Shared  {
 
-    static let sharedSecrets = SecretsManager( delegateTo:Keychain( service: "org.bsc.KeyChainX.shared", accessGroup: "48J595L9BX.org.bsc.KeyChainX.shared")
+    static let sharedSecrets = SecretsManager( delegateTo:Keychain( service: "org.bsc.KeyChainX.SharedGroup1", accessGroup: "48J595L9BX.keychainXSharedGroup1")
                                                 .label("keychainx shared (bsorrentino)")
                                                 .synchronizable(true)
                                                 .accessibility(.whenUnlocked) )

@@ -24,8 +24,7 @@
 	<true/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>48J595L9BX.org.bsc.KeyChainX.shared</string>
-		<string>48J595L9BX.org.bsc.MacKeyChainX</string>
+		<string>48J595L9BX.keychainXSharedGroup1</string>
 	</array>
 </dict>
 </plist>

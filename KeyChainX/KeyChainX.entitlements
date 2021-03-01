@@ -20,8 +20,7 @@
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>48J595L9BX.org.bsc.KeychainX.shared</string>
-		<string>48J595L9BX.org.bsc.KeychainX</string>
+		<string>48J595L9BX.keychainXSharedGroup1</string>
 	</array>
 </dict>
 </plist>
