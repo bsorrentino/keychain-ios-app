@@ -14,7 +14,7 @@ extension KeyEntity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<KeyEntity> {
         let request =  NSFetchRequest<KeyEntity>(entityName: "KeyInfo")
-        request.sortDescriptors = [ NSSortDescriptor( key:"mnemonic", ascending: false)]
+        request.sortDescriptors = [ NSSortDescriptor( key:"mnemonic", ascending: true)]
         return request
     }
 

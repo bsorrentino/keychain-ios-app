@@ -14,14 +14,30 @@ struct KeyItemRow: View {
     
     var key:KeyEntity
     
+    func label<Content>( _ label:String, @ViewBuilder content: () -> Content ) -> some View where Content : View  {
+        VStack( alignment: .leading ) {
+            Text( label )
+            content()
+        }
+    }
+    
     var body: some View {
+        //GeometryReader { geometry in
         HStack {
-            Text( key.mnemonic ).frame(minWidth: 150, alignment: .leading)
-            Text( key.username).frame(width: 250,alignment: .leading)
-            Text( key.mail ?? "").frame(width: 250, alignment: .leading)
-            Text( key.url ?? "").frame(width: 250, alignment: .center)
-            Text( getSharedPassword( withKey: key.mnemonic ) ?? "NONE"  )
-        }.padding(5)
+            VStack( alignment: .leading ) {
+                Text( key.mnemonic )
+                HStack {
+                    label("username") { Text(key.username) }
+                    label("password") { Text( getSharedPassword( withKey: key.mnemonic ) ?? "NONE"  ) }
+                }
+                HStack {
+                    label("mail") { Text( key.mail ?? "") }
+                    label("url" ) { Text( key.url ?? "") }
+                }
+            }
+            .padding()
+            Spacer()
+        }.border(Color.gray, width: 1)
     }
     
     func getSharedPassword( withKey key:String ) -> String? {

@@ -45,7 +45,7 @@ struct KeyItemListTopbar: View {
 
 struct KeyItemList: View {
 
-    @FetchRequest( fetchRequest: KeyEntity.fetchRequest() )
+    @FetchRequest( fetchRequest: KeyEntity.fetchRequest())
     var keyFethedResults: FetchedResults<KeyEntity>
     
     var body: some View {
