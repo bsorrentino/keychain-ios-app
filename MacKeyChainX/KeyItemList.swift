@@ -9,8 +9,6 @@
 import SwiftUI
 import Cocoa
 
-
-
 /**
 
  */
@@ -29,38 +27,52 @@ struct BlueButtonStyle: ButtonStyle {
 
 struct KeyItemListTopbar: View {
     @Environment(\.colorScheme) var colorScheme
-
+    
+    @State var searchString = ""
+    
     var body: some View {
         HStack {
             Text("Key List")
-            Button( action: {
-            } ) {
-                Image(systemName: "plus.circle")
-            }
-            
-            .buttonStyle(BlueButtonStyle(colorScheme:colorScheme))
+            SearchBar(text: $searchString, placeholder: "serach mnemonic ....")
 
         }.padding(5)
     }
 }
 
-struct KeyItemList: View {
 
-    @FetchRequest( fetchRequest: KeyEntity.fetchRequest())
-    var keyFethedResults: FetchedResults<KeyEntity>
+struct KeyItemListView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
+    @State var searchString = ""
     
     var body: some View {
         
         VStack {
             
-            KeyItemListTopbar()
+            HStack {
+                Text("Key List")
+                SearchBar(text: $searchString, placeholder: "serach mnemonic ....")
+
+            }.padding(5)
             
-            List {
-              ForEach( keyFethedResults) { key in
-                KeyItemRow( key:key )
-              }
-            }
-        }.frame(minWidth: 700, minHeight: 300)
+            KeyItemList( keyFethedResults: FetchRequest( fetchRequest: KeyEntity.fetchRequest( withPredicate: NSPredicate( format: "mnemonic CONTAINS[c] %@", searchString)) ))
+        }
+        .frame(minWidth: 700, maxHeight: 500)
+    }
+}
+
+struct KeyItemList: View {
+    @Environment(\.colorScheme) var colorScheme
+ 
+    @FetchRequest var keyFethedResults: FetchedResults<KeyEntity>
+    
+    var body: some View {
+        
+        List {
+          ForEach( keyFethedResults) { key in
+            KeyItemRow( key:key )
+          }
+        }
     }
 }
 
@@ -69,6 +81,6 @@ struct KeyItemList_Previews: PreviewProvider {
         
         let context = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        return KeyItemList().environment(\.managedObjectContext, context)
+        return KeyItemListView().environment(\.managedObjectContext, context)
     }
 }

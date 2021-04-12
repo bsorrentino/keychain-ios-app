@@ -18,16 +18,24 @@ struct SearchBar: NSViewRepresentable {
     class Coordinator: NSObject, NSSearchFieldDelegate {
 
         @Binding var text: String
-
+        
+        
         init(text: Binding<String>) {
             _text = text
         }
-
-        func searchFieldDidStartSearching(_ sender: NSSearchField) {
-            text = sender.stringValue
+        
+        func controlTextDidChange(_ notification: Notification) {
+            if let textField = notification.object as? NSTextField {
+                text = textField.stringValue
+                //do what you need here
+            }
         }
+
+//        func searchFieldDidStartSearching(_ sender: NSSearchField) {
+//        }
+        
         func searchFieldDidEndSearching(_ sender: NSSearchField) {
-            
+            text = ""
         }
     }
 
