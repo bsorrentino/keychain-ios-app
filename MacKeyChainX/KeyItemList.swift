@@ -9,6 +9,8 @@
 import SwiftUI
 import Cocoa
 
+
+
 /**
 
  */
@@ -31,7 +33,6 @@ struct KeyItemListTopbar: View {
     var body: some View {
         HStack {
             Text("Key List")
-            Spacer()
             Button( action: {
             } ) {
                 Image(systemName: "plus.circle")

@@ -29,6 +29,7 @@
 		5F9ABB3C2379828000AC052A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5F9ABB3B2379828000AC052A /* KeychainAccess */; };
 		5F9ABB3E237983A800AC052A /* Shared+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */; };
 		5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */; };
+		5FDEAA6E2624C9BD000AF83C /* MacSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDEAA6D2624C9BD000AF83C /* MacSearchBar.swift */; };
 		5FFAAD2923B414E200AE78EE /* KeyGroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */; };
 		5FFE284123B9480400EAB103 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FFE284023B9480400EAB103 /* CryptoSwift */; };
 		6E280649B15E964AE945A6E6 /* Pods_KeyChainXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31B2C432B3C9BA54E403FC3 /* Pods_KeyChainXTests.framework */; };
@@ -150,6 +151,7 @@
 		5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItem.swift; sourceTree = "<group>"; };
 		5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+Keychain.swift"; sourceTree = "<group>"; };
 		5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Url.swift"; sourceTree = "<group>"; };
+		5FDEAA6D2624C9BD000AF83C /* MacSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSearchBar.swift; sourceTree = "<group>"; };
 		5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyGroupListViewController.swift; sourceTree = "<group>"; };
 		7A1181120449DF4D493ABB8B /* Pods_KeyChainX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BD245632F6CD51B530A2686 /* Pods_KeyChainX_KeyChainXUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainX_KeyChainXUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -436,6 +438,7 @@
 				A0C1D2B42521F36500737766 /* MacKeyChainX.entitlements */,
 				A0C1D2A82521F36400737766 /* MacKeyChainX.xcdatamodeld */,
 				A0C1D2AD2521F36500737766 /* Preview Content */,
+				5FDEAA6D2624C9BD000AF83C /* MacSearchBar.swift */,
 			);
 			path = MacKeyChainX;
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 				A086C3EE25232D5A001EF95E /* MailEntity+CoreDataClass.swift in Sources */,
 				A0C1D2A52521F36400737766 /* AppDelegate.swift in Sources */,
 				A086C39425231B79001EF95E /* KeyChain.xcdatamodeld in Sources */,
+				5FDEAA6E2624C9BD000AF83C /* MacSearchBar.swift in Sources */,
 				A086C3E025232D43001EF95E /* KeyEntity+Helpers.swift in Sources */,
 				5F34E545257F9201007417F3 /* KeyItemForm.swift in Sources */,
 				A086C39B25232187001EF95E /* Shared+Keychain.swift in Sources */,
