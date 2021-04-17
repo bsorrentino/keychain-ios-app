@@ -10,8 +10,6 @@ import Cocoa
 import SwiftUI
 import OSLog
 
-let logger = Logger(subsystem: "org.bsc.KeychainX", category: "main")
-
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

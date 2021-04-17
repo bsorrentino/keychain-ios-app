@@ -10,24 +10,6 @@ import Foundation
 import KeychainAccess
 import SwiftUI
 
-// MARK: Custom @Environment Keychain key
-// @see https://medium.com/@SergDort/custom-environment-keys-in-swiftui-49f54a13d140
-
-struct UserPreferencesKeychainKey: EnvironmentKey {
-    static let defaultValue: Keychain = Keychain(service: "keychainx.userpreferences")
-}
-
-extension EnvironmentValues {
-    var UserPreferencesKeychain: Keychain {
-        get {
-            return self[UserPreferencesKeychainKey.self]
-        }
-        set {
-            self[UserPreferencesKeychainKey.self] = newValue
-        }
-    }
-}
-
 
 // MARK: Application Keychain extensions
 
@@ -175,3 +157,23 @@ extension Shared  {
     }
     
 }
+
+// MARK: Custom @Environment Keychain key
+// @see https://medium.com/@SergDort/custom-environment-keys-in-swiftui-49f54a13d140
+
+struct UserPreferencesKeychainKey: EnvironmentKey {
+    //static let defaultValue: Keychain = Keychain(service: "keychainx.userpreferences")
+    static let defaultValue:SecretsManager = Shared.sharedSecrets
+}
+
+extension EnvironmentValues {
+    var UserPreferencesKeychain: SecretsManager {
+        get {
+            return self[UserPreferencesKeychainKey.self]
+        }
+        set {
+            self[UserPreferencesKeychainKey.self] = newValue
+        }
+    }
+}
+

@@ -14,26 +14,77 @@ struct KeyItemRow: View {
     
     var key:KeyEntity
     
-    func label<Content>( _ label:String, @ViewBuilder content: () -> Content ) -> some View where Content : View  {
-        VStack( alignment: .leading ) {
-            Text( label )
+    func label<Content>( _ systemName:String, @ViewBuilder content: () -> Content ) -> some View where Content : View  {
+        HStack( alignment: .center ) {
+            Image( systemName: systemName )
             content()
-        }
+        }.font(Font.system(.title2)).padding(5)
+    }
+    
+    func doubleLabel<Content>( _ systemName1:String, _ systemName2:String, @ViewBuilder content: () -> Content ) -> some View where Content : View  {
+        HStack( alignment: .center ) {
+            Image( systemName: systemName1 )
+            Image( systemName: systemName2 )
+            content()
+        }.font(Font.system(.title2)).padding(5)
+    }
+
+    var isShared:Bool {
+        getSharedPassword( withKey: key.mnemonic ) != nil
     }
     
     var body: some View {
         //GeometryReader { geometry in
         HStack {
             VStack( alignment: .leading ) {
-                Text( key.mnemonic )
+            
                 HStack {
-                    label("username") { Text(key.username) }
-                    label("password") { Text( getSharedPassword( withKey: key.mnemonic ) ?? "NONE"  ) }
+                    Text( key.mnemonic )
+                        .padding(6)
+                        .background( Color.blue)
+                        .clipShape(Capsule())
+                        
+                    Spacer()
+                    if( isShared ) {
+                        Button( action:{} ) {
+                            Image( systemName: "eye.slash")
+                        }.buttonStyle(PlainButtonStyle())
+                    }
+                    else {
+                        Image( systemName: "icloud.slash")
+                            .foregroundColor(Color.red)
+                    }
+                    
                 }
+                .font(Font.system(.title))
+                
+                Divider()
+                
+                
+                
+                if let mail = key.mail, !mail.isEmpty {
+                    
+                    if( mail == key.username ) {
+                        doubleLabel( "person.circle.fill", "envelope.fill") { Text(key.username) }
+                    }
+                    else {
+                        label("person.circle.fill") { Text(key.username) }
+                        label("envelope.fill") { Text( mail) }
+                    }
+                }
+                else {
+                    label("person.circle.fill") { Text(key.username) }
+                }
+                if let url = key.url, !url.isEmpty {
+                
+                    label("link" ) { Text(url) }
+
+                }
+                /*
                 HStack {
-                    label("mail") { Text( key.mail ?? "") }
-                    label("url" ) { Text( key.url ?? "") }
+                    label("envelope") { Text( getSharedPassword( withKey: key.mnemonic ) ?? "NONE"  ) }
                 }
+                */
             }
             .padding()
             Spacer()
@@ -63,7 +114,7 @@ struct KeyItemRow_Previews: PreviewProvider {
             
             let key = KeyEntity( entity:KeyEntity.entity(), insertInto: context )
             
-            key.mnemonic = "mnemonic"
+            key.mnemonic = "MNEMONIC"
             key.username = "bartolomeo.sorrentino@soulsoftware.it"
             key.mail = "bartolomeo.sorrentino@soulsoftware.it"
             key.url = "http://usernamesite.com"
