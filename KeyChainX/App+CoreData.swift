@@ -86,7 +86,7 @@ class KeyItem : ObservableObject, Decodable {
         self.expire         = entity.expire
         self.url            = entity.url ?? ""
 
-        if let data = try? UIApplication.shared.getSecrets(key: entity.mnemonic) {
+        if let data = try? UIApplication.shared.getSecrets(item: entity.mnemonic) {
             self.note = data.note ?? ""
             self.password = data.password
         }
@@ -108,8 +108,8 @@ class KeyItem : ObservableObject, Decodable {
         guard let id = try values.decodeIfPresent(String.self, forKey: .mnemonic), ( values.contains(.groupPrefix) || values.contains(.password) ) else {
             
             print( "invalid item \(try values.decodeIfPresent(String.self, forKey: .mnemonic) ?? "undefined" )" )
-            for key in values.allKeys {
-                print( "contains \(key.stringValue)")
+            for item in values.allKeys {
+                print( "contains \(item.stringValue)")
             }
             
             self.mnemonic = ""
@@ -184,7 +184,7 @@ class KeyItem : ObservableObject, Decodable {
 
     func insert( into context:NSManagedObjectContext ) throws {
         
-        try UIApplication.shared.setSecrets( key: self.mnemonic, password:self.password, note:self.note)
+        try UIApplication.shared.setSecrets( item: self.mnemonic, password:self.password, note:self.note)
         
         if let entity = self.entity {
             let _ = self.copyTo(entity: entity )

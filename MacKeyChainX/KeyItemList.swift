@@ -70,7 +70,7 @@ struct KeyItemList: View {
         
         List {
           ForEach( keyFethedResults) { key in
-            KeyItemRow( key:key )
+            KeyItemRow( item:KeyItem(entity: key) )
           }
         }
     }
