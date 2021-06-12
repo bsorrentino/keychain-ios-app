@@ -82,8 +82,13 @@ struct KeyItemRow: View {
                     Spacer()
                     if( isShared ) {
                         Button( action:{
-                            withAnimation {
-                                self.isShowSecret.toggle()
+                            Authentication.shared.tryAuthenticate { result in
+                                if case .success(true) = result {
+                                    withAnimation {
+                                        self.isShowSecret.toggle()
+                                    }
+                                }
+
                             }
                         }) {
                             Group {
