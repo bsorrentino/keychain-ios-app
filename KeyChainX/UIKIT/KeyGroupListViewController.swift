@@ -90,8 +90,6 @@ class KeyGroupListViewController : KeyBaseListViewController, UITableViewDataSou
         
         if let contentInsets = self.contentInsets {
             
-            print( contentInsets )
-
             applyContentInsets(contentInsets)
         }
     }
@@ -211,7 +209,7 @@ extension KeyGroupListViewController  {
     func reloadDataFromManagedObjectContext()  {
         
         guard let groupPrefix = selectedGroup.groupPrefix else {
-            print( "illegal argument")
+            logger.warning( "illegal argument")
             return
         }
         
@@ -230,7 +228,7 @@ extension KeyGroupListViewController  {
 
         }
         catch {
-            print( "error fetching keys \(error)" )
+            logger.warning( "error fetching keys \(error.localizedDescription)" )
             self.keys = []
         }
 

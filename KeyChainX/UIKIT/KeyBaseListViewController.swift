@@ -140,7 +140,7 @@ extension KeyBaseListViewController  {
             return true
         }
         catch {
-            print( "error ungrouping  key \(error)" )
+            logger.warning( "error ungrouping  key \(error.localizedDescription)" )
             return false
         }
 
@@ -156,7 +156,7 @@ extension KeyBaseListViewController  {
             return true
         }
         catch {
-            print( "error deleting key \(error)" )
+            logger.warning( "error deleting key \(error.localizedDescription)" )
             return false
         }
 

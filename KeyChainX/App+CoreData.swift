@@ -107,7 +107,8 @@ class KeyItem : ObservableObject, Decodable {
         
         guard let id = try values.decodeIfPresent(String.self, forKey: .mnemonic), ( values.contains(.groupPrefix) || values.contains(.password) ) else {
             
-            print( "invalid item \(try values.decodeIfPresent(String.self, forKey: .mnemonic) ?? "undefined" )" )
+            logger.warning( "invalid item \(try values.decodeIfPresent(String.self, forKey: .mnemonic) ?? "undefined" )" )
+            
             for item in values.allKeys {
                 print( "contains \(item.stringValue)")
             }

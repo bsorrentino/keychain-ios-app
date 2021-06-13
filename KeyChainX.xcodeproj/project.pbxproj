@@ -35,6 +35,8 @@
 		5FFAAD2923B414E200AE78EE /* KeyGroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */; };
 		5FFE284123B9480400EAB103 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FFE284023B9480400EAB103 /* CryptoSwift */; };
 		6E280649B15E964AE945A6E6 /* Pods_KeyChainXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31B2C432B3C9BA54E403FC3 /* Pods_KeyChainXTests.framework */; };
+		A00927082675FFE8000B9097 /* Shared+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00927072675FFE8000B9097 /* Shared+View.swift */; };
+		A00927092675FFE8000B9097 /* Shared+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00927072675FFE8000B9097 /* Shared+View.swift */; };
 		A00AE8A626752C61001276B3 /* Authc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00AE8A526752C61001276B3 /* Authc.swift */; };
 		A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */; };
 		A01F46A324EEBDB3005717DC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F46A224EEBDB3005717DC /* AlertView.swift */; };
@@ -161,6 +163,7 @@
 		7BD245632F6CD51B530A2686 /* Pods_KeyChainX_KeyChainXUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainX_KeyChainXUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		835BCF138F6DFD3C0DB12FD3 /* Pods-KeyChainX-KeyChainXUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainX-KeyChainXUITests.debug.xcconfig"; path = "Target Support Files/Pods-KeyChainX-KeyChainXUITests/Pods-KeyChainX-KeyChainXUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		84C93619E7420165BBA05FCE /* Pods-KeyChainXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainXTests.debug.xcconfig"; path = "Target Support Files/Pods-KeyChainXTests/Pods-KeyChainXTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A00927072675FFE8000B9097 /* Shared+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+View.swift"; sourceTree = "<group>"; };
 		A00AE8A526752C61001276B3 /* Authc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authc.swift; sourceTree = "<group>"; };
 		A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Note.swift"; sourceTree = "<group>"; };
 		A01F46A224EEBDB3005717DC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
@@ -301,6 +304,7 @@
 				5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */,
 				A089548A25A3778400B17CE4 /* String+Extension.swift */,
 				5F8235CD262B28E900F7FC9A /* Shared+Log.swift */,
+				A00927072675FFE8000B9097 /* Shared+View.swift */,
 			);
 			name = shared;
 			sourceTree = "<group>";
@@ -844,6 +848,7 @@
 				5F5772F52361FDD50066E947 /* Shared+Error.swift in Sources */,
 				5F01277523B776CC0033E2B9 /* BackupKeysView.swift in Sources */,
 				5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */,
+				A00927082675FFE8000B9097 /* Shared+View.swift in Sources */,
 				A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */,
 				5F01277923B7C05D0033E2B9 /* FileManagerView.swift in Sources */,
 				5F9ABB3E237983A800AC052A /* Shared+Keychain.swift in Sources */,
@@ -914,6 +919,7 @@
 				A086C3CB25232D1F001EF95E /* KeyEntity+CoreDataClass.swift in Sources */,
 				A0D796EB2523A9CD00A5CBAB /* KeyEntity+Identifiable.swift in Sources */,
 				A086C3D225232D26001EF95E /* KeyEntity+CoreDataProperties.swift in Sources */,
+				A00927092675FFE8000B9097 /* Shared+View.swift in Sources */,
 				A089548C25A3778400B17CE4 /* String+Extension.swift in Sources */,
 				A0C1D2A72521F36400737766 /* ContentView.swift in Sources */,
 				A086C3AC252325AA001EF95E /* Shared.swift in Sources */,

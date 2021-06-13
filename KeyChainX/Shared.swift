@@ -10,7 +10,9 @@ import Foundation
 
 // MARK: Shared namespace
 
-class Shared {
-    
-    
+class Shared {}
+
+
+func isInPreviewMode() -> Bool {
+    (ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != nil)
 }

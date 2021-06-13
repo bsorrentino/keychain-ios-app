@@ -8,10 +8,6 @@
 
 import SwiftUI
 
-func isInPreviewMode() -> Bool {
-    (ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != nil)
-}
-
 func getSharedPassword( withKey key:String ) -> String? {
     
     do {
@@ -39,11 +35,18 @@ func doubleLabel<Content>( _ systemName1:String, _ systemName2:String, @ViewBuil
     }.font(Font.system(.title2)).padding(5)
 }
 
+fileprivate func passwordText( value:String ) -> some View {
+    HStack {
+        Text(value)
+        CopyToClipboardButton(value: value)
+    }
+}
+
 func SecretView( item:KeyItem, show:Bool ) -> some View {
     Group {
         if show {
             label("key.icloud.fill" ) {
-                Text(item.password)
+                passwordText( value: isInPreviewMode() ? "fake password" : item.password)
             }.transition( .asymmetric(insertion: .slide, removal: .opacity))
         }
         else {
