@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import OSLog
 
 enum SavingError :Error {
     
@@ -131,29 +132,29 @@ extension AppDelegate {
         guard let userInfo = notification.userInfo else { return }
 
         if let inserts = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject>, inserts.count > 0 {
-            print( "object inserted # \(inserts.count)" )
+            logger.trace( "object inserted # \(inserts.count)" )
         }
 
         if let updates = userInfo[NSUpdatedObjectsKey] as? Set<NSManagedObject>, updates.count > 0 {
-            print( "object updated # \(updates.count)" )
+            logger.trace( "object updated # \(updates.count)" )
         }
 
         if let deletes = userInfo[NSDeletedObjectsKey] as? Set<NSManagedObject>, deletes.count > 0 {
-            print( "object deleted # \(deletes.count)" )
+            logger.trace( "object deleted # \(deletes.count)" )
             
             for object in deletes {
                 
                 guard let keyDeleted = object as? KeyEntity else {
-                    print( "obejct \(object) is not a KeyEntity")
+                    logger.trace( "obejct \(object) is not a KeyEntity")
                     continue
                 }
                 
                 do {
                     try Shared.appSecrets.removeSecret(key: keyDeleted.mnemonic )
-                    print( "secrets \(keyDeleted.mnemonic) removed!")
+                    logger.trace( "secrets \(keyDeleted.mnemonic) removed!")
                 }
                 catch {
-                    print( "error removing password from entity \(keyDeleted)\n\(error)" )
+                    logger.warning( "error removing password from entity \(keyDeleted)\n\(error.localizedDescription)" )
                 }
             }
         }

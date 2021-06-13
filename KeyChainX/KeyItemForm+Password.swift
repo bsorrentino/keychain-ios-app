@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 import FieldValidatorLibrary
+import OSLog
 
 private struct PasswordToggleField : View {
     typealias Validator = (String) -> String?
@@ -41,13 +42,41 @@ private struct PasswordToggleField : View {
     }
 }
 
+
+private struct HideToggleButton : View {
+    
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    @Binding var hidden:Bool
+    
+    public init( _ hidden:Binding<Bool> ) {
+        self._hidden = hidden
+    }
+    var body: some View {
+        Button( action: {
+            logger.trace("toggle hidden!")
+            self.hidden.toggle()
+         }) {
+            Group {
+                if( self.hidden ) {
+                    Image( systemName: "eye.slash")
+                }
+                else {
+                    Image( systemName: "eye")
+                }
+            }
+            .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+         }
+
+    }
+}
+
 struct PasswordField : View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
 
     @Binding var value:String
     @Binding var passwordCheck:FieldChecker
     @State var hidden:Bool = true
-    @State var copied:Bool = false
 
     private let strikeWidth:CGFloat = 0.5
     
@@ -66,22 +95,8 @@ struct PasswordField : View {
                      return nil
                 }
                 .autocapitalization(.none)
-                
-                Button( action: {
-                    print("toggle hidden!")
-                    self.hidden.toggle()
-                 }) {
-                    Group {
-                        if( hidden ) {
-                            Image( systemName: "eye.slash")
-                        }
-                        else {
-                            Image( systemName: "eye")
-                        }
-                    }
-                    .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
-                 }
-                ButtonCopyToClipboard
+                HideToggleButton( $hidden )
+                CopyToClipboardButton( value:self.value )
                 
 
             }
@@ -93,37 +108,5 @@ struct PasswordField : View {
 
         //}.buttonStyle(PlainButtonStyle())
         
-    }
-}
-
-// MARK: -
-// MARK: Clipboard
-extension PasswordField {
-    
-    var ButtonCopyToClipboard:some View {
-        
-        Button( action: {
-            withAnimation( Animation.default.speed(0.1) ) {
-                print("copy to clipboard!")
-                UIPasteboard.general.string = self.value
-                self.copied = true
-            }
-            withAnimation( Animation.default.delay(0.1)) {
-                 self.copied = false
-            }
-        
-         }) {
-
-            Group {
-                if( self.copied ) {
-                    Image( systemName: "doc.on.clipboard").colorInvert()
-                }
-                else {
-                    Image( systemName: "doc.on.clipboard")
-                        
-                }
-            }.foregroundColor(colorScheme == .dark ? Color.white : Color.black)
-        }.disabled( !passwordCheck.valid )
-
     }
 }

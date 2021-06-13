@@ -287,8 +287,8 @@ extension LoginView {
         
         do {
             
-            if let password = try userPreferencesKeychain.getString( "password" ) {
-                return password
+            if let secret = try userPreferencesKeychain.getSecret(forKey: "password" ) {
+                return secret.password
             }
             
         }
@@ -302,9 +302,8 @@ extension LoginView {
     private func savePasswordAndDismiss() {
         
         do {
-            try userPreferencesKeychain
-                .comment("keychainx user password")
-                .set( password, key: "password" )
+            try userPreferencesKeychain.setSecret(forKey: "password",
+                                                  secret: (  password:password, note: "keychainx user password" ))
         }
         catch {
             print( "ERROR: setting 'password' to keychain.\n\(error)" )

@@ -28,7 +28,7 @@ struct KeyItemList: UIViewControllerRepresentable {
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType
     {
-        //print( "makeUIViewController" )
+        //logger.trace( "makeUIViewController" )
         
         let controller =
             KeyItemListViewController(context: managedObjectContext, isSearching: $isSearching, provideFormOnSelection:provideFormOnSelection )
@@ -41,7 +41,7 @@ struct KeyItemList: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIViewControllerType,
                                 context: UIViewControllerRepresentableContext<KeyItemList>) {
         
-        //print( "updateUIViewController" )
+        //logger.trace( "updateUIViewController" )
         
         uiViewController.reloadData()
     }
@@ -159,7 +159,7 @@ class KeyItemListViewController : KeyBaseListViewController, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //print( "item at indexpath \(indexPath.row)" )
+        //logger.trace( "item at indexpath \(indexPath.row)" )
                 
         guard let items = valuesFromSection(indexPath.section) else {
             return UITableViewCell()
@@ -310,7 +310,7 @@ extension KeyItemListViewController : UISearchResultsUpdating, UISearchBarDelega
     
     func updateSearchResults(for searchController: UISearchController) {
         
-        print( "updateSearchResults\nisActive:\(searchController.isActive)\nisFiltering:\(isFiltering)" )
+        logger.trace( "updateSearchResults\nisActive:\(searchController.isActive)\nisFiltering:\(self.isFiltering)" )
         
         reloadDataFromManagedObjectContext( with: searchPredicate() )
         
@@ -388,7 +388,7 @@ extension KeyItemListViewController  {
             }
         }
         catch {
-            print( "error fetching keys \(error)" )
+            logger.warning( "error fetching keys \(error.localizedDescription)" )
             self.keys = nil
         }
 

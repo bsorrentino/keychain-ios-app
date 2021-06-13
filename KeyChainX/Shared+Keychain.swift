@@ -9,25 +9,7 @@
 import Foundation
 import KeychainAccess
 import SwiftUI
-
-// MARK: Custom @Environment Keychain key
-// @see https://medium.com/@SergDort/custom-environment-keys-in-swiftui-49f54a13d140
-
-struct UserPreferencesKeychainKey: EnvironmentKey {
-    static let defaultValue: Keychain = Keychain(service: "keychainx.userpreferences")
-}
-
-extension EnvironmentValues {
-    var UserPreferencesKeychain: Keychain {
-        get {
-            return self[UserPreferencesKeychainKey.self]
-        }
-        set {
-            self[UserPreferencesKeychainKey.self] = newValue
-        }
-    }
-}
-
+import OSLog
 
 // MARK: Application Keychain extensions
 
@@ -90,7 +72,7 @@ extension SecretsManager {
                 try removeSecret(key: key)
             }
             catch {
-                print( "WARN: swapSecret( toManager: forKey: )\n\(error)")
+                logger.warning( "swapSecret( toManager: forKey: )\n\(error.localizedDescription)")
                 if let handler = onRemoveError  {
                     handler(error)
                 }
@@ -106,7 +88,7 @@ extension SecretsManager {
             try manager.removeSecret(key: key)
         }
         catch {
-            print( "WARN: setSecret( forKey: secret: removeFromManager: )\n\(error)")
+            logger.warning( "setSecret( forKey: secret: removeFromManager: )\n\(error.localizedDescription)")
             if let handler = onRemoveError  {
                 handler(error)
             }
@@ -138,7 +120,7 @@ extension Shared  {
             let keychain = Keychain(server: textUrl, protocolType: .https)
             
             if let password = try? keychain.get(username) {
-                print( "password for site \(url.absoluteString) and user \(username) is \(password)")
+                logger.trace( "password for site \(url.absoluteString) and user \(username) is \(password)")
                 
                 handler( .success(password) )
                 
@@ -152,22 +134,22 @@ extension Shared  {
                         handler( .success(password) )
                     }
                     if password != nil {
-                            // If found password in the Shared Web Credentials,
-                            // then log into the server
-                            // and save the password to the Keychain
-
+                        // If found password in the Shared Web Credentials,
+                        // then log into the server
+                        // and save the password to the Keychain
+                        logger.debug( "shared password found! \(password!, privacy: .private)")
                             
-                        } else {
-                            // If not found password either in the Keychain also Shared Web Credentials,
-                            // prompt for username and password
+                    } else {
+                        // If not found password either in the Keychain also Shared Web Credentials,
+                        // prompt for username and password
 
-                            // Log into server
+                        // Log into server
 
-                            // If the login is successful,
-                            // save the credentials to both the Keychain and the Shared Web Credentials.
-                            print( "password for site \(url.absoluteString) and user \(username) not found!\n\(error ?? "")")
-                        }
+                        // If the login is successful,
+                        // save the credentials to both the Keychain and the Shared Web Credentials.
+                        logger.notice( "password for site \(url.absoluteString) and user \(username) not found!")
                     }
+                }
             }
             
         }
@@ -175,3 +157,23 @@ extension Shared  {
     }
     
 }
+
+// MARK: Custom @Environment Keychain key
+// @see https://medium.com/@SergDort/custom-environment-keys-in-swiftui-49f54a13d140
+
+struct UserPreferencesKeychainKey: EnvironmentKey {
+    //static let defaultValue: Keychain = Keychain(service: "keychainx.userpreferences")
+    static let defaultValue:SecretsManager = Shared.sharedSecrets
+}
+
+extension EnvironmentValues {
+    var UserPreferencesKeychain: SecretsManager {
+        get {
+            return self[UserPreferencesKeychainKey.self]
+        }
+        set {
+            self[UserPreferencesKeychainKey.self] = newValue
+        }
+    }
+}
+

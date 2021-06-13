@@ -35,7 +35,7 @@ struct WebView : UIViewRepresentable {
     
     func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<WebView>) {
         
-        //print( "WebView.updateUIView - reload:\(reload)" )
+        //logger.trace( "WebView.updateUIView - reload:\(reload)" )
         if let url = self.url, reload {
             uiView.load( URLRequest( url:url ) )
         }
@@ -56,22 +56,22 @@ class WebViewCoordinator :NSObject,  WKNavigationDelegate {
         self.owner = owner
     }
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        print("didFailProvisionalNavigation\n\(error.localizedDescription)\n")
+        logger.trace("didFailProvisionalNavigation\n\(error.localizedDescription)\n")
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Start to load")
+        logger.trace("Start to load")
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("finish to load")
+        logger.trace("finish to load")
         owner.reload = false
     }
     
     func webView(_ webView: WKWebView,
                  decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        print("decidePolicyFor")
+        logger.trace("decidePolicyFor")
         decisionHandler(.allow)
     }
 }

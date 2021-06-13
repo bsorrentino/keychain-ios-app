@@ -8,11 +8,12 @@
 
 import Cocoa
 import SwiftUI
+import OSLog
 
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
     var window: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -60,10 +61,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         */
         let container = NSPersistentCloudKitContainer(name: "KeyChain")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            logger.debug("loaded persistent store \(storeDescription)")
+            
             if let error = error {
+                
+                logger.error("Unresolved error \(error as NSError)")
+                
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -86,14 +91,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let context = persistentContainer.viewContext
 
         if !context.commitEditing() {
-            NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing before saving")
+            logger.error("\(NSStringFromClass(type(of: self))) unable to commit editing before saving")
         }
         if context.hasChanges {
             do {
                 try context.save()
             } catch {
+                
                 // Customize this code block to include application-specific recovery steps.
                 let nserror = error as NSError
+                
+                logger.error( "error occurred on saving persistent context \(nserror)" )
+                
                 NSApplication.shared.presentError(nserror)
             }
         }
