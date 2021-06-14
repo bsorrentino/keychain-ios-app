@@ -15,7 +15,11 @@ func getSharedPassword( withKey key:String ) -> String? {
         return secret?.password
     }
     catch {
-        print( "WARN: getSharedPassword( withKey: )\n\(error)" )
+        logger.warning( """
+            WARN: getSharedPassword( withKey: \(key) )
+            
+            \(error.localizedDescription)
+            """ )
         return nil;
     }
 }

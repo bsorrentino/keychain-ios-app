@@ -37,7 +37,7 @@ struct FileManagerView<Content> : View where Content : View {
             return ( urls:[], error:"Document Directory doesn't exist" )
         }
         
-        print(path.absoluteString)
+        logger.trace( "\(path.absoluteString)" )
         
         do {
             let urls = try FileManager.default.contentsOfDirectory(at: path,

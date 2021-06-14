@@ -81,12 +81,15 @@ struct BackupKeysView: View {
         
         if( FileManager.default.fileExists( atPath: backupInfo.url!.path ) ) {
             
-            alertItem = AlertItem( title: Text("Overwrite"), message:Text("File Already Exists. Do you want overwrite ?"),
-                primaryButton: .destructive( Text("Overwrite"), action: {
-                    self.showReportView = true
-                }),
-                secondaryButton: .cancel({
-                    print("backup aborted")}))
+            alertItem = AlertItem( title: Text("Overwrite"),
+                                   message:Text("File Already Exists. Do you want overwrite ?"),
+                                   primaryButton: .destructive( Text("Overwrite"), action: {
+                                        self.showReportView = true
+                                   }),
+                                   secondaryButton: .cancel({
+                                        logger.info("backup aborted")
+                                    
+                                   }) )
         }
         else {
             self.showReportView = true
@@ -106,7 +109,7 @@ struct BackupKeysView: View {
         let encoder = JSONEncoder()
         
         do {
-            print( "backup file: \(url)")
+            logger.trace( "backup file: \(url)")
             
             let keys = keyFethedResults
                 .map( { k in encodeKey(encoder: encoder, k: k ) } )
@@ -115,7 +118,7 @@ struct BackupKeysView: View {
 
             try allEncodedData.write(to: url )
             
-            //print( String( data:allEncodedData, encoding: .utf8 ) ?? "{}" )
+            //logger.trace( String( data:allEncodedData, encoding: .utf8 ) ?? "{}" )
             
         }
         catch {

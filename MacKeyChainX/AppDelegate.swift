@@ -24,8 +24,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
        
         let colorScheme = ( appleInterfaceStyle == "Dark" )  ? ColorScheme.dark :  ColorScheme.light
         
-        print( "colorScheme: \(colorScheme)" )
-        
         let contentView = ContentView()
             .environment(\.managedObjectContext, persistentContainer.viewContext)
             .environment(\.colorScheme, colorScheme)

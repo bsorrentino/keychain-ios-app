@@ -106,11 +106,11 @@ struct RestoreKeysView: View {
             
             if let keys = keys  {
 
-                print( "# object to import: \(keys.count) " )
+                logger.trace( "# object to import: \(keys.count) " )
 
                 keys.forEach { item in
                     
-//                    print(
+//                    logger.trace(
 //                        """
 //
 //                        mnemonic:       \(item.mnemonic)
@@ -120,7 +120,7 @@ struct RestoreKeysView: View {
 //                        """)
 //
                     if( item.password.isEmpty && item.group ) {
-                        print( "password for item \(item.mnemonic) not valid!")
+                        logger.notice( "password for item \(item.mnemonic) not valid!")
                     }
                     
                     do {

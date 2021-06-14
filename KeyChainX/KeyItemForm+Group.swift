@@ -122,7 +122,12 @@ struct GroupList: View {
             try self.context.save()
         }
         catch {
-            print( "error inserting new group \(error)" )
+            logger.warning( """
+                error inserting new group
+                
+                \(error.localizedDescription)
+                """ )
+
         }
         
         self.newGroup = ""
@@ -138,7 +143,12 @@ struct GroupList: View {
                 try self.context.save()
             }
             catch {
-                print( "error deleting new group \(error)" )
+                logger.warning( """
+                    error deleting new group
+                    
+                    \(error.localizedDescription)
+                    """ )
+
             }
         }
     }
