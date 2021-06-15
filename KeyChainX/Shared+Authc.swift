@@ -22,10 +22,11 @@ extension LAPolicy : CustomStringConvertible {
         if( self.rawValue == 3)  {
             return "policy 'deviceOwnerAuthenticationWithWatch'"
         }
+        #if os(macOS)
         if( self.rawValue == 4)  {
             return "policy 'deviceOwnerAuthenticationWithBiometricsOrWatch'"
         }
-
+        #endif
         return "policy 'Unknown'"
     }
 }
@@ -84,19 +85,24 @@ extension Authentication {
     
 
      func tryAuthenticate( reason:String = "We need to unlock application" , completionHandler: @escaping (Result<Bool, AutenticationError>) -> Void ) {
-        
+        #if os(macOS)
         if( canEvaluatePolicy( .deviceOwnerAuthenticationWithBiometricsOrWatch )) {
             
-            evaluatePolicy(.deviceOwnerAuthenticationWithBiometricsOrWatch, localizedReason: reason, completionHandler: completionHandler )
-
+            return evaluatePolicy(.deviceOwnerAuthenticationWithBiometricsOrWatch, localizedReason: reason, completionHandler: completionHandler )
         }
-        else if canEvaluatePolicy( .deviceOwnerAuthentication ) {
+        #elseif os(iOS)
+        if( canEvaluatePolicy( .deviceOwnerAuthenticationWithBiometrics )) {
+            
+            return evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason, completionHandler: completionHandler )
+        }
+        #endif
+        if canEvaluatePolicy( .deviceOwnerAuthentication ) {
         
-            evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason, completionHandler: completionHandler )
+            return evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason, completionHandler: completionHandler )
         }
-        else {
-            completionHandler( .failure(.AuthcNotSupported) )
-        }
+        
+        completionHandler( .failure(.AuthcNotSupported) )
+        
     }
 
 }
