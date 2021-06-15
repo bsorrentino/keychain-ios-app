@@ -110,7 +110,7 @@ class KeyItem : ObservableObject, Decodable {
             logger.warning( "invalid item \(try values.decodeIfPresent(String.self, forKey: .mnemonic) ?? "undefined" )" )
             
             for item in values.allKeys {
-                print( "contains \(item.stringValue)")
+                logger.trace( "contains \(item.stringValue)")
             }
             
             self.mnemonic = ""

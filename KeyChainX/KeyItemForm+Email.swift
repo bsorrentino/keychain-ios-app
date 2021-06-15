@@ -143,7 +143,11 @@ struct EmailList: View {
             try self.context.save()
         }
         catch {
-            print( "error inserting new mail \(error)" )
+            logger.warning( """
+                error inserting new mail
+                
+                \(error.localizedDescription)
+                """ )
         }
         
         self.newMail = ""
@@ -159,7 +163,11 @@ struct EmailList: View {
                 try self.context.save()
             }
             catch {
-                print( "error deleting new mail \(error)" )
+                logger.warning( """
+                    error deleting new mail
+                    
+                    \(error.localizedDescription)
+                    """ )
             }
         }
     }

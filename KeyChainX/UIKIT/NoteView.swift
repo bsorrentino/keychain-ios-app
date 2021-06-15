@@ -85,7 +85,6 @@ class UINoteTextView : UITextView {
     }
     
     override func draw(_ rect: CGRect) {
-        print( "draw \(rect)")
         
         guard let context = UIGraphicsGetCurrentContext() else {
             return

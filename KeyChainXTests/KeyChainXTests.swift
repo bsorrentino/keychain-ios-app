@@ -54,9 +54,6 @@ class KeyChainXTests: XCTestCase {
         else {
             XCTFail("regexp is invalid!")
         }
-        
-        
-        print( )
 
     }
     

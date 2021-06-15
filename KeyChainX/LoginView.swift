@@ -264,7 +264,7 @@ extension LoginView {
                         self.dismiss()
                     }
                     else {
-                        print( "error authenticate using biometric \(error?.localizedDescription ?? "")")
+                        logger.warning( "error authenticate using biometric \(error?.localizedDescription ?? "")")
                     }
                 }
             }
@@ -293,7 +293,11 @@ extension LoginView {
             
         }
         catch {
-            print( "ERROR: getting element 'password'' from keychain.\n\(error)" )
+            logger.warning(
+                """
+                ERROR: getting element 'password'' from keychain.
+                \(error.localizedDescription)
+                """ )
         }
         return nil
 
@@ -306,7 +310,11 @@ extension LoginView {
                                                   secret: (  password:password, note: "keychainx user password" ))
         }
         catch {
-            print( "ERROR: setting 'password' to keychain.\n\(error)" )
+            logger.warning(
+                """
+                ERROR: setting 'password' to keychain.
+                \(error.localizedDescription)
+                """ )
         }
 
         dismiss()

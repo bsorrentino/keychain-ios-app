@@ -79,7 +79,7 @@ struct KeyEntityForm : View {
                                     // then log into the server
                                     // and save the password to the Keychain
 
-                                    print( "password for site \(item.url) and user \(item.username) is \(String(describing: password))")
+                                    logger.trace( "password for site \(item.url) and user \(item.username) is \(String(describing: password),privacy: .private )")
                                 } else {
                                     // If not found password either in the Keychain also Shared Web Credentials,
                                     // prompt for username and password
@@ -88,11 +88,11 @@ struct KeyEntityForm : View {
 
                                     // If the login is successful,
                                     // save the credentials to both the Keychain and the Shared Web Credentials.
-                                    print( "password for site \(item.url) and user \(item.username) not found!")
+                                    logger.trace( "password for site \(item.url) and user \(item.username) not found!")
                                 }
 
                             case .failure(let error):
-                                print( "WARN: getWebSharedPassword()\n\(error.localizedDescription)")
+                                logger.warning( "WARN: getWebSharedPassword()\n\(error.localizedDescription)")
                             }
                         }
                     }
@@ -148,7 +148,7 @@ extension KeyEntityForm {
     func saveButton() -> some View {
         
         Button( "save", action: {
-            print( "Save\n mnemonic: \(self.item.mnemonic)\n username: \(self.item.username)" )
+            logger.trace( "Save\n mnemonic: \(self.item.mnemonic)\n username: \(self.item.username)" )
             
             _ = saveItem().sink(
                 receiveCompletion: {
@@ -222,7 +222,7 @@ extension KeyEntityForm {
                         return "username cannot be empty"
                     }
                     
-                    //print( "validate username \(v) - \(self.pickUsernameFromMail)")
+                    //logger.trace( "validate username \(v) - \(self.pickUsernameFromMail)")
                     
                     if( self.pickUsernameFromMail ) {
                         self.item.mail = v
@@ -274,7 +274,11 @@ extension KeyEntityForm {
                 promise(.success(()))
             }
             catch {
-                print( "ERROR: saveItem()\n\(error)")
+                logger.error("""
+                    ERROR: saving Item
+                    
+                    \(error.localizedDescription)
+                    """)
                 promise(.failure(error))
             }
 
