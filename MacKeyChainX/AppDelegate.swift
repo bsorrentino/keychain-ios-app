@@ -27,8 +27,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let contentView = ContentView()
             .environment(\.managedObjectContext, persistentContainer.viewContext)
             .environment(\.colorScheme, colorScheme)
+            
 
         startObservingManagedObjectContextObjectsDidChangeEvent()
+        
+        Shared.mcSecretService.start()
         
         // Create the window and set the content view.
         window = NSWindow(
@@ -46,6 +49,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
         
        stopObservingManagegObjectContextObjectsDidChangeEvent()
+        
+        Shared.mcSecretService.stop()
     }
 
     // MARK: - Core Data stack

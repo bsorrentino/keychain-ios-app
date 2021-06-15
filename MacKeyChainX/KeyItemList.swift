@@ -42,7 +42,8 @@ struct KeyItemListTopbar: View {
 
 struct KeyItemListView: View {
     @Environment(\.colorScheme) var colorScheme
-    
+    @Environment(\.MCSecretServiceSession ) var mcSecretSession
+
     @State var searchString = ""
     
     var body: some View {

@@ -27,6 +27,8 @@
 	</dict>
 	<key>NSFaceIDUsageDescription</key>
 	<string>We need to unlock application</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>App needs to connect your Mac to share passwords</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

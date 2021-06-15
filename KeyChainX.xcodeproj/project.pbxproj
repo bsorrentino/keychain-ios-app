@@ -26,6 +26,8 @@
 		5F66FB6123A7D890005131D4 /* KeyGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */; };
 		5F7C0E8824E9A5A500B41F20 /* KeyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */; };
 		5F8110262678F1E40082E6B5 /* Shared+Authc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00AE8A526752C61001276B3 /* Shared+Authc.swift */; };
+		5F8110282678F8CC0082E6B5 /* Shared+MCSecretService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8110272678F8CC0082E6B5 /* Shared+MCSecretService.swift */; };
+		5F8110292678F8CC0082E6B5 /* Shared+MCSecretService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8110272678F8CC0082E6B5 /* Shared+MCSecretService.swift */; };
 		5F8235CE262B28E900F7FC9A /* Shared+Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8235CD262B28E900F7FC9A /* Shared+Log.swift */; };
 		5F8235CF262B28E900F7FC9A /* Shared+Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8235CD262B28E900F7FC9A /* Shared+Log.swift */; };
 		5F9987B025387BEB004F43DF /* FieldValidatorLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 5F9987AF25387BEB004F43DF /* FieldValidatorLibrary */; };
@@ -155,9 +157,11 @@
 		5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		5F66FB6023A7D890005131D4 /* KeyGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyGroupCell.xib; sourceTree = "<group>"; };
 		5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItem.swift; sourceTree = "<group>"; };
+		5F8110272678F8CC0082E6B5 /* Shared+MCSecretService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+MCSecretService.swift"; sourceTree = "<group>"; };
 		5F8235CD262B28E900F7FC9A /* Shared+Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+Log.swift"; sourceTree = "<group>"; };
 		5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+Keychain.swift"; sourceTree = "<group>"; };
 		5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Url.swift"; sourceTree = "<group>"; };
+		5FBDA9672679191200AEF186 /* MacKeyChainXRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacKeyChainXRelease.entitlements; sourceTree = "<group>"; };
 		5FDEAA6D2624C9BD000AF83C /* MacSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSearchBar.swift; sourceTree = "<group>"; };
 		5FFAAD2823B414E200AE78EE /* KeyGroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyGroupListViewController.swift; sourceTree = "<group>"; };
 		7A1181120449DF4D493ABB8B /* Pods_KeyChainX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,6 +311,7 @@
 				5F8235CD262B28E900F7FC9A /* Shared+Log.swift */,
 				A00927072675FFE8000B9097 /* Shared+View.swift */,
 				A00AE8A526752C61001276B3 /* Shared+Authc.swift */,
+				5F8110272678F8CC0082E6B5 /* Shared+MCSecretService.swift */,
 			);
 			name = shared;
 			sourceTree = "<group>";
@@ -439,6 +444,7 @@
 		A0C1D2A32521F36400737766 /* MacKeyChainX */ = {
 			isa = PBXGroup;
 			children = (
+				5FBDA9672679191200AEF186 /* MacKeyChainXRelease.entitlements */,
 				A0C1D2A42521F36400737766 /* AppDelegate.swift */,
 				A0C1D2E625225DE000737766 /* KeyItemRow.swift */,
 				A0BE3F8225225F14002A86A7 /* KeyItemList.swift */,
@@ -872,6 +878,7 @@
 				A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */,
 				A096B3C722CE42D7004E17CC /* KeyItemListViewController.swift in Sources */,
 				A0C0DB5E22A901AD003B09ED /* KeyItemList.swift in Sources */,
+				5F8110282678F8CC0082E6B5 /* Shared+MCSecretService.swift in Sources */,
 				A040E4B224EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift in Sources */,
 				5F5F558624DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift in Sources */,
 				5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */,
@@ -917,6 +924,7 @@
 				A086C402252331C3001EF95E /* KeyEntity+Encodable.swift in Sources */,
 				A00AE8A626752C61001276B3 /* Shared+Authc.swift in Sources */,
 				A0C1D2AA2521F36400737766 /* MacKeyChainX.xcdatamodeld in Sources */,
+				5F8110292678F8CC0082E6B5 /* Shared+MCSecretService.swift in Sources */,
 				A086C3E725232D48001EF95E /* KeyItem.swift in Sources */,
 				A086C3CB25232D1F001EF95E /* KeyEntity+CoreDataClass.swift in Sources */,
 				A0D796EB2523A9CD00A5CBAB /* KeyEntity+Identifiable.swift in Sources */,
@@ -1127,7 +1135,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KeyChainX/KeyChainX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "KeyChainX/Preview\\ Content";
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_PREVIEWS = YES;
@@ -1136,7 +1144,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeychainX;
 				PRODUCT_NAME = KeychainX;
 				SWIFT_VERSION = 5.0;
@@ -1151,7 +1159,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KeyChainX/KeyChainX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "KeyChainX/Preview\\ Content";
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_PREVIEWS = YES;
@@ -1160,7 +1168,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeychainX;
 				PRODUCT_NAME = KeychainX;
 				SWIFT_VERSION = 5.0;
@@ -1289,7 +1297,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = MacKeyChainX/MacKeyChainX.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MacKeyChainX/MacKeyChainXRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

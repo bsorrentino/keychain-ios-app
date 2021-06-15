@@ -36,17 +36,12 @@ enum AutenticationError: Error {
     case AuthcNotSupported
 }
 
-struct Authentication {
+struct AuthenticationService {
     
-    private static var _shared = Authentication()
-    
-    public static var shared:Authentication {
-        return _shared
-    }
     
     private var context = LAContext()
     
-    private init() {}
+    fileprivate init() {}
     
     fileprivate func canEvaluatePolicy(_ policy: LAPolicy) -> Bool {
         var error: NSError?
@@ -81,7 +76,7 @@ struct Authentication {
     
 }
 
-extension Authentication {
+extension AuthenticationService {
     
 
      func tryAuthenticate( reason:String = "We need to unlock application" , completionHandler: @escaping (Result<Bool, AutenticationError>) -> Void ) {
@@ -105,4 +100,11 @@ extension Authentication {
         
     }
 
+}
+
+
+extension Shared  {
+
+    static let authcService = AuthenticationService()
+    
 }

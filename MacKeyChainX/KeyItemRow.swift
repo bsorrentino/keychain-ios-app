@@ -89,7 +89,7 @@ struct KeyItemRow: View {
                     Spacer()
                     if( isShared ) {
                         Button( action:{
-                            Authentication.shared.tryAuthenticate { result in
+                            Shared.authcService.tryAuthenticate { result in
                                 if case .success(true) = result {
                                     withAnimation {
                                         self.isShowSecret.toggle()

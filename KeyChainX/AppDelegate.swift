@@ -23,7 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         logger.trace( "> didFinishLaunchingWithOptions" )
 
         startObservingManagedObjectContextObjectsDidChangeEvent()
-
+        
+        Shared.mcSecretService.start()
+        
         return true
     }
 
@@ -36,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         stopObservingManagegObjectContextObjectsDidChangeEvent()
         
         saveContext()
+
+        Shared.mcSecretService.stop()
     }
 
     // MARK: UISceneSession Lifecycle
