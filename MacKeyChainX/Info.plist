@@ -30,20 +30,5 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>NSServices</key>
-	<array>
-		<dict>
-			<key>NSMenuItem</key>
-			<dict/>
-			<key>NSMessage</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>NSMenuItem</key>
-			<dict/>
-			<key>NSMessage</key>
-			<string>a</string>
-		</dict>
-	</array>
 </dict>
 </plist>
