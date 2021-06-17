@@ -20,7 +20,6 @@ struct KeyItemListContentView : View {
 }
 
 struct KeyItemListTopView : View {
-    @Environment(\.MCSecretServiceSession ) var mcSecretSession
     @Environment(\.managedObjectContext) var managedObjectContext
 
     @State private var formActive = false

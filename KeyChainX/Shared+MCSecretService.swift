@@ -13,20 +13,25 @@ import SwiftUI
 
 class MCSecretService : NSObject {
     
-    
+    typealias InvitePeerAction = (MCPeerID, _ info:[String : String]?) -> Bool
+    typealias AcceptPeerInvitationAction = (MCPeerID, _ context:Data?) -> Bool
+
     // Service type must be a unique string, at most 15 characters long
     // and can contain only ASCII lowercase letters, numbers and hyphens.
     private let ServiceType = "my-secrets"
 
-    #if os(macOS)
-    private let myPeerId = MCPeerID(displayName: Host.current().name ?? "Unknow Host")
-    #elseif os(iOS)
+    
+    #if os(iOS)
     private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
+    private let serviceBrowser : MCNearbyServiceBrowser
+    #elseif os(macOS)
+    private let myPeerId = MCPeerID(displayName: Host.current().name ?? "Unknow Host")
+    private let serviceAdvertiser : MCNearbyServiceAdvertiser
     #endif
 
-    private let serviceAdvertiser : MCNearbyServiceAdvertiser
-    private let serviceBrowser : MCNearbyServiceBrowser
-    
+    var invitePeer:InvitePeerAction?
+    var acceptPeerInvitation:AcceptPeerInvitationAction?
+
     lazy var session : MCSession = {
         let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .required)
         session.delegate = self
@@ -35,26 +40,40 @@ class MCSecretService : NSObject {
 
     
     fileprivate override init() {
-        self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: ServiceType)
+        #if os(iOS)
         self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: ServiceType)
+        #else
+        self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: ServiceType)
+        #endif
         super.init()
-        self.serviceAdvertiser.delegate = self
+        #if os(iOS)
         self.serviceBrowser.delegate = self
-        
+        #else
+        self.serviceAdvertiser.delegate = self
+        #endif
+
     }
 
     func start() {
+        #if os(iOS)
         self.serviceBrowser.startBrowsingForPeers()
+        #else
+        self.serviceAdvertiser.startAdvertisingPeer()
+        #endif
+        
     }
     
     func stop() {
+        #if os(iOS)
         self.serviceBrowser.stopBrowsingForPeers()
+        #else
+        self.serviceAdvertiser.stopAdvertisingPeer()
+        #endif
     }
 
     
     deinit {
-        self.serviceAdvertiser.stopAdvertisingPeer()
-        self.serviceBrowser.stopBrowsingForPeers()
+        self.stop()
     }
 
 }
@@ -68,6 +87,11 @@ extension MCSecretService : MCNearbyServiceAdvertiserDelegate {
 
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         logger.trace("didReceiveInvitationFromPeer \(peerID)")
+        
+        if let acceptPeerInvitation = self.acceptPeerInvitation {
+            invitationHandler( acceptPeerInvitation(peerID,context), self.session )
+        }
+
     }
     
 }
@@ -80,6 +104,11 @@ extension MCSecretService : MCNearbyServiceBrowserDelegate {
 
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         logger.trace("foundPeer: \(peerID)")
+        
+        if let invitePeer = self.invitePeer, invitePeer(peerID, info) {
+            browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
+        }
+        
     }
 
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
@@ -124,20 +153,20 @@ extension Shared  {
 // MARK: Custom @Environment  MCSecretService Session
 // @see https://medium.com/@SergDort/custom-environment-keys-in-swiftui-49f54a13d140
 
-struct MCSecretServiceSessionKey: EnvironmentKey {
-    //static let defaultValue: Keychain = Keychain(service: "keychainx.userpreferences")
-    static let defaultValue:MCSession = {
-        Shared.mcSecretService.session
-    }()
-}
-
-extension EnvironmentValues {
-    var MCSecretServiceSession: MCSession {
-        get {
-            return self[MCSecretServiceSessionKey.self]
-        }
-        set {
-            self[MCSecretServiceSessionKey.self] = newValue
-        }
-    }
-}
+//struct MCSecretServiceSessionKey: EnvironmentKey {
+//    //static let defaultValue: Keychain = Keychain(service: "keychainx.userpreferences")
+//    static let defaultValue:MCSession = {
+//        Shared.mcSecretService.session
+//    }()
+//}
+//
+//extension EnvironmentValues {
+//    var MCSecretServiceSession: MCSession {
+//        get {
+//            return self[MCSecretServiceSessionKey.self]
+//        }
+//        set {
+//            self[MCSecretServiceSessionKey.self] = newValue
+//        }
+//    }
+//}

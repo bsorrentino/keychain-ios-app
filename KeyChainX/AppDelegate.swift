@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         startObservingManagedObjectContextObjectsDidChangeEvent()
         
-        Shared.mcSecretService.start()
+//        Shared.mcSecretService.start()
         
         return true
     }
