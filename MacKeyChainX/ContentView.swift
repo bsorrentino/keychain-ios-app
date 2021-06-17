@@ -9,12 +9,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var mcSecretsService:MCSecretsService
+    
     var body: some View {
-        //NavigationView {
+        VStack(alignment: .leading ) {
             KeyItemListView()
-            //KeyItemForm()
-                
-        //}
+            
+            HStack(alignment: .center) {
+                Image( systemName: "bonjour")
+                Text("Keychain Device nearby: ")
+                    HStack(alignment: .center) {
+                        ForEach( self.mcSecretsService.foundPeers, id: \.id ) { peer in
+                            Button( action: {
+                                mcSecretsService.invitePeer(peer)
+                            } ){
+                                Text("\(peer.description)")
+                            }
+                      Divider()
+                    }
+                }
+            }
+            .frame(height: 40)
+            .padding(.leading, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            
+        }.frame(minWidth: 700, maxHeight: 500)
     }
 }
 
@@ -27,7 +45,7 @@ struct ContentView_Previews: PreviewProvider {
 
            ContentView()
               .environment(\.colorScheme, .dark)
-        }
+        }.environmentObject( MCSecretsService() )
         
     }
 }

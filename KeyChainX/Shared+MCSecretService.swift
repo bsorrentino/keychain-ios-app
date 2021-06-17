@@ -10,28 +10,54 @@ import Foundation
 import MultipeerConnectivity
 import SwiftUI
 
-
-class MCSecretService : NSObject {
+struct Peer : Identifiable, Equatable, CustomStringConvertible {
+    let id = UUID()
+    var peerID:MCPeerID
+    var state:MCSessionState = .notConnected
     
-    typealias InvitePeerAction = (MCPeerID, _ info:[String : String]?) -> Bool
-    typealias AcceptPeerInvitationAction = (MCPeerID, _ context:Data?) -> Bool
+    // Equatable
+    static func ==(lhs: Peer, rhs: Peer) -> Bool {
+        return lhs.peerID == rhs.peerID
+    }
+    
+    public var description: String {
+    
+        var stateDescription = ""
+        switch state {
+            case .connected:
+                stateDescription = "Connected"
+            case .notConnected:
+                stateDescription = "Not connected"
+            case .connecting:
+                stateDescription = "Connecting"
+            @unknown default:
+                stateDescription = "\(state)"
+        }
+        
+        return "\(peerID.displayName) - (\(stateDescription))"
+    }
+    
+}
 
+class MCSecretsService : NSObject, ObservableObject {
+    
     // Service type must be a unique string, at most 15 characters long
     // and can contain only ASCII lowercase letters, numbers and hyphens.
     private let ServiceType = "my-secrets"
 
-    
-    #if os(iOS)
-    private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
+
+    #if os(macOS)
+    private let myPeerId = MCPeerID(displayName: Host.current().name ?? "Unknow macOS Host Name")
     private let serviceBrowser : MCNearbyServiceBrowser
-    #elseif os(macOS)
-    private let myPeerId = MCPeerID(displayName: Host.current().name ?? "Unknow Host")
-    private let serviceAdvertiser : MCNearbyServiceAdvertiser
     #endif
 
-    var invitePeer:InvitePeerAction?
-    var acceptPeerInvitation:AcceptPeerInvitationAction?
-
+    #if os(iOS)
+    private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
+    private let serviceAdvertiser : MCNearbyServiceAdvertiser
+    #endif
+    
+    @Published var foundPeers = [Peer]()
+    
     lazy var session : MCSession = {
         let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .required)
         session.delegate = self
@@ -39,34 +65,54 @@ class MCSecretService : NSObject {
     }()
 
     
-    fileprivate override init() {
-        #if os(iOS)
+    override init() {
+        #if os(macOS)
         self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: ServiceType)
-        #else
+        #endif
+        
+        #if os(iOS)
         self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: ServiceType)
         #endif
+
         super.init()
-        #if os(iOS)
+
+        #if os(macOS)
         self.serviceBrowser.delegate = self
-        #else
+        #endif
+        
+        #if os(iOS)
         self.serviceAdvertiser.delegate = self
         #endif
 
+        
+        if isInPreviewMode() {
+            foundPeers.append( Peer(peerID: MCPeerID(displayName: "Preview Peer ID")))
+        }
     }
 
     func start() {
-        #if os(iOS)
+        #if os(macOS)
         self.serviceBrowser.startBrowsingForPeers()
-        #else
+        #endif
+        
+        #if os(iOS)
         self.serviceAdvertiser.startAdvertisingPeer()
         #endif
         
     }
     
+    func invitePeer( _ peer:Peer ) {
+        #if os(macOS)
+        self.serviceBrowser.invitePeer(peer.peerID, to: self.session, withContext: nil, timeout: 10)
+        #endif
+    }
+    
     func stop() {
-        #if os(iOS)
+        #if os(macOS)
         self.serviceBrowser.stopBrowsingForPeers()
-        #else
+        #endif
+        
+        #if os(iOS)
         self.serviceAdvertiser.stopAdvertisingPeer()
         #endif
     }
@@ -79,7 +125,7 @@ class MCSecretService : NSObject {
 }
 
 
-extension MCSecretService : MCNearbyServiceAdvertiserDelegate {
+extension MCSecretsService : MCNearbyServiceAdvertiserDelegate {
 
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
         logger.trace("didNotStartAdvertisingPeer: \(error.localizedDescription)")
@@ -88,15 +134,13 @@ extension MCSecretService : MCNearbyServiceAdvertiserDelegate {
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         logger.trace("didReceiveInvitationFromPeer \(peerID)")
         
-        if let acceptPeerInvitation = self.acceptPeerInvitation {
-            invitationHandler( acceptPeerInvitation(peerID,context), self.session )
-        }
+        invitationHandler( true, self.session )
 
     }
     
 }
 
-extension MCSecretService : MCNearbyServiceBrowserDelegate {
+extension MCSecretsService : MCNearbyServiceBrowserDelegate {
 
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
         logger.trace("didNotStartBrowsingForPeers: \(error.localizedDescription)")
@@ -105,23 +149,36 @@ extension MCSecretService : MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         logger.trace("foundPeer: \(peerID)")
         
-        if let invitePeer = self.invitePeer, invitePeer(peerID, info) {
-            browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
-        }
+        self.foundPeers.append(Peer(peerID: peerID))
+        
+        
+//        browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
         
     }
 
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
         logger.trace("lostPeer: \(peerID)")
+        
+        guard let index = self.foundPeers.firstIndex(of: Peer(peerID: peerID)) else { return }
+        
+        self.foundPeers.remove( at: index )
     }
 
 }
 
 
-extension MCSecretService : MCSessionDelegate {
+extension MCSecretsService : MCSessionDelegate {
 
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         logger.trace("peer \(peerID) didChangeState: \(state.rawValue)")
+        
+        guard let index = self.foundPeers.firstIndex(of: Peer(peerID: peerID)) else { return }
+        
+        DispatchQueue.main.async {
+            self.foundPeers[index].state = state
+            self.objectWillChange.send()
+        }
+        
     }
 
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
@@ -143,12 +200,12 @@ extension MCSecretService : MCSessionDelegate {
 }
 
 
-extension Shared  {
-
-    
-    static let mcSecretService = MCSecretService()
-    
-}
+//extension Shared  {
+//
+//    
+//    static let mcSecretService = MCSecretsService()
+//    
+//}
 
 // MARK: Custom @Environment  MCSecretService Session
 // @see https://medium.com/@SergDort/custom-environment-keys-in-swiftui-49f54a13d140

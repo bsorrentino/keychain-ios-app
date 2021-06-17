@@ -57,7 +57,7 @@ struct KeyItemListView: View {
             
             KeyItemList( keyFethedResults: FetchRequest( fetchRequest: KeyEntity.fetchRequest( withPredicate: NSPredicate( format: "mnemonic CONTAINS[c] %@", searchString)) ))
         }
-        .frame(minWidth: 700, maxHeight: 500)
+        
     }
 }
 

@@ -24,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         startObservingManagedObjectContextObjectsDidChangeEvent()
         
-//        Shared.mcSecretService.start()
-        
         return true
     }
 
@@ -39,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         saveContext()
 
-        Shared.mcSecretService.stop()
     }
 
     // MARK: UISceneSession Lifecycle

@@ -22,7 +22,9 @@ struct LoginView: View {
 
     @Environment(\.presentationMode) private var isPresented
     @Environment(\.UserPreferencesKeychain) private var userPreferencesKeychain
-
+    @EnvironmentObject private var mcSecretsService :MCSecretsService
+    
+    
     @State var password:String = ""
     @State var passwordChecker   = FieldChecker()
 
@@ -35,8 +37,10 @@ struct LoginView: View {
     
     private var  context = LAContext()
 
+    // Dismiss after logging on
     private func dismiss() {
         self.isPresented.wrappedValue.dismiss()
+        mcSecretsService.start()
     }
     
     private func checkError(  checker:@escaping () -> FieldChecker ) -> some View {
@@ -55,7 +59,7 @@ struct LoginView: View {
             VStack(alignment: .center) {
                     
                 Text( "KEYCHAIN" ).font(.title).fontWeight(.bold)
-                Text( UIApplication.appVersion ?? "").font(.headline).fontWeight(.thin)
+                Text( appVersion() ).font(.headline).fontWeight(.thin)
                 
                 Spacer()
                 if self.isBiometricAvailable && self.hidePassword {
