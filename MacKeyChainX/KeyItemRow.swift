@@ -62,6 +62,7 @@ func SecretView( item:KeyItem, show:Bool ) -> some View {
 struct KeyItemRow: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var mcSecretsService:MCSecretsService
     
     var item:KeyItem
     
@@ -69,7 +70,7 @@ struct KeyItemRow: View {
     
     var isShared:Bool {
         if( isInPreviewMode() ) {
-            return true
+            return false
         }
         // return getSharedPassword( withKey: item.mnemonic ) != nil
         return item.shared
@@ -88,29 +89,10 @@ struct KeyItemRow: View {
                         
                     Spacer()
                     if( isShared ) {
-                        Button( action:{
-                            Shared.authcService.tryAuthenticate { result in
-                                if case .success(true) = result {
-                                    withAnimation {
-                                        self.isShowSecret.toggle()
-                                    }
-                                }
-
-                            }
-                        }) {
-                            Group {
-                                if self.isShowSecret {
-                                    Image( systemName: "eye" ).foregroundColor(.yellow)
-                                }
-                                else {
-                                    Image( systemName: "eye.slash")
-                                }
-                            }
-                        }.buttonStyle(PlainButtonStyle())
+                        sharedView()
                     }
                     else {
-                        Image( systemName: "icloud.slash")
-                            .foregroundColor(Color.red)
+                        notSharedView()
                     }
                     
                 }
@@ -145,6 +127,56 @@ struct KeyItemRow: View {
         }.border(Color.gray, width: 1)
     }
     
+}
+
+// Sharing Actions Extension
+extension KeyItemRow {
+    
+    func sharedView() -> some View {
+        
+        Button( action:{
+            Shared.authcService.tryAuthenticate { result in
+                if case .success(true) = result {
+                    withAnimation {
+                        self.isShowSecret.toggle()
+                    }
+                }
+            }
+        }) {
+            Group {
+                if self.isShowSecret {
+                    Image( systemName: "eye" ).foregroundColor(.yellow)
+                }
+                else {
+                    Image( systemName: "eye.slash")
+                }
+            }
+        }.buttonStyle(PlainButtonStyle())
+
+    }
+    
+    func notSharedView() -> some View  {
+        Group {
+            if let _ = mcSecretsService.connectedPeer {
+                Button( action:{
+                    
+                    self.mcSecretsService.requestSecret(forMnemonic: item.mnemonic) { result in
+                        
+                    }
+                    
+                }) {
+                
+                    Image( systemName: "icloud.slash")
+                        .foregroundColor(Color.yellow)
+            
+                }.buttonStyle(PlainButtonStyle())
+            }
+            else {
+                Image( systemName: "icloud.slash")
+                    .foregroundColor(Color.red)
+            }
+        }
+    }
 }
 
 struct KeyItemRow_Previews: PreviewProvider {

@@ -18,7 +18,7 @@ func appVersion() -> String {
         return result
     }
     
-    return "unknown app version"
+    return "no version"
 }
 
 func appName() -> String {

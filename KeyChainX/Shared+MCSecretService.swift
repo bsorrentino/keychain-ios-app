@@ -39,25 +39,41 @@ struct Peer : Identifiable, Equatable, CustomStringConvertible {
     
 }
 
+enum MCSecretsServiceError: Error {
+    case RequestSecretTimeout
+    case Internal(String)
+    case NoPeerConnected
+    case FromCause(Error)
+}
+
+
 class MCSecretsService : NSObject, ObservableObject {
     
     // Service type must be a unique string, at most 15 characters long
     // and can contain only ASCII lowercase letters, numbers and hyphens.
     private let ServiceType = "my-secrets"
-
-
+    
     #if os(macOS)
-    private let myPeerId = MCPeerID(displayName: Host.current().name ?? "Unknow macOS Host Name")
-    private let serviceBrowser : MCNearbyServiceBrowser
+    
+    let myPeerId = MCPeerID(displayName: Host.current().name ?? "Unknow macOS Host Name")
+    let serviceBrowser : MCNearbyServiceBrowser
+    let dispatchPeerGroup = DispatchGroup()
+    
     #endif
 
     #if os(iOS)
-    private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
-    private let serviceAdvertiser : MCNearbyServiceAdvertiser
+    let myPeerId = MCPeerID(displayName: UIDevice.current.name)
+    let serviceAdvertiser : MCNearbyServiceAdvertiser
     #endif
     
     @Published var foundPeers = [Peer]()
     
+    var connectedPeer:Peer? {
+        foundPeers.first { peer in
+            peer.state == .connected
+        }
+    }
+        
     lazy var session : MCSession = {
         let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .required)
         session.delegate = self
@@ -90,34 +106,6 @@ class MCSecretsService : NSObject, ObservableObject {
         }
     }
 
-    func start() {
-        #if os(macOS)
-        self.serviceBrowser.startBrowsingForPeers()
-        #endif
-        
-        #if os(iOS)
-        self.serviceAdvertiser.startAdvertisingPeer()
-        #endif
-        
-    }
-    
-    func invitePeer( _ peer:Peer ) {
-        #if os(macOS)
-        self.serviceBrowser.invitePeer(peer.peerID, to: self.session, withContext: nil, timeout: 10)
-        #endif
-    }
-    
-    func stop() {
-        #if os(macOS)
-        self.serviceBrowser.stopBrowsingForPeers()
-        #endif
-        
-        #if os(iOS)
-        self.serviceAdvertiser.stopAdvertisingPeer()
-        #endif
-    }
-
-    
     deinit {
         self.stop()
     }
@@ -125,79 +113,7 @@ class MCSecretsService : NSObject, ObservableObject {
 }
 
 
-extension MCSecretsService : MCNearbyServiceAdvertiserDelegate {
 
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-        logger.trace("didNotStartAdvertisingPeer: \(error.localizedDescription)")
-    }
-
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-        logger.trace("didReceiveInvitationFromPeer \(peerID)")
-        
-        invitationHandler( true, self.session )
-
-    }
-    
-}
-
-extension MCSecretsService : MCNearbyServiceBrowserDelegate {
-
-    func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
-        logger.trace("didNotStartBrowsingForPeers: \(error.localizedDescription)")
-    }
-
-    func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        logger.trace("foundPeer: \(peerID)")
-        
-        self.foundPeers.append(Peer(peerID: peerID))
-        
-        
-//        browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
-        
-    }
-
-    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        logger.trace("lostPeer: \(peerID)")
-        
-        guard let index = self.foundPeers.firstIndex(of: Peer(peerID: peerID)) else { return }
-        
-        self.foundPeers.remove( at: index )
-    }
-
-}
-
-
-extension MCSecretsService : MCSessionDelegate {
-
-    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        logger.trace("peer \(peerID) didChangeState: \(state.rawValue)")
-        
-        guard let index = self.foundPeers.firstIndex(of: Peer(peerID: peerID)) else { return }
-        
-        DispatchQueue.main.async {
-            self.foundPeers[index].state = state
-            self.objectWillChange.send()
-        }
-        
-    }
-
-    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        logger.trace("didReceiveData: \(data)")
-    }
-
-    func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-        logger.trace("didReceiveStream")
-    }
-
-    func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        logger.trace("didStartReceivingResourceWithName")
-    }
-
-    func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
-        logger.trace("didFinishReceivingResourceWithName")
-    }
-
-}
 
 
 //extension Shared  {
