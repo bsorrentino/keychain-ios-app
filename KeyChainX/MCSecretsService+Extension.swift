@@ -89,6 +89,7 @@ extension MCSecretsService : MCNearbyServiceAdvertiserDelegate {
             alert.addAction(UIAlertAction(title: "Yes", style: .default ) {_ in
                 
                 invitationHandler( true, self.session )
+                self.foundPeers.append( Peer(peerID: peerID))
 
             })
             alert.addAction(UIAlertAction(title: "No", style: .cancel ) {_ in

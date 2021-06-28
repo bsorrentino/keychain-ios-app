@@ -16,39 +16,48 @@ struct ContentView: View {
  
     
     var body: some View {
-            TabView(selection: self.$selection) {
-                
-                KeyItemListContentView()
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "list.dash")
-                            Text("Key list")
-                        }
+        TabView(selection: self.$selection) {
+            
+            KeyItemListContentView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "list.dash")
+                        Text("Key list")
                     }
-                .tag(0)
-                BackupKeysView()
-                    .font(.title)
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "arrow.down.doc")
-                            Text("Backup keys")
-                        }
+                }
+            .tag(0)
+            BackupKeysView()
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "arrow.down.doc")
+                        Text("Backup keys")
                     }
-                    .tag(1)
-                RestoreKeysView()
-                    .font(.title)
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "arrow.up.doc")
-                            Text("Restore keys")
-                        }
+                }
+                .tag(1)
+            RestoreKeysView()
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "arrow.up.doc")
+                        Text("Restore keys")
                     }
-                    .tag(2)
+                }
+                .tag(2)
+            PeerConnectionsView()
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "laptopcomputer")
+                        Text("Connections")
+                    }
+                }
+                .tag(3)
 
-            }
-            .sheet(isPresented: $loginStates.show) {
-                LoginView()
-            }
+        }
+        .sheet(isPresented: $loginStates.show) {
+            LoginView()
+        }
     }
 }
 

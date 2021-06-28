@@ -12,6 +12,7 @@
 		5F01277523B776CC0033E2B9 /* BackupKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01277423B776CC0033E2B9 /* BackupKeysView.swift */; };
 		5F01277723B776EE0033E2B9 /* RestoreKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01277623B776EE0033E2B9 /* RestoreKeysView.swift */; };
 		5F01277923B7C05D0033E2B9 /* FileManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01277823B7C05D0033E2B9 /* FileManagerView.swift */; };
+		5F19F805268A1B46000CEB2A /* PeerConnectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F19F804268A1B46000CEB2A /* PeerConnectionsView.swift */; };
 		5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28680B23BF8A3600A1E62D /* WebView.swift */; };
 		5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30CFA22379F0BE00FD7485 /* LoginView.swift */; };
 		5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30CFA42379F52100FD7485 /* ContentView.swift */; };
@@ -144,6 +145,7 @@
 		5F01277423B776CC0033E2B9 /* BackupKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupKeysView.swift; sourceTree = "<group>"; };
 		5F01277623B776EE0033E2B9 /* RestoreKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreKeysView.swift; sourceTree = "<group>"; };
 		5F01277823B7C05D0033E2B9 /* FileManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerView.swift; sourceTree = "<group>"; };
+		5F19F804268A1B46000CEB2A /* PeerConnectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerConnectionsView.swift; sourceTree = "<group>"; };
 		5F28680B23BF8A3600A1E62D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		5F2B152124D3502B00983F68 /* KeyChain v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain v2.xcdatamodel"; sourceTree = "<group>"; };
 		5F30CFA22379F0BE00FD7485 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				A0EE95512375F73F00002E6F /* datamodel */,
 				A096B3C522CE4295004E17CC /* UIKIT */,
 				5F334AC7267F78C00061D8C7 /* MCSecretsService+Extension.swift */,
+				5F19F804268A1B46000CEB2A /* PeerConnectionsView.swift */,
 				5F5772F22361FD900066E947 /* App+CoreData.swift */,
 				A0C0DB5622A901AD003B09ED /* AppDelegate.swift */,
 				A0C0DB5822A901AD003B09ED /* SceneDelegate.swift */,
@@ -899,6 +902,7 @@
 				A086C3AB252325AA001EF95E /* Shared.swift in Sources */,
 				5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */,
 				5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */,
+				5F19F805268A1B46000CEB2A /* PeerConnectionsView.swift in Sources */,
 				A0F3C39A23CA34F8004B3DC1 /* NoteView.swift in Sources */,
 				A0C0DB5922A901AD003B09ED /* SceneDelegate.swift in Sources */,
 				A01F46A324EEBDB3005717DC /* AlertView.swift in Sources */,
