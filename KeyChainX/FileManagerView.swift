@@ -28,8 +28,6 @@ struct FileManagerView<Content> : View where Content : View {
     init( @ViewBuilder _ content: @escaping (URL) -> Content ) {
         self.content = content
     }
-
-
     
     func backupUrls() -> Result {
         

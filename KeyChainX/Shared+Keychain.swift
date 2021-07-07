@@ -9,7 +9,6 @@
 import Foundation
 import KeychainAccess
 import SwiftUI
-import OSLog
 
 // MARK: Application Keychain extensions
 

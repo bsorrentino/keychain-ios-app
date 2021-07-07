@@ -11,7 +11,9 @@ import SwiftUI
 import OSLog
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
+    let mcSecretsService = MCSecretsService()
+    
     let loginStates:LoginView.States = LoginView.States()
     var window: UIWindow?
 
@@ -34,6 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let view = ContentView( loginStates: loginStates )
                 .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext) // CoreData integrations
+                .environmentObject(mcSecretsService)
             
             window.rootViewController = UIHostingController(rootView: view  )
 
@@ -56,6 +59,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
     
         logger.trace( "> sceneDidDisconnect" )
+        
+        mcSecretsService.stop()
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

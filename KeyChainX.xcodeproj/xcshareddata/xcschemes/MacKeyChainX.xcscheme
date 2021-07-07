@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0C0DB5222A901AD003B09ED"
-               BuildableName = "KeychainX.app"
-               BlueprintName = "KeyChainX"
+               BlueprintIdentifier = "A0C1D2A12521F36400737766"
+               BuildableName = "MacKeyChainX.app"
+               BlueprintName = "MacKeyChainX"
                ReferencedContainer = "container:KeyChainX.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0C0DB6B22A901B0003B09ED"
-               BuildableName = "KeyChainXTests.xctest"
-               BlueprintName = "KeyChainXTests"
+               BlueprintIdentifier = "A0C1D2B82521F36500737766"
+               BuildableName = "MacKeyChainXTests.xctest"
+               BlueprintName = "MacKeyChainXTests"
                ReferencedContainer = "container:KeyChainX.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0C0DB7622A901B0003B09ED"
-               BuildableName = "KeyChainXUITests.xctest"
-               BlueprintName = "KeyChainXUITests"
+               BlueprintIdentifier = "A0C1D2C32521F36500737766"
+               BuildableName = "MacKeyChainXUITests.xctest"
+               BlueprintName = "MacKeyChainXUITests"
                ReferencedContainer = "container:KeyChainX.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -64,9 +64,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0C0DB5222A901AD003B09ED"
-            BuildableName = "KeychainX.app"
-            BlueprintName = "KeyChainX"
+            BlueprintIdentifier = "A0C1D2A12521F36400737766"
+            BuildableName = "MacKeyChainX.app"
+            BlueprintName = "MacKeyChainX"
             ReferencedContainer = "container:KeyChainX.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -99,9 +99,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0C0DB5222A901AD003B09ED"
-            BuildableName = "KeychainX.app"
-            BlueprintName = "KeyChainX"
+            BlueprintIdentifier = "A0C1D2A12521F36400737766"
+            BuildableName = "MacKeyChainX.app"
+            BlueprintName = "MacKeyChainX"
             ReferencedContainer = "container:KeyChainX.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

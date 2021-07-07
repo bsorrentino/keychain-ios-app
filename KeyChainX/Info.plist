@@ -25,8 +25,15 @@
 		<key>NSAllowsArbitraryLoadsInWebContent</key>
 		<true/>
 	</dict>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_my-secrets._tcp</string>
+		<string>_my-secrets._udp</string>
+	</array>
 	<key>NSFaceIDUsageDescription</key>
 	<string>We need to unlock application</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>App needs to connect your Mac to share passwords</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

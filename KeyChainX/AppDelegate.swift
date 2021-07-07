@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         logger.trace( "> didFinishLaunchingWithOptions" )
 
         startObservingManagedObjectContextObjectsDidChangeEvent()
-
+        
         return true
     }
 
@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         stopObservingManagegObjectContextObjectsDidChangeEvent()
         
         saveContext()
+
     }
 
     // MARK: UISceneSession Lifecycle
