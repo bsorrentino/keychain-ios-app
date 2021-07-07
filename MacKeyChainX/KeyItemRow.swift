@@ -46,11 +46,12 @@ fileprivate func passwordText( value:String ) -> some View {
     }
 }
 
+
 func SecretView( item:KeyItem, show:Bool ) -> some View {
     Group {
         if show {
             label("key.icloud.fill" ) {
-                passwordText( value: isInPreviewMode() ? "fake password" : item.password)
+                passwordText( value: isInPreviewMode ? "fake password" : item.password)
             }.transition( .asymmetric(insertion: .slide, removal: .opacity))
         }
         else {
@@ -69,7 +70,7 @@ struct KeyItemRow: View {
     @State private var isShowSecret = false
     
     var isShared:Bool {
-        if( isInPreviewMode() ) {
+        if( isInPreviewMode) {
             return false
         }
         // return getSharedPassword( withKey: item.mnemonic ) != nil

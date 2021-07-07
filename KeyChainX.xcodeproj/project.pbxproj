@@ -454,7 +454,6 @@
 			isa = PBXGroup;
 			children = (
 				5F334AC5267F78280061D8C7 /* MCSercretsService+Extension.swift */,
-				5FBDA9672679191200AEF186 /* MacKeyChainXRelease.entitlements */,
 				A0C1D2A42521F36400737766 /* AppDelegate.swift */,
 				A0C1D2E625225DE000737766 /* KeyItemRow.swift */,
 				A0BE3F8225225F14002A86A7 /* KeyItemList.swift */,
@@ -466,6 +465,7 @@
 				A0C1D2B32521F36500737766 /* Info.plist */,
 				A0C1D2B42521F36500737766 /* MacKeyChainX.entitlements */,
 				A0C1D2A82521F36400737766 /* MacKeyChainX.xcdatamodeld */,
+				5FBDA9672679191200AEF186 /* MacKeyChainXRelease.entitlements */,
 				A0C1D2AD2521F36500737766 /* Preview Content */,
 			);
 			path = MacKeyChainX;

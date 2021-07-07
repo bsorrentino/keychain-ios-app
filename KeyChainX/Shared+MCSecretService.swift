@@ -10,6 +10,28 @@ import Foundation
 import MultipeerConnectivity
 import SwiftUI
 
+extension MCSessionState : CustomStringConvertible {
+    
+    public var description: String {
+    
+        var stateDescription = ""
+        switch self {
+            case .connected:
+                stateDescription = "Connected"
+            case .notConnected:
+                stateDescription = "Not connected"
+            case .connecting:
+                stateDescription = "Connecting"
+            @unknown default:
+                stateDescription = "\(self)"
+        }
+        
+        return stateDescription
+    }
+
+}
+
+
 struct Peer : Identifiable, Equatable, CustomStringConvertible {
     let id = UUID()
     var peerID:MCPeerID
@@ -20,21 +42,12 @@ struct Peer : Identifiable, Equatable, CustomStringConvertible {
         return lhs.peerID == rhs.peerID
     }
     
-    public var description: String {
+    public var isConnected:Bool {
+        state == .connected
+    }
     
-        var stateDescription = ""
-        switch state {
-            case .connected:
-                stateDescription = "Connected"
-            case .notConnected:
-                stateDescription = "Not connected"
-            case .connecting:
-                stateDescription = "Connecting"
-            @unknown default:
-                stateDescription = "\(state)"
-        }
-        
-        return "\(peerID.displayName) - (\(stateDescription))"
+    public var description: String {
+        "\(peerID.displayName) - (\(state.description))"
     }
     
 }
@@ -68,10 +81,9 @@ class MCSecretsService : NSObject, ObservableObject {
     
     @Published var foundPeers = [Peer]()
     
-    var connectedPeer:Peer? {
-        foundPeers.first { peer in
-            peer.state == .connected
-        }
+    @inlinable
+    var connectedPeers:[Peer] {
+        foundPeers.filter { $0.state == .connected }
     }
         
     lazy var session : MCSession = {
@@ -80,6 +92,10 @@ class MCSecretsService : NSObject, ObservableObject {
         return session
     }()
 
+    @inlinable
+    func peerIndex( of peerID: MCPeerID ) -> Int? {
+        self.foundPeers.map( { $0.peerID }).firstIndex(of: peerID )
+    }
     
     override init() {
         #if os(macOS)
@@ -101,8 +117,9 @@ class MCSecretsService : NSObject, ObservableObject {
         #endif
 
         
-        if isInPreviewMode() {
-            foundPeers.append( Peer(peerID: MCPeerID(displayName: "Preview Peer ID")))
+        if isInPreviewMode {
+            //foundPeers.append( Peer(peerID: MCPeerID(displayName: "Preview Peer ID"), state: .connected) )
+            foundPeers.append( Peer(peerID: MCPeerID(displayName: "Preview Peer ID")) )
         }
     }
 

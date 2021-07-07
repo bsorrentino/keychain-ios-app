@@ -25,11 +25,12 @@ extension MCSecretsService : MCSessionDelegate {
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         logger.trace("peer \(peerID) didChangeState: \(state.rawValue)")
         
-        guard let index = self.foundPeers.firstIndex(of: Peer(peerID: peerID)) else { return }
+        if let index = self.peerIndex( of: peerID ) {
         
-        DispatchQueue.main.async {
-            self.foundPeers[index].state = state
-            self.objectWillChange.send()
+            DispatchQueue.main.async {
+                self.foundPeers[index].state = state
+                self.objectWillChange.send()
+            }
         }
         
     }
@@ -80,16 +81,22 @@ extension MCSecretsService : MCNearbyServiceAdvertiserDelegate {
         
 //        invitationHandler( true, self.session )
 
+        
+        
         if let keyWindow = keyWindow(),
            let topController = keyWindow.rootViewController
         {
-            let alert = UIAlertController(title: "Request from \(peerID.displayName)",
-                                          message: "Do you trust request from \(peerID.displayName) ?",
+            let peerIndex = self.peerIndex(of: peerID)
+
+            let alert = UIAlertController(title: "\((peerIndex != nil) ? "New " : "")Request from \(peerID.displayName)",
+                                          message: "Do you trust \((peerIndex != nil) ? "Again the " : "")request from \(peerID.displayName) ?",
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .default ) {_ in
                 
                 invitationHandler( true, self.session )
-                self.foundPeers.append( Peer(peerID: peerID))
+                if( peerIndex == nil ) {
+                    self.foundPeers.append( Peer(peerID: peerID))
+                }
 
             })
             alert.addAction(UIAlertAction(title: "No", style: .cancel ) {_ in
