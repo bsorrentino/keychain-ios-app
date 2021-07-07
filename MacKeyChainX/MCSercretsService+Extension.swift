@@ -25,7 +25,7 @@ extension MCSecretsService {
     
     func requestSecret( forMnemonic id: String, completionHandler handler: @escaping (Result<String?,MCSecretsServiceError>) -> Void  ) {
 
-        guard let peer = connectedPeer else {
+        guard let peer = connectedPeers.first else {
             handler( .failure(.NoPeerConnected) )
             return
         }

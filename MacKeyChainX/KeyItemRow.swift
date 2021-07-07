@@ -158,7 +158,7 @@ extension KeyItemRow {
     
     func notSharedView() -> some View  {
         Group {
-            if let _ = mcSecretsService.connectedPeer {
+            if !mcSecretsService.connectedPeers.isEmpty {
                 Button( action:{
                     
                     self.mcSecretsService.requestSecret(forMnemonic: item.mnemonic) { result in
