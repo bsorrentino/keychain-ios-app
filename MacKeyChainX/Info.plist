@@ -19,21 +19,21 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2020 Bartolomeo Sorrentino. All rights reserved.</string>
-	<key>NSMainStoryboardFile</key>
-	<string>Main</string>
-	<key>NSPrincipalClass</key>
-	<string>NSApplication</string>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>App needs to connect your IPhone to request to share passwords</string>
 	<key>NSBonjourServices</key>
 	<array>
 		<string>_my-secrets._tcp</string>
 		<string>_my-secrets._udp</string>
 	</array>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2020 Bartolomeo Sorrentino. All rights reserved.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>App needs to connect your IPhone to request to share passwords</string>
+	<key>NSMainStoryboardFile</key>
+	<string>Main</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
 </dict>
 </plist>
