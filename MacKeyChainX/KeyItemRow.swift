@@ -46,6 +46,13 @@ fileprivate func passwordText( value:String ) -> some View {
     }
 }
 
+fileprivate func usernameText( value:String ) -> some View {
+    HStack {
+        Text(value)
+        CopyToClipboardButton(value: value)
+    }
+}
+
 
 func SecretView( item:KeyItem, show:Bool ) -> some View {
     Group {
@@ -105,7 +112,7 @@ struct KeyItemRow: View {
                     
                     if( mail == item.username ) {
                         doubleLabel( "person.circle.fill", "envelope.fill") {
-                            Text(item.username)
+                            usernameText( value:item.username)
                         }
                         SecretView( item:item, show:isShowSecret)
                     }
@@ -116,7 +123,7 @@ struct KeyItemRow: View {
                     }
                 }
                 else {
-                    label("person.circle.fill") { Text(item.username) }
+                    label("person.circle.fill") { usernameText( value:item.username) }
                 }
                 if let url = item.url, !url.isEmpty {
                 
