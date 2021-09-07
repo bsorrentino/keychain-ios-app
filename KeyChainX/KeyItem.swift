@@ -49,7 +49,7 @@ class KeyItem : ObservableObject, Decodable {
     // MARK: Field Validation
     @Published var mnemonicCheck = FieldChecker2<String>()
     @Published var usernameCheck = FieldChecker2<String>()
-    @Published var passwordCheck = FieldChecker()
+    @Published var passwordCheck = FieldChecker2<String>()
 
     var isNew:Bool { return entity == nil  }
 
