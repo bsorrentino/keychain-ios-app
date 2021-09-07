@@ -41,14 +41,14 @@ class KeyItem : ObservableObject, Decodable {
         
     @Published var username_mail_setter: String = "" {
         didSet {
-            username = username_mail_setter
+            username = usernameCheck.doValidate(value: username_mail_setter)
             mail = username_mail_setter
         }
     }
 
     // MARK: Field Validation
-    @Published var mnemonicCheck = FieldChecker()
-    @Published var usernameCheck = FieldChecker()
+    @Published var mnemonicCheck = FieldChecker2<String>()
+    @Published var usernameCheck = FieldChecker2<String>()
     @Published var passwordCheck = FieldChecker()
 
     var isNew:Bool { return entity == nil  }

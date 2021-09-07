@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
         "state": {
           "branch": null,
-          "revision": "4e31051c63cc0ddf10a25cf5318856c510cf77f4",
-          "version": "1.4.0"
+          "revision": "8d4f6384e0a8cc41f2005247241dd553963a492a",
+          "version": "1.4.1"
         }
       },
       {
@@ -15,17 +15,17 @@
         "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess.git",
         "state": {
           "branch": null,
-          "revision": "b920ad7df3c73189dcdd4aa05c540849b2010dbf",
-          "version": "4.1.0"
+          "revision": "84e546727d66f1adc5439debad16270d0fdd04e7",
+          "version": "4.2.2"
         }
       },
       {
         "package": "FieldValidatorLibrary",
         "repositoryURL": "https://github.com/bsorrentino/swiftui-fieldvalidator.git",
         "state": {
-          "branch": null,
-          "revision": "7d5123ff4770b98e3513de8f3fc49f2196aabf48",
-          "version": "1.4.0"
+          "branch": "develop",
+          "revision": "12e8999c039d70a08093ff8c99e31c73124a72b0",
+          "version": null
         }
       }
     ]

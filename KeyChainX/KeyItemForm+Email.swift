@@ -49,8 +49,6 @@ struct EmailField : View {
 
 struct EmailList: View {
 
-    typealias MailFieldWithValidator = TextFieldWithValidator
-    
     @Environment(\.presentationMode) var presentationMode
 
     @Binding var value:String
@@ -60,7 +58,7 @@ struct EmailList: View {
     @FetchRequest( fetchRequest:MailEntity.fetchRequest())
     var mails:FetchedResults<MailEntity>
     
-    @State var mailValid = FieldChecker()
+    @StateObject var mailValid = FieldChecker2<String>()
     @State var newMail:String = ""
 
     var validateChecks = 0
@@ -73,8 +71,8 @@ struct EmailList: View {
                 Section(header: Text("New Mail")) {
                     
                     HStack {
-                        MailFieldWithValidator( title: "insert email", value: $newMail, checker:$mailValid ) { v in
-                            
+                        TextField( "insert email", text: $newMail.onValidate(checker: mailValid ) { v in
+                        
                                 if( v.isEmpty ) {
                                    return "mail cannot be empty !"
                                 }
@@ -83,17 +81,14 @@ struct EmailList: View {
                                 }
                                
                                return nil
-                        }
+                        })
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
                         .font(.body)
-                        .padding( mailValid.padding )
-                        .overlay(
-                            ValidatorMessageInline( message:mailValid.errorMessageOrNilAtBeginning ), alignment: .bottom
-                        )
-
+                        .padding( .bottom, 25  )
+                        .modifier( ValidatorMessageModifier( message: mailValid.errorMessageOrNilAtBeginning ) )
                         addButton()
                     }
                     

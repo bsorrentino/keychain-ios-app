@@ -21,6 +21,7 @@ struct KeyEntityForm : View {
     @State private  var alertItem:AlertItem?
 
     @ObservedObject var item:KeyItem
+
     var parentId:Binding<Int>?
     
     private let bg = Color(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, opacity: 0.2)
@@ -187,48 +188,36 @@ extension KeyEntityForm {
     
     func mnemonicInput() -> some View  {
         
-        VStack(alignment: .leading) {
-            TextFieldWithValidator( title: "give me the unique name of key",
-                                    value: $item.mnemonic,
-                                    checker:$item.mnemonicCheck ) { v in
-                
-                if( v.isEmpty ) {
-                    
-                    return "mnemonic cannot be empty"
-                }
-                
-                return nil
+        TextField( "give me the unique name of key",
+                   text: $item.mnemonic.onValidate( checker: item.mnemonicCheck ) { v  in
+
+            if( v.isEmpty ) {
+                return "mnemonic cannot be empty"
             }
-            .autocapitalization(.allCharacters)
-            .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
-            .overlay( ValidatorMessageInline( message: item.mnemonicCheck.errorMessage )
-                ,alignment: .bottom)
-
-        }
+            return nil
+        })
+        .autocapitalization(.allCharacters)
+        .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
+        .modifier(ValidatorMessageModifier( message: item.mnemonicCheck.errorMessage ))
             
-
     }
     
     func usernameInput() -> some View {
         
         HStack{
             ZStack {
-                
-                TextFieldWithValidator( title:"give me the username ?",
-                                        value: $item.username,
-                                        checker:$item.usernameCheck ) { v in
+                TextField( "give me the username ?",
+                           text: $item.username.onValidate( checker: item.usernameCheck ) { v in
                     
                     if( v.isEmpty ) {
                         return "username cannot be empty"
                     }
-                    
                     //logger.trace( "validate username \(v) - \(self.pickUsernameFromMail)")
-                    
                     if( self.pickUsernameFromMail ) {
                         self.item.mail = v
                     }
                     return nil
-                }
+                })
                 .autocapitalization(.none)
                 NavigationLink( destination: EmailList( value: $item.username_mail_setter), isActive:$pickUsernameFromMail  ) {
                        EmptyView()
@@ -245,12 +234,9 @@ extension KeyEntityForm {
                     .foregroundColor( colorScheme == .dark ? Color.white : Color.black )
             }
 
-
         }
         .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
-        .overlay(
-            ValidatorMessageInline( message:item.usernameCheck.errorMessage ), alignment: .bottom
-        )
+        .modifier(ValidatorMessageModifier( message:item.usernameCheck.errorMessage ))
 
     }
 

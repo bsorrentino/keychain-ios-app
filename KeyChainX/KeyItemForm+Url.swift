@@ -64,7 +64,7 @@ struct UrlView: View {
         }
     }
     
-    @State var urlValid = FieldChecker()
+    @StateObject var urlValid = FieldChecker2<String>()
     @State var urlReload = false
     
     
@@ -72,10 +72,8 @@ struct UrlView: View {
 
         VStack( spacing: 2.0 ) {
             
-            TextFieldWithValidator( title: "insert url",
-                                    value: $value,
-                                    checker:$urlValid,
-                                    onCommit: openUrl ) { v in
+            TextField( "insert url",
+                       text: $value.onValidate(checker: urlValid) { v in
                    
                     if( v.isEmpty ) {
                        return "url cannot be empty !"
@@ -86,7 +84,7 @@ struct UrlView: View {
                     }
                     
                     return nil
-            }
+            }, onCommit: openUrl )
             //.textFieldStyle(RoundedBorderTextFieldStyle())
             .autocapitalization(.none)
             .disableAutocorrection(true)

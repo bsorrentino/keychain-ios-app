@@ -26,10 +26,10 @@ struct LoginView: View {
     
     
     @State var password:String = ""
-    @State var passwordChecker   = FieldChecker()
+    @StateObject var passwordChecker   = FieldChecker2<String>()
 
     @State var confirmPassword:String = ""
-    @State var confirmPasswordChecker   = FieldChecker()
+    @StateObject var confirmPasswordChecker   = FieldChecker2<String>()
 
     //@State private var showingAlert = false
     //@State private var authenticationError:String = ""
@@ -43,7 +43,7 @@ struct LoginView: View {
         mcSecretsService.start()
     }
     
-    private func checkError(  checker:@escaping () -> FieldChecker ) -> some View {
+    private func checkError(  checker:@escaping () -> FieldChecker2<String> ) -> some View {
         
         let c = checker()
         
@@ -141,11 +141,8 @@ struct LoginView: View {
     func passwordInput() -> some View {
         
         VStack(alignment: .leading) {
-            SecureFieldWithValidator(
-                title:"give me password",
-                value:$password,
-                checker:$passwordChecker,
-                onCommit: submitPassword) { v in
+            SecureField( "give me password",
+                         text:$password.onValidate(checker: passwordChecker ) { v in
                     
                     if( v.isEmpty ) {
                         return "password cannot be empty! ☹️"
@@ -166,7 +163,7 @@ struct LoginView: View {
                     }
                                         
                     return nil
-            }
+            },onCommit: submitPassword)
             .autocapitalization(.none)
             .multilineTextAlignment(.center)
             .padding( 10.0 )
@@ -191,15 +188,14 @@ extension LoginView {
         func passwordChooseInput() -> some View {
             
             VStack(alignment: .leading) {
-                SecureFieldWithValidator( title:"write password",
-                                          value:$password,
-                                          checker:$passwordChecker ) { v in
+                SecureField( "write password",
+                             text: $password.onValidate(checker: passwordChecker ) { v in
                         if( v.isEmpty ) {
                             return "password cannot be empty! ☹️"
                         }
                                                                 
                         return nil
-                }
+                })
                 .autocapitalization(.none)
                 .multilineTextAlignment(.center)
                 .padding( 20.0 )
@@ -214,9 +210,8 @@ extension LoginView {
         func passwordConfirmInput() -> some View {
             
             VStack(alignment: .leading) {
-                SecureFieldWithValidator( title: "confirm password",
-                                          value:$confirmPassword,
-                                          checker:$confirmPasswordChecker ) { v in
+                SecureField( "confirm password",
+                             text: $confirmPassword.onValidate(checker: confirmPasswordChecker ) { v in
                         if( v.isEmpty ) {
                             return "password cannot be empty! ☹️"
                         }
@@ -224,7 +219,7 @@ extension LoginView {
                             return "password doesn't match! 🤔"
                         }
                         return nil
-                }
+                })
                 .autocapitalization(.none)
                 .multilineTextAlignment(.center)
                 .padding( 30.0 )
