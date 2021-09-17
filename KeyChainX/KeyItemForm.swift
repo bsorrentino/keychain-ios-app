@@ -206,7 +206,7 @@ extension KeyEntityForm {
         
         HStack{
             ZStack {
-                TextField( "give me the username ?",
+                TextField( "give me the username",
                            text: $item.username.onValidate( checker: item.usernameCheck ) { v in
                     
                     if( v.isEmpty ) {
@@ -233,6 +233,7 @@ extension KeyEntityForm {
                     .resizable().frame(width: 20, height: 20, alignment: .center)
                     .foregroundColor( colorScheme == .dark ? Color.white : Color.black )
             }
+            CopyToClipboardButton( value:item.username )
 
         }
         .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
