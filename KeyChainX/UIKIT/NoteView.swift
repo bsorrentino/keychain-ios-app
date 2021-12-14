@@ -126,7 +126,7 @@ struct NoteTextView: UIViewRepresentable {
         let view = UINoteTextView()
         
         view.font = UIFont.systemFont( ofSize: 20 )
-        
+        view.textColor = UIColor.black
         view.delegate = context.coordinator
         
         return view
@@ -151,7 +151,11 @@ struct NoteTextView_Previews : PreviewProvider {
         NoteTextView( text: .constant("TEST") )
             .navigationBarTitle( Text("Note"), displayMode: .inline  )
             .navigationBarItems(trailing: Button("done") {
-            })
+            }).environment(\.colorScheme, .light)
+        NoteTextView( text: .constant("TEST") )
+            .navigationBarTitle( Text("Note"), displayMode: .inline  )
+            .navigationBarItems(trailing: Button("done") {
+            }).environment(\.colorScheme, .dark)
     }
 }
 #endif

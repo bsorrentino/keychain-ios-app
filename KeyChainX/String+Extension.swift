@@ -28,7 +28,8 @@ extension String {
                 }
             }
         } catch let error {
-            logger.warning("invalid regex: \(error.localizedDescription)")
+            // logger.warning("invalid regex: \(error.localizedDescription)")
+            print("invalid regex: \(error.localizedDescription)")
             return []
         }
     }
