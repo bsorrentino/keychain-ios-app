@@ -106,6 +106,7 @@
 		A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */; };
 		A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE95742377385800002E6F /* KeyItemForm.swift */; };
 		A0F3C39A23CA34F8004B3DC1 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3C39923CA34F8004B3DC1 /* NoteView.swift */; };
+		A0F43C97279F1F1B00D82677 /* KeyItemList+IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F43C96279F1F1B00D82677 /* KeyItemList+IOS15.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +233,7 @@
 		A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Helpers.swift"; sourceTree = "<group>"; };
 		A0EE95742377385800002E6F /* KeyItemForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
 		A0F3C39923CA34F8004B3DC1 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		A0F43C96279F1F1B00D82677 /* KeyItemList+IOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemList+IOS15.swift"; sourceTree = "<group>"; };
 		C31B2C432B3C9BA54E403FC3 /* Pods_KeyChainXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyChainXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6349C10B88AA1FB1F3098F9 /* Pods-KeyChainX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainX.release.xcconfig"; path = "Target Support Files/Pods-KeyChainX/Pods-KeyChainX.release.xcconfig"; sourceTree = "<group>"; };
 		F178F759DBE68FDCF076EB74 /* Pods-KeyChainX-KeyChainXUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyChainX-KeyChainXUITests.release.xcconfig"; path = "Target Support Files/Pods-KeyChainX-KeyChainXUITests/Pods-KeyChainX-KeyChainXUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				5F01277423B776CC0033E2B9 /* BackupKeysView.swift */,
 				5F01277623B776EE0033E2B9 /* RestoreKeysView.swift */,
 				A0C0DB5D22A901AD003B09ED /* KeyItemList.swift */,
+				A0F43C96279F1F1B00D82677 /* KeyItemList+IOS15.swift */,
 				A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */,
 				A0EE95742377385800002E6F /* KeyItemForm.swift */,
 				A071C20223648EAB00891175 /* KeyItemForm+Email.swift */,
@@ -867,6 +870,7 @@
 				5F01277523B776CC0033E2B9 /* BackupKeysView.swift in Sources */,
 				5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */,
 				A00927082675FFE8000B9097 /* Shared+View.swift in Sources */,
+				A0F43C97279F1F1B00D82677 /* KeyItemList+IOS15.swift in Sources */,
 				A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */,
 				5F01277923B7C05D0033E2B9 /* FileManagerView.swift in Sources */,
 				5F9ABB3E237983A800AC052A /* Shared+Keychain.swift in Sources */,

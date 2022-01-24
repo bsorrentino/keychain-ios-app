@@ -18,7 +18,8 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: self.$selection) {
             
-            KeyItemListContentView()
+            //KeyItemListContentView()
+            KeyItemList2()
                 .tabItem {
                     VStack {
                         Image(systemName: "list.dash")
