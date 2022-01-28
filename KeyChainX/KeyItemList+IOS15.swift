@@ -10,31 +10,42 @@ import SwiftUI
 import CoreData
 
 // @ref https://www.hackingwithswift.com/books/ios-swiftui/dynamically-filtering-fetchrequest-with-swiftui
-struct FilteredList<T: NSManagedObject, Content: View>: View {
+struct DynamicFetchedView<T: NSManagedObject, Content: View>: View {
     @FetchRequest var fetchRequest: FetchedResults<T>
 
     // this is our content closure; we'll call this once for each item in the list
-    let content: (T) -> Content
+    let content: (FetchedResults<T>) -> Content
 
+    
     var body: some View {
-        List(fetchRequest, id: \.self) { singer in
-            self.content(singer)
-        }
+//        List(fetchRequest, id: \.self) { singer in
+//            self.content(singer)
+//        }
+        self.content(fetchRequest)
     }
     
-    init( withPredicate predicate: NSPredicate, andSortDescriptor sortDescriptors: [NSSortDescriptor] = [],  @ViewBuilder content: @escaping (T) -> Content) {
+    init( withPredicate predicate: NSPredicate, andSortDescriptor sortDescriptors: [NSSortDescriptor] = [],  @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
         
         _fetchRequest = FetchRequest<T>(sortDescriptors: sortDescriptors, predicate: predicate)
         self.content = content
     }
+    
+    init( withFetchRequest request:NSFetchRequest<T>,  @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
+        
+        _fetchRequest = FetchRequest<T>(fetchRequest: request)
+        self.content = content
+    }
+
 }
 
 // Initilaizer for KeyEntity
-extension FilteredList where T : KeyEntity {
-
-    init( searchText: String, @ViewBuilder content: @escaping (T) -> Content) {
-        let sortOrder = NSSortDescriptor(keyPath: \KeyEntity.mnemonic, ascending: true)
-
+extension DynamicFetchedView where T : KeyEntity {
+    
+    init( searchText: String, @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
+        let request = NSFetchRequest<T>(entityName: "KeyInfo")
+        
+        request.sortDescriptors = [ NSSortDescriptor(keyPath: \KeyEntity.mnemonic, ascending: true) ]
+        
         let final_predicate:NSPredicate
         
         let not_grouped_predicate = NSCompoundPredicate( notPredicateWithSubpredicate: NSPredicate( format: "group != nil AND group == YES"))
@@ -51,7 +62,11 @@ extension FilteredList where T : KeyEntity {
             final_predicate = not_grouped_predicate
         }
         
-        self.init( withPredicate: final_predicate, andSortDescriptor: [sortOrder],  content: content)
+        request.predicate = final_predicate
+//        request.propertiesToGroupBy = ["mnemonic"]
+//        request.resultType = .dictionaryResultType
+        
+        self.init( withFetchRequest: request, content: content)
     }
 
 }
@@ -68,24 +83,32 @@ struct KeyItemList2: View {
     
     @StateObject private var newItem = KeyItem()
     
+
     var body: some View {
         
         NavigationView {
 
-            FilteredList( searchText: searchText ) { key in
+            DynamicFetchedView( searchText: searchText ) { results in
                 
-                NavigationLink {
-                    KeyEntityForm( item: KeyItem( entity: key), parentId: $keyItemListId )
-                 } label: {
-                     HStack(alignment: .center) {
-                         Image( systemName: "lock.circle")
-                             .padding()
-                         VStack {
-                             Text("\(key.mnemonic)").font( .title)
-                             Text("\(key.username)").font( .title3 )
-                         }
-                     }
-                 }
+                let groupByFirstCharacter = Dictionary( grouping: results, by: { $0.mnemonic.first! })
+
+
+                List {
+                    ForEach( groupByFirstCharacter.keys.sorted(), id: \.self ) { section in
+                        Section( header: Text( String(section) ) ) {
+                            
+                            ForEach( groupByFirstCharacter[section]!, id: \.self ) { key in
+                                let item = KeyItem( entity: key)
+                
+                                NavigationLink {
+                                    KeyEntityForm( item: item, parentId: $keyItemListId )
+                                } label: {
+                                    CellView(item)
+                                }
+                            }
+                        }
+                    }
+                }
 
             }
             .id( keyItemListId ) //
@@ -107,6 +130,22 @@ struct KeyItemList2: View {
     }
 }
 
+extension KeyItemList2 {
+    
+    func CellView( _ item: KeyItem ) -> some View {
+        
+        HStack(alignment: .center) {
+            Image( systemName: "lock.circle")
+                .padding()
+            VStack(alignment: .leading) {
+                Text("\(item.mnemonic)").font( .title3)
+                Text("\(item.username)").font( .subheadline )
+            }
+        }
+
+    }
+
+}
 struct SwiftUIView2_Previews: PreviewProvider {
     static var previews: some View {
         KeyItemList2()
