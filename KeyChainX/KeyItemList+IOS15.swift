@@ -9,67 +9,7 @@
 import SwiftUI
 import CoreData
 
-// @ref https://www.hackingwithswift.com/books/ios-swiftui/dynamically-filtering-fetchrequest-with-swiftui
-struct DynamicFetchedView<T: NSManagedObject, Content: View>: View {
-    @FetchRequest var fetchRequest: FetchedResults<T>
 
-    // this is our content closure; we'll call this once for each item in the list
-    let content: (FetchedResults<T>) -> Content
-
-    
-    var body: some View {
-//        List(fetchRequest, id: \.self) { singer in
-//            self.content(singer)
-//        }
-        self.content(fetchRequest)
-    }
-    
-    init( withPredicate predicate: NSPredicate, andSortDescriptor sortDescriptors: [NSSortDescriptor] = [],  @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
-        
-        _fetchRequest = FetchRequest<T>(sortDescriptors: sortDescriptors, predicate: predicate)
-        self.content = content
-    }
-    
-    init( withFetchRequest request:NSFetchRequest<T>,  @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
-        
-        _fetchRequest = FetchRequest<T>(fetchRequest: request)
-        self.content = content
-    }
-
-}
-
-// Initilaizer for KeyEntity
-extension DynamicFetchedView where T : KeyEntity {
-    
-    init( searchText: String, @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
-        let request = NSFetchRequest<T>(entityName: "KeyInfo")
-        
-        request.sortDescriptors = [ NSSortDescriptor(keyPath: \KeyEntity.mnemonic, ascending: true) ]
-        
-        let final_predicate:NSPredicate
-        
-        let not_grouped_predicate = NSCompoundPredicate( notPredicateWithSubpredicate: NSPredicate( format: "group != nil AND group == YES"))
-        
-        if !searchText.isEmpty  {
-            let group = NSCompoundPredicate( type: .and, subpredicates: [ NSPredicate( format: "groupPrefix != nil "), not_grouped_predicate ])
-
-            let search_criteria = "mnemonic CONTAINS[c] %@ OR groupPrefix CONTAINS[c] %@"
-            let search_predicate = NSPredicate(format: search_criteria, searchText, searchText)
-            
-            final_predicate  = NSCompoundPredicate( type: .and, subpredicates: [ NSCompoundPredicate( notPredicateWithSubpredicate: group), search_predicate] )
-        }
-        else {
-            final_predicate = not_grouped_predicate
-        }
-        
-        request.predicate = final_predicate
-//        request.propertiesToGroupBy = ["mnemonic"]
-//        request.resultType = .dictionaryResultType
-        
-        self.init( withFetchRequest: request, content: content)
-    }
-
-}
 
 struct KeyItemList2: View {
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -83,12 +23,26 @@ struct KeyItemList2: View {
     
     @StateObject private var newItem = KeyItem()
     
+    private func GroupViewLink( groupIitem item : KeyItem)  -> some View {
+        NavigationLink {
+            GroupKeyItemList_IOS15( groupItem: item )
+        } label: {
+            GroupView(groupItem: item)
+        }
+    }
+    private func CellViewLink( item: KeyItem)  -> some View {
+        NavigationLink {
+            KeyEntityForm( item: item, parentId: $keyItemListId )
+        } label: {
+            CellView(item: item)
+        }
+    }
 
     var body: some View {
         
         NavigationView {
 
-            DynamicFetchedView( searchText: searchText ) { results in
+            DynamicFetchRequestView( withSearchText: searchText ) { results in
                 
                 let groupByFirstCharacter = Dictionary( grouping: results, by: { $0.mnemonic.first! })
 
@@ -99,11 +53,12 @@ struct KeyItemList2: View {
                             
                             ForEach( groupByFirstCharacter[section]!, id: \.self ) { key in
                                 let item = KeyItem( entity: key)
-                
-                                NavigationLink {
-                                    KeyEntityForm( item: item, parentId: $keyItemListId )
-                                } label: {
-                                    CellView(item)
+                                
+                                if item.isGroup {
+                                    GroupViewLink( groupIitem: item )
+                                }
+                                else {
+                                    CellViewLink( item: item )
                                 }
                             }
                         }
@@ -132,21 +87,47 @@ struct KeyItemList2: View {
 
 extension KeyItemList2 {
     
-    func CellView( _ item: KeyItem ) -> some View {
+    struct GroupView : View {
         
-        HStack(alignment: .center) {
-            Image( systemName: "lock.circle")
-                .padding()
-            VStack(alignment: .leading) {
-                Text("\(item.mnemonic)").font( .title3)
-                Text("\(item.username)").font( .subheadline )
+        internal var groupItem: KeyItem
+        
+        var body: some View {
+            
+            HStack(alignment: .center) {
+                Image( systemName: "folder.circle.fill")
+                    .resizable()
+                    .frame( width: 32, height: 32, alignment: .leading)
+                    .padding()
+                VStack(alignment: .leading) {
+                    Text(groupItem.mnemonic).font( .title3)
+                    Text(groupItem.groupPrefix ?? "Unknown").font( .subheadline )
+                }
             }
+    
         }
-
     }
 
+    struct CellView : View {
+        
+        internal var item: KeyItem
+        
+        var body: some View {
+            
+            HStack(alignment: .center) {
+                let subtitle = item.isGrouped ? item.groupPrefix ?? "" : item.username
+                Image( systemName: "lock.circle.fill")
+                    .resizable()
+                    .frame( width: 32, height: 32, alignment: .leading)
+                    .padding()
+                VStack(alignment: .leading) {
+                    Text(item.mnemonic).font( .title3)
+                    Text(subtitle).font( .subheadline )
+                }
+            }
+        }
+    }
 }
-struct SwiftUIView2_Previews: PreviewProvider {
+struct KeyItemList2_Previews: PreviewProvider {
     static var previews: some View {
         KeyItemList2()
             .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext)

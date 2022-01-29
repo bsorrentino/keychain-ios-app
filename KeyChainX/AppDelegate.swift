@@ -114,6 +114,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                     container.viewContext.insert( record )
                 }
+                
+                
+                Dictionary( grouping: [ "AG0-A0",
+                                        "AG0-B0",
+                                        "AG0-C0",
+                                        "AG0-B1",
+                                        "AG0-B2",
+                                      ], by: { String($0[..<$0.index( $0.startIndex, offsetBy: 3 )]) })
+                    .forEach { keyValue in
+                        let record = KeyEntity(context: container.viewContext)
+                        record.mnemonic = keyValue.key
+                        record.groupPrefix = keyValue.key
+                        record.group = false
+                        container.viewContext.insert( record )
+                        
+                        keyValue.value.forEach { value in
+                            let record = KeyEntity(context: container.viewContext)
+                            record.username = value
+                            record.mnemonic = value
+                            record.group = true
+                            record.groupPrefix = keyValue.key
+                            
+                            container.viewContext.insert( record )
+                        }
+                        
+                    }
+                    
+
+                
             }
             
         }

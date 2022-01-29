@@ -37,3 +37,5 @@ struct DynamicFetchRequestView<T: NSManagedObject, Content: View>: View {
     }
 
 }
+
+
