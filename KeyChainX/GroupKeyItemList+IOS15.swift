@@ -27,7 +27,7 @@ struct GroupKeyItemList_IOS15: View {
                 
                 List( results, id: \.mnemonic ) { key in
                 
-                    KeyItemList2.CellViewLink( entity: key, parentId: $keyItemListId )
+                    KeyItemList_IOS15.CellViewLink( entity: key, parentId: $keyItemListId )
                 }
                 // .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
 

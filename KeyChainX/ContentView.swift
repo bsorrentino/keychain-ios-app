@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: self.$selection) {
             
-            KeyItemList2()
+            KeyItemList_IOS15()
                 .tabItem {
                     VStack {
                         Image(systemName: "list.dash")

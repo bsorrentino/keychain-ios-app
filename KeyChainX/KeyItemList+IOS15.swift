@@ -11,7 +11,7 @@ import CoreData
 
 
 
-struct KeyItemList2: View {
+struct KeyItemList_IOS15: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
     // Id of KeyItemList view. when change the view is forced to be updated
@@ -69,7 +69,7 @@ struct KeyItemList2: View {
 }
 
 // MARK: Extension for Cell
-extension KeyItemList2 {
+extension KeyItemList_IOS15 {
     
     private struct CellView : View {
         
@@ -103,7 +103,7 @@ extension KeyItemList2 {
             NavigationLink {
                 KeyEntityForm( item: item, parentId: parentId )
             } label: {
-                KeyItemList2.CellView(entity: entity)
+                KeyItemList_IOS15.CellView(entity: entity)
             }
             .alert(isPresented:$showingAlert) {
                         Alert(
@@ -150,7 +150,7 @@ extension KeyItemList2 {
 }
 
 // MARK: Extension for Group Cell
-extension KeyItemList2 {
+extension KeyItemList_IOS15 {
     
     
     private struct GroupView : View {
@@ -181,7 +181,7 @@ extension KeyItemList2 {
             NavigationLink {
                 GroupKeyItemList_IOS15( groupEntity: groupEntity )
             } label: {
-                KeyItemList2.GroupView( groupEntity: groupEntity )
+                KeyItemList_IOS15.GroupView( groupEntity: groupEntity )
             }
         }
     }
@@ -193,7 +193,7 @@ extension KeyItemList2 {
 
 struct KeyItemList2_Previews: PreviewProvider {
     static var previews: some View {
-        KeyItemList2()
+        KeyItemList_IOS15()
             .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext)
     }
 }
