@@ -17,28 +17,23 @@ struct GroupKeyItemList_IOS15: View {
     // @see https://swiftui-lab.com/swiftui-id/
     @State private var keyItemListId:Int = 0
     
-    internal var groupItem: KeyItem
+    internal var groupEntity: KeyEntity
     
     var body: some View {
         
         NavigationView {
 
-            DynamicFetchRequestView( withGroupPrefix: groupItem.groupPrefix! ) { results in
+            DynamicFetchRequestView( withGroupPrefix: groupEntity.groupPrefix! ) { results in
                 
                 List( results, id: \.mnemonic ) { key in
-                    let item = KeyItem( entity: key)
                 
-                    NavigationLink {
-                        KeyEntityForm( item: item, parentId: $keyItemListId )
-                    } label: {
-                        KeyItemList2.CellView(item: item)
-                    }
+                    KeyItemList2.CellViewLink( entity: key, parentId: $keyItemListId )
                 }
                 // .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
 
             }
             .id( keyItemListId ) //
-            .navigationBarTitle( Text("Group \(groupItem.groupPrefix!)"), displayMode: .inline )
+            .navigationBarTitle( Text("Group \(groupEntity.groupPrefix!)"), displayMode: .inline )
 
         }
     }
@@ -46,8 +41,8 @@ struct GroupKeyItemList_IOS15: View {
 
 struct GroupKeyItemList_IOS15_Previews: PreviewProvider {
     
-    static func prepareItem() -> KeyItem {
-        let groupItem = KeyItem()
+    static func prepareItem() -> KeyEntity {
+        let groupItem = KeyEntity()
         groupItem.groupPrefix = "AG0"
         return groupItem
 
@@ -55,7 +50,7 @@ struct GroupKeyItemList_IOS15_Previews: PreviewProvider {
     
     static var previews: some View {
     
-        GroupKeyItemList_IOS15( groupItem: prepareItem() )
+        GroupKeyItemList_IOS15( groupEntity: prepareItem() )
             .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext)
 
     }

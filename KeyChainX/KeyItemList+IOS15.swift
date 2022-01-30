@@ -22,21 +22,6 @@ struct KeyItemList2: View {
     @State private var formActive = false
     
     @StateObject private var newItem = KeyItem()
-    
-    private func GroupViewLink( groupIitem item : KeyItem)  -> some View {
-        NavigationLink {
-            GroupKeyItemList_IOS15( groupItem: item )
-        } label: {
-            GroupView(groupItem: item)
-        }
-    }
-    private func CellViewLink( item: KeyItem)  -> some View {
-        NavigationLink {
-            KeyEntityForm( item: item, parentId: $keyItemListId )
-        } label: {
-            CellView(item: item)
-        }
-    }
 
     var body: some View {
         
@@ -46,19 +31,17 @@ struct KeyItemList2: View {
                 
                 let groupByFirstCharacter = Dictionary( grouping: results, by: { $0.mnemonic.first! })
 
-
                 List {
                     ForEach( groupByFirstCharacter.keys.sorted(), id: \.self ) { section in
                         Section( header: Text( String(section) ) ) {
                             
                             ForEach( groupByFirstCharacter[section]!, id: \.self ) { key in
-                                let item = KeyItem( entity: key)
                                 
-                                if item.isGroup {
-                                    GroupViewLink( groupIitem: item )
+                                if key.isGroup() {
+                                    GroupViewLink( groupEntity: key )
                                 }
                                 else {
-                                    CellViewLink( item: item )
+                                    CellViewLink( entity: key, parentId: $keyItemListId )
                                 }
                             }
                         }
@@ -85,11 +68,94 @@ struct KeyItemList2: View {
     }
 }
 
+// MARK: Extension for Cell
 extension KeyItemList2 {
     
-    struct GroupView : View {
+    private struct CellView : View {
         
-        internal var groupItem: KeyItem
+        internal var entity: KeyEntity
+        
+        var body: some View {
+            
+            HStack(alignment: .center) {
+                let subtitle = entity.isGrouped() ? entity.groupPrefix ?? "" : entity.username
+                Image( systemName: "lock.circle.fill")
+                    .resizable()
+                    .frame( width: 32, height: 32, alignment: .leading)
+                    .padding()
+                VStack(alignment: .leading) {
+                    Text(entity.mnemonic).font( .title3)
+                    Text(subtitle).font( .subheadline )
+                }
+            }
+        }
+    }
+    
+    struct CellViewLink : View {
+        @Environment(\.managedObjectContext) var managedObjectContext
+        @State private var showingAlert = false
+        var entity: KeyEntity
+        var parentId:Binding<Int>
+        
+        var body: some View {
+            let item = KeyItem( entity: entity )
+            
+            NavigationLink {
+                KeyEntityForm( item: item, parentId: parentId )
+            } label: {
+                KeyItemList2.CellView(entity: entity)
+            }
+            .alert(isPresented:$showingAlert) {
+                        Alert(
+                            title: Text("Are you sure you want to delete this?"),
+                            message: Text("There is no undo"),
+                            primaryButton: .destructive(Text("Delete")) {
+                                let _ = delete( entity )
+                                parentId.wrappedValue += 1 // force view refresh
+                            },
+                            secondaryButton: .cancel()
+                        )
+            }
+            .swipeActions(edge: .trailing, allowsFullSwipe: false ) {
+                    Button {
+                        showingAlert.toggle()
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                    .tint( .red)
+            }
+       }
+        
+        func delete( _ entity: KeyEntity ) -> Bool {
+
+            do {
+                managedObjectContext.delete(entity)
+
+                if( !isInPreviewMode ) {
+                    try managedObjectContext.save()
+                }
+
+            }
+            catch {
+                logger.warning( "error deleting key \(error.localizedDescription)" )
+                return false
+            }
+
+            return true
+        }
+
+ 
+    }
+
+}
+
+// MARK: Extension for Group Cell
+extension KeyItemList2 {
+    
+    
+    private struct GroupView : View {
+        
+        internal var groupEntity: KeyEntity
         
         var body: some View {
             
@@ -99,34 +165,32 @@ extension KeyItemList2 {
                     .frame( width: 32, height: 32, alignment: .leading)
                     .padding()
                 VStack(alignment: .leading) {
-                    Text(groupItem.mnemonic).font( .title3)
-                    Text(groupItem.groupPrefix ?? "Unknown").font( .subheadline )
+                    Text(groupEntity.mnemonic).font( .title3)
+                    Text(groupEntity.groupPrefix ?? "Unknown").font( .subheadline )
                 }
             }
     
         }
     }
 
-    struct CellView : View {
-        
-        internal var item: KeyItem
+    private struct GroupViewLink : View {
+        var groupEntity : KeyEntity
         
         var body: some View {
             
-            HStack(alignment: .center) {
-                let subtitle = item.isGrouped ? item.groupPrefix ?? "" : item.username
-                Image( systemName: "lock.circle.fill")
-                    .resizable()
-                    .frame( width: 32, height: 32, alignment: .leading)
-                    .padding()
-                VStack(alignment: .leading) {
-                    Text(item.mnemonic).font( .title3)
-                    Text(subtitle).font( .subheadline )
-                }
+            NavigationLink {
+                GroupKeyItemList_IOS15( groupEntity: groupEntity )
+            } label: {
+                KeyItemList2.GroupView( groupEntity: groupEntity )
             }
         }
     }
+
+
 }
+
+
+
 struct KeyItemList2_Previews: PreviewProvider {
     static var previews: some View {
         KeyItemList2()
