@@ -16,7 +16,7 @@ import CoreData
 
 
 // MARK: SwiftUI Bidge
-struct KeyItemList: UIViewControllerRepresentable {
+struct KeyItemList_IOS14: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = KeyItemListViewController
 
@@ -26,7 +26,7 @@ struct KeyItemList: UIViewControllerRepresentable {
     var geometry:CGSize;
     var provideFormOnSelection:FormSupplierType
     
-    func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList>) -> UIViewControllerType
+    func makeUIViewController(context: UIViewControllerRepresentableContext<KeyItemList_IOS14>) -> UIViewControllerType
     {
         //logger.trace( "makeUIViewController" )
         
@@ -39,7 +39,7 @@ struct KeyItemList: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType,
-                                context: UIViewControllerRepresentableContext<KeyItemList>) {
+                                context: UIViewControllerRepresentableContext<KeyItemList_IOS14>) {
         
         //logger.trace( "updateUIViewController" )
         

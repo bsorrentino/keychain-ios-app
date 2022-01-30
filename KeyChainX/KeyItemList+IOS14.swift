@@ -8,18 +8,18 @@
 
 import SwiftUI
 
-struct KeyItemListContentView : View {
+struct KeyItemListContentView_IOS14 : View {
     
     var body: some View {
         NavigationView {
-            KeyItemListTopView()
+            KeyItemListTopView_IOS14()
                 .navigationBarTitle( Text("Key List"), displayMode: .inline )
         }
 
     }
 }
 
-struct KeyItemListTopView : View {
+struct KeyItemListTopView_IOS14 : View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
     @State private var formActive = false
@@ -44,7 +44,7 @@ struct KeyItemListTopView : View {
     var body: some View {
         GeometryReader { geometry in
 
-            KeyItemList( isSearching: self.$isSearching, geometry: geometry.size) { selectedItem in
+            KeyItemList_IOS14( isSearching: self.$isSearching, geometry: geometry.size) { selectedItem in
                 KeyEntityForm(item:KeyItem( entity: selectedItem), parentId:$keyItemListId)
             }
             .id( keyItemListId ) //
@@ -73,7 +73,7 @@ import KeychainAccess
 
 struct KeyItemListContentView_Previews : PreviewProvider {
     static var previews: some View {
-        KeyItemListContentView()
+        KeyItemListContentView_IOS14()
         
     }
 }

@@ -67,7 +67,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentCloudKitContainer(name: "KeyChain")
+        
+        let container:NSPersistentContainer
+        
+        if isInPreviewMode {
+            container = NSPersistentContainer(name: "KeyChain")
+        }
+        else {
+            container = NSPersistentCloudKitContainer(name: "KeyChain")
+        }
+            
         //let container = NSPersistentContainer(name: "KeyChain")
         container.loadPersistentStores() { (storeDescription, error) in
             if let error = error as NSError? {
@@ -88,24 +97,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             container.viewContext.automaticallyMergesChangesFromParent = true
+            
+            
+            if isInPreviewMode {
+                
+                [
+                    "A0",
+                    "B0",
+                    "C0",
+                    "B1",
+                    "B2",
+                ].forEach {
+                    let record = KeyEntity(context: container.viewContext)
+                    record.username = $0
+                    record.mnemonic = $0
+                
+                    container.viewContext.insert( record )
+                }
+                
+                
+                Dictionary( grouping: [ "AG0-A0",
+                                        "AG0-B0",
+                                        "AG0-C0",
+                                        "AG0-B1",
+                                        "AG0-B2",
+                                      ], by: { String($0[..<$0.index( $0.startIndex, offsetBy: 3 )]) })
+                    .forEach { keyValue in
+                        let record = KeyEntity(context: container.viewContext)
+                        record.mnemonic = keyValue.key
+                        record.groupPrefix = keyValue.key
+                        record.group = false
+                        container.viewContext.insert( record )
+                        
+                        keyValue.value.forEach { value in
+                            let record = KeyEntity(context: container.viewContext)
+                            record.username = value
+                            record.mnemonic = value
+                            record.group = true
+                            record.groupPrefix = keyValue.key
+                            
+                            container.viewContext.insert( record )
+                        }
+                        
+                    }
+                    
+
+                
+            }
+            
         }
         return container
     }()
     
-    // MARK: Core Data Saving support
-    private func saveContext () {
-        let context = managedObjectContext
-
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
 
 }
