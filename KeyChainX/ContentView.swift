@@ -26,14 +26,6 @@ struct ContentView: View {
                     }
                 }
             .tag(0)
-//            KeyItemListContentView()
-//                .tabItem {
-//                    VStack {
-//                        Image(systemName: "list.dash")
-//                        Text("Key list")
-//                    }
-//                }
-//            .tag(4)
             BackupKeysView()
                 .font(.title)
                 .tabItem {

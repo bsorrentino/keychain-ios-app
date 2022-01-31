@@ -140,11 +140,8 @@ struct NoteTextView: UIViewRepresentable {
         UINoteViewCoordinator(owner:self)
     }
 
-
 }
 
-
-#if DEBUG
 
 struct NoteTextView_Previews : PreviewProvider {
     static var previews: some View {
@@ -152,10 +149,9 @@ struct NoteTextView_Previews : PreviewProvider {
             .navigationBarTitle( Text("Note"), displayMode: .inline  )
             .navigationBarItems(trailing: Button("done") {
             }).environment(\.colorScheme, .light)
-        NoteTextView( text: .constant("TEST") )
-            .navigationBarTitle( Text("Note"), displayMode: .inline  )
-            .navigationBarItems(trailing: Button("done") {
-            }).environment(\.colorScheme, .dark)
+//        NoteTextView( text: .constant("TEST") )
+//            .navigationBarTitle( Text("Note"), displayMode: .inline  )
+//            .navigationBarItems(trailing: Button("done") {
+//            }).environment(\.colorScheme, .dark)
     }
 }
-#endif
