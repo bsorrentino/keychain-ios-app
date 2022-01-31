@@ -40,6 +40,8 @@
 		A00927082675FFE8000B9097 /* Shared+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00927072675FFE8000B9097 /* Shared+View.swift */; };
 		A00927092675FFE8000B9097 /* Shared+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00927072675FFE8000B9097 /* Shared+View.swift */; };
 		A00A69FB27A7FFE500DA5C26 /* FieldValidatorLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = A00A69FA27A7FFE500DA5C26 /* FieldValidatorLibrary */; };
+		A00A69FD27A800C200DA5C26 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A00A69FC27A800C200DA5C26 /* KeychainAccess */; };
+		A00A69FF27A800C200DA5C26 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A00A69FE27A800C200DA5C26 /* CryptoSwift */; };
 		A00AE8A626752C61001276B3 /* Shared+Authc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00AE8A526752C61001276B3 /* Shared+Authc.swift */; };
 		A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */; };
 		A01F46A324EEBDB3005717DC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F46A224EEBDB3005717DC /* AlertView.swift */; };
@@ -235,7 +237,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A00A69FB27A7FFE500DA5C26 /* FieldValidatorLibrary in Frameworks */,
+				A00A69FF27A800C200DA5C26 /* CryptoSwift in Frameworks */,
 				5F34E553257F966F007417F3 /* CloudKit.framework in Frameworks */,
+				A00A69FD27A800C200DA5C26 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +506,8 @@
 			name = KeyChainX;
 			packageProductDependencies = (
 				A00A69FA27A7FFE500DA5C26 /* FieldValidatorLibrary */,
+				A00A69FC27A800C200DA5C26 /* KeychainAccess */,
+				A00A69FE27A800C200DA5C26 /* CryptoSwift */,
 			);
 			productName = KeyChainX;
 			productReference = A0C0DB5322A901AD003B09ED /* KeychainX.app */;
@@ -511,7 +517,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0C0DB8322A901B0003B09ED /* Build configuration list for PBXNativeTarget "KeyChainXTests" */;
 			buildPhases = (
-				4BB95DEE660E196A17E1B0B4 /* [CP] Check Pods Manifest.lock */,
 				A0C0DB6822A901B0003B09ED /* Sources */,
 				A0C0DB6922A901B0003B09ED /* Frameworks */,
 				A0C0DB6A22A901B0003B09ED /* Resources */,
@@ -532,11 +537,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0C0DB8622A901B0003B09ED /* Build configuration list for PBXNativeTarget "KeyChainXUITests" */;
 			buildPhases = (
-				D205E0BCF26689A8D564AE6D /* [CP] Check Pods Manifest.lock */,
 				A0C0DB7322A901B0003B09ED /* Sources */,
 				A0C0DB7422A901B0003B09ED /* Frameworks */,
 				A0C0DB7522A901B0003B09ED /* Resources */,
-				1A0B3571D3D371C106AD76F8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -720,70 +723,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1A0B3571D3D371C106AD76F8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KeyChainX-KeyChainXUITests/Pods-KeyChainX-KeyChainXUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KeyChainX-KeyChainXUITests/Pods-KeyChainX-KeyChainXUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KeyChainX-KeyChainXUITests/Pods-KeyChainX-KeyChainXUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4BB95DEE660E196A17E1B0B4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KeyChainXTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D205E0BCF26689A8D564AE6D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KeyChainX-KeyChainXUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A0C0DB4F22A901AD003B09ED /* Sources */ = {
@@ -1455,6 +1394,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5F9987AE25387BEB004F43DF /* XCRemoteSwiftPackageReference "swiftui-fieldvalidator" */;
 			productName = FieldValidatorLibrary;
+		};
+		A00A69FC27A800C200DA5C26 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F9ABB3A2379828000AC052A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		A00A69FE27A800C200DA5C26 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FFE283F23B9480400EAB103 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
 		};
 		A0550B3F257E372000DF5F99 /* FieldValidatorLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
