@@ -10,6 +10,7 @@ import SwiftUI
 import CoreData
 
 
+private let CELL_IMAGE_PADDING = EdgeInsets( top:20, leading:10, bottom:20, trailing:2)
 
 struct KeyItemList_IOS15: View {
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -22,48 +23,52 @@ struct KeyItemList_IOS15: View {
     @State private var formActive = false
     
     @StateObject private var newItem = KeyItem()
-
+    
     var body: some View {
         
         NavigationView {
-
+            
             DynamicFetchRequestView( withSearchText: searchText ) { results in
                 
                 let groupByFirstCharacter = Dictionary( grouping: results, by: { $0.mnemonic.first! })
-
+                
                 List {
                     ForEach( groupByFirstCharacter.keys.sorted(), id: \.self ) { section in
                         Section( header: Text( String(section) ) ) {
                             
                             ForEach( groupByFirstCharacter[section]!, id: \.self ) { key in
                                 
-                                if key.isGroup() {
-                                    GroupViewLink( groupEntity: key )
+                                Group {
+                                    if key.isGroup() {
+                                        GroupViewLink( groupEntity: key )
+                                    }
+                                    else {
+                                        CellViewLink( entity: key, parentId: $keyItemListId )
+                                    }
                                 }
-                                else {
-                                    CellViewLink( entity: key, parentId: $keyItemListId )
-                                }
+                                .listRowInsets(EdgeInsets())
                             }
                         }
                     }
                 }
 
+                
             }
             .id( keyItemListId ) //
             .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
             .navigationBarTitle( Text("Key List"), displayMode: .inline )
             .navigationBarItems(trailing:
-                HStack {
-                    NavigationLink( destination: KeyEntityForm(item:newItem, parentId:$keyItemListId),
-                                    isActive: $formActive ) {
-                        EmptyView()
-                    }
-                    Button( action: { formActive.toggle() }) {
-                        Text("Add")
-                        //Image( systemName: "plus" )
-                    }
-                })
-
+                                    HStack {
+                NavigationLink( destination: KeyEntityForm(item:newItem, parentId:$keyItemListId),
+                                isActive: $formActive ) {
+                    EmptyView()
+                }
+                Button( action: { formActive.toggle() }) {
+                    Text("Add")
+                    //Image( systemName: "plus" )
+                }
+            })
+            
         }
     }
 }
@@ -82,10 +87,10 @@ extension KeyItemList_IOS15 {
                 Image( systemName: "lock.circle.fill")
                     .resizable()
                     .frame( width: 32, height: 32, alignment: .leading)
-                    .padding()
+                    .padding( CELL_IMAGE_PADDING )
                 VStack(alignment: .leading) {
                     Text(entity.mnemonic).font( .title3)
-                    Text(subtitle).font( .subheadline )
+                    Text(subtitle).font( .subheadline ).italic().lineLimit(1)
                 }
             }
         }
@@ -93,7 +98,8 @@ extension KeyItemList_IOS15 {
     
     struct CellViewLink : View {
         @Environment(\.managedObjectContext) var managedObjectContext
-        @State private var showingAlert = false
+        @State private var showingAlertForDelete = false
+        @State private var showingAlertForUngroup = false
         var entity: KeyEntity
         var parentId:Binding<Int>
         
@@ -105,48 +111,94 @@ extension KeyItemList_IOS15 {
             } label: {
                 KeyItemList_IOS15.CellView(entity: entity)
             }
-            .alert(isPresented:$showingAlert) {
-                        Alert(
-                            title: Text("Are you sure you want to delete this?"),
-                            message: Text("There is no undo"),
-                            primaryButton: .destructive(Text("Delete")) {
-                                let _ = delete( entity )
-                                parentId.wrappedValue += 1 // force view refresh
-                            },
-                            secondaryButton: .cancel()
-                        )
+            .alert(isPresented:$showingAlertForDelete) {
+                Alert(
+                    title: Text("Are you sure you want to delete this?"),
+                    message: Text("There is no undo"),
+                    primaryButton: .destructive(Text("Delete")) {
+                        let _ = delete( entity )
+                        parentId.wrappedValue += 1 // force view refresh
+                    },
+                    secondaryButton: .cancel()
+                )
+            }
+            .alert(isPresented:$showingAlertForUngroup) {
+                Alert(
+                    title: Text("Are you sure you want ungroup this?"),
+                    message: Text("There is no undo"),
+                    primaryButton: .destructive(Text("Ungroup")) {
+                        let _ = ungroup( entity )
+                        parentId.wrappedValue += 1 // force view refresh
+                    },
+                    secondaryButton: .cancel()
+                )
             }
             .swipeActions(edge: .trailing, allowsFullSwipe: false ) {
+                if entity.isGrouped() {
                     Button {
-                        showingAlert.toggle()
+                        showingAlertForUngroup.toggle()
                     } label: {
-                        Label("Delete", systemImage: "trash")
+                        Label("Ungroup", systemImage: "folder.fill.badge.minus")
                     }
-                    .tint( .red)
+                    //.labelStyle(CellViewLink.CustomLabelStyle())
+
+                }
+                Button {
+                    showingAlertForDelete.toggle()
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                }
+                .tint( .red)
             }
-       }
+        }
+        
+        func ungroup( _ entity: KeyEntity ) -> Bool{
+            
+            do {
+                entity.groupPrefix = nil
+                entity.group = NSNumber(booleanLiteral: false)
+                
+                if( !isInPreviewMode ) {
+                    try self.managedObjectContext.save()
+                }
+                return true
+            }
+            catch {
+                logger.warning( "error ungrouping  key \(error.localizedDescription)" )
+                return false
+            }
+        }
         
         func delete( _ entity: KeyEntity ) -> Bool {
-
+            
             do {
                 managedObjectContext.delete(entity)
-
+                
                 if( !isInPreviewMode ) {
                     try managedObjectContext.save()
                 }
-
+                
             }
             catch {
                 logger.warning( "error deleting key \(error.localizedDescription)" )
                 return false
             }
-
+            
             return true
         }
+        
+        struct CustomLabelStyle: LabelStyle {
 
- 
+            func makeBody(configuration: Configuration) -> some View {
+                VStack(alignment: .center, spacing: 0) {
+                    configuration.icon
+                    configuration.title
+                }
+            }
+        }
+
     }
-
+    
 }
 
 // MARK: Extension for Group Cell
@@ -154,25 +206,32 @@ extension KeyItemList_IOS15 {
     
     
     private struct GroupView : View {
-        
+        @Environment(\.managedObjectContext) var managedObjectContext
+
         internal var groupEntity: KeyEntity
         
-        var body: some View {
+        private var childrenCount:Int {
+            guard let groupPrefix = groupEntity.groupPrefix else { return 0 }
             
+            return KeyEntity.fetchCount(forGroupPrefix: groupPrefix, inContext: managedObjectContext)
+        }
+        
+        var body: some View {
             HStack(alignment: .center) {
                 Image( systemName: "folder.circle.fill")
                     .resizable()
                     .frame( width: 32, height: 32, alignment: .leading)
-                    .padding()
+                    .padding( CELL_IMAGE_PADDING )
                 VStack(alignment: .leading) {
                     Text(groupEntity.mnemonic).font( .title3)
-                    Text(groupEntity.groupPrefix ?? "Unknown").font( .subheadline )
+                    //Text(groupEntity.groupPrefix ?? "Unknown").font( .subheadline )
+                    Text("Children # \(childrenCount)").font( .subheadline )
                 }
             }
-    
+            
         }
     }
-
+    
     private struct GroupViewLink : View {
         var groupEntity : KeyEntity
         
@@ -185,8 +244,8 @@ extension KeyItemList_IOS15 {
             }
         }
     }
-
-
+    
+    
 }
 
 

@@ -24,6 +24,34 @@ extension KeyEntity {
         group.boolValue
     }
 
+    @nonobjc public class func fetchRequest( withPredicate: NSPredicate? = nil ) -> NSFetchRequest<KeyEntity> {
+        let request =  NSFetchRequest<KeyEntity>(entityName: "KeyInfo")
+        request.sortDescriptors = [ NSSortDescriptor( key:"mnemonic", ascending: true)]
+        
+        if let predicate = withPredicate {
+            request.predicate = predicate
+        }
+        
+        return request
+    }
+
+    @nonobjc public class func fetchCount( forGroupPrefix groupPrefix: String, inContext context: NSManagedObjectContext ) -> Int {
+        
+        let request = KeyEntity.fetchRequest(withPredicate: NSPredicate(  format: "groupPrefix = %@ AND group = YES", groupPrefix ))
+
+        request.resultType = .countResultType
+      
+        do {
+
+            return try context.count(for: request)
+        }
+        catch let error as NSError {
+            logger.warning( "error counting groupPrefix: \(groupPrefix) -  \(error)" )
+        }
+       
+        return -1
+    }
+
     static func createGroup( context: NSManagedObjectContext, groupPrefix:String) -> KeyEntity {
         let group = KeyEntity(context: context)
         group.mnemonic      = groupPrefix
@@ -33,6 +61,8 @@ extension KeyEntity {
 
         return group
     }
+    
+    
     /**
      
      */

@@ -12,17 +12,6 @@ import CoreData
 
 extension KeyEntity {
 
-    @nonobjc public class func fetchRequest( withPredicate: NSPredicate? = nil ) -> NSFetchRequest<KeyEntity> {
-        let request =  NSFetchRequest<KeyEntity>(entityName: "KeyInfo")
-        request.sortDescriptors = [ NSSortDescriptor( key:"mnemonic", ascending: true)]
-        
-        if let predicate = withPredicate {
-            request.predicate = predicate
-        }
-        
-        return request
-    }
-
     @NSManaged public var expire: Date?
     @NSManaged public var group: NSNumber
     @NSManaged public var groupPrefix: String?

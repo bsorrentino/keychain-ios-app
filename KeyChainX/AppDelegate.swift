@@ -109,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     "B2",
                 ].forEach {
                     let record = KeyEntity(context: container.viewContext)
-                    record.username = $0
+                    record.username = "bartolomeo.sorrentino@soulsoftware.it"
                     record.mnemonic = $0
                 
                     container.viewContext.insert( record )

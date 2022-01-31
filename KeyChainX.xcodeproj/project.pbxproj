@@ -1072,7 +1072,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeychainX;
 				PRODUCT_NAME = KeychainX;
 				SWIFT_VERSION = 5.0;
@@ -1095,7 +1095,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeychainX;
 				PRODUCT_NAME = KeychainX;
 				SWIFT_VERSION = 5.0;
