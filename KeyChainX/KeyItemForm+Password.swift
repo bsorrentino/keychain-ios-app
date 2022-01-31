@@ -9,94 +9,79 @@
 import SwiftUI
 import Combine
 import FieldValidatorLibrary
+import OSLog
 
 private struct PasswordToggleField : View {
     typealias Validator = (String) -> String?
     
-    @Binding var hidden:Bool
-    
-    @ObservedObject var field:FieldValidator<String>
-    
-    init( value:Binding<String>, checker:Binding<FieldChecker>, hidden:Binding<Bool>, validator:@escaping Validator ) {
-        self.field = FieldValidator(value, checker:checker, validator:validator )
-        self._hidden = hidden
-    }
-
+    var hidden:Bool
+    @Binding var value:String
+ 
     var body: some View {
-        
-        VStack {
-            Group {
-                if( hidden ) {
-                    SecureField( "give me the password", text:$field.value)
-                }
-                else {
-                    TextField( "give me the password", text:$field.value)
-                }
+        Group {
+            if( hidden ) {
+                SecureField( "give me the password", text:$value)
+            }
+            else {
+                TextField( "give me the password", text:$value)
             }
         }
-        .onAppear {
-            self.field.doValidate()
-        }
+    }
+}
+
+
+private struct HideToggleButton : View {
+    
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    @Binding var hidden:Bool
+    
+    var body: some View {
+        Button( action: {
+            logger.trace("toggle hidden!")
+            self.hidden.toggle()
+         }) {
+            Group {
+                if( self.hidden ) {
+                    Image( systemName: "eye.slash")
+                }
+                else {
+                    Image( systemName: "eye")
+                }
+            }
+            .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+         }
 
     }
 }
 
 struct PasswordField : View {
+    
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
 
     @Binding var value:String
-    @Binding var passwordCheck:FieldChecker
+    @Binding var passwordCheck:FieldChecker2<String>
     @State var hidden:Bool = true
-    
+
     private let strikeWidth:CGFloat = 0.5
     
+    
     var body: some View {
-        
-         VStack(alignment: .leading) {
-             
-             HStack {
-                 Text("Password")
-                 if( !passwordCheck.valid  ) {
-                     Spacer()
-                     Text( passwordCheck.errorMessage ?? "" )
-                         .fontWeight(.light)
-                         .font(.footnote)
-                         .foregroundColor(Color.red)
-
+        HStack {
+            PasswordToggleField( hidden: hidden,
+                                 value:$value.onValidate(checker: passwordCheck) { v in
+                 if( v.isEmpty ) {
+                     return "password cannot be empty"
                  }
+                 return nil
+            })
+            .autocapitalization(.none)
+            HideToggleButton( hidden: $hidden )
+            CopyToClipboardButton( value:self.value )
+            
 
-             }
-            HStack {
-                PasswordToggleField( value:$value,
-                                  checker:$passwordCheck,
-                                  hidden:$hidden ) { v in
-                     if( v.isEmpty ) {
-                         return "password cannot be empty"
-                     }
-                     return nil
-                }
-                .autocapitalization(.none)
-                Button( action: {
-                    self.hidden.toggle()
-                 }) {
-                    Group {
-                        if( hidden ) {
-                            Image( systemName: "eye.slash")
-                        }
-                        else {
-                            Image( systemName: "eye")
-                        }
-                    }
-                    .foregroundColor(Color.black)
-                 }
-
-            }
-             .padding( 10.0 )
-             .overlay( RoundedRectangle(cornerRadius: 10)
-                         .stroke(lineWidth: strikeWidth )
-                         .foregroundColor(passwordCheck.valid ? Color.black : Color.red)
-             )
-
-
-         }
+        }
+        .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
+        .modifier( ValidatorMessageModifier( message:passwordCheck.errorMessage ) )
     }
 }

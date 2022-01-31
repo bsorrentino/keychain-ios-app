@@ -1,0 +1,21 @@
+{
+  "applinks": {
+      "details": [
+           {
+             "appIDs": [ "48J595L9BX.org.bsc.KeychainX", "48J595L9BX.org.bsc.MacKeyChainX" ],
+             "components": [
+               {
+                  "/": "/*",
+                  "comment": "Matches any URL"
+               }
+             ]
+           }
+       ]
+   },
+   "webcredentials": {
+      "apps": [ "48J595L9BX.org.bsc.KeychainX", "48J595L9BX.org.bsc.MacKeyChainX" ]
+   },
+    "appclips": {
+        "apps": []
+    }
+}

@@ -54,12 +54,15 @@ struct EmailList: View {
     @Binding var value:String
     @Environment(\.managedObjectContext) var context
     
-    @FetchRequest( fetchRequest:MailEntity.fetchAllMail() )
+    //@FetchRequest( fetchRequest:MailEntity.fetchAllMail() )
+    @FetchRequest( fetchRequest:MailEntity.fetchRequest())
     var mails:FetchedResults<MailEntity>
     
-    @State var mailValid = FieldChecker()
+    @StateObject var mailValid = FieldChecker2<String>()
     @State var newMail:String = ""
 
+    var validateChecks = 0
+    
     var body: some View {
         
         //NavigationView {
@@ -68,21 +71,24 @@ struct EmailList: View {
                 Section(header: Text("New Mail")) {
                     
                     HStack {
-                        TextFieldWithValidator( title: "insert email", value: $newMail, checker:$mailValid ) { v in
-                               
+                        TextField( "insert email", text: $newMail.onValidate(checker: mailValid ) { v in
+                        
                                 if( v.isEmpty ) {
                                    return "mail cannot be empty !"
                                 }
                                 if( !v.isEmail() ) {
-                                    return "mail is not in correct format !"
+                                    return "mail is not in correct format"
                                 }
                                
                                return nil
-                        }
+                        })
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
+                        .textContentType(.emailAddress)
+                        .keyboardType(.emailAddress)
                         .font(.body)
-                        
+                        .padding( .bottom, 25  )
+                        .modifier( ValidatorMessageModifier( message: mailValid.errorMessageOrNilAtBeginning ) )
                         addButton()
                     }
                     
@@ -132,7 +138,11 @@ struct EmailList: View {
             try self.context.save()
         }
         catch {
-            print( "error inserting new mail \(error)" )
+            logger.warning( """
+                error inserting new mail
+                
+                \(error.localizedDescription)
+                """ )
         }
         
         self.newMail = ""
@@ -148,12 +158,17 @@ struct EmailList: View {
                 try self.context.save()
             }
             catch {
-                print( "error deleting new mail \(error)" )
+                logger.warning( """
+                    error deleting new mail
+                    
+                    \(error.localizedDescription)
+                    """ )
             }
         }
     }
     
 }
+
 
 #if DEBUG
 struct EmailList_Previews: PreviewProvider {

@@ -8,7 +8,16 @@
 
 import SwiftUI
 
+extension URL {
+    func isJSON() -> Bool {
+        return self.lastPathComponent.hasSuffix(".json")
+    }
+    
+    func isPLIST() -> Bool {
+        return self.lastPathComponent.hasSuffix(".plist")
+    }
 
+}
 
 struct FileManagerView<Content> : View where Content : View {
     
@@ -22,11 +31,11 @@ struct FileManagerView<Content> : View where Content : View {
     
     func backupUrls() -> Result {
         
-        guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else{
+        guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return ( urls:[], error:"Document Directory doesn't exist" )
         }
         
-        print(path.absoluteString)
+        logger.trace( "\(path.absoluteString)" )
         
         do {
             let urls = try FileManager.default.contentsOfDirectory(at: path,
@@ -37,7 +46,7 @@ struct FileManagerView<Content> : View where Content : View {
 #else
             let result = urls
                 .filter { (url) -> Bool in
-                    return url.isFileURL && url.lastPathComponent.hasSuffix(".plist")
+                    return url.isFileURL && (url.isJSON() || url.isPLIST())
                 }
 #endif
             return ( urls:result, error:nil )
