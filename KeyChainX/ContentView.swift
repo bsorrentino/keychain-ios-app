@@ -18,22 +18,14 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: self.$selection) {
             
-            KeyItemList_IOS15()
+            KeyItemListContentView_IOS14()
                 .tabItem {
                     VStack {
                         Image(systemName: "list.dash")
-                        Text("test")
+                        Text("Key list")
                     }
                 }
             .tag(0)
-//            KeyItemListContentView()
-//                .tabItem {
-//                    VStack {
-//                        Image(systemName: "list.dash")
-//                        Text("Key list")
-//                    }
-//                }
-//            .tag(4)
             BackupKeysView()
                 .font(.title)
                 .tabItem {
