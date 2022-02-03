@@ -45,6 +45,7 @@
 		A01F46A324EEBDB3005717DC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F46A224EEBDB3005717DC /* AlertView.swift */; };
 		A021E22924ED6AE700A455D2 /* Keys+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A021E22824ED6AE700A455D2 /* Keys+Codable.swift */; };
 		A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */; };
+		A035D57927AC3EED00FB9787 /* SwiftUI+Confition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A035D57827AC3EED00FB9787 /* SwiftUI+Confition.swift */; };
 		A040E4B224EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */; };
 		A047651E23DDABE2005B8547 /* KeyItemForm+Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */; };
 		A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */; };
@@ -169,6 +170,7 @@
 		A01F46A224EEBDB3005717DC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		A021E22824ED6AE700A455D2 /* Keys+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keys+Codable.swift"; sourceTree = "<group>"; };
 		A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "KeyItemForm+Group.swift"; path = "KeyChainX/KeyItemForm+Group.swift"; sourceTree = SOURCE_ROOT; };
+		A035D57827AC3EED00FB9787 /* SwiftUI+Confition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Confition.swift"; sourceTree = "<group>"; };
 		A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Password.swift"; sourceTree = "<group>"; };
 		A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FieldValidator+Helpers.swift"; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				5F59284F23B924F5004EC296 /* App+Info.swift */,
 				5F6DBC1327A5AD9200D320B3 /* DynamicFetchRequestView.swift */,
 				5F6DBC1527A5AE7800D320B3 /* DynamicFetchRequestView+KeyEntity.swift */,
+				A035D57827AC3EED00FB9787 /* SwiftUI+Confition.swift */,
 			);
 			name = shared;
 			sourceTree = "<group>";
@@ -813,6 +816,7 @@
 				A0EE95712375F7AF00002E6F /* MailEntity+CoreDataClass.swift in Sources */,
 				5F8235CE262B28E900F7FC9A /* Shared+Log.swift in Sources */,
 				A0550B48257E6D7E00DF5F99 /* Keyboard.swift in Sources */,
+				A035D57927AC3EED00FB9787 /* SwiftUI+Confition.swift in Sources */,
 				A0D796B32523711000A5CBAB /* Shared+CoreData.swift in Sources */,
 				A086C3AB252325AA001EF95E /* Shared.swift in Sources */,
 				5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */,
@@ -1063,7 +1067,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KeyChainX/KeyChainX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "KeyChainX/Preview\\ Content";
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_PREVIEWS = YES;
@@ -1086,7 +1090,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KeyChainX/KeyChainX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "KeyChainX/Preview\\ Content";
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_PREVIEWS = YES;

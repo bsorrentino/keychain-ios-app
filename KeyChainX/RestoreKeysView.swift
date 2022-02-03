@@ -11,7 +11,7 @@ import SwiftUI
 
 struct RestoreKeysView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    
+    @Environment(\.colorScheme) var colorScheme
     
     @State private var showingSheet = false
     @State private var alertItem:AlertItem?
@@ -21,40 +21,35 @@ struct RestoreKeysView: View {
     
     var body: some View {
         NavigationView {
-            FileManagerView { (url) in
-                //GeometryReader { geom in
-                    HStack {
-                        Text( url.lastPathComponent )
-                            .font(.system(size: 25 ))
-                        Spacer()
-                        Button( action: {
-                            self.restoreInfo.url = url
-                            self.showingSheet = true
-                            
-                        }) {
-                            VStack {
-                                Text("restore")
-                                    .font(.system(size: 15 ))
-                                    .foregroundColor(Color.white)
-                            }
-                            .padding( 10.0 )
-                        }
-                        .background(Color.secondary)
-                        .actionSheet(isPresented: self.$showingSheet) {
-                            ActionSheet(title: Text("Modality"),
-                                        message: Text("How want to restore keys"),
-                                        buttons: [
-                                            //.default(Text("Add missing")) {},
-                                            .destructive(Text("Replace All")) {
-                                                self.prepareRestore()
-                                            },
-                                            .cancel(Text("Dismiss"))
-                                            ])
-                        }
-                        .alert(item: self.$alertItem) { item in makeAlert(item:item) }
-                        
-                    }.padding(0.0)
-                //}
+            FileManagerView { url in
+                HStack {
+                    Text( url.lastPathComponent )
+                    Spacer()
+                    Button {
+                        self.restoreInfo.url = url
+                        self.showingSheet = true
+                    } label: {
+                        Label( "restore", systemImage: "" )
+                            .labelStyle(TitleOnlyLabelStyle())
+                    }
+                    .buttonStyle(.bordered)
+                    .if( colorScheme == .dark ) { $0.tint( .white ) }
+                    .cornerRadius(20)
+                    .actionSheet(isPresented: self.$showingSheet) {
+                        ActionSheet(title: Text("Modality"),
+                                    message: Text("How want to restore keys"),
+                                    buttons: [
+                                        //.default(Text("Add missing")) {},
+                                        .destructive(Text("Replace All")) {
+                                            self.prepareRestore()
+                                        },
+                                        .cancel(Text("Dismiss"))
+                                        ])
+                    }
+                    .alert(item: self.$alertItem) { item in makeAlert(item:item) }
+                    
+                }
+                .padding(0.0)
             }
             .navigationBarTitle( Text("Restore"), displayMode: .large)
             .sheet( isPresented: self.$showReportView) {
@@ -167,7 +162,10 @@ struct RestoreKeysView: View {
 #if DEBUG
 struct RestoreKeysView_Previews: PreviewProvider {
     static var previews: some View {
-            RestoreKeysView()
+        RestoreKeysView()
+            .environment(\.colorScheme, .dark)
+        RestoreKeysView()
+            .environment(\.colorScheme, .light)
     }
 }
 #endif

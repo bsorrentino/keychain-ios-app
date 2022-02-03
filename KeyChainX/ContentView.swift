@@ -27,7 +27,6 @@ struct ContentView: View {
                 }
             .tag(0)
             BackupKeysView()
-                .font(.title)
                 .tabItem {
                     VStack {
                         Image(systemName: "arrow.down.doc")
@@ -36,7 +35,6 @@ struct ContentView: View {
                 }
                 .tag(1)
             RestoreKeysView()
-                .font(.title)
                 .tabItem {
                     VStack {
                         Image(systemName: "arrow.up.doc")
@@ -45,7 +43,6 @@ struct ContentView: View {
                 }
                 .tag(2)
             PeerConnectionsView()
-                .font(.title)
                 .tabItem {
                     VStack {
                         Image(systemName: "laptopcomputer")

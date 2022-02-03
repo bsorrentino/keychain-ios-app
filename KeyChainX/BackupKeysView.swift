@@ -22,25 +22,28 @@ struct BackupKeysView: View {
     
     var body: some View {
         NavigationView {
-            FileManagerView { (url) in
+            FileManagerView { url in
                 Text( url.lastPathComponent )
-            }.sheet(isPresented: $showReportView, onDismiss:  {
+            }
+            .sheet(isPresented: $showReportView, onDismiss:  {
                 
             }) {
-                ProcessingReportView( processingInfo: self.backupInfo ).onAppear( perform: {
+                ProcessingReportView( processingInfo: self.backupInfo )
+                    .onAppear {
                         self.performBackup()
-                })
+                    }
             }
             .navigationBarTitle( Text("Backup"), displayMode: .large)
             .navigationBarItems(trailing:
                 VStack {
-                    Button( action: { self.prepareBackup()}) {
-                        HStack {
-                            Text( "Run" )
-                            Image( systemName:"arrow.down.doc.fill" )
-                        }
+                    Button { self.prepareBackup() }
+                    label: {
+                            Text( "start" )
+                            // Image( systemName:"arrow.down.doc.fill" )
+                        // }
                     }
-            }).alert( item: $alertItem ) { item in makeAlert(item:item) }
+            })
+            .alert( item: $alertItem ) { item in makeAlert(item:item) }
  
         }
     }
@@ -138,5 +141,8 @@ struct BackupKeysView_Previews: PreviewProvider {
     static var previews: some View {
         
         BackupKeysView()
+            .environment(\.colorScheme, .dark)
+        BackupKeysView()
+            .environment(\.colorScheme, .light)
     }
 }
