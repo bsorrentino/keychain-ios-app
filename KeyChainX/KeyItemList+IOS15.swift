@@ -24,6 +24,13 @@ struct KeyItemList_IOS15: View {
     
     @StateObject private var newItem = KeyItem()
     
+    var KeyEntityFormNavigationLink: some View {
+        NavigationLink( destination: KeyEntityForm(item:newItem, parentId:$keyItemListId),
+                        isActive: $formActive ) {
+            EmptyView()
+        }
+    }
+    
     var body: some View {
         
         NavigationView {
@@ -43,7 +50,10 @@ struct KeyItemList_IOS15: View {
                                         GroupViewLink( groupEntity: key )
                                     }
                                     else {
-                                        CellViewLink( entity: key, parentId: $keyItemListId )
+                                        CellViewLink( entity: key, parentId: $keyItemListId ) { entity in
+                                            newItem.copy(from: entity)
+                                            formActive.toggle()
+                                        }
                                     }
                                 }
                                 .listRowInsets(EdgeInsets())
@@ -52,28 +62,25 @@ struct KeyItemList_IOS15: View {
                     }
                 }
 
-                
             }
-            .id( keyItemListId ) //
+            .id( keyItemListId )
             .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
             .navigationBarTitle( Text("Key List"), displayMode: .inline )
             .navigationBarItems(trailing:
-                                    HStack {
-                NavigationLink( destination: KeyEntityForm(item:newItem, parentId:$keyItemListId),
-                                isActive: $formActive ) {
-                    EmptyView()
-                }
                 Button( action: { formActive.toggle() }) {
-                    Text("Add")
-                    //Image( systemName: "plus" )
-                }
-            })
-            
+                    HStack {
+                        KeyEntityFormNavigationLink
+                        Text("Add")
+                    }
+                })
+
         }
     }
 }
 
+//
 // MARK: Extension for Cell
+//
 extension KeyItemList_IOS15 {
     
     private struct CellView : View {
@@ -97,11 +104,15 @@ extension KeyItemList_IOS15 {
     }
     
     struct CellViewLink : View {
+        
+        typealias CloneHandler = ( KeyEntity ) -> Void
+        
         @Environment(\.managedObjectContext) var managedObjectContext
         @State private var showingAlertForDelete = false
         @State private var showingAlertForUngroup = false
         var entity: KeyEntity
         var parentId:Binding<Int>
+        var onClone:CloneHandler?
         
         var body: some View {
             let item = KeyItem( entity: entity )
@@ -132,6 +143,16 @@ extension KeyItemList_IOS15 {
                     },
                     secondaryButton: .cancel()
                 )
+            }
+            .swipeActions(edge: .leading, allowsFullSwipe: true ) {
+                if onClone != nil {
+                    Button {
+                        onClone!( entity )
+                    } label: {
+                        Label("Copy", systemImage: "doc.on.doc.fill")
+                    }
+                    .tint(.green)
+                }
             }
             .swipeActions(edge: .trailing, allowsFullSwipe: false ) {
                 if entity.isGrouped() {
