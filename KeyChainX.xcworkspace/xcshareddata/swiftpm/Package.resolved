@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
         "state": {
           "branch": null,
-          "revision": "4b0565384d3c4c588af09e660535b2c7c9bf5b39",
-          "version": "1.4.2"
+          "revision": "8d4f6384e0a8cc41f2005247241dd553963a492a",
+          "version": "1.4.1"
         }
       },
       {
@@ -24,7 +24,7 @@
         "repositoryURL": "https://github.com/bsorrentino/swiftui-fieldvalidator.git",
         "state": {
           "branch": "develop",
-          "revision": "128cac9624433304290467e6c6cf31b4c6314f44",
+          "revision": "12e8999c039d70a08093ff8c99e31c73124a72b0",
           "version": null
         }
       }
