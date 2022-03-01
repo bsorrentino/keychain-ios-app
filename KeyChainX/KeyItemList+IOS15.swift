@@ -52,9 +52,8 @@ struct KeyItemList_IOS15: View {
                     }
                 }
 
-                
             }
-            .id( keyItemListId ) //
+            .id( keyItemListId )
             .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
             .navigationBarTitle( Text("Key List"), displayMode: .inline )
             .navigationBarItems(trailing:
@@ -73,7 +72,9 @@ struct KeyItemList_IOS15: View {
     }
 }
 
+//
 // MARK: Extension for Cell
+//
 extension KeyItemList_IOS15 {
     
     private struct CellView : View {
@@ -132,6 +133,14 @@ extension KeyItemList_IOS15 {
                     },
                     secondaryButton: .cancel()
                 )
+            }
+            .swipeActions(edge: .leading, allowsFullSwipe: true ) {
+                Button {
+                    
+                } label: {
+                    Label("Copy", systemImage: "doc.on.doc.fill")
+                }
+                .tint(.green)
             }
             .swipeActions(edge: .trailing, allowsFullSwipe: false ) {
                 if entity.isGrouped() {

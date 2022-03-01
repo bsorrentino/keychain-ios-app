@@ -34,6 +34,7 @@
 		5F8235CF262B28E900F7FC9A /* Shared+Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8235CD262B28E900F7FC9A /* Shared+Log.swift */; };
 		5F9ABB3E237983A800AC052A /* Shared+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */; };
 		5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */; };
+		5FBD139D27CE4332009BC9BF /* KeyEntity+Coping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD139C27CE4332009BC9BF /* KeyEntity+Coping.swift */; };
 		5FDEAA6E2624C9BD000AF83C /* MacSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDEAA6D2624C9BD000AF83C /* MacSearchBar.swift */; };
 		5FFE284123B9480400EAB103 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FFE284023B9480400EAB103 /* CryptoSwift */; };
 		A00927082675FFE8000B9097 /* Shared+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00927072675FFE8000B9097 /* Shared+View.swift */; };
@@ -162,6 +163,7 @@
 		5F8235CD262B28E900F7FC9A /* Shared+Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+Log.swift"; sourceTree = "<group>"; };
 		5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+Keychain.swift"; sourceTree = "<group>"; };
 		5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Url.swift"; sourceTree = "<group>"; };
+		5FBD139C27CE4332009BC9BF /* KeyEntity+Coping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Coping.swift"; sourceTree = "<group>"; };
 		5FBDA9672679191200AEF186 /* MacKeyChainXRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacKeyChainXRelease.entitlements; sourceTree = "<group>"; };
 		5FDEAA6D2624C9BD000AF83C /* MacSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSearchBar.swift; sourceTree = "<group>"; };
 		A00927072675FFE8000B9097 /* Shared+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+View.swift"; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */,
 				A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */,
 				A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */,
+				5FBD139C27CE4332009BC9BF /* KeyEntity+Coping.swift */,
 			);
 			name = datamodel;
 			sourceTree = "<group>";
@@ -818,6 +821,7 @@
 				A0550B48257E6D7E00DF5F99 /* Keyboard.swift in Sources */,
 				A035D57927AC3EED00FB9787 /* SwiftUI+Confition.swift in Sources */,
 				A0D796B32523711000A5CBAB /* Shared+CoreData.swift in Sources */,
+				5FBD139D27CE4332009BC9BF /* KeyEntity+Coping.swift in Sources */,
 				A086C3AB252325AA001EF95E /* Shared.swift in Sources */,
 				5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */,
 				5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */,
