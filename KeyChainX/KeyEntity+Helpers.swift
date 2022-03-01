@@ -62,7 +62,6 @@ extension KeyEntity {
         return group
     }
     
-    
     /**
      
      */
@@ -77,6 +76,41 @@ extension KeyEntity {
         request.sortDescriptors = [sortOrder]
 
         return request
+    }
+    
+    static func ungroup( _ context: NSManagedObjectContext, entity: KeyEntity ) -> Bool {
+        
+        do {
+            entity.groupPrefix = nil
+            entity.group = NSNumber(booleanLiteral: false)
+            
+            if( !isInPreviewMode ) {
+                try context.save()
+            }
+            return true
+        }
+        catch {
+            logger.warning( "error ungrouping  key \(error.localizedDescription)" )
+            return false
+        }
+    }
+    
+    static func delete( _ context: NSManagedObjectContext, entity: KeyEntity ) -> Bool {
+        
+        do {
+            context.delete(entity)
+            
+            if( !isInPreviewMode ) {
+                try context.save()
+            }
+            
+        }
+        catch {
+            logger.warning( "error deleting key \(error.localizedDescription)" )
+            return false
+        }
+        
+        return true
     }
 
 }

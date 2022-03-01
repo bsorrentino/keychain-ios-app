@@ -152,39 +152,12 @@ extension KeyItemList_IOS15 {
             }
         }
         
-        func ungroup( _ entity: KeyEntity ) -> Bool{
-            
-            do {
-                entity.groupPrefix = nil
-                entity.group = NSNumber(booleanLiteral: false)
-                
-                if( !isInPreviewMode ) {
-                    try self.managedObjectContext.save()
-                }
-                return true
-            }
-            catch {
-                logger.warning( "error ungrouping  key \(error.localizedDescription)" )
-                return false
-            }
+        func ungroup( _ entity: KeyEntity ) -> Bool {
+            KeyEntity.ungroup( self.managedObjectContext, entity: entity)
         }
         
         func delete( _ entity: KeyEntity ) -> Bool {
-            
-            do {
-                managedObjectContext.delete(entity)
-                
-                if( !isInPreviewMode ) {
-                    try managedObjectContext.save()
-                }
-                
-            }
-            catch {
-                logger.warning( "error deleting key \(error.localizedDescription)" )
-                return false
-            }
-            
-            return true
+            KeyEntity.delete( self.managedObjectContext, entity: entity)
         }
         
         struct CustomLabelStyle: LabelStyle {
