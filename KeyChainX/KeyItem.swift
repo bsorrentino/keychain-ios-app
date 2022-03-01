@@ -162,6 +162,20 @@ class KeyItem : ObservableObject, Decodable {
         return entity
     }
 
+    func copy( from entity: KeyEntity ) {
+        self.mnemonic       = "\(entity.mnemonic)_1"
+        self.username       = entity.username
+        self.mail           = entity.mail ?? ""
+        self.group          = entity.group.boolValue
+        self.groupPrefix    = entity.groupPrefix
+        self.expire         = entity.expire
+        self.url            = entity.url ?? ""
+        self.shared         = false
+        self.note           = ""
+        self.password       = ""
+
+    }
+    
     func insert( into context:NSManagedObjectContext ) throws {
         
         let secret = ( password:self.password, note:self.note)
