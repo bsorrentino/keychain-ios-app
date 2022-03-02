@@ -8,7 +8,16 @@
 
 import SwiftUI
 
+extension URL {
+    func isJSON() -> Bool {
+        return self.lastPathComponent.hasSuffix(".json")
+    }
+    
+    func isPLIST() -> Bool {
+        return self.lastPathComponent.hasSuffix(".plist")
+    }
 
+}
 
 struct FileManagerView<Content> : View where Content : View {
     
@@ -22,24 +31,24 @@ struct FileManagerView<Content> : View where Content : View {
     
     func backupUrls() -> Result {
         
-        guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else{
+        guard !isInPreviewMode else {
+            return ( urls:[ URL(fileURLWithPath: "file://backup.fake") ], error:nil )
+        }
+        
+        guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return ( urls:[], error:"Document Directory doesn't exist" )
         }
         
-        print(path.absoluteString)
+        logger.trace( "\(path.absoluteString)" )
         
         do {
             let urls = try FileManager.default.contentsOfDirectory(at: path,
                                                includingPropertiesForKeys: nil,
                                                options: [.skipsHiddenFiles, .skipsSubdirectoryDescendants] )
-#if targetEnvironment(simulator) && false
-            let result = [ URL(fileURLWithPath: "file://test.plist") ]
-#else
+            
             let result = urls
-                .filter { (url) -> Bool in
-                    return url.isFileURL && url.lastPathComponent.hasSuffix(".plist")
-                }
-#endif
+                    .filter { $0.isFileURL && ($0.isJSON() || $0.isPLIST()) }
+            
             return ( urls:result, error:nil )
             
         }
@@ -54,7 +63,7 @@ struct FileManagerView<Content> : View where Content : View {
         
         let result = backupUrls()
         
-        return Group {
+        Group {
             
             if( result.error != nil )  {
                  Text( "error occurred")
@@ -64,10 +73,8 @@ struct FileManagerView<Content> : View where Content : View {
                     Text( "no data found")
                 }
                 else {
-                    List {
-                        ForEach( result.urls, id: \URL.self ) { url in
-                            self.content(url)
-                        }
+                    List( result.urls, id: \URL.self ) { url in
+                        self.content(url)
                     }
                 }
             }

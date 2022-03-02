@@ -50,24 +50,15 @@ struct NoteField : View {
 
 struct KeyItemNote : View {
     @Environment(\.presentationMode) private var presentationMode
-    
     @Binding var value:String
     
     var body: some View {
-        
-                VStack {
-                    GeometryReader { geometry in
-                        NoteTextView( text: self.$value )
-                            .frame( width: geometry.size.width,
-                                    height: geometry.size.height,
-                                    alignment: .topLeading)
-                    }
-                    
-                    }
-                    .navigationBarTitle( Text("Note"), displayMode: .inline  )
-                    .navigationBarItems(trailing: Button("done") {
-                        self.presentationMode.wrappedValue.dismiss()
-                    })
+
+        NoteTextView( text: self.$value )
+            .navigationBarTitle( Text("Note"), displayMode: .inline  )
+            .navigationBarItems(trailing: Button("done") {
+                self.presentationMode.wrappedValue.dismiss()
+            })
 
     }
 }

@@ -8,9 +8,13 @@
 
 import UIKit
 import SwiftUI
+import OSLog
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
+    let mcSecretsService = MCSecretsService()
+    
+    let loginStates:LoginView.States = LoginView.States()
     var window: UIWindow?
 
     var appDelegate:AppDelegate? {
@@ -24,18 +28,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // @see https://stackoverflow.com/a/56862325/521197
         // Use a UIHostingController as window root view controller
+        
+        
+        #if !NO_UNIT_TEST
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             
-
-            let view = ContentView()
+            let view = ContentView( loginStates: loginStates )
                 .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext) // CoreData integrations
+                .environmentObject(mcSecretsService)
             
             window.rootViewController = UIHostingController(rootView: view  )
 
             self.window = window
             window.makeKeyAndVisible()
         }
+        #endif
     
         // Use a UIHostingController as window root view controller
         //let window = UIWindow(frame: UIScreen.main.bounds)
@@ -50,28 +58,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
     
-        print( "> sceneDidDisconnect" )
+        logger.trace( "> sceneDidDisconnect" )
+        
+        mcSecretsService.stop()
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
 
-        print( "> sceneDidBecomeActive" )
+        logger.trace( "> sceneDidBecomeActive" )
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
+        
+        logger.trace( "> sceneWillResignActive" )
 
-        print( "> sceneWillResignActive" )
+        self.loginStates.show = true
+
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
 
-        print( "> sceneWillEnterForeground" )
+        logger.trace( "> sceneWillEnterForeground" )
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -81,7 +94,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
 
-        print( "> sceneDidEnterBackground" )
+        logger.trace( "> sceneDidEnterBackground" )
     }
 
 

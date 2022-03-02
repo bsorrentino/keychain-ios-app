@@ -11,8 +11,7 @@ import CoreData
 import SwiftUI
 import Combine
 import KeychainAccess
-
-
+import OSLog
 
 
 @UIApplicationMain
@@ -21,10 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        print( "> didFinishLaunchingWithOptions" )
+        logger.trace( "> didFinishLaunchingWithOptions" )
 
-        application.managedObjectContextInit()
-
+        startObservingManagedObjectContextObjectsDidChangeEvent()
+        
         return true
     }
 
@@ -32,9 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         
-        print( "> applicationWillTerminate" )
+        logger.trace( "> applicationWillTerminate" )
         
-        application.managedObjectContextDestroy()
+        stopObservingManagegObjectContextObjectsDidChangeEvent()
+        
+        saveContext()
 
     }
 
@@ -44,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         
-        print( "> configurationForConnecting")
+        logger.trace( "> configurationForConnecting")
 
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
@@ -54,19 +55,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
         
-        print( "> didDiscardSceneSessions")
+        logger.trace( "> didDiscardSceneSessions")
     }
 
     // MARK: - Core Data stack
 
-    lazy var persistentContainer: NSPersistentCloudKitContainer = {
+    lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentCloudKitContainer(name: "KeyChain")
+        
+        let container:NSPersistentContainer
+        
+        if isInPreviewMode {
+            container = NSPersistentContainer(name: "KeyChain")
+        }
+        else {
+            container = NSPersistentCloudKitContainer(name: "KeyChain")
+        }
+            
+        //let container = NSPersistentContainer(name: "KeyChain")
         container.loadPersistentStores() { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -82,10 +93,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  */
                 
                 //fatalError("Unresolved error \(error), \(error.userInfo)")
-                print( "Unresolved error \(error), \(error.userInfo)" )
+                logger.critical( "Unresolved error \(error), \(error.userInfo)" )
             }
             container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+            container.viewContext.automaticallyMergesChangesFromParent = true
+            
+            
+            if isInPreviewMode {
+                
+                [
+                    "A0",
+                    "B0",
+                    "C0",
+                    "B1",
+                    "B2",
+                ].forEach {
+                    let record = KeyEntity(context: container.viewContext)
+                    record.username = "bartolomeo.sorrentino@soulsoftware.it"
+                    record.mnemonic = $0
+                
+                    container.viewContext.insert( record )
+                }
+                
+                
+                Dictionary( grouping: [ "AG0-A0",
+                                        "AG0-B0",
+                                        "AG0-C0",
+                                        "AG0-B1",
+                                        "AG0-B2",
+                                      ], by: { String($0[..<$0.index( $0.startIndex, offsetBy: 3 )]) })
+                    .forEach { keyValue in
+                        let record = KeyEntity(context: container.viewContext)
+                        record.mnemonic = keyValue.key
+                        record.groupPrefix = keyValue.key
+                        record.group = false
+                        container.viewContext.insert( record )
+                        
+                        keyValue.value.forEach { value in
+                            let record = KeyEntity(context: container.viewContext)
+                            record.username = value
+                            record.mnemonic = value
+                            record.group = true
+                            record.groupPrefix = keyValue.key
+                            
+                            container.viewContext.insert( record )
+                        }
+                        
+                    }
+                    
 
+                
+            }
+            
         }
         return container
     }()

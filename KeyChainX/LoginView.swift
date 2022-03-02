@@ -13,15 +13,23 @@ import FieldValidatorLibrary
 
 private let strikeWidth:CGFloat = 0.5
 
+
 struct LoginView: View {
+    
+    class States : ObservableObject {
+        @Published var show = true
+    }
+
     @Environment(\.presentationMode) private var isPresented
     @Environment(\.UserPreferencesKeychain) private var userPreferencesKeychain
-
+    @EnvironmentObject private var mcSecretsService :MCSecretsService
+    
+    
     @State var password:String = ""
-    @State var passwordChecker   = FieldChecker()
+    @StateObject var passwordChecker   = FieldChecker2<String>()
 
     @State var confirmPassword:String = ""
-    @State var confirmPasswordChecker   = FieldChecker()
+    @StateObject var confirmPasswordChecker   = FieldChecker2<String>()
 
     //@State private var showingAlert = false
     //@State private var authenticationError:String = ""
@@ -29,11 +37,13 @@ struct LoginView: View {
     
     private var  context = LAContext()
 
+    // Dismiss after logging on
     private func dismiss() {
         self.isPresented.wrappedValue.dismiss()
+        mcSecretsService.start()
     }
     
-    private func checkError(  checker:@escaping () -> FieldChecker ) -> some View {
+    private func checkError(  checker:@escaping () -> FieldChecker2<String> ) -> some View {
         
         let c = checker()
         
@@ -49,7 +59,7 @@ struct LoginView: View {
             VStack(alignment: .center) {
                     
                 Text( "KEYCHAIN" ).font(.title).fontWeight(.bold)
-                Text( UIApplication.appVersion ?? "").font(.headline).fontWeight(.thin)
+                Text( appVersion() ).font(.headline).fontWeight(.thin)
                 
                 Spacer()
                 if self.isBiometricAvailable && self.hidePassword {
@@ -100,8 +110,8 @@ struct LoginView: View {
                     }
                     else {
 
-                        self.passwordInput1()
-                        self.passwordInput2()
+                        self.passwordChooseInput()
+                        self.passwordConfirmInput()
                         Divider()
                         self.checkError {
                             ( self.passwordChecker.valid ) ? self.confirmPasswordChecker : self.passwordChecker
@@ -121,20 +131,18 @@ struct LoginView: View {
                 Spacer()
 
                     
-            }.padding( EdgeInsets( top:0, leading:10, bottom:0, trailing:10  ))
+                }.padding( EdgeInsets( top:0, leading:10, bottom:0, trailing:10  ))
 
                     
-        }.navigationBarTitle( Text("Login"), displayMode: .large)
+            }.navigationBarTitle( Text("Login"), displayMode: .large)
+        .highPriorityGesture( DragGesture() ) // DISABLE DRAG GESTURE
     }
         
     func passwordInput() -> some View {
         
         VStack(alignment: .leading) {
-            SecureFieldWithValidator(
-                title:"give me password",
-                value:$password,
-                checker:$passwordChecker,
-                onCommit: submitPassword) { v in
+            SecureField( "give me password",
+                         text:$password.onValidate(checker: passwordChecker ) { v in
                     
                     if( v.isEmpty ) {
                         return "password cannot be empty! ☹️"
@@ -155,7 +163,7 @@ struct LoginView: View {
                     }
                                         
                     return nil
-            }
+            },onCommit: submitPassword)
             .autocapitalization(.none)
             .multilineTextAlignment(.center)
             .padding( 10.0 )
@@ -168,61 +176,65 @@ struct LoginView: View {
 
     }
     
-    func passwordInput1() -> some View {
-        
-        VStack(alignment: .leading) {
-            SecureFieldWithValidator( title:"write password",
-                                      value:$password,
-                                      checker:$passwordChecker ) { v in
-                    if( v.isEmpty ) {
-                        return "password cannot be empty! ☹️"
-                    }
-                                                            
-                    return nil
-            }
-            .autocapitalization(.none)
-            .multilineTextAlignment(.center)
-            .padding( 20.0 )
-//            .overlay( RoundedRectangle(cornerRadius: 10)
-//                        .stroke(lineWidth: strikeWidth )
-//                        .foregroundColor(passwordChecker.valid ? Color.black : Color.red))
-
-
-        }
-    }
-
-    func passwordInput2() -> some View {
-        
-        VStack(alignment: .leading) {
-            SecureFieldWithValidator( title: "confirm password",
-                                      value:$confirmPassword,
-                                      checker:$confirmPasswordChecker ) { v in
-                    if( v.isEmpty ) {
-                        return "password cannot be empty! ☹️"
-                    }
-                    if( self.password.compare(v) != .orderedSame) {
-                        return "password doesn't match! 🤔"
-                    }
-                    return nil
-            }
-            .autocapitalization(.none)
-            .multilineTextAlignment(.center)
-            .padding( 30.0 )
-//            .overlay( RoundedRectangle(cornerRadius: 10)
-//                        .stroke(lineWidth: strikeWidth )
-//                        .foregroundColor(confirmPasswordChecker.valid ? Color.black : Color.red))
-
-            
-
-        }
-
-    }
-
-
 }
 
+//
+// MARK: -
+// MARK: FIRST TIME PASSWORD
+//
+
+extension LoginView {
+    
+        func passwordChooseInput() -> some View {
+            
+            VStack(alignment: .leading) {
+                SecureField( "write password",
+                             text: $password.onValidate(checker: passwordChecker ) { v in
+                        if( v.isEmpty ) {
+                            return "password cannot be empty! ☹️"
+                        }
+                                                                
+                        return nil
+                })
+                .autocapitalization(.none)
+                .multilineTextAlignment(.center)
+                .padding( 20.0 )
+    //            .overlay( RoundedRectangle(cornerRadius: 10)
+    //                        .stroke(lineWidth: strikeWidth )
+    //                        .foregroundColor(passwordChecker.valid ? Color.black : Color.red))
+
+
+            }
+        }
+
+        func passwordConfirmInput() -> some View {
+            
+            VStack(alignment: .leading) {
+                SecureField( "confirm password",
+                             text: $confirmPassword.onValidate(checker: confirmPasswordChecker ) { v in
+                        if( v.isEmpty ) {
+                            return "password cannot be empty! ☹️"
+                        }
+                        if( self.password.compare(v) != .orderedSame) {
+                            return "password doesn't match! 🤔"
+                        }
+                        return nil
+                })
+                .autocapitalization(.none)
+                .multilineTextAlignment(.center)
+                .padding( 30.0 )
+    //            .overlay( RoundedRectangle(cornerRadius: 10)
+    //                        .stroke(lineWidth: strikeWidth )
+    //                        .foregroundColor(confirmPasswordChecker.valid ? Color.black : Color.red))
+
+                
+
+            }
+    }
+}
 
 //
+// MARK: -
 // MARK: BIOMETRIC AUTHC
 //
 
@@ -251,7 +263,7 @@ extension LoginView {
                         self.dismiss()
                     }
                     else {
-                        print( "error authenticate using biometric \(error?.localizedDescription ?? "")")
+                        logger.warning( "error authenticate using biometric \(error?.localizedDescription ?? "")")
                     }
                 }
             }
@@ -264,6 +276,7 @@ extension LoginView {
 }
 
 //
+// MARK: -
 // MARK: PASSWORD AUTHC
 //
 
@@ -273,13 +286,17 @@ extension LoginView {
         
         do {
             
-            if let password = try userPreferencesKeychain.getString( "password" ) {
-                return password
+            if let secret = try userPreferencesKeychain.getSecret(forKey: "password" ) {
+                return secret.password
             }
             
         }
         catch {
-            print( "ERROR: getting element 'password'' from keychain.\n\(error)" )
+            logger.warning(
+                """
+                ERROR: getting element 'password'' from keychain.
+                \(error.localizedDescription)
+                """ )
         }
         return nil
 
@@ -288,12 +305,15 @@ extension LoginView {
     private func savePasswordAndDismiss() {
         
         do {
-            try userPreferencesKeychain
-                .comment("keychainx user password")
-                .set( password, key: "password" )
+            try userPreferencesKeychain.setSecret(forKey: "password",
+                                                  secret: (  password:password, note: "keychainx user password" ))
         }
         catch {
-            print( "ERROR: setting 'password' to keychain.\n\(error)" )
+            logger.warning(
+                """
+                ERROR: setting 'password' to keychain.
+                \(error.localizedDescription)
+                """ )
         }
 
         dismiss()

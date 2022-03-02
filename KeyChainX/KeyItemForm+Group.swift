@@ -47,7 +47,7 @@ struct GroupList: View {
     @FetchRequest( fetchRequest:KeyEntity.fetchGroups() )
     var groups:FetchedResults<KeyEntity>
     
-    @State var groupValid = FieldChecker()
+    @StateObject var groupValid = FieldChecker2<String>()
     @State var newGroup:String = ""
 
     private var selectableGroups: [KeyEntity] {
@@ -62,14 +62,14 @@ struct GroupList: View {
                 Section(header: Text("New Group")) {
                     
                     HStack {
-                        TextFieldWithValidator( title: "insert group", value: $newGroup, checker:$groupValid ) { v in
+                        TextField( "insert group", text: $newGroup.onValidate( checker: groupValid ) { v in
                                
                                 if( v.isEmpty ) {
                                    return "group name cannot be empty !"
                                 }
                                
                                return nil
-                        }
+                        })
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .font(.body)
@@ -122,7 +122,12 @@ struct GroupList: View {
             try self.context.save()
         }
         catch {
-            print( "error inserting new group \(error)" )
+            logger.warning( """
+                error inserting new group
+                
+                \(error.localizedDescription)
+                """ )
+
         }
         
         self.newGroup = ""
@@ -138,7 +143,12 @@ struct GroupList: View {
                 try self.context.save()
             }
             catch {
-                print( "error deleting new group \(error)" )
+                logger.warning( """
+                    error deleting new group
+                    
+                    \(error.localizedDescription)
+                    """ )
+
             }
         }
     }

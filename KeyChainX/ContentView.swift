@@ -10,32 +10,31 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showLogin = true
+    @ObservedObject var loginStates:LoginView.States
     
     @State private var selection = 0
  
+    
     var body: some View {
-        TabView(selection: $selection){
+        TabView(selection: self.$selection) {
             
-            KeyItemListContentView()
+            KeyItemList_IOS15()
                 .tabItem {
                     VStack {
                         Image(systemName: "list.dash")
-                        Text("Key list")
+                        Text("test")
                     }
                 }
-                .tag(0)
-//            BackupKeysView()
-//                .font(.title)
-//                .tabItem {
-//                    VStack {
-//                        Image(systemName: "arrow.down.doc")
-//                        Text("Backup keys")
-//                    }
-//                }
-//                .tag(1)
+            .tag(0)
+            BackupKeysView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "arrow.down.doc")
+                        Text("Backup keys")
+                    }
+                }
+                .tag(1)
             RestoreKeysView()
-                .font(.title)
                 .tabItem {
                     VStack {
                         Image(systemName: "arrow.up.doc")
@@ -43,8 +42,17 @@ struct ContentView: View {
                     }
                 }
                 .tag(2)
+            PeerConnectionsView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "laptopcomputer")
+                        Text("Connections")
+                    }
+                }
+                .tag(3)
+
         }
-        .sheet(isPresented: $showLogin) {
+        .sheet(isPresented: $loginStates.show) {
             LoginView()
         }
     }
@@ -52,6 +60,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView( )
+        ContentView( loginStates: LoginView.States() )
     }
 }

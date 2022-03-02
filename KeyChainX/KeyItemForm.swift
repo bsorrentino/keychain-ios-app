@@ -10,6 +10,106 @@ import SwiftUI
 import Combine
 import FieldValidatorLibrary
 
+
+struct KeyEntityForm : View {
+    @Environment(\.presentationMode)        var presentationMode
+    @Environment(\.managedObjectContext)    var managedObjectContext
+    @Environment(\.colorScheme)             var colorScheme: ColorScheme
+    
+    @State          var secretState:SecretState = .hide
+    @State private  var pickUsernameFromMail    = false
+    @State private  var alertItem:AlertItem?
+
+    @ObservedObject var item:KeyItem
+
+    var parentId:Binding<Int>?
+    
+    private let bg = Color(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, opacity: 0.2)
+                    //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
+    private let strikeWidth:CGFloat = 0.5
+    
+
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                
+                if( item.isNew ) {
+                    Section(header: Text("Mnemonic"), footer: EmptyView() ) {
+                        mnemonicInput()
+                    }
+                }
+                Section( header: HStack {
+                        Text("Credentials")
+                        Divider()
+                        Spacer()
+                        Text("shared")
+                    Toggle( "shared", isOn: $item.shared ).labelsHidden()
+                })
+                {
+                    usernameInput()
+                    PasswordField(value: $item.password, passwordCheck: $item.passwordCheck)
+                    
+                }
+                Section( header: Text("Other")) {
+                    GroupField( value:$item.groupPrefix )
+                    EmailField( value:$item.mail )
+                    UrlField( value:$item.url )
+                    NoteField( value:$item.note)
+                }
+            }
+            .navigationBarTitle( Text( item.mnemonic.uppercased()), displayMode: .inline  )
+            .navigationBarItems(trailing:
+                HStack {
+                    // secretStatePicker()
+                    // Spacer(minLength: 15)
+                    saveButton()
+                }
+            )
+            .onAppear {
+                if( !item.isNew ) {
+                    
+                    if( !item.url.isEmpty ) {
+                        
+                        Shared.getWebSharedPassword(forUsername: item.username, fromUrl: item.url) { result in
+                            
+                            switch result {
+                            case .success(let password):
+                                if password != nil {
+                                    // If found password in the Shared Web Credentials,
+                                    // then log into the server
+                                    // and save the password to the Keychain
+
+                                    logger.trace( "password for site \(item.url) and user \(item.username) is \(String(describing: password),privacy: .private )")
+                                } else {
+                                    // If not found password either in the Keychain also Shared Web Credentials,
+                                    // prompt for username and password
+
+                                    // Log into server
+
+                                    // If the login is successful,
+                                    // save the credentials to both the Keychain and the Shared Web Credentials.
+                                    logger.trace( "password for site \(item.url) and user \(item.username) not found!")
+                                }
+
+                            case .failure(let error):
+                                logger.warning( "WARN: getWebSharedPassword()\n\(error.localizedDescription)")
+                            }
+                        }
+                    }
+                }
+                
+            }
+        } // NavigationView
+        
+    }
+}
+
+
+//
+// MARK: - Show / hide Secrets
+// MARK: -
+//
 enum SecretState: Int, Hashable {
     
     case hide
@@ -24,29 +124,8 @@ enum SecretState: Int, Hashable {
 
 }
 
-struct KeyEntityForm : View {
-    @Environment(\.presentationMode) var presentationMode
+extension KeyEntityForm {
     
-    @Environment(\.managedObjectContext) var managedObjectContext
-
-    @ObservedObject var item:KeyItem
-    
-    @State var secretState:SecretState = .hide
-    
-    @State private var pickUsernameFromMail = false
-    
-    private let bg = Color(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, opacity: 0.2)
-                    //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
-    private let strikeWidth:CGFloat = 0.5
-    
-    init() {
-        self.item = KeyItem()
-    }
-
-    init( entity:KeyEntity ) {
-        self.item = KeyItem( entity:entity )
-    }
-
     func secretStatePicker() -> some View {
         
         Picker( selection: $secretState, label: EmptyView() ) {
@@ -58,192 +137,162 @@ struct KeyEntityForm : View {
         .pickerStyle(SegmentedPickerStyle())
 
     }
+}
+
+//
+// MARK: - Controls
+// MARK: -
+//
+extension KeyEntityForm {
+    
     
     func saveButton() -> some View {
         
         Button( "save", action: {
-            print( "Save\n mnemonic: \(self.item.mnemonic)\n username: \(self.item.username)" )
+            logger.trace( "Save\n mnemonic: \(self.item.mnemonic)\n username: \(self.item.username)" )
             
-            do {
-                try self.item.insert( into: self.managedObjectContext )
-                try self.managedObjectContext.save()
-            }
-            catch {
-                if( self.item.isNew ) {
-                    print( "error inserting new key \(error)" )
-                }
-                else {
-                    print( "error updating new key \(error)" )
-                }
-            }
+            _ = saveItem().sink(
+                receiveCompletion: {
+                    switch $0  {
+                    case .failure(let error):
+                        
+                        let op = (self.item.isNew) ? "inserting": "updating"
+                        self.alertItem = makeAlertItem( error:"error \(op) new key \(error)",
+                                                        primaryButton: .destructive( Text("Abort")) {
+                                                            self.presentationMode.wrappedValue.dismiss()
+                                                        },
+                                                        secondaryButton: .cancel() )
+                    case .finished:
+                        parentId?.wrappedValue += 1 // force view refresh
+
+                        if( self.item.isNew ) {
+                            self.item.reset()
+                        }
+                        
+                        self.presentationMode.wrappedValue.dismiss()
+
+                    }
+                },
+                receiveValue: {}
+            )
+
+                    
+           
             
-            self.presentationMode.wrappedValue.dismiss()
             
         })
         .disabled( !item.checkIsValid )
+        .alert(item: $alertItem) { item  in makeAlert(item:item) }
     }
     
     
     func mnemonicInput() -> some View  {
         
-        VStack(alignment: .leading) {
-            HStack {
-                Text("mnemonic")
-                if( !item.mnemonicCheck.valid  ) {
-                    Spacer()
-                    Text( item.mnemonicCheck.errorMessage ?? "" )
-                        .fontWeight(.light)
-                        .font(.footnote)
-                        .foregroundColor(Color.red)
+        TextField( "give me the unique name of key",
+                   text: $item.mnemonic.onValidate( checker: item.mnemonicCheck ) { v  in
 
-                }
-
+            if( v.isEmpty ) {
+                return "mnemonic cannot be empty"
             }
+            return nil
+        })
+        .autocapitalization(.allCharacters)
+        .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
+        .modifier(ValidatorMessageModifier( message: item.mnemonicCheck.errorMessage ))
             
-            TextFieldWithValidator( title: "give me the unique name of key",
-                                    value: $item.mnemonic,
-                                    checker:$item.mnemonicCheck ) { v in
-                
-                if( v.isEmpty ) {
-                    return "mnemonic cannot be empty"
-                }
-                
-                return nil
-            }
-            .autocapitalization(.allCharacters)
-            .padding(10.0)
-            .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: strikeWidth)
-                    .foregroundColor(item.mnemonicCheck.valid ? Color.black : Color.red)
-            )
-
-        }
-            
-
     }
     
     func usernameInput() -> some View {
         
-        VStack(alignment: .leading) {
-            HStack {
-                Text("username")
-                if( !item.usernameCheck.valid  ) {
-                    Spacer()
-                    Text( item.usernameCheck.errorMessage ?? "" )
-                        .fontWeight(.light)
-                        .font(.footnote)
-                        .foregroundColor(Color.red)
-
-                }
-
-            }
-            
-            HStack {
-                TextFieldWithValidator( title:"give me the username ?",
-                                        value: $item.username,
-                                        checker:$item.usernameCheck ) { v in
+        HStack{
+            ZStack {
+                TextField( "give me the username",
+                           text: $item.username.onValidate( checker: item.usernameCheck ) { v in
                     
                     if( v.isEmpty ) {
                         return "username cannot be empty"
                     }
-                    
-                    //print( "validate username \(v) - \(self.pickUsernameFromMail)")
-                    
+                    //logger.trace( "validate username \(v) - \(self.pickUsernameFromMail)")
                     if( self.pickUsernameFromMail ) {
                         self.item.mail = v
                     }
                     return nil
-                }
-                //.padding(.all)
-                //.border( Color.black )
-                //.background(bg)
+                })
                 .autocapitalization(.none)
                 NavigationLink( destination: EmailList( value: $item.username_mail_setter), isActive:$pickUsernameFromMail  ) {
-                        EmptyView()
+                       EmptyView()
                 }
-                .frame( width:0, height:0)
-                Button( action: {
-                    self.pickUsernameFromMail = true
-                }) {
-                    Image( systemName: "envelope.circle")
-                        .resizable().frame(width: 20, height: 20, alignment: .center)
-                        .foregroundColor(Color.black)
-                }
-
-
+                .hidden()
             }
-            .padding( 10.0 )
-            .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: strikeWidth)
-                    .foregroundColor(item.usernameCheck.valid ? Color.black : Color.red)
-            )
+            Button( action: {
+                hideKeyboard()
+                self.pickUsernameFromMail = true
+                
+            }) {
+                Image( systemName: "envelope.circle")
+                    .resizable().frame(width: 20, height: 20, alignment: .center)
+                    .foregroundColor( colorScheme == .dark ? Color.white : Color.black )
+            }
+            CopyToClipboardButton( value:item.username )
 
         }
-
+        .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
+        .modifier(ValidatorMessageModifier( message:item.usernameCheck.errorMessage ))
 
     }
 
-    var body: some View {
-        NavigationView {
-            Form {
-                
+}
 
-                if( item.isNew ) {
-                    
-                    Section {
-                        mnemonicInput()
-                    }
+//
+// MARK: - Actions
+// MARK: -
+//
+extension KeyEntityForm {
 
-                }
-
-                Section {
-                    
-                    usernameInput()
-                    
-                    PasswordField(value: $item.password, passwordCheck: $item.passwordCheck)
-                                        
-                }
-                
-                Section {
-                    
-                    GroupField( value:$item.groupPrefix )
-
-                    EmailField( value:$item.mail )
-                    
-                    UrlField( value:$item.url )
-
-                    NoteField( value:$item.note)
-                    
-                }
-            }
-            .navigationBarTitle( Text( item.mnemonic.uppercased()), displayMode: .inline  )
-            .navigationBarItems(trailing:
-                HStack {
-                    
-                    // secretStatePicker()
-                    
-                    // Spacer(minLength: 15)
-                    
-                    saveButton()
-
-                }
-            )
-        } // NavigationView
+    
+    fileprivate func saveItem() -> Future<Void,Error> {
         
+        return Future { promise in
+            
+            do {
+                try self.item.insert( into: self.managedObjectContext )
+                try self.managedObjectContext.save()
+
+                promise(.success(()))
+            }
+            catch {
+                logger.error("""
+                    ERROR: saving Item
+                    
+                    \(error.localizedDescription)
+                    """)
+                promise(.failure(error))
+            }
+
+        }
     }
 }
+
+//
+// MARK: - Preview
+// MARK: -
+//
 
 #if DEBUG
 import KeychainAccess
 
 struct KeyItemDetail_Previews : PreviewProvider {
     static var previews: some View {
+        // @see https://www.hackingwithswift.com/quick-start/swiftui/how-to-preview-your-layout-in-light-and-dark-mode
         
-        KeyEntityForm()
         
-        
+        Group {
+            KeyEntityForm( item:KeyItem() )
+               .environment(\.colorScheme, .light)
+
+            KeyEntityForm( item:KeyItem() )
+               .environment(\.colorScheme, .dark)
+         }
     }
 }
 #endif
