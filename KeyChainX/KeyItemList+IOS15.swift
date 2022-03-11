@@ -64,15 +64,25 @@ struct KeyItemList_IOS15: View {
 
             }
             .id( keyItemListId )
+            .toolbar {
+                ToolbarItem( placement: .navigationBarTrailing ) {
+                    Button( action: { formActive.toggle() }) {
+                        HStack {
+                            KeyEntityFormNavigationLink
+                            Text("Add")
+                        }
+                    }
+                }
+            }
             .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
             .navigationBarTitle( Text("Key List"), displayMode: .inline )
-            .navigationBarItems(trailing:
-                Button( action: { formActive.toggle() }) {
-                    HStack {
-                        KeyEntityFormNavigationLink
-                        Text("Add")
-                    }
-                })
+//            .navigationBarItems(trailing:
+//                Button( action: { formActive.toggle() }) {
+//                    HStack {
+//                        KeyEntityFormNavigationLink
+//                        Text("Add")
+//                    }
+//                })
 
         }
     }
