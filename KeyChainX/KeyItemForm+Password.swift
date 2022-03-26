@@ -14,8 +14,8 @@ import OSLog
 private struct PasswordToggleField : View {
     typealias Validator = (String) -> String?
     
-    var hidden:Bool
     @Binding var value:String
+    var hidden:Bool
  
     var body: some View {
         Group {
@@ -60,7 +60,7 @@ struct PasswordField : View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
 
     @Binding var value:String
-    @Binding var passwordCheck:FieldChecker2<String>
+    @ObservedObject var passwordCheck:FieldChecker2<String>
     @State var hidden:Bool = true
 
     private let strikeWidth:CGFloat = 0.5
@@ -68,13 +68,12 @@ struct PasswordField : View {
     
     var body: some View {
         HStack {
-            PasswordToggleField( hidden: hidden,
-                                 value:$value.onValidate(checker: passwordCheck) { v in
+            PasswordToggleField( value:$value.onValidate(checker: passwordCheck) { v in
                  if( v.isEmpty ) {
                      return "password cannot be empty"
                  }
                  return nil
-            })
+            }, hidden: hidden)
             .autocapitalization(.none)
             HideToggleButton( hidden: $hidden )
             CopyToClipboardButton( value:self.value )

@@ -28,8 +28,33 @@ struct KeyEntityForm : View {
                     //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     private let strikeWidth:CGFloat = 0.5
     
+    @StateObject var passwordCheck = FieldChecker2<String>()
+    @StateObject var mnemonicCheck = FieldChecker2<String>()
+    @StateObject var usernameCheck = FieldChecker2<String>()
 
+    // https://forums.swift.org/t/state-vars-didset-fix-or-prohibition/53161/9
+//    @State var username_mail_setter: String = "" {
+//        didSet {
+//            item.username = usernameCheck.doValidate(value: username_mail_setter)
+//            item.mail = username_mail_setter
+//        }
+//    }
+    var  username_mail_setter_binding: Binding<String>  {
+        Binding(
+            get: { item.username },
+            set: {
+                item.username = usernameCheck.doValidate(value: $0)
+                item.mail = $0
+            }
+        )
+    }
     
+    var checkIsValid:Bool {
+        return  mnemonicCheck.valid &&
+                usernameCheck.valid &&
+                passwordCheck.valid
+    }
+
     var body: some View {
         NavigationView {
             Form {
@@ -48,7 +73,7 @@ struct KeyEntityForm : View {
                 })
                 {
                     usernameInput()
-                    PasswordField(value: $item.password, passwordCheck: $item.passwordCheck)
+                    PasswordField(value: $item.password, passwordCheck: passwordCheck)
                     
                 }
                 Section( header: Text("Other")) {
@@ -181,7 +206,7 @@ extension KeyEntityForm {
             
             
         })
-        .disabled( !item.checkIsValid )
+        .disabled( !checkIsValid )
         .alert(item: $alertItem) { item  in makeAlert(item:item) }
     }
     
@@ -189,7 +214,7 @@ extension KeyEntityForm {
     func mnemonicInput() -> some View  {
         
         TextField( "give me the unique name of key",
-                   text: $item.mnemonic.onValidate( checker: item.mnemonicCheck ) { v  in
+                   text: $item.mnemonic.onValidate( checker: mnemonicCheck ) { v  in
 
             if( v.isEmpty ) {
                 return "mnemonic cannot be empty"
@@ -198,7 +223,7 @@ extension KeyEntityForm {
         })
         .autocapitalization(.allCharacters)
         .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
-        .modifier(ValidatorMessageModifier( message: item.mnemonicCheck.errorMessage ))
+        .modifier(ValidatorMessageModifier( message: mnemonicCheck.errorMessage ))
             
     }
     
@@ -207,7 +232,7 @@ extension KeyEntityForm {
         HStack{
             ZStack {
                 TextField( "give me the username",
-                           text: $item.username.onValidate( checker: item.usernameCheck ) { v in
+                           text: $item.username.onValidate( checker: usernameCheck ) { v in
                     
                     if( v.isEmpty ) {
                         return "username cannot be empty"
@@ -219,7 +244,7 @@ extension KeyEntityForm {
                     return nil
                 })
                 .autocapitalization(.none)
-                NavigationLink( destination: EmailList( value: $item.username_mail_setter), isActive:$pickUsernameFromMail  ) {
+                NavigationLink( destination: EmailList( value: username_mail_setter_binding ), isActive:$pickUsernameFromMail  ) {
                        EmptyView()
                 }
                 .hidden()
@@ -237,7 +262,7 @@ extension KeyEntityForm {
 
         }
         .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
-        .modifier(ValidatorMessageModifier( message:item.usernameCheck.errorMessage ))
+        .modifier(ValidatorMessageModifier( message:usernameCheck.errorMessage ))
 
     }
 

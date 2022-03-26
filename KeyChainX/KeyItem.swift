@@ -39,17 +39,17 @@ class KeyItem : ObservableObject, Decodable {
     // MARK: Accessory Fields
     private weak var entity:KeyEntity?
         
-    @Published var username_mail_setter: String = "" {
-        didSet {
-            username = usernameCheck.doValidate(value: username_mail_setter)
-            mail = username_mail_setter
-        }
-    }
+//    @Published var username_mail_setter: String = "" {
+//        didSet {
+//            username = usernameCheck.doValidate(value: username_mail_setter)
+//            mail = username_mail_setter
+//        }
+//    }
 
     // MARK: Field Validation
-    @Published var mnemonicCheck = FieldChecker2<String>()
-    @Published var usernameCheck = FieldChecker2<String>()
-    @Published var passwordCheck = FieldChecker2<String>()
+//    @Published var mnemonicCheck = FieldChecker2<String>()
+//    @Published var usernameCheck = FieldChecker2<String>()
+//    @Published var passwordCheck = FieldChecker2<String>()
 
     var isNew:Bool { return entity == nil  }
 
@@ -57,11 +57,11 @@ class KeyItem : ObservableObject, Decodable {
     
     var isGrouped:Bool { return entity?.isGrouped() ?? false }
     
-    var checkIsValid:Bool {
-        return  mnemonicCheck.valid &&
-                usernameCheck.valid &&
-                passwordCheck.valid
-    }
+//    var checkIsValid:Bool {
+//        return  mnemonicCheck.valid &&
+//                usernameCheck.valid &&
+//                passwordCheck.valid
+//    }
     
     init() {
         self.mnemonic = ""
