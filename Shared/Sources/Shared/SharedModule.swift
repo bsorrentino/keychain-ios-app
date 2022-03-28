@@ -10,17 +10,17 @@ import Foundation
 
 // MARK: Shared namespace
 
-class Shared {}
+public class SharedModule {}
 
 
-var isInPreviewMode:Bool {
+public var isInPreviewMode:Bool {
     (ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != nil)
 }
 
 #if targetEnvironment(simulator)
   // Simulator!
-let isRunningOnSimulator = true
+public let isRunningOnSimulator = true
 #else
-let isRunningOnSimulator = false
+public let isRunningOnSimulator = false
 #endif
 

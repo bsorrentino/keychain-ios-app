@@ -16,11 +16,11 @@ let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
 extension KeyEntity {
 
     
-    func isGroup() -> Bool  {
+    public func isGroup() -> Bool  {
         self.groupPrefix != nil && !self.group.boolValue
     }
 
-    func isGrouped() -> Bool  {
+    public func isGrouped() -> Bool  {
         group.boolValue
     }
 
@@ -52,7 +52,7 @@ extension KeyEntity {
         return -1
     }
 
-    static func createGroup( context: NSManagedObjectContext, groupPrefix:String) -> KeyEntity {
+    public static func createGroup( context: NSManagedObjectContext, groupPrefix:String) -> KeyEntity {
         let group = KeyEntity(context: context)
         group.mnemonic      = groupPrefix
         group.username      = groupPrefix
@@ -65,7 +65,7 @@ extension KeyEntity {
     /**
      
      */
-    static func fetchGroups( ) -> NSFetchRequest<KeyEntity> {
+    public static func fetchGroups( ) -> NSFetchRequest<KeyEntity> {
 
         let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
         
@@ -78,7 +78,7 @@ extension KeyEntity {
         return request
     }
     
-    static func ungroup( _ context: NSManagedObjectContext, entity: KeyEntity ) -> Bool {
+    public static func ungroup( _ context: NSManagedObjectContext, entity: KeyEntity ) -> Bool {
         
         do {
             entity.groupPrefix = nil
@@ -95,7 +95,7 @@ extension KeyEntity {
         }
     }
     
-    static func delete( _ context: NSManagedObjectContext, entity: KeyEntity ) -> Bool {
+    public static func delete( _ context: NSManagedObjectContext, entity: KeyEntity ) -> Bool {
         
         do {
             context.delete(entity)

@@ -10,12 +10,15 @@ import SwiftUI
 import Combine
 import OSLog
 
-struct CopyToClipboardButton : View {
+public struct CopyToClipboardButton : View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @State private var copied = false
     var value:String
     
-    var body: some View {
+    public init( value:String ) {
+        self.value = value
+    }
+    public var body: some View {
         Button( action: {
             withAnimation( Animation.default.speed(0.1) ) {
                 logger.debug("copy to clipboard!")

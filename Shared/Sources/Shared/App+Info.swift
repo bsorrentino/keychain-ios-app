@@ -12,7 +12,7 @@ import Foundation
 //
 // @see https://www.hackingwithswift.com/example-code/system/how-to-read-your-apps-version-from-your-infoplist-file
 //
-func appVersion() -> String {
+public func appVersion() -> String {
     if let result = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
         
         return result
@@ -21,7 +21,7 @@ func appVersion() -> String {
     return "no version"
 }
 
-func appName() -> String {
+public func appName() -> String {
     
     if let result = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String {
         

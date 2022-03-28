@@ -11,7 +11,7 @@ import CoreData
 import SwiftUI
 import Combine
 import KeychainAccess
-import OSLog
+import Shared
 
 
 @UIApplicationMain
@@ -68,86 +68,80 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
         */
         
-        let container:NSPersistentContainer
+        do {
         
-        if isInPreviewMode {
-            container = NSPersistentContainer(name: "KeyChain")
-        }
-        else {
-            container = NSPersistentCloudKitContainer(name: "KeyChain")
-        }
-            
-        //let container = NSPersistentContainer(name: "KeyChain")
-        container.loadPersistentStores() { (storeDescription, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                
-                //fatalError("Unresolved error \(error), \(error.userInfo)")
-                logger.critical( "Unresolved error \(error), \(error.userInfo)" )
-            }
-            container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-            container.viewContext.automaticallyMergesChangesFromParent = true
-            
-            
-            if isInPreviewMode {
-                
-                [
-                    "A0",
-                    "B0",
-                    "C0",
-                    "B1",
-                    "B2",
-                ].forEach {
-                    let record = KeyEntity(context: container.viewContext)
-                    record.username = "bartolomeo.sorrentino@soulsoftware.it"
-                    record.mnemonic = $0
-                
-                    container.viewContext.insert( record )
+            let container = try SharedModule.getPersistentContainer()
+                    
+            //let container = NSPersistentContainer(name: "KeyChain")
+            container.loadPersistentStores() { (storeDescription, error) in
+                if let error = error as NSError? {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                     
+                    /*
+                     Typical reasons for an error here include:
+                     * The parent directory does not exist, cannot be created, or disallows writing.
+                     * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                     * The device is out of space.
+                     * The store could not be migrated to the current model version.
+                     Check the error message to determine what the actual problem was.
+                     */
+                    
+                    fatalError("Unresolved error \(error), \(error.userInfo)")
+                    //logger.critical( "Unresolved error \(error), \(error.userInfo)" )
                 }
+                container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+                container.viewContext.automaticallyMergesChangesFromParent = true
                 
-                
-                Dictionary( grouping: [ "AG0-A0",
-                                        "AG0-B0",
-                                        "AG0-C0",
-                                        "AG0-B1",
-                                        "AG0-B2",
-                                      ], by: { String($0[..<$0.index( $0.startIndex, offsetBy: 3 )]) })
-                    .forEach { keyValue in
+                if isInPreviewMode {
+                    
+                    [
+                        "A0",
+                        "B0",
+                        "C0",
+                        "B1",
+                        "B2",
+                    ].forEach {
                         let record = KeyEntity(context: container.viewContext)
-                        record.mnemonic = keyValue.key
-                        record.groupPrefix = keyValue.key
-                        record.group = false
+                        record.username = "bartolomeo.sorrentino@soulsoftware.it"
+                        record.mnemonic = $0
+                    
                         container.viewContext.insert( record )
-                        
-                        keyValue.value.forEach { value in
-                            let record = KeyEntity(context: container.viewContext)
-                            record.username = value
-                            record.mnemonic = value
-                            record.group = true
-                            record.groupPrefix = keyValue.key
-                            
-                            container.viewContext.insert( record )
-                        }
-                        
                     }
                     
-
-                
+                    
+                    Dictionary( grouping: [ "AG0-A0",
+                                            "AG0-B0",
+                                            "AG0-C0",
+                                            "AG0-B1",
+                                            "AG0-B2",
+                                          ], by: { String($0[..<$0.index( $0.startIndex, offsetBy: 3 )]) })
+                        .forEach { keyValue in
+                            let record = KeyEntity(context: container.viewContext)
+                            record.mnemonic = keyValue.key
+                            record.groupPrefix = keyValue.key
+                            record.group = false
+                            container.viewContext.insert( record )
+                            
+                            keyValue.value.forEach { value in
+                                let record = KeyEntity(context: container.viewContext)
+                                record.username = value
+                                record.mnemonic = value
+                                record.group = true
+                                record.groupPrefix = keyValue.key
+                                
+                                container.viewContext.insert( record )
+                            }
+                            
+                        }
+                }
             }
-            
+            return container
         }
-        return container
+        catch {
+            fatalError( error.localizedDescription )
+        }
     }()
-    
+     
 
 }

@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import Shared
 
 struct RestoreKeysView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -67,7 +67,7 @@ struct RestoreKeysView: View {
     private func prepareRestore() {
         
         do {
-            try Shared.deleteAllWithMerge( context: managedObjectContext )
+            try SharedModule.deleteAllWithMerge( context: managedObjectContext )
             
             showReportView = true
         }

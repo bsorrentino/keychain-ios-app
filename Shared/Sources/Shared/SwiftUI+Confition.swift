@@ -23,7 +23,7 @@ extension View {
     ///   - condition: The condition to evaluate.
     ///   - modifier: The transform to apply to the source `View`.
     /// - Returns: Either the original `View` or the modified `View` if the condition is `true`.
-    @ViewBuilder func `if`<Content: View>(_ condition: Bool, modifier: (Self) -> Content) -> some View {
+    @ViewBuilder public func `if`<Content: View>(_ condition: Bool, modifier: (Self) -> Content) -> some View {
         if condition {
             modifier(self)
         } else {

@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 import FieldValidatorLibrary
+import Shared
 
 
 struct KeyEntityForm : View {
@@ -96,7 +97,7 @@ struct KeyEntityForm : View {
                     
                     if( !item.url.isEmpty ) {
                         
-                        Shared.getWebSharedPassword(forUsername: item.username, fromUrl: item.url) { result in
+                        SharedModule.getWebSharedPassword(forUsername: item.username, fromUrl: item.url) { result in
                             
                             switch result {
                             case .success(let password):

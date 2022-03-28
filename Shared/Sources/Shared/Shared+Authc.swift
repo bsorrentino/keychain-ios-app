@@ -32,12 +32,11 @@ extension LAPolicy : CustomStringConvertible {
 }
 
 
-enum AutenticationError: Error {
+public enum AutenticationError: Error {
     case AuthcNotSupported
 }
 
-struct AuthenticationService {
-    
+public struct AuthenticationService {
     
     private var context = LAContext()
     
@@ -79,7 +78,7 @@ struct AuthenticationService {
 extension AuthenticationService {
     
 
-     func tryAuthenticate( reason:String = "We need to unlock application" , completionHandler: @escaping (Result<Bool, AutenticationError>) -> Void ) {
+     public func tryAuthenticate( reason:String = "We need to unlock application" , completionHandler: @escaping (Result<Bool, AutenticationError>) -> Void ) {
         #if os(macOS)
         if( canEvaluatePolicy( .deviceOwnerAuthenticationWithBiometricsOrWatch )) {
             
@@ -103,8 +102,8 @@ extension AuthenticationService {
 }
 
 
-extension Shared  {
+extension SharedModule  {
 
-    static let authcService = AuthenticationService()
+    public static let authcService = AuthenticationService()
     
 }

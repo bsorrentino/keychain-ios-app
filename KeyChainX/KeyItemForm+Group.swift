@@ -8,6 +8,7 @@
 
 import SwiftUI
 import FieldValidatorLibrary
+import Shared
 
 struct GroupField : View {
     

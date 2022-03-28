@@ -9,5 +9,5 @@
 import Foundation
 import OSLog
 
-let logger = Logger(subsystem: "org.bsc.KeychainX", category: "main")
+public let logger = Logger(subsystem: "org.bsc.KeychainX", category: "main")
 

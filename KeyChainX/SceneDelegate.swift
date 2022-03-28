@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftUI
-import OSLog
+import Shared
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     

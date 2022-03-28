@@ -7,7 +7,8 @@
 //
 
 import SwiftUI
-
+import Shared
+import MultipeerConnectivity
 
 struct DisconnectButtonStyle: ButtonStyle {
     var disabled = false

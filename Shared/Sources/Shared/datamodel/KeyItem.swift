@@ -10,28 +10,29 @@ import Foundation
 import FieldValidatorLibrary
 import CoreData
 
+
 //
 // MARK: DISCONNECTED KEYENTITY OBJECT
 //
-class KeyItem : ObservableObject, Decodable {
+public class KeyItem : ObservableObject, Decodable {
     
     // MARK: Persistent Fields
-    @Published var mnemonic: String
-    @Published var username: String
-    @Published var password: String
-    @Published var mail: String
-    @Published var note: String
-    @Published var url:String
-    @Published var expire:Date?
-    @Published var groupPrefix: String? {
+    @Published public var mnemonic: String
+    @Published public var username: String
+    @Published public var password: String
+    @Published public var mail: String
+    @Published public var note: String
+    @Published public var url:String
+    @Published public var expire:Date?
+    @Published public var groupPrefix: String? {
         didSet {
             group = groupPrefix != nil
         }
     }
-    @Published var shared:Bool
+    @Published public var shared:Bool
 
     
-    var group = false
+    public var group = false
     var linkedTo: Set<String>?
     var linkedBy: String?
 
@@ -51,11 +52,11 @@ class KeyItem : ObservableObject, Decodable {
 //    @Published var usernameCheck = FieldChecker2<String>()
 //    @Published var passwordCheck = FieldChecker2<String>()
 
-    var isNew:Bool { return entity == nil  }
+    public var isNew:Bool { return entity == nil  }
 
-    var isGroup:Bool { return entity?.isGroup() ?? false }
+    public var isGroup:Bool { return entity?.isGroup() ?? false }
     
-    var isGrouped:Bool { return entity?.isGrouped() ?? false }
+    public var isGrouped:Bool { return entity?.isGrouped() ?? false }
     
 //    var checkIsValid:Bool {
 //        return  mnemonicCheck.valid &&
@@ -63,7 +64,7 @@ class KeyItem : ObservableObject, Decodable {
 //                passwordCheck.valid
 //    }
     
-    init() {
+    public init() {
         self.mnemonic = ""
         self.username = ""
         self.password = ""
@@ -73,10 +74,10 @@ class KeyItem : ObservableObject, Decodable {
         self.shared = false
     }
     
-    init( entity: KeyEntity ) {
+    public init( entity: KeyEntity ) {
         
         let key = entity.mnemonic
-        let shared = Shared.sharedSecrets.containsSecret(withKey: key)
+        let shared = SharedModule.sharedSecrets.containsSecret(withKey: key)
         
         self.mnemonic       = key
         self.username       = entity.username
@@ -88,8 +89,8 @@ class KeyItem : ObservableObject, Decodable {
         self.shared         = shared
         
         if let data = (shared) ?
-            try? Shared.sharedSecrets.getSecret( forKey: key) :
-            try? Shared.appSecrets.getSecret( forKey: key)
+            try? SharedModule.sharedSecrets.getSecret( forKey: key) :
+            try? SharedModule.appSecrets.getSecret( forKey: key)
         {
             self.note = data.note ?? ""
             self.password = data.password
@@ -106,7 +107,7 @@ class KeyItem : ObservableObject, Decodable {
     // MARK: -
     // MARK: Decodable
     // MARK: -
-    required init(from decoder: Decoder) throws {
+    public required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         let key = try values.decode(String.self, forKey: .mnemonic)
         
@@ -136,10 +137,10 @@ class KeyItem : ObservableObject, Decodable {
         self.linkedBy   = try values.decodeIfPresent( String.self, forKey: .linkedBy )
 
         //self.shared =    try values.decodeIfPresent(Bool.self, forKey: .shared) ?? false
-        self.shared = Shared.sharedSecrets.containsSecret(withKey: key)
+        self.shared = SharedModule.sharedSecrets.containsSecret(withKey: key)
     }
 
-    func reset() {
+    public func reset() {
         self.mnemonic = ""
         self.username = ""
         self.password = ""
@@ -162,7 +163,7 @@ class KeyItem : ObservableObject, Decodable {
         return entity
     }
 
-    func copy( from entity: KeyEntity ) {
+    public func copy( from entity: KeyEntity ) {
         self.mnemonic       = "\(entity.mnemonic)_1"
         self.username       = entity.username
         self.mail           = entity.mail ?? ""
@@ -176,24 +177,24 @@ class KeyItem : ObservableObject, Decodable {
 
     }
     
-    func insert( into context:NSManagedObjectContext ) throws {
+    public func insert( into context:NSManagedObjectContext ) throws {
         
         let secret = ( password:self.password, note:self.note)
         
         if( self.isNew ) {
             if( self.shared ) {
-                try Shared.sharedSecrets.setSecret( forKey: self.mnemonic, secret: secret )
+                try SharedModule.sharedSecrets.setSecret( forKey: self.mnemonic, secret: secret )
             }
             else {
-                try Shared.appSecrets.setSecret( forKey: self.mnemonic, secret: secret )
+                try SharedModule.appSecrets.setSecret( forKey: self.mnemonic, secret: secret )
             }
         }
         else {
             if( self.shared ) {
-                try Shared.sharedSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: Shared.appSecrets)
+                try SharedModule.sharedSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: SharedModule.appSecrets)
             }
             else {
-                try Shared.appSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: Shared.sharedSecrets)
+                try SharedModule.appSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: SharedModule.sharedSecrets)
             }
         }
         
@@ -202,7 +203,7 @@ class KeyItem : ObservableObject, Decodable {
         }
         else { // Create
             // Check Duplicate
-            if let _ = try Shared.fetchSingleIfPresent(context: context, entity: KeyEntity.entity(), predicateFormat: "mnemonic == %@", key: self.mnemonic) {
+            if let _ = try SharedModule.fetchSingleIfPresent(context: context, entity: KeyEntity.entity(), predicateFormat: "mnemonic == %@", key: self.mnemonic) {
                 
                 throw SavingError.DuplicateKey(id: self.mnemonic)
             }
