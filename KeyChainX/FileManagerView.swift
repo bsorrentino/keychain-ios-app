@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Shared
 
 extension URL {
     func isJSON() -> Bool {

@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 import FieldValidatorLibrary
-import OSLog
+import Shared
 
 private struct PasswordToggleField : View {
     typealias Validator = (String) -> String?

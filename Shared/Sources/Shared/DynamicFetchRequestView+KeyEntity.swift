@@ -12,7 +12,7 @@ import CoreData
 // Initilaizer for KeyEntity
 extension DynamicFetchRequestView where T : KeyEntity {
     
-    init( withSearchText searchText: String, @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
+    public init( withSearchText searchText: String, @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
 
         let final_predicate:NSPredicate
         
@@ -37,7 +37,7 @@ extension DynamicFetchRequestView where T : KeyEntity {
         self.init( withFetchRequest: request as! NSFetchRequest<T>, content: content)
     }
     
-    init( withGroupPrefix groupPrefix: String, @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
+    public init( withGroupPrefix groupPrefix: String, @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
         
         let request = KeyEntity.fetchRequest(withPredicate: NSPredicate(  format: "groupPrefix = %@ AND group = YES", groupPrefix ))
 

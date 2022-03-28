@@ -13,7 +13,7 @@ import Foundation
 extension String {
     
     
-    func groups(for regexPattern: String) -> [[String]] {
+    public func groups(for regexPattern: String) -> [[String]] {
         do {
             let regex = try NSRegularExpression(pattern: regexPattern)
             let matches = regex.matches(in: self,

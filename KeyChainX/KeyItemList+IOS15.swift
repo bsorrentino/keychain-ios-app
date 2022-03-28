@@ -8,6 +8,7 @@
 
 import SwiftUI
 import CoreData
+import Shared
 
 
 private let CELL_IMAGE_PADDING = EdgeInsets( top:20, leading:10, bottom:20, trailing:2)

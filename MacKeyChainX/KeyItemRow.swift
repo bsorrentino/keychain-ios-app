@@ -7,11 +7,12 @@
 //
 
 import SwiftUI
+import Shared
 
 func getSharedPassword( withKey key:String ) -> String? {
     
     do {
-        let secret = try Shared.sharedSecrets.getSecret(forKey: key )
+        let secret = try SharedModule.sharedSecrets.getSecret(forKey: key )
         return secret?.password
     }
     catch {
@@ -143,7 +144,7 @@ extension KeyItemRow {
     func sharedView() -> some View {
         
         Button( action:{
-            Shared.authcService.tryAuthenticate { result in
+            SharedModule.authcService.tryAuthenticate { result in
                 if case .success(true) = result {
                     withAnimation {
                         self.isShowSecret.toggle()

@@ -9,6 +9,7 @@
 import Foundation
 import MultipeerConnectivity
 import SwiftUI
+import Shared
 
 extension MCSessionState : CustomStringConvertible {
     
@@ -37,16 +38,20 @@ struct Peer : Identifiable, Equatable, CustomStringConvertible {
     var peerID:MCPeerID
     var state:MCSessionState = .notConnected
     
+    init( peerID:MCPeerID ) {
+        self.peerID = peerID
+    }
+    
     // Equatable
     static func ==(lhs: Peer, rhs: Peer) -> Bool {
         return lhs.peerID == rhs.peerID
     }
     
-    public var isConnected:Bool {
+    var isConnected:Bool {
         state == .connected
     }
     
-    public var description: String {
+    var description: String {
         "\(peerID.displayName) - (\(state.description))"
     }
     
@@ -81,7 +86,7 @@ class MCSecretsService : NSObject, ObservableObject {
     
     @Published var foundPeers = [Peer]()
     
-    @inlinable
+    //@inlinable
     var connectedPeers:[Peer] {
         foundPeers.filter { $0.state == .connected }
     }
@@ -92,7 +97,7 @@ class MCSecretsService : NSObject, ObservableObject {
         return session
     }()
 
-    @inlinable
+    //@inlinable
     func peerIndex( of peerID: MCPeerID ) -> Int? {
         self.foundPeers.map( { $0.peerID }).firstIndex(of: peerID )
     }
@@ -128,8 +133,6 @@ class MCSecretsService : NSObject, ObservableObject {
     }
 
 }
-
-
 
 
 

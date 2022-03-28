@@ -12,20 +12,20 @@ import SwiftUI
 
 // MARK: Application Keychain extensions
 
-class SecretsManager {
-    typealias Secret = ( password:String, note:String? )
+public class SecretsManager {
+    public typealias Secret = ( password:String, note:String? )
 
     fileprivate var keychain:Keychain
     
-    init( delegateTo keychain: Keychain ) {
+    public init( delegateTo keychain: Keychain ) {
         self.keychain = keychain
     }
 
-    func containsSecret( withKey key:String ) -> Bool {
+    public func containsSecret( withKey key:String ) -> Bool {
         return self.keychain[key] != nil
     }
     
-    func getSecret( forKey key:String ) throws -> Secret? {
+    public func getSecret( forKey key:String ) throws -> Secret? {
         
         guard let value = try self.keychain.getString( key ) else {
              return nil
@@ -35,7 +35,7 @@ class SecretsManager {
              
     }
 
-    func setSecret( forKey key:String, secret:Secret ) throws  {
+    public func setSecret( forKey key:String, secret:Secret ) throws  {
         
         if let note = secret.note {
             try self.keychain.comment(note).set( secret.password, key: key )
@@ -47,7 +47,7 @@ class SecretsManager {
     }
 
 
-    func removeSecret( key: String ) throws {
+    public func removeSecret( key: String ) throws {
         try self.keychain.remove(key)
 
     }
@@ -59,9 +59,9 @@ class SecretsManager {
 //
 extension SecretsManager {
     
-    typealias ErrorHandler = (Error) -> Void
+    public typealias ErrorHandler = (Error) -> Void
 
-    func swapSecret( toManager manager:SecretsManager, forKey key:String, onRemoveError: ErrorHandler? = nil ) throws {
+    public func swapSecret( toManager manager:SecretsManager, forKey key:String, onRemoveError: ErrorHandler? = nil ) throws {
         
         if let prevSecret = try getSecret(forKey: key) {
 
@@ -79,7 +79,7 @@ extension SecretsManager {
         }
     }
  
-    func setSecret( forKey key:String, secret:Secret, removeFromManager manager:SecretsManager, onRemoveError: ErrorHandler? = nil  ) throws {
+    public func setSecret( forKey key:String, secret:Secret, removeFromManager manager:SecretsManager, onRemoveError: ErrorHandler? = nil  ) throws {
         
         try setSecret( forKey: key, secret: secret )
         
@@ -98,15 +98,15 @@ extension SecretsManager {
 }
 
 
-extension Shared  {
+extension SharedModule  {
 
-    static let sharedSecrets = SecretsManager( delegateTo:Keychain( service: "org.bsc.KeyChainX.SharedGroup1", accessGroup: "48J595L9BX.keychainXSharedGroup1")
+    public static let sharedSecrets = SecretsManager( delegateTo:Keychain( service: "org.bsc.KeyChainX.SharedGroup1", accessGroup: "48J595L9BX.keychainXSharedGroup1")
                                                 .label("keychainx shared (bsorrentino)")
                                                 .synchronizable(true)
                                                 .accessibility(.whenUnlocked) )
-    static let appSecrets = SecretsManager( delegateTo:Keychain() )
+    public static let appSecrets = SecretsManager( delegateTo:Keychain() )
     
-    static func getWebSharedPassword( forUsername username:String, fromUrl textUrl:String, completionHandler handler: @escaping (Result<String?,Error>) -> Void  ) {
+    public static func getWebSharedPassword( forUsername username:String, fromUrl textUrl:String, completionHandler handler: @escaping (Result<String?,Error>) -> Void  ) {
         
         #if os(macOS)
         
@@ -160,13 +160,13 @@ extension Shared  {
 // MARK: Custom @Environment Keychain key
 // @see https://medium.com/@SergDort/custom-environment-keys-in-swiftui-49f54a13d140
 
-struct UserPreferencesKeychainKey: EnvironmentKey {
+public struct UserPreferencesKeychainKey: EnvironmentKey {
     //static let defaultValue: Keychain = Keychain(service: "keychainx.userpreferences")
-    static let defaultValue:SecretsManager = Shared.sharedSecrets
+    public static let defaultValue:SecretsManager = SharedModule.sharedSecrets
 }
 
 extension EnvironmentValues {
-    var UserPreferencesKeychain: SecretsManager {
+    public var UserPreferencesKeychain: SecretsManager {
         get {
             return self[UserPreferencesKeychainKey.self]
         }

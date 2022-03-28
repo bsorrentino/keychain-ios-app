@@ -10,6 +10,7 @@ import LocalAuthentication
 import SwiftUI
 import Combine
 import FieldValidatorLibrary
+import Shared
 
 private let strikeWidth:CGFloat = 0.5
 

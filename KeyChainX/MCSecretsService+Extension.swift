@@ -10,11 +10,11 @@ import Foundation
 import MultipeerConnectivity
 
 extension MCSecretsService {
-    func start() {
+    public func start() {
         self.serviceAdvertiser.startAdvertisingPeer()
     }
     
-    func stop() {
+    public func stop() {
         self.serviceAdvertiser.stopAdvertisingPeer()
     }
 
@@ -56,10 +56,12 @@ extension MCSecretsService : MCSessionDelegate {
 }
 
 
+
+
 extension MCSecretsService : MCNearbyServiceAdvertiserDelegate {
 
     
-    func keyWindow() -> UIWindow? {
+    public func keyWindow() -> UIWindow? {
        
        return UIApplication.shared.connectedScenes
                 .filter({$0.activationState == .foregroundActive})
@@ -72,11 +74,11 @@ extension MCSecretsService : MCNearbyServiceAdvertiserDelegate {
         // UIApplication.shared.windows.first(where: { $0.isKeyWindow })
     }
     
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
+    public func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
         logger.trace("didNotStartAdvertisingPeer: \(error.localizedDescription)")
     }
 
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
+    public func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         logger.trace("didReceiveInvitationFromPeer \(peerID)")
         
 //        invitationHandler( true, self.session )
