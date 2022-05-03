@@ -118,13 +118,17 @@ struct KeyItemRow: View {
                         SecretView( item:item, show:isShowSecret)
                     }
                     else {
-                        label("person.circle.fill") { Text(item.username) }
+                        label("person.circle.fill") {
+                            usernameText(value: item.username)
+                        }
                         SecretView( item:item, show:isShowSecret)
                         label("envelope.fill") { Text( mail) }
                     }
                 }
                 else {
-                    label("person.circle.fill") { usernameText( value:item.username) }
+                    label("person.circle.fill") {
+                        usernameText( value:item.username)
+                    }
                 }
                 if let url = item.url, !url.isEmpty {
                 
@@ -138,7 +142,7 @@ struct KeyItemRow: View {
     
 }
 
-// Sharing Actions Extension
+// Shared Actions Extension
 extension KeyItemRow {
     
     func sharedView() -> some View {
@@ -164,21 +168,24 @@ extension KeyItemRow {
 
     }
     
+}
+
+// Not Shared Actions Extension
+extension KeyItemRow {
+    
     func notSharedView() -> some View  {
         Group {
             if !mcSecretsService.connectedPeers.isEmpty {
                 Button( action:{
-                    
                     self.mcSecretsService.requestSecret(forMnemonic: item.mnemonic) { result in
-                        
+                        print( "request secret!!! \(result)")
                     }
                     
                 }) {
-                
                     Image( systemName: "icloud.slash")
                         .foregroundColor(Color.yellow)
-            
-                }.buttonStyle(PlainButtonStyle())
+                }
+                .buttonStyle(PlainButtonStyle())
             }
             else {
                 Image( systemName: "icloud.slash")
@@ -187,6 +194,7 @@ extension KeyItemRow {
         }
     }
 }
+
 
 struct KeyItemRow_Previews: PreviewProvider {
     

@@ -31,7 +31,10 @@ extension MCSecretsService {
             return
         }
         
-        guard let cmd = "keychainx://get/\(id)".data(using: .utf8) else {
+        
+        guard   let ecodedId = id.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+                let cmd = "keychainx://get/\(ecodedId)".data(using: .utf8)
+        else {
             handler( .failure(.Internal("error composing command")) )
             return
         }
@@ -49,11 +52,12 @@ extension MCSecretsService {
         }
 
         dispatchPeerGroup.enter()
-
+        defer {
+            dispatchPeerGroup.leave()
+        }
         do {
             
             try self.session.send( cmd, toPeers: [peer.peerID], with: .unreliable)
-            
             
             let waitResult = dispatchPeerGroup.wait(timeout: .now() + 10)
             
@@ -63,13 +67,11 @@ extension MCSecretsService {
 
         }
         catch( let error ) {
-            dispatchPeerGroup.leave()
             
             handler( .failure( .FromCause(error) ) )
             
             return
         }
-        
 
         
     }
@@ -86,7 +88,6 @@ extension MCSecretsService : MCNearbyServiceBrowserDelegate {
         logger.trace("foundPeer: \(peerID)")
         
         self.foundPeers.append(Peer(peerID: peerID))
-        
         
 //        browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
         

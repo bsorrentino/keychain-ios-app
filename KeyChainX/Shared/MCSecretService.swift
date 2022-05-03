@@ -72,11 +72,9 @@ class MCSecretsService : NSObject, ObservableObject {
     private let ServiceType = "my-secrets"
     
     #if os(macOS)
-    
     let myPeerId = MCPeerID(displayName: Host.current().name ?? "Unknow macOS Host Name")
     let serviceBrowser : MCNearbyServiceBrowser
     let dispatchPeerGroup = DispatchGroup()
-    
     #endif
 
     #if os(iOS)

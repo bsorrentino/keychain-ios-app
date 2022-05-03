@@ -50,7 +50,7 @@ extension SharedModule {
     
     
     // MARK: Fetch Single Value
-    static func fetchSingle<T : NSManagedObject>(
+    public static func fetchSingle<T : NSManagedObject>(
         context:NSManagedObjectContext,
         entity:NSEntityDescription,
         predicateFormat:String,
@@ -74,7 +74,7 @@ extension SharedModule {
     }
     
     // MARK: Fetch Single Value if Present
-    static func fetchSingleIfPresent<T : NSManagedObject>(
+    public static func fetchSingleIfPresent<T : NSManagedObject>(
         context:NSManagedObjectContext,
         entity:NSEntityDescription,
         predicateFormat:String,

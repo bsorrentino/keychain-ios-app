@@ -8,6 +8,7 @@
 
 import Foundation
 import MultipeerConnectivity
+import Shared
 
 extension MCSecretsService {
     public func start() {
@@ -19,6 +20,7 @@ extension MCSecretsService {
     }
 
 }
+
 
 extension MCSecretsService : MCSessionDelegate {
 
@@ -37,8 +39,46 @@ extension MCSecretsService : MCSessionDelegate {
 
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         
-        let msg = String(data:data, encoding: .utf8)
-        logger.trace("didReceiveData: \(msg!)")
+        if let msg = String(data:data, encoding: .utf8) {
+            logger.trace("didReceiveData string: \(msg)")
+            
+            
+            if let uri = URL(string:msg) {
+                
+                logger.trace("didReceiveData uri: \(uri.path)")
+                let index = uri.path.index(uri.path.startIndex, offsetBy: 1)
+                let mnemonic = uri.path[index...]
+                logger.trace("didReceiveData mnemonic: \(mnemonic)")
+                
+//                let managedContext = UIApplication.shared.managedObjectContext
+//
+//                do {
+//                    let entity = try SharedModule.fetchSingle(context: managedContext,
+//                                         entity: KeyEntity.entity(),
+//                                         predicateFormat: "mnemonic = @%", key: String(mnemonic))
+//                }
+//                catch {
+//
+//                }
+                
+                    do {
+                        logger.trace("didReceiveData getSecret: [\(mnemonic)] wait ... ")
+                        if let secret = try SharedModule.sharedSecrets.getSecret(forKey: String(mnemonic)) {
+                            
+                            logger.trace("didReceiveData getSecret: [\(mnemonic)] done ... " )
+                            let encoder = JSONEncoder()
+                            let encoded = try encoder.encode( secret )
+                            
+                            try session.send( encoded , toPeers: [peerID], with: .unreliable )
+                        }
+                        logger.trace("didReceiveData getSecret: [\(mnemonic)] not found ... " )
+
+                    }
+                    catch {
+                        logger.error( "error getting key: \(mnemonic)\n\(error.localizedDescription)" )
+                    }
+            }
+        }
     }
 
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
@@ -54,8 +94,6 @@ extension MCSecretsService : MCSessionDelegate {
     }
 
 }
-
-
 
 
 extension MCSecretsService : MCNearbyServiceAdvertiserDelegate {
@@ -113,3 +151,4 @@ extension MCSecretsService : MCNearbyServiceAdvertiserDelegate {
     }
     
 }
+
