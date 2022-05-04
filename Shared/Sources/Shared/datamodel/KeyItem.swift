@@ -177,6 +177,7 @@ public class KeyItem : ObservableObject, Decodable {
 
     }
     
+    @available( macOS, unavailable)
     public func insert( into context:NSManagedObjectContext ) throws {
         
         let secret = SecretsManager.Secret( password:self.password, note:self.note)
@@ -214,6 +215,5 @@ public class KeyItem : ObservableObject, Decodable {
         }
 
     }
-    
 }
 

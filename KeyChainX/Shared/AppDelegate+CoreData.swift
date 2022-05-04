@@ -67,13 +67,19 @@ extension AppDelegate {
             for object in deletes {
                 
                 guard let keyDeleted = object as? KeyEntity else {
-                    logger.trace( "obejct \(object) is not a KeyEntity")
+                    logger.trace( "object \(object) is not a KeyEntity")
                     continue
                 }
                 
                 do {
-                    try SharedModule.appSecrets.removeSecret(key: keyDeleted.mnemonic )
-                    logger.trace( "secrets \(keyDeleted.mnemonic) removed!")
+                    if(  SharedModule.sharedSecrets.containsSecret(withKey: keyDeleted.mnemonic ) ) {
+                        try SharedModule.sharedSecrets.removeSecret(key: keyDeleted.mnemonic )
+                        logger.info( "shared secret \(keyDeleted.mnemonic) removed!")
+                    }
+                    else if( SharedModule.appSecrets.containsSecret(withKey: keyDeleted.mnemonic ) ){
+                        try SharedModule.appSecrets.removeSecret(key: keyDeleted.mnemonic )
+                        logger.info( "local secret \(keyDeleted.mnemonic) removed!")
+                    }
                 }
                 catch {
                     logger.warning( "error removing password from entity \(keyDeleted)\n\(error.localizedDescription)" )

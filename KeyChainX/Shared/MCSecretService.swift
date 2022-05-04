@@ -61,7 +61,8 @@ enum MCSecretsServiceError: Error {
     case RequestSecretTimeout
     case Internal(String)
     case NoPeerConnected
-    case FromCause(Error)
+    case FromError(Error)
+    case FromCause(String)
 }
 
 

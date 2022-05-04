@@ -47,7 +47,7 @@ extension MCSecretsService : MCSessionDelegate {
                 
                 logger.trace("didReceiveData uri: \(uri.path)")
                 let index = uri.path.index(uri.path.startIndex, offsetBy: 1)
-                let mnemonic = uri.path[index...]
+                let mnemonic = String(uri.path[index...])
                 logger.trace("didReceiveData mnemonic: \(mnemonic)")
                 
 //                let managedContext = UIApplication.shared.managedObjectContext
@@ -63,7 +63,7 @@ extension MCSecretsService : MCSessionDelegate {
                 
                     do {
                         logger.trace("didReceiveData getSecret: [\(mnemonic)] wait ... ")
-                        if let secret = try SharedModule.sharedSecrets.getSecret(forKey: String(mnemonic)) {
+                        if let secret = try SharedModule.appSecrets.getSecret(forKey: mnemonic) {
                             
                             logger.trace("didReceiveData getSecret: [\(mnemonic)] done ... " )
                             let encoder = JSONEncoder()
@@ -71,7 +71,9 @@ extension MCSecretsService : MCSessionDelegate {
                             
                             try session.send( encoded , toPeers: [peerID], with: .unreliable )
                         }
-                        logger.trace("didReceiveData getSecret: [\(mnemonic)] not found ... " )
+                        else {
+                            logger.trace("didReceiveData getSecret: [\(mnemonic)] not found ... " )
+                        }
 
                     }
                     catch {

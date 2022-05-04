@@ -89,13 +89,13 @@ struct KeyItemRow: View {
         //GeometryReader { geometry in
         HStack {
             VStack( alignment: .leading ) {
-            
+                
                 HStack {
                     Text( item.mnemonic )
                         .padding(6)
                         .background( Color.blue)
                         .clipShape(Capsule())
-                        
+                    
                     Spacer()
                     if( isShared ) {
                         sharedView()
@@ -129,15 +129,20 @@ struct KeyItemRow: View {
                     label("person.circle.fill") {
                         usernameText( value:item.username)
                     }
+                    SecretView( item:item, show:isShowSecret)
                 }
                 if let url = item.url, !url.isEmpty {
-                
+                    
                     label("link" ) { Text(url) }
-
+                    
                 }
             }
             .padding()
-        }.border(Color.gray, width: 1)
+        }
+        .border(Color.gray, width: 1)
+        .onDisappear {
+            isShowSecret = false
+        }
     }
     
 }
@@ -165,7 +170,7 @@ extension KeyItemRow {
                 }
             }
         }.buttonStyle(PlainButtonStyle())
-
+        
     }
     
 }
@@ -177,10 +182,24 @@ extension KeyItemRow {
         Group {
             if !mcSecretsService.connectedPeers.isEmpty {
                 Button( action:{
-                    self.mcSecretsService.requestSecret(forMnemonic: item.mnemonic) { result in
-                        print( "request secret!!! \(result)")
+                    self.mcSecretsService.requestSecret(forKey: item.mnemonic) { result in
+                        switch( result ) {
+                        case .success( let secret ):
+                            SharedModule.authcService.tryAuthenticate { result in
+                                if case .success(true) = result {
+                                    item.password = secret.password
+                                    if let note = secret.note {
+                                        item.note = note
+                                    }
+                                    withAnimation {
+                                        self.isShowSecret.toggle()
+                                    }
+                                }
+                            }
+                        case .failure( let error ):
+                            logger.error( "\(error.localizedDescription)")
+                        }
                     }
-                    
                 }) {
                     Image( systemName: "icloud.slash")
                         .foregroundColor(Color.yellow)
@@ -210,8 +229,8 @@ struct KeyItemRow_Previews: PreviewProvider {
             key.username = "bartolomeo.sorrentino@soulsoftware.it"
             key.mail = "bartolomeo.sorrentino@soulsoftware.it"
             key.url = "http://usernamesite.com"
-        
-
+            
+            
             return KeyItem( entity:key )
         }
         return KeyItemRow( item:item() )

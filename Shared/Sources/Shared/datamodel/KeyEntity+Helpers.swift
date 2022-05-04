@@ -14,7 +14,9 @@ let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
 
 // MARK: Key Entity Helper
 extension KeyEntity {
-
+    public static var not_is_a_group_predicate:NSPredicate {
+        NSCompoundPredicate(  type: .not, subpredicates: [NSPredicate( format: "groupPrefix != nil AND group = NO")] )
+    }
     
     public func isGroup() -> Bool  {
         self.groupPrefix != nil && !self.group.boolValue
