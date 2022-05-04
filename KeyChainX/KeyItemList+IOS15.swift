@@ -13,7 +13,26 @@ import Shared
 
 private let CELL_IMAGE_PADDING = EdgeInsets( top:20, leading:10, bottom:20, trailing:2)
 
+struct AlertInfo: Identifiable {
+    typealias AlertAction = () -> Void
+
+    enum AlertType {
+        case delete
+        case ungroup
+    }
+    
+    let id: AlertType
+    let title: String
+    let message: String
+    let actionText: String
+    let action:AlertAction
+    
+}
+
 struct KeyItemList_IOS15: View {
+    
+    
+
     @Environment(\.managedObjectContext) var managedObjectContext
     
     // Id of KeyItemList view. when change the view is forced to be updated
@@ -22,8 +41,7 @@ struct KeyItemList_IOS15: View {
     @State private var keyItemListId:Int = 0
     @State private var searchText = ""
     @State private var formActive = false
-    @State private var showingAlertForUngroup = false
-    @State private var showingAlertForDelete = false
+    
     @StateObject private var newItem = KeyItem()
     
     var KeyEntityFormNavigationLink: some View {
@@ -31,22 +49,6 @@ struct KeyItemList_IOS15: View {
                         isActive: $formActive ) {
             EmptyView()
         }
-    }
-    
-    
-    /// <#Description#>
-    /// - Parameter entity: <#entity description#>
-    /// - Returns: <#description#>
-    private func delete( _ entity: KeyEntity ) -> Bool {
-        KeyEntity.delete( self.managedObjectContext, entity: entity)
-    }
-    
-    
-    /// <#Description#>
-    /// - Parameter entity: <#entity description#>
-    /// - Returns: <#description#>
-    private func ungroup( _ entity: KeyEntity ) -> Bool {
-        KeyEntity.ungroup( self.managedObjectContext, entity: entity)
     }
     
     
@@ -63,12 +65,6 @@ struct KeyItemList_IOS15: View {
             else {
                 CellViewLink( entity: key,
                               parentId: $keyItemListId,
-                              onDelete: {
-                                    showingAlertForDelete.toggle()
-                                },
-                              onUngroup: {
-                                    showingAlertForUngroup.toggle()
-                                },
                               onClone: {
                                     newItem.copy(from: key)
                                     formActive.toggle()
@@ -93,20 +89,7 @@ struct KeyItemList_IOS15: View {
                             
                             ForEach( groupByFirstCharacter[section]!, id: \.self ) { key in
                                 
-                                ///
-                                ///  use AlertInfo : https://sarunw.com/posts/how-to-show-multiple-alerts-on-the-same-view-in-swiftui/
-                                ///
                                 CellViewLinkGroup( entity: key )
-                                    .alert(isPresented: $showingAlertForDelete ) {
-                                        Alert(
-                                            title: Text("Are you sure you want to delete this?"),
-                                            message: Text("There is no undo"),
-                                            primaryButton: .destructive(Text("Delete")) {
-                                                let _ = delete( key )
-                                            },
-                                            secondaryButton: .cancel()
-                                        )
-                                    }
 
                             }
                         }
@@ -169,30 +152,29 @@ extension KeyItemList_IOS15 {
         typealias CellViewHandler = () -> Void
         
         @Environment(\.managedObjectContext) var managedObjectContext
+ 
+        @State private var alertInfo: AlertInfo?
         
-        @State private var showingAlertForUngroup = false
-        @State private var showingAlertForDelete = false
-
         var entity: KeyEntity
         var parentId:Binding<Int>
-        var onDelete:   CellViewHandler?
-        var onUngroup:  CellViewHandler?
         var onClone:    CellViewHandler?
         
-        /// <#Description#>
-        /// - Parameter entity: <#entity description#>
-        /// - Returns: <#description#>
+        /// delete a key
+        /// - Parameter entity: entity to remove
+        /// - Returns: success status
+        private func delete( _ entity: KeyEntity ) -> Bool {
+            KeyEntity.delete( self.managedObjectContext, entity: entity)
+        }
+        
+        
+        ///  Ungroup Key
+        /// - Parameter entity: entity to ungroup
+        /// - Returns: success status
         private func ungroup( _ entity: KeyEntity ) -> Bool {
             KeyEntity.ungroup( self.managedObjectContext, entity: entity)
         }
         
-        /// <#Description#>
-        /// - Parameter entity: <#entity description#>
-        /// - Returns: <#description#>
-        private func delete( _ entity: KeyEntity ) -> Bool {
-            KeyEntity.delete( self.managedObjectContext, entity: entity)
-        }
-
+        
         var body: some View {
             let item = KeyItem( entity: entity )
             
@@ -200,6 +182,14 @@ extension KeyItemList_IOS15 {
                 KeyEntityForm( item: item, parentId: parentId )
             } label: {
                 KeyItemList_IOS15.CellView(entity: entity)
+            }
+            .alert( item: $alertInfo ) { info in
+                Alert(
+                    title: Text(info.title),
+                    message: Text(info.message),
+                    primaryButton: .destructive(Text(info.actionText), action: info.action ),
+                    secondaryButton: .cancel()
+                )
             }
             .swipeActions(edge: .leading, allowsFullSwipe: true ) {
                 if onClone != nil {
@@ -212,36 +202,35 @@ extension KeyItemList_IOS15 {
                 }
             }
             .swipeActions(edge: .trailing, allowsFullSwipe: false ) {
-                if onUngroup != nil && entity.isGrouped()  {
+                if entity.isGrouped()  {
                     Button {
-                        onUngroup!()
+                        alertInfo = AlertInfo(
+                            id: .ungroup,
+                            title: "Are you sure you want ungroup this ?",
+                            message: "There is no undo",
+                            actionText: "Ungroup",
+                            action: { let _ = ungroup(entity) }
+                        )
+
                     } label: {
                         Label("Ungroup", systemImage: "folder.fill.badge.minus")
                     }
-                    .alert(isPresented: $showingAlertForUngroup) {
-                        Alert(
-                            title: Text("Are you sure you want ungroup this?"),
-                            message: Text("There is no undo"),
-                            primaryButton: .destructive(Text("Ungroup")) {
-                                let _ = ungroup( entity )
-                            },
-                            secondaryButton: .cancel()
-                        )
-                    }
-
                     //.labelStyle(CellViewLink.CustomLabelStyle())
                 }
                 Button {
-                    if onDelete != nil {
-                        onDelete!()
-                        showingAlertForDelete.toggle()
-                    }
+                    alertInfo = AlertInfo(
+                        id: .delete,
+                        title: "Are you sure you want to delete this ?",
+                        message: "There is no undo",
+                        actionText: "Delete",
+                        action: {
+                            let _ = delete( entity )
+                        }
+                    )
                 } label: {
                     Label("Delete", systemImage: "trash")
                 }
                 .tint( .red)
-
-                
             }
         }
         
