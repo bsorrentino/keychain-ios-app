@@ -89,13 +89,13 @@ struct KeyItemRow: View {
         //GeometryReader { geometry in
         HStack {
             VStack( alignment: .leading ) {
-            
+                
                 HStack {
                     Text( item.mnemonic )
                         .padding(6)
                         .background( Color.blue)
                         .clipShape(Capsule())
-                        
+                    
                     Spacer()
                     if( isShared ) {
                         sharedView()
@@ -118,27 +118,36 @@ struct KeyItemRow: View {
                         SecretView( item:item, show:isShowSecret)
                     }
                     else {
-                        label("person.circle.fill") { Text(item.username) }
+                        label("person.circle.fill") {
+                            usernameText(value: item.username)
+                        }
                         SecretView( item:item, show:isShowSecret)
                         label("envelope.fill") { Text( mail) }
                     }
                 }
                 else {
-                    label("person.circle.fill") { usernameText( value:item.username) }
+                    label("person.circle.fill") {
+                        usernameText( value:item.username)
+                    }
+                    SecretView( item:item, show:isShowSecret)
                 }
                 if let url = item.url, !url.isEmpty {
-                
+                    
                     label("link" ) { Text(url) }
-
+                    
                 }
             }
             .padding()
-        }.border(Color.gray, width: 1)
+        }
+        .border(Color.gray, width: 1)
+        .onDisappear {
+            isShowSecret = false
+        }
     }
     
 }
 
-// Sharing Actions Extension
+// Shared Actions Extension
 extension KeyItemRow {
     
     func sharedView() -> some View {
@@ -161,24 +170,41 @@ extension KeyItemRow {
                 }
             }
         }.buttonStyle(PlainButtonStyle())
-
+        
     }
+    
+}
+
+// Not Shared Actions Extension
+extension KeyItemRow {
     
     func notSharedView() -> some View  {
         Group {
             if !mcSecretsService.connectedPeers.isEmpty {
                 Button( action:{
-                    
-                    self.mcSecretsService.requestSecret(forMnemonic: item.mnemonic) { result in
-                        
+                    self.mcSecretsService.requestSecret(forKey: item.mnemonic) { result in
+                        switch( result ) {
+                        case .success( let secret ):
+                            SharedModule.authcService.tryAuthenticate { result in
+                                if case .success(true) = result {
+                                    item.password = secret.password
+                                    if let note = secret.note {
+                                        item.note = note
+                                    }
+                                    withAnimation {
+                                        self.isShowSecret.toggle()
+                                    }
+                                }
+                            }
+                        case .failure( let error ):
+                            logger.error( "\(error.localizedDescription)")
+                        }
                     }
-                    
                 }) {
-                
                     Image( systemName: "icloud.slash")
                         .foregroundColor(Color.yellow)
-            
-                }.buttonStyle(PlainButtonStyle())
+                }
+                .buttonStyle(PlainButtonStyle())
             }
             else {
                 Image( systemName: "icloud.slash")
@@ -187,6 +213,7 @@ extension KeyItemRow {
         }
     }
 }
+
 
 struct KeyItemRow_Previews: PreviewProvider {
     
@@ -202,8 +229,8 @@ struct KeyItemRow_Previews: PreviewProvider {
             key.username = "bartolomeo.sorrentino@soulsoftware.it"
             key.mail = "bartolomeo.sorrentino@soulsoftware.it"
             key.url = "http://usernamesite.com"
-        
-
+            
+            
             return KeyItem( entity:key )
         }
         return KeyItemRow( item:item() )

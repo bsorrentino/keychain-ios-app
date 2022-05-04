@@ -46,6 +46,10 @@ struct KeyItemListView: View {
 
     @State var searchString = ""
     
+    private var predicate:NSPredicate {
+        return NSCompoundPredicate( type: .and, subpredicates: [ NSPredicate( format: "mnemonic CONTAINS[c] %@", searchString), KeyEntity.not_is_a_group_predicate ])
+    }
+    
     var body: some View {
         
         VStack {
@@ -56,7 +60,10 @@ struct KeyItemListView: View {
 
             }.padding(5)
             
-            KeyItemList( keyFethedResults: FetchRequest( fetchRequest: KeyEntity.fetchRequest( withPredicate: NSPredicate( format: "mnemonic CONTAINS[c] %@", searchString)) ))
+            KeyItemList( keyFethedResults:
+                            FetchRequest( fetchRequest:
+                                            KeyEntity.fetchRequest( withPredicate: predicate )))
+                                                                       
         }
         
     }

@@ -14,7 +14,7 @@
 		5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28680B23BF8A3600A1E62D /* WebView.swift */; };
 		5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30CFA22379F0BE00FD7485 /* LoginView.swift */; };
 		5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30CFA42379F52100FD7485 /* ContentView.swift */; };
-		5F334AC6267F78280061D8C7 /* MCSercretsService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F334AC5267F78280061D8C7 /* MCSercretsService+Extension.swift */; };
+		5F334AC6267F78280061D8C7 /* MCSecretsService+MacExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F334AC5267F78280061D8C7 /* MCSecretsService+MacExtension.swift */; };
 		5F34E545257F9201007417F3 /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34E544257F9201007417F3 /* KeyItemForm.swift */; };
 		5F34E553257F966F007417F3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F34E552257F966F007417F3 /* CloudKit.framework */; };
 		5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F22361FD900066E947 /* App+CoreData.swift */; };
@@ -34,7 +34,7 @@
 		A0550B48257E6D7E00DF5F99 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0550B47257E6D7E00DF5F99 /* Keyboard.swift */; };
 		A0570C1C27F1C66200362297 /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = A0570C1B27F1C66200362297 /* Shared */; };
 		A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* KeyItemForm+Email.swift */; };
-		A08467FE27F207A000B6B72F /* MCSecretsService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08467FD27F207A000B6B72F /* MCSecretsService+Extension.swift */; };
+		A08467FE27F207A000B6B72F /* MCSecretsService+IOSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08467FD27F207A000B6B72F /* MCSecretsService+IOSExtension.swift */; };
 		A084680027F208E400B6B72F /* MCSecretService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08467FF27F208E400B6B72F /* MCSecretService.swift */; };
 		A084680127F208E400B6B72F /* MCSecretService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08467FF27F208E400B6B72F /* MCSecretService.swift */; };
 		A09E455E27F1D27F004A10D5 /* AppDelegate+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E455D27F1D27F004A10D5 /* AppDelegate+CoreData.swift */; };
@@ -105,7 +105,7 @@
 		5F30CFA22379F0BE00FD7485 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5F30CFA42379F52100FD7485 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F30CFA6237A192600FD7485 /* KeyChainX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeyChainX.entitlements; sourceTree = "<group>"; };
-		5F334AC5267F78280061D8C7 /* MCSercretsService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MCSercretsService+Extension.swift"; sourceTree = "<group>"; };
+		5F334AC5267F78280061D8C7 /* MCSecretsService+MacExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MCSecretsService+MacExtension.swift"; sourceTree = "<group>"; };
 		5F34E544257F9201007417F3 /* KeyItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
 		5F34E552257F966F007417F3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5F5772F22361FD900066E947 /* App+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+CoreData.swift"; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		A0550B47257E6D7E00DF5F99 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		A0570C1827F1BB2700362297 /* Shared */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Shared; sourceTree = "<group>"; };
 		A071C20223648EAB00891175 /* KeyItemForm+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Email.swift"; sourceTree = "<group>"; };
-		A08467FD27F207A000B6B72F /* MCSecretsService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MCSecretsService+Extension.swift"; sourceTree = "<group>"; };
+		A08467FD27F207A000B6B72F /* MCSecretsService+IOSExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MCSecretsService+IOSExtension.swift"; sourceTree = "<group>"; };
 		A08467FF27F208E400B6B72F /* MCSecretService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCSecretService.swift; sourceTree = "<group>"; };
 		A09E455D27F1D27F004A10D5 /* AppDelegate+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CoreData.swift"; sourceTree = "<group>"; };
 		A0BE3F8225225F14002A86A7 /* KeyItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemList.swift; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 			children = (
 				A09E456127F20629004A10D5 /* Shared */,
 				A096B3C522CE4295004E17CC /* UIKIT */,
-				A08467FD27F207A000B6B72F /* MCSecretsService+Extension.swift */,
+				A08467FD27F207A000B6B72F /* MCSecretsService+IOSExtension.swift */,
 				5F19F804268A1B46000CEB2A /* PeerConnectionsView.swift */,
 				5F5772F22361FD900066E947 /* App+CoreData.swift */,
 				A0C0DB5622A901AD003B09ED /* AppDelegate.swift */,
@@ -335,7 +335,7 @@
 		A0C1D2A32521F36400737766 /* MacKeyChainX */ = {
 			isa = PBXGroup;
 			children = (
-				5F334AC5267F78280061D8C7 /* MCSercretsService+Extension.swift */,
+				5F334AC5267F78280061D8C7 /* MCSecretsService+MacExtension.swift */,
 				A0C1D2A42521F36400737766 /* AppDelegate.swift */,
 				A0C1D2E625225DE000737766 /* KeyItemRow.swift */,
 				A0BE3F8225225F14002A86A7 /* KeyItemList.swift */,
@@ -694,7 +694,7 @@
 				A09E455E27F1D27F004A10D5 /* AppDelegate+CoreData.swift in Sources */,
 				A021E22924ED6AE700A455D2 /* Keys+Codable.swift in Sources */,
 				5F01277723B776EE0033E2B9 /* RestoreKeysView.swift in Sources */,
-				A08467FE27F207A000B6B72F /* MCSecretsService+Extension.swift in Sources */,
+				A08467FE27F207A000B6B72F /* MCSecretsService+IOSExtension.swift in Sources */,
 				A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */,
 				A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */,
 				A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */,
@@ -741,7 +741,7 @@
 				A0C1D2A52521F36400737766 /* AppDelegate.swift in Sources */,
 				5FDEAA6E2624C9BD000AF83C /* MacSearchBar.swift in Sources */,
 				5F34E545257F9201007417F3 /* KeyItemForm.swift in Sources */,
-				5F334AC6267F78280061D8C7 /* MCSercretsService+Extension.swift in Sources */,
+				5F334AC6267F78280061D8C7 /* MCSecretsService+MacExtension.swift in Sources */,
 				A0C1D2E725225DE000737766 /* KeyItemRow.swift in Sources */,
 				A0BE3F8325225F14002A86A7 /* KeyItemList.swift in Sources */,
 			);

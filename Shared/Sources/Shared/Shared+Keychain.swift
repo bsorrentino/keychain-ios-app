@@ -13,7 +13,17 @@ import SwiftUI
 // MARK: Application Keychain extensions
 
 public class SecretsManager {
-    public typealias Secret = ( password:String, note:String? )
+    
+    public struct Secret : Codable {
+        public var password:String
+        public var note:String?
+        
+        public init( password: String, note:String?) {
+            self.password = password
+            self.note = note
+        }
+    }
+//    public typealias Secret = ( password:String, note:String? )
 
     fileprivate var keychain:Keychain
     
@@ -31,7 +41,7 @@ public class SecretsManager {
              return nil
          }
              
-         return (password:value, note:self.keychain[attributes: key]?.comment)
+         return Secret(password:value, note:self.keychain[attributes: key]?.comment)
              
     }
 

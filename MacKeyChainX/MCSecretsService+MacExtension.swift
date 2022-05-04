@@ -24,14 +24,23 @@ extension MCSecretsService {
         self.serviceBrowser.stopBrowsingForPeers()
     }
     
-    func requestSecret( forMnemonic id: String, completionHandler handler: @escaping (Result<String?,MCSecretsServiceError>) -> Void  ) {
+    
+    /// request a secret from a connected peer
+    ///
+    /// - Parameters:
+    ///   - key: secret key
+    ///   - handler: Result Handler
+    func requestSecret( forKey key: String, completionHandler handler: @escaping (Result<SecretsManager.Secret, MCSecretsServiceError>) -> Void  ) {
 
         guard let peer = connectedPeers.first else {
             handler( .failure(.NoPeerConnected) )
             return
         }
         
-        guard let cmd = "keychainx://get/\(id)".data(using: .utf8) else {
+        
+        guard   let ecodedId = key.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+                let cmd = "keychainx://get/\(ecodedId)".data(using: .utf8)
+        else {
             handler( .failure(.Internal("error composing command")) )
             return
         }
@@ -43,33 +52,47 @@ extension MCSecretsService {
         
         observer = NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { notification in
             
-            handler( .success( notification.object as? String ))
+            defer { NotificationCenter.default.removeObserver(observer!) }
             
-            NotificationCenter.default.removeObserver(observer!)
+            if let data = notification.object as? Data {
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let secret = try decoder.decode( SecretsManager.Secret.self, from: data )
+                    logger.trace( "Secret for \(key): password \(secret.password, privacy: .private)\n\(String(describing: secret.note), privacy: .private)")
+                    handler( .success( secret ))
+                }
+                catch( let error ) {
+                    handler( .failure( .FromError(error) ) )
+                }
+            }
+            else {
+                handler( .failure( .FromCause("notification object not valid!!") ))
+            }
+            
         }
 
         dispatchPeerGroup.enter()
-
         do {
             
             try self.session.send( cmd, toPeers: [peer.peerID], with: .unreliable)
             
-            
             let waitResult = dispatchPeerGroup.wait(timeout: .now() + 10)
             
             if waitResult == .timedOut  {
+                NotificationCenter.default.removeObserver(observer!)
                 handler( .failure(.RequestSecretTimeout) )
             }
 
         }
         catch( let error ) {
+            NotificationCenter.default.removeObserver(observer!)
             dispatchPeerGroup.leave()
             
-            handler( .failure( .FromCause(error) ) )
+            handler( .failure( .FromError(error) ) )
             
             return
         }
-        
 
         
     }
@@ -86,7 +109,6 @@ extension MCSecretsService : MCNearbyServiceBrowserDelegate {
         logger.trace("foundPeer: \(peerID)")
         
         self.foundPeers.append(Peer(peerID: peerID))
-        
         
 //        browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
         
