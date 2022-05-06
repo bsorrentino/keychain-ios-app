@@ -40,10 +40,27 @@ func doubleLabel<Content>( _ systemName1:String, _ systemName2:String, @ViewBuil
     }.font(Font.system(.title2)).padding(5)
 }
 
-fileprivate func passwordText( value:String ) -> some View {
-    HStack {
-        Text(value)
-        CopyToClipboardButton(value: value)
+fileprivate struct  passwordText : View {
+    
+    var value: String
+    @State var hidden = true
+    
+    var body: some View {
+        HStack {
+            PasswordToggleField( value: .constant(value), hidden: hidden)
+                .disabled(true)
+                .fixedSize()
+                .frame( minWidth: 100,
+                        idealWidth: nil,
+                        maxWidth: nil,
+                        minHeight: nil,
+                        idealHeight: nil,
+                        maxHeight: nil,
+                        alignment: .leading)
+            HideToggleButton( hidden: $hidden )
+                .background( Color.black )
+            CopyToClipboardButton(value: value)
+        }
     }
 }
 
