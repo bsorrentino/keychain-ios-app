@@ -169,12 +169,17 @@ extension KeyItemRow {
     
     func sharedView() -> some View {
         
-        Button( action:{
-            SharedModule.authcService.tryAuthenticate { result in
-                if case .success(true) = result {
-                    withAnimation {
-                        self.isShowSecret.toggle()
+        Button( action: {
+            Task {
+                do {
+                    if( try await SharedModule.authcService.tryAuthenticate() ) {
+                            withAnimation {
+                                self.isShowSecret.toggle()
+                            }
                     }
+                }
+                catch( let error ) {
+                    logger.error( "\(error.localizedDescription)")
                 }
             }
         }) {
@@ -199,24 +204,43 @@ extension KeyItemRow {
         Group {
             if !mcSecretsService.connectedPeers.isEmpty {
                 Button( action:{
-                    self.mcSecretsService.requestSecret(forKey: item.mnemonic) { result in
-                        switch( result ) {
-                        case .success( let secret ):
-                            SharedModule.authcService.tryAuthenticate { result in
-                                if case .success(true) = result {
-                                    item.password = secret.password
-                                    if let note = secret.note {
-                                        item.note = note
-                                    }
-                                    withAnimation {
-                                        self.isShowSecret.toggle()
-                                    }
+                    Task {
+                        do {
+                            if( try await SharedModule.authcService.tryAuthenticate() ) {
+                                
+                                let secret = try await self.mcSecretsService.requestSecret(forKey: item.mnemonic)
+                            
+                                item.password = secret.password
+                                if let note = secret.note {
+                                    item.note = note
+                                }
+                                withAnimation {
+                                    self.isShowSecret.toggle()
                                 }
                             }
-                        case .failure( let error ):
+                        }
+                        catch( let error ) {
                             logger.error( "\(error.localizedDescription)")
                         }
                     }
+//                    self.mcSecretsService.requestSecret(forKey: item.mnemonic) { result in
+//                        switch( result ) {
+//                        case .success( let secret ):
+//                            SharedModule.authcService.tryAuthenticate { result in
+//                                if case .success(true) = result {
+//                                    item.password = secret.password
+//                                    if let note = secret.note {
+//                                        item.note = note
+//                                    }
+//                                    withAnimation {
+//                                        self.isShowSecret.toggle()
+//                                    }
+//                                }
+//                            }
+//                        case .failure( let error ):
+//                            logger.error( "\(error.localizedDescription)")
+//                        }
+//                    }
                 }) {
                     Image( systemName: "icloud.slash")
                         .foregroundColor(Color.yellow)

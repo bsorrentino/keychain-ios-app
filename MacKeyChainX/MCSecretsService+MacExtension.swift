@@ -30,70 +30,71 @@ extension MCSecretsService {
     /// - Parameters:
     ///   - key: secret key
     ///   - handler: Result Handler
-    func requestSecret( forKey key: String, completionHandler handler: @escaping (Result<SecretsManager.Secret, MCSecretsServiceError>) -> Void  ) {
+    func requestSecret( forKey key: String ) async throws -> SecretsManager.Secret {
 
         guard let peer = connectedPeers.first else {
-            handler( .failure(.NoPeerConnected) )
-            return
+            throw MCSecretsServiceError.NoPeerConnected
         }
         
         
         guard   let ecodedId = key.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
                 let cmd = "keychainx://get/\(ecodedId)".data(using: .utf8)
         else {
-            handler( .failure(.Internal("error composing command")) )
-            return
+            throw MCSecretsServiceError.Internal("error composing command")
         }
         
-        
-        let name = Notification.Name( "\(peer.peerID).didReceiveData")
+        return try await withCheckedThrowingContinuation({
+            (continuation: CheckedContinuation<SecretsManager.Secret, Error>) in
+            
+            let name = Notification.Name( "\(peer.peerID).didReceiveData")
 
-        var observer: NSObjectProtocol?
-        
-        observer = NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { notification in
+            var observer: NSObjectProtocol?
             
-            defer { NotificationCenter.default.removeObserver(observer!) }
-            
-            if let data = notification.object as? Data {
+            observer = NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { notification in
                 
-                do {
-                    let decoder = JSONDecoder()
-                    let secret = try decoder.decode( SecretsManager.Secret.self, from: data )
-                    logger.trace( "Secret for \(key): password \(secret.password, privacy: .private)\n\(String(describing: secret.note), privacy: .private)")
-                    handler( .success( secret ))
+                defer { NotificationCenter.default.removeObserver(observer!) }
+                
+                if let data = notification.object as? Data {
+                    
+                    do {
+                        let decoder = JSONDecoder()
+                        let secret = try decoder.decode( SecretsManager.Secret.self, from: data )
+                        logger.trace( "Secret for \(key): password \(secret.password, privacy: .private)\n\(String(describing: secret.note), privacy: .private)")
+                        continuation.resume( returning: secret )
+                    }
+                    catch( let error ) {
+                        continuation.resume( throwing: MCSecretsServiceError.FromError(error) )
+                    }
                 }
-                catch( let error ) {
-                    handler( .failure( .FromError(error) ) )
+                else {
+                    continuation.resume( throwing: MCSecretsServiceError.FromCause("notification object not valid!!") )
                 }
+                
             }
-            else {
-                handler( .failure( .FromCause("notification object not valid!!") ))
-            }
-            
-        }
 
-        dispatchPeerGroup.enter()
-        do {
-            
-            try self.session.send( cmd, toPeers: [peer.peerID], with: .unreliable)
-            
-            let waitResult = dispatchPeerGroup.wait(timeout: .now() + 10)
-            
-            if waitResult == .timedOut  {
+            dispatchPeerGroup.enter()
+            do {
+                
+                try self.session.send( cmd, toPeers: [peer.peerID], with: .unreliable)
+                
+                let waitResult = dispatchPeerGroup.wait(timeout: .now() + 10)
+                
+                if waitResult == .timedOut  {
+                    NotificationCenter.default.removeObserver(observer!)
+                    continuation.resume( throwing: MCSecretsServiceError.RequestSecretTimeout )
+                }
+
+            }
+            catch( let error ) {
                 NotificationCenter.default.removeObserver(observer!)
-                handler( .failure(.RequestSecretTimeout) )
+                dispatchPeerGroup.leave()
+                
+                continuation.resume( throwing: MCSecretsServiceError.FromError(error) )
+                
+                return
             }
 
-        }
-        catch( let error ) {
-            NotificationCenter.default.removeObserver(observer!)
-            dispatchPeerGroup.leave()
-            
-            handler( .failure( .FromError(error) ) )
-            
-            return
-        }
-
+        })
         
     }
 

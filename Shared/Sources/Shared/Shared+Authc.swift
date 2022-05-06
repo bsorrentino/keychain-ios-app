@@ -55,22 +55,23 @@ public struct AuthenticationService {
         return support
     }
 
-    fileprivate func evaluatePolicy(_ policy: LAPolicy, localizedReason reason:String, completionHandler: @escaping (Result<Bool, AutenticationError>) -> Void ) -> Void {
+    fileprivate func evaluatePolicy(_ policy: LAPolicy, localizedReason reason:String ) async throws -> Bool {
         
-        context.evaluatePolicy(policy, localizedReason: reason) { (success, error) in
-            if let error = error {
-                return completionHandler( .failure(error as! AutenticationError))
-            }
-            DispatchQueue.main.async {
-                if success {
-                    completionHandler( .success(true))
-                }
-                else {
-                    logger.warning( "issue authenticate using authc \(policy)")
-                    completionHandler( .success(false))
-                }
-            }
-        }
+        return try await context.evaluatePolicy(policy, localizedReason: reason)
+//        context.evaluatePolicy(policy, localizedReason: reason) { (success, error) in
+//            if let error = error {
+//                return completionHandler( .failure(error as! AutenticationError))
+//            }
+//            DispatchQueue.main.async {
+//                if success {
+//                    completionHandler( .success(true))
+//                }
+//                else {
+//                    logger.warning( "issue authenticate using authc \(policy)")
+//                    completionHandler( .success(false))
+//                }
+//            }
+//        }
     }
     
 }
@@ -78,27 +79,27 @@ public struct AuthenticationService {
 extension AuthenticationService {
     
 
-     public func tryAuthenticate( reason:String = "We need to unlock application" , completionHandler: @escaping (Result<Bool, AutenticationError>) -> Void ) {
+     public func tryAuthenticate( reason:String = "We need to unlock application" ) async throws -> Bool {
+         
         #if os(macOS)
         if( canEvaluatePolicy( .deviceOwnerAuthenticationWithBiometricsOrWatch )) {
             
-            return evaluatePolicy(.deviceOwnerAuthenticationWithBiometricsOrWatch, localizedReason: reason, completionHandler: completionHandler )
+            return try await evaluatePolicy(.deviceOwnerAuthenticationWithBiometricsOrWatch, localizedReason: reason )
         }
         #elseif os(iOS)
         if( canEvaluatePolicy( .deviceOwnerAuthenticationWithBiometrics )) {
             
-            return evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason, completionHandler: completionHandler )
+            return try await evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason )
         }
         #endif
         if canEvaluatePolicy( .deviceOwnerAuthentication ) {
         
-            return evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason, completionHandler: completionHandler )
+            return try await evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason )
         }
-        
-        completionHandler( .failure(.AuthcNotSupported) )
-        
-    }
 
+        throw AutenticationError.AuthcNotSupported
+    }
+                                                           
 }
 
 

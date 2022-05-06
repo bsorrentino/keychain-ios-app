@@ -58,7 +58,6 @@ struct FileManagerView<Content> : View where Content : View {
             return ( urls:[], error:error )
         }
     }
-
     
     var body: some View {
         
