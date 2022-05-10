@@ -71,6 +71,16 @@ fileprivate func usernameText( value:String ) -> some View {
     }
 }
 
+func NoteView( item:KeyItem, show:Bool ) -> some View {
+    Group {
+        if show {
+            Spacer()
+            Divider()
+            Text( "\(item.note)" )
+        }
+        Spacer()
+    }
+}
 
 func SecretView( item:KeyItem, show:Bool ) -> some View {
     Group {
@@ -84,6 +94,7 @@ func SecretView( item:KeyItem, show:Bool ) -> some View {
         }
     }
 }
+
 
 struct KeyItemRow: View {
     
@@ -105,6 +116,7 @@ struct KeyItemRow: View {
     var body: some View {
         //GeometryReader { geometry in
         HStack {
+            
             VStack( alignment: .leading ) {
                 
                 HStack {
@@ -126,32 +138,37 @@ struct KeyItemRow: View {
                 
                 Divider()
                 
-                if let mail = item.mail, !mail.isEmpty {
-                    
-                    if( mail == item.username ) {
-                        doubleLabel( "person.circle.fill", "envelope.fill") {
-                            usernameText( value:item.username)
+                HStack {
+                    VStack( alignment: .leading ) {
+                        if let mail = item.mail, !mail.isEmpty {
+                            
+                            if( mail == item.username ) {
+                                doubleLabel( "person.circle.fill", "envelope.fill") {
+                                    usernameText( value:item.username)
+                                }
+                                SecretView( item:item, show:isShowSecret)
+                            }
+                            else {
+                                label("person.circle.fill") {
+                                    usernameText(value: item.username)
+                                }
+                                SecretView( item:item, show:isShowSecret)
+                                label("envelope.fill") { Text( mail) }
+                            }
                         }
-                        SecretView( item:item, show:isShowSecret)
-                    }
-                    else {
-                        label("person.circle.fill") {
-                            usernameText(value: item.username)
+                        else {
+                            label("person.circle.fill") {
+                                usernameText( value:item.username)
+                            }
+                            SecretView( item:item, show:isShowSecret)
                         }
-                        SecretView( item:item, show:isShowSecret)
-                        label("envelope.fill") { Text( mail) }
+                        if let url = item.url, !url.isEmpty {
+                            
+                            label("link" ) { Text(url) }
+                            
+                        }
                     }
-                }
-                else {
-                    label("person.circle.fill") {
-                        usernameText( value:item.username)
-                    }
-                    SecretView( item:item, show:isShowSecret)
-                }
-                if let url = item.url, !url.isEmpty {
-                    
-                    label("link" ) { Text(url) }
-                    
+                    NoteView( item:item, show:isShowSecret )
                 }
             }
             .padding()
@@ -173,9 +190,9 @@ extension KeyItemRow {
             Task {
                 do {
                     if( try await SharedModule.authcService.tryAuthenticate() ) {
-                            withAnimation {
-                                self.isShowSecret.toggle()
-                            }
+                        withAnimation {
+                            self.isShowSecret.toggle()
+                        }
                     }
                 }
                 catch( let error ) {
@@ -209,7 +226,7 @@ extension KeyItemRow {
                             if( try await SharedModule.authcService.tryAuthenticate() ) {
                                 
                                 let secret = try await self.mcSecretsService.requestSecret(forKey: item.mnemonic)
-                            
+                                
                                 item.password = secret.password
                                 if let note = secret.note {
                                     item.note = note
@@ -223,24 +240,24 @@ extension KeyItemRow {
                             logger.error( "\(error.localizedDescription)")
                         }
                     }
-//                    self.mcSecretsService.requestSecret(forKey: item.mnemonic) { result in
-//                        switch( result ) {
-//                        case .success( let secret ):
-//                            SharedModule.authcService.tryAuthenticate { result in
-//                                if case .success(true) = result {
-//                                    item.password = secret.password
-//                                    if let note = secret.note {
-//                                        item.note = note
-//                                    }
-//                                    withAnimation {
-//                                        self.isShowSecret.toggle()
-//                                    }
-//                                }
-//                            }
-//                        case .failure( let error ):
-//                            logger.error( "\(error.localizedDescription)")
-//                        }
-//                    }
+                    //                    self.mcSecretsService.requestSecret(forKey: item.mnemonic) { result in
+                    //                        switch( result ) {
+                    //                        case .success( let secret ):
+                    //                            SharedModule.authcService.tryAuthenticate { result in
+                    //                                if case .success(true) = result {
+                    //                                    item.password = secret.password
+                    //                                    if let note = secret.note {
+                    //                                        item.note = note
+                    //                                    }
+                    //                                    withAnimation {
+                    //                                        self.isShowSecret.toggle()
+                    //                                    }
+                    //                                }
+                    //                            }
+                    //                        case .failure( let error ):
+                    //                            logger.error( "\(error.localizedDescription)")
+                    //                        }
+                    //                    }
                 }) {
                     Image( systemName: "icloud.slash")
                         .foregroundColor(Color.yellow)
