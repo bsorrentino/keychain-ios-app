@@ -32,20 +32,23 @@ extension MCSecretsService {
     ///   - handler: Result Handler
     func requestSecret( forKey key: String ) async throws -> SecretsManager.Secret {
 
-        guard let peer = connectedPeers.first else {
-            throw MCSecretsServiceError.NoPeerConnected
-        }
-        
-        
-        guard   let ecodedId = key.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
-                let cmd = "keychainx://get/\(ecodedId)".data(using: .utf8)
-        else {
-            throw MCSecretsServiceError.Internal("error composing command")
-        }
-        
         return try await withCheckedThrowingContinuation({
             (continuation: CheckedContinuation<SecretsManager.Secret, Error>) in
+
+            guard let peer = connectedPeers.first else {
+                continuation.resume( throwing: MCSecretsServiceError.NoPeerConnected )
+                return
+            }
             
+            
+            guard   let ecodedId = key.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+                    let cmd = "keychainx://get/\(ecodedId)".data(using: .utf8)
+            else {
+                continuation.resume( throwing: MCSecretsServiceError.Internal("error composing command") )
+                return
+            }
+            
+
             let name = Notification.Name( "\(peer.peerID).didReceiveData")
 
             var observer: NSObjectProtocol?
@@ -90,8 +93,6 @@ extension MCSecretsService {
                 dispatchPeerGroup.leave()
                 
                 continuation.resume( throwing: MCSecretsServiceError.FromError(error) )
-                
-                return
             }
 
         })
