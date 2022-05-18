@@ -31,8 +31,6 @@ struct AlertInfo: Identifiable {
 
 struct KeyItemList_IOS15: View {
     
-    
-
     @Environment(\.managedObjectContext) var managedObjectContext
     
     // Id of KeyItemList view. when change the view is forced to be updated
@@ -50,7 +48,6 @@ struct KeyItemList_IOS15: View {
             EmptyView()
         }
     }
-    
     
     ///
     /// CellViewLinkGroup
@@ -97,10 +94,13 @@ struct KeyItemList_IOS15: View {
                 }
                 
             }
-            .id( keyItemListId )
+            // enable force refresh
+            //.id( keyItemListId )
             .toolbar {
                 ToolbarItem( placement: .navigationBarTrailing ) {
-                    Button( action: { formActive.toggle() }) {
+                    Button( action: {
+                            formActive.toggle()
+                    }) {
                         HStack {
                             KeyEntityFormNavigationLink
                             Text("Add")
@@ -110,13 +110,6 @@ struct KeyItemList_IOS15: View {
             }
             .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
             .navigationBarTitle( Text("Key List"), displayMode: .inline )
-            //            .navigationBarItems(trailing:
-            //                Button( action: { formActive.toggle() }) {
-            //                    HStack {
-            //                        KeyEntityFormNavigationLink
-            //                        Text("Add")
-            //                    }
-            //                })
             
         }
     }
