@@ -132,11 +132,14 @@ struct EmailList: View {
      }
 
     func insert() {
-        let mail = MailEntity(context: self.context)
-        mail.value = self.newMail
-        
         do {
+            let mail = MailEntity(context: self.context)
+            mail.value = self.newMail
+            
             try self.context.save()
+
+            self.newMail = mailValid.doValidate(value: "")
+
         }
         catch {
             logger.warning( """
@@ -146,7 +149,7 @@ struct EmailList: View {
                 """ )
         }
         
-        self.newMail = ""
+        
     }
 
     func delete( at offsets: IndexSet ) {
