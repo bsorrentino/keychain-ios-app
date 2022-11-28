@@ -20,19 +20,20 @@ public struct CopyToClipboardButton : View {
     }
     public var body: some View {
         Button( action: {
-            withAnimation( Animation.default.speed(0.1) ) {
-                logger.debug("copy to clipboard!")
-                #if os(iOS)
-                UIPasteboard.general.string = self.value
-                #elseif os(macOS)
-                NSPasteboard.general.declareTypes([ NSPasteboard.PasteboardType.string ], owner: nil)
-                NSPasteboard.general.setString(self.value, forType: .string)
-                #endif
-                self.copied = true
+            self.copied = true
+            #if os(iOS)
+            UIPasteboard.general.string = self.value
+            #elseif os(macOS)
+            NSPasteboard.general.declareTypes([ NSPasteboard.PasteboardType.string ], owner: nil)
+            NSPasteboard.general.setString(self.value, forType: .string)
+            #endif
+            logger.debug("copied to clipboard!")
+            withAnimation( Animation.default.speed(0.5) ) {
+                self.copied = false
             }
-            withAnimation( Animation.default.delay(0.1)) {
-                 self.copied = false
-            }
+//            withAnimation( Animation.default.delay(0.1)) {
+//                 self.copied = false
+//            }
         
          }) {
 
@@ -40,6 +41,7 @@ public struct CopyToClipboardButton : View {
                 
                 if( self.copied ) {
                     Image( systemName: "doc.on.clipboard.fill").colorInvert()
+                    // Image( systemName: "checkmark")
                 }
                 else {
                     Image( systemName: "doc.on.clipboard")
