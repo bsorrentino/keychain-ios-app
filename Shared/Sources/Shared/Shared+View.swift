@@ -10,9 +10,20 @@ import SwiftUI
 import Combine
 import OSLog
 
-public struct CopyToClipboardButton : View {
+// https://www.simpleswiftguide.com/advanced-swiftui-button-styling-and-animation/
+struct ScaleButtonStyle: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-    @State private var copied = false
+    
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 1.3 : 1.0)
+            .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+    }
+}
+
+
+public struct CopyToClipboardButton : View {
+    
     var value:String
     
     public init( value:String ) {
@@ -20,7 +31,6 @@ public struct CopyToClipboardButton : View {
     }
     public var body: some View {
         Button( action: {
-            self.copied = true
             #if os(iOS)
             UIPasteboard.general.string = self.value
             #elseif os(macOS)
@@ -28,29 +38,12 @@ public struct CopyToClipboardButton : View {
             NSPasteboard.general.setString(self.value, forType: .string)
             #endif
             logger.debug("copied to clipboard!")
-            withAnimation( Animation.default.speed(0.5) ) {
-                self.copied = false
-            }
-//            withAnimation( Animation.default.delay(0.1)) {
-//                 self.copied = false
-//            }
-        
          }) {
 
-            Group {
-                
-                if( self.copied ) {
-                    Image( systemName: "doc.on.clipboard.fill").colorInvert()
-                    // Image( systemName: "checkmark")
-                }
-                else {
-                    Image( systemName: "doc.on.clipboard")
-                        
-                }
-            }
+            Image( systemName: "doc.on.clipboard")
         }
-        .buttonStyle(PlainButtonStyle())
-        .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+        .buttonStyle(ScaleButtonStyle())
+        
     }
 }
 
