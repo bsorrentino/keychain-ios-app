@@ -22,7 +22,7 @@ struct ContentView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "list.dash")
-                        Text("test")
+                        Text("Keys")
                     }
                 }
             .tag(0)

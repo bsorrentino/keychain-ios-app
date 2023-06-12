@@ -19,6 +19,7 @@ extension KeyEntity {
     @NSManaged public var mnemonic: String
     @NSManaged public var url: String?
     @NSManaged public var username: String
+    @NSManaged public var preferred: NSNumber?
 
 }
 

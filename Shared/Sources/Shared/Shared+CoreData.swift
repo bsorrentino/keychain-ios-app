@@ -45,6 +45,17 @@ extension SharedModule {
             container = NSPersistentCloudKitContainer(name: objectModelName, managedObjectModel: dataModel)
         }
 
+        let description = NSPersistentStoreDescription()
+        description.shouldMigrateStoreAutomatically = true
+        description.shouldInferMappingModelAutomatically = true
+
+        if( container.persistentStoreDescriptions.isEmpty) {
+            container.persistentStoreDescriptions = [description]
+        }
+        else {
+            container.persistentStoreDescriptions.append(description)
+        }
+
         return container
     }
     

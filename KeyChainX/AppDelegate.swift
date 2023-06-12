@@ -71,7 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
         
             let container = try SharedModule.getPersistentContainer()
-                    
+            
+            
             //let container = NSPersistentContainer(name: "KeyChain")
             container.loadPersistentStores() { (storeDescription, error) in
                 if let error = error as NSError? {
@@ -92,6 +93,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
                 container.viewContext.automaticallyMergesChangesFromParent = true
+                
+                logger.info(
+                    """
+                    Data Model version: \(container.persistentStoreCoordinator.managedObjectModel.versionIdentifiers)
+                    Persistent Store Descriptions: \(container.persistentStoreDescriptions)
+                    """
+                )
                 
                 if isInPreviewMode {
                     
