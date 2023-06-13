@@ -134,6 +134,7 @@ public class KeyItem : ObservableObject, Decodable {
         self.note = ""
         self.url = ""
         self.shared = false
+        self.preferred = false
     }
     
     
@@ -145,7 +146,8 @@ public class KeyItem : ObservableObject, Decodable {
         entity.group        = NSNumber( value: group )
         entity.expire       = self.expire
         entity.url          = self.url
-
+        entity.preferred    = self.preferred ? 1 : 0
+        
         return entity
     }
 
@@ -160,6 +162,7 @@ public class KeyItem : ObservableObject, Decodable {
         self.shared         = false
         self.note           = ""
         self.password       = ""
+        self.preferred      = entity.preferred?.boolValue ?? false
 
     }
     
