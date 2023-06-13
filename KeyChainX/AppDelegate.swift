@@ -94,9 +94,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 logger.info(
                     """
-                    Data Model version: \(container.persistentStoreCoordinator.managedObjectModel.versionIdentifiers)
+                    
+                    =================================================
+                    DB url:
+                    \(storeDescription.url?.absoluteString)
+                    ------------------------------------------------
+                    Data Model version:
+                    \(container.persistentStoreCoordinator.managedObjectModel.versionIdentifiers)
+                    ------------------------------------------------
                     shouldMigrateStoreAutomatically: \(storeDescription.shouldMigrateStoreAutomatically)
-                    shouldInferMappingModelAutomatically: \(storeDescription.shouldInferMappingModelAutomatically), 
+                    ------------------------------------------------
+                    shouldInferMappingModelAutomatically: \(storeDescription.shouldInferMappingModelAutomatically),
+                    =================================================
+
                     """
                 )
                 
