@@ -18,6 +18,14 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: self.$selection) {
             
+            PreferredView()
+            .tabItem {
+                    VStack {
+                        Image(systemName: "star.fill")
+                        Text("Preferred")
+                    }
+                }
+            .tag(4)
             KeyItemList_IOS15()
                 .tabItem {
                     VStack {

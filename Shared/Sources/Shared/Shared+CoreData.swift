@@ -45,16 +45,19 @@ extension SharedModule {
             container = NSPersistentCloudKitContainer(name: objectModelName, managedObjectModel: dataModel)
         }
 
-        let description = NSPersistentStoreDescription()
-        description.shouldMigrateStoreAutomatically = true
-        description.shouldInferMappingModelAutomatically = true
+//        let description = NSPersistentStoreDescription()
+//        description.shouldMigrateStoreAutomatically = true
+//        description.shouldInferMappingModelAutomatically = true
+//
+//        if( container.persistentStoreDescriptions.isEmpty) {
+//            container.persistentStoreDescriptions = [description]
+//        }
+//        else {
+//            container.persistentStoreDescriptions.append(description)
+//        }
 
-        if( container.persistentStoreDescriptions.isEmpty) {
-            container.persistentStoreDescriptions = [description]
-        }
-        else {
-            container.persistentStoreDescriptions.append(description)
-        }
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        container.viewContext.automaticallyMergesChangesFromParent = true
 
         return container
     }
