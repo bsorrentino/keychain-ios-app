@@ -19,7 +19,7 @@
 		5F34E553257F966F007417F3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F34E552257F966F007417F3 /* CloudKit.framework */; };
 		5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F22361FD900066E947 /* App+CoreData.swift */; };
 		5F5F559024DC1DDF00D5A4D1 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */; };
-		5F6DBC1227A5AD2F00D320B3 /* GroupKeyItemList+IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList+IOS15.swift */; };
+		5F6DBC1227A5AD2F00D320B3 /* GroupKeyItemList_IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList_IOS15.swift */; };
 		5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */; };
 		5FDEAA6E2624C9BD000AF83C /* MacSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDEAA6D2624C9BD000AF83C /* MacSearchBar.swift */; };
 		5FFE284123B9480400EAB103 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FFE284023B9480400EAB103 /* CryptoSwift */; };
@@ -40,8 +40,8 @@
 		A09E455E27F1D27F004A10D5 /* AppDelegate+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E455D27F1D27F004A10D5 /* AppDelegate+CoreData.swift */; };
 		A09E456027F20509004A10D5 /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = A09E455F27F20509004A10D5 /* Shared */; };
 		A09E456227F20650004A10D5 /* AppDelegate+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E455D27F1D27F004A10D5 /* AppDelegate+CoreData.swift */; };
-		A0B292322A389F1E00E33B80 /* PreferredKeyItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B292312A389F1E00E33B80 /* PreferredKeyItemListView.swift */; };
-		A0B292332A389F1E00E33B80 /* PreferredKeyItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B292312A389F1E00E33B80 /* PreferredKeyItemListView.swift */; };
+		A0B292322A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B292312A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift */; };
+		A0B292332A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B292312A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift */; };
 		A0BE3F8325225F14002A86A7 /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE3F8225225F14002A86A7 /* KeyItemList.swift */; };
 		A0BE3F8425225F14002A86A7 /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE3F8225225F14002A86A7 /* KeyItemList.swift */; };
 		A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5622A901AD003B09ED /* AppDelegate.swift */; };
@@ -61,10 +61,11 @@
 		A0C1D2C92521F36500737766 /* MacKeyChainXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2C82521F36500737766 /* MacKeyChainXUITests.swift */; };
 		A0C1D2E725225DE000737766 /* KeyItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2E625225DE000737766 /* KeyItemRow.swift */; };
 		A0C1D2E825225DE000737766 /* KeyItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2E625225DE000737766 /* KeyItemRow.swift */; };
+		A0C54A3E2A39CCB2003DE418 /* KeyItemList_IOS15+CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C54A3D2A39CCB2003DE418 /* KeyItemList_IOS15+CellView.swift */; };
 		A0E11ED922B4E82F008766C0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A0E11ED822B4E82F008766C0 /* README.md */; };
 		A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE95742377385800002E6F /* KeyItemForm.swift */; };
 		A0F3C39A23CA34F8004B3DC1 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3C39923CA34F8004B3DC1 /* NoteView.swift */; };
-		A0F43C97279F1F1B00D82677 /* KeyItemList+IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F43C96279F1F1B00D82677 /* KeyItemList+IOS15.swift */; };
+		A0F43C97279F1F1B00D82677 /* KeyItemList_IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F43C96279F1F1B00D82677 /* KeyItemList_IOS15.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +113,7 @@
 		5F34E552257F966F007417F3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5F5772F22361FD900066E947 /* App+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+CoreData.swift"; sourceTree = "<group>"; };
 		5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
-		5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList+IOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupKeyItemList+IOS15.swift"; sourceTree = "<group>"; };
+		5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList_IOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupKeyItemList_IOS15.swift; sourceTree = "<group>"; };
 		5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Url.swift"; sourceTree = "<group>"; };
 		5FBDA9672679191200AEF186 /* MacKeyChainXRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacKeyChainXRelease.entitlements; sourceTree = "<group>"; };
 		5FDEAA6D2624C9BD000AF83C /* MacSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSearchBar.swift; sourceTree = "<group>"; };
@@ -128,7 +129,7 @@
 		A08467FD27F207A000B6B72F /* MCSecretsService+IOSExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MCSecretsService+IOSExtension.swift"; sourceTree = "<group>"; };
 		A08467FF27F208E400B6B72F /* MCSecretService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCSecretService.swift; sourceTree = "<group>"; };
 		A09E455D27F1D27F004A10D5 /* AppDelegate+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CoreData.swift"; sourceTree = "<group>"; };
-		A0B292312A389F1E00E33B80 /* PreferredKeyItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredKeyItemListView.swift; sourceTree = "<group>"; };
+		A0B292312A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredKeyItemList_IOS15.swift; sourceTree = "<group>"; };
 		A0BE3F8225225F14002A86A7 /* KeyItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemList.swift; sourceTree = "<group>"; };
 		A0C0DB5322A901AD003B09ED /* KeychainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeychainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C0DB5622A901AD003B09ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,10 +160,11 @@
 		A0C1D2C82521F36500737766 /* MacKeyChainXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacKeyChainXUITests.swift; sourceTree = "<group>"; };
 		A0C1D2CA2521F36500737766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0C1D2E625225DE000737766 /* KeyItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemRow.swift; sourceTree = "<group>"; };
+		A0C54A3D2A39CCB2003DE418 /* KeyItemList_IOS15+CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemList_IOS15+CellView.swift"; sourceTree = "<group>"; };
 		A0E11ED822B4E82F008766C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A0EE95742377385800002E6F /* KeyItemForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
 		A0F3C39923CA34F8004B3DC1 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
-		A0F43C96279F1F1B00D82677 /* KeyItemList+IOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemList+IOS15.swift"; sourceTree = "<group>"; };
+		A0F43C96279F1F1B00D82677 /* KeyItemList_IOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemList_IOS15.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,12 +288,13 @@
 				5F30CFA42379F52100FD7485 /* ContentView.swift */,
 				5F30CFA22379F0BE00FD7485 /* LoginView.swift */,
 				A021E22824ED6AE700A455D2 /* Keys+Codable.swift */,
-				A0B292312A389F1E00E33B80 /* PreferredKeyItemListView.swift */,
-				A0F43C96279F1F1B00D82677 /* KeyItemList+IOS15.swift */,
+				A0C54A3D2A39CCB2003DE418 /* KeyItemList_IOS15+CellView.swift */,
+				A0F43C96279F1F1B00D82677 /* KeyItemList_IOS15.swift */,
+				5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList_IOS15.swift */,
+				A0B292312A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift */,
 				5F01277823B7C05D0033E2B9 /* FileManagerView.swift */,
 				5F01277423B776CC0033E2B9 /* BackupKeysView.swift */,
 				5F01277623B776EE0033E2B9 /* RestoreKeysView.swift */,
-				5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList+IOS15.swift */,
 				A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */,
 				A0EE95742377385800002E6F /* KeyItemForm.swift */,
 				A071C20223648EAB00891175 /* KeyItemForm+Email.swift */,
@@ -692,25 +695,26 @@
 				A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */,
 				5F01277523B776CC0033E2B9 /* BackupKeysView.swift in Sources */,
 				5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */,
-				A0F43C97279F1F1B00D82677 /* KeyItemList+IOS15.swift in Sources */,
+				A0F43C97279F1F1B00D82677 /* KeyItemList_IOS15.swift in Sources */,
 				A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */,
 				5F01277923B7C05D0033E2B9 /* FileManagerView.swift in Sources */,
 				A084680027F208E400B6B72F /* MCSecretService.swift in Sources */,
 				A09E455E27F1D27F004A10D5 /* AppDelegate+CoreData.swift in Sources */,
 				A021E22924ED6AE700A455D2 /* Keys+Codable.swift in Sources */,
 				5F01277723B776EE0033E2B9 /* RestoreKeysView.swift in Sources */,
-				A0B292322A389F1E00E33B80 /* PreferredKeyItemListView.swift in Sources */,
+				A0B292322A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift in Sources */,
 				A08467FE27F207A000B6B72F /* MCSecretsService+IOSExtension.swift in Sources */,
 				A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */,
 				A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */,
 				A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */,
 				5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */,
 				A047651E23DDABE2005B8547 /* KeyItemForm+Password.swift in Sources */,
-				5F6DBC1227A5AD2F00D320B3 /* GroupKeyItemList+IOS15.swift in Sources */,
+				5F6DBC1227A5AD2F00D320B3 /* GroupKeyItemList_IOS15.swift in Sources */,
 				A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */,
 				5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */,
 				A0550B48257E6D7E00DF5F99 /* Keyboard.swift in Sources */,
 				5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */,
+				A0C54A3E2A39CCB2003DE418 /* KeyItemList_IOS15+CellView.swift in Sources */,
 				5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */,
 				5F19F805268A1B46000CEB2A /* PeerConnectionsView.swift in Sources */,
 				A0F3C39A23CA34F8004B3DC1 /* NoteView.swift in Sources */,
@@ -732,7 +736,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0B292332A389F1E00E33B80 /* PreferredKeyItemListView.swift in Sources */,
+				A0B292332A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift in Sources */,
 				A0C0DB7C22A901B0003B09ED /* KeyChainXUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

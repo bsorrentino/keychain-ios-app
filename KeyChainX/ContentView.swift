@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: self.$selection) {
             
-            PreferredKeyItemListView()
+            PreferredKeyItemList_IOS15()
             .tabItem {
                     VStack {
                         Image(systemName: "star.fill")
