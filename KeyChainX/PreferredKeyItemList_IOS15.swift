@@ -30,7 +30,7 @@ struct PreferredKeyItemList_IOS15: View {
                             KeyItemList_IOS15.CellViewLink( entity: key,
                                                             parentId: $keyItemListId
                             )
-                            
+                            .listRowInsets( EdgeInsets() )
                         }
                     }
                 }
