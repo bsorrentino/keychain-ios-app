@@ -18,20 +18,27 @@ struct BackupKeysView: View {
     @State private var showReportView = false
     @State private var alertItem:AlertItem?
     
-    @ObservedObject var backupInfo = KeysProcessingReport()
+    @ObservedObject var processingInfo = KeysProcessingReportObject()
+    
+    @ObservedObject var backupInfo: KeysBackupInfoObject
     
     var body: some View {
         NavigationView {
-            FileManagerView { url in
+            
+            FileManagerView(urls: backupInfo.urls ) { url in
                 Text( url.lastPathComponent )
             }
-            .sheet(isPresented: $showReportView, onDismiss:  {
-                
+            .onChange(of: self.showReportView ) { show in
+                if( show ) {
+                    performBackup()
+                }
+            }
+            .sheet(isPresented: $showReportView, onDismiss: {
+                if( processingInfo.terminated ) {
+                    backupInfo.loadBackupUrls()
+                }
             }) {
-                ProcessingReportView( processingInfo: self.backupInfo )
-                    .onAppear {
-                        self.performBackup()
-                    }
+                ProcessingReportView( processingInfo: processingInfo )
             }
             .navigationBarTitle( Text("Backup"), displayMode: .large)
             .navigationBarItems(trailing:
@@ -44,13 +51,13 @@ struct BackupKeysView: View {
                     }
             })
             .alert( item: $alertItem ) { item in makeAlert(item:item) }
- 
         }
+
     }
     
     private func encodeKey( encoder:JSONEncoder, k:KeyEntity ) -> KeyEntity? {
         
-        backupInfo.processed += 1
+        processingInfo.processed += 1
         
         do {
             let _ = try encoder.encode(k)
@@ -60,7 +67,7 @@ struct BackupKeysView: View {
         }
         catch  {
                 
-            backupInfo.errors.append(error)
+            processingInfo.errors.append(error)
             
             return nil
         }
@@ -71,7 +78,7 @@ struct BackupKeysView: View {
         guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             alertItem = makeAlertItem( error:"Document Directory doesn't exist",
                  primaryButton: .cancel({
-                     self.backupInfo.terminated = true
+                     self.processingInfo.terminated = true
                  }))
             return
 
@@ -80,9 +87,9 @@ struct BackupKeysView: View {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
 
-        backupInfo.url = path.appendingPathComponent("backup-\(formatter.string(from: Date()))").appendingPathExtension("json")
+        processingInfo.url = path.appendingPathComponent("backup-\(formatter.string(from: Date()))").appendingPathExtension("json")
         
-        if( FileManager.default.fileExists( atPath: backupInfo.url!.path ) ) {
+        if( FileManager.default.fileExists( atPath: processingInfo.url!.path ) ) {
             
             alertItem = AlertItem( title: Text("Overwrite"),
                                    message:Text("File Already Exists. Do you want overwrite ?"),
@@ -102,10 +109,10 @@ struct BackupKeysView: View {
     
     private func performBackup( )  {
 
-        backupInfo.reset()
+        processingInfo.reset()
 
-        guard let url = self.backupInfo.url else {
-            backupInfo.terminated = true
+        guard let url = processingInfo.url else {
+            processingInfo.terminated = true
             return
         }
         
@@ -121,28 +128,34 @@ struct BackupKeysView: View {
 
             try allEncodedData.write(to: url )
             
-            //logger.trace( String( data:allEncodedData, encoding: .utf8 ) ?? "{}" )
-            
         }
         catch {
-            backupInfo.errors.append(error)
+            processingInfo.errors.append(error)
         }
         
-        backupInfo.terminated = true
+        processingInfo.terminated = true
         
     }
     
 }
 
-
-
-
 struct BackupKeysView_Previews: PreviewProvider {
+    
+    struct MyPreview : View {
+        
+        @StateObject var backupInfo = KeysBackupInfoObject()
+        
+        var body: some View {
+
+            BackupKeysView( backupInfo: backupInfo )
+        }
+        
+    }
     static var previews: some View {
         
-        BackupKeysView()
+        MyPreview()
             .environment(\.colorScheme, .dark)
-        BackupKeysView()
+        MyPreview()
             .environment(\.colorScheme, .light)
     }
 }

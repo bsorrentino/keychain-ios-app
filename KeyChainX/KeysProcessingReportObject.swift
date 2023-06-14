@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  FileSystemKeysProcessing.swift
 //  KeyChainX
 //
 //  Created by Bartolomeo Sorrentino on 19/08/20.
@@ -8,9 +8,9 @@
 
 import Foundation
 import SwiftUI
+import Shared
 
-
-class KeysProcessingReport : ObservableObject {
+class KeysProcessingReportObject : ObservableObject {
     
     @Published var processed:Int = 0
     @Published var errors = Array<Error>()
@@ -29,13 +29,15 @@ class KeysProcessingReport : ObservableObject {
         errors.removeAll()
         terminated = false
     }
+    
+
 }
 
 
 struct ProcessingReportView : View {
     @Environment(\.presentationMode) var presentation
     
-    @ObservedObject var processingInfo:KeysProcessingReport
+    @ObservedObject var processingInfo:KeysProcessingReportObject
     
     var body: some View {
         
@@ -72,6 +74,6 @@ struct ProcessingReportView : View {
 struct ProcessingReportView_Previews: PreviewProvider {
     static var previews: some View {
         
-        ProcessingReportView( processingInfo: KeysProcessingReport() )
+        ProcessingReportView( processingInfo: KeysProcessingReportObject() )
     }
 }

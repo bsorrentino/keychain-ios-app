@@ -22,8 +22,6 @@ struct KeyEntityForm : View {
     @State private  var alertItem:AlertItem?
 
     @ObservedObject var item:KeyItem
-
-    var parentId:Binding<Int>?
     
     private let bg = Color(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, opacity: 0.2)
                     //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
@@ -85,12 +83,11 @@ struct KeyEntityForm : View {
                 }
             }
             .navigationBarTitle( Text( item.mnemonic.uppercased()), displayMode: .inline  )
+            .navigationBarItems(leading:
+                starButton()
+            )
             .navigationBarItems(trailing:
-                HStack {
-                    // secretStatePicker()
-                    // Spacer(minLength: 15)
-                    saveButton()
-                }
+                saveButton()
             )
             .onAppear {
                 if( !item.isNew ) {
@@ -166,51 +163,10 @@ extension KeyEntityForm {
 }
 
 //
-// MARK: - Controls
+// MARK: - Input Controls
 // MARK: -
 //
 extension KeyEntityForm {
-    
-    
-    func saveButton() -> some View {
-        
-        Button( "save", action: {
-            logger.trace( "Save\n mnemonic: \(self.item.mnemonic)\n username: \(self.item.username)" )
-            
-            _ = saveItem().sink(
-                receiveCompletion: {
-                    switch $0  {
-                    case .failure(let error):
-                        
-                        let op = (self.item.isNew) ? "inserting": "updating"
-                        self.alertItem = makeAlertItem( error:"error \(op) new key \(error)",
-                                                        primaryButton: .destructive( Text("Abort")) {
-                                                            self.presentationMode.wrappedValue.dismiss()
-                                                        },
-                                                        secondaryButton: .cancel() )
-                    case .finished:
-                        parentId?.wrappedValue += 1 // force view refresh
-
-                        if( self.item.isNew ) {
-                            self.item.reset()
-                        }
-                        
-                        self.presentationMode.wrappedValue.dismiss()
-
-                    }
-                },
-                receiveValue: {}
-            )
-
-                    
-           
-            
-            
-        })
-        .disabled( !checkIsValid )
-        .alert(item: $alertItem) { item  in makeAlert(item:item) }
-    }
-    
     
     func mnemonicInput() -> some View  {
         
@@ -270,12 +226,61 @@ extension KeyEntityForm {
 }
 
 //
-// MARK: - Actions
+// MARK: - Toolbar
 // MARK: -
 //
 extension KeyEntityForm {
 
+    func starButton() -> some View {
+        Button( action: {
+            item.preferred.toggle()
+        },
+        label: {
+            
+            if( item.preferred ) {
+                Image( systemName: "star.fill")
+            }
+            else {
+                Image( systemName: "star")
+            }
+        })
+    }
     
+    func saveButton() -> some View {
+        
+        Button( "save", action: {
+            logger.trace( "Save\n mnemonic: \(self.item.mnemonic)\n username: \(self.item.username)" )
+            
+            _ = saveItem().sink(
+                receiveCompletion: {
+                    switch $0  {
+                    case .failure(let error):
+                        
+                        let op = (self.item.isNew) ? "inserting": "updating"
+                        self.alertItem = makeAlertItem( error:"error \(op) new key \(error)",
+                                                        primaryButton: .destructive( Text("Abort")) {
+                                                            self.presentationMode.wrappedValue.dismiss()
+                                                        },
+                                                        secondaryButton: .cancel() )
+                    case .finished:
+
+                        if( self.item.isNew ) {
+                            self.item.reset()
+                        }
+                        
+                        self.presentationMode.wrappedValue.dismiss()
+
+                    }
+                },
+                receiveValue: {}
+            )
+        })
+        .disabled( !checkIsValid )
+        .alert(item: $alertItem) { item  in makeAlert(item:item) }
+    }
+    
+    
+
     fileprivate func saveItem() -> Future<Void,Error> {
         
         return Future { promise in

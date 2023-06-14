@@ -29,6 +29,7 @@ public class KeyItem : ObservableObject, Decodable {
             group = groupPrefix != nil
         }
     }
+    @Published public var preferred:Bool
     @Published public var shared:Bool
 
     
@@ -40,29 +41,11 @@ public class KeyItem : ObservableObject, Decodable {
     // MARK: Accessory Fields
     private weak var entity:KeyEntity?
         
-//    @Published var username_mail_setter: String = "" {
-//        didSet {
-//            username = usernameCheck.doValidate(value: username_mail_setter)
-//            mail = username_mail_setter
-//        }
-//    }
-
-    // MARK: Field Validation
-//    @Published var mnemonicCheck = FieldChecker2<String>()
-//    @Published var usernameCheck = FieldChecker2<String>()
-//    @Published var passwordCheck = FieldChecker2<String>()
-
     public var isNew:Bool { return entity == nil  }
 
     public var isGroup:Bool { return entity?.isGroup() ?? false }
     
     public var isGrouped:Bool { return entity?.isGrouped() ?? false }
-    
-//    var checkIsValid:Bool {
-//        return  mnemonicCheck.valid &&
-//                usernameCheck.valid &&
-//                passwordCheck.valid
-//    }
     
     public init() {
         self.mnemonic = ""
@@ -72,6 +55,7 @@ public class KeyItem : ObservableObject, Decodable {
         self.note = ""
         self.url = ""
         self.shared = false
+        self.preferred = false
     }
     
     public init( entity: KeyEntity ) {
@@ -87,6 +71,7 @@ public class KeyItem : ObservableObject, Decodable {
         self.expire         = entity.expire
         self.url            = entity.url ?? ""
         self.shared         = shared
+        self.preferred      = entity.preferred?.boolValue ?? false
         
         if let data = (shared) ?
             try? SharedModule.sharedSecrets.getSecret( forKey: key) :
@@ -136,6 +121,7 @@ public class KeyItem : ObservableObject, Decodable {
         self.linkedTo   = try values.decodeIfPresent( Set<String>.self, forKey: .linkedTo )
         self.linkedBy   = try values.decodeIfPresent( String.self, forKey: .linkedBy )
 
+        self.preferred = try values.decodeIfPresent( Bool.self, forKey: .preferred ) ?? false
         //self.shared =    try values.decodeIfPresent(Bool.self, forKey: .shared) ?? false
         self.shared = SharedModule.sharedSecrets.containsSecret(withKey: key)
     }
@@ -148,6 +134,7 @@ public class KeyItem : ObservableObject, Decodable {
         self.note = ""
         self.url = ""
         self.shared = false
+        self.preferred = false
     }
     
     
@@ -159,7 +146,8 @@ public class KeyItem : ObservableObject, Decodable {
         entity.group        = NSNumber( value: group )
         entity.expire       = self.expire
         entity.url          = self.url
-
+        entity.preferred    = self.preferred ? 1 : 0
+        
         return entity
     }
 
@@ -174,6 +162,7 @@ public class KeyItem : ObservableObject, Decodable {
         self.shared         = false
         self.note           = ""
         self.password       = ""
+        self.preferred      = entity.preferred?.boolValue ?? false
 
     }
     

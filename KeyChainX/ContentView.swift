@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @StateObject var backupInfo = KeysBackupInfoObject()
     @ObservedObject var loginStates:LoginView.States
     
     @State private var selection = 0
@@ -18,15 +19,23 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: self.$selection) {
             
+            PreferredKeyItemList_IOS15()
+            .tabItem {
+                    VStack {
+                        Image(systemName: "star.fill")
+                        Text("Preferred")
+                    }
+                }
+            .tag(4)
             KeyItemList_IOS15()
                 .tabItem {
                     VStack {
                         Image(systemName: "list.dash")
-                        Text("test")
+                        Text("Keys")
                     }
                 }
             .tag(0)
-            BackupKeysView()
+            BackupKeysView( backupInfo: backupInfo )
                 .tabItem {
                     VStack {
                         Image(systemName: "arrow.down.doc")
@@ -34,7 +43,7 @@ struct ContentView: View {
                     }
                 }
                 .tag(1)
-            RestoreKeysView()
+            RestoreKeysView( backupInfo: backupInfo )
                 .tabItem {
                     VStack {
                         Image(systemName: "arrow.up.doc")

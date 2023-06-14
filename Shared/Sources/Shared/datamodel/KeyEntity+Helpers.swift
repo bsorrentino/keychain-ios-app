@@ -12,6 +12,7 @@ import CoreData
 let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
 
 
+
 // MARK: Key Entity Helper
 extension KeyEntity {
     public static var not_is_a_group_predicate:NSPredicate {
@@ -63,10 +64,8 @@ extension KeyEntity {
 
         return group
     }
-    
-    /**
-     
-     */
+
+    // Fetch Only Groups
     public static func fetchGroups( ) -> NSFetchRequest<KeyEntity> {
 
         let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
@@ -80,6 +79,20 @@ extension KeyEntity {
         return request
     }
     
+    // Fetch only preferred keys
+    public static func fetchPreferred( ) -> NSFetchRequest<KeyEntity> {
+
+        let request:NSFetchRequest<KeyEntity> = KeyEntity.fetchRequest()
+        
+        request.predicate = NSPredicate( format: "(preferred != nil AND preferred = YES)" )
+
+        let sortOrder = NSSortDescriptor(keyPath: \KeyEntity.mnemonic, ascending: true)
+        
+        request.sortDescriptors = [sortOrder]
+
+        return request
+    }
+
     public static func ungroup( _ context: NSManagedObjectContext, entity: KeyEntity ) -> Bool {
         
         do {

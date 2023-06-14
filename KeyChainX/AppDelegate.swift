@@ -71,7 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
         
             let container = try SharedModule.getPersistentContainer()
-                    
+            
+            
             //let container = NSPersistentContainer(name: "KeyChain")
             container.loadPersistentStores() { (storeDescription, error) in
                 if let error = error as NSError? {
@@ -90,50 +91,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     fatalError("Unresolved error \(error), \(error.userInfo)")
                     //logger.critical( "Unresolved error \(error), \(error.userInfo)" )
                 }
-                container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-                container.viewContext.automaticallyMergesChangesFromParent = true
+                
+                logger.info(
+                    """
+                    
+                    =================================================
+                    DB url:
+                    \(storeDescription.url?.absoluteString)
+                    ------------------------------------------------
+                    Data Model version:
+                    \(container.persistentStoreCoordinator.managedObjectModel.versionIdentifiers)
+                    ------------------------------------------------
+                    shouldMigrateStoreAutomatically: \(storeDescription.shouldMigrateStoreAutomatically)
+                    ------------------------------------------------
+                    shouldInferMappingModelAutomatically: \(storeDescription.shouldInferMappingModelAutomatically),
+                    =================================================
+
+                    """
+                )
                 
                 if isInPreviewMode {
-                    
-                    [
-                        "A0",
-                        "B0",
-                        "C0",
-                        "B1",
-                        "B2",
-                    ].forEach {
-                        let record = KeyEntity(context: container.viewContext)
-                        record.username = "bartolomeo.sorrentino@soulsoftware.it"
-                        record.mnemonic = $0
-                    
-                        container.viewContext.insert( record )
-                    }
-                    
-                    
-                    Dictionary( grouping: [ "AG0-A0",
-                                            "AG0-B0",
-                                            "AG0-C0",
-                                            "AG0-B1",
-                                            "AG0-B2",
-                                          ], by: { String($0[..<$0.index( $0.startIndex, offsetBy: 3 )]) })
-                        .forEach { keyValue in
-                            let record = KeyEntity(context: container.viewContext)
-                            record.mnemonic = keyValue.key
-                            record.groupPrefix = keyValue.key
-                            record.group = false
-                            container.viewContext.insert( record )
-                            
-                            keyValue.value.forEach { value in
-                                let record = KeyEntity(context: container.viewContext)
-                                record.username = value
-                                record.mnemonic = value
-                                record.group = true
-                                record.groupPrefix = keyValue.key
-                                
-                                container.viewContext.insert( record )
-                            }
-                            
-                        }
+                    self.createSimpleData(container: container)
                 }
             }
             return container
@@ -143,5 +121,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }()
      
-
 }
