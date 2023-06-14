@@ -13,7 +13,6 @@ import Shared
 struct PreferredKeyItemList_IOS15: View {
     
     @FetchRequest(fetchRequest: KeyEntity.fetchPreferred()) var preferredKeys: FetchedResults<KeyEntity>
-    @State private var keyItemListId:Int = 0
     
     var body: some View {
         
@@ -27,9 +26,7 @@ struct PreferredKeyItemList_IOS15: View {
                         
                         ForEach( groupByFirstCharacter[section]!, id: \.mnemonic ) { key in
                             
-                            KeyItemList_IOS15.CellViewLink( entity: key,
-                                                            parentId: $keyItemListId
-                            )
+                            KeyItemList_IOS15.CellViewLink( entity: key )
                             .listRowInsets( EdgeInsets() )
                         }
                     }
