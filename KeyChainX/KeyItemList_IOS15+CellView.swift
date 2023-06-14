@@ -11,7 +11,6 @@ import Shared
 
 private let CELL_IMAGE_PADDING = EdgeInsets( top:20, leading:10, bottom:20, trailing:2)
 
-
 //
 // MARK: Extension for Cell
 //
@@ -19,18 +18,17 @@ extension KeyItemList_IOS15 {
     
     private struct CellView : View {
         
-        internal var entity: KeyEntity
+        @ObservedObject var item: KeyItem
         
         var body: some View {
-            
             HStack(alignment: .center) {
-                let subtitle = entity.isGrouped() ? entity.groupPrefix ?? "" : entity.username
+                let subtitle = item.isGroup ? item.groupPrefix ?? "" : item.username
                 Image( systemName: "lock.circle.fill")
                     .resizable()
                     .frame( width: 32, height: 32, alignment: .leading)
                     .padding( CELL_IMAGE_PADDING )
                 VStack(alignment: .leading) {
-                    Text(entity.mnemonic).font( .title3)
+                    Text(item.mnemonic).font( .title3)
                     Text(subtitle).font( .subheadline ).italic().lineLimit(1)
                 }
             }
@@ -45,9 +43,17 @@ extension KeyItemList_IOS15 {
  
         @State private var alertInfo: AlertInfo?
         
-        var entity: KeyEntity
-        var parentId:Binding<Int>
+        var entity:     KeyEntity
         var onClone:    CellViewHandler?
+        @StateObject private var item:KeyItem
+        
+        init( entity:KeyEntity, onClone: CellViewHandler? = nil) {
+        
+            self.entity = entity
+            self.onClone = onClone
+            self._item = StateObject( wrappedValue: KeyItem( entity: entity ) )
+            
+        }
         
         /// delete a key
         /// - Parameter entity: entity to remove
@@ -66,12 +72,11 @@ extension KeyItemList_IOS15 {
         
         
         var body: some View {
-            let item = KeyItem( entity: entity )
             
             NavigationLink {
-                KeyEntityForm( item: item, parentId: parentId )
+                KeyEntityForm( item: item )
             } label: {
-                KeyItemList_IOS15.CellView(entity: entity)
+                KeyItemList_IOS15.CellView( item: item)
             }
             .alert( item: $alertInfo ) { info in
                 Alert(

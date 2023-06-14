@@ -22,8 +22,6 @@ struct KeyEntityForm : View {
     @State private  var alertItem:AlertItem?
 
     @ObservedObject var item:KeyItem
-
-    var parentId:Binding<Int>?
     
     private let bg = Color(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, opacity: 0.2)
                     //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
@@ -265,7 +263,6 @@ extension KeyEntityForm {
                                                         },
                                                         secondaryButton: .cancel() )
                     case .finished:
-                        parentId?.wrappedValue += 1 // force view refresh
 
                         if( self.item.isNew ) {
                             self.item.reset()

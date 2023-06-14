@@ -20,7 +20,7 @@ struct BackupKeysView: View {
     
     @ObservedObject var processingInfo = KeysProcessingReportObject()
     
-    var backupInfo: KeysBackupInfoObject
+    @ObservedObject var backupInfo: KeysBackupInfoObject
     
     var body: some View {
         NavigationView {

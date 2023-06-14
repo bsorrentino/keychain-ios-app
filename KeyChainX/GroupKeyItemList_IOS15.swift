@@ -16,7 +16,7 @@ struct GroupKeyItemList_IOS15: View {
     // Id of KeyItemList view. when change the view is forced to be updated
     // @see https://stackoverflow.com/a/65095862
     // @see https://swiftui-lab.com/swiftui-id/
-    @State private var keyItemListId:Int = 0
+//    @State private var keyItemListId:Int = 0
     
     internal var groupEntity: KeyEntity
     
@@ -28,12 +28,11 @@ struct GroupKeyItemList_IOS15: View {
                 
                 List( results, id: \.mnemonic ) { key in
                 
-                    KeyItemList_IOS15.CellViewLink( entity: key, parentId: $keyItemListId ) 
+                    KeyItemList_IOS15.CellViewLink( entity: key ) 
                 }
                 // .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
 
             }
-            .id( keyItemListId ) //
             .navigationBarTitle( Text("Group \(groupEntity.groupPrefix!)"), displayMode: .inline )
 
         }

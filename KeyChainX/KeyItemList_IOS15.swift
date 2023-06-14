@@ -34,14 +34,15 @@ struct KeyItemList_IOS15: View {
     // Id of KeyItemList view. when change the view is forced to be updated
     // @see https://stackoverflow.com/a/65095862
     // @see https://swiftui-lab.com/swiftui-id/
-    @State private var keyItemListId:Int = 0
+//    @State private var keyItemListId:Int = 0
+    
     @State private var searchText = ""
     @State private var formActive = false
     
     @StateObject private var newItem = KeyItem()
     
     var KeyEntityFormNavigationLink: some View {
-        NavigationLink( destination: KeyEntityForm(item:newItem, parentId:$keyItemListId),
+        NavigationLink( destination: KeyEntityForm(item:newItem),
                         isActive: $formActive ) {
             EmptyView()
         }
@@ -52,22 +53,21 @@ struct KeyItemList_IOS15: View {
     ///
     /// - Parameter key: Key Entity
     /// - Returns: Group View or Cell View
+    @ViewBuilder
     private func CellViewLinkGroup( entity key: KeyEntity ) -> some View {
-        Group {
             if key.isGroup() {
                 GroupViewLink( groupEntity: key )
+                    .listRowInsets( EdgeInsets() )
             }
             else {
                 CellViewLink( entity: key,
-                              parentId: $keyItemListId,
                               onClone: {
                                     newItem.copy(from: key)
                                     formActive.toggle()
                                 }
                 )
+                .listRowInsets( EdgeInsets() )
             }
-        }
-        .listRowInsets( EdgeInsets() )
     }
     
     var body: some View {
