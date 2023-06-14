@@ -10,6 +10,7 @@ import LocalAuthentication
 import SwiftUI
 import Combine
 import FieldValidatorLibrary
+import Shared
 
 private let strikeWidth:CGFloat = 0.5
 
@@ -305,8 +306,10 @@ extension LoginView {
     private func savePasswordAndDismiss() {
         
         do {
+
+            let secret = SecretsManager.Secret( password: password, note: "keychainx user password" )
             try userPreferencesKeychain.setSecret(forKey: "password",
-                                                  secret: (  password:password, note: "keychainx user password" ))
+                                                  secret: secret )
         }
         catch {
             logger.warning(

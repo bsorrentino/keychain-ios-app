@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,62 +14,35 @@
 		5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28680B23BF8A3600A1E62D /* WebView.swift */; };
 		5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30CFA22379F0BE00FD7485 /* LoginView.swift */; };
 		5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30CFA42379F52100FD7485 /* ContentView.swift */; };
-		5F334AC6267F78280061D8C7 /* MCSercretsService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F334AC5267F78280061D8C7 /* MCSercretsService+Extension.swift */; };
-		5F334AC8267F78C00061D8C7 /* MCSecretsService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F334AC7267F78C00061D8C7 /* MCSecretsService+Extension.swift */; };
+		5F334AC6267F78280061D8C7 /* MCSecretsService+MacExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F334AC5267F78280061D8C7 /* MCSecretsService+MacExtension.swift */; };
 		5F34E545257F9201007417F3 /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34E544257F9201007417F3 /* KeyItemForm.swift */; };
 		5F34E553257F966F007417F3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F34E552257F966F007417F3 /* CloudKit.framework */; };
 		5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F22361FD900066E947 /* App+CoreData.swift */; };
-		5F5772F52361FDD50066E947 /* Shared+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F42361FDD50066E947 /* Shared+Error.swift */; };
-		5F59285023B924F5004EC296 /* App+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59284F23B924F5004EC296 /* App+Info.swift */; };
-		5F5F558624DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */; };
 		5F5F559024DC1DDF00D5A4D1 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */; };
-		5F6DBC1227A5AD2F00D320B3 /* GroupKeyItemList+IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList+IOS15.swift */; };
-		5F6DBC1427A5AD9200D320B3 /* DynamicFetchRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6DBC1327A5AD9200D320B3 /* DynamicFetchRequestView.swift */; };
-		5F6DBC1627A5AE7800D320B3 /* DynamicFetchRequestView+KeyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6DBC1527A5AE7800D320B3 /* DynamicFetchRequestView+KeyEntity.swift */; };
-		5F7C0E8824E9A5A500B41F20 /* KeyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */; };
-		5F8110262678F1E40082E6B5 /* Shared+Authc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00AE8A526752C61001276B3 /* Shared+Authc.swift */; };
-		5F8110282678F8CC0082E6B5 /* Shared+MCSecretService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8110272678F8CC0082E6B5 /* Shared+MCSecretService.swift */; };
-		5F8110292678F8CC0082E6B5 /* Shared+MCSecretService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8110272678F8CC0082E6B5 /* Shared+MCSecretService.swift */; };
-		5F8235CE262B28E900F7FC9A /* Shared+Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8235CD262B28E900F7FC9A /* Shared+Log.swift */; };
-		5F8235CF262B28E900F7FC9A /* Shared+Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8235CD262B28E900F7FC9A /* Shared+Log.swift */; };
-		5F9ABB3E237983A800AC052A /* Shared+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */; };
+		5F6DBC1227A5AD2F00D320B3 /* GroupKeyItemList_IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList_IOS15.swift */; };
 		5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */; };
 		5FDEAA6E2624C9BD000AF83C /* MacSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDEAA6D2624C9BD000AF83C /* MacSearchBar.swift */; };
 		5FFE284123B9480400EAB103 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FFE284023B9480400EAB103 /* CryptoSwift */; };
-		A00927082675FFE8000B9097 /* Shared+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00927072675FFE8000B9097 /* Shared+View.swift */; };
-		A00927092675FFE8000B9097 /* Shared+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00927072675FFE8000B9097 /* Shared+View.swift */; };
-		A00A69F727A7FF0400DA5C26 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A00A69F627A7FF0400DA5C26 /* KeychainAccess */; };
 		A00A69F927A7FF0E00DA5C26 /* FieldValidatorLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = A00A69F827A7FF0E00DA5C26 /* FieldValidatorLibrary */; };
-		A00AE8A626752C61001276B3 /* Shared+Authc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00AE8A526752C61001276B3 /* Shared+Authc.swift */; };
 		A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */; };
 		A01F46A324EEBDB3005717DC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F46A224EEBDB3005717DC /* AlertView.swift */; };
-		A021E22924ED6AE700A455D2 /* Keys+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A021E22824ED6AE700A455D2 /* Keys+Codable.swift */; };
+		A021E22924ED6AE700A455D2 /* KeysProcessingReportObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A021E22824ED6AE700A455D2 /* KeysProcessingReportObject.swift */; };
 		A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */; };
-		A035D57927AC3EED00FB9787 /* SwiftUI+Confition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A035D57827AC3EED00FB9787 /* SwiftUI+Confition.swift */; };
-		A040E4B224EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */; };
+		A03F9CA12A3A1935003B9CB9 /* KeysBackupInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F9CA02A3A1935003B9CB9 /* KeysBackupInfoObject.swift */; };
 		A047651E23DDABE2005B8547 /* KeyItemForm+Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */; };
 		A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */; };
-		A0533DC824EAF590009C784B /* KeyEntity+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */; };
 		A0550B40257E372000DF5F99 /* FieldValidatorLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = A0550B3F257E372000DF5F99 /* FieldValidatorLibrary */; };
 		A0550B48257E6D7E00DF5F99 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0550B47257E6D7E00DF5F99 /* Keyboard.swift */; };
+		A0570C1C27F1C66200362297 /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = A0570C1B27F1C66200362297 /* Shared */; };
 		A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = A071C20223648EAB00891175 /* KeyItemForm+Email.swift */; };
-		A086C39425231B79001EF95E /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */; };
-		A086C39B25232187001EF95E /* Shared+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */; };
-		A086C3A3252321C4001EF95E /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A086C3A2252321C4001EF95E /* KeychainAccess */; };
-		A086C3AB252325AA001EF95E /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086C3AA252325AA001EF95E /* Shared.swift */; };
-		A086C3AC252325AA001EF95E /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086C3AA252325AA001EF95E /* Shared.swift */; };
-		A086C3B3252327C9001EF95E /* Shared+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5772F42361FDD50066E947 /* Shared+Error.swift */; };
-		A086C3CB25232D1F001EF95E /* KeyEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */; };
-		A086C3D225232D26001EF95E /* KeyEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */; };
-		A086C3E025232D43001EF95E /* KeyEntity+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */; };
-		A086C3E725232D48001EF95E /* KeyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */; };
-		A086C3EE25232D5A001EF95E /* MailEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */; };
-		A086C3F525232D62001EF95E /* MailEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */; };
-		A086C402252331C3001EF95E /* KeyEntity+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */; };
-		A089548B25A3778400B17CE4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A089548A25A3778400B17CE4 /* String+Extension.swift */; };
-		A089548C25A3778400B17CE4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A089548A25A3778400B17CE4 /* String+Extension.swift */; };
-		A089549325A3793F00B17CE4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A089548A25A3778400B17CE4 /* String+Extension.swift */; };
-		A0A3382E267BA02C00CFA145 /* App+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F59284F23B924F5004EC296 /* App+Info.swift */; };
+		A08467FE27F207A000B6B72F /* MCSecretsService+IOSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08467FD27F207A000B6B72F /* MCSecretsService+IOSExtension.swift */; };
+		A084680027F208E400B6B72F /* MCSecretService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08467FF27F208E400B6B72F /* MCSecretService.swift */; };
+		A084680127F208E400B6B72F /* MCSecretService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08467FF27F208E400B6B72F /* MCSecretService.swift */; };
+		A09E455E27F1D27F004A10D5 /* AppDelegate+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E455D27F1D27F004A10D5 /* AppDelegate+CoreData.swift */; };
+		A09E456027F20509004A10D5 /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = A09E455F27F20509004A10D5 /* Shared */; };
+		A09E456227F20650004A10D5 /* AppDelegate+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E455D27F1D27F004A10D5 /* AppDelegate+CoreData.swift */; };
+		A0B292322A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B292312A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift */; };
+		A0B292332A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B292312A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift */; };
 		A0BE3F8325225F14002A86A7 /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE3F8225225F14002A86A7 /* KeyItemList.swift */; };
 		A0BE3F8425225F14002A86A7 /* KeyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE3F8225225F14002A86A7 /* KeyItemList.swift */; };
 		A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C0DB5622A901AD003B09ED /* AppDelegate.swift */; };
@@ -89,18 +62,11 @@
 		A0C1D2C92521F36500737766 /* MacKeyChainXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2C82521F36500737766 /* MacKeyChainXUITests.swift */; };
 		A0C1D2E725225DE000737766 /* KeyItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2E625225DE000737766 /* KeyItemRow.swift */; };
 		A0C1D2E825225DE000737766 /* KeyItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1D2E625225DE000737766 /* KeyItemRow.swift */; };
-		A0D796B32523711000A5CBAB /* Shared+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D796B22523711000A5CBAB /* Shared+CoreData.swift */; };
-		A0D796C0252371C500A5CBAB /* Shared+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D796B22523711000A5CBAB /* Shared+CoreData.swift */; };
-		A0D796DA2523A92D00A5CBAB /* KeyEntity+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */; };
-		A0D796EB2523A9CD00A5CBAB /* KeyEntity+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */; };
+		A0C54A3E2A39CCB2003DE418 /* KeyItemList_IOS15+CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C54A3D2A39CCB2003DE418 /* KeyItemList_IOS15+CellView.swift */; };
 		A0E11ED922B4E82F008766C0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A0E11ED822B4E82F008766C0 /* README.md */; };
-		A0EE95502375F38400002E6F /* KeyChain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */; };
-		A0EE956F2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */; };
-		A0EE95712375F7AF00002E6F /* MailEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */; };
-		A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */; };
 		A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE95742377385800002E6F /* KeyItemForm.swift */; };
 		A0F3C39A23CA34F8004B3DC1 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3C39923CA34F8004B3DC1 /* NoteView.swift */; };
-		A0F43C97279F1F1B00D82677 /* KeyItemList+IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F43C96279F1F1B00D82677 /* KeyItemList+IOS15.swift */; };
+		A0F43C97279F1F1B00D82677 /* KeyItemList_IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F43C96279F1F1B00D82677 /* KeyItemList_IOS15.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,45 +106,32 @@
 		5F01277823B7C05D0033E2B9 /* FileManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerView.swift; sourceTree = "<group>"; };
 		5F19F804268A1B46000CEB2A /* PeerConnectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerConnectionsView.swift; sourceTree = "<group>"; };
 		5F28680B23BF8A3600A1E62D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		5F2B152124D3502B00983F68 /* KeyChain v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain v2.xcdatamodel"; sourceTree = "<group>"; };
 		5F30CFA22379F0BE00FD7485 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5F30CFA42379F52100FD7485 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F30CFA6237A192600FD7485 /* KeyChainX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeyChainX.entitlements; sourceTree = "<group>"; };
-		5F334AC5267F78280061D8C7 /* MCSercretsService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MCSercretsService+Extension.swift"; sourceTree = "<group>"; };
-		5F334AC7267F78C00061D8C7 /* MCSecretsService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MCSecretsService+Extension.swift"; sourceTree = "<group>"; };
+		5F334AC5267F78280061D8C7 /* MCSecretsService+MacExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MCSecretsService+MacExtension.swift"; sourceTree = "<group>"; };
 		5F34E544257F9201007417F3 /* KeyItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
 		5F34E552257F966F007417F3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		5F34E55C257FEDEA007417F3 /* KeyChain v1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "KeyChain v1.1.xcdatamodel"; sourceTree = "<group>"; };
 		5F5772F22361FD900066E947 /* App+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+CoreData.swift"; sourceTree = "<group>"; };
-		5F5772F42361FDD50066E947 /* Shared+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+Error.swift"; sourceTree = "<group>"; };
-		5F59284F23B924F5004EC296 /* App+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Info.swift"; sourceTree = "<group>"; };
-		5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5F5F558F24DC1DDF00D5A4D1 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
-		5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList+IOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupKeyItemList+IOS15.swift"; sourceTree = "<group>"; };
-		5F6DBC1327A5AD9200D320B3 /* DynamicFetchRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFetchRequestView.swift; sourceTree = "<group>"; };
-		5F6DBC1527A5AE7800D320B3 /* DynamicFetchRequestView+KeyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DynamicFetchRequestView+KeyEntity.swift"; sourceTree = "<group>"; };
-		5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItem.swift; sourceTree = "<group>"; };
-		5F8110272678F8CC0082E6B5 /* Shared+MCSecretService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+MCSecretService.swift"; sourceTree = "<group>"; };
-		5F8235CD262B28E900F7FC9A /* Shared+Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+Log.swift"; sourceTree = "<group>"; };
-		5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+Keychain.swift"; sourceTree = "<group>"; };
+		5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList_IOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupKeyItemList_IOS15.swift; sourceTree = "<group>"; };
 		5FB4399923BF499800FFA9F9 /* KeyItemForm+Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Url.swift"; sourceTree = "<group>"; };
 		5FBDA9672679191200AEF186 /* MacKeyChainXRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacKeyChainXRelease.entitlements; sourceTree = "<group>"; };
 		5FDEAA6D2624C9BD000AF83C /* MacSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSearchBar.swift; sourceTree = "<group>"; };
-		A00927072675FFE8000B9097 /* Shared+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+View.swift"; sourceTree = "<group>"; };
-		A00AE8A526752C61001276B3 /* Shared+Authc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+Authc.swift"; sourceTree = "<group>"; };
 		A00DEC8422CE2FEE00B850CF /* KeyItemForm+Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Note.swift"; sourceTree = "<group>"; };
 		A01F46A224EEBDB3005717DC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
-		A021E22824ED6AE700A455D2 /* Keys+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keys+Codable.swift"; sourceTree = "<group>"; };
+		A021E22824ED6AE700A455D2 /* KeysProcessingReportObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysProcessingReportObject.swift; sourceTree = "<group>"; };
 		A030CB1623AF91C300337764 /* KeyItemForm+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "KeyItemForm+Group.swift"; path = "KeyChainX/KeyItemForm+Group.swift"; sourceTree = SOURCE_ROOT; };
-		A035D57827AC3EED00FB9787 /* SwiftUI+Confition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Confition.swift"; sourceTree = "<group>"; };
-		A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A03F9CA02A3A1935003B9CB9 /* KeysBackupInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysBackupInfoObject.swift; sourceTree = "<group>"; };
 		A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Password.swift"; sourceTree = "<group>"; };
 		A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FieldValidator+Helpers.swift"; sourceTree = "<group>"; };
-		A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Encodable.swift"; sourceTree = "<group>"; };
 		A0550B47257E6D7E00DF5F99 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		A0570C1827F1BB2700362297 /* Shared */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Shared; sourceTree = "<group>"; };
 		A071C20223648EAB00891175 /* KeyItemForm+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Email.swift"; sourceTree = "<group>"; };
-		A086C3AA252325AA001EF95E /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
-		A089548A25A3778400B17CE4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		A08467FD27F207A000B6B72F /* MCSecretsService+IOSExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MCSecretsService+IOSExtension.swift"; sourceTree = "<group>"; };
+		A08467FF27F208E400B6B72F /* MCSecretService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCSecretService.swift; sourceTree = "<group>"; };
+		A09E455D27F1D27F004A10D5 /* AppDelegate+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CoreData.swift"; sourceTree = "<group>"; };
+		A0B292312A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredKeyItemList_IOS15.swift; sourceTree = "<group>"; };
 		A0BE3F8225225F14002A86A7 /* KeyItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemList.swift; sourceTree = "<group>"; };
 		A0C0DB5322A901AD003B09ED /* KeychainX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeychainX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C0DB5622A901AD003B09ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,16 +162,11 @@
 		A0C1D2C82521F36500737766 /* MacKeyChainXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacKeyChainXUITests.swift; sourceTree = "<group>"; };
 		A0C1D2CA2521F36500737766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0C1D2E625225DE000737766 /* KeyItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemRow.swift; sourceTree = "<group>"; };
-		A0D796B22523711000A5CBAB /* Shared+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+CoreData.swift"; sourceTree = "<group>"; };
-		A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Identifiable.swift"; sourceTree = "<group>"; };
+		A0C54A3D2A39CCB2003DE418 /* KeyItemList_IOS15+CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemList_IOS15+CellView.swift"; sourceTree = "<group>"; };
 		A0E11ED822B4E82F008766C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KeyChain.xcdatamodel; sourceTree = "<group>"; };
-		A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MailEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MailEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyEntity+Helpers.swift"; sourceTree = "<group>"; };
 		A0EE95742377385800002E6F /* KeyItemForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
 		A0F3C39923CA34F8004B3DC1 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
-		A0F43C96279F1F1B00D82677 /* KeyItemList+IOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemList+IOS15.swift"; sourceTree = "<group>"; };
+		A0F43C96279F1F1B00D82677 /* KeyItemList_IOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemList_IOS15.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,10 +174,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0570C1C27F1C66200362297 /* Shared in Frameworks */,
 				A00A69F927A7FF0E00DA5C26 /* FieldValidatorLibrary in Frameworks */,
 				5F34E553257F966F007417F3 /* CloudKit.framework in Frameworks */,
 				5FFE284123B9480400EAB103 /* CryptoSwift in Frameworks */,
-				A00A69F727A7FF0400DA5C26 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0550B40257E372000DF5F99 /* FieldValidatorLibrary in Frameworks */,
-				A086C3A3252321C4001EF95E /* KeychainAccess in Frameworks */,
+				A09E456027F20509004A10D5 /* Shared in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,35 +221,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A086C39325231B69001EF95E /* shared */ = {
-			isa = PBXGroup;
-			children = (
-				A086C3BA25232808001EF95E /* datamodel */,
-				A086C3AA252325AA001EF95E /* Shared.swift */,
-				A0D796B22523711000A5CBAB /* Shared+CoreData.swift */,
-				5F5772F42361FDD50066E947 /* Shared+Error.swift */,
-				5F9ABB3D237983A800AC052A /* Shared+Keychain.swift */,
-				A089548A25A3778400B17CE4 /* String+Extension.swift */,
-				5F8235CD262B28E900F7FC9A /* Shared+Log.swift */,
-				A00927072675FFE8000B9097 /* Shared+View.swift */,
-				A00AE8A526752C61001276B3 /* Shared+Authc.swift */,
-				5F8110272678F8CC0082E6B5 /* Shared+MCSecretService.swift */,
-				5F59284F23B924F5004EC296 /* App+Info.swift */,
-				5F6DBC1327A5AD9200D320B3 /* DynamicFetchRequestView.swift */,
-				5F6DBC1527A5AE7800D320B3 /* DynamicFetchRequestView+KeyEntity.swift */,
-				A035D57827AC3EED00FB9787 /* SwiftUI+Confition.swift */,
-			);
-			name = shared;
-			sourceTree = "<group>";
-		};
-		A086C3BA25232808001EF95E /* datamodel */ = {
-			isa = PBXGroup;
-			children = (
-				A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */,
-			);
-			name = datamodel;
-			sourceTree = "<group>";
-		};
 		A096114E2312CA970037E8B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,9 +238,19 @@
 			path = UIKIT;
 			sourceTree = "<group>";
 		};
+		A09E456127F20629004A10D5 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A08467FF27F208E400B6B72F /* MCSecretService.swift */,
+				A09E455D27F1D27F004A10D5 /* AppDelegate+CoreData.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		A0C0DB4A22A901AD003B09ED = {
 			isa = PBXGroup;
 			children = (
+				A0570C1827F1BB2700362297 /* Shared */,
 				A0E11ED822B4E82F008766C0 /* README.md */,
 				A0C0DB5522A901AD003B09ED /* KeyChainX */,
 				A0C0DB6F22A901B0003B09ED /* KeyChainXTests */,
@@ -350,10 +279,9 @@
 		A0C0DB5522A901AD003B09ED /* KeyChainX */ = {
 			isa = PBXGroup;
 			children = (
-				A086C39325231B69001EF95E /* shared */,
-				A0EE95512375F73F00002E6F /* datamodel */,
+				A09E456127F20629004A10D5 /* Shared */,
 				A096B3C522CE4295004E17CC /* UIKIT */,
-				5F334AC7267F78C00061D8C7 /* MCSecretsService+Extension.swift */,
+				A08467FD27F207A000B6B72F /* MCSecretsService+IOSExtension.swift */,
 				5F19F804268A1B46000CEB2A /* PeerConnectionsView.swift */,
 				5F5772F22361FD900066E947 /* App+CoreData.swift */,
 				A0C0DB5622A901AD003B09ED /* AppDelegate.swift */,
@@ -361,12 +289,15 @@
 				A01F46A224EEBDB3005717DC /* AlertView.swift */,
 				5F30CFA42379F52100FD7485 /* ContentView.swift */,
 				5F30CFA22379F0BE00FD7485 /* LoginView.swift */,
-				A021E22824ED6AE700A455D2 /* Keys+Codable.swift */,
+				A021E22824ED6AE700A455D2 /* KeysProcessingReportObject.swift */,
+				A03F9CA02A3A1935003B9CB9 /* KeysBackupInfoObject.swift */,
 				5F01277823B7C05D0033E2B9 /* FileManagerView.swift */,
+				A0C54A3D2A39CCB2003DE418 /* KeyItemList_IOS15+CellView.swift */,
+				A0F43C96279F1F1B00D82677 /* KeyItemList_IOS15.swift */,
+				5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList_IOS15.swift */,
+				A0B292312A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift */,
 				5F01277423B776CC0033E2B9 /* BackupKeysView.swift */,
 				5F01277623B776EE0033E2B9 /* RestoreKeysView.swift */,
-				5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList+IOS15.swift */,
-				A0F43C96279F1F1B00D82677 /* KeyItemList+IOS15.swift */,
 				A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */,
 				A0EE95742377385800002E6F /* KeyItemForm.swift */,
 				A071C20223648EAB00891175 /* KeyItemForm+Email.swift */,
@@ -414,7 +345,7 @@
 		A0C1D2A32521F36400737766 /* MacKeyChainX */ = {
 			isa = PBXGroup;
 			children = (
-				5F334AC5267F78280061D8C7 /* MCSercretsService+Extension.swift */,
+				5F334AC5267F78280061D8C7 /* MCSecretsService+MacExtension.swift */,
 				A0C1D2A42521F36400737766 /* AppDelegate.swift */,
 				A0C1D2E625225DE000737766 /* KeyItemRow.swift */,
 				A0BE3F8225225F14002A86A7 /* KeyItemList.swift */,
@@ -458,21 +389,6 @@
 			path = MacKeyChainXUITests;
 			sourceTree = "<group>";
 		};
-		A0EE95512375F73F00002E6F /* datamodel */ = {
-			isa = PBXGroup;
-			children = (
-				5F5F558424DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift */,
-				A040E4B124EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift */,
-				A0EE957223770BED00002E6F /* KeyEntity+Helpers.swift */,
-				5F7C0E8724E9A5A500B41F20 /* KeyItem.swift */,
-				A0533DC724EAF58F009C784B /* KeyEntity+Encodable.swift */,
-				A0EE956D2375F7AF00002E6F /* MailEntity+CoreDataClass.swift */,
-				A0EE956B2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift */,
-				A0D796D92523A92D00A5CBAB /* KeyEntity+Identifiable.swift */,
-			);
-			name = datamodel;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -491,8 +407,8 @@
 			name = KeyChainX;
 			packageProductDependencies = (
 				5FFE284023B9480400EAB103 /* CryptoSwift */,
-				A00A69F627A7FF0400DA5C26 /* KeychainAccess */,
 				A00A69F827A7FF0E00DA5C26 /* FieldValidatorLibrary */,
+				A0570C1B27F1C66200362297 /* Shared */,
 			);
 			productName = KeyChainX;
 			productReference = A0C0DB5322A901AD003B09ED /* KeychainX.app */;
@@ -553,8 +469,8 @@
 			);
 			name = MacKeyChainX;
 			packageProductDependencies = (
-				A086C3A2252321C4001EF95E /* KeychainAccess */,
 				A0550B3F257E372000DF5F99 /* FieldValidatorLibrary */,
+				A09E455F27F20509004A10D5 /* Shared */,
 			);
 			productName = MacKeyChainX;
 			productReference = A0C1D2A22521F36400737766 /* MacKeyChainX.app */;
@@ -602,8 +518,9 @@
 		A0C0DB4B22A901AD003B09ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "Bartolomeo Sorrentino";
 				TargetAttributes = {
 					A0C0DB5222A901AD003B09ED = {
@@ -640,7 +557,6 @@
 			);
 			mainGroup = A0C0DB4A22A901AD003B09ED;
 			packageReferences = (
-				5F9ABB3A2379828000AC052A /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				5FFE283F23B9480400EAB103 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 				5F9987AE25387BEB004F43DF /* XCRemoteSwiftPackageReference "swiftui-fieldvalidator" */,
 			);
@@ -779,47 +695,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8110262678F1E40082E6B5 /* Shared+Authc.swift in Sources */,
 				A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */,
-				5F5772F52361FDD50066E947 /* Shared+Error.swift in Sources */,
 				5F01277523B776CC0033E2B9 /* BackupKeysView.swift in Sources */,
 				5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */,
-				A00927082675FFE8000B9097 /* Shared+View.swift in Sources */,
-				A0F43C97279F1F1B00D82677 /* KeyItemList+IOS15.swift in Sources */,
+				A0F43C97279F1F1B00D82677 /* KeyItemList_IOS15.swift in Sources */,
 				A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */,
 				5F01277923B7C05D0033E2B9 /* FileManagerView.swift in Sources */,
-				5F9ABB3E237983A800AC052A /* Shared+Keychain.swift in Sources */,
-				A021E22924ED6AE700A455D2 /* Keys+Codable.swift in Sources */,
-				A0EE956F2375F7AF00002E6F /* MailEntity+CoreDataProperties.swift in Sources */,
-				5F59285023B924F5004EC296 /* App+Info.swift in Sources */,
+				A084680027F208E400B6B72F /* MCSecretService.swift in Sources */,
+				A09E455E27F1D27F004A10D5 /* AppDelegate+CoreData.swift in Sources */,
+				A021E22924ED6AE700A455D2 /* KeysProcessingReportObject.swift in Sources */,
+				A03F9CA12A3A1935003B9CB9 /* KeysBackupInfoObject.swift in Sources */,
 				5F01277723B776EE0033E2B9 /* RestoreKeysView.swift in Sources */,
-				5F7C0E8824E9A5A500B41F20 /* KeyItem.swift in Sources */,
+				A0B292322A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift in Sources */,
+				A08467FE27F207A000B6B72F /* MCSecretsService+IOSExtension.swift in Sources */,
 				A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */,
-				A0EE957323770BED00002E6F /* KeyEntity+Helpers.swift in Sources */,
 				A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */,
 				A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */,
-				A0D796DA2523A92D00A5CBAB /* KeyEntity+Identifiable.swift in Sources */,
 				5F30CFA32379F0BE00FD7485 /* LoginView.swift in Sources */,
-				5F6DBC1427A5AD9200D320B3 /* DynamicFetchRequestView.swift in Sources */,
-				A089548B25A3778400B17CE4 /* String+Extension.swift in Sources */,
-				5F6DBC1627A5AE7800D320B3 /* DynamicFetchRequestView+KeyEntity.swift in Sources */,
 				A047651E23DDABE2005B8547 /* KeyItemForm+Password.swift in Sources */,
-				5F6DBC1227A5AD2F00D320B3 /* GroupKeyItemList+IOS15.swift in Sources */,
+				5F6DBC1227A5AD2F00D320B3 /* GroupKeyItemList_IOS15.swift in Sources */,
 				A00DEC8522CE2FEE00B850CF /* KeyItemForm+Note.swift in Sources */,
-				5F334AC8267F78C00061D8C7 /* MCSecretsService+Extension.swift in Sources */,
-				5F8110282678F8CC0082E6B5 /* Shared+MCSecretService.swift in Sources */,
-				A040E4B224EA90B2000CCD8A /* KeyEntity+CoreDataProperties.swift in Sources */,
-				5F5F558624DB5D2700D5A4D1 /* KeyEntity+CoreDataClass.swift in Sources */,
 				5F30CFA52379F52100FD7485 /* ContentView.swift in Sources */,
-				A0EE95502375F38400002E6F /* KeyChain.xcdatamodeld in Sources */,
-				A0533DC824EAF590009C784B /* KeyEntity+Encodable.swift in Sources */,
-				A0EE95712375F7AF00002E6F /* MailEntity+CoreDataClass.swift in Sources */,
-				5F8235CE262B28E900F7FC9A /* Shared+Log.swift in Sources */,
 				A0550B48257E6D7E00DF5F99 /* Keyboard.swift in Sources */,
-				A035D57927AC3EED00FB9787 /* SwiftUI+Confition.swift in Sources */,
-				A0D796B32523711000A5CBAB /* Shared+CoreData.swift in Sources */,
-				A086C3AB252325AA001EF95E /* Shared.swift in Sources */,
 				5F28680C23BF8A3600A1E62D /* WebView.swift in Sources */,
+				A0C54A3E2A39CCB2003DE418 /* KeyItemList_IOS15+CellView.swift in Sources */,
 				5FB4399A23BF499800FFA9F9 /* KeyItemForm+Url.swift in Sources */,
 				5F19F805268A1B46000CEB2A /* PeerConnectionsView.swift in Sources */,
 				A0F3C39A23CA34F8004B3DC1 /* NoteView.swift in Sources */,
@@ -832,7 +731,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A089549325A3793F00B17CE4 /* String+Extension.swift in Sources */,
 				5F5F559024DC1DDF00D5A4D1 /* CoreDataTests.swift in Sources */,
 				A0C0DB7122A901B0003B09ED /* KeyChainXTests.swift in Sources */,
 			);
@@ -842,6 +740,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B292332A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift in Sources */,
 				A0C0DB7C22A901B0003B09ED /* KeyChainXUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -850,31 +749,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0A3382E267BA02C00CFA145 /* App+Info.swift in Sources */,
-				A086C3B3252327C9001EF95E /* Shared+Error.swift in Sources */,
-				A086C3F525232D62001EF95E /* MailEntity+CoreDataProperties.swift in Sources */,
-				A086C402252331C3001EF95E /* KeyEntity+Encodable.swift in Sources */,
-				A00AE8A626752C61001276B3 /* Shared+Authc.swift in Sources */,
+				A09E456227F20650004A10D5 /* AppDelegate+CoreData.swift in Sources */,
+				A084680127F208E400B6B72F /* MCSecretService.swift in Sources */,
 				A0C1D2AA2521F36400737766 /* MacKeyChainX.xcdatamodeld in Sources */,
-				5F8110292678F8CC0082E6B5 /* Shared+MCSecretService.swift in Sources */,
-				A086C3E725232D48001EF95E /* KeyItem.swift in Sources */,
-				A086C3CB25232D1F001EF95E /* KeyEntity+CoreDataClass.swift in Sources */,
-				A0D796EB2523A9CD00A5CBAB /* KeyEntity+Identifiable.swift in Sources */,
-				A086C3D225232D26001EF95E /* KeyEntity+CoreDataProperties.swift in Sources */,
-				A00927092675FFE8000B9097 /* Shared+View.swift in Sources */,
-				A089548C25A3778400B17CE4 /* String+Extension.swift in Sources */,
 				A0C1D2A72521F36400737766 /* ContentView.swift in Sources */,
-				A086C3AC252325AA001EF95E /* Shared.swift in Sources */,
-				A086C3EE25232D5A001EF95E /* MailEntity+CoreDataClass.swift in Sources */,
 				A0C1D2A52521F36400737766 /* AppDelegate.swift in Sources */,
-				A086C39425231B79001EF95E /* KeyChain.xcdatamodeld in Sources */,
 				5FDEAA6E2624C9BD000AF83C /* MacSearchBar.swift in Sources */,
-				A086C3E025232D43001EF95E /* KeyEntity+Helpers.swift in Sources */,
 				5F34E545257F9201007417F3 /* KeyItemForm.swift in Sources */,
-				5F8235CF262B28E900F7FC9A /* Shared+Log.swift in Sources */,
-				5F334AC6267F78280061D8C7 /* MCSercretsService+Extension.swift in Sources */,
-				A086C39B25232187001EF95E /* Shared+Keychain.swift in Sources */,
-				A0D796C0252371C500A5CBAB /* Shared+CoreData.swift in Sources */,
+				5F334AC6267F78280061D8C7 /* MCSecretsService+MacExtension.swift in Sources */,
 				A0C1D2E725225DE000737766 /* KeyItemRow.swift in Sources */,
 				A0BE3F8325225F14002A86A7 /* KeyItemList.swift in Sources */,
 			);
@@ -1067,16 +949,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KeyChainX/KeyChainX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "KeyChainX/Preview\\ Content";
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = KeyChainX/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeychainX;
 				PRODUCT_NAME = KeychainX;
 				SWIFT_VERSION = 5.0;
@@ -1090,16 +973,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KeyChainX/KeyChainX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "KeyChainX/Preview\\ Content";
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = KeyChainX/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.KeychainX;
 				PRODUCT_NAME = KeychainX;
 				SWIFT_VERSION = 5.0;
@@ -1201,7 +1085,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MacKeyChainX/Preview Content\"";
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1229,7 +1114,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MacKeyChainX/Preview Content\"";
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1255,6 +1141,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				INFOPLIST_FILE = MacKeyChainXTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1279,6 +1166,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				INFOPLIST_FILE = MacKeyChainXTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1302,6 +1190,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				INFOPLIST_FILE = MacKeyChainXUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1325,6 +1214,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				INFOPLIST_FILE = MacKeyChainXUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1418,14 +1308,6 @@
 				kind = branch;
 			};
 		};
-		5F9ABB3A2379828000AC052A /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.1.0;
-			};
-		};
 		5FFE283F23B9480400EAB103 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
@@ -1442,11 +1324,6 @@
 			package = 5FFE283F23B9480400EAB103 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
 		};
-		A00A69F627A7FF0400DA5C26 /* KeychainAccess */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F9ABB3A2379828000AC052A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
-			productName = KeychainAccess;
-		};
 		A00A69F827A7FF0E00DA5C26 /* FieldValidatorLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5F9987AE25387BEB004F43DF /* XCRemoteSwiftPackageReference "swiftui-fieldvalidator" */;
@@ -1457,10 +1334,13 @@
 			package = 5F9987AE25387BEB004F43DF /* XCRemoteSwiftPackageReference "swiftui-fieldvalidator" */;
 			productName = FieldValidatorLibrary;
 		};
-		A086C3A2252321C4001EF95E /* KeychainAccess */ = {
+		A0570C1B27F1C66200362297 /* Shared */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F9ABB3A2379828000AC052A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
-			productName = KeychainAccess;
+			productName = Shared;
+		};
+		A09E455F27F20509004A10D5 /* Shared */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Shared;
 		};
 /* End XCSwiftPackageProductDependency section */
 
@@ -1472,18 +1352,6 @@
 			);
 			currentVersion = A0C1D2A92521F36400737766 /* MacKeyChainX.xcdatamodel */;
 			path = MacKeyChainX.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		A0EE954E2375F38400002E6F /* KeyChain.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				5F34E55C257FEDEA007417F3 /* KeyChain v1.1.xcdatamodel */,
-				5F2B152124D3502B00983F68 /* KeyChain v2.xcdatamodel */,
-				A0EE954F2375F38400002E6F /* KeyChain.xcdatamodel */,
-			);
-			currentVersion = 5F34E55C257FEDEA007417F3 /* KeyChain v1.1.xcdatamodel */;
-			path = KeyChain.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

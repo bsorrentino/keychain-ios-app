@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Shared
 
 extension URL {
     func isJSON() -> Bool {
@@ -24,59 +25,22 @@ struct FileManagerView<Content> : View where Content : View {
     typealias Result = (urls:[URL], error:Error? )
     
     private var content:(URL) -> Content
+    private var urls:[URL]
     
-    init( @ViewBuilder _ content: @escaping (URL) -> Content ) {
+    init( urls:[URL], @ViewBuilder _ content: @escaping (URL) -> Content ) {
+        self.urls = urls
         self.content = content
     }
-    
-    func backupUrls() -> Result {
         
-        guard !isInPreviewMode else {
-            return ( urls:[ URL(fileURLWithPath: "file://backup.fake") ], error:nil )
-        }
-        
-        guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            return ( urls:[], error:"Document Directory doesn't exist" )
-        }
-        
-        logger.trace( "\(path.absoluteString)" )
-        
-        do {
-            let urls = try FileManager.default.contentsOfDirectory(at: path,
-                                               includingPropertiesForKeys: nil,
-                                               options: [.skipsHiddenFiles, .skipsSubdirectoryDescendants] )
-            
-            let result = urls
-                    .filter { $0.isFileURL && ($0.isJSON() || $0.isPLIST()) }
-            
-            return ( urls:result, error:nil )
-            
-        }
-        catch {
-            
-            return ( urls:[], error:error )
-        }
-    }
-
-    
     var body: some View {
         
-        let result = backupUrls()
-        
-        Group {
-            
-            if( result.error != nil )  {
-                 Text( "error occurred")
-            }
-            else  {
-                if( result.urls.isEmpty ) {
-                    Text( "no data found")
-                }
-                else {
-                    List( result.urls, id: \URL.self ) { url in
-                        self.content(url)
-                    }
-                }
+        if( urls.isEmpty ) {
+            Text( "No data found")
+                .font(.title)
+        }
+        else {
+            List( urls, id: \URL.self ) { url in
+                self.content(url)
             }
         }
     }

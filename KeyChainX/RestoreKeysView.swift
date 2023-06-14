@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import Shared
 
 struct RestoreKeysView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -17,17 +17,22 @@ struct RestoreKeysView: View {
     @State private var alertItem:AlertItem?
     @State private var showReportView = false
     
-    @ObservedObject var restoreInfo = KeysProcessingReport()
+    @ObservedObject var processingInfo = KeysProcessingReportObject()
+    
+    @ObservedObject var backupInfo: KeysBackupInfoObject
+    
     
     var body: some View {
         NavigationView {
-            FileManagerView { url in
+            
+            FileManagerView(urls: backupInfo.urls) { url in
+            
                 HStack {
                     Text( url.lastPathComponent )
                     Spacer()
                     Button {
-                        self.restoreInfo.url = url
-                        self.showingSheet = true
+                        processingInfo.url = url
+                        showingSheet = true
                     } label: {
                         Label( "restore", systemImage: "" )
                             .labelStyle(TitleOnlyLabelStyle())
@@ -51,13 +56,15 @@ struct RestoreKeysView: View {
                 }
                 .padding(0.0)
             }
-            .navigationBarTitle( Text("Restore"), displayMode: .large)
-            .sheet( isPresented: self.$showReportView) {
-                ProcessingReportView( processingInfo: self.restoreInfo).onAppear( perform: {
-                    self.performRestore()
-                })
-
+            .onChange(of: self.showReportView ) { show in
+                if( show ) {
+                    performRestore()
+                }
             }
+            .sheet( isPresented: self.$showReportView, onDismiss: {} ) {
+                ProcessingReportView( processingInfo: processingInfo)
+            }
+            .navigationBarTitle( Text("Restore"), displayMode: .large)
 
         }
     }
@@ -67,7 +74,7 @@ struct RestoreKeysView: View {
     private func prepareRestore() {
         
         do {
-            try Shared.deleteAllWithMerge( context: managedObjectContext )
+            try SharedModule.deleteAllWithMerge( context: managedObjectContext )
             
             showReportView = true
         }
@@ -79,10 +86,10 @@ struct RestoreKeysView: View {
     
     private func performRestore() {
         
-        self.restoreInfo.reset()
+        self.processingInfo.reset()
 
-        guard let url = self.restoreInfo.url else {
-            self.restoreInfo.terminated = true
+        guard let url = self.processingInfo.url else {
+            self.processingInfo.terminated = true
             return
         }
         
@@ -119,13 +126,13 @@ struct RestoreKeysView: View {
                     }
                     
                     do {
-                        restoreInfo.processed += 1
+                        processingInfo.processed += 1
                         
                         try item.insert(into: managedObjectContext)
                     }
                     catch {
                         
-                        restoreInfo.errors.append( error )
+                        processingInfo.errors.append( error )
                     }
                 }
 
@@ -139,7 +146,7 @@ struct RestoreKeysView: View {
             self.alertItem = makeAlertItem( error:"Error Restoring Data [\(error)]" )
         }
         
-        restoreInfo.terminated = true
+        processingInfo.terminated = true
            
     }
     
@@ -159,13 +166,25 @@ struct RestoreKeysView: View {
     }
 }
 
-#if DEBUG
+
 struct RestoreKeysView_Previews: PreviewProvider {
+    
+    struct MyPreview : View {
+        
+        @StateObject var backupInfo = KeysBackupInfoObject()
+        
+        var body: some View {
+
+            RestoreKeysView( backupInfo: backupInfo )
+        }
+        
+    }
     static var previews: some View {
-        RestoreKeysView()
+        
+        MyPreview()
             .environment(\.colorScheme, .dark)
-        RestoreKeysView()
+        MyPreview()
             .environment(\.colorScheme, .light)
     }
 }
-#endif
+

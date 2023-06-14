@@ -8,6 +8,7 @@
 
 import XCTest
 import CoreData
+import Shared
 @testable import KeychainX
 
 class CoreDataTests: XCTestCase {

@@ -9,7 +9,7 @@
 import SwiftUI
 import FieldValidatorLibrary
 import WebKit
-  
+import Shared
 
 
 struct WebView : UIViewRepresentable {

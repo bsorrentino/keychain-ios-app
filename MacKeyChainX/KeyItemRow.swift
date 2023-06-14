@@ -7,11 +7,12 @@
 //
 
 import SwiftUI
+import Shared
 
 func getSharedPassword( withKey key:String ) -> String? {
     
     do {
-        let secret = try Shared.sharedSecrets.getSecret(forKey: key )
+        let secret = try SharedModule.sharedSecrets.getSecret(forKey: key )
         return secret?.password
     }
     catch {
@@ -39,10 +40,27 @@ func doubleLabel<Content>( _ systemName1:String, _ systemName2:String, @ViewBuil
     }.font(Font.system(.title2)).padding(5)
 }
 
-fileprivate func passwordText( value:String ) -> some View {
-    HStack {
-        Text(value)
-        CopyToClipboardButton(value: value)
+fileprivate struct  passwordText : View {
+    
+    var value: String
+    @State var hidden = true
+    
+    var body: some View {
+        HStack {
+            PasswordToggleField( value: .constant(value), hidden: hidden)
+                .disabled(true)
+                .fixedSize()
+                .frame( minWidth: 100,
+                        idealWidth: nil,
+                        maxWidth: nil,
+                        minHeight: nil,
+                        idealHeight: nil,
+                        maxHeight: nil,
+                        alignment: .leading)
+            HideToggleButton( hidden: $hidden )
+                .background( Color.black )
+            CopyToClipboardButton(value: value)
+        }
     }
 }
 
@@ -53,6 +71,16 @@ fileprivate func usernameText( value:String ) -> some View {
     }
 }
 
+func NoteView( item:KeyItem, show:Bool ) -> some View {
+    Group {
+        if show {
+            Spacer()
+            Divider()
+            Text( "\(item.note)" )
+        }
+        Spacer()
+    }
+}
 
 func SecretView( item:KeyItem, show:Bool ) -> some View {
     Group {
@@ -66,6 +94,7 @@ func SecretView( item:KeyItem, show:Bool ) -> some View {
         }
     }
 }
+
 
 struct KeyItemRow: View {
     
@@ -87,14 +116,15 @@ struct KeyItemRow: View {
     var body: some View {
         //GeometryReader { geometry in
         HStack {
-            VStack( alignment: .leading ) {
             
+            VStack( alignment: .leading ) {
+                
                 HStack {
                     Text( item.mnemonic )
                         .padding(6)
                         .background( Color.blue)
                         .clipShape(Capsule())
-                        
+                    
                     Spacer()
                     if( isShared ) {
                         sharedView()
@@ -108,46 +138,65 @@ struct KeyItemRow: View {
                 
                 Divider()
                 
-                if let mail = item.mail, !mail.isEmpty {
-                    
-                    if( mail == item.username ) {
-                        doubleLabel( "person.circle.fill", "envelope.fill") {
-                            usernameText( value:item.username)
+                HStack {
+                    VStack( alignment: .leading ) {
+                        if let mail = item.mail, !mail.isEmpty {
+                            
+                            if( mail == item.username ) {
+                                doubleLabel( "person.circle.fill", "envelope.fill") {
+                                    usernameText( value:item.username)
+                                }
+                                SecretView( item:item, show:isShowSecret)
+                            }
+                            else {
+                                label("person.circle.fill") {
+                                    usernameText(value: item.username)
+                                }
+                                SecretView( item:item, show:isShowSecret)
+                                label("envelope.fill") { Text( mail) }
+                            }
                         }
-                        SecretView( item:item, show:isShowSecret)
+                        else {
+                            label("person.circle.fill") {
+                                usernameText( value:item.username)
+                            }
+                            SecretView( item:item, show:isShowSecret)
+                        }
+                        if let url = item.url, !url.isEmpty {
+                            
+                            label("link" ) { Text(url) }
+                            
+                        }
                     }
-                    else {
-                        label("person.circle.fill") { Text(item.username) }
-                        SecretView( item:item, show:isShowSecret)
-                        label("envelope.fill") { Text( mail) }
-                    }
-                }
-                else {
-                    label("person.circle.fill") { usernameText( value:item.username) }
-                }
-                if let url = item.url, !url.isEmpty {
-                
-                    label("link" ) { Text(url) }
-
+                    NoteView( item:item, show:isShowSecret )
                 }
             }
             .padding()
-        }.border(Color.gray, width: 1)
+        }
+        .border(Color.gray, width: 1)
+        .onDisappear {
+            isShowSecret = false
+        }
     }
     
 }
 
-// Sharing Actions Extension
+// Shared Actions Extension
 extension KeyItemRow {
     
     func sharedView() -> some View {
         
-        Button( action:{
-            Shared.authcService.tryAuthenticate { result in
-                if case .success(true) = result {
-                    withAnimation {
-                        self.isShowSecret.toggle()
+        Button( action: {
+            Task {
+                do {
+                    if( try await SharedModule.authcService.tryAuthenticate() ) {
+                        withAnimation {
+                            self.isShowSecret.toggle()
+                        }
                     }
+                }
+                catch( let error ) {
+                    logger.error( "\(error.localizedDescription)")
                 }
             }
         }) {
@@ -160,24 +209,60 @@ extension KeyItemRow {
                 }
             }
         }.buttonStyle(PlainButtonStyle())
-
+        
     }
+    
+}
+
+// Not Shared Actions Extension
+extension KeyItemRow {
     
     func notSharedView() -> some View  {
         Group {
             if !mcSecretsService.connectedPeers.isEmpty {
                 Button( action:{
-                    
-                    self.mcSecretsService.requestSecret(forMnemonic: item.mnemonic) { result in
-                        
+                    Task {
+                        do {
+                            if( try await SharedModule.authcService.tryAuthenticate() ) {
+                                
+                                let secret = try await self.mcSecretsService.requestSecret(forKey: item.mnemonic)
+                                
+                                item.password = secret.password
+                                if let note = secret.note {
+                                    item.note = note
+                                }
+                                withAnimation {
+                                    self.isShowSecret.toggle()
+                                }
+                            }
+                        }
+                        catch( let error ) {
+                            logger.error( "\(error.localizedDescription)")
+                        }
                     }
-                    
+                    //                    self.mcSecretsService.requestSecret(forKey: item.mnemonic) { result in
+                    //                        switch( result ) {
+                    //                        case .success( let secret ):
+                    //                            SharedModule.authcService.tryAuthenticate { result in
+                    //                                if case .success(true) = result {
+                    //                                    item.password = secret.password
+                    //                                    if let note = secret.note {
+                    //                                        item.note = note
+                    //                                    }
+                    //                                    withAnimation {
+                    //                                        self.isShowSecret.toggle()
+                    //                                    }
+                    //                                }
+                    //                            }
+                    //                        case .failure( let error ):
+                    //                            logger.error( "\(error.localizedDescription)")
+                    //                        }
+                    //                    }
                 }) {
-                
                     Image( systemName: "icloud.slash")
                         .foregroundColor(Color.yellow)
-            
-                }.buttonStyle(PlainButtonStyle())
+                }
+                .buttonStyle(PlainButtonStyle())
             }
             else {
                 Image( systemName: "icloud.slash")
@@ -186,6 +271,7 @@ extension KeyItemRow {
         }
     }
 }
+
 
 struct KeyItemRow_Previews: PreviewProvider {
     
@@ -201,8 +287,8 @@ struct KeyItemRow_Previews: PreviewProvider {
             key.username = "bartolomeo.sorrentino@soulsoftware.it"
             key.mail = "bartolomeo.sorrentino@soulsoftware.it"
             key.url = "http://usernamesite.com"
-        
-
+            
+            
             return KeyItem( entity:key )
         }
         return KeyItemRow( item:item() )
