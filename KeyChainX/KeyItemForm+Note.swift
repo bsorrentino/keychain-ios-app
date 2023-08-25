@@ -54,11 +54,15 @@ struct KeyItemNote : View {
     
     var body: some View {
 
-        NoteTextView( text: self.$value )
-            .navigationBarTitle( Text("Note"), displayMode: .inline  )
-            .navigationBarItems(trailing: Button("done") {
-                self.presentationMode.wrappedValue.dismiss()
-            })
+        VStack {
+            //        NoteTextView( text: self.$value )
+            NoteView( text: self.$value )
+                .navigationBarTitle( Text("Note"), displayMode: .inline  )
+                .navigationBarItems(trailing: Button("done") {
+                    self.presentationMode.wrappedValue.dismiss()
+                })
+            Divider()
+        }
 
     }
 }
