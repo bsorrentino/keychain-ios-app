@@ -48,12 +48,12 @@ struct LinedBackground: View {
                 for line in 1...lines {
                     let y = CGFloat(line) * lineHeight
                     path.move(to: CGPoint(x: 0, y: y + lineSpacing))
-                    path.addLine(to: CGPoint(x: geometry.size.width, y: y))
+                    path.addLine(to: CGPoint(x: geometry.size.width, y: y + lineSpacing))
                 }
             }
-            .stroke(Color.black.opacity(1.5))
+            .stroke(Color.gray.opacity(0.2))
         }
-        .background(Color.yellow).opacity(0.5)
+        //.background(Color.gray)
         
     }
 }

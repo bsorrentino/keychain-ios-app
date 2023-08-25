@@ -55,6 +55,7 @@ struct KeyItemNote : View {
     var body: some View {
 
         VStack {
+            Divider()
             //        NoteTextView( text: self.$value )
             NoteView( text: self.$value )
                 .navigationBarTitle( Text("Note"), displayMode: .inline  )
