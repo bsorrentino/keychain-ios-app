@@ -1,5 +1,5 @@
 //
-//  NoteView.swift
+//  NoteView+UIKit.swift
 //  KeyChainX
 //
 //  Created by Bartolomeo Sorrentino on 11/01/2020.
