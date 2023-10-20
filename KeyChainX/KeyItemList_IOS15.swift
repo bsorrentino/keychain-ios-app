@@ -41,12 +41,12 @@ struct KeyItemList_IOS15: View {
     
     @StateObject private var newItem = KeyItem()
     
-    var KeyEntityFormNavigationLink: some View {
-        NavigationLink( destination: KeyEntityForm(item:newItem),
-                        isActive: $formActive ) {
-            EmptyView()
-        }
-    }
+//    var KeyEntityFormNavigationLink: some View {
+//        NavigationLink( destination: KeyEntityForm(item:newItem),
+//                        isActive: $formActive ) {
+//            EmptyView()
+//        }
+//    }
     
     ///
     /// CellViewLinkGroup
@@ -72,26 +72,28 @@ struct KeyItemList_IOS15: View {
     
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
             
-            DynamicFetchRequestView( withSearchText: searchText ) { results in
+            
+                DynamicFetchRequestView( withSearchText: searchText ) { results in
                 
-                let groupByFirstCharacter = Dictionary( grouping: results, by: { $0.mnemonic.first! })
+                    let groupByFirstCharacter = Dictionary( grouping: results, by: { $0.mnemonic.first! })
                 
-                List {
-                    ForEach( groupByFirstCharacter.keys.sorted(), id: \.self ) { section in
-                        Section( header: Text( String(section) ) ) {
-                            
-                            ForEach( groupByFirstCharacter[section]!, id: \.mnemonic ) { key in
+                    List {
+                        ForEach( groupByFirstCharacter.keys.sorted(), id: \.self ) { section in
+                            Section( header: Text( String(section) ) ) {
                                 
-                                CellViewLinkGroup( entity: key )
-
+                                ForEach( groupByFirstCharacter[section]!, id: \.mnemonic ) { key in
+                                    
+                                    CellViewLinkGroup( entity: key )
+                                    
+                                }
                             }
                         }
                     }
                 }
                 
-            }
+            
             // enable force refresh
             //.id( keyItemListId )
             .toolbar {
@@ -100,11 +102,14 @@ struct KeyItemList_IOS15: View {
                             formActive.toggle()
                     }) {
                         HStack {
-                            KeyEntityFormNavigationLink
+//                            KeyEntityFormNavigationLink
                             Text("Add")
                         }
                     }
                 }
+            }
+            .navigationDestination(isPresented: $formActive ) {
+                KeyEntityForm(item:newItem)
             }
             .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
             .navigationBarTitle( Text("Key List"), displayMode: .inline )
@@ -119,7 +124,10 @@ struct KeyItemList_IOS15: View {
 
 struct KeyItemList2_Previews: PreviewProvider {
     static var previews: some View {
-        KeyItemList_IOS15()
-            .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext)
+        ForEach(ColorScheme.allCases, id: \.self) {
+            KeyItemList_IOS15()
+                .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext)
+                .preferredColorScheme($0)
+        }
     }
 }
