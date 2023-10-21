@@ -67,7 +67,7 @@
 		A0E11ED922B4E82F008766C0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A0E11ED822B4E82F008766C0 /* README.md */; };
 		A0EE95752377385800002E6F /* KeyItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE95742377385800002E6F /* KeyItemForm.swift */; };
 		A0F3C39A23CA34F8004B3DC1 /* NoteView+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F3C39923CA34F8004B3DC1 /* NoteView+UIKit.swift */; };
-		A0F43C97279F1F1B00D82677 /* KeyItemList_IOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F43C96279F1F1B00D82677 /* KeyItemList_IOS15.swift */; };
+		A0F43C97279F1F1B00D82677 /* KeyItemList_iOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F43C96279F1F1B00D82677 /* KeyItemList_iOS15.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,7 +169,7 @@
 		A0E11ED822B4E82F008766C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A0EE95742377385800002E6F /* KeyItemForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyItemForm.swift; sourceTree = "<group>"; };
 		A0F3C39923CA34F8004B3DC1 /* NoteView+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteView+UIKit.swift"; sourceTree = "<group>"; };
-		A0F43C96279F1F1B00D82677 /* KeyItemList_IOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemList_IOS15.swift; sourceTree = "<group>"; };
+		A0F43C96279F1F1B00D82677 /* KeyItemList_iOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyItemList_iOS15.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,7 +298,7 @@
 				A03F9CA02A3A1935003B9CB9 /* KeysBackupInfoObject.swift */,
 				5F01277823B7C05D0033E2B9 /* FileManagerView.swift */,
 				A0C54A3D2A39CCB2003DE418 /* KeyItemList_IOS15+CellView.swift */,
-				A0F43C96279F1F1B00D82677 /* KeyItemList_IOS15.swift */,
+				A0F43C96279F1F1B00D82677 /* KeyItemList_iOS15.swift */,
 				5F6DBC1127A5AD2E00D320B3 /* GroupKeyItemList_IOS15.swift */,
 				A0B292312A389F1E00E33B80 /* PreferredKeyItemList_IOS15.swift */,
 				5F01277423B776CC0033E2B9 /* BackupKeysView.swift */,
@@ -703,7 +703,7 @@
 				A071C20323648EAB00891175 /* KeyItemForm+Email.swift in Sources */,
 				5F01277523B776CC0033E2B9 /* BackupKeysView.swift in Sources */,
 				5F5772F32361FD900066E947 /* App+CoreData.swift in Sources */,
-				A0F43C97279F1F1B00D82677 /* KeyItemList_IOS15.swift in Sources */,
+				A0F43C97279F1F1B00D82677 /* KeyItemList_iOS15.swift in Sources */,
 				A0C0DB5722A901AD003B09ED /* AppDelegate.swift in Sources */,
 				5F01277923B7C05D0033E2B9 /* FileManagerView.swift in Sources */,
 				A084680027F208E400B6B72F /* MCSecretService.swift in Sources */,
@@ -955,7 +955,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KeyChainX/KeyChainX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "KeyChainX/Preview\\ Content";
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_PREVIEWS = YES;
@@ -980,7 +980,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KeyChainX/KeyChainX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "KeyChainX/Preview\\ Content";
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_PREVIEWS = YES;

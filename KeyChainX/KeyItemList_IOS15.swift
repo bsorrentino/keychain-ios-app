@@ -27,26 +27,20 @@ struct AlertInfo: Identifiable {
     
 }
 
-struct KeyItemList_IOS15: View {
+struct KeyItemList_iOS15: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
     // Id of KeyItemList view. when change the view is forced to be updated
     // @see https://stackoverflow.com/a/65095862
     // @see https://swiftui-lab.com/swiftui-id/
-//    @State private var keyItemListId:Int = 0
+    //    @State private var keyItemListId:Int = 0
     
     @State private var searchText = ""
     @State private var formActive = false
+    @State private var isExpanded = true
     
     @StateObject private var newItem = KeyItem()
-    
-//    var KeyEntityFormNavigationLink: some View {
-//        NavigationLink( destination: KeyEntityForm(item:newItem),
-//                        isActive: $formActive ) {
-//            EmptyView()
-//        }
-//    }
     
     ///
     /// CellViewLinkGroup
@@ -55,56 +49,45 @@ struct KeyItemList_IOS15: View {
     /// - Returns: Group View or Cell View
     @ViewBuilder
     private func CellViewLinkGroup( entity key: KeyEntity ) -> some View {
-            if key.isGroup() {
-                GroupViewLink( groupEntity: key )
-                    .listRowInsets( EdgeInsets() )
-            }
-            else {
-                CellViewLink( entity: key,
-                              onClone: {
-                                    newItem.copy(from: key)
-                                    formActive.toggle()
-                                }
-                )
+        if key.isGroup() {
+            GroupViewLink( groupEntity: key )
                 .listRowInsets( EdgeInsets() )
-            }
+        }
+        else {
+            CellViewLink( entity: key,
+                          onClone: {
+                newItem.copy(from: key)
+                formActive.toggle()
+            })
+            .listRowInsets( EdgeInsets() )
+        }
     }
     
     var body: some View {
         
         NavigationStack {
             
-            
-                DynamicFetchRequestView( withSearchText: searchText ) { results in
+            DynamicFetchRequestView( withSearchText: searchText ) { results in
                 
-                    let groupByFirstCharacter = Dictionary( grouping: results, by: { $0.mnemonic.first! })
+                let groupByFirstCharacter = Dictionary( grouping: results, by: { $0.mnemonic.first! })
                 
-                    List {
-                        ForEach( groupByFirstCharacter.keys.sorted(), id: \.self ) { section in
-                            Section( header: Text( String(section) ) ) {
-                                
-                                ForEach( groupByFirstCharacter[section]!, id: \.mnemonic ) { key in
-                                    
-                                    CellViewLinkGroup( entity: key )
-                                    
-                                }
-                            }
-                        }
-                    }
+               List {
+                    ForEach( groupByFirstCharacter.keys.sorted(), id: \.self ) { section in
+                        keyItemSection( section: section, 
+                                        groupByFirstCharacter: groupByFirstCharacter )
+                     }
                 }
-                
-            
+               .listStyle(.sidebar)
+            }
             // enable force refresh
             //.id( keyItemListId )
             .toolbar {
+                
                 ToolbarItem( placement: .navigationBarTrailing ) {
-                    Button( action: {
-                            formActive.toggle()
-                    }) {
-                        HStack {
-//                            KeyEntityFormNavigationLink
-                            Text("Add")
-                        }
+                    Button {
+                        formActive.toggle()
+                    } label: {
+                        Text("Add")
                     }
                 }
             }
@@ -113,21 +96,56 @@ struct KeyItemList_IOS15: View {
             }
             .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
             .navigationBarTitle( Text("Key List"), displayMode: .inline )
-            
+            .onChange(of: searchText) { _ in
+                isExpanded = true
+            }
         }
     }
 }
 
 
+extension KeyItemList_iOS15 {
+ 
+    @available( iOS 17, *)
+    func Section_iOS17( section: String.Element, groupByFirstCharacter: [String.Element : [FetchedResults<KeyEntity>.Element]] ) -> some View {
 
-
-
-struct KeyItemList2_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            KeyItemList_IOS15()
-                .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext)
-                .preferredColorScheme($0)
+        Section( isExpanded: $isExpanded ) 
+        {
+            ForEach( groupByFirstCharacter[section]!, id: \.mnemonic ) { key in
+                
+                CellViewLinkGroup( entity: key )
+            }
+        } header: {
+            Text( String(section) )
         }
     }
+
+    @ViewBuilder
+    func keyItemSection( section: String.Element, groupByFirstCharacter: [String.Element : [FetchedResults<KeyEntity>.Element]] ) -> some View {
+        
+        if #available(iOS 17, *) {
+            Section_iOS17( section: section, groupByFirstCharacter: groupByFirstCharacter)
+        }
+        else {
+            Section {
+                ForEach( groupByFirstCharacter[section]!, id: \.mnemonic ) { key in
+                    CellViewLinkGroup( entity: key )
+                }
+            } header: {
+                Text( String(section) )
+            }
+        }
+    }
+            
+}
+
+
+#Preview {
+    
+    ForEach(ColorScheme.allCases, id: \.self) {
+        KeyItemList_iOS15()
+            .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext)
+            .preferredColorScheme($0)
+    }
+
 }

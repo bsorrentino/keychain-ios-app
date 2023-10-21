@@ -21,32 +21,6 @@ struct ScaleButtonStyle: ButtonStyle {
     }
 }
 
-
-public struct CopyToClipboardButton : View {
-    
-    var value:String
-    
-    public init( value:String ) {
-        self.value = value
-    }
-    public var body: some View {
-        Button( action: {
-            #if os(iOS)
-            UIPasteboard.general.string = self.value
-            #elseif os(macOS)
-            NSPasteboard.general.declareTypes([ NSPasteboard.PasteboardType.string ], owner: nil)
-            NSPasteboard.general.setString(self.value, forType: .string)
-            #endif
-            logger.debug("copied to clipboard!")
-         }) {
-
-            Image( systemName: "doc.on.clipboard")
-        }
-        .buttonStyle(ScaleButtonStyle())
-        
-    }
-}
-
 public struct PasswordToggleField : View {
     
     @Binding var value:String

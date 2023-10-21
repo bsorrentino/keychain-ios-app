@@ -14,7 +14,7 @@ private let CELL_IMAGE_PADDING = EdgeInsets( top:20, leading:10, bottom:20, trai
 //
 // MARK: Extension for Cell
 //
-extension KeyItemList_IOS15 {
+extension KeyItemList_iOS15 {
     
     private struct CellView : View {
         
@@ -76,7 +76,7 @@ extension KeyItemList_IOS15 {
             NavigationLink {
                 KeyEntityForm( item: item )
             } label: {
-                KeyItemList_IOS15.CellView( item: item)
+                KeyItemList_iOS15.CellView( item: item)
             }
             .alert( item: $alertInfo ) { info in
                 Alert(
@@ -145,7 +145,7 @@ extension KeyItemList_IOS15 {
 
 
 // MARK: Extension for Group Cell
-extension KeyItemList_IOS15 {
+extension KeyItemList_iOS15 {
     
     
     struct GroupView : View {
@@ -183,7 +183,7 @@ extension KeyItemList_IOS15 {
             NavigationLink {
                 GroupKeyItemList_IOS15( groupEntity: groupEntity )
             } label: {
-                KeyItemList_IOS15.GroupView( groupEntity: groupEntity )
+                KeyItemList_iOS15.GroupView( groupEntity: groupEntity )
             }
         }
     }
