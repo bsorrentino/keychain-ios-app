@@ -49,6 +49,9 @@ struct SensoryFeedback: ViewModifier {
         if #available( iOS 17, *) {
             sensoryFeedback_iOS17(content)
         }
+        else {
+           content
+        }
     }
 }
 
