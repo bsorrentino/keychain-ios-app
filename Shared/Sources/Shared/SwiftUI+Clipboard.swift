@@ -11,6 +11,7 @@ public struct CopyToClipboardButton : View {
     
     
     var value:String
+    @State var taskIsComplete = false
     
     public init( value:String ) {
         self.value = value
@@ -24,22 +25,24 @@ public struct CopyToClipboardButton : View {
             NSPasteboard.general.declareTypes([ NSPasteboard.PasteboardType.string ], owner: nil)
             NSPasteboard.general.setString(self.value, forType: .string)
 #endif
+            taskIsComplete.toggle()
             logger.debug("copied to clipboard!")
         }) {
             
             Image( systemName: "doc.on.clipboard")
         }
         .buttonStyle(ScaleButtonStyle())
-        .modifier( SensoryFeedback() )
+        .modifier( SensoryFeedback( taskIsComplete: $taskIsComplete ) )
     }
 }
     
 struct SensoryFeedback: ViewModifier {
-    @State private var taskIsComplete = false
+    @Binding var taskIsComplete:Bool
     
     @available( iOS 17, * )
+    @ViewBuilder
     func sensoryFeedback_iOS17(_ content: Content) -> some View {
-        return content.sensoryFeedback(.success, trigger: taskIsComplete)
+        content.sensoryFeedback(.success, trigger: taskIsComplete)
     }
     
     func body(content: Content) -> some View {
