@@ -163,7 +163,7 @@ struct KeyItemForm_Group_Previews: PreviewProvider {
     static var previews: some View {
         // https://stackoverflow.com/questions/57700304/previewing-contentview-with-coredata
         
-        let context = (UIApplication.shared.delegate as! AppDelegate).manager.context
+        let context = UIApplication.shared.managedObjectContext
 
         return Group() {
                 

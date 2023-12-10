@@ -17,9 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let loginStates:LoginView.States = LoginView.States()
     var window: UIWindow?
 
-    var appDelegate:AppDelegate? {
-         (UIApplication.shared.delegate as? AppDelegate)
-    }
+//    var appDelegate:AppDelegate? {
+//         (UIApplication.shared.delegate as? AppDelegate)
+//    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
