@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  CopyToClipboardButton.swift
 //  
 //
 //  Created by Bartolomeo Sorrentino on 21/10/23.
@@ -7,50 +7,75 @@
 
 import SwiftUI
 
-public struct CopyToClipboardButton : View {
+/// A button view that allows users to copy a specified value to the clipboard.
+public struct CopyToClipboardButton: View {
     
+    /// The value to be copied to the clipboard.
+    var value: String
     
-    var value:String
+    /// A state indicating whether the task of copying to the clipboard is complete.
     @State var taskIsComplete = false
     
-    public init( value:String ) {
+    /// Initializes a new `CopyToClipboardButton` with the specified value.
+    /// - Parameter value: The value to be copied to the clipboard.
+    public init(value: String) {
         self.value = value
     }
     
+    /// The body of the `CopyToClipboardButton` view.
     public var body: some View {
-        Button( action: {
-#if os(iOS)
-            UIPasteboard.general.string = self.value
-#elseif os(macOS)
-            NSPasteboard.general.declareTypes([ NSPasteboard.PasteboardType.string ], owner: nil)
-            NSPasteboard.general.setString(self.value, forType: .string)
-#endif
+        Button(action: {
+            // Copy the value to the clipboard based on the platform.
+            #if os(iOS)
+                UIPasteboard.general.string = self.value
+            #elseif os(macOS)
+                NSPasteboard.general.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
+                NSPasteboard.general.setString(self.value, forType: .string)
+            #endif
+            // Toggle the task completion state.
             taskIsComplete.toggle()
+            // Log the action.
             logger.debug("copied to clipboard!")
         }) {
-            
-            Image( systemName: "doc.on.clipboard")
+            // Display an image indicating the copy action.
+            Image(systemName: "doc.on.clipboard")
         }
+        // Apply a button style.
         .buttonStyle(ScaleButtonStyle())
-        .modifier( SensoryFeedback( taskIsComplete: $taskIsComplete ) )
+        // Apply sensory feedback based on task completion.
+        .modifier(SensoryFeedback(taskIsComplete: $taskIsComplete))
     }
 }
+
     
+/// A view modifier that provides sensory feedback based on task completion.
 struct SensoryFeedback: ViewModifier {
-    @Binding var taskIsComplete:Bool
+    /// A binding to determine if the task is complete.
+    @Binding var taskIsComplete: Bool
     
-    @available( iOS 17, * )
+    /// Provides sensory feedback for iOS 17 and above.
+    /// - Parameter content: The content view to which the feedback should be applied.
+    /// - Returns: A view with sensory feedback applied.
+    @available(iOS 17, *)
     @ViewBuilder
     func sensoryFeedback_iOS17(_ content: Content) -> some View {
         content.sensoryFeedback(.success, trigger: taskIsComplete)
     }
     
+    /// The body of the view modifier.
+    /// - Parameter content: The content view to which the feedback should be applied.
+    /// - Returns: A view with sensory feedback or a notification feedback based on the iOS version.
     func body(content: Content) -> some View {
-        if #available( iOS 17, *) {
+        if #available(iOS 17, *) {
             sensoryFeedback_iOS17(content)
         }
         else {
-           content
+            content.onChange(of: taskIsComplete, perform: { value in
+                if value {
+                    let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.success)
+                }
+            })
         }
     }
 }
