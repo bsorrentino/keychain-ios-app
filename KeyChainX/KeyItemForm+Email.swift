@@ -179,7 +179,7 @@ struct EmailList_Previews: PreviewProvider {
     static var previews: some View {
         // https://stackoverflow.com/questions/57700304/previewing-contentview-with-coredata
         
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let context = (UIApplication.shared.delegate as! AppDelegate).manager.context
 
         return EmailList( value:.constant("")).environment(\.managedObjectContext, context)
     }

@@ -12,14 +12,10 @@ import Shared
 
 // MARK: AppDelegate extension
 extension AppDelegate {
-    
-    var  managedObjectContext:NSManagedObjectContext {
-        return self.persistentContainer.viewContext
-    }
 
     // MARK: Core Data Saving support
     internal func saveContext () {
-        let context = managedObjectContext
+        let context = self.manager.context
 
         if context.hasChanges {
             do {
@@ -40,7 +36,7 @@ extension AppDelegate {
         let _ = NotificationCenter.default.addObserver(self,
                                                selector: #selector(managedObjectContextObjectsDidChange),
                                                name: objectContextObjectsDidChangeEvent,
-                                               object: managedObjectContext)
+                                               object: self.manager.context)
      
 //        notificationCenter.addObserver(self, selector: #selector(managedObjectContextWillSave), name: NSManagedObjectContextWillSaveNotification, object: managedObjectContext)
 //        notificationCenter.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSManagedObjectContextDidSaveNotification, object: managedObjectContext)
