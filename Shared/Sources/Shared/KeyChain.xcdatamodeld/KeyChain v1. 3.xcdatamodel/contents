@@ -16,9 +16,6 @@
         <attribute name="sectionId" optional="YES" transient="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
         <attribute name="username" attributeType="String" minValueString="1" defaultValueString=""/>
-        <fetchIndex name="byMnemonicIndex">
-            <fetchIndexElement property="mnemonic" type="Binary" order="ascending"/>
-        </fetchIndex>
         <userInfo/>
     </entity>
     <fetchRequest name="fetchByName" entity="KeyInfo" predicateString="mnemonic BEGINSWITH &quot;%@&quot;"/>

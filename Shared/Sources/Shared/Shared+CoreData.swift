@@ -60,6 +60,12 @@ public final class CoreDataManager {
         }
         else {
             _container = NSPersistentCloudKitContainer(name: objectModelName, managedObjectModel: dataModel)
+//            _container = NSPersistentCloudKitContainer(name: objectModelName )
+//            if let description = _container.persistentStoreDescriptions.first {
+//                description.url = objectModelUrl
+//                description.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
+//            }
+
         }
 
 //        let description = NSPersistentStoreDescription()
@@ -73,6 +79,7 @@ public final class CoreDataManager {
 //            container.persistentStoreDescriptions.append(description)
 //        }
 
+        
         _container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         _container.viewContext.automaticallyMergesChangesFromParent = true
 

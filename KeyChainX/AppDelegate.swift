@@ -17,7 +17,9 @@ import Shared
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let manager = CoreDataManager()
+    let managerCD   = CoreDataManager()
+    let managerSD   = SwiftDataManager()
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -48,6 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to select a configuration to create the new scene with.
         
         logger.trace( "> configurationForConnecting")
+        
+        //managerSD.initialite()
 
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }

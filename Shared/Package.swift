@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "Shared",
-    platforms: [SupportedPlatform.iOS("15"), SupportedPlatform.macOS("11")],
+    platforms: [SupportedPlatform.iOS("17"), SupportedPlatform.macOS("11")],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(

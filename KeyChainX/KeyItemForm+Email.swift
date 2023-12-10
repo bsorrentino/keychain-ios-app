@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftData
 import Combine
 import FieldValidatorLibrary
 import Shared
@@ -53,11 +54,20 @@ struct EmailList: View {
     @Environment(\.presentationMode) var presentationMode
 
     @Binding var value:String
-    @Environment(\.managedObjectContext) var context
     
-    //@FetchRequest( fetchRequest:MailEntity.fetchAllMail() )
+#if __CORE_DATA
+    @Environment(\.managedObjectContext) var context
+
     @FetchRequest( fetchRequest:MailEntity.fetchRequest())
-    var mails:FetchedResults<MailEntity>
+    var mailsCoreData:FetchedResults<MailEntity>
+
+#else // SWift Data
+    
+    @Environment(\.modelContext) var context
+    
+    @Query( sort: \AttributeInfo.value, animation: .default)
+    var mails: [AttributeInfo]
+#endif
     
     @StateObject var mailValid = FieldChecker2<String>()
     @State var newMail:String = ""
@@ -98,7 +108,8 @@ struct EmailList: View {
                 
                 
                 Section(header: Text("Mails")) {
-                    ForEach( mails, id: \MailEntity.value ) { (mail:MailEntity) in
+//                    ForEach( mails, id: \MailEntity.value ) { (mail:MailEntity) in
+                    ForEach( mails, id: \AttributeInfo.value ) { (mail:AttributeInfo) in
                         Text( mail.value ?? "unknown")
                             .font( .body ).onTapGesture(perform: {
                                 self.value = mail.value ?? "unknown"
@@ -131,7 +142,36 @@ struct EmailList: View {
 
      }
 
+    
+
+    
+}
+
+
+extension EmailList {
+#if __CORE_DATA
+    
+    func delete( at offsets: IndexSet ) {
+        if let first = offsets.first {
+            let selectMail = mails[ first ]
+            
+            context.delete(selectMail)
+
+            do {
+                try self.context.save()
+            }
+            catch {
+                logger.warning( """
+                    error deleting new mail
+                    
+                    \(error.localizedDescription)
+                    """ )
+            }
+        }
+    }
+
     func insert() {
+        
         do {
             let mail = MailEntity(context: self.context)
             mail.value = self.newMail
@@ -152,37 +192,44 @@ struct EmailList: View {
         
     }
 
+#else
+    
     func delete( at offsets: IndexSet ) {
         if let first = offsets.first {
             let selectMail = mails[ first ]
             
             context.delete(selectMail)
-
-            do {
-                try self.context.save()
-            }
-            catch {
-                logger.warning( """
-                    error deleting new mail
-                    
-                    \(error.localizedDescription)
-                    """ )
-            }
         }
     }
-    
-}
 
-
-#if DEBUG
-struct EmailList_Previews: PreviewProvider {
-    static var previews: some View {
-        // https://stackoverflow.com/questions/57700304/previewing-contentview-with-coredata
+    func insert() {
         
-        let context = UIApplication.shared.managedObjectContext
+        let mail = AttributeInfo( value: self.newMail )
+        
+        self.context.insert(mail)
 
-        return EmailList( value:.constant("")).environment(\.managedObjectContext, context)
+        self.newMail = mailValid.doValidate(value: "")
     }
-}
+
 #endif
+}
+        
+#Preview {
+    
+#if __CORE_DATA
+    // https://stackoverflow.com/questions/57700304/previewing-contentview-with-coredata
+    
+    let context = UIApplication.shared.managedObjectContext
+
+    return EmailList( value:.constant(""))
+        .environment(\.managedObjectContext, context)
+#else
+    
+    let container = UIApplication.shared.modelContainer
+
+    return EmailList( value:.constant(""))
+        .modelContainer(container)
+
+#endif
+}
 

@@ -15,7 +15,7 @@ extension AppDelegate {
 
     // MARK: Core Data Saving support
     internal func saveContext () {
-        let context = self.manager.context
+        let context = self.managerCD.context
 
         if context.hasChanges {
             do {
@@ -36,7 +36,7 @@ extension AppDelegate {
         let _ = NotificationCenter.default.addObserver(self,
                                                selector: #selector(managedObjectContextObjectsDidChange),
                                                name: objectContextObjectsDidChangeEvent,
-                                               object: self.manager.context)
+                                               object: self.managerCD.context)
      
 //        notificationCenter.addObserver(self, selector: #selector(managedObjectContextWillSave), name: NSManagedObjectContextWillSaveNotification, object: managedObjectContext)
 //        notificationCenter.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSManagedObjectContextDidSaveNotification, object: managedObjectContext)

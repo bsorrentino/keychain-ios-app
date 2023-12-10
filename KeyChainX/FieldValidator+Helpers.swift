@@ -55,14 +55,6 @@ struct ValidatorMessageInline: View {
     }
 }
 
-
-extension FieldChecker2 {
-        var errorMessageOrNilAtBeginning:String?  {
-            self.isFirstCheck ? nil : errorMessage
-        }
-
-}
-
 extension FieldChecker {
     var padding:EdgeInsets {
         ( !self.valid && !self.isFirstCheck ) ? .init(top:5, leading: 0, bottom: 25, trailing: 0) : .init()
