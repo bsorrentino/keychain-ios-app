@@ -26,13 +26,12 @@ extension DynamicQueryView where T : KeyInfo {
         else {
             
             filter = #Predicate<T> { elem in
-                (!elem.group) &&
-                elem.groupPrefix != nil
+                (!elem.group)
                 
             }
             
         }
-        self.init( filter: filter, content: content)
+        self.init( filter: filter,  content: content)
     }
     
     public init( withGroupPrefix groupPrefix: String, @ViewBuilder content: @escaping ( [T] ) -> Content) {

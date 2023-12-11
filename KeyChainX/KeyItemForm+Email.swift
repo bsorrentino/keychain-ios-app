@@ -149,50 +149,6 @@ struct EmailList: View {
 
 
 extension EmailList {
-#if __CORE_DATA
-    
-    func delete( at offsets: IndexSet ) {
-        if let first = offsets.first {
-            let selectMail = mails[ first ]
-            
-            context.delete(selectMail)
-
-            do {
-                try self.context.save()
-            }
-            catch {
-                logger.warning( """
-                    error deleting new mail
-                    
-                    \(error.localizedDescription)
-                    """ )
-            }
-        }
-    }
-
-    func insert() {
-        
-        do {
-            let mail = MailEntity(context: self.context)
-            mail.value = self.newMail
-            
-            try self.context.save()
-
-            self.newMail = mailValid.doValidate(value: "")
-
-        }
-        catch {
-            logger.warning( """
-                error inserting new mail
-                
-                \(error.localizedDescription)
-                """ )
-        }
-        
-        
-    }
-
-#else
     
     func delete( at offsets: IndexSet ) {
         if let first = offsets.first {
@@ -211,25 +167,14 @@ extension EmailList {
         self.newMail = mailValid.doValidate(value: "")
     }
 
-#endif
 }
         
 #Preview {
-    
-#if __CORE_DATA
-    // https://stackoverflow.com/questions/57700304/previewing-contentview-with-coredata
-    
-    let context = UIApplication.shared.managedObjectContext
-
-    return EmailList( value:.constant(""))
-        .environment(\.managedObjectContext, context)
-#else
     
     let container = UIApplication.shared.modelContainer
 
     return EmailList( value:.constant(""))
         .modelContainer(container)
 
-#endif
 }
 

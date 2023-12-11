@@ -166,8 +166,33 @@ public class KeyItem : ObservableObject, Decodable {
 
     }
     
+    public func attach( entity: KeyInfo ) throws {
+        guard self.entity == nil else {
+            throw "Entity already attached"
+        }
+        
+        self.entity = entity
+    }
+    
+    
     @available( macOS, unavailable)
-    public func insert( into context:ModelContext ) throws {
+    public func insertOrUpdate( into context:ModelContext ) throws {
+        
+        if let entity = self.entity { // Update
+            let _ = self.copyTo(entity: entity )
+        }
+        else { // Create
+            
+            // Check Duplicate
+            if let _ = try KeyInfo.fetchSingleIfPresent( mnemonic: self.mnemonic, inContext: context) {
+                
+                throw SavingError.DuplicateKey(id: self.mnemonic)
+            }
+            
+            let newEntity = KeyInfo()
+
+            context.insert( self.copyTo(entity: newEntity) )
+        }
         
         let secret = SecretsManager.Secret( password:self.password, note:self.note)
         
@@ -187,27 +212,8 @@ public class KeyItem : ObservableObject, Decodable {
                 try SharedModule.appSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: SharedModule.sharedSecrets)
             }
         }
-        
-        if let entity = self.entity { // Update
-            let _ = self.copyTo(entity: entity )
-        }
-        else { // Create
-            
-            let key = self.mnemonic
-            let predicate = #Predicate<KeyInfo> {
-                $0.mnemonic == key
-            }
-            // Check Duplicate
-            if let _ = try SharedModule.fetchSingleIfPresent(context: context, predicate: predicate, key: key) {
-                
-                throw SavingError.DuplicateKey(id: key)
-            }
-            
-            let newEntity = KeyInfo()
-
-            context.insert( self.copyTo(entity: newEntity) )
-        }
 
     }
+    
 }
 

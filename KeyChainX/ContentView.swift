@@ -27,7 +27,7 @@ struct ContentView: View {
                     }
                 }
             .tag(4)
-            KeyItemList_iOS15()
+            KeyItemList()
                 .tabItem {
                     VStack {
                         Image(systemName: "list.dash")

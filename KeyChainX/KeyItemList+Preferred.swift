@@ -26,7 +26,7 @@ struct PreferredKeyItemList_IOS15: View {
                         
                         ForEach( groupByFirstCharacter[section]!, id: \.mnemonic ) { key in
                             
-                            KeyItemList_iOS15.CellViewLink( entity: key )
+                            KeyItemList.CellViewLink( entity: key )
                             .listRowInsets( EdgeInsets() )
                         }
                     }

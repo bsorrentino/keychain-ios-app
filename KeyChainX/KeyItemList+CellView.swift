@@ -14,7 +14,7 @@ private let CELL_IMAGE_PADDING = EdgeInsets( top:20, leading:10, bottom:20, trai
 //
 // MARK: Extension for Cell
 //
-extension KeyItemList_iOS15 {
+extension KeyItemList {
     
     private struct CellView : View {
         
@@ -58,8 +58,8 @@ extension KeyItemList_iOS15 {
         /// delete a key
         /// - Parameter entity: entity to remove
         /// - Returns: success status
-        private func delete( _ entity: KeyInfo ) -> Bool {
-            KeyInfo.delete( self.context, entity: entity)
+        private func delete( _ entity: KeyInfo ) {
+            KeyInfo.delete( entity, inContext: context )
         }
         
         
@@ -67,7 +67,7 @@ extension KeyItemList_iOS15 {
         /// - Parameter entity: entity to ungroup
         /// - Returns: success status
         private func ungroup( _ entity: KeyInfo ) -> Bool {
-            KeyInfo.ungroup( self.context, entity: entity)
+            KeyInfo.ungroup( entity, inContext: context )
         }
         
         
@@ -76,7 +76,7 @@ extension KeyItemList_iOS15 {
             NavigationLink {
                 KeyEntityForm( item: item )
             } label: {
-                KeyItemList_iOS15.CellView( item: item)
+                KeyItemList.CellView( item: item)
             }
             .alert( item: $alertInfo ) { info in
                 Alert(
@@ -119,7 +119,7 @@ extension KeyItemList_iOS15 {
                         message: "There is no undo",
                         actionText: "Delete",
                         action: {
-                            let _ = delete( entity )
+                            delete( entity )
                         }
                     )
                 } label: {
@@ -145,7 +145,7 @@ extension KeyItemList_iOS15 {
 
 
 // MARK: Extension for Group Cell
-extension KeyItemList_iOS15 {
+extension KeyItemList {
     
     
     struct GroupView : View {
@@ -183,7 +183,7 @@ extension KeyItemList_iOS15 {
             NavigationLink {
                 GroupKeyItemList_IOS15( groupEntity: groupEntity )
             } label: {
-                KeyItemList_iOS15.GroupView( groupEntity: groupEntity )
+                KeyItemList.GroupView( groupEntity: groupEntity )
             }
         }
     }

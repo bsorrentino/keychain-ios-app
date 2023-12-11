@@ -17,7 +17,6 @@ import Shared
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    //let managerCD   = CoreDataManager()
     let managerSD   = SwiftDataManager()
 
     
@@ -25,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         logger.trace( "> didFinishLaunchingWithOptions" )
-
-        startObservingManagedObjectContextObjectsDidChangeEvent()
         
         return true
     }
@@ -37,10 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.trace( "> applicationWillTerminate" )
         
-        stopObservingManagegObjectContextObjectsDidChangeEvent()
-        
-        saveContext()
-
+        do {
+            try managerSD.container.mainContext.save()
+        }
+        catch {
+            logger.warning( "error saving main context\n\(error.localizedDescription)")
+        }
     }
 
     // MARK: UISceneSession Lifecycle

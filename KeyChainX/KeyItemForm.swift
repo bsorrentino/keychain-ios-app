@@ -286,7 +286,7 @@ extension KeyEntityForm {
         return Future { promise in
             
             do {
-                try self.item.insert( into: self.context )
+                try self.item.insertOrUpdate( into: self.context )
 
                 promise(.success(()))
             }

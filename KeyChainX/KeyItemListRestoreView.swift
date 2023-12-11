@@ -10,12 +10,19 @@ import SwiftUI
 import Shared
 
 struct RestoreKeysView: View {
+    enum Operation: String, Identifiable {
+        case MergeAll
+        case DeleteAll
+        
+        var id: String { rawValue }
+    }
+    
     @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
     
     @State private var showingSheet = false
     @State private var alertItem:AlertItem?
-    @State private var showReportView = false
+    @State private var startRestore:Operation?
     
     @ObservedObject var processingInfo = KeysProcessingReportObject()
     
@@ -44,9 +51,13 @@ struct RestoreKeysView: View {
                         ActionSheet(title: Text("Modality"),
                                     message: Text("How want to restore keys"),
                                     buttons: [
-                                        //.default(Text("Add missing")) {},
-                                        .destructive(Text("Replace All")) {
-                                            self.prepareRestore()
+                                        .default(Text("Merge All")) {
+                                            performRestore( .MergeAll )
+                                            startRestore = .MergeAll
+                                        },
+                                        .destructive(Text("Delete All")) {
+                                            performRestore( .DeleteAll )
+                                            startRestore = .DeleteAll
                                         },
                                         .cancel(Text("Dismiss"))
                                         ])
@@ -56,11 +67,16 @@ struct RestoreKeysView: View {
                 }
                 .padding(0.0)
             }
-            .onChange(of: self.showReportView ) { (_, _) in
-                    performRestore()
-            }
-            .sheet( isPresented: self.$showReportView, onDismiss: {} ) {
+            .sheet( item: $startRestore ) { operation in
+//                switch operation  {
+//                case .MergeAll:
+//                    mergeAll()
+//                case .DeleteAll:
+//                    deleteAll()
+//                }
+                
                 ProcessingReportView( processingInfo: processingInfo)
+                
             }
             .navigationBarTitle( Text("Restore"), displayMode: .large)
 
@@ -69,20 +85,8 @@ struct RestoreKeysView: View {
 
     typealias Keys = Array<KeyItem>
     
-    private func prepareRestore() {
-        
-        do {
-            try KeyInfo.deleteAllWithMerge( context: context )
-            
-            showReportView = true
-        }
-        catch {
-            
-            self.alertItem = makeAlertItem( error:"Error Deleting Data [\(error)]" )
-        }
-    }
     
-    private func performRestore() {
+    private func performRestore( _ operation: Operation ) {
         
         self.processingInfo.reset()
 
@@ -92,6 +96,9 @@ struct RestoreKeysView: View {
         }
         
         do {
+            if operation == .DeleteAll  {
+                try KeyInfo.deleteAll( context )
+            }
 
             let content = try Data(contentsOf: url)
 
@@ -110,23 +117,23 @@ struct RestoreKeysView: View {
 
                 keys.forEach { item in
                     
-//                    logger.trace(
-//                        """
-//
-//                        mnemonic:       \(item.mnemonic)
-//                        groupPrefix:    \(item.groupPrefix ?? "nil")
-//                        group:          \(item.group)
-//
-//                        """)
-//
                     if( item.password.isEmpty && item.group ) {
                         logger.notice( "password for item \(item.mnemonic) not valid!")
                     }
-                    
+
                     do {
+                        if operation == .MergeAll {
+    
+                            if let entity = try KeyInfo.fetchSingleIfPresent( mnemonic: item.mnemonic, inContext: context )  {
+                                logger.debug( "merge entity \(item.mnemonic)")
+                                try item.attach( entity: entity )
+                            }
+                            
+                        }
+                    
                         processingInfo.processed += 1
                         
-                        try item.insert(into: context)
+                        try item.insertOrUpdate(into: context)
                     }
                     catch {
                         

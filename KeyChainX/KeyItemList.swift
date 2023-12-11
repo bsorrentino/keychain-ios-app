@@ -27,7 +27,7 @@ struct AlertInfo: Identifiable {
     
 }
 
-struct KeyItemList_iOS15: View {
+struct KeyItemList: View {
     
     @Environment(\.modelContext) var context
     
@@ -96,7 +96,7 @@ struct KeyItemList_iOS15: View {
             }
             .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
             .navigationBarTitle( Text("Key List"), displayMode: .inline )
-            .onChange(of: searchText) { _ in
+            .onChange(of: searchText) { (_ ,_)in
                 isExpanded = true
             }
         }
@@ -104,7 +104,7 @@ struct KeyItemList_iOS15: View {
 }
 
 
-extension KeyItemList_iOS15 {
+extension KeyItemList {
  
     @available( iOS 17, *)
     func Section_iOS17( section: String.Element, groupByFirstCharacter: [String.Element : [KeyInfo]] ) -> some View {
@@ -143,7 +143,7 @@ extension KeyItemList_iOS15 {
 #Preview {
     
     ForEach(ColorScheme.allCases, id: \.self) {
-        KeyItemList_iOS15()
+        KeyItemList()
             .modelContainer( UIApplication.shared.modelContainer)
             .preferredColorScheme($0)
     }

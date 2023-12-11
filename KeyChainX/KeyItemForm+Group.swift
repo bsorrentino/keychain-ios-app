@@ -129,19 +129,8 @@ struct GroupList: View {
         if let first = offsets.first {
             let selectGroup = groups[ first ]
             
-            context.delete(selectGroup)
+            KeyInfo.delete(selectGroup, inContext: context)
 
-            do {
-                try self.context.save()
-            }
-            catch {
-                logger.warning( """
-                    error deleting new group
-                    
-                    \(error.localizedDescription)
-                    """ )
-
-            }
         }
     }
         

@@ -114,7 +114,7 @@ extension KeyInfo {
         
         let sort = SortDescriptor(\KeyInfo.mnemonic, order: .forward)
 
-        return FetchDescriptor<KeyInfo>( sortBy: [ sort ]   )
+        return FetchDescriptor<KeyInfo>( sortBy: [ sort ] )
     }
 
     public static func fetchCount( forGroupPrefix groupPrefix: String, inContext context: ModelContext ) -> Int {
@@ -133,6 +133,16 @@ extension KeyInfo {
         return -1
     }
     
+    public static func fetchSingleIfPresent(mnemonic: String, inContext context:ModelContext ) throws -> KeyInfo?
+    {
+        
+        let predicate = #Predicate<KeyInfo> {
+            $0.mnemonic == mnemonic
+        }
+        // Check Duplicate
+        return try SharedModule.fetchSingleIfPresent(context: context, predicate: predicate, key: mnemonic)
+    }
+    
     public static func createGroup( groupPrefix:String, inContext context: ModelContext) -> KeyInfo {
         let group = KeyInfo()
         group.mnemonic      = groupPrefix
@@ -143,48 +153,70 @@ extension KeyInfo {
         return group
     }
 
-    public static func ungroup( _ context: ModelContext, entity: KeyInfo ) -> Bool {
+    public static func ungroup( _ entity: KeyInfo, inContext context: ModelContext  ) -> Bool {
         
         do {
             entity.groupPrefix = nil
             entity.group = false
             
-            if( !isInPreviewMode ) {
-                try context.save()
-            }
+            try context.save()
+
             return true
         }
         catch {
-            logger.warning( "error ungrouping  key \(error.localizedDescription)" )
+            logger.warning( "error ungrouping key \(error.localizedDescription)" )
             return false
         }
     }
     
-    public static func delete( _ context: ModelContext, entity: KeyInfo ) -> Bool {
-        
+    private static func deleteSecret( fromEntity entity: KeyInfo) {
         do {
-            context.delete(entity)
             
-            if( !isInPreviewMode ) {
-                try context.save()
+            if(  SharedModule.sharedSecrets.containsSecret(withKey: entity.mnemonic ) ) {
+                try SharedModule.sharedSecrets.removeSecret(key: entity.mnemonic )
+                logger.info( "shared secret \(entity.mnemonic) removed!")
             }
-            
+            else if( SharedModule.appSecrets.containsSecret(withKey: entity.mnemonic ) ){
+                try SharedModule.appSecrets.removeSecret(key: entity.mnemonic )
+                logger.info( "local secret \(entity.mnemonic) removed!")
+            }
+
         }
         catch {
-            logger.warning( "error deleting key \(error.localizedDescription)" )
-            return false
+            logger.warning( "error removing password from entity \(entity.mnemonic)\n\(error.localizedDescription)" )
+            
         }
-        
-        return true
+       
     }
     
-    public static func deleteAllWithMerge( context:ModelContext ) throws {
-
-        context.container.deleteAllData()
+    public static func delete(  _ entity: KeyInfo, inContext context: ModelContext )   {
         
-        //try context.delete(model: KeyInfo.self, where: Predicate.true, includeSubclasses: false )
+        context.delete(entity)
+        
+        logger.trace( "object deleted  \(entity.mnemonic)" )
+    
+        deleteSecret(fromEntity: entity )
+        
+        do {
+            try context.save()
+        }
+        catch {
+            logger.warning( "error removing entity \(entity.mnemonic)\n\(error.localizedDescription)" )
+        }
+    }
+    
+    public static func deleteAll( _ context:ModelContext ) throws {
 
-        //try context.save()
+        try context.delete(model: KeyInfo.self )
+        
+//        print( context.deletedModelsArray.count )
+//        context.deletedModelsArray.forEach {
+//            if let elem = $0 as? KeyInfo {
+//                let _ = deleteSecret( fromEntity: elem )
+//            }
+//        }
+
+        try context.save()
     }
     
 

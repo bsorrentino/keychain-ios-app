@@ -19,7 +19,7 @@ public struct DynamicQueryView<T: PersistentModel, Content: View>: View {
         self.content(query)
     }
     
-    init( filter: Predicate<T>?, sort: [SortDescriptor<T>] = [],  @ViewBuilder content: @escaping ( [T] ) -> Content) {
+    init( filter: Predicate<T>? = nil, sort: [SortDescriptor<T>] = [],  @ViewBuilder content: @escaping ( [T] ) -> Content) {
         
         _query = Query( filter: filter, sort: sort )
         self.content = content

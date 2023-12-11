@@ -35,7 +35,7 @@ struct FileManagerView<Content> : View where Content : View {
     var body: some View {
         
         if( urls.isEmpty ) {
-            Text( "No data found")
+            Text( "No files found!")
                 .font(.title)
         }
         else {
