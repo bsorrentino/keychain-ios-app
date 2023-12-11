@@ -8,6 +8,14 @@
 import Foundation
 import SwiftData
 
+enum SavingError :Error {
+    
+    case KeyDoesNotExist( id:String )
+    case DuplicateKey( id:String )
+    case InvalidItem( id:String )
+    case BundleIdentifierUndefined
+}
+
 public final class SwiftDataManager {
     public var container: ModelContainer!
     
@@ -19,7 +27,7 @@ public final class SwiftDataManager {
 //            fatalError( "model '\(modelName)' not found!")
 //        }
         
-        let storeURL = URL.documentsDirectory.appending(path: "KeyChain.sqlite")
+        let storeURL = URL.documentsDirectory.appending(path: "KeyChainX.sqlite")
         
         let config = isInPreviewMode ?
             ModelConfiguration(isStoredInMemoryOnly: true) :
@@ -27,7 +35,7 @@ public final class SwiftDataManager {
 
         do {
 
-            self.container = try ModelContainer(for: AttributeInfo.self, configurations: config)
+            self.container = try ModelContainer(for: KeyInfo.self, AttributeInfo.self, configurations: config)
             
         }
         catch {
@@ -37,3 +45,29 @@ public final class SwiftDataManager {
     }
 }
 
+extension SharedModule {
+    
+    
+    public static func fetchSingleIfPresent<T : PersistentModel>(
+        context:ModelContext,
+        predicate: Predicate<T>,
+        key: String ) throws -> T?
+    {
+        
+        let request = FetchDescriptor<T>( predicate: predicate )
+        
+        let fetchResult = try context.fetch( request )
+        
+        if( fetchResult.count == 0 ) {
+            return nil
+        }
+        if( fetchResult.count > 1 ) {
+            throw SavingError.DuplicateKey(id: key)
+            
+        }
+        return fetchResult.first 
+    }
+    
+    
+
+}

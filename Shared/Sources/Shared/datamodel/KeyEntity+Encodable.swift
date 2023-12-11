@@ -8,7 +8,7 @@
 
 import CoreData
 
-
+#if __COREDATA
 // MARK: Key Entity Encodable extension
 extension KeyEntity : Encodable {
 
@@ -55,3 +55,4 @@ enum CodingKeys : String, CodingKey {
 }
 
 
+#endif

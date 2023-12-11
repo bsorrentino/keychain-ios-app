@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 import OSLog
 
+#if __COREDATA
 enum SavingError :Error {
     
     case KeyDoesNotExist( id:String )
@@ -254,7 +255,7 @@ extension SharedModule {
     //
     // @see https://www.avanderlee.com/swift/nsbatchdeleterequest-core-data/
     //
-    public static func deleteAllWithMerge( context:NSManagedObjectContext ) throws {
+    static func deleteAllWithMerge( context:NSManagedObjectContext ) throws {
 
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: KeyEntity.fetchRequest())
         
@@ -272,3 +273,4 @@ extension SharedModule {
 
 }
 
+#endif

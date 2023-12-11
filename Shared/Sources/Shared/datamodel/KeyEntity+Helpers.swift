@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+#if __COREDATA
 let IS_GROUP_CRITERIA = "(groupPrefix != nil AND (group == nil OR group == NO))"
 
 
@@ -129,3 +130,5 @@ extension KeyEntity {
     }
 
 }
+
+#endif

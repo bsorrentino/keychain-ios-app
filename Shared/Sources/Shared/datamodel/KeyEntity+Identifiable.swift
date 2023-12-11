@@ -8,9 +8,10 @@
 
 import Foundation
 
-
+#if __COREDATA
 extension KeyEntity : Identifiable {
     
     public var id:String { self.mnemonic }
 
 }
+#endif

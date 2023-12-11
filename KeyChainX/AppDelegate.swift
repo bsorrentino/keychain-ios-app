@@ -17,7 +17,7 @@ import Shared
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let managerCD   = CoreDataManager()
+    //let managerCD   = CoreDataManager()
     let managerSD   = SwiftDataManager()
 
     

@@ -8,11 +8,11 @@
 
 import SwiftUI
 import Shared
-
+import SwiftData
 
 struct PreferredKeyItemList_IOS15: View {
     
-    @FetchRequest(fetchRequest: KeyEntity.fetchPreferred()) var preferredKeys: FetchedResults<KeyEntity>
+    @Query(KeyInfo.fetchPreferred()) var preferredKeys: [KeyInfo]
     
     var body: some View {
         

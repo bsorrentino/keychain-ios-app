@@ -12,8 +12,10 @@ import CoreData
 
 // MARK: Search Criterias
 
+#if __COREDATA
 @objc(KeyEntity)
 public class KeyEntity: NSManagedObject {
 
     
 }
+#endif

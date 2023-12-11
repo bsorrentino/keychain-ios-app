@@ -10,7 +10,7 @@ import SwiftUI
 import Shared
 
 struct RestoreKeysView: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.modelContext) var context
     @Environment(\.colorScheme) var colorScheme
     
     @State private var showingSheet = false
@@ -56,10 +56,8 @@ struct RestoreKeysView: View {
                 }
                 .padding(0.0)
             }
-            .onChange(of: self.showReportView ) { show in
-                if( show ) {
+            .onChange(of: self.showReportView ) { (_, _) in
                     performRestore()
-                }
             }
             .sheet( isPresented: self.$showReportView, onDismiss: {} ) {
                 ProcessingReportView( processingInfo: processingInfo)
@@ -74,7 +72,7 @@ struct RestoreKeysView: View {
     private func prepareRestore() {
         
         do {
-            try SharedModule.deleteAllWithMerge( context: managedObjectContext )
+            try KeyInfo.deleteAllWithMerge( context: context )
             
             showReportView = true
         }
@@ -128,7 +126,7 @@ struct RestoreKeysView: View {
                     do {
                         processingInfo.processed += 1
                         
-                        try item.insert(into: managedObjectContext)
+                        try item.insert(into: context)
                     }
                     catch {
                         
@@ -136,7 +134,7 @@ struct RestoreKeysView: View {
                     }
                 }
 
-                try managedObjectContext.save()
+                try context.save()
 
             }
 

@@ -9,10 +9,11 @@
 import SwiftUI
 import CoreData
 
+#if __COREDATA
 // Initilaizer for KeyEntity
 extension DynamicFetchRequestView where T : KeyEntity {
     
-    public init( withSearchText searchText: String, @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
+    init( withSearchText searchText: String, @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
 
         let final_predicate:NSPredicate
         
@@ -37,10 +38,11 @@ extension DynamicFetchRequestView where T : KeyEntity {
         self.init( withFetchRequest: request as! NSFetchRequest<T>, content: content)
     }
     
-    public init( withGroupPrefix groupPrefix: String, @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
+    init( withGroupPrefix groupPrefix: String, @ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
         
         let request = KeyEntity.fetchRequest(withPredicate: NSPredicate(  format: "groupPrefix = %@ AND group = YES", groupPrefix ))
 
         self.init( withFetchRequest: request as! NSFetchRequest<T>, content: content)
     }
 }
+#endif

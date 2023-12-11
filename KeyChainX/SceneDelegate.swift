@@ -29,7 +29,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             
             let view = ContentView( loginStates: loginStates )
-                .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext) // CoreData integrations
                 .modelContainer( UIApplication.shared.modelContainer )
                 .environmentObject(mcSecretsService)
             

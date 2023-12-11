@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-
+#if __COREDATA
 extension KeyEntity {
 
     @NSManaged public var expire: Date?
@@ -23,3 +23,4 @@ extension KeyEntity {
 
 }
 
+#endif

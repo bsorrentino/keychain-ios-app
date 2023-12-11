@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-
+#if __COREDATA
 extension MailEntity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<MailEntity> {
@@ -22,3 +22,4 @@ extension MailEntity {
     @NSManaged public var value: String?
 
 }
+#endif

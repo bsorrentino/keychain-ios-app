@@ -14,7 +14,7 @@ import Shared
 
 struct KeyEntityForm : View {
     @Environment(\.presentationMode)        var presentationMode
-    @Environment(\.managedObjectContext)    var managedObjectContext
+    @Environment(\.modelContext) var context
     @Environment(\.colorScheme)             var colorScheme: ColorScheme
     
     @State          var secretState:SecretState = .hide
@@ -286,8 +286,7 @@ extension KeyEntityForm {
         return Future { promise in
             
             do {
-                try self.item.insert( into: self.managedObjectContext )
-                try self.managedObjectContext.save()
+                try self.item.insert( into: self.context )
 
                 promise(.success(()))
             }

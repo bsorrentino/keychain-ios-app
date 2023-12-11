@@ -18,13 +18,13 @@ struct GroupKeyItemList_IOS15: View {
     // @see https://swiftui-lab.com/swiftui-id/
 //    @State private var keyItemListId:Int = 0
     
-    internal var groupEntity: KeyEntity
+    internal var groupEntity: KeyInfo
     
     var body: some View {
         
         NavigationView {
 
-            DynamicFetchRequestView( withGroupPrefix: groupEntity.groupPrefix! ) { results in
+            DynamicQueryView( withGroupPrefix: groupEntity.groupPrefix! ) { results in
                 
                 List( results, id: \.mnemonic ) { key in
                 
@@ -41,8 +41,8 @@ struct GroupKeyItemList_IOS15: View {
 
 struct GroupKeyItemList_IOS15_Previews: PreviewProvider {
     
-    static func prepareItem() -> KeyEntity {
-        let groupItem = KeyEntity()
+    static func prepareItem() -> KeyInfo {
+        let groupItem = KeyInfo()
         groupItem.groupPrefix = "AG0"
         return groupItem
 
@@ -51,7 +51,7 @@ struct GroupKeyItemList_IOS15_Previews: PreviewProvider {
     static var previews: some View {
     
         GroupKeyItemList_IOS15( groupEntity: prepareItem() )
-            .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext)
+            .modelContainer( UIApplication.shared.modelContainer )
 
     }
 }

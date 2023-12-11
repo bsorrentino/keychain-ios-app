@@ -10,14 +10,14 @@ import SwiftUI
 import CoreData
 
 // @ref https://www.hackingwithswift.com/books/ios-swiftui/dynamically-filtering-fetchrequest-with-swiftui
-public struct DynamicFetchRequestView<T: NSManagedObject, Content: View>: View {
+struct DynamicFetchRequestView<T: NSManagedObject, Content: View>: View {
     @FetchRequest var fetchRequest: FetchedResults<T>
 
     // this is our content closure; we'll call this once for each item in the list
     let content: (FetchedResults<T>) -> Content
 
     
-    public var body: some View {
+    var body: some View {
 //        List(fetchRequest, id: \.self) { singer in
 //            self.content(singer)
 //        }

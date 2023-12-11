@@ -9,7 +9,9 @@
 import Foundation
 import CoreData
 
+#if __COREDATA
 @objc(MailEntity)
 public class MailEntity: NSManagedObject {
 
 }
+#endif

@@ -15,6 +15,7 @@ extension AppDelegate {
 
     // MARK: Core Data Saving support
     internal func saveContext () {
+#if __COREDATA
         let context = self.managerCD.context
 
         if context.hasChanges {
@@ -27,9 +28,11 @@ extension AppDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+#endif
     }
 
     func startObservingManagedObjectContextObjectsDidChangeEvent() {
+#if __COREDATA
         // Add Observer
         let objectContextObjectsDidChangeEvent = NSNotification.Name.NSManagedObjectContextObjectsDidChange
         
@@ -40,6 +43,7 @@ extension AppDelegate {
      
 //        notificationCenter.addObserver(self, selector: #selector(managedObjectContextWillSave), name: NSManagedObjectContextWillSaveNotification, object: managedObjectContext)
 //        notificationCenter.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSManagedObjectContextDidSaveNotification, object: managedObjectContext)
+#endif
     }
 
     func stopObservingManagegObjectContextObjectsDidChangeEvent() {
@@ -47,6 +51,7 @@ extension AppDelegate {
     }
 
     @objc private func managedObjectContextObjectsDidChange(notification: NSNotification) {
+#if __COREDATA
         guard let userInfo = notification.userInfo else { return }
 
         if let inserts = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject>, inserts.count > 0 {
@@ -82,8 +87,8 @@ extension AppDelegate {
                 }
             }
         }
+#endif
     }
         
     
-
 }

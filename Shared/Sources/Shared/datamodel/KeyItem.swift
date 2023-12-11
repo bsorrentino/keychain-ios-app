@@ -8,7 +8,7 @@
 
 import Foundation
 import FieldValidatorLibrary
-import CoreData
+import SwiftData
 
 
 //
@@ -39,7 +39,7 @@ public class KeyItem : ObservableObject, Decodable {
 
     
     // MARK: Accessory Fields
-    private weak var entity:KeyEntity?
+    private weak var entity:KeyInfo?
         
     public var isNew:Bool { return entity == nil  }
 
@@ -58,7 +58,7 @@ public class KeyItem : ObservableObject, Decodable {
         self.preferred = false
     }
     
-    public init( entity: KeyEntity ) {
+    public init( entity: KeyInfo ) {
         
         let key = entity.mnemonic
         let shared = SharedModule.sharedSecrets.containsSecret(withKey: key)
@@ -66,12 +66,12 @@ public class KeyItem : ObservableObject, Decodable {
         self.mnemonic       = key
         self.username       = entity.username
         self.mail           = entity.mail ?? ""
-        self.group          = entity.group.boolValue
+        self.group          = entity.group
         self.groupPrefix    = entity.groupPrefix
         self.expire         = entity.expire
         self.url            = entity.url ?? ""
         self.shared         = shared
-        self.preferred      = entity.preferred?.boolValue ?? false
+        self.preferred      = entity.preferred ?? false
         
         if let data = (shared) ?
             try? SharedModule.sharedSecrets.getSecret( forKey: key) :
@@ -93,7 +93,7 @@ public class KeyItem : ObservableObject, Decodable {
     // MARK: Decodable
     // MARK: -
     public required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
+        let values = try decoder.container(keyedBy: KeyInfoCodingKeys.self)
         let key = try values.decode(String.self, forKey: .mnemonic)
         
         self.mnemonic = key
@@ -138,36 +138,36 @@ public class KeyItem : ObservableObject, Decodable {
     }
     
     
-    private func copyTo( entity: KeyEntity ) -> KeyEntity {
+    private func copyTo( entity: KeyInfo ) -> KeyInfo {
         entity.mnemonic     = self.mnemonic
         entity.username     = self.username
         entity.mail         = self.mail
         entity.groupPrefix  = self.groupPrefix
-        entity.group        = NSNumber( value: group )
+        entity.group        = group
         entity.expire       = self.expire
         entity.url          = self.url
-        entity.preferred    = self.preferred ? 1 : 0
+        entity.preferred    = self.preferred
         
         return entity
     }
 
-    public func copy( from entity: KeyEntity ) {
+    public func copy( from entity: KeyInfo ) {
         self.mnemonic       = "\(entity.mnemonic)_1"
         self.username       = entity.username
         self.mail           = entity.mail ?? ""
-        self.group          = entity.group.boolValue
+        self.group          = entity.group
         self.groupPrefix    = entity.groupPrefix
         self.expire         = entity.expire
         self.url            = entity.url ?? ""
         self.shared         = false
         self.note           = ""
         self.password       = ""
-        self.preferred      = entity.preferred?.boolValue ?? false
+        self.preferred      = entity.preferred ?? false
 
     }
     
     @available( macOS, unavailable)
-    public func insert( into context:NSManagedObjectContext ) throws {
+    public func insert( into context:ModelContext ) throws {
         
         let secret = SecretsManager.Secret( password:self.password, note:self.note)
         
@@ -192,13 +192,18 @@ public class KeyItem : ObservableObject, Decodable {
             let _ = self.copyTo(entity: entity )
         }
         else { // Create
+            
+            let key = self.mnemonic
+            let predicate = #Predicate<KeyInfo> {
+                $0.mnemonic == key
+            }
             // Check Duplicate
-            if let _ = try SharedModule.fetchSingleIfPresent(context: context, entity: KeyEntity.entity(), predicateFormat: "mnemonic == %@", key: self.mnemonic) {
+            if let _ = try SharedModule.fetchSingleIfPresent(context: context, predicate: predicate, key: key) {
                 
-                throw SavingError.DuplicateKey(id: self.mnemonic)
+                throw SavingError.DuplicateKey(id: key)
             }
             
-            let newEntity = KeyEntity( context: context );
+            let newEntity = KeyInfo()
 
             context.insert( self.copyTo(entity: newEntity) )
         }

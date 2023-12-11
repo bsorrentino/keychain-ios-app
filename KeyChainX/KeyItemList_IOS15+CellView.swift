@@ -39,15 +39,15 @@ extension KeyItemList_iOS15 {
         
         typealias CellViewHandler = () -> Void
         
-        @Environment(\.managedObjectContext) var managedObjectContext
+        @Environment(\.modelContext) var context
  
         @State private var alertInfo: AlertInfo?
         
-        var entity:     KeyEntity
+        var entity:     KeyInfo
         var onClone:    CellViewHandler?
         @StateObject private var item:KeyItem
         
-        init( entity:KeyEntity, onClone: CellViewHandler? = nil) {
+        init( entity:KeyInfo, onClone: CellViewHandler? = nil) {
         
             self.entity = entity
             self.onClone = onClone
@@ -58,16 +58,16 @@ extension KeyItemList_iOS15 {
         /// delete a key
         /// - Parameter entity: entity to remove
         /// - Returns: success status
-        private func delete( _ entity: KeyEntity ) -> Bool {
-            KeyEntity.delete( self.managedObjectContext, entity: entity)
+        private func delete( _ entity: KeyInfo ) -> Bool {
+            KeyInfo.delete( self.context, entity: entity)
         }
         
         
         ///  Ungroup Key
         /// - Parameter entity: entity to ungroup
         /// - Returns: success status
-        private func ungroup( _ entity: KeyEntity ) -> Bool {
-            KeyEntity.ungroup( self.managedObjectContext, entity: entity)
+        private func ungroup( _ entity: KeyInfo ) -> Bool {
+            KeyInfo.ungroup( self.context, entity: entity)
         }
         
         
@@ -149,14 +149,14 @@ extension KeyItemList_iOS15 {
     
     
     struct GroupView : View {
-        @Environment(\.managedObjectContext) var managedObjectContext
+        @Environment(\.modelContext) var context
         
-        var groupEntity: KeyEntity
+        var groupEntity: KeyInfo
         
         private var childrenCount:Int {
             guard let groupPrefix = groupEntity.groupPrefix else { return 0 }
             
-            return KeyEntity.fetchCount(forGroupPrefix: groupPrefix, inContext: managedObjectContext)
+            return KeyInfo.fetchCount(forGroupPrefix: groupPrefix, inContext: context)
         }
         
         var body: some View {
@@ -176,7 +176,7 @@ extension KeyItemList_iOS15 {
     }
     
     struct GroupViewLink : View {
-        var groupEntity : KeyEntity
+        var groupEntity : KeyInfo
         
         var body: some View {
             

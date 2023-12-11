@@ -29,7 +29,7 @@ struct AlertInfo: Identifiable {
 
 struct KeyItemList_iOS15: View {
     
-    @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.modelContext) var context
     
     // Id of KeyItemList view. when change the view is forced to be updated
     // @see https://stackoverflow.com/a/65095862
@@ -48,7 +48,7 @@ struct KeyItemList_iOS15: View {
     /// - Parameter key: Key Entity
     /// - Returns: Group View or Cell View
     @ViewBuilder
-    private func CellViewLinkGroup( entity key: KeyEntity ) -> some View {
+    private func CellViewLinkGroup( entity key: KeyInfo ) -> some View {
         if key.isGroup() {
             GroupViewLink( groupEntity: key )
                 .listRowInsets( EdgeInsets() )
@@ -67,7 +67,7 @@ struct KeyItemList_iOS15: View {
         
         NavigationStack {
             
-            DynamicFetchRequestView( withSearchText: searchText ) { results in
+            DynamicQueryView( withSearchText: searchText ) { results in
                 
                 let groupByFirstCharacter = Dictionary( grouping: results, by: { $0.mnemonic.first! })
                 
@@ -107,7 +107,7 @@ struct KeyItemList_iOS15: View {
 extension KeyItemList_iOS15 {
  
     @available( iOS 17, *)
-    func Section_iOS17( section: String.Element, groupByFirstCharacter: [String.Element : [FetchedResults<KeyEntity>.Element]] ) -> some View {
+    func Section_iOS17( section: String.Element, groupByFirstCharacter: [String.Element : [KeyInfo]] ) -> some View {
 
         Section( isExpanded: $isExpanded ) 
         {
@@ -121,7 +121,7 @@ extension KeyItemList_iOS15 {
     }
 
     @ViewBuilder
-    func keyItemSection( section: String.Element, groupByFirstCharacter: [String.Element : [FetchedResults<KeyEntity>.Element]] ) -> some View {
+    func keyItemSection( section: String.Element, groupByFirstCharacter: [String.Element : [KeyInfo]] ) -> some View {
         
         if #available(iOS 17, *) {
             Section_iOS17( section: section, groupByFirstCharacter: groupByFirstCharacter)
@@ -144,7 +144,7 @@ extension KeyItemList_iOS15 {
     
     ForEach(ColorScheme.allCases, id: \.self) {
         KeyItemList_iOS15()
-            .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext)
+            .modelContainer( UIApplication.shared.modelContainer)
             .preferredColorScheme($0)
     }
 

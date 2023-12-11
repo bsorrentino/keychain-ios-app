@@ -8,12 +8,12 @@
 
 import SwiftUI
 import Shared
+import SwiftData
 
 struct BackupKeysView: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.modelContext) var context
     
-    @FetchRequest( fetchRequest: KeyEntity.fetchRequest() )
-    var keyFethedResults: FetchedResults<KeyEntity>
+    @Query(KeyInfo.fetchOrdered()) var keyFetchedResults: [KeyInfo]
     
     @State private var showReportView = false
     @State private var alertItem:AlertItem?
@@ -28,10 +28,8 @@ struct BackupKeysView: View {
             FileManagerView(urls: backupInfo.urls ) { url in
                 Text( url.lastPathComponent )
             }
-            .onChange(of: self.showReportView ) { show in
-                if( show ) {
-                    performBackup()
-                }
+            .onChange(of: self.showReportView ) { (_, _) in
+                performBackup()
             }
             .sheet(isPresented: $showReportView, onDismiss: {
                 if( processingInfo.terminated ) {
@@ -55,7 +53,7 @@ struct BackupKeysView: View {
 
     }
     
-    private func encodeKey( encoder:JSONEncoder, k:KeyEntity ) -> KeyEntity? {
+    private func encodeKey( encoder:JSONEncoder, k:KeyInfo ) -> KeyInfo? {
         
         processingInfo.processed += 1
         
@@ -121,7 +119,7 @@ struct BackupKeysView: View {
         do {
             logger.trace( "backup file: \(url)")
             
-            let keys = keyFethedResults
+            let keys = keyFetchedResults
                 .map( { k in encodeKey(encoder: encoder, k: k ) } )
                 .filter({ data in data != nil} )
             let allEncodedData = try encoder.encode( keys )
