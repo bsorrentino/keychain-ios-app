@@ -34,8 +34,6 @@ struct GroupField : View {
         }
         
     }
-
-    
 }
 
 
@@ -136,13 +134,20 @@ struct GroupList: View {
         
 }
 
-#if DEBUG
-struct KeyItemForm_Group_Previews: PreviewProvider {
-    static var previews: some View {
-        return Group() {
-                GroupField(value:.constant("") )
-        }.modelContainer(UIApplication.shared.modelContainer)
+#Preview {
+    
+    NavigationView {
+        GroupField(value:.constant("") )
+            .modelContainer(UIApplication.shared.modelContainer)
     }
 }
-#endif
+
+#Preview {
+    
+    NavigationView {
+        GroupField(value:.constant("Group1") )
+            .modelContainer(UIApplication.shared.modelContainer)
+    }
+}
+
 

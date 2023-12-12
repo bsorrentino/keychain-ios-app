@@ -19,13 +19,35 @@ import SwiftData
     public var groupPrefix: String?
     var mail: String?
     var note: String?
-    var preferred: Bool? = false
+    var preferred: Bool?
     @Attribute(.ephemeral) var sectionId: String?
     var url: String?
     var username: String = ""
     
 
-    public init() { }
+    public init( mnemonic: String = "",
+          groupPrefix: String? = nil,
+          group: Bool = false,
+          username: String = "",
+          mail: String? = nil,
+          note: String? = nil,  
+          sectionId: String? = nil,
+          url: String? = nil,
+          expire: Date? = nil,
+          preferred: Bool? = false )
+          
+    {
+        self.mnemonic = mnemonic
+        self.groupPrefix = groupPrefix
+        self.group = group
+        self.username = username
+        self.mail = mail
+        self.note = note
+        self.sectionId = sectionId
+        self.url = url
+        self.expire = expire
+        self.preferred = preferred
+    }
     
 
 
@@ -144,13 +166,12 @@ extension KeyInfo {
     }
     
     public static func createGroup( groupPrefix:String, inContext context: ModelContext) -> KeyInfo {
-        let group = KeyInfo()
-        group.mnemonic      = groupPrefix
-        group.username      = groupPrefix
-        group.groupPrefix   = groupPrefix
-        group.group         = false
-
-        return group
+        KeyInfo(
+            mnemonic: groupPrefix,
+            groupPrefix: groupPrefix, 
+            group: false,
+            username: groupPrefix
+        )
     }
 
     public static func ungroup( _ entity: KeyInfo, inContext context: ModelContext  ) -> Bool {

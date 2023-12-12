@@ -42,10 +42,7 @@ struct GroupKeyItemList_IOS15: View {
 struct GroupKeyItemList_IOS15_Previews: PreviewProvider {
     
     static func prepareItem() -> KeyInfo {
-        let groupItem = KeyInfo()
-        groupItem.groupPrefix = "AG0"
-        return groupItem
-
+        KeyInfo( groupPrefix: "AG0")
     }
     
     static var previews: some View {

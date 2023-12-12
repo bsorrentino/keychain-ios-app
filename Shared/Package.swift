@@ -22,8 +22,8 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Shared",
-            dependencies: ["KeychainAccess"],
-            resources: [ Resource.copy("KeyChain.xcdatamodeld")]
+            // resources: [ Resource.copy("KeyChain.xcdatamodeld")],
+            dependencies: ["KeychainAccess"]
         ),
         .testTarget(
             name: "SharedTests",

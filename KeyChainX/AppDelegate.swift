@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.trace( "> didFinishLaunchingWithOptions" )
         
+        startObservingManagedObjectContextObjectsDidChangeEvent()
         return true
     }
 

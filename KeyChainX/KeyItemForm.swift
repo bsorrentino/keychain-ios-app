@@ -13,9 +13,9 @@ import Shared
 
 
 struct KeyEntityForm : View {
-    @Environment(\.presentationMode)        var presentationMode
-    @Environment(\.modelContext) var context
-    @Environment(\.colorScheme)             var colorScheme: ColorScheme
+    @Environment(\.presentationMode)    var presentationMode
+    @Environment(\.modelContext)        var context
+    @Environment(\.colorScheme)         var colorScheme: ColorScheme
     
     @State          var secretState:SecretState = .hide
     @State private  var pickUsernameFromMail    = false
@@ -124,7 +124,9 @@ struct KeyEntityForm : View {
                 
             }
         } // NavigationView
-        
+        .navigationDestination(isPresented: $pickUsernameFromMail ) {
+            EmailList( value: username_mail_setter_binding )
+        }
     }
 }
 
@@ -201,9 +203,7 @@ extension KeyEntityForm {
                     return nil
                 })
                 .autocapitalization(.none)
-                NavigationLink( destination: EmailList( value: username_mail_setter_binding ), isActive:$pickUsernameFromMail  ) {
-                       EmptyView()
-                }
+                NavigationLink("email") { }
                 .hidden()
             }
             Button( action: {
@@ -220,6 +220,7 @@ extension KeyEntityForm {
         }
         .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
         .modifier(ValidatorMessageModifier( message:usernameCheck.errorMessage ))
+        
 
     }
 
@@ -308,22 +309,17 @@ extension KeyEntityForm {
 // MARK: -
 //
 
-#if DEBUG
-import KeychainAccess
-
-struct KeyItemDetail_Previews : PreviewProvider {
-    static var previews: some View {
-        // @see https://www.hackingwithswift.com/quick-start/swiftui/how-to-preview-your-layout-in-light-and-dark-mode
-        
-        
-        Group {
-            KeyEntityForm( item:KeyItem() )
-               .environment(\.colorScheme, .light)
-
-            KeyEntityForm( item:KeyItem() )
-               .environment(\.colorScheme, .dark)
-         }
-    }
-}
-#endif
+#Preview {
     
+    KeyEntityForm( item:KeyItem() )
+        .environment(\.colorScheme, .light)
+        .modelContainer( UIApplication.shared.modelContainer )
+}
+
+#Preview {
+    
+    KeyEntityForm( item:KeyItem() )
+        .environment(\.colorScheme, .dark)
+        .modelContainer( UIApplication.shared.modelContainer )
+
+}

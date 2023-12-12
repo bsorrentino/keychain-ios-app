@@ -31,7 +31,9 @@ public final class SwiftDataManager {
         
         let config = isInPreviewMode ?
             ModelConfiguration(isStoredInMemoryOnly: true) :
-            ModelConfiguration( url: storeURL )
+//            ModelConfiguration( url: storeURL, cloudKitDatabase: .private("iCloud.KeyChainX") )
+//            ModelConfiguration( url: storeURL, cloudKitDatabase: .automatic )
+            ModelConfiguration( url: storeURL, cloudKitDatabase: .none )
 
         do {
 

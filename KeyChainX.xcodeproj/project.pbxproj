@@ -31,6 +31,8 @@
 		A034A3932A994BAE00E27893 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A034A3922A994BAE00E27893 /* NoteView.swift */; };
 		A03F9CA12A3A1935003B9CB9 /* KeysBackupInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F9CA02A3A1935003B9CB9 /* KeysBackupInfoObject.swift */; };
 		A047651E23DDABE2005B8547 /* KeyItemForm+Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */; };
+		A0515AAB2B285B8100081C8C /* AppDelegare+SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0515AAA2B285B8100081C8C /* AppDelegare+SwiftData.swift */; };
+		A0515AAC2B285B8100081C8C /* AppDelegare+SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0515AAA2B285B8100081C8C /* AppDelegare+SwiftData.swift */; };
 		A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */; };
 		A0550B40257E372000DF5F99 /* FieldValidatorLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = A0550B3F257E372000DF5F99 /* FieldValidatorLibrary */; };
 		A0550B48257E6D7E00DF5F99 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0550B47257E6D7E00DF5F99 /* Keyboard.swift */; };
@@ -125,6 +127,7 @@
 		A034A3922A994BAE00E27893 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		A03F9CA02A3A1935003B9CB9 /* KeysBackupInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysBackupInfoObject.swift; sourceTree = "<group>"; };
 		A047651D23DDABE2005B8547 /* KeyItemForm+Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyItemForm+Password.swift"; sourceTree = "<group>"; };
+		A0515AAA2B285B8100081C8C /* AppDelegare+SwiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegare+SwiftData.swift"; sourceTree = "<group>"; };
 		A0533DC324EAE6C4009C784B /* FieldValidator+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FieldValidator+Helpers.swift"; sourceTree = "<group>"; };
 		A0550B47257E6D7E00DF5F99 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		A0570C1827F1BB2700362297 /* Shared */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Shared; sourceTree = "<group>"; };
@@ -242,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				A08467FF27F208E400B6B72F /* MCSecretService.swift */,
+				A0515AAA2B285B8100081C8C /* AppDelegare+SwiftData.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -521,7 +525,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				ORGANIZATIONNAME = "Bartolomeo Sorrentino";
 				TargetAttributes = {
 					A0C0DB5222A901AD003B09ED = {
@@ -708,6 +712,7 @@
 				5F01277723B776EE0033E2B9 /* KeyItemListRestoreView.swift in Sources */,
 				A0B292322A389F1E00E33B80 /* KeyItemList+Preferred.swift in Sources */,
 				A08467FE27F207A000B6B72F /* MCSecretsService+IOSExtension.swift in Sources */,
+				A0515AAB2B285B8100081C8C /* AppDelegare+SwiftData.swift in Sources */,
 				A030CB1723AF91C300337764 /* KeyItemForm+Group.swift in Sources */,
 				A0533DC424EAE6C4009C784B /* FieldValidator+Helpers.swift in Sources */,
 				A034A3932A994BAE00E27893 /* NoteView.swift in Sources */,
@@ -752,6 +757,7 @@
 			files = (
 				A084680127F208E400B6B72F /* MCSecretService.swift in Sources */,
 				A0C1D2AA2521F36400737766 /* MacKeyChainX.xcdatamodeld in Sources */,
+				A0515AAC2B285B8100081C8C /* AppDelegare+SwiftData.swift in Sources */,
 				A0C1D2A72521F36400737766 /* ContentView.swift in Sources */,
 				A0C1D2A52521F36400737766 /* AppDelegate.swift in Sources */,
 				5FDEAA6E2624C9BD000AF83C /* MacSearchBar.swift in Sources */,
@@ -829,6 +835,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -862,6 +869,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -876,8 +884,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -891,6 +899,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -924,6 +933,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -932,8 +942,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1098,7 +1108,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1127,7 +1137,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1151,7 +1161,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainXTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1176,7 +1186,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainXTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1200,7 +1210,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainXUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1224,7 +1234,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.MacKeyChainXUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
