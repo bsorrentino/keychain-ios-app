@@ -30,23 +30,21 @@ func isUrl( _ url:String ) -> Bool {
 
 struct  UrlField : View {
     
-    @Binding var value:String
+    var value:String
 
     var body: some View {
-        NavigationLink( destination: UrlView( value: $value) ) {
-            HStack {
-                Image( systemName: "link.circle").resizable().frame(width: 20, height: 20, alignment: .leading)
-                if( value.isEmpty ) {
-                    Text( "tap to choose url" )
-                        .foregroundColor(.gray)
-                        .italic()
-                }
-                else {
-                    Text(value )
-                }
+        HStack {
+            Image( systemName: "link.circle").resizable().frame(width: 20, height: 20, alignment: .leading)
+            if( value.isEmpty ) {
+                Text( "tap to choose url" )
+                    .foregroundColor(.gray)
+                    .italic()
             }
-            .padding(EdgeInsets( top: 20, leading: 0, bottom: 20, trailing: 0))
+            else {
+                Text(value )
+            }
         }
+        .padding(EdgeInsets( top: 20, leading: 0, bottom: 20, trailing: 0))
     }
     
 }
@@ -56,11 +54,7 @@ struct UrlView: View {
 
     @Environment(\.presentationMode) var presentationMode
 
-    @Binding var value:String {
-        
-        willSet {
-        }
-    }
+    @Binding var field:String
     
     @StateObject var urlValid = FieldChecker2<String>()
     @State var urlReload = false
@@ -71,7 +65,7 @@ struct UrlView: View {
         VStack( spacing: 2.0 ) {
             
             TextField( "insert url",
-                       text: $value.onValidate(checker: urlValid) { v in
+                       text: $field.onValidate(checker: urlValid) { v in
                    
                     if( v.isEmpty ) {
                        return "url cannot be empty !"
@@ -97,7 +91,7 @@ struct UrlView: View {
             Divider()
             
             
-            WebView( url: URL( string: value), reload:$urlReload )
+            WebView( url: URL( string: field), reload:$urlReload )
             
         }
         //.padding()
@@ -117,10 +111,10 @@ struct UrlView: View {
     }
     
     private func openUrl() {
-        let capuredGroups = parseUrl(value)
+        let capuredGroups = parseUrl(field)
         
         if( capuredGroups.count == 3  &&  capuredGroups[1].isEmpty ) {
-            self.value = "https://\(capuredGroups[2])"
+            self.field = "https://\(capuredGroups[2])"
         }
 
         urlReload = urlValid.valid
@@ -131,7 +125,7 @@ struct UrlView: View {
 struct KeyItemForm_Url_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            UrlView( value: .constant( "https://www.google.com"))
+            UrlView( field: .constant( "https://www.google.com"))
         }
     }
 }

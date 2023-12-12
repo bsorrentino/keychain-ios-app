@@ -12,7 +12,7 @@ import SwiftUI
 
 struct NoteField : View {
     
-    @Binding var value:String
+    var value:String
 
     func message() -> some View {
         if( self.value.isEmpty ) {
@@ -29,19 +29,16 @@ struct NoteField : View {
     
     var body: some View {
         
-        NavigationLink( destination: KeyItemNote( value: $value) ) {
-            
-            HStack(alignment: .center) {
-                Image( systemName: "doc.circle").resizable().frame(width: 20, height: 20, alignment: .leading)
-                GeometryReader { geometry in
-                    self.message()
-                    .frame(width: geometry.size.width ,
-                           height: geometry.size.height,
-                           alignment: .leading)
-                }
+        HStack(alignment: .center) {
+            Image( systemName: "doc.circle").resizable().frame(width: 20, height: 20, alignment: .leading)
+            GeometryReader { geometry in
+                self.message()
+                .frame(width: geometry.size.width ,
+                       height: geometry.size.height,
+                       alignment: .leading)
             }
-            .padding(EdgeInsets( top: 20, leading: 0, bottom: 20, trailing: 0))
         }
+        .padding(EdgeInsets( top: 20, leading: 0, bottom: 20, trailing: 0))
     }
 
     
@@ -50,14 +47,14 @@ struct NoteField : View {
 
 struct KeyItemNote : View {
     @Environment(\.presentationMode) private var presentationMode
-    @Binding var value:String
+    @Binding var field:String
     
     var body: some View {
 
         VStack {
             Divider()
             //        NoteTextView( text: self.$value )
-            NoteView( text: self.$value )
+            NoteView( text: self.$field )
                 .navigationBarTitle( Text("Note"), displayMode: .inline  )
                 .navigationBarItems(trailing: Button("done") {
                     self.presentationMode.wrappedValue.dismiss()
@@ -68,12 +65,7 @@ struct KeyItemNote : View {
     }
 }
 
-#if DEBUG
-struct Note_Previews : PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            KeyItemNote( value: .constant("TEST") )
-        }
-    }
+#Preview {
+    KeyItemNote( field: .constant("TEST") )
 }
-#endif
+

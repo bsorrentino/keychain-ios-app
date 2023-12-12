@@ -30,7 +30,7 @@ public struct CopyToClipboardButton: View {
                 UIPasteboard.general.string = self.value
             #elseif os(macOS)
                 NSPasteboard.general.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
-                NSPasteboard.general.setString(self.value, forType: .string)
+                NSPasteboard.general.setString(self.field, forType: .string)
             #endif
             // Toggle the task completion state.
             taskIsComplete.toggle()

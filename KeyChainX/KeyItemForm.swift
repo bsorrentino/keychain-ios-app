@@ -30,7 +30,7 @@ struct KeyEntityForm : View {
     @StateObject var passwordCheck = FieldChecker2<String>()
     @StateObject var mnemonicCheck = FieldChecker2<String>()
     @StateObject var usernameCheck = FieldChecker2<String>()
-
+    
     // https://forums.swift.org/t/state-vars-didset-fix-or-prohibition/53161/9
 //    @State var username_mail_setter: String = "" {
 //        didSet {
@@ -55,7 +55,6 @@ struct KeyEntityForm : View {
     }
 
     var body: some View {
-        NavigationView {
             Form {
                 
                 if( item.isNew ) {
@@ -76,10 +75,19 @@ struct KeyEntityForm : View {
                     
                 }
                 Section( header: Text("Other")) {
-                    GroupField( value:$item.groupPrefix )
-                    EmailField( value:$item.mail )
-                    UrlField( value:$item.url )
-                    NoteField( value:$item.note)
+                    NavigationLink( destination: { GroupList( field: $item.groupPrefix ) } ) {
+                        GroupField( value: item.groupPrefix )
+                    }
+                    NavigationLink( destination: {
+                        EmailList( field: username_mail_setter_binding )} ) {
+                        EmailField( value: item.mail )
+                    }
+                    NavigationLink( destination: { UrlView( field: $item.url  ) } ) {
+                        UrlField( value: item.url )
+                    }
+                    NavigationLink( destination: {KeyItemNote( field: $item.note)} ) {
+                        NoteField( value: item.note)
+                    }
                 }
             }
             .navigationBarTitle( Text( item.mnemonic.uppercased()), displayMode: .inline  )
@@ -90,42 +98,36 @@ struct KeyEntityForm : View {
                 saveButton()
             )
             .onAppear {
-                if( !item.isNew ) {
-                    
-                    if( !item.url.isEmpty ) {
+                if( !item.isNew && !item.url.isEmpty ) {
                         
-                        SharedModule.getWebSharedPassword(forUsername: item.username, fromUrl: item.url) { result in
-                            
-                            switch result {
-                            case .success(let password):
-                                if password != nil {
-                                    // If found password in the Shared Web Credentials,
-                                    // then log into the server
-                                    // and save the password to the Keychain
+                    SharedModule.getWebSharedPassword(forUsername: item.username, fromUrl: item.url) { result in
+                        
+                        switch result {
+                        case .success(let password):
+                            if password != nil {
+                                // If found password in the Shared Web Credentials,
+                                // then log into the server
+                                // and save the password to the Keychain
 
-                                    logger.trace( "password for site \(item.url) and user \(item.username) is \(String(describing: password),privacy: .private )")
-                                } else {
-                                    // If not found password either in the Keychain also Shared Web Credentials,
-                                    // prompt for username and password
+                                logger.trace( "password for site \(item.url) and user \(item.username) is \(String(describing: password),privacy: .private )")
+                            } else {
+                                // If not found password either in the Keychain also Shared Web Credentials,
+                                // prompt for username and password
 
-                                    // Log into server
+                                // Log into server
 
-                                    // If the login is successful,
-                                    // save the credentials to both the Keychain and the Shared Web Credentials.
-                                    logger.trace( "password for site \(item.url) and user \(item.username) not found!")
-                                }
-
-                            case .failure(let error):
-                                logger.warning( "WARN: getWebSharedPassword()\n\(error.localizedDescription)")
+                                // If the login is successful,
+                                // save the credentials to both the Keychain and the Shared Web Credentials.
+                                logger.trace( "password for site \(item.url) and user \(item.username) not found!")
                             }
+
+                        case .failure(let error):
+                            logger.warning( "WARN: getWebSharedPassword()\n\(error.localizedDescription)")
                         }
+                        
                     }
                 }
                 
-            }
-        } // NavigationView
-        .navigationDestination(isPresented: $pickUsernameFromMail ) {
-            EmailList( value: username_mail_setter_binding )
         }
     }
 }
@@ -311,15 +313,18 @@ extension KeyEntityForm {
 
 #Preview {
     
-    KeyEntityForm( item:KeyItem() )
-        .environment(\.colorScheme, .light)
-        .modelContainer( UIApplication.shared.modelContainer )
+    NavigationStack {
+        KeyEntityForm( item:KeyItem() )
+            .environment(\.colorScheme, .light)
+            .modelContainer( UIApplication.shared.modelContainer )
+    }
 }
 
 #Preview {
     
-    KeyEntityForm( item:KeyItem() )
-        .environment(\.colorScheme, .dark)
-        .modelContainer( UIApplication.shared.modelContainer )
-
+    NavigationStack {
+        KeyEntityForm( item:KeyItem() )
+            .environment(\.colorScheme, .dark)
+            .modelContainer( UIApplication.shared.modelContainer )
+    }
 }

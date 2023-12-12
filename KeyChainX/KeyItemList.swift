@@ -92,7 +92,7 @@ struct KeyItemList: View {
                 }
             }
             .navigationDestination(isPresented: $formActive ) {
-                KeyEntityForm(item:newItem)
+                KeyEntityForm( item:newItem )
             }
             .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
             .navigationBarTitle( Text("Key List"), displayMode: .inline )
@@ -142,10 +142,16 @@ extension KeyItemList {
 
 #Preview {
     
-    ForEach(ColorScheme.allCases, id: \.self) {
-        KeyItemList()
-            .modelContainer( UIApplication.shared.modelContainer)
-            .preferredColorScheme($0)
-    }
+    KeyItemList()
+        .modelContainer( UIApplication.shared.modelContainer)
+        .preferredColorScheme(.light)
+
+}
+
+#Preview {
+    
+    KeyItemList()
+        .modelContainer( UIApplication.shared.modelContainer)
+        .preferredColorScheme(.dark)
 
 }
