@@ -22,7 +22,7 @@ import SwiftData
     var preferred: Bool?
     @Attribute(.ephemeral) var sectionId: String?
     var url: String?
-    var username: String = ""
+    public var username: String = ""
     
 
     public init( mnemonic: String = "",
@@ -100,6 +100,7 @@ enum KeyInfoCodingKeys : String, CodingKey {
 
 
 extension KeyInfo {
+
 
     public func isGroup() -> Bool  {
         self.groupPrefix != nil && !self.group

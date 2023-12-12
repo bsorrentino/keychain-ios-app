@@ -18,17 +18,17 @@ extension KeyItemList {
     
     private struct CellView : View {
         
-        @ObservedObject var item: KeyItem
+        var entity: KeyInfo
         
         var body: some View {
             HStack(alignment: .center) {
-                let subtitle = item.isGroup ? item.groupPrefix ?? "" : item.username
+                let subtitle = entity.isGroup() ? entity.groupPrefix ?? "" : entity.username
                 Image( systemName: "lock.circle.fill")
                     .resizable()
                     .frame( width: 32, height: 32, alignment: .leading)
                     .padding( CELL_IMAGE_PADDING )
                 VStack(alignment: .leading) {
-                    Text(item.mnemonic).font( .title3)
+                    Text(entity.mnemonic).font( .title3)
                     Text(subtitle).font( .subheadline ).italic().lineLimit(1)
                 }
             }
@@ -45,13 +45,11 @@ extension KeyItemList {
         
         var entity:     KeyInfo
         var onClone:    CellViewHandler?
-        @StateObject private var item:KeyItem
         
         init( entity:KeyInfo, onClone: CellViewHandler? = nil) {
         
             self.entity = entity
             self.onClone = onClone
-            self._item = StateObject( wrappedValue: KeyItem( entity: entity ) )
             
         }
         
@@ -74,9 +72,9 @@ extension KeyItemList {
         var body: some View {
             
             NavigationLink {
-                KeyEntityForm( item: item )
+                KeyEntityForm( from: entity, clone: false )
             } label: {
-                KeyItemList.CellView( item: item)
+                KeyItemList.CellView( entity: entity )
             }
             .alert( item: $alertInfo ) { info in
                 Alert(
@@ -180,8 +178,8 @@ extension KeyItemList {
         
         var body: some View {
             
-            NavigationLink {
-                GroupKeyItemList_IOS15( groupEntity: groupEntity )
+            NavigationLink( ) {
+                GroupKeyItemList( groupEntity: groupEntity )
             } label: {
                 KeyItemList.GroupView( groupEntity: groupEntity )
             }

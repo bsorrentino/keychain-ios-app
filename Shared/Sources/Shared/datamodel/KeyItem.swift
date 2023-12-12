@@ -151,19 +151,23 @@ public class KeyItem : ObservableObject, Decodable {
         return entity
     }
 
-    public func copy( from entity: KeyInfo ) {
-        self.mnemonic       = "\(entity.mnemonic)_1"
-        self.username       = entity.username
-        self.mail           = entity.mail ?? ""
-        self.group          = entity.group
-        self.groupPrefix    = entity.groupPrefix
-        self.expire         = entity.expire
-        self.url            = entity.url ?? ""
-        self.shared         = false
-        self.note           = ""
-        self.password       = ""
-        self.preferred      = entity.preferred ?? false
+    public static func clone( from entity: KeyInfo ) -> KeyItem {
+        
+        let item = KeyItem()
+        
+        item.mnemonic       = "\(entity.mnemonic)_1"
+        item.username       = entity.username
+        item.mail           = entity.mail ?? ""
+        item.group          = entity.group
+        item.groupPrefix    = entity.groupPrefix
+        item.expire         = entity.expire
+        item.url            = entity.url ?? ""
+        item.shared         = false
+        item.note           = ""
+        item.password       = ""
+        item.preferred      = entity.preferred ?? false
 
+        return item
     }
     
     public func attach( entity: KeyInfo ) throws {

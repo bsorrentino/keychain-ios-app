@@ -27,8 +27,13 @@ struct AlertInfo: Identifiable {
     
 }
 
+class FormStatus : ObservableObject {
+    @Published var active: Bool = false
+    var entity: KeyInfo?
+    var clone = false
+}
+
 struct KeyItemList: View {
-    
     @Environment(\.modelContext) var context
     
     // Id of KeyItemList view. when change the view is forced to be updated
@@ -37,10 +42,8 @@ struct KeyItemList: View {
     //    @State private var keyItemListId:Int = 0
     
     @State private var searchText = ""
-    @State private var formActive = false
+    @StateObject private var formStatus = FormStatus()
     @State private var isExpanded = true
-    
-    @StateObject private var newItem = KeyItem()
     
     ///
     /// CellViewLinkGroup
@@ -56,8 +59,9 @@ struct KeyItemList: View {
         else {
             CellViewLink( entity: key,
                           onClone: {
-                newItem.copy(from: key)
-                formActive.toggle()
+                formStatus.entity = key
+                formStatus.clone = true
+                formStatus.active = true
             })
             .listRowInsets( EdgeInsets() )
         }
@@ -79,20 +83,19 @@ struct KeyItemList: View {
                 }
                .listStyle(.sidebar)
             }
-            // enable force refresh
-            //.id( keyItemListId )
             .toolbar {
                 
                 ToolbarItem( placement: .navigationBarTrailing ) {
                     Button {
-                        formActive.toggle()
+                        formStatus.entity = nil
+                        formStatus.active = true
                     } label: {
                         Text("Add")
                     }
                 }
             }
-            .navigationDestination(isPresented: $formActive ) {
-                KeyEntityForm( item:newItem )
+            .navigationDestination( isPresented: $formStatus.active ) {
+                KeyEntityForm( from: formStatus.entity, clone: formStatus.clone )
             }
             .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
             .navigationBarTitle( Text("Key List"), displayMode: .inline )

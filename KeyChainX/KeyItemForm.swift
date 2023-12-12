@@ -21,7 +21,7 @@ struct KeyEntityForm : View {
     @State private  var pickUsernameFromMail    = false
     @State private  var alertItem:AlertItem?
 
-    @ObservedObject var item:KeyItem
+    @StateObject var item:KeyItem
     
     private let bg = Color(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, opacity: 0.2)
                     //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
@@ -31,6 +31,20 @@ struct KeyEntityForm : View {
     @StateObject var mnemonicCheck = FieldChecker2<String>()
     @StateObject var usernameCheck = FieldChecker2<String>()
     
+    
+    init( from entity: KeyInfo? = nil, clone:Bool ) {
+        if let entity  {
+            if clone {
+                self._item = StateObject( wrappedValue: KeyItem.clone( from: entity ) )
+            }
+            else {
+                self._item = StateObject( wrappedValue: KeyItem( entity: entity ) )
+            }
+        }
+        else {
+            self._item = StateObject( wrappedValue: KeyItem() )
+        }
+    }
     // https://forums.swift.org/t/state-vars-didset-fix-or-prohibition/53161/9
 //    @State var username_mail_setter: String = "" {
 //        didSet {
@@ -314,7 +328,7 @@ extension KeyEntityForm {
 #Preview {
     
     NavigationStack {
-        KeyEntityForm( item:KeyItem() )
+        KeyEntityForm( from: KeyInfo(), clone: false )
             .environment(\.colorScheme, .light)
             .modelContainer( UIApplication.shared.modelContainer )
     }
@@ -323,7 +337,7 @@ extension KeyEntityForm {
 #Preview {
     
     NavigationStack {
-        KeyEntityForm( item:KeyItem() )
+        KeyEntityForm( from: KeyInfo(), clone: false )
             .environment(\.colorScheme, .dark)
             .modelContainer( UIApplication.shared.modelContainer )
     }

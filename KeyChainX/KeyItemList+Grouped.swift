@@ -9,7 +9,7 @@
 import SwiftUI
 import Shared
 
-struct GroupKeyItemList_IOS15: View {
+struct GroupKeyItemList: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
@@ -39,16 +39,8 @@ struct GroupKeyItemList_IOS15: View {
     }
 }
 
-struct GroupKeyItemList_IOS15_Previews: PreviewProvider {
-    
-    static func prepareItem() -> KeyInfo {
-        KeyInfo( groupPrefix: "AG0")
-    }
-    
-    static var previews: some View {
-    
-        GroupKeyItemList_IOS15( groupEntity: prepareItem() )
-            .modelContainer( UIApplication.shared.modelContainer )
+#Preview {
+    GroupKeyItemList( groupEntity: KeyInfo( groupPrefix: "AG0") )
+        .modelContainer( UIApplication.shared.modelContainer )
 
-    }
 }
