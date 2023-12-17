@@ -13,15 +13,15 @@ import Shared
 
 
 struct KeyEntityForm : View {
-    @Environment(\.presentationMode)        var presentationMode
-    @Environment(\.managedObjectContext)    var managedObjectContext
-    @Environment(\.colorScheme)             var colorScheme: ColorScheme
+    @Environment(\.presentationMode)    var presentationMode
+    @Environment(\.modelContext)        var context
+    @Environment(\.colorScheme)         var colorScheme: ColorScheme
     
     @State          var secretState:SecretState = .hide
     @State private  var pickUsernameFromMail    = false
     @State private  var alertItem:AlertItem?
 
-    @ObservedObject var item:KeyItem
+    @StateObject var item:KeyItem
     
     private let bg = Color(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, opacity: 0.2)
                     //Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
@@ -30,7 +30,21 @@ struct KeyEntityForm : View {
     @StateObject var passwordCheck = FieldChecker2<String>()
     @StateObject var mnemonicCheck = FieldChecker2<String>()
     @StateObject var usernameCheck = FieldChecker2<String>()
-
+    
+    
+    init( from entity: KeyInfo? = nil, clone:Bool ) {
+        if let entity  {
+            if clone {
+                self._item = StateObject( wrappedValue: KeyItem.clone( from: entity ) )
+            }
+            else {
+                self._item = StateObject( wrappedValue: KeyItem( entity: entity ) )
+            }
+        }
+        else {
+            self._item = StateObject( wrappedValue: KeyItem() )
+        }
+    }
     // https://forums.swift.org/t/state-vars-didset-fix-or-prohibition/53161/9
 //    @State var username_mail_setter: String = "" {
 //        didSet {
@@ -55,7 +69,6 @@ struct KeyEntityForm : View {
     }
 
     var body: some View {
-        NavigationView {
             Form {
                 
                 if( item.isNew ) {
@@ -76,10 +89,19 @@ struct KeyEntityForm : View {
                     
                 }
                 Section( header: Text("Other")) {
-                    GroupField( value:$item.groupPrefix )
-                    EmailField( value:$item.mail )
-                    UrlField( value:$item.url )
-                    NoteField( value:$item.note)
+                    NavigationLink( destination: { GroupList( field: $item.groupPrefix ) } ) {
+                        GroupField( value: item.groupPrefix )
+                    }
+                    NavigationLink( destination: {
+                        EmailList( field: username_mail_setter_binding )} ) {
+                        EmailField( value: item.mail )
+                    }
+                    NavigationLink( destination: { UrlView( field: $item.url  ) } ) {
+                        UrlField( value: item.url )
+                    }
+                    NavigationLink( destination: {KeyItemNote( field: $item.note)} ) {
+                        NoteField( value: item.note)
+                    }
                 }
             }
             .navigationBarTitle( Text( item.mnemonic.uppercased()), displayMode: .inline  )
@@ -90,41 +112,37 @@ struct KeyEntityForm : View {
                 saveButton()
             )
             .onAppear {
-                if( !item.isNew ) {
-                    
-                    if( !item.url.isEmpty ) {
+                if( !item.isNew && !item.url.isEmpty ) {
                         
-                        SharedModule.getWebSharedPassword(forUsername: item.username, fromUrl: item.url) { result in
-                            
-                            switch result {
-                            case .success(let password):
-                                if password != nil {
-                                    // If found password in the Shared Web Credentials,
-                                    // then log into the server
-                                    // and save the password to the Keychain
+                    SharedModule.getWebSharedPassword(forUsername: item.username, fromUrl: item.url) { result in
+                        
+                        switch result {
+                        case .success(let password):
+                            if password != nil {
+                                // If found password in the Shared Web Credentials,
+                                // then log into the server
+                                // and save the password to the Keychain
 
-                                    logger.trace( "password for site \(item.url) and user \(item.username) is \(String(describing: password),privacy: .private )")
-                                } else {
-                                    // If not found password either in the Keychain also Shared Web Credentials,
-                                    // prompt for username and password
+                                logger.trace( "password for site \(item.url) and user \(item.username) is \(String(describing: password),privacy: .private )")
+                            } else {
+                                // If not found password either in the Keychain also Shared Web Credentials,
+                                // prompt for username and password
 
-                                    // Log into server
+                                // Log into server
 
-                                    // If the login is successful,
-                                    // save the credentials to both the Keychain and the Shared Web Credentials.
-                                    logger.trace( "password for site \(item.url) and user \(item.username) not found!")
-                                }
-
-                            case .failure(let error):
-                                logger.warning( "WARN: getWebSharedPassword()\n\(error.localizedDescription)")
+                                // If the login is successful,
+                                // save the credentials to both the Keychain and the Shared Web Credentials.
+                                logger.trace( "password for site \(item.url) and user \(item.username) not found!")
                             }
+
+                        case .failure(let error):
+                            logger.warning( "WARN: getWebSharedPassword()\n\(error.localizedDescription)")
                         }
+                        
                     }
                 }
                 
-            }
-        } // NavigationView
-        
+        }
     }
 }
 
@@ -201,9 +219,7 @@ extension KeyEntityForm {
                     return nil
                 })
                 .autocapitalization(.none)
-                NavigationLink( destination: EmailList( value: username_mail_setter_binding ), isActive:$pickUsernameFromMail  ) {
-                       EmptyView()
-                }
+                NavigationLink("email") { }
                 .hidden()
             }
             Button( action: {
@@ -220,6 +236,7 @@ extension KeyEntityForm {
         }
         .padding( EdgeInsets(top:5, leading: 0, bottom: 25, trailing: 0) )
         .modifier(ValidatorMessageModifier( message:usernameCheck.errorMessage ))
+        
 
     }
 
@@ -286,8 +303,12 @@ extension KeyEntityForm {
         return Future { promise in
             
             do {
-                try self.item.insert( into: self.managedObjectContext )
-                try self.managedObjectContext.save()
+                if item.isNew {
+                    try self.item.insert( into: self.context )
+                }
+                else {
+                    try self.item.update( into: self.context )
+                }
 
                 promise(.success(()))
             }
@@ -309,22 +330,20 @@ extension KeyEntityForm {
 // MARK: -
 //
 
-#if DEBUG
-import KeychainAccess
-
-struct KeyItemDetail_Previews : PreviewProvider {
-    static var previews: some View {
-        // @see https://www.hackingwithswift.com/quick-start/swiftui/how-to-preview-your-layout-in-light-and-dark-mode
-        
-        
-        Group {
-            KeyEntityForm( item:KeyItem() )
-               .environment(\.colorScheme, .light)
-
-            KeyEntityForm( item:KeyItem() )
-               .environment(\.colorScheme, .dark)
-         }
+#Preview {
+    
+    NavigationStack {
+        KeyEntityForm( from: KeyInfo(), clone: false )
+            .environment(\.colorScheme, .light)
+            .modelContainer( previewContainer )
     }
 }
-#endif
+
+#Preview {
     
+    NavigationStack {
+        KeyEntityForm( from: KeyInfo(), clone: false )
+            .environment(\.colorScheme, .dark)
+            .modelContainer( previewContainer )
+    }
+}

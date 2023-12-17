@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftData
 import Combine
 import FieldValidatorLibrary
 import Shared
@@ -24,165 +25,136 @@ extension String {
 
 struct EmailField : View {
     
-    @Binding var value:String
-
-    var body: some View {
-        NavigationLink( destination: EmailList( value: $value) ) {
-            HStack {
-                Image( systemName: "envelope.circle")
-                    .resizable().frame(width: 20, height: 20, alignment: .leading)
-                if( value.isEmpty ) {
-                    Text( "tap to choose email" )
-                        .foregroundColor(.gray)
-                        .italic()
-                }
-                else {
-                    Text(value )
-                }
-            }
-            .padding(EdgeInsets( top: 20, leading: 0, bottom: 20, trailing: 0))
-        }
-    }
-
+    var value:String
     
+    var body: some View {
+        HStack {
+            Image( systemName: "envelope.circle")
+                .resizable().frame(width: 20, height: 20, alignment: .leading)
+            if( value.isEmpty ) {
+                Text( "tap to choose email" )
+                    .foregroundColor(.gray)
+                    .italic()
+            }
+            else {
+                Text(value )
+            }
+        }
+        .padding(EdgeInsets( top: 20, leading: 0, bottom: 20, trailing: 0))
+    }
 }
 
 
 struct EmailList: View {
-
-    @Environment(\.presentationMode) var presentationMode
-
-    @Binding var value:String
-    @Environment(\.managedObjectContext) var context
     
-    //@FetchRequest( fetchRequest:MailEntity.fetchAllMail() )
-    @FetchRequest( fetchRequest:MailEntity.fetchRequest())
-    var mails:FetchedResults<MailEntity>
+    @Environment(\.presentationMode) var presentationMode
+    
+    @Binding var field:String
+    
+    @Environment(\.modelContext) var context
+    
+    @Query( sort: \AttributeInfo.value, animation: .default)
+    var mails: [AttributeInfo]
     
     @StateObject var mailValid = FieldChecker2<String>()
     @State var newMail:String = ""
-
+    
     var validateChecks = 0
     
     var body: some View {
         
-        //NavigationView {
-            
-            List {
-                Section(header: Text("New Mail")) {
-                    
-                    HStack {
-                        TextField( "insert email", text: $newMail.onValidate(checker: mailValid ) { v in
+        List {
+            Section(header: Text("New Mail")) {
+                
+                HStack {
+                    TextField( "insert email", text: $newMail.onValidate(checker: mailValid ) { v in
                         
-                                if( v.isEmpty ) {
-                                   return "mail cannot be empty !"
-                                }
-                                if( !v.isEmail() ) {
-                                    return "mail is not in correct format"
-                                }
-                               
-                               return nil
-                        })
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                        .textContentType(.emailAddress)
-                        .keyboardType(.emailAddress)
-                        .font(.body)
-                        .padding( .bottom, 25  )
-                        .modifier( ValidatorMessageModifier( message: mailValid.errorMessageOrNilAtBeginning ) )
-                        addButton()
-                    }
-                    
-                }
-                .font( .headline )
-                
-                
-                Section(header: Text("Mails")) {
-                    ForEach( mails, id: \MailEntity.value ) { (mail:MailEntity) in
-                        Text( mail.value ?? "unknown")
-                            .font( .body ).onTapGesture(perform: {
-                                self.value = mail.value ?? "unknown"
-                                self.presentationMode.wrappedValue.dismiss()
-                            })
+                        if( v.isEmpty ) {
+                            return "mail cannot be empty !"
+                        }
+                        if( !v.isEmail() ) {
+                            return "mail is not in correct format"
+                        }
                         
-                    }
-                    .onDelete( perform: delete)
-                
-
+                        return nil
+                    })
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                    .textContentType(.emailAddress)
+                    .keyboardType(.emailAddress)
+                    .font(.body)
+                    .padding( .bottom, 25  )
+                    .modifier( ValidatorMessageModifier( message: mailValid.errorMessageOrNilAtBeginning ) )
+                    addButton()
                 }
-                .font( .headline )
+                
             }
-            .navigationBarTitle( Text("email"), displayMode: .inline )
-            .navigationBarItems(
-                 trailing: EditButton())
-         //}
-    
+            .font( .headline )
+            
+            
+            Section(header: Text("Mails")) {
+                //                    ForEach( mails, id: \MailEntity.value ) { (mail:MailEntity) in
+                ForEach( mails, id: \AttributeInfo.value ) { (mail:AttributeInfo) in
+                    Text( mail.value ?? "unknown")
+                        .font( .body ).onTapGesture(perform: {
+                            self.field = mail.value ?? "unknown"
+                            self.presentationMode.wrappedValue.dismiss()
+                        })
+                    
+                }
+                .onDelete( perform: delete)
+                
+                
+            }
+            .font( .headline )
+        }
+        .navigationBarTitle( Text("email"), displayMode: .inline )
+        .navigationBarItems( trailing: EditButton() )
     }
     
     func addButton() -> some View {
         Button( action: {
-              self.insert()
-          }) {
-              Image( systemName: "plus.circle.fill" )
+            self.insert()
+        }) {
+            Image( systemName: "plus.circle.fill" )
                 .foregroundColor( mailValid.valid ? .green : .accentColor)
-                  .imageScale(.large)
-          }
-          .disabled( !mailValid.valid )
-
-     }
-
-    func insert() {
-        do {
-            let mail = MailEntity(context: self.context)
-            mail.value = self.newMail
-            
-            try self.context.save()
-
-            self.newMail = mailValid.doValidate(value: "")
-
+                .imageScale(.large)
         }
-        catch {
-            logger.warning( """
-                error inserting new mail
-                
-                \(error.localizedDescription)
-                """ )
-        }
-        
+        .disabled( !mailValid.valid )
         
     }
+    
+    
+    
+    
+}
 
+
+extension EmailList {
+    
     func delete( at offsets: IndexSet ) {
         if let first = offsets.first {
             let selectMail = mails[ first ]
             
             context.delete(selectMail)
-
-            do {
-                try self.context.save()
-            }
-            catch {
-                logger.warning( """
-                    error deleting new mail
-                    
-                    \(error.localizedDescription)
-                    """ )
-            }
         }
+    }
+    
+    func insert() {
+        
+        let mail = AttributeInfo( value: self.newMail )
+        
+        self.context.insert(mail)
+        
+        self.newMail = mailValid.doValidate(value: "")
     }
     
 }
 
-
-#if DEBUG
-struct EmailList_Previews: PreviewProvider {
-    static var previews: some View {
-        // https://stackoverflow.com/questions/57700304/previewing-contentview-with-coredata
-        
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-        return EmailList( value:.constant("")).environment(\.managedObjectContext, context)
-    }
+#Preview {
+    
+    return EmailList( field:.constant(""))
+        .modelContainer( previewContainer )
+    
 }
-#endif
 

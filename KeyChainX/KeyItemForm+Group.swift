@@ -9,32 +9,27 @@
 import SwiftUI
 import FieldValidatorLibrary
 import Shared
+import SwiftData
 
 struct GroupField : View {
     
-    @Binding var value:String?
+    var value:String?
 
     var body: some View {
-        NavigationLink( destination: GroupList( value: $value) ) {
-            HStack {
-                
-                Image( systemName: "folder.fill")
-                if( value?.isEmpty ?? true ) {
-                    Text( "tap to choose section" )
-                        .foregroundColor(.gray)
-                        .italic()
-                }
-                else {
-                    Text( value! )
-                }
+        HStack {
+            
+            Image( systemName: "folder.fill")
+            if( value?.isEmpty ?? true ) {
+                Text( "tap to choose section" )
+                    .foregroundColor(.gray)
+                    .italic()
             }
-            .padding(EdgeInsets( top: 20, leading: 0, bottom: 20, trailing: 0))
-
+            else {
+                Text( value! )
+            }
         }
-        
+        .padding(EdgeInsets( top: 20, leading: 0, bottom: 20, trailing: 0))
     }
-
-    
 }
 
 
@@ -42,64 +37,64 @@ struct GroupList: View {
     
     @Environment(\.presentationMode) var presentationMode
 
-    @Binding var value:String?
-    @Environment(\.managedObjectContext) var context
+    @Binding var field:String?
+    @Environment(\.modelContext) var context
     
-    @FetchRequest( fetchRequest:KeyEntity.fetchGroups() )
-    var groups:FetchedResults<KeyEntity>
+    @Query( KeyInfo.fetchGroups() )
+    var groups: [KeyInfo]
     
     @StateObject var groupValid = FieldChecker2<String>()
     @State var newGroup:String = ""
 
-    private var selectableGroups: [KeyEntity] {
-        groups.filter { e -> Bool in
+    private var selectableGroups: [KeyInfo] {
+        groups.filter { e in
             guard let prefix = e.groupPrefix else { return false }
-            return prefix != value
+            return prefix != field
         }
     }
     var body: some View {
         
-            List {
-                Section(header: Text("New Group")) {
+        List {
+            Section(header: Text("New Group")) {
+                
+                HStack {
+                    TextField( "insert group", text: $newGroup.onValidate( checker: groupValid ) { v in
+                           
+                            if( v.isEmpty ) {
+                               return "group name cannot be empty !"
+                            }
+                           
+                           return nil
+                    })
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                    .font(.body)
                     
-                    HStack {
-                        TextField( "insert group", text: $newGroup.onValidate( checker: groupValid ) { v in
-                               
-                                if( v.isEmpty ) {
-                                   return "group name cannot be empty !"
-                                }
-                               
-                               return nil
-                        })
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                        .font(.body)
-                        
-                        addButton()
-                    }
-                    
+                    addButton()
                 }
-                .font( .headline )
                 
-                
-                Section(header: Text("Group(s)")) {
-                    ForEach( selectableGroups, id: \KeyEntity.self ) { (group:KeyEntity) in
-                        Text( group.mnemonic )
-                            .font( .body ).onTapGesture(perform: {
-                                self.value = group.groupPrefix!
-                                self.presentationMode.wrappedValue.dismiss()
-                            })
-                        
-                    }
-                    .onDelete( perform: delete)
-                
-
-                }
-                .font( .headline )
             }
-            .navigationBarTitle( Text("group"), displayMode: .inline )
-            .navigationBarItems(
-                 trailing: EditButton())
+            .font( .headline )
+            
+            
+            Section(header: Text("Group(s)")) {
+                ForEach( selectableGroups, id: \KeyInfo.self ) { (group:KeyInfo) in
+                    Text( group.mnemonic )
+                        .font( .body ).onTapGesture(perform: {
+                            self.field = group.groupPrefix!
+                            self.presentationMode.wrappedValue.dismiss()
+                        })
+                    
+                }
+                .onDelete( perform: delete)
+            
+
+            }
+            .font( .headline )
+        }
+        .navigationBarTitle( Text("group"), displayMode: .inline )
+        .navigationBarItems(
+             trailing: EditButton())
     
     }
     
@@ -117,19 +112,9 @@ struct GroupList: View {
 
     func insert() {
         // 
-        let _ = KeyEntity.createGroup(context: self.context, groupPrefix: self.newGroup)
+        let group = KeyInfo.createGroup(groupPrefix: self.newGroup )
         
-        do {
-            try self.context.save()
-        }
-        catch {
-            logger.warning( """
-                error inserting new group
-                
-                \(error.localizedDescription)
-                """ )
-
-        }
+        self.context.insert( group )
         
         self.newGroup = ""
     }
@@ -138,40 +123,27 @@ struct GroupList: View {
         if let first = offsets.first {
             let selectGroup = groups[ first ]
             
-            context.delete(selectGroup)
+            KeyInfo.delete(selectGroup, inContext: context)
 
-            do {
-                try self.context.save()
-            }
-            catch {
-                logger.warning( """
-                    error deleting new group
-                    
-                    \(error.localizedDescription)
-                    """ )
-
-            }
         }
     }
         
 }
 
-
-
-#if DEBUG
-struct KeyItemForm_Group_Previews: PreviewProvider {
-    static var previews: some View {
-        // https://stackoverflow.com/questions/57700304/previewing-contentview-with-coredata
-        
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-        return Group() {
-                
-                GroupField(value:.constant("") )
-                //GroupList( value:.constant("") )
-            
-                }.environment(\.managedObjectContext, context)
+#Preview {
+    
+    NavigationView {
+        GroupField(value:"" )
+            .modelContainer( previewContainer )
     }
 }
-#endif
+
+#Preview {
+    
+    NavigationView {
+        GroupField(value:"Group1" )
+            .modelContainer( previewContainer )
+    }
+}
+
 

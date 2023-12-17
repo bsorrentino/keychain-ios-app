@@ -8,7 +8,7 @@
 
 import Foundation
 import FieldValidatorLibrary
-import CoreData
+import SwiftData
 
 
 //
@@ -39,7 +39,7 @@ public class KeyItem : ObservableObject, Decodable {
 
     
     // MARK: Accessory Fields
-    private weak var entity:KeyEntity?
+    private weak var entity:KeyInfo?
         
     public var isNew:Bool { return entity == nil  }
 
@@ -58,7 +58,7 @@ public class KeyItem : ObservableObject, Decodable {
         self.preferred = false
     }
     
-    public init( entity: KeyEntity ) {
+    public init( entity: KeyInfo ) {
         
         let key = entity.mnemonic
         let shared = SharedModule.sharedSecrets.containsSecret(withKey: key)
@@ -66,12 +66,12 @@ public class KeyItem : ObservableObject, Decodable {
         self.mnemonic       = key
         self.username       = entity.username
         self.mail           = entity.mail ?? ""
-        self.group          = entity.group.boolValue
+        self.group          = entity.group
         self.groupPrefix    = entity.groupPrefix
         self.expire         = entity.expire
         self.url            = entity.url ?? ""
         self.shared         = shared
-        self.preferred      = entity.preferred?.boolValue ?? false
+        self.preferred      = entity.preferred ?? false
         
         if let data = (shared) ?
             try? SharedModule.sharedSecrets.getSecret( forKey: key) :
@@ -93,14 +93,19 @@ public class KeyItem : ObservableObject, Decodable {
     // MARK: Decodable
     // MARK: -
     public required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let values = try decoder.container(keyedBy: KeyInfoCodingKeys.self)
         let key = try values.decode(String.self, forKey: .mnemonic)
         
         self.mnemonic = key
         self.username = try values.decode(String.self, forKey: .username)
-        let passwordValue = try values.decode(String.self, forKey: .password)
-        self.password = passwordValue.trimmingCharacters(in: .whitespacesAndNewlines)
-
+        if let passwordValue = try values.decodeIfPresent(String.self, forKey: .password) {
+            self.password = passwordValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        else {
+            logger.warning("password not found for key \(key)")
+            self.password = ""
+        }
         if let prefix = try values.decodeIfPresent(String.self, forKey: .groupPrefix) {
             
             let regex = try NSRegularExpression(pattern: "[-]$", options: .caseInsensitive)
@@ -138,71 +143,88 @@ public class KeyItem : ObservableObject, Decodable {
     }
     
     
-    private func copyTo( entity: KeyEntity ) -> KeyEntity {
+    private func copyTo( entity: KeyInfo ) {
+        
         entity.mnemonic     = self.mnemonic
         entity.username     = self.username
         entity.mail         = self.mail
         entity.groupPrefix  = self.groupPrefix
-        entity.group        = NSNumber( value: group )
+        entity.group        = self.group
         entity.expire       = self.expire
         entity.url          = self.url
-        entity.preferred    = self.preferred ? 1 : 0
-        
-        return entity
+        entity.preferred    = self.preferred
+  
     }
 
-    public func copy( from entity: KeyEntity ) {
-        self.mnemonic       = "\(entity.mnemonic)_1"
-        self.username       = entity.username
-        self.mail           = entity.mail ?? ""
-        self.group          = entity.group.boolValue
-        self.groupPrefix    = entity.groupPrefix
-        self.expire         = entity.expire
-        self.url            = entity.url ?? ""
-        self.shared         = false
-        self.note           = ""
-        self.password       = ""
-        self.preferred      = entity.preferred?.boolValue ?? false
+    public static func clone( from entity: KeyInfo ) -> KeyItem {
+        
+        let item = KeyItem()
+        
+        item.mnemonic       = "\(entity.mnemonic)_1"
+        item.username       = entity.username
+        item.mail           = entity.mail ?? ""
+        item.group          = entity.group
+        item.groupPrefix    = entity.groupPrefix
+        item.expire         = entity.expire
+        item.url            = entity.url ?? ""
+        item.shared         = false
+        item.note           = ""
+        item.password       = ""
+        item.preferred      = entity.preferred ?? false
 
+        return item
     }
     
     @available( macOS, unavailable)
-    public func insert( into context:NSManagedObjectContext ) throws {
+    public func update( using otherEntity: KeyInfo? = nil,  into context:ModelContext ) throws {
+        
+        if otherEntity == nil && self.entity == nil {
+                throw "no entity found!"
+        }
+        
+        if let otherEntity {
+            self.copyTo(entity: otherEntity )
+        }
+        else {
+            self.copyTo(entity: entity! )
+        }
         
         let secret = SecretsManager.Secret( password:self.password, note:self.note)
         
-        if( self.isNew ) {
-            if( self.shared ) {
-                try SharedModule.sharedSecrets.setSecret( forKey: self.mnemonic, secret: secret )
-            }
-            else {
-                try SharedModule.appSecrets.setSecret( forKey: self.mnemonic, secret: secret )
-            }
+        if( self.shared ) {
+            try SharedModule.sharedSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: SharedModule.appSecrets)
         }
         else {
-            if( self.shared ) {
-                try SharedModule.sharedSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: SharedModule.appSecrets)
-            }
-            else {
-                try SharedModule.appSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: SharedModule.sharedSecrets)
-            }
-        }
-        
-        if let entity = self.entity { // Update
-            let _ = self.copyTo(entity: entity )
-        }
-        else { // Create
-            // Check Duplicate
-            if let _ = try SharedModule.fetchSingleIfPresent(context: context, entity: KeyEntity.entity(), predicateFormat: "mnemonic == %@", key: self.mnemonic) {
-                
-                throw SavingError.DuplicateKey(id: self.mnemonic)
-            }
-            
-            let newEntity = KeyEntity( context: context );
-
-            context.insert( self.copyTo(entity: newEntity) )
+            try SharedModule.appSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: SharedModule.sharedSecrets)
         }
 
     }
+
+    @available( macOS, unavailable)
+    public func insert( into context:ModelContext ) throws {
+        
+        // Check Duplicate
+        if let _ = try KeyInfo.fetchSingleIfPresent( mnemonic: self.mnemonic, inContext: context) {
+            
+            throw SavingError.DuplicateKey(id: self.mnemonic)
+        }
+        
+        let newEntity = KeyInfo()
+        
+        self.copyTo(entity: newEntity)
+        
+        context.insert( newEntity )
+
+        let secret = SecretsManager.Secret( password:self.password, note:self.note)
+        
+        if( self.shared ) {
+            try SharedModule.sharedSecrets.setSecret( forKey: self.mnemonic, secret: secret )
+        }
+        else {
+            try SharedModule.appSecrets.setSecret( forKey: self.mnemonic, secret: secret )
+        }
+
+    }
+    
 }
 

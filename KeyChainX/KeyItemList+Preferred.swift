@@ -8,11 +8,11 @@
 
 import SwiftUI
 import Shared
-
+import SwiftData
 
 struct PreferredKeyItemList_IOS15: View {
     
-    @FetchRequest(fetchRequest: KeyEntity.fetchPreferred()) var preferredKeys: FetchedResults<KeyEntity>
+    @Query(KeyInfo.fetchPreferred()) var preferredKeys: [KeyInfo]
     
     var body: some View {
         
@@ -26,7 +26,7 @@ struct PreferredKeyItemList_IOS15: View {
                         
                         ForEach( groupByFirstCharacter[section]!, id: \.mnemonic ) { key in
                             
-                            KeyItemList_iOS15.CellViewLink( entity: key )
+                            KeyItemList.CellViewLink( entity: key )
                             .listRowInsets( EdgeInsets() )
                         }
                     }

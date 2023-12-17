@@ -127,7 +127,7 @@ extension SharedModule  {
         if let url = URL(string: textUrl), let scheme = url.scheme, scheme == "https"  {
             
             let keychain = Keychain(server: textUrl, protocolType: .https)
-            
+           
             if let password = try? keychain.get(username) {
                 logger.trace( "password for site \(url.absoluteString) and user \(username) is \(password)")
                 

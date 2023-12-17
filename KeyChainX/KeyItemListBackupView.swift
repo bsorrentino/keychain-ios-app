@@ -8,30 +8,37 @@
 
 import SwiftUI
 import Shared
+import SwiftData
 
 struct BackupKeysView: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.modelContext) var context
     
-    @FetchRequest( fetchRequest: KeyEntity.fetchRequest() )
-    var keyFethedResults: FetchedResults<KeyEntity>
+    @Query(KeyInfo.fetchOrdered()) var keyFetchedResults: [KeyInfo]
     
     @State private var showReportView = false
     @State private var alertItem:AlertItem?
     
-    @ObservedObject var processingInfo = KeysProcessingReportObject()
+    @StateObject var processingInfo = KeysProcessingReportObject()
     
     @ObservedObject var backupInfo: KeysBackupInfoObject
     
     var body: some View {
         NavigationView {
             
-            FileManagerView(urls: backupInfo.urls ) { url in
-                Text( url.lastPathComponent )
-            }
-            .onChange(of: self.showReportView ) { show in
-                if( show ) {
-                    performBackup()
+            FileManagerView(urls: backupInfo.urls ) { urls in
+                List {
+                    ForEach( urls, id: \.self ) { url in
+                        Text( url.lastPathComponent )
+//                            .deleteDisabled(urls.count < 2)
+                            
+                    }
+                    .onDelete(perform: { indexSet in
+                        backupInfo.deleteFile(at: indexSet)
+                    })
                 }
+            }
+            .onChange(of: self.showReportView ) { (_, _) in
+                performBackup()
             }
             .sheet(isPresented: $showReportView, onDismiss: {
                 if( processingInfo.terminated ) {
@@ -55,7 +62,7 @@ struct BackupKeysView: View {
 
     }
     
-    private func encodeKey( encoder:JSONEncoder, k:KeyEntity ) -> KeyEntity? {
+    private func encodeKey( encoder:JSONEncoder, k:KeyInfo ) -> KeyInfo? {
         
         processingInfo.processed += 1
         
@@ -121,7 +128,7 @@ struct BackupKeysView: View {
         do {
             logger.trace( "backup file: \(url)")
             
-            let keys = keyFethedResults
+            let keys = keyFetchedResults
                 .map( { k in encodeKey(encoder: encoder, k: k ) } )
                 .filter({ data in data != nil} )
             let allEncodedData = try encoder.encode( keys )
@@ -139,23 +146,24 @@ struct BackupKeysView: View {
     
 }
 
-struct BackupKeysView_Previews: PreviewProvider {
-    
-    struct MyPreview : View {
-        
-        @StateObject var backupInfo = KeysBackupInfoObject()
-        
-        var body: some View {
 
-            BackupKeysView( backupInfo: backupInfo )
-        }
-        
+struct MyPreview : View {
+    
+    @StateObject var backupInfo = KeysBackupInfoObject()
+    
+    var body: some View {
+
+        BackupKeysView( backupInfo: backupInfo )
     }
-    static var previews: some View {
-        
-        MyPreview()
-            .environment(\.colorScheme, .dark)
-        MyPreview()
-            .environment(\.colorScheme, .light)
-    }
+    
+}
+
+#Preview {
+    MyPreview()
+        .environment(\.colorScheme, .dark)
+}
+
+#Preview {
+    MyPreview()
+        .environment(\.colorScheme, .light)
 }

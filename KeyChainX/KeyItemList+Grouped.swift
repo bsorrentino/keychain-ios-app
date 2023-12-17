@@ -9,7 +9,7 @@
 import SwiftUI
 import Shared
 
-struct GroupKeyItemList_IOS15: View {
+struct GroupKeyItemList: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
@@ -18,17 +18,17 @@ struct GroupKeyItemList_IOS15: View {
     // @see https://swiftui-lab.com/swiftui-id/
 //    @State private var keyItemListId:Int = 0
     
-    internal var groupEntity: KeyEntity
+    internal var groupEntity: KeyInfo
     
     var body: some View {
         
         NavigationView {
 
-            DynamicFetchRequestView( withGroupPrefix: groupEntity.groupPrefix! ) { results in
+            DynamicQueryView( withGroupPrefix: groupEntity.groupPrefix! ) { results in
                 
                 List( results, id: \.mnemonic ) { key in
                 
-                    KeyItemList_iOS15.CellViewLink( entity: key ) 
+                    KeyItemList.CellViewLink( entity: key ) 
                 }
                 // .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
 
@@ -39,19 +39,8 @@ struct GroupKeyItemList_IOS15: View {
     }
 }
 
-struct GroupKeyItemList_IOS15_Previews: PreviewProvider {
-    
-    static func prepareItem() -> KeyEntity {
-        let groupItem = KeyEntity()
-        groupItem.groupPrefix = "AG0"
-        return groupItem
+#Preview {
+    GroupKeyItemList( groupEntity: KeyInfo( groupPrefix: "AG0") )
+        .modelContainer( previewContainer )
 
-    }
-    
-    static var previews: some View {
-    
-        GroupKeyItemList_IOS15( groupEntity: prepareItem() )
-            .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext)
-
-    }
 }

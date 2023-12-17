@@ -24,10 +24,10 @@ struct FileManagerView<Content> : View where Content : View {
     
     typealias Result = (urls:[URL], error:Error? )
     
-    private var content:(URL) -> Content
+    private var content:([URL]) -> Content
     private var urls:[URL]
     
-    init( urls:[URL], @ViewBuilder _ content: @escaping (URL) -> Content ) {
+    init( urls:[URL], @ViewBuilder _ content: @escaping ([URL]) -> Content ) {
         self.urls = urls
         self.content = content
     }
@@ -35,13 +35,13 @@ struct FileManagerView<Content> : View where Content : View {
     var body: some View {
         
         if( urls.isEmpty ) {
-            Text( "No data found")
+            Text( "No files found!")
                 .font(.title)
         }
         else {
-            List( urls, id: \URL.self ) { url in
-                self.content(url)
-            }
+            //List( urls, id: \URL.self ) { url in
+                self.content(urls)
+            //}
         }
     }
     

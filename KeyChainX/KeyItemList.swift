@@ -27,9 +27,14 @@ struct AlertInfo: Identifiable {
     
 }
 
-struct KeyItemList_iOS15: View {
-    
-    @Environment(\.managedObjectContext) var managedObjectContext
+class FormStatus : ObservableObject {
+    @Published var active: Bool = false
+    var entity: KeyInfo?
+    var clone = false
+}
+
+struct KeyItemList: View {
+    @Environment(\.modelContext) var context
     
     // Id of KeyItemList view. when change the view is forced to be updated
     // @see https://stackoverflow.com/a/65095862
@@ -37,10 +42,8 @@ struct KeyItemList_iOS15: View {
     //    @State private var keyItemListId:Int = 0
     
     @State private var searchText = ""
-    @State private var formActive = false
+    @StateObject private var formStatus = FormStatus()
     @State private var isExpanded = true
-    
-    @StateObject private var newItem = KeyItem()
     
     ///
     /// CellViewLinkGroup
@@ -48,7 +51,7 @@ struct KeyItemList_iOS15: View {
     /// - Parameter key: Key Entity
     /// - Returns: Group View or Cell View
     @ViewBuilder
-    private func CellViewLinkGroup( entity key: KeyEntity ) -> some View {
+    private func CellViewLinkGroup( entity key: KeyInfo ) -> some View {
         if key.isGroup() {
             GroupViewLink( groupEntity: key )
                 .listRowInsets( EdgeInsets() )
@@ -56,8 +59,9 @@ struct KeyItemList_iOS15: View {
         else {
             CellViewLink( entity: key,
                           onClone: {
-                newItem.copy(from: key)
-                formActive.toggle()
+                formStatus.entity = key
+                formStatus.clone = true
+                formStatus.active = true
             })
             .listRowInsets( EdgeInsets() )
         }
@@ -67,7 +71,7 @@ struct KeyItemList_iOS15: View {
         
         NavigationStack {
             
-            DynamicFetchRequestView( withSearchText: searchText ) { results in
+            DynamicQueryView( withSearchText: searchText ) { results in
                 
                 let groupByFirstCharacter = Dictionary( grouping: results, by: { $0.mnemonic.first! })
                 
@@ -79,24 +83,23 @@ struct KeyItemList_iOS15: View {
                 }
                .listStyle(.sidebar)
             }
-            // enable force refresh
-            //.id( keyItemListId )
             .toolbar {
                 
                 ToolbarItem( placement: .navigationBarTrailing ) {
                     Button {
-                        formActive.toggle()
+                        formStatus.entity = nil
+                        formStatus.active = true
                     } label: {
                         Text("Add")
                     }
                 }
             }
-            .navigationDestination(isPresented: $formActive ) {
-                KeyEntityForm(item:newItem)
+            .navigationDestination( isPresented: $formStatus.active ) {
+                KeyEntityForm( from: formStatus.entity, clone: formStatus.clone )
             }
             .searchable(text: $searchText, placement: .automatic, prompt: "search keys")
             .navigationBarTitle( Text("Key List"), displayMode: .inline )
-            .onChange(of: searchText) { _ in
+            .onChange(of: searchText) { (_ ,_)in
                 isExpanded = true
             }
         }
@@ -104,10 +107,10 @@ struct KeyItemList_iOS15: View {
 }
 
 
-extension KeyItemList_iOS15 {
+extension KeyItemList {
  
     @available( iOS 17, *)
-    func Section_iOS17( section: String.Element, groupByFirstCharacter: [String.Element : [FetchedResults<KeyEntity>.Element]] ) -> some View {
+    func Section_iOS17( section: String.Element, groupByFirstCharacter: [String.Element : [KeyInfo]] ) -> some View {
 
         Section( isExpanded: $isExpanded ) 
         {
@@ -121,7 +124,7 @@ extension KeyItemList_iOS15 {
     }
 
     @ViewBuilder
-    func keyItemSection( section: String.Element, groupByFirstCharacter: [String.Element : [FetchedResults<KeyEntity>.Element]] ) -> some View {
+    func keyItemSection( section: String.Element, groupByFirstCharacter: [String.Element : [KeyInfo]] ) -> some View {
         
         if #available(iOS 17, *) {
             Section_iOS17( section: section, groupByFirstCharacter: groupByFirstCharacter)
@@ -142,10 +145,16 @@ extension KeyItemList_iOS15 {
 
 #Preview {
     
-    ForEach(ColorScheme.allCases, id: \.self) {
-        KeyItemList_iOS15()
-            .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext)
-            .preferredColorScheme($0)
-    }
+    KeyItemList()
+        .modelContainer( previewContainer )
+        .preferredColorScheme(.light)
+
+}
+
+#Preview {
+    
+    KeyItemList()
+        .modelContainer( previewContainer )
+        .preferredColorScheme(.dark)
 
 }

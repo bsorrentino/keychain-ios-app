@@ -12,14 +12,9 @@ import Shared
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-    let mcSecretsService = MCSecretsService()
-    
+    let mcSecretsService = MCSecretsService()    
     let loginStates:LoginView.States = LoginView.States()
     var window: UIWindow?
-
-    var appDelegate:AppDelegate? {
-         (UIApplication.shared.delegate as? AppDelegate)
-    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -28,14 +23,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // @see https://stackoverflow.com/a/56862325/521197
         // Use a UIHostingController as window root view controller
-        
-        
+                
         #if !NO_UNIT_TEST
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             
             let view = ContentView( loginStates: loginStates )
-                .environment(\.managedObjectContext, UIApplication.shared.managedObjectContext) // CoreData integrations
+                .modelContainer( persistentContainer )
                 .environmentObject(mcSecretsService)
             
             window.rootViewController = UIHostingController(rootView: view  )

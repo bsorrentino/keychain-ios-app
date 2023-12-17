@@ -14,21 +14,21 @@ private let CELL_IMAGE_PADDING = EdgeInsets( top:20, leading:10, bottom:20, trai
 //
 // MARK: Extension for Cell
 //
-extension KeyItemList_iOS15 {
+extension KeyItemList {
     
     private struct CellView : View {
         
-        @ObservedObject var item: KeyItem
+        var entity: KeyInfo
         
         var body: some View {
             HStack(alignment: .center) {
-                let subtitle = item.isGroup ? item.groupPrefix ?? "" : item.username
+                let subtitle = entity.isGroup() ? entity.groupPrefix ?? "" : entity.username
                 Image( systemName: "lock.circle.fill")
                     .resizable()
                     .frame( width: 32, height: 32, alignment: .leading)
                     .padding( CELL_IMAGE_PADDING )
                 VStack(alignment: .leading) {
-                    Text(item.mnemonic).font( .title3)
+                    Text(entity.mnemonic).font( .title3)
                     Text(subtitle).font( .subheadline ).italic().lineLimit(1)
                 }
             }
@@ -39,44 +39,42 @@ extension KeyItemList_iOS15 {
         
         typealias CellViewHandler = () -> Void
         
-        @Environment(\.managedObjectContext) var managedObjectContext
+        @Environment(\.modelContext) var context
  
         @State private var alertInfo: AlertInfo?
         
-        var entity:     KeyEntity
+        var entity:     KeyInfo
         var onClone:    CellViewHandler?
-        @StateObject private var item:KeyItem
         
-        init( entity:KeyEntity, onClone: CellViewHandler? = nil) {
+        init( entity:KeyInfo, onClone: CellViewHandler? = nil) {
         
             self.entity = entity
             self.onClone = onClone
-            self._item = StateObject( wrappedValue: KeyItem( entity: entity ) )
             
         }
         
         /// delete a key
         /// - Parameter entity: entity to remove
         /// - Returns: success status
-        private func delete( _ entity: KeyEntity ) -> Bool {
-            KeyEntity.delete( self.managedObjectContext, entity: entity)
+        private func delete( _ entity: KeyInfo ) {
+            KeyInfo.delete( entity, inContext: context )
         }
         
         
         ///  Ungroup Key
         /// - Parameter entity: entity to ungroup
         /// - Returns: success status
-        private func ungroup( _ entity: KeyEntity ) -> Bool {
-            KeyEntity.ungroup( self.managedObjectContext, entity: entity)
+        private func ungroup( _ entity: KeyInfo ) -> Bool {
+            KeyInfo.ungroup( entity, inContext: context )
         }
         
         
         var body: some View {
             
             NavigationLink {
-                KeyEntityForm( item: item )
+                KeyEntityForm( from: entity, clone: false )
             } label: {
-                KeyItemList_iOS15.CellView( item: item)
+                KeyItemList.CellView( entity: entity )
             }
             .alert( item: $alertInfo ) { info in
                 Alert(
@@ -119,7 +117,7 @@ extension KeyItemList_iOS15 {
                         message: "There is no undo",
                         actionText: "Delete",
                         action: {
-                            let _ = delete( entity )
+                            delete( entity )
                         }
                     )
                 } label: {
@@ -145,18 +143,18 @@ extension KeyItemList_iOS15 {
 
 
 // MARK: Extension for Group Cell
-extension KeyItemList_iOS15 {
+extension KeyItemList {
     
     
     struct GroupView : View {
-        @Environment(\.managedObjectContext) var managedObjectContext
+        @Environment(\.modelContext) var context
         
-        var groupEntity: KeyEntity
+        var groupEntity: KeyInfo
         
         private var childrenCount:Int {
             guard let groupPrefix = groupEntity.groupPrefix else { return 0 }
             
-            return KeyEntity.fetchCount(forGroupPrefix: groupPrefix, inContext: managedObjectContext)
+            return KeyInfo.fetchCount(forGroupPrefix: groupPrefix, inContext: context)
         }
         
         var body: some View {
@@ -176,14 +174,14 @@ extension KeyItemList_iOS15 {
     }
     
     struct GroupViewLink : View {
-        var groupEntity : KeyEntity
+        var groupEntity : KeyInfo
         
         var body: some View {
             
-            NavigationLink {
-                GroupKeyItemList_IOS15( groupEntity: groupEntity )
+            NavigationLink( ) {
+                GroupKeyItemList( groupEntity: groupEntity )
             } label: {
-                KeyItemList_iOS15.GroupView( groupEntity: groupEntity )
+                KeyItemList.GroupView( groupEntity: groupEntity )
             }
         }
     }

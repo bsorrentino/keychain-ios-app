@@ -17,13 +17,13 @@ import Shared
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         logger.trace( "> didFinishLaunchingWithOptions" )
-
-        startObservingManagedObjectContextObjectsDidChangeEvent()
         
+        startObservingManagedObjectContextObjectsDidChangeEvent()
         return true
     }
 
@@ -33,10 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger.trace( "> applicationWillTerminate" )
         
-        stopObservingManagegObjectContextObjectsDidChangeEvent()
-        
-        saveContext()
-
+        do {
+            try persistentContainer.mainContext.save()
+        }
+        catch {
+            logger.warning( "error saving main context\n\(error.localizedDescription)")
+        }
     }
 
     // MARK: UISceneSession Lifecycle
@@ -46,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to select a configuration to create the new scene with.
         
         logger.trace( "> configurationForConnecting")
+        
+        //managerSD.initialite()
 
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
@@ -58,67 +62,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         logger.trace( "> didDiscardSceneSessions")
     }
 
-    // MARK: - Core Data stack
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
-        
-        do {
-        
-            let container = try SharedModule.getPersistentContainer()
-            
-            
-            //let container = NSPersistentContainer(name: "KeyChain")
-            container.loadPersistentStores() { (storeDescription, error) in
-                if let error = error as NSError? {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                     
-                    /*
-                     Typical reasons for an error here include:
-                     * The parent directory does not exist, cannot be created, or disallows writing.
-                     * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                     * The device is out of space.
-                     * The store could not be migrated to the current model version.
-                     Check the error message to determine what the actual problem was.
-                     */
-                    
-                    fatalError("Unresolved error \(error), \(error.userInfo)")
-                    //logger.critical( "Unresolved error \(error), \(error.userInfo)" )
-                }
-                
-                logger.info(
-                    """
-                    
-                    =================================================
-                    DB url:
-                    \(storeDescription.url?.absoluteString)
-                    ------------------------------------------------
-                    Data Model version:
-                    \(container.persistentStoreCoordinator.managedObjectModel.versionIdentifiers)
-                    ------------------------------------------------
-                    shouldMigrateStoreAutomatically: \(storeDescription.shouldMigrateStoreAutomatically)
-                    ------------------------------------------------
-                    shouldInferMappingModelAutomatically: \(storeDescription.shouldInferMappingModelAutomatically),
-                    =================================================
-
-                    """
-                )
-                
-                if isInPreviewMode {
-                    self.createSimpleData(container: container)
-                }
-            }
-            return container
-        }
-        catch {
-            fatalError( error.localizedDescription )
-        }
-    }()
-     
 }
