@@ -16,19 +16,13 @@ extension DynamicQueryView where T : KeyInfo {
         let filter: Predicate<T>
         if !searchText.isEmpty  {
             
-            filter = #Predicate<T> { elem in
-                (!elem.group) &&
-                elem.groupPrefix != nil &&
-                (elem.mnemonic.contains(searchText) || elem.groupPrefix!.contains(searchText))
-                
-            }
+            filter = #Predicate<T> {
+                elem in !elem.group &&
+                (elem.mnemonic.localizedStandardContains(searchText) || elem.groupPrefix?.localizedStandardContains(searchText) ?? false ) }
         }
         else {
             
-            filter = #Predicate<T> { elem in
-                (!elem.group)
-                
-            }
+            filter = #Predicate<T> { elem in !elem.group }
             
         }
         self.init( filter: filter,  content: content)
