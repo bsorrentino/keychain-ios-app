@@ -93,14 +93,19 @@ public class KeyItem : ObservableObject, Decodable {
     // MARK: Decodable
     // MARK: -
     public required init(from decoder: Decoder) throws {
+        
         let values = try decoder.container(keyedBy: KeyInfoCodingKeys.self)
         let key = try values.decode(String.self, forKey: .mnemonic)
         
         self.mnemonic = key
         self.username = try values.decode(String.self, forKey: .username)
-        let passwordValue = try values.decode(String.self, forKey: .password)
-        self.password = passwordValue.trimmingCharacters(in: .whitespacesAndNewlines)
-
+        if let passwordValue = try values.decodeIfPresent(String.self, forKey: .password) {
+            self.password = passwordValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        else {
+            logger.warning("password not found for key \(key)")
+            self.password = ""
+        }
         if let prefix = try values.decodeIfPresent(String.self, forKey: .groupPrefix) {
             
             let regex = try NSRegularExpression(pattern: "[-]$", options: .caseInsensitive)
@@ -138,17 +143,17 @@ public class KeyItem : ObservableObject, Decodable {
     }
     
     
-    private func copyTo( entity: KeyInfo ) -> KeyInfo {
+    private func copyTo( entity: KeyInfo ) {
+        
         entity.mnemonic     = self.mnemonic
         entity.username     = self.username
         entity.mail         = self.mail
         entity.groupPrefix  = self.groupPrefix
-        entity.group        = group
+        entity.group        = self.group
         entity.expire       = self.expire
         entity.url          = self.url
         entity.preferred    = self.preferred
-        
-        return entity
+  
     }
 
     public static func clone( from entity: KeyInfo ) -> KeyItem {
@@ -170,51 +175,53 @@ public class KeyItem : ObservableObject, Decodable {
         return item
     }
     
-    public func attach( entity: KeyInfo ) throws {
-        guard self.entity == nil else {
-            throw "Entity already attached"
-        }
-        
-        self.entity = entity
-    }
-    
-    
     @available( macOS, unavailable)
-    public func insertOrUpdate( into context:ModelContext ) throws {
+    public func update( using otherEntity: KeyInfo? = nil,  into context:ModelContext ) throws {
         
-        if let entity = self.entity { // Update
-            let _ = self.copyTo(entity: entity )
+        if otherEntity == nil && self.entity == nil {
+                throw "no entity found!"
         }
-        else { // Create
-            
-            // Check Duplicate
-            if let _ = try KeyInfo.fetchSingleIfPresent( mnemonic: self.mnemonic, inContext: context) {
-                
-                throw SavingError.DuplicateKey(id: self.mnemonic)
-            }
-            
-            let newEntity = KeyInfo()
-
-            context.insert( self.copyTo(entity: newEntity) )
+        
+        if let otherEntity {
+            self.copyTo(entity: otherEntity )
+        }
+        else {
+            self.copyTo(entity: entity! )
         }
         
         let secret = SecretsManager.Secret( password:self.password, note:self.note)
         
-        if( self.isNew ) {
-            if( self.shared ) {
-                try SharedModule.sharedSecrets.setSecret( forKey: self.mnemonic, secret: secret )
-            }
-            else {
-                try SharedModule.appSecrets.setSecret( forKey: self.mnemonic, secret: secret )
-            }
+        if( self.shared ) {
+            try SharedModule.sharedSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: SharedModule.appSecrets)
         }
         else {
-            if( self.shared ) {
-                try SharedModule.sharedSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: SharedModule.appSecrets)
-            }
-            else {
-                try SharedModule.appSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: SharedModule.sharedSecrets)
-            }
+            try SharedModule.appSecrets.setSecret(forKey: self.mnemonic, secret: secret, removeFromManager: SharedModule.sharedSecrets)
+        }
+
+    }
+
+    @available( macOS, unavailable)
+    public func insert( into context:ModelContext ) throws {
+        
+        // Check Duplicate
+        if let _ = try KeyInfo.fetchSingleIfPresent( mnemonic: self.mnemonic, inContext: context) {
+            
+            throw SavingError.DuplicateKey(id: self.mnemonic)
+        }
+        
+        let newEntity = KeyInfo()
+        
+        self.copyTo(entity: newEntity)
+        
+        context.insert( newEntity )
+
+        let secret = SecretsManager.Secret( password:self.password, note:self.note)
+        
+        if( self.shared ) {
+            try SharedModule.sharedSecrets.setSecret( forKey: self.mnemonic, secret: secret )
+        }
+        else {
+            try SharedModule.appSecrets.setSecret( forKey: self.mnemonic, secret: secret )
         }
 
     }
