@@ -16,8 +16,7 @@ extension DynamicQueryView where T : KeyInfo {
         let filter: Predicate<T>
         if !searchText.isEmpty  {
             
-            filter = #Predicate<T> {
-                elem in !elem.group &&
+            filter = #Predicate<T> { elem in 
                 (elem.mnemonic.localizedStandardContains(searchText) || elem.groupPrefix?.localizedStandardContains(searchText) ?? false ) }
         }
         else {
