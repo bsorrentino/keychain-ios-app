@@ -17,8 +17,6 @@ import Shared
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let managerSD   = SwiftDataManager()
-
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -36,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         logger.trace( "> applicationWillTerminate" )
         
         do {
-            try managerSD.container.mainContext.save()
+            try persistentContainer.mainContext.save()
         }
         catch {
             logger.warning( "error saving main context\n\(error.localizedDescription)")

@@ -303,7 +303,12 @@ extension KeyEntityForm {
         return Future { promise in
             
             do {
-                try self.item.insertOrUpdate( into: self.context )
+                if item.isNew {
+                    try self.item.insert( into: self.context )
+                }
+                else {
+                    try self.item.update( into: self.context )
+                }
 
                 promise(.success(()))
             }
@@ -330,7 +335,7 @@ extension KeyEntityForm {
     NavigationStack {
         KeyEntityForm( from: KeyInfo(), clone: false )
             .environment(\.colorScheme, .light)
-            .modelContainer( UIApplication.shared.modelContainer )
+            .modelContainer( previewContainer )
     }
 }
 
@@ -339,6 +344,6 @@ extension KeyEntityForm {
     NavigationStack {
         KeyEntityForm( from: KeyInfo(), clone: false )
             .environment(\.colorScheme, .dark)
-            .modelContainer( UIApplication.shared.modelContainer )
+            .modelContainer( previewContainer )
     }
 }

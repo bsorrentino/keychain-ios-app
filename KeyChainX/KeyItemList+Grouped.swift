@@ -41,6 +41,6 @@ struct GroupKeyItemList: View {
 
 #Preview {
     GroupKeyItemList( groupEntity: KeyInfo( groupPrefix: "AG0") )
-        .modelContainer( UIApplication.shared.modelContainer )
+        .modelContainer( previewContainer )
 
 }

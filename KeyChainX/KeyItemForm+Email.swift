@@ -153,10 +153,8 @@ extension EmailList {
 
 #Preview {
     
-    let container = UIApplication.shared.modelContainer
-    
     return EmailList( field:.constant(""))
-        .modelContainer(container)
+        .modelContainer( previewContainer )
     
 }
 

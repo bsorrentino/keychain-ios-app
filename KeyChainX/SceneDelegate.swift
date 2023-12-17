@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             
             let view = ContentView( loginStates: loginStates )
-                .modelContainer( UIApplication.shared.modelContainer )
+                .modelContainer( persistentContainer )
                 .environmentObject(mcSecretsService)
             
             window.rootViewController = UIHostingController(rootView: view  )

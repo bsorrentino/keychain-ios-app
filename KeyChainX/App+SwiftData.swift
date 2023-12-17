@@ -17,11 +17,9 @@ import Shared
 
 extension UIApplication {
     
+    @available(*, deprecated, renamed: "persistentContainer", message: "use persistentContainer")
     var  modelContainer:ModelContainer {
-        guard let container = (delegate as? AppDelegate)?.managerSD.container else {
-            fatalError("Unable to read model container.")
-        }
-        return container
+        persistentContainer
     }
 
 }

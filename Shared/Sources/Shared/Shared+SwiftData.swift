@@ -16,36 +16,17 @@ enum SavingError :Error {
     case BundleIdentifierUndefined
 }
 
-public final class SwiftDataManager {
-    public var container: ModelContainer!
-    
-    public init() {
+public var persistentContainer:ModelContainer = {
+    do {
 
-//        let modelName = "KeyChain"
+        return try ModelContainer(for: KeyInfo.self, AttributeInfo.self)
         
-//        guard let modelUrl = Bundle.module.url(forResource: modelName, withExtension: "momd") else {
-//            fatalError( "model '\(modelName)' not found!")
-//        }
-        
-        let storeURL = URL.documentsDirectory.appending(path: "KeyChainX.sqlite")
-        
-        let config = isInPreviewMode ?
-            ModelConfiguration(isStoredInMemoryOnly: true) :
-//            ModelConfiguration( url: storeURL, cloudKitDatabase: .private("iCloud.KeyChainX") )
-//            ModelConfiguration( url: storeURL, cloudKitDatabase: .automatic )
-            ModelConfiguration( url: storeURL, cloudKitDatabase: .none )
-
-        do {
-
-            self.container = try ModelContainer(for: KeyInfo.self, AttributeInfo.self, configurations: config)
-            
-        }
-        catch {
-            fatalError( "Error creating ModelContainer! \(error)")
-        }
-
     }
-}
+    catch {
+        fatalError( "Error creating ModelContainer! \(error)")
+    }
+
+}()
 
 extension SharedModule {
     

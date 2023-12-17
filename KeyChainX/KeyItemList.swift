@@ -146,7 +146,7 @@ extension KeyItemList {
 #Preview {
     
     KeyItemList()
-        .modelContainer( UIApplication.shared.modelContainer)
+        .modelContainer( previewContainer )
         .preferredColorScheme(.light)
 
 }
@@ -154,7 +154,7 @@ extension KeyItemList {
 #Preview {
     
     KeyItemList()
-        .modelContainer( UIApplication.shared.modelContainer)
+        .modelContainer( previewContainer )
         .preferredColorScheme(.dark)
 
 }

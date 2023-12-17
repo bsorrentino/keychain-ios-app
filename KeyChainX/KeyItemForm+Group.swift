@@ -112,7 +112,7 @@ struct GroupList: View {
 
     func insert() {
         // 
-        let group = KeyInfo.createGroup(groupPrefix: self.newGroup, inContext: self.context )
+        let group = KeyInfo.createGroup(groupPrefix: self.newGroup )
         
         self.context.insert( group )
         
@@ -134,7 +134,7 @@ struct GroupList: View {
     
     NavigationView {
         GroupField(value:"" )
-            .modelContainer(UIApplication.shared.modelContainer)
+            .modelContainer( previewContainer )
     }
 }
 
@@ -142,7 +142,7 @@ struct GroupList: View {
     
     NavigationView {
         GroupField(value:"Group1" )
-            .modelContainer(UIApplication.shared.modelContainer)
+            .modelContainer( previewContainer )
     }
 }
 
