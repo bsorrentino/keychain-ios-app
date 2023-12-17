@@ -166,7 +166,7 @@ extension KeyInfo {
         return try SharedModule.fetchSingleIfPresent(context: context, predicate: predicate, key: mnemonic)
     }
     
-    public static func createGroup( groupPrefix:String, inContext context: ModelContext) -> KeyInfo {
+    public static func createGroup( groupPrefix:String ) -> KeyInfo {
         KeyInfo(
             mnemonic: groupPrefix,
             groupPrefix: groupPrefix, 
