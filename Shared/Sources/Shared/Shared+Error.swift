@@ -12,6 +12,7 @@ import Foundation
 // Make String compliant with Error protocol
 // @see https://www.hackingwithswift.com/example-code/language/how-to-throw-errors-using-strings
 //
-extension String: LocalizedError {
+extension String: @retroactive Error {}
+extension String: @retroactive LocalizedError {
     public var errorDescription: String? { return self }
 }

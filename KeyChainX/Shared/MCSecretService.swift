@@ -11,7 +11,7 @@ import MultipeerConnectivity
 import SwiftUI
 import Shared
 
-extension MCSessionState : CustomStringConvertible {
+extension MCSessionState : @retroactive CustomStringConvertible {
     
     public var description: String {
     

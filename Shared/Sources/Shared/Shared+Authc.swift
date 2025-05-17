@@ -10,7 +10,7 @@ import Foundation
 import LocalAuthentication
 import OSLog
 
-extension LAPolicy : CustomStringConvertible {
+extension LAPolicy : @retroactive CustomStringConvertible {
    
     public var description: String {
         if( self.rawValue == 1)  {
