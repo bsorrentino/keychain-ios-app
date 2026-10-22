@@ -9,6 +9,7 @@
 import SwiftUI
 import CoreData
 import Shared
+import SwiftData
 
 
 struct AlertInfo: Identifiable {

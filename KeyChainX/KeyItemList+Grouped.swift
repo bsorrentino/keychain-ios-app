@@ -11,8 +11,6 @@ import Shared
 
 struct GroupKeyItemList: View {
     
-    @Environment(\.managedObjectContext) var managedObjectContext
-    
     // Id of KeyItemList view. when change the view is forced to be updated
     // @see https://stackoverflow.com/a/65095862
     // @see https://swiftui-lab.com/swiftui-id/
